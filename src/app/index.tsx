@@ -19,6 +19,11 @@ import {
 
 import { CameraView, useCameraPermissions } from "expo-camera";
 import * as Clipboard from "expo-clipboard";
+import * as Crypto from "expo-crypto";
+import * as DocumentPicker from "expo-document-picker";
+import * as FileSystem from "expo-file-system/legacy";
+import * as Sharing from "expo-sharing";
+import CryptoJS from "crypto-js";
 import * as LocalAuthentication from "expo-local-authentication";
 import * as SecureStore from "expo-secure-store";
 import * as OTPAuth from "otpauth";
@@ -37,6 +42,9 @@ type Account = {
 const STORAGE_KEY = "kaalkey_accounts_v1";
 const BIOMETRIC_ENABLED_KEY = "kaalkey_biometric_lock_enabled_v1";
 const HAPTICS_ENABLED_KEY = "kaalkey_haptics_enabled_v1";
+const BACKUP_FORMAT = "kaalkey-encrypted-backup";
+const BACKUP_VERSION = 1;
+const BACKUP_KDF_ITERATIONS = 250000;
 let hapticsAreEnabled = true;
 
 // Lightweight haptic-style feedback using React Native's built-in vibration API.
@@ -59,6 +67,66 @@ function hapticFeedback(kind: "selection" | "success" | "warning" = "selection")
   } catch {
     // Feedback is optional; never interrupt an account action if unavailable.
   }
+}
+
+function bytesToHex(bytes: Uint8Array): string {
+  return Array.from(bytes).map((byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+
+function hexToWordArray(hex: string): CryptoJS.lib.WordArray {
+  return CryptoJS.enc.Hex.parse(hex);
+}
+
+function validateAccounts(value: unknown): value is Account[] {
+  if (!Array.isArray(value)) return false;
+  return value.every((item) =>
+    item && typeof item === "object" &&
+    typeof item.id === "string" && typeof item.issuer === "string" &&
+    typeof item.name === "string" && typeof item.secret === "string" &&
+    ["SHA1", "SHA256", "SHA512"].includes(item.algorithm) &&
+    Number.isInteger(item.digits) && item.digits >= 6 && item.digits <= 8 &&
+    Number.isInteger(item.period) && item.period >= 1 && item.period <= 120
+  );
+}
+
+async function encryptBackup(accounts: Account[], password: string): Promise<string> {
+  const salt = bytesToHex(await Crypto.getRandomBytesAsync(16));
+  const iv = bytesToHex(await Crypto.getRandomBytesAsync(16));
+  const key = CryptoJS.PBKDF2(password, hexToWordArray(salt), {
+    keySize: 256 / 32, iterations: BACKUP_KDF_ITERATIONS, hasher: CryptoJS.algo.SHA256,
+  });
+  const encryptionKey = CryptoJS.lib.WordArray.create(key.words.slice(0, 8), 32);
+  const macKey = CryptoJS.PBKDF2(password, hexToWordArray(salt + "01"), {
+    keySize: 256 / 32, iterations: BACKUP_KDF_ITERATIONS, hasher: CryptoJS.algo.SHA256,
+  });
+  const plaintext = JSON.stringify({ format: BACKUP_FORMAT, version: BACKUP_VERSION, createdAt: new Date().toISOString(), accounts });
+  const encrypted = CryptoJS.AES.encrypt(plaintext, encryptionKey, { iv: hexToWordArray(iv), mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });
+  const ciphertext = encrypted.ciphertext.toString(CryptoJS.enc.Base64);
+  const authenticated = `${BACKUP_FORMAT}.${BACKUP_VERSION}.${salt}.${iv}.${ciphertext}`;
+  const mac = CryptoJS.HmacSHA256(authenticated, macKey).toString(CryptoJS.enc.Hex);
+  return JSON.stringify({ format: BACKUP_FORMAT, version: BACKUP_VERSION, kdf: "PBKDF2-SHA256", iterations: BACKUP_KDF_ITERATIONS, salt, iv, ciphertext, mac }, null, 2);
+}
+
+async function decryptBackup(raw: string, password: string): Promise<Account[]> {
+  const envelope = JSON.parse(raw);
+  if (!envelope || envelope.format !== BACKUP_FORMAT || envelope.version !== BACKUP_VERSION || envelope.kdf !== "PBKDF2-SHA256" || envelope.iterations !== BACKUP_KDF_ITERATIONS || typeof envelope.salt !== "string" || !/^[a-f0-9]{32}$/i.test(envelope.salt) || typeof envelope.iv !== "string" || !/^[a-f0-9]{32}$/i.test(envelope.iv) || typeof envelope.ciphertext !== "string" || typeof envelope.mac !== "string") {
+    throw new Error("This is not a supported KaalKey encrypted backup.");
+  }
+  const macKey = CryptoJS.PBKDF2(password, hexToWordArray(envelope.salt + "01"), { keySize: 256 / 32, iterations: BACKUP_KDF_ITERATIONS, hasher: CryptoJS.algo.SHA256 });
+  const authenticated = `${BACKUP_FORMAT}.${BACKUP_VERSION}.${envelope.salt}.${envelope.iv}.${envelope.ciphertext}`;
+  const expectedMac = CryptoJS.HmacSHA256(authenticated, macKey).toString(CryptoJS.enc.Hex);
+  if (expectedMac.length !== envelope.mac.length || !CryptoJS.enc.Hex.parse(expectedMac).toString() || expectedMac.toLowerCase() !== envelope.mac.toLowerCase()) {
+    throw new Error("Backup password is incorrect or the backup file has been modified.");
+  }
+  const key = CryptoJS.PBKDF2(password, hexToWordArray(envelope.salt), { keySize: 256 / 32, iterations: BACKUP_KDF_ITERATIONS, hasher: CryptoJS.algo.SHA256 });
+  const decrypted = CryptoJS.AES.decrypt({ ciphertext: CryptoJS.enc.Base64.parse(envelope.ciphertext) } as CryptoJS.lib.CipherParams, key, { iv: hexToWordArray(envelope.iv), mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });
+  const text = decrypted.toString(CryptoJS.enc.Utf8);
+  if (!text) throw new Error("Backup password is incorrect or the file is damaged.");
+  const payload = JSON.parse(text);
+  if (payload?.format !== BACKUP_FORMAT || payload?.version !== BACKUP_VERSION || !validateAccounts(payload.accounts)) {
+    throw new Error("The backup contents are invalid or incomplete.");
+  }
+  return payload.accounts;
 }
 
 function generateCode(account: Account): string {
@@ -144,6 +212,10 @@ export default function HomeScreen() {
   const [isUnlocked, setIsUnlocked] = useState(true);
   const [authenticating, setAuthenticating] = useState(false);
   const [settingsVisible, setSettingsVisible] = useState(false);
+  const [backupVisible, setBackupVisible] = useState(false);
+  const [backupMode, setBackupMode] = useState<"export" | "restore">("export");
+  const [backupPassword, setBackupPassword] = useState("");
+  const [backupBusy, setBackupBusy] = useState(false);
   const [hapticsEnabled, setHapticsEnabled] = useState(true);
   const authenticatingRef = useRef(false);
   const appStateRef = useRef(AppState.currentState);
@@ -600,6 +672,70 @@ export default function HomeScreen() {
         },
       ],
     );
+  }
+
+  function openBackup(mode: "export" | "restore") {
+    hapticFeedback("selection");
+    setBackupMode(mode);
+    setBackupPassword("");
+    setBackupVisible(true);
+  }
+
+  async function exportEncryptedBackup() {
+    if (backupPassword.length < 10) {
+      Alert.alert("Use a stronger backup password", "Choose at least 10 characters. You will need this password to restore the backup.");
+      return;
+    }
+    setBackupBusy(true);
+    try {
+      const encrypted = await encryptBackup(accounts, backupPassword);
+      const base = FileSystem.cacheDirectory ?? FileSystem.documentDirectory;
+      if (!base) throw new Error("A local file location is unavailable on this device.");
+      const uri = `${base}kaalkey-backup-${new Date().toISOString().replace(/[:.]/g, "-")}.kkbackup`;
+      await FileSystem.writeAsStringAsync(uri, encrypted, { encoding: FileSystem.EncodingType.UTF8 });
+      if (!(await Sharing.isAvailableAsync())) {
+        Alert.alert("Backup created", `Encrypted backup saved temporarily at:\n${uri}`);
+      } else {
+        await Sharing.shareAsync(uri, { mimeType: "application/json", dialogTitle: "Save your encrypted KaalKey backup", UTI: "public.json" });
+      }
+      setBackupVisible(false);
+      setBackupPassword("");
+    } catch (error) {
+      Alert.alert("Backup failed", error instanceof Error ? error.message : "KaalKey could not create the backup.");
+    } finally { setBackupBusy(false); }
+  }
+
+  async function restoreEncryptedBackup() {
+    if (!backupPassword) {
+      Alert.alert("Enter your backup password", "Enter the password used when this backup was created.");
+      return;
+    }
+    setBackupBusy(true);
+    try {
+      const picked = await DocumentPicker.getDocumentAsync({ type: ["application/json", "public.json", "*/*"], copyToCacheDirectory: true, multiple: false });
+      if (picked.canceled || !picked.assets?.[0]) return;
+      const raw = await FileSystem.readAsStringAsync(picked.assets[0].uri, { encoding: FileSystem.EncodingType.UTF8 });
+      const restored = await decryptBackup(raw, backupPassword);
+      Alert.alert(
+        "Replace authenticator accounts?",
+        `This backup contains ${restored.length} account${restored.length === 1 ? "" : "s"}. Restoring replaces all accounts currently on this device. Export a backup of your current vault first if you want to keep it.`,
+        [
+          { text: "Cancel", style: "cancel" },
+          { text: "Restore backup", style: "destructive", onPress: () => { void (async () => {
+            try {
+              await SecureStore.setItemAsync(STORAGE_KEY, JSON.stringify(restored));
+              setAccounts(restored);
+              setBackupVisible(false);
+              setSettingsVisible(false);
+              setBackupPassword("");
+              Alert.alert("Restore complete", `${restored.length} account${restored.length === 1 ? " was" : "s were"} restored securely.`);
+            } catch { Alert.alert("Restore failed", "KaalKey could not save the restored accounts to secure storage."); }
+          })(); } },
+        ]
+      );
+    } catch (error) {
+      Alert.alert("Restore failed", error instanceof Error ? error.message : "The backup could not be read.");
+    } finally { setBackupBusy(false); }
   }
 
   const visibleAccounts = accounts
@@ -1101,6 +1237,21 @@ export default function HomeScreen() {
               </TouchableOpacity>
             </View>
 
+            <Text style={styles.settingsSectionLabel}>BACKUP & RECOVERY</Text>
+            <View style={styles.backupButtonsRow}>
+              <TouchableOpacity style={styles.backupActionButton} onPress={() => openBackup("export")} activeOpacity={0.82}>
+                <Text style={styles.backupActionIcon}>⬆</Text>
+                <Text style={styles.backupActionTitle}>Create backup</Text>
+                <Text style={styles.backupActionDescription}>Encrypted file</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.backupActionButton} onPress={() => openBackup("restore")} activeOpacity={0.82}>
+                <Text style={styles.backupActionIcon}>⬇</Text>
+                <Text style={styles.backupActionTitle}>Restore backup</Text>
+                <Text style={styles.backupActionDescription}>Import file</Text>
+              </TouchableOpacity>
+            </View>
+            <Text style={styles.backupSafetyText}>Backups contain your authenticator secrets. They are encrypted with a password you choose. Keep that password safe; KaalKey cannot recover it.</Text>
+
             <Text style={styles.settingsSectionLabel}>APPEARANCE</Text>
             <View style={styles.settingRow}>
               <View style={styles.settingIconBox}><Text style={styles.settingIcon}>☀️</Text></View>
@@ -1123,6 +1274,36 @@ export default function HomeScreen() {
               <Text style={styles.settingsDoneText}>Done</Text>
             </TouchableOpacity>
           </View>
+        </View>
+      </Modal>
+
+      <Modal visible={backupVisible} transparent animationType="slide" onRequestClose={() => { setBackupVisible(false); setBackupPassword(""); }}>
+        <View style={styles.settingsBackdrop}>
+          <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : undefined} style={styles.backupModalWrap}>
+            <View style={styles.backupModal}>
+              <View style={styles.settingsTopRow}>
+                <View>
+                  <Text style={styles.settingsEyebrow}>SECURE VAULT</Text>
+                  <Text style={styles.settingsTitle}>{backupMode === "export" ? "Create backup" : "Restore backup"}</Text>
+                </View>
+                <TouchableOpacity style={styles.settingsCloseButton} onPress={() => { setBackupVisible(false); setBackupPassword(""); }} accessibilityLabel="Close backup" accessibilityRole="button">
+                  <Text style={styles.settingsCloseText}>✕</Text>
+                </TouchableOpacity>
+              </View>
+              <Text style={styles.backupModalDescription}>
+                {backupMode === "export" ? `Encrypt all ${accounts.length} saved account${accounts.length === 1 ? "" : "s"} into a backup file. Choose a strong password and store the file somewhere private.` : "Choose your KaalKey .kkbackup file, then enter the password used to encrypt it. Restoring replaces the accounts on this device."}
+              </Text>
+              <Text style={styles.inputLabel}>BACKUP PASSWORD</Text>
+              <TextInput style={styles.input} value={backupPassword} onChangeText={setBackupPassword} placeholder={backupMode === "export" ? "At least 10 characters" : "Enter backup password"} placeholderTextColor="#8290A7" secureTextEntry autoCapitalize="none" autoCorrect={false} textContentType="password" />
+              {backupMode === "export" && <Text style={styles.backupSafetyText}>Use a unique password with at least 10 characters. If you lose it, the backup cannot be decrypted.</Text>}
+              <TouchableOpacity style={[styles.primaryButton, backupBusy && styles.backupDisabled]} disabled={backupBusy} onPress={() => void (backupMode === "export" ? exportEncryptedBackup() : restoreEncryptedBackup())}>
+                <Text style={styles.primaryButtonText}>{backupBusy ? "Please wait…" : backupMode === "export" ? "Encrypt and share backup" : "Choose file and restore"}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.cancelButton} onPress={() => { setBackupVisible(false); setBackupPassword(""); }}>
+                <Text style={styles.cancelButtonText}>Cancel</Text>
+              </TouchableOpacity>
+            </View>
+          </KeyboardAvoidingView>
         </View>
       </Modal>
 
@@ -1200,6 +1381,17 @@ const styles = StyleSheet.create({
   settingSwitchThumbOn: { alignSelf: "flex-end" },
   appearanceBadge: { borderRadius: 8, backgroundColor: "#EAF8EE", paddingHorizontal: 9, paddingVertical: 6 },
   appearanceBadgeText: { fontSize: 9, fontWeight: "900", color: "#138808", letterSpacing: 0.6 },
+  backupButtonsRow: { flexDirection: "row", gap: 10, marginTop: 2 },
+  backupActionButton: { flex: 1, minHeight: 106, borderRadius: 15, borderWidth: 1, borderColor: "#DCE5F0", backgroundColor: "#FFFFFF", padding: 13, alignItems: "flex-start", justifyContent: "center" },
+  backupActionIcon: { fontSize: 21, color: "#138808", marginBottom: 7, fontWeight: "800" },
+  backupActionTitle: { color: "#17243A", fontSize: 13, fontWeight: "800" },
+  backupActionDescription: { color: "#77859A", fontSize: 11, marginTop: 4 },
+  backupSafetyText: { color: "#7B5B24", fontSize: 11, lineHeight: 16, marginTop: 9 },
+  backupModalWrap: { flex: 1, justifyContent: "flex-end" },
+  backupModal: { backgroundColor: "#FFFFFF", borderTopLeftRadius: 26, borderTopRightRadius: 26, padding: 22, paddingBottom: 30, borderWidth: 1, borderColor: "#E7EDF5" },
+  backupModalDescription: { color: "#5E6C82", fontSize: 13, lineHeight: 19, marginTop: 8, marginBottom: 18 },
+  backupDisabled: { opacity: 0.6 },
+
   settingsPrivacyNote: { flexDirection: "row", gap: 10, alignItems: "center", marginTop: 22, padding: 13, backgroundColor: "#F5F8FC", borderRadius: 14, borderWidth: 1, borderColor: "#E7EDF5" },
   settingsPrivacyIcon: { fontSize: 20 },
   settingsPrivacyText: { flex: 1, color: "#596579", fontSize: 11, lineHeight: 16 },
