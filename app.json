@@ -8,7 +8,10 @@
     "scheme": "kaalkeyauthenticator",
     "userInterfaceStyle": "light",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Allow KaalKey Authenticator to use Face ID to protect access to your verification codes."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -30,7 +33,9 @@
           "imageWidth": 320
         }
       ],
-      "expo-secure-store"
+      "expo-secure-store",
+      "expo-status-bar",
+      "expo-local-authentication"
     ],
     "experiments": {
       "typedRoutes": true,
