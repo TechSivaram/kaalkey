@@ -37,6 +37,7 @@ type Account = {
   algorithm: "SHA1" | "SHA256" | "SHA512";
   digits: number;
   period: number;
+  group?: string;
 };
 
 const STORAGE_KEY = "kaalkey_accounts_v1";
@@ -717,18 +718,49 @@ export default function HomeScreen() {
       const raw = await FileSystem.readAsStringAsync(picked.assets[0].uri, { encoding: FileSystem.EncodingType.UTF8 });
       const restored = await decryptBackup(raw, backupPassword);
       Alert.alert(
-        "Replace authenticator accounts?",
-        `This backup contains ${restored.length} account${restored.length === 1 ? "" : "s"}. Restoring replaces all accounts currently on this device. Export a backup of your current vault first if you want to keep it.`,
+        "Merge backup accounts?",
+        `This backup contains ${restored.length} account${restored.length === 1 ? "" : "s"}. KaalKey will keep your existing accounts and add accounts from the backup that are not already present. Duplicate accounts will be skipped.`,
         [
           { text: "Cancel", style: "cancel" },
-          { text: "Restore backup", style: "destructive", onPress: () => { void (async () => {
+          { text: "Merge accounts", onPress: () => { void (async () => {
             try {
-              await SecureStore.setItemAsync(STORAGE_KEY, JSON.stringify(restored));
-              setAccounts(restored);
+              // Merge by account identity so restoring the same backup twice does not
+              // create duplicates. Existing local accounts are retained unchanged.
+              const identity = (account: Account) => [
+                account.issuer.trim().toLocaleLowerCase(),
+                account.name.trim().toLocaleLowerCase(),
+                account.secret.replace(/[\s-]/g, "").toUpperCase(),
+                account.algorithm,
+                String(account.digits),
+                String(account.period),
+              ].join("|");
+              const merged = [...accounts];
+              const identities = new Set(merged.map(identity));
+              const ids = new Set(merged.map((account) => account.id));
+              let added = 0;
+              for (const account of restored) {
+                const key = identity(account);
+                if (identities.has(key)) continue;
+                let id = account.id;
+                if (!id || ids.has(id)) {
+                  id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+                  while (ids.has(id)) id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+                }
+                const safeAccount = { ...account, id };
+                merged.push(safeAccount);
+                identities.add(key);
+                ids.add(id);
+                added += 1;
+              }
+              await SecureStore.setItemAsync(STORAGE_KEY, JSON.stringify(merged));
+              setAccounts(merged);
               setBackupVisible(false);
               setSettingsVisible(false);
               setBackupPassword("");
-              Alert.alert("Restore complete", `${restored.length} account${restored.length === 1 ? " was" : "s were"} restored securely.`);
+              Alert.alert(
+                "Restore complete",
+                `Added ${added} account${added === 1 ? "" : "s"}. ${restored.length - added} duplicate account${restored.length - added === 1 ? " was" : "s were"} skipped. Your existing accounts were kept.`
+              );
             } catch { Alert.alert("Restore failed", "KaalKey could not save the restored accounts to secure storage."); }
           })(); } },
         ]
@@ -840,16 +872,30 @@ export default function HomeScreen() {
 
         {accounts.length > 0 && (
           <View style={styles.organizePanel}>
-            <TextInput
-              style={styles.searchInput}
-              value={searchQuery}
-              onChangeText={setSearchQuery}
-              placeholder="Search service or account"
-              placeholderTextColor="#8290A7"
-              autoCapitalize="none"
-              autoCorrect={false}
-              accessibilityLabel="Search accounts"
-            />
+            <View style={styles.searchInputContainer}>
+              <TextInput
+                style={styles.searchInput}
+                value={searchQuery}
+                onChangeText={setSearchQuery}
+                placeholder="Search service or account"
+                placeholderTextColor="#8290A7"
+                autoCapitalize="none"
+                autoCorrect={false}
+                accessibilityLabel="Search accounts"
+              />
+              {searchQuery.length > 0 && (
+                <TouchableOpacity
+                  style={styles.clearSearchButton}
+                  onPress={() => setSearchQuery("")}
+                  activeOpacity={0.7}
+                  accessibilityRole="button"
+                  accessibilityLabel="Clear search"
+                  hitSlop={8}
+                >
+                  <Text style={styles.clearSearchButtonText}>×</Text>
+                </TouchableOpacity>
+              )}
+            </View>
             <View style={styles.sortRow}>
               <Text style={styles.sortLabel}>SORT BY</Text>
               <TouchableOpacity
@@ -1291,13 +1337,13 @@ export default function HomeScreen() {
                 </TouchableOpacity>
               </View>
               <Text style={styles.backupModalDescription}>
-                {backupMode === "export" ? `Encrypt all ${accounts.length} saved account${accounts.length === 1 ? "" : "s"} into a backup file. Choose a strong password and store the file somewhere private.` : "Choose your KaalKey .kkbackup file, then enter the password used to encrypt it. Restoring replaces the accounts on this device."}
+                {backupMode === "export" ? `Encrypt all ${accounts.length} saved account${accounts.length === 1 ? "" : "s"} into a backup file. Choose a strong password and store the file somewhere private.` : "Choose your KaalKey backup file and password. New accounts will be added to your existing account list; existing accounts will stay as they are."}
               </Text>
               <Text style={styles.inputLabel}>BACKUP PASSWORD</Text>
               <TextInput style={styles.input} value={backupPassword} onChangeText={setBackupPassword} placeholder={backupMode === "export" ? "At least 10 characters" : "Enter backup password"} placeholderTextColor="#8290A7" secureTextEntry autoCapitalize="none" autoCorrect={false} textContentType="password" />
               {backupMode === "export" && <Text style={styles.backupSafetyText}>Use a unique password with at least 10 characters. If you lose it, the backup cannot be decrypted.</Text>}
               <TouchableOpacity style={[styles.primaryButton, backupBusy && styles.backupDisabled]} disabled={backupBusy} onPress={() => void (backupMode === "export" ? exportEncryptedBackup() : restoreEncryptedBackup())}>
-                <Text style={styles.primaryButtonText}>{backupBusy ? "Please wait…" : backupMode === "export" ? "Encrypt and share backup" : "Choose file and restore"}</Text>
+                <Text style={styles.primaryButtonText}>{backupBusy ? "Please wait…" : backupMode === "export" ? "Encrypt and share backup" : "Choose file and import"}</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.cancelButton} onPress={() => { setBackupVisible(false); setBackupPassword(""); }}>
                 <Text style={styles.cancelButtonText}>Cancel</Text>
@@ -1652,15 +1698,37 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
 
-  searchInput: {
+  searchInputContainer: {
     minHeight: 46,
+    flexDirection: "row",
+    alignItems: "center",
     borderRadius: 12,
     borderWidth: 1,
     borderColor: "#DCE2EA",
     backgroundColor: "#FFFFFF",
+  },
+
+  searchInput: {
+    flex: 1,
+    minHeight: 44,
     color: "#172033",
-    paddingHorizontal: 14,
+    paddingLeft: 14,
+    paddingRight: 4,
     fontSize: 13,
+  },
+
+  clearSearchButton: {
+    width: 40,
+    minHeight: 44,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  clearSearchButtonText: {
+    color: "#68758A",
+    fontSize: 25,
+    lineHeight: 29,
+    fontWeight: "400",
   },
 
   sortRow: {
