@@ -36,10 +36,13 @@ type Account = {
 
 const STORAGE_KEY = "kaalkey_accounts_v1";
 const BIOMETRIC_ENABLED_KEY = "kaalkey_biometric_lock_enabled_v1";
+const HAPTICS_ENABLED_KEY = "kaalkey_haptics_enabled_v1";
+let hapticsAreEnabled = true;
 
 // Lightweight haptic-style feedback using React Native's built-in vibration API.
 // This avoids adding a native dependency and works in the current Expo Go setup.
 function hapticFeedback(kind: "selection" | "success" | "warning" = "selection") {
+  if (!hapticsAreEnabled) return;
   try {
     if (Platform.OS === "android") {
       const pattern =
@@ -140,6 +143,8 @@ export default function HomeScreen() {
   const [biometricReady, setBiometricReady] = useState(false);
   const [isUnlocked, setIsUnlocked] = useState(true);
   const [authenticating, setAuthenticating] = useState(false);
+  const [settingsVisible, setSettingsVisible] = useState(false);
+  const [hapticsEnabled, setHapticsEnabled] = useState(true);
   const authenticatingRef = useRef(false);
   const appStateRef = useRef(AppState.currentState);
 
@@ -185,6 +190,34 @@ export default function HomeScreen() {
 
     void loadAccounts();
   }, []);
+
+  useEffect(() => {
+    let mounted = true;
+    async function loadHapticPreference() {
+      try {
+        const saved = await SecureStore.getItemAsync(HAPTICS_ENABLED_KEY);
+        const enabled = saved !== "false";
+        if (mounted) setHapticsEnabled(enabled);
+        hapticsAreEnabled = enabled;
+      } catch {
+        hapticsAreEnabled = true;
+      }
+    }
+    void loadHapticPreference();
+    return () => { mounted = false; };
+  }, []);
+
+  async function toggleHaptics() {
+    const next = !hapticsEnabled;
+    try {
+      await SecureStore.setItemAsync(HAPTICS_ENABLED_KEY, String(next));
+      hapticsAreEnabled = next;
+      setHapticsEnabled(next);
+      if (next) hapticFeedback("success");
+    } catch {
+      Alert.alert("Could not save setting", "Haptic feedback preference could not be saved. Please try again.");
+    }
+  }
 
   useEffect(() => {
     let mounted = true;
@@ -620,6 +653,15 @@ export default function HomeScreen() {
               {biometricEnabled ? "LOCK ON" : "SECURITY"}
             </Text>
           </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.settingsIconButton}
+            onPress={() => { hapticFeedback("selection"); setSettingsVisible(true); }}
+            activeOpacity={0.78}
+            accessibilityRole="button"
+            accessibilityLabel="Open app settings"
+          >
+            <Text style={styles.settingsIcon}>⚙</Text>
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -1000,6 +1042,90 @@ export default function HomeScreen() {
         </View>
       </Modal>
 
+      <Modal
+        visible={settingsVisible}
+        animationType="slide"
+        transparent
+        onRequestClose={() => setSettingsVisible(false)}
+      >
+        <View style={styles.settingsBackdrop}>
+          <View style={styles.settingsSheet}>
+            <View style={styles.settingsTopRow}>
+              <View>
+                <Text style={styles.settingsEyebrow}>KAALKEY PREFERENCES</Text>
+                <Text style={styles.settingsTitle}>App settings</Text>
+              </View>
+              <TouchableOpacity
+                style={styles.settingsCloseButton}
+                onPress={() => setSettingsVisible(false)}
+                accessibilityRole="button"
+                accessibilityLabel="Close settings"
+              >
+                <Text style={styles.settingsCloseText}>✕</Text>
+              </TouchableOpacity>
+            </View>
+
+            <Text style={styles.settingsSectionLabel}>EXPERIENCE</Text>
+            <View style={styles.settingRow}>
+              <View style={styles.settingIconBox}><Text style={styles.settingIcon}>📳</Text></View>
+              <View style={styles.settingCopy}>
+                <Text style={styles.settingTitleText}>Haptic feedback</Text>
+                <Text style={styles.settingDescription}>Gentle feedback for taps and completed actions.</Text>
+              </View>
+              <TouchableOpacity
+                style={[styles.settingSwitch, hapticsEnabled && styles.settingSwitchOn]}
+                onPress={() => void toggleHaptics()}
+                accessibilityRole="switch"
+                accessibilityState={{ checked: hapticsEnabled }}
+                accessibilityLabel="Haptic feedback"
+              >
+                <View style={[styles.settingSwitchThumb, hapticsEnabled && styles.settingSwitchThumbOn]} />
+              </TouchableOpacity>
+            </View>
+
+            <Text style={styles.settingsSectionLabel}>SECURITY</Text>
+            <View style={styles.settingRow}>
+              <View style={styles.settingIconBox}><Text style={styles.settingIcon}>🔐</Text></View>
+              <View style={styles.settingCopy}>
+                <Text style={styles.settingTitleText}>Biometric app lock</Text>
+                <Text style={styles.settingDescription}>{biometricEnabled ? "Your vault locks when KaalKey leaves the foreground." : "Require fingerprint or face authentication to open your vault."}</Text>
+              </View>
+              <TouchableOpacity
+                style={[styles.settingSwitch, biometricEnabled && styles.settingSwitchOn]}
+                onPress={() => void toggleBiometricLock()}
+                accessibilityRole="switch"
+                accessibilityState={{ checked: biometricEnabled }}
+                accessibilityLabel="Biometric app lock"
+              >
+                <View style={[styles.settingSwitchThumb, biometricEnabled && styles.settingSwitchThumbOn]} />
+              </TouchableOpacity>
+            </View>
+
+            <Text style={styles.settingsSectionLabel}>APPEARANCE</Text>
+            <View style={styles.settingRow}>
+              <View style={styles.settingIconBox}><Text style={styles.settingIcon}>☀️</Text></View>
+              <View style={styles.settingCopy}>
+                <Text style={styles.settingTitleText}>Light appearance</Text>
+                <Text style={styles.settingDescription}>KaalKey currently uses its clean light theme.</Text>
+              </View>
+              <View style={styles.appearanceBadge}><Text style={styles.appearanceBadgeText}>ACTIVE</Text></View>
+            </View>
+
+            <View style={styles.settingsPrivacyNote}>
+              <Text style={styles.settingsPrivacyIcon}>🛡️</Text>
+              <Text style={styles.settingsPrivacyText}>Your authenticator secrets stay in the on-device secure vault. Preferences are stored locally.</Text>
+            </View>
+            <TouchableOpacity
+              style={styles.settingsDoneButton}
+              onPress={() => setSettingsVisible(false)}
+              activeOpacity={0.85}
+            >
+              <Text style={styles.settingsDoneText}>Done</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+
       {biometricReady && biometricEnabled && !isUnlocked && (
         <View style={styles.lockScreen}>
           <View style={styles.lockCard}>
@@ -1030,6 +1156,55 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  settingsIconButton: {
+    width: 38,
+    height: 42,
+    borderRadius: 13,
+    borderWidth: 1,
+    borderColor: "#DCE2EA",
+    backgroundColor: "#F8FAFC",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  settingsIcon: { fontSize: 22, color: "#263449", fontWeight: "700" },
+  settingsBackdrop: {
+    flex: 1,
+    backgroundColor: "rgba(15, 23, 42, 0.42)",
+    justifyContent: "flex-end",
+  },
+  settingsSheet: {
+    backgroundColor: "#FFFFFF",
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
+    paddingHorizontal: 22,
+    paddingTop: 24,
+    paddingBottom: Platform.OS === "ios" ? 34 : 24,
+    borderWidth: 1,
+    borderColor: "#E5EAF1",
+  },
+  settingsTopRow: { flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginBottom: 24 },
+  settingsEyebrow: { fontSize: 10, letterSpacing: 1.8, fontWeight: "800", color: "#138808", marginBottom: 5 },
+  settingsTitle: { fontSize: 26, fontWeight: "900", color: "#172033" },
+  settingsCloseButton: { width: 36, height: 36, borderRadius: 18, backgroundColor: "#F1F4F8", alignItems: "center", justifyContent: "center" },
+  settingsCloseText: { fontSize: 16, fontWeight: "800", color: "#344054" },
+  settingsSectionLabel: { color: "#7A8698", fontSize: 10, fontWeight: "900", letterSpacing: 1.5, marginBottom: 9, marginTop: 8 },
+  settingRow: { flexDirection: "row", alignItems: "center", paddingVertical: 14, borderBottomWidth: 1, borderBottomColor: "#EEF1F5", gap: 12 },
+  settingIconBox: { width: 42, height: 42, borderRadius: 13, backgroundColor: "#F3F6FA", alignItems: "center", justifyContent: "center" },
+  settingIcon: { fontSize: 20 },
+  settingCopy: { flex: 1 },
+  settingTitleText: { fontSize: 14, fontWeight: "800", color: "#172033", marginBottom: 3 },
+  settingDescription: { fontSize: 11, lineHeight: 16, color: "#697586" },
+  settingSwitch: { width: 46, height: 27, borderRadius: 14, backgroundColor: "#D7DDE6", padding: 3, justifyContent: "center" },
+  settingSwitchOn: { backgroundColor: "#138808" },
+  settingSwitchThumb: { width: 21, height: 21, borderRadius: 11, backgroundColor: "#FFFFFF", elevation: 2, alignSelf: "flex-start" },
+  settingSwitchThumbOn: { alignSelf: "flex-end" },
+  appearanceBadge: { borderRadius: 8, backgroundColor: "#EAF8EE", paddingHorizontal: 9, paddingVertical: 6 },
+  appearanceBadgeText: { fontSize: 9, fontWeight: "900", color: "#138808", letterSpacing: 0.6 },
+  settingsPrivacyNote: { flexDirection: "row", gap: 10, alignItems: "center", marginTop: 22, padding: 13, backgroundColor: "#F5F8FC", borderRadius: 14, borderWidth: 1, borderColor: "#E7EDF5" },
+  settingsPrivacyIcon: { fontSize: 20 },
+  settingsPrivacyText: { flex: 1, color: "#596579", fontSize: 11, lineHeight: 16 },
+  settingsDoneButton: { marginTop: 18, borderRadius: 15, backgroundColor: "#172033", paddingVertical: 15, alignItems: "center" },
+  settingsDoneText: { color: "#FFFFFF", fontWeight: "900", fontSize: 14 },
   container: {
     flex: 1,
     backgroundColor: "#F4F6F9",
