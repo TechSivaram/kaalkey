@@ -18,7 +18,12 @@
         "backgroundColor": "#FFFFFF",
         "foregroundImage": "./assets/images/kaalkey-logo-opaque.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.USE_BIOMETRIC",
+        "android.permission.USE_FINGERPRINT"
+      ],
+      "package": "com.techsivaram.kaalkey.authenticator"
     },
     "web": {
       "favicon": "./assets/images/kaalkey-logo-opaque.png"
@@ -46,6 +51,12 @@
       "backgroundColor": "#FFFFFF",
       "hidden": false,
       "translucent": false
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "b953db38-68e4-4ae4-a660-853b72957230"
+      }
     }
   }
 }
