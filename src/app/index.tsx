@@ -210,6 +210,7 @@ export default function HomeScreen() {
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [now, setNow] = useState(0);
   const [loaded, setLoaded] = useState(false);
+  const [showBrandSplash, setShowBrandSplash] = useState(true);
   const [biometricEnabled, setBiometricEnabled] = useState(false);
   const [biometricReady, setBiometricReady] = useState(false);
   const [isUnlocked, setIsUnlocked] = useState(false);
@@ -233,6 +234,11 @@ export default function HomeScreen() {
   const [scannerVisible, setScannerVisible] = useState(false);
   const [scanned, setScanned] = useState(false);
   const [cameraPermission, requestCameraPermission] = useCameraPermissions();
+
+  useEffect(() => {
+    const splashTimer = setTimeout(() => setShowBrandSplash(false), 5000);
+    return () => clearTimeout(splashTimer);
+  }, []);
 
   useEffect(() => {
     setNow(Date.now());
@@ -831,6 +837,33 @@ export default function HomeScreen() {
       const second = sortBy === "service" ? b.issuer : b.name;
       return first.localeCompare(second, undefined, { sensitivity: "base" });
     });
+
+  // Branded in-app splash: keep the styled brand text visible for five seconds.
+  // This overlay never exposes the vault while lock preferences are loading.
+  if (showBrandSplash) {
+    return (
+      <SafeAreaView style={styles.splashScreen} edges={["top", "right", "bottom", "left"]}>
+        <View style={styles.splashBrandCard}>
+          <Image
+            source={require("../../assets/images/kaalkey-full-logo-white.png")}
+            style={styles.splashLogo}
+            resizeMode="contain"
+            accessibilityLabel="KaalKey tricolour lock emblem"
+          />
+          <Text style={styles.splashTitle}>
+            <Text style={styles.splashKaal}>Kaal</Text><Text style={styles.splashK}>K</Text><Text style={styles.splashEy}>ey</Text>
+          </Text>
+          <Text style={styles.splashSubtitle}>AUTHENTICATOR</Text>
+          <View style={styles.splashBadge}>
+            <View style={styles.splashDot} />
+            <Text style={styles.splashBadgeText}>YOUR LOCAL VAULT</Text>
+          </View>
+          <View style={styles.splashDivider} />
+          <Text style={styles.splashTagline}>Your codes. Your device. Your control.</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
 
   // Do not render the account screen, modals, or navigation beneath a lock overlay.
   // The vault remains inaccessible until the native OS authentication API explicitly returns success.
@@ -1450,6 +1483,42 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  splashScreen: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 28,
+    backgroundColor: "#F4F7FA",
+  },
+  splashBrandCard: {
+    width: "100%",
+    maxWidth: 420,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 24,
+    paddingVertical: 36,
+    borderRadius: 28,
+    borderWidth: 1,
+    borderColor: "#E2E8F0",
+    backgroundColor: "#FFFFFF",
+    shadowColor: "#14213D",
+    shadowOpacity: 0.08,
+    shadowRadius: 24,
+    shadowOffset: { width: 0, height: 10 },
+    elevation: 3,
+  },
+  splashLogo: { width: 116, height: 116, marginBottom: 12 },
+  splashTitle: { fontSize: 42, fontWeight: "900", letterSpacing: -1.2 },
+  splashKaal: { color: "#D98200" },
+  splashK: { color: "#173D75" },
+  splashEy: { color: "#138808" },
+  splashSubtitle: { marginTop: 4, color: "#344054", fontSize: 13, fontWeight: "800", letterSpacing: 4.2 },
+  splashBadge: { flexDirection: "row", alignItems: "center", gap: 8, marginTop: 22, paddingHorizontal: 15, paddingVertical: 9, borderRadius: 22, borderWidth: 1, borderColor: "#DCE5EC", backgroundColor: "#F8FAFC" },
+  splashDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: "#138808" },
+  splashBadgeText: { color: "#475467", fontSize: 10, fontWeight: "800", letterSpacing: 1.8 },
+  splashDivider: { width: 84, height: 4, borderRadius: 2, marginTop: 28, backgroundColor: "#FF9800" },
+  splashTagline: { marginTop: 18, color: "#667085", fontSize: 13, fontWeight: "600", textAlign: "center" },
+
   settingsIconButton: {
     width: 38,
     height: 42,
