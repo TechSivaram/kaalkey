@@ -28,7 +28,7 @@ import CryptoJS from "crypto-js";
 import * as LocalAuthentication from "expo-local-authentication";
 import * as SecureStore from "expo-secure-store";
 import * as OTPAuth from "otpauth";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 
 type Account = {
   id: string;
@@ -206,6 +206,7 @@ function CountdownRing({ secondsRemaining, period }: CountdownRingProps) {
 }
 
 export default function HomeScreen() {
+  const insets = useSafeAreaInsets();
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [now, setNow] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -300,14 +301,25 @@ export default function HomeScreen() {
       try {
         const enabled = await SecureStore.getItemAsync(BIOMETRIC_ENABLED_KEY);
         if (!mounted) return;
-        const shouldEnable = enabled === "true";
+        // Native device authentication is not available through this web build.
+        // Keep the web vault unlocked by default rather than showing a dead-end prompt.
+        // Native platforms continue to respect the user's saved switch preference.
+        const shouldEnable = Platform.OS !== "web" && enabled === "true";
         setBiometricEnabled(shouldEnable);
         setIsUnlocked(!shouldEnable);
       } catch {
         if (mounted) {
-          // Fail closed: if the saved lock preference cannot be read, do not expose the vault.
-          setBiometricEnabled(true);
-          setIsUnlocked(false);
+          if (Platform.OS === "web") {
+            // Web has no native authentication flow, so it must not get trapped behind
+            // an authentication prompt that cannot run.
+            setBiometricEnabled(false);
+            setIsUnlocked(true);
+          } else {
+            // On native platforms, fail closed if a previously saved lock preference
+            // cannot be read; never silently bypass an existing lock.
+            setBiometricEnabled(true);
+            setIsUnlocked(false);
+          }
         }
       } finally {
         if (mounted) setBiometricReady(true);
@@ -318,33 +330,50 @@ export default function HomeScreen() {
     return () => { mounted = false; };
   }, []);
 
-  async function authenticateUser(promptMessage = "Unlock KaalKey Authenticator") {
+  async function authenticateUser(
+    promptMessage = "Unlock KaalKey Authenticator",
+    unlockOnSuccess = true
+  ): Promise<boolean> {
     if (authenticatingRef.current) return false;
     authenticatingRef.current = true;
     setAuthenticating(true);
     try {
-      const hardwareAvailable = await LocalAuthentication.hasHardwareAsync();
-      const enrolled = await LocalAuthentication.isEnrolledAsync();
-      if (!hardwareAvailable || !enrolled) {
-        Alert.alert(
-          "Biometrics unavailable",
-          "Set up a fingerprint or face unlock in your phone's security settings, then try again."
-        );
-        return false;
-      }
+      // Use Android's native BiometricPrompt with device-credential fallback enabled.
+      // This allows biometrics when available and the OS screen-lock credential (PIN,
+      // pattern, or password) when supported. Never unlock unless the native API succeeds.
       const result = await LocalAuthentication.authenticateAsync({
         promptMessage,
+        promptSubtitle: "Use biometrics or your device screen lock",
         cancelLabel: "Cancel",
-        disableDeviceFallback: true,
+        disableDeviceFallback: false,
         biometricsSecurityLevel: "strong",
       });
       if (result.success) {
-        setIsUnlocked(true);
+        if (unlockOnSuccess) setIsUnlocked(true);
         return true;
       }
+
+      // A missing device screen lock must not create a fallback or bypass.
+      if (result.error === "not_enrolled" || result.error === "passcode_not_set") {
+        Alert.alert(
+          "Set up your device screen lock",
+          "KaalKey uses your phone's built-in authentication. Set a device PIN, pattern, or password in your phone's security settings, then try again. Biometrics are optional."
+        );
+      } else if (result.error === "not_available") {
+        Alert.alert(
+          "Device authentication unavailable",
+          "Your phone could not start secure authentication. Check that a device screen lock is configured, then try again."
+        );
+      } else if (result.error === "lockout") {
+        Alert.alert(
+          "Authentication temporarily locked",
+          "Your phone has temporarily disabled authentication after too many attempts. Wait and try again."
+        );
+      }
+      // Cancellation, failed verification, and every other error leave the vault locked.
       return false;
     } catch {
-      Alert.alert("Authentication unavailable", "KaalKey could not start biometric authentication. Please try again.");
+      Alert.alert("Authentication unavailable", "KaalKey could not start the phone's secure authentication prompt. Please try again.");
       return false;
     } finally {
       authenticatingRef.current = false;
@@ -353,39 +382,48 @@ export default function HomeScreen() {
   }
 
   async function toggleBiometricLock() {
+    // Do not expose a non-working native-auth switch on web. The web build currently
+    // has no implemented browser-authentication flow, so keep its app-level lock OFF.
+    if (Platform.OS === "web") {
+      const message = "Device authentication lock is not available in the web version yet. The web vault remains unlocked; use the Android app for native device authentication.";
+      if (typeof window !== "undefined" && typeof window.alert === "function") {
+        window.alert(message);
+      } else {
+        Alert.alert("Authentication unavailable", message);
+      }
+      setBiometricEnabled(false);
+      setIsUnlocked(true);
+      return;
+    }
+
     if (biometricEnabled) {
-      const authenticated = await authenticateUser("Confirm to turn off KaalKey lock");
+      // Do not unlock as a side effect of confirming the setting change. Only disable
+      // the lock after authentication succeeds and the preference is persisted.
+      const authenticated = await authenticateUser("Confirm to turn off KaalKey app lock", false);
       if (!authenticated) return;
       try {
         await SecureStore.setItemAsync(BIOMETRIC_ENABLED_KEY, "false");
         setBiometricEnabled(false);
         setIsUnlocked(true);
-        Alert.alert("App lock disabled", "Biometric lock has been turned off.");
+        Alert.alert("App lock disabled", "KaalKey app lock has been turned off.");
       } catch {
-        Alert.alert("Could not save setting", "Please try again.");
+        setIsUnlocked(false);
+        Alert.alert("Could not save setting", "The app lock remains enabled. Please try again.");
       }
       return;
     }
 
-    const hardwareAvailable = await LocalAuthentication.hasHardwareAsync();
-    const enrolled = await LocalAuthentication.isEnrolledAsync();
-    if (!hardwareAvailable || !enrolled) {
-      Alert.alert(
-        "Set up biometrics first",
-        "Your phone needs an enrolled fingerprint or face unlock before KaalKey can enable app lock. Open your phone's Settings and set up biometrics first."
-      );
-      return;
-    }
-
-    const authenticated = await authenticateUser("Enable biometric lock for KaalKey");
+    // Biometrics are not required to enable app lock. The native OS prompt can use
+    // the configured device credential when biometrics are unavailable.
+    const authenticated = await authenticateUser("Enable app lock for KaalKey", false);
     if (!authenticated) return;
     try {
       await SecureStore.setItemAsync(BIOMETRIC_ENABLED_KEY, "true");
       setBiometricEnabled(true);
       setIsUnlocked(true);
-      Alert.alert("Biometric lock enabled", "KaalKey will ask for authentication when opened and when you return to it.");
+      Alert.alert("App lock enabled", "KaalKey will request your phone's built-in authentication when opened and when you return to it.");
     } catch {
-      Alert.alert("Could not save setting", "Biometric lock could not be enabled. Please try again.");
+      Alert.alert("Could not save setting", "App lock could not be enabled. Please try again.");
     }
   }
 
@@ -795,7 +833,7 @@ export default function HomeScreen() {
     });
 
   // Do not render the account screen, modals, or navigation beneath a lock overlay.
-  // The vault remains inaccessible until the biometric API explicitly returns success.
+  // The vault remains inaccessible until the native OS authentication API explicitly returns success.
   if (!biometricReady || (biometricEnabled && !isUnlocked)) {
     return (
       <SafeAreaView style={styles.lockScreen} edges={["top", "left", "right", "bottom"]}>
@@ -810,7 +848,7 @@ export default function HomeScreen() {
           <Text style={styles.lockDescription}>
             {!biometricReady
               ? "Checking your secure lock settings. Your codes remain hidden."
-              : "Verify your identity to access your one-time verification codes."}
+              : "Use your phone’s biometrics or screen-lock PIN, pattern, or password to access your one-time verification codes."}
           </Text>
           {biometricReady && (
             <TouchableOpacity
@@ -820,7 +858,7 @@ export default function HomeScreen() {
               activeOpacity={0.82}
             >
               <Text style={styles.unlockButtonText}>
-                {authenticating ? "Waiting for verification…" : "Unlock with biometrics"}
+                {authenticating ? "Waiting for verification…" : "Unlock securely"}
               </Text>
             </TouchableOpacity>
           )}
@@ -859,7 +897,7 @@ export default function HomeScreen() {
             onPress={() => void toggleBiometricLock()}
             activeOpacity={0.78}
             accessibilityRole="button"
-            accessibilityLabel={biometricEnabled ? "Disable biometric app lock" : "Enable biometric app lock"}
+            accessibilityLabel={biometricEnabled ? "Disable app lock" : "Enable app lock"}
           >
             <Text style={styles.securityButtonIcon}>{biometricEnabled ? "🔒" : "🔐"}</Text>
             <Text style={[styles.securityButtonText, biometricEnabled && styles.securityButtonTextActive]}>
@@ -880,7 +918,7 @@ export default function HomeScreen() {
 
       <View style={styles.tricolorStripe}>
         <View
-          style={[styles.tricolorSegment, { backgroundColor: "#FF9933" }]}
+          style={[styles.tricolorSegment, { backgroundColor: "#FF9800" }]}
         />
         <View
           style={[styles.tricolorSegment, { backgroundColor: "#FFFFFF" }]}
@@ -1084,7 +1122,7 @@ export default function HomeScreen() {
           >
             <View style={styles.modalCard}>
               <View style={styles.modalHeader}>
-                <View>
+                <View style={styles.modalHeaderCopy}>
                   <Text style={styles.modalTitle}>{editingId ? "Edit account" : "Add account"}</Text>
 
                   <Text style={styles.modalSubtitle}>
@@ -1099,8 +1137,10 @@ export default function HomeScreen() {
                     setModalVisible(false);
                     setEditingId(null);
                   }}
+                  style={styles.modalCloseButton}
                   accessibilityRole="button"
                   accessibilityLabel="Close account form"
+                  hitSlop={8}
                 >
                   <Text style={styles.closeButton}>×</Text>
                 </TouchableOpacity>
@@ -1275,8 +1315,14 @@ export default function HomeScreen() {
         transparent
         onRequestClose={() => setSettingsVisible(false)}
       >
-        <View style={styles.settingsBackdrop}>
+        <View style={[styles.settingsBackdrop, { paddingTop: Math.max(insets.top, 16), paddingBottom: Math.max(insets.bottom, 16), paddingHorizontal: 16 }]}>
           <View style={styles.settingsSheet}>
+            <ScrollView
+              style={styles.settingsScroll}
+              contentContainerStyle={styles.settingsScrollContent}
+              showsVerticalScrollIndicator={false}
+              keyboardShouldPersistTaps="handled"
+            >
             <View style={styles.settingsTopRow}>
               <View>
                 <Text style={styles.settingsEyebrow}>KAALKEY PREFERENCES</Text>
@@ -1314,15 +1360,15 @@ export default function HomeScreen() {
             <View style={styles.settingRow}>
               <View style={styles.settingIconBox}><Text style={styles.settingIcon}>🔐</Text></View>
               <View style={styles.settingCopy}>
-                <Text style={styles.settingTitleText}>Biometric app lock</Text>
-                <Text style={styles.settingDescription}>{biometricEnabled ? "Your vault locks when KaalKey leaves the foreground." : "Require fingerprint or face authentication to open your vault."}</Text>
+                <Text style={styles.settingTitleText}>Device authentication lock</Text>
+                <Text style={styles.settingDescription}>{biometricEnabled ? "Your vault locks when KaalKey leaves the foreground." : "Require your phone’s biometrics or screen-lock PIN, pattern, or password."}</Text>
               </View>
               <TouchableOpacity
                 style={[styles.settingSwitch, biometricEnabled && styles.settingSwitchOn]}
                 onPress={() => void toggleBiometricLock()}
                 accessibilityRole="switch"
                 accessibilityState={{ checked: biometricEnabled }}
-                accessibilityLabel="Biometric app lock"
+                accessibilityLabel="Device authentication app lock"
               >
                 <View style={[styles.settingSwitchThumb, biometricEnabled && styles.settingSwitchThumbOn]} />
               </TouchableOpacity>
@@ -1364,6 +1410,7 @@ export default function HomeScreen() {
             >
               <Text style={styles.settingsDoneText}>Done</Text>
             </TouchableOpacity>
+            </ScrollView>
           </View>
         </View>
       </Modal>
@@ -1417,18 +1464,22 @@ const styles = StyleSheet.create({
   settingsBackdrop: {
     flex: 1,
     backgroundColor: "rgba(15, 23, 42, 0.42)",
-    justifyContent: "flex-end",
+    justifyContent: "center",
   },
   settingsSheet: {
+    width: "100%",
+    maxHeight: "100%",
     backgroundColor: "#FFFFFF",
-    borderTopLeftRadius: 28,
-    borderTopRightRadius: 28,
+    borderRadius: 24,
     paddingHorizontal: 22,
     paddingTop: 24,
-    paddingBottom: Platform.OS === "ios" ? 34 : 24,
+    paddingBottom: 8,
     borderWidth: 1,
     borderColor: "#E5EAF1",
+    overflow: "hidden",
   },
+  settingsScroll: { flexShrink: 1 },
+  settingsScrollContent: { paddingBottom: 18 },
   settingsTopRow: { flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginBottom: 24 },
   settingsEyebrow: { fontSize: 10, letterSpacing: 1.8, fontWeight: "800", color: "#138808", marginBottom: 5 },
   settingsTitle: { fontSize: 26, fontWeight: "900", color: "#172033" },
@@ -1461,8 +1512,8 @@ const styles = StyleSheet.create({
   settingsPrivacyNote: { flexDirection: "row", gap: 10, alignItems: "center", marginTop: 22, padding: 13, backgroundColor: "#F5F8FC", borderRadius: 14, borderWidth: 1, borderColor: "#E7EDF5" },
   settingsPrivacyIcon: { fontSize: 20 },
   settingsPrivacyText: { flex: 1, color: "#596579", fontSize: 11, lineHeight: 16 },
-  settingsDoneButton: { marginTop: 18, borderRadius: 15, backgroundColor: "#172033", paddingVertical: 15, alignItems: "center" },
-  settingsDoneText: { color: "#FFFFFF", fontWeight: "900", fontSize: 14 },
+  settingsDoneButton: { marginTop: 18, borderRadius: 15, backgroundColor: "#FF9800", paddingVertical: 15, alignItems: "center" },
+  settingsDoneText: { color: "#101827", fontWeight: "900", fontSize: 14 },
   container: {
     flex: 1,
     backgroundColor: "#F4F6F9",
@@ -1558,7 +1609,7 @@ const styles = StyleSheet.create({
   },
   unlockButton: {
     width: "100%",
-    backgroundColor: "#F28C00",
+    backgroundColor: "#FF9800",
     borderRadius: 14,
     paddingVertical: 15,
     alignItems: "center",
@@ -1620,7 +1671,7 @@ const styles = StyleSheet.create({
   },
 
   brandKaal: {
-    color: "#F28C00",
+    color: "#FF9800",
   },
 
   brandK: {
@@ -1684,7 +1735,7 @@ const styles = StyleSheet.create({
   },
 
   eyebrow: {
-    color: "#FF9933",
+    color: "#FF9800",
     fontSize: 10,
     fontWeight: "800",
     letterSpacing: 1.8,
@@ -1745,7 +1796,7 @@ const styles = StyleSheet.create({
   },
 
   clearSearchButtonText: {
-    color: "#68758A",
+    color: "#9A4D00",
     fontSize: 25,
     lineHeight: 29,
     fontWeight: "400",
@@ -1771,13 +1822,13 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
     borderRadius: 9,
     borderWidth: 1,
-    borderColor: "#DCE2EA",
+    borderColor: "#FFCC80",
     backgroundColor: "#FFFFFF",
   },
 
   sortButtonActive: {
-    borderColor: "#F28C00",
-    backgroundColor: "#FFF3E5",
+    borderColor: "#FF9800",
+    backgroundColor: "#FFF7ED",
   },
 
   sortButtonText: {
@@ -1787,7 +1838,7 @@ const styles = StyleSheet.create({
   },
 
   sortButtonTextActive: {
-    color: "#B95D00",
+    color: "#9A4D00",
   },
 
   accountActions: {
@@ -1801,11 +1852,12 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: "#DCE2EA",
+    borderColor: "#FF9800",
+    backgroundColor: "#FFF7ED",
   },
 
   editButtonText: {
-    color: "#4E5A6D",
+    color: "#9A4D00",
     fontSize: 11,
     fontWeight: "700",
   },
@@ -1826,7 +1878,7 @@ const styles = StyleSheet.create({
   },
 
   addButton: {
-    backgroundColor: "#F28C00",
+    backgroundColor: "#FF9800",
     paddingHorizontal: 18,
     paddingVertical: 12,
     borderRadius: 13,
@@ -1863,7 +1915,7 @@ const styles = StyleSheet.create({
   },
 
   emptyIconText: {
-    color: "#FF9933",
+    color: "#FF9800",
     fontSize: 30,
   },
 
@@ -1882,7 +1934,7 @@ const styles = StyleSheet.create({
   },
 
   primaryButton: {
-    backgroundColor: "#F28C00",
+    backgroundColor: "#FF9800",
     borderRadius: 14,
     minHeight: 51,
     paddingHorizontal: 18,
@@ -2071,6 +2123,20 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "flex-start",
     marginBottom: 24,
+    gap: 12,
+  },
+
+  modalHeaderCopy: { flex: 1, minWidth: 0 },
+
+  modalCloseButton: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: "#F1F4F8",
+    alignItems: "center",
+    justifyContent: "center",
+    flexShrink: 0,
+    marginTop: 1,
   },
 
   modalTitle: {
@@ -2086,9 +2152,12 @@ const styles = StyleSheet.create({
   },
 
   closeButton: {
-    color: "#647086",
-    fontSize: 30,
-    paddingHorizontal: 5,
+    color: "#344054",
+    fontSize: 27,
+    lineHeight: 30,
+    fontWeight: "500",
+    textAlign: "center",
+    includeFontPadding: false,
   },
 
   inputLabel: {
@@ -2121,8 +2190,8 @@ const styles = StyleSheet.create({
   scanButton: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#F1F8F3",
-    borderColor: "#C8E2CE",
+    backgroundColor: "#FFF7ED",
+    borderColor: "#FF9800",
     borderWidth: 1,
     borderRadius: 15,
     padding: 15,
@@ -2131,7 +2200,7 @@ const styles = StyleSheet.create({
   },
 
   scanButtonIcon: {
-    color: "#FF9933",
+    color: "#FF9800",
     fontSize: 28,
     fontWeight: "800",
   },
@@ -2154,7 +2223,7 @@ const styles = StyleSheet.create({
   },
 
   scanButtonArrow: {
-    color: "#FF9933",
+    color: "#FF9800",
     fontSize: 28,
   },
 
@@ -2182,7 +2251,7 @@ const styles = StyleSheet.create({
   },
 
   scannerBack: {
-    color: "#FF9933",
+    color: "#FF9800",
     fontSize: 15,
     fontWeight: "700",
     paddingVertical: 8,
@@ -2253,7 +2322,7 @@ const styles = StyleSheet.create({
     height: 34,
     borderTopWidth: 4,
     borderLeftWidth: 4,
-    borderColor: "#FF9933",
+    borderColor: "#FF9800",
     borderTopLeftRadius: 9,
   },
 
@@ -2265,7 +2334,7 @@ const styles = StyleSheet.create({
     height: 34,
     borderTopWidth: 4,
     borderRightWidth: 4,
-    borderColor: "#FF9933",
+    borderColor: "#FF9800",
     borderTopRightRadius: 9,
   },
 
@@ -2277,7 +2346,7 @@ const styles = StyleSheet.create({
     height: 34,
     borderBottomWidth: 4,
     borderLeftWidth: 4,
-    borderColor: "#FF9933",
+    borderColor: "#FF9800",
     borderBottomLeftRadius: 9,
   },
 
@@ -2289,7 +2358,7 @@ const styles = StyleSheet.create({
     height: 34,
     borderBottomWidth: 4,
     borderRightWidth: 4,
-    borderColor: "#FF9933",
+    borderColor: "#FF9800",
     borderBottomRightRadius: 9,
   },
 
@@ -2308,7 +2377,7 @@ const styles = StyleSheet.create({
   },
 
   scannerManualText: {
-    color: "#FF9933",
+    color: "#FF9800",
     fontSize: 13,
     fontWeight: "700",
   },
@@ -2317,10 +2386,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 14,
     marginTop: 5,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#FF9800",
+    backgroundColor: "#FFF7ED",
   },
 
   cancelButtonText: {
-    color: "#68758A",
+    color: "#9A4D00",
     fontSize: 13,
     fontWeight: "700",
   },
