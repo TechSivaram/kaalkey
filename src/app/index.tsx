@@ -28,6 +28,7 @@ import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context"
 import type { Account } from "../types/account";
 import { encryptBackup, decryptBackup } from "../services/backup";
 import { generateCode } from "../services/otp";
+import { normalizeBase32Secret, validateAccount } from "../services/account-validation";
 import CountdownRing from "../components/CountdownRing";
 import { styles } from "../styles/home.styles";
 
@@ -81,6 +82,9 @@ export default function HomeScreen() {
   const [issuer, setIssuer] = useState("");
   const [accountName, setAccountName] = useState("");
   const [secret, setSecret] = useState("");
+  const [otpAlgorithm, setOtpAlgorithm] = useState<Account["algorithm"]>("SHA1");
+  const [otpDigits, setOtpDigits] = useState<number>(6);
+  const [otpPeriod, setOtpPeriod] = useState<string>("30");
   const [scannerVisible, setScannerVisible] = useState(false);
   const [scanned, setScanned] = useState(false);
   const [cameraPermission, requestCameraPermission] = useCameraPermissions();
@@ -104,10 +108,19 @@ export default function HomeScreen() {
         const saved = await SecureStore.getItemAsync(STORAGE_KEY);
 
         if (saved) {
-          const parsed = JSON.parse(saved) as Account[];
+          const parsed: unknown = JSON.parse(saved);
 
           if (Array.isArray(parsed)) {
-            setAccounts(parsed);
+            const validAccounts = parsed.filter(validateAccount);
+            setAccounts(validAccounts);
+            if (validAccounts.length !== parsed.length) {
+              Alert.alert(
+                "Some saved accounts need attention",
+                `${parsed.length - validAccounts.length} invalid account record(s) were not loaded. Valid accounts remain available. Consider creating a backup before making further changes.`,
+              );
+            }
+          } else {
+            Alert.alert("Storage data invalid", "Saved account data could not be read safely.");
           }
         }
       } catch {
@@ -348,6 +361,9 @@ export default function HomeScreen() {
     setIssuer("");
     setAccountName("");
     setSecret("");
+    setOtpAlgorithm("SHA1");
+    setOtpDigits(6);
+    setOtpPeriod("30");
     setModalVisible(true);
   }
 
@@ -357,11 +373,14 @@ export default function HomeScreen() {
     setIssuer(account.issuer);
     setAccountName(account.name);
     setSecret(account.secret);
+    setOtpAlgorithm(account.algorithm);
+    setOtpDigits(account.digits);
+    setOtpPeriod(String(account.period));
     setModalVisible(true);
   }
 
   async function saveAccount() {
-    const normalizedSecret = secret.replace(/[\s-]/g, "").toUpperCase();
+    const normalizedSecret = normalizeBase32Secret(secret);
     const normalizedIssuer = issuer.trim();
     const normalizedName = accountName.trim();
 
@@ -370,19 +389,25 @@ export default function HomeScreen() {
       return;
     }
 
-    try {
-      const validationTotp = new OTPAuth.TOTP({
-        issuer: normalizedIssuer,
-        label: normalizedName,
-        algorithm: editingId
-          ? (accounts.find((item) => item.id === editingId)?.algorithm ?? "SHA1")
-          : "SHA1",
-        digits: editingId ? (accounts.find((item) => item.id === editingId)?.digits ?? 6) : 6,
-        period: editingId ? (accounts.find((item) => item.id === editingId)?.period ?? 30) : 30,
-        secret: normalizedSecret,
-      });
-      validationTotp.generate();
+    const candidate: Account = {
+      id: editingId ?? `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+      issuer: normalizedIssuer,
+      name: normalizedName,
+      secret: normalizedSecret,
+      algorithm: otpAlgorithm,
+      digits: otpDigits,
+      period: Number(otpPeriod),
+    };
 
+    if (!validateAccount(candidate)) {
+      Alert.alert(
+        "Invalid OTP settings",
+        "Check the Base32 secret, algorithm, digit count, and refresh period. Secrets must contain valid Base32 characters; digits must be 6–8 and the period must be 1–120 seconds.",
+      );
+      return;
+    }
+
+    try {
       const duplicate = accounts.some(
         (existing) =>
           existing.id !== editingId &&
@@ -398,30 +423,9 @@ export default function HomeScreen() {
         return;
       }
 
-      let updated: Account[];
-      if (editingId) {
-        updated = accounts.map((existing) =>
-          existing.id === editingId
-            ? {
-                ...existing,
-                issuer: normalizedIssuer,
-                name: normalizedName,
-                secret: normalizedSecret,
-              }
-            : existing,
-        );
-      } else {
-        const account: Account = {
-          id: Date.now().toString() + "-" + Math.random().toString(36).slice(2),
-          issuer: normalizedIssuer,
-          name: normalizedName,
-          secret: normalizedSecret,
-          algorithm: "SHA1",
-          digits: 6,
-          period: 30,
-        };
-        updated = [...accounts, account];
-      }
+      const updated: Account[] = editingId
+        ? accounts.map((existing) => (existing.id === editingId ? candidate : existing))
+        : [...accounts, candidate];
 
       const saved = await saveAccounts(updated);
       if (saved) {
@@ -429,6 +433,9 @@ export default function HomeScreen() {
         setIssuer("");
         setAccountName("");
         setSecret("");
+        setOtpAlgorithm("SHA1");
+        setOtpDigits(6);
+        setOtpPeriod("30");
         setEditingId(null);
         setModalVisible(false);
         Alert.alert(
@@ -524,9 +531,8 @@ export default function HomeScreen() {
         period: parsed.period,
       };
 
-      // Generate once to verify the parsed TOTP details before saving.
-      const validationCode = generateCode(account);
-      if (!/^\d+$/.test(validationCode)) {
+      // Validate the full account record, including its Base32 secret and TOTP settings.
+      if (!validateAccount(account)) {
         throw new Error("The QR code could not be validated.");
       }
 
@@ -1205,9 +1211,94 @@ export default function HomeScreen() {
                 )}
               </View>
 
+              <Text style={styles.inputLabel}>OTP ALGORITHM</Text>
+              <View style={styles.optionRow}>
+                {(["SHA1", "SHA256", "SHA512"] as const).map((algorithm) => (
+                  <TouchableOpacity
+                    key={algorithm}
+                    style={[
+                      styles.optionChip,
+                      otpAlgorithm === algorithm && styles.optionChipSelected,
+                    ]}
+                    onPress={() => setOtpAlgorithm(algorithm)}
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: otpAlgorithm === algorithm }}
+                  >
+                    <Text
+                      style={[
+                        styles.optionChipText,
+                        otpAlgorithm === algorithm && styles.optionChipTextSelected,
+                      ]}
+                    >
+                      {algorithm.replace("SHA", "SHA-")}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+
+              <Text style={styles.inputLabel}>OTP DIGITS</Text>
+              <View style={styles.optionRow}>
+                {[6, 7, 8].map((digits) => (
+                  <TouchableOpacity
+                    key={digits}
+                    style={[
+                      styles.optionChip,
+                      otpDigits === digits && styles.optionChipSelected,
+                    ]}
+                    onPress={() => setOtpDigits(digits)}
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: otpDigits === digits }}
+                  >
+                    <Text
+                      style={[
+                        styles.optionChipText,
+                        otpDigits === digits && styles.optionChipTextSelected,
+                      ]}
+                    >
+                      {digits} digits
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+
+              <Text style={styles.inputLabel}>REFRESH INTERVAL (SECONDS)</Text>
+              <TextInput
+                style={styles.input}
+                value={otpPeriod}
+                onChangeText={(value) => setOtpPeriod(value.replace(/[^0-9]/g, "").slice(0, 3))}
+                keyboardType="number-pad"
+                placeholder="1–120 seconds"
+                placeholderTextColor="#66738A"
+                accessibilityLabel="OTP refresh interval in seconds"
+              />
+              <View style={styles.optionRow}>
+                {[15, 30, 60, 90, 120].map((period) => (
+                  <TouchableOpacity
+                    key={period}
+                    style={[
+                      styles.optionChip,
+                      Number(otpPeriod) === period && styles.optionChipSelected,
+                    ]}
+                    onPress={() => setOtpPeriod(String(period))}
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: Number(otpPeriod) === period }}
+                  >
+                    <Text
+                      style={[
+                        styles.optionChipText,
+                        Number(otpPeriod) === period && styles.optionChipTextSelected,
+                      ]}
+                    >
+                      {period}s
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+
               <Text style={styles.securityNote}>
                 Use the secret key supplied by the service you are configuring. Never enter your
-                account password here.
+                account password here. Match the algorithm, digit count, and interval to the
+                service&apos;s setup instructions.
               </Text>
 
               <TouchableOpacity style={styles.primaryButton} onPress={() => void saveAccount()}>

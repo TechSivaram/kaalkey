@@ -1,6 +1,7 @@
 import * as Crypto from "expo-crypto";
 import CryptoJS from "crypto-js";
 import type { Account } from "../types/account";
+import { validateAccounts } from "./account-validation";
 
 const BACKUP_FORMAT = "kaalkey-encrypted-backup";
 const BACKUP_VERSION = 1;
@@ -15,27 +16,12 @@ function hexToWordArray(hex: string): CryptoJS.lib.WordArray {
   return CryptoJS.enc.Hex.parse(hex);
 }
 
-function validateAccounts(value: unknown): value is Account[] {
-  if (!Array.isArray(value)) return false;
-  return value.every(
-    (item) =>
-      item &&
-      typeof item === "object" &&
-      typeof item.id === "string" &&
-      typeof item.issuer === "string" &&
-      typeof item.name === "string" &&
-      typeof item.secret === "string" &&
-      ["SHA1", "SHA256", "SHA512"].includes(item.algorithm) &&
-      Number.isInteger(item.digits) &&
-      item.digits >= 6 &&
-      item.digits <= 8 &&
-      Number.isInteger(item.period) &&
-      item.period >= 1 &&
-      item.period <= 120,
-  );
-}
+
 
 export async function encryptBackup(accounts: Account[], password: string): Promise<string> {
+  if (!validateAccounts(accounts)) {
+    throw new Error("One or more accounts are invalid. Fix the account data before creating a backup.");
+  }
   const salt = bytesToHex(await Crypto.getRandomBytesAsync(16));
   const iv = bytesToHex(await Crypto.getRandomBytesAsync(16));
   const key = CryptoJS.PBKDF2(password, hexToWordArray(salt), {

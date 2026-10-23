@@ -1,5 +1,6 @@
 import * as OTPAuth from "otpauth";
 import type { Account } from "../types/account";
+import { normalizeBase32Secret } from "./account-validation";
 
 export function generateCode(account: Account): string {
   try {
@@ -9,7 +10,7 @@ export function generateCode(account: Account): string {
       algorithm: account.algorithm,
       digits: account.digits,
       period: account.period,
-      secret: account.secret,
+      secret: normalizeBase32Secret(account.secret),
     });
 
     return totp.generate();

@@ -922,6 +922,37 @@ export const styles = StyleSheet.create({
     includeFontPadding: false,
   },
 
+  optionRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 8,
+    marginTop: 2,
+  },
+
+  optionChip: {
+    borderWidth: 1,
+    borderColor: "#DCE2EA",
+    borderRadius: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    backgroundColor: "#F8FAFC",
+  },
+
+  optionChipSelected: {
+    borderColor: "#FF9800",
+    backgroundColor: "#FFF0DD",
+  },
+
+  optionChipText: {
+    color: "#566276",
+    fontSize: 12,
+    fontWeight: "700",
+  },
+
+  optionChipTextSelected: {
+    color: "#9A4D00",
+  },
+
   securityNote: {
     color: "#68758A",
     fontSize: 11,
