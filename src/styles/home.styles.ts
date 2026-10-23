@@ -271,7 +271,7 @@ export const styles = StyleSheet.create({
     color: "#138808",
   },
   lockScreen: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     zIndex: 1000,
     elevation: 1000,
     backgroundColor: "#F4F6F9",

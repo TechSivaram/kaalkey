@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { Animated, Easing, View, Text } from "react-native";
+import { useEffect, useState } from "react";
+import { Animated, Easing, View } from "react-native";
 import { styles } from "../styles/home.styles";
 
 type CountdownRingProps = {
@@ -8,7 +8,7 @@ type CountdownRingProps = {
 };
 
 export default function CountdownRing({ secondsRemaining, period }: CountdownRingProps) {
-  const pulse = useRef(new Animated.Value(1)).current;
+  const [pulse] = useState(() => new Animated.Value(1));
   const progress = secondsRemaining / Math.max(1, period);
   const countdownColor = secondsRemaining <= 5 ? "#D94841" : "#138808";
 

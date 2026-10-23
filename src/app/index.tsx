@@ -58,7 +58,7 @@ export default function HomeScreen() {
   const { height: windowHeight } = useWindowDimensions();
   const scannerCameraHeight = Math.min(300, Math.max(180, Math.round(windowHeight * 0.34)));
   const [accounts, setAccounts] = useState<Account[]>([]);
-  const [now, setNow] = useState(0);
+  const [now, setNow] = useState(() => Date.now());
   const [loaded, setLoaded] = useState(false);
   const [showBrandSplash, setShowBrandSplash] = useState(true);
   const [biometricEnabled, setBiometricEnabled] = useState(false);
@@ -91,8 +91,6 @@ export default function HomeScreen() {
   }, []);
 
   useEffect(() => {
-    setNow(Date.now());
-
     const timer = setInterval(() => {
       setNow(Date.now());
     }, 250);
@@ -298,16 +296,21 @@ export default function HomeScreen() {
   }
 
   useEffect(() => {
-    if (biometricReady && biometricEnabled && !isUnlocked) {
+    if (!biometricReady || !biometricEnabled || isUnlocked) return;
+
+    // Defer the native authentication prompt until after the effect has committed.
+    // This avoids synchronously triggering React state updates inside the effect.
+    const promptTimer = setTimeout(() => {
       void authenticateUser();
-    }
+    }, 0);
+
+    return () => clearTimeout(promptTimer);
     // Prompt once when the saved lock setting requires authentication.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [biometricReady, biometricEnabled, isUnlocked]);
 
   useEffect(() => {
     const subscription = AppState.addEventListener("change", (nextState) => {
-      const wasBackgrounded = /inactive|background/.test(appStateRef.current);
+      const wasBackgrounded = /inactive|background/.test(appStateRef.current ?? "");
       appStateRef.current = nextState;
       if (biometricEnabled && nextState === "active" && wasBackgrounded) {
         setIsUnlocked(false);
