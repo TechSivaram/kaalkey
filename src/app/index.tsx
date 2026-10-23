@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   Alert,
   Animated,
+  BackHandler,
   AppState,
   Easing,
   Image,
@@ -210,7 +211,7 @@ export default function HomeScreen() {
   const [loaded, setLoaded] = useState(false);
   const [biometricEnabled, setBiometricEnabled] = useState(false);
   const [biometricReady, setBiometricReady] = useState(false);
-  const [isUnlocked, setIsUnlocked] = useState(true);
+  const [isUnlocked, setIsUnlocked] = useState(false);
   const [authenticating, setAuthenticating] = useState(false);
   const [settingsVisible, setSettingsVisible] = useState(false);
   const [backupVisible, setBackupVisible] = useState(false);
@@ -304,8 +305,9 @@ export default function HomeScreen() {
         setIsUnlocked(!shouldEnable);
       } catch {
         if (mounted) {
-          setBiometricEnabled(false);
-          setIsUnlocked(true);
+          // Fail closed: if the saved lock preference cannot be read, do not expose the vault.
+          setBiometricEnabled(true);
+          setIsUnlocked(false);
         }
       } finally {
         if (mounted) setBiometricReady(true);
@@ -333,7 +335,7 @@ export default function HomeScreen() {
       const result = await LocalAuthentication.authenticateAsync({
         promptMessage,
         cancelLabel: "Cancel",
-        disableDeviceFallback: false,
+        disableDeviceFallback: true,
         biometricsSecurityLevel: "strong",
       });
       if (result.success) {
@@ -408,6 +410,13 @@ export default function HomeScreen() {
     });
     return () => subscription.remove();
   }, [biometricEnabled]);
+
+  // While locked, Android Back must never uncover the underlying vault.
+  useEffect(() => {
+    if (!biometricReady || !biometricEnabled || isUnlocked) return;
+    const subscription = BackHandler.addEventListener("hardwareBackPress", () => true);
+    return () => subscription.remove();
+  }, [biometricReady, biometricEnabled, isUnlocked]);
 
   async function saveAccounts(updated: Account[]): Promise<boolean> {
     try {
@@ -784,6 +793,42 @@ export default function HomeScreen() {
       const second = sortBy === "service" ? b.issuer : b.name;
       return first.localeCompare(second, undefined, { sensitivity: "base" });
     });
+
+  // Do not render the account screen, modals, or navigation beneath a lock overlay.
+  // The vault remains inaccessible until the biometric API explicitly returns success.
+  if (!biometricReady || (biometricEnabled && !isUnlocked)) {
+    return (
+      <SafeAreaView style={styles.lockScreen} edges={["top", "left", "right", "bottom"]}>
+        <View style={styles.lockCard}>
+          <View style={styles.lockIconCircle}>
+            <Text style={styles.lockIcon}>🔐</Text>
+          </View>
+          <Text style={styles.lockBrand}>KaalKey</Text>
+          <Text style={styles.lockTitle}>
+            {!biometricReady ? "Securing your vault…" : "Your vault is protected"}
+          </Text>
+          <Text style={styles.lockDescription}>
+            {!biometricReady
+              ? "Checking your secure lock settings. Your codes remain hidden."
+              : "Verify your identity to access your one-time verification codes."}
+          </Text>
+          {biometricReady && (
+            <TouchableOpacity
+              style={styles.unlockButton}
+              onPress={() => void authenticateUser()}
+              disabled={authenticating}
+              activeOpacity={0.82}
+            >
+              <Text style={styles.unlockButtonText}>
+                {authenticating ? "Waiting for verification…" : "Unlock with biometrics"}
+              </Text>
+            </TouchableOpacity>
+          )}
+          <Text style={styles.lockFootnote}>Your secrets stay stored on this device.</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
@@ -1353,31 +1398,6 @@ export default function HomeScreen() {
         </View>
       </Modal>
 
-      {biometricReady && biometricEnabled && !isUnlocked && (
-        <View style={styles.lockScreen}>
-          <View style={styles.lockCard}>
-            <View style={styles.lockIconCircle}>
-              <Text style={styles.lockIcon}>🔐</Text>
-            </View>
-            <Text style={styles.lockBrand}>KaalKey</Text>
-            <Text style={styles.lockTitle}>Your vault is protected</Text>
-            <Text style={styles.lockDescription}>
-              Verify your identity to access your one-time verification codes.
-            </Text>
-            <TouchableOpacity
-              style={styles.unlockButton}
-              onPress={() => void authenticateUser()}
-              disabled={authenticating}
-              activeOpacity={0.82}
-            >
-              <Text style={styles.unlockButtonText}>
-                {authenticating ? "Waiting for verification…" : "Unlock with biometrics"}
-              </Text>
-            </TouchableOpacity>
-            <Text style={styles.lockFootnote}>Your secrets stay stored on this device.</Text>
-          </View>
-        </View>
-      )}
     </SafeAreaView>
   );
 }
