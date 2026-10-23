@@ -1,6 +1,7 @@
 KaalKey — native device authentication fallback
 
 Changes in this update:
+
 - Uses expo-local-authentication with disableDeviceFallback: false so the OS can offer device credentials where supported.
 - Removes biometric-hardware/enrollment prechecks that prevented enabling app lock on devices without biometrics.
 - Explains that the user may authenticate with biometrics or the configured device screen lock (PIN, pattern, or password).

@@ -48,14 +48,10 @@ export default function CountdownRing({ secondsRemaining, period }: CountdownRin
         );
       })}
       <Animated.Text
-        style={[
-          styles.countdownNumber,
-          { color: secondsRemaining <= 5 ? "#D94841" : "#172033" },
-        ]}
+        style={[styles.countdownNumber, { color: secondsRemaining <= 5 ? "#D94841" : "#172033" }]}
       >
         {secondsRemaining}
       </Animated.Text>
     </Animated.View>
   );
 }
-

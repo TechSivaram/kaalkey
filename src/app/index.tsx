@@ -13,6 +13,7 @@ import {
   TouchableOpacity,
   Vibration,
   View,
+  useWindowDimensions,
 } from "react-native";
 
 import { CameraView, useCameraPermissions } from "expo-camera";
@@ -30,7 +31,6 @@ import { generateCode } from "../services/otp";
 import CountdownRing from "../components/CountdownRing";
 import { styles } from "../styles/home.styles";
 
-
 const STORAGE_KEY = "kaalkey_accounts_v1";
 const BIOMETRIC_ENABLED_KEY = "kaalkey_biometric_lock_enabled_v1";
 const HAPTICS_ENABLED_KEY = "kaalkey_haptics_enabled_v1";
@@ -42,7 +42,8 @@ function hapticFeedback(kind: "selection" | "success" | "warning" = "selection")
   if (!hapticsAreEnabled) return;
   try {
     if (Platform.OS === "android") {
-      const pattern = kind === "success" ? [0, 22, 45, 28] : kind === "warning" ? [0, 38, 55, 38] : 12;
+      const pattern =
+        kind === "success" ? [0, 22, 45, 28] : kind === "warning" ? [0, 38, 55, 38] : 12;
       Vibration.vibrate(pattern);
     } else if (Platform.OS === "ios") {
       Vibration.vibrate(kind === "success" ? 35 : kind === "warning" ? 45 : 15);
@@ -52,9 +53,10 @@ function hapticFeedback(kind: "selection" | "success" | "warning" = "selection")
   }
 }
 
-
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
+  const { height: windowHeight } = useWindowDimensions();
+  const scannerCameraHeight = Math.min(300, Math.max(180, Math.round(windowHeight * 0.34)));
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [now, setNow] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -133,7 +135,9 @@ export default function HomeScreen() {
       }
     }
     void loadHapticPreference();
-    return () => { mounted = false; };
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   async function toggleHaptics() {
@@ -144,7 +148,10 @@ export default function HomeScreen() {
       setHapticsEnabled(next);
       if (next) hapticFeedback("success");
     } catch {
-      Alert.alert("Could not save setting", "Haptic feedback preference could not be saved. Please try again.");
+      Alert.alert(
+        "Could not save setting",
+        "Haptic feedback preference could not be saved. Please try again.",
+      );
     }
   }
 
@@ -181,12 +188,14 @@ export default function HomeScreen() {
     }
 
     void loadBiometricPreference();
-    return () => { mounted = false; };
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   async function authenticateUser(
     promptMessage = "Unlock KaalKey Authenticator",
-    unlockOnSuccess = true
+    unlockOnSuccess = true,
   ): Promise<boolean> {
     if (authenticatingRef.current) return false;
     authenticatingRef.current = true;
@@ -211,23 +220,26 @@ export default function HomeScreen() {
       if (result.error === "not_enrolled" || result.error === "passcode_not_set") {
         Alert.alert(
           "Set up your device screen lock",
-          "KaalKey uses your phone's built-in authentication. Set a device PIN, pattern, or password in your phone's security settings, then try again. Biometrics are optional."
+          "KaalKey uses your phone's built-in authentication. Set a device PIN, pattern, or password in your phone's security settings, then try again. Biometrics are optional.",
         );
       } else if (result.error === "not_available") {
         Alert.alert(
           "Device authentication unavailable",
-          "Your phone could not start secure authentication. Check that a device screen lock is configured, then try again."
+          "Your phone could not start secure authentication. Check that a device screen lock is configured, then try again.",
         );
       } else if (result.error === "lockout") {
         Alert.alert(
           "Authentication temporarily locked",
-          "Your phone has temporarily disabled authentication after too many attempts. Wait and try again."
+          "Your phone has temporarily disabled authentication after too many attempts. Wait and try again.",
         );
       }
       // Cancellation, failed verification, and every other error leave the vault locked.
       return false;
     } catch {
-      Alert.alert("Authentication unavailable", "KaalKey could not start the phone's secure authentication prompt. Please try again.");
+      Alert.alert(
+        "Authentication unavailable",
+        "KaalKey could not start the phone's secure authentication prompt. Please try again.",
+      );
       return false;
     } finally {
       authenticatingRef.current = false;
@@ -239,7 +251,8 @@ export default function HomeScreen() {
     // Do not expose a non-working native-auth switch on web. The web build currently
     // has no implemented browser-authentication flow, so keep its app-level lock OFF.
     if (Platform.OS === "web") {
-      const message = "Device authentication lock is not available in the web version yet. The web vault remains unlocked; use the Android app for native device authentication.";
+      const message =
+        "Device authentication lock is not available in the web version yet. The web vault remains unlocked; use the Android app for native device authentication.";
       if (typeof window !== "undefined" && typeof window.alert === "function") {
         window.alert(message);
       } else {
@@ -275,7 +288,10 @@ export default function HomeScreen() {
       await SecureStore.setItemAsync(BIOMETRIC_ENABLED_KEY, "true");
       setBiometricEnabled(true);
       setIsUnlocked(true);
-      Alert.alert("App lock enabled", "KaalKey will request your phone's built-in authentication when opened and when you return to it.");
+      Alert.alert(
+        "App lock enabled",
+        "KaalKey will request your phone's built-in authentication when opened and when you return to it.",
+      );
     } catch {
       Alert.alert("Could not save setting", "App lock could not be enabled. Please try again.");
     }
@@ -347,10 +363,7 @@ export default function HomeScreen() {
     const normalizedName = accountName.trim();
 
     if (!normalizedIssuer || !normalizedName || !normalizedSecret) {
-      Alert.alert(
-        "Missing information",
-        "Enter the service name, account name, and secret key.",
-      );
+      Alert.alert("Missing information", "Enter the service name, account name, and secret key.");
       return;
     }
 
@@ -359,14 +372,10 @@ export default function HomeScreen() {
         issuer: normalizedIssuer,
         label: normalizedName,
         algorithm: editingId
-          ? accounts.find((item) => item.id === editingId)?.algorithm ?? "SHA1"
+          ? (accounts.find((item) => item.id === editingId)?.algorithm ?? "SHA1")
           : "SHA1",
-        digits: editingId
-          ? accounts.find((item) => item.id === editingId)?.digits ?? 6
-          : 6,
-        period: editingId
-          ? accounts.find((item) => item.id === editingId)?.period ?? 30
-          : 30,
+        digits: editingId ? (accounts.find((item) => item.id === editingId)?.digits ?? 6) : 6,
+        period: editingId ? (accounts.find((item) => item.id === editingId)?.period ?? 30) : 30,
         secret: normalizedSecret,
       });
       validationTotp.generate();
@@ -419,13 +428,13 @@ export default function HomeScreen() {
         setSecret("");
         setEditingId(null);
         setModalVisible(false);
-        Alert.alert("Account saved", editingId ? "Your account was updated." : "Your account was added securely.");
+        Alert.alert(
+          "Account saved",
+          editingId ? "Your account was updated." : "Your account was added securely.",
+        );
       }
     } catch {
-      Alert.alert(
-        "Invalid secret key",
-        "Please check that you entered a valid Base32 secret.",
-      );
+      Alert.alert("Invalid secret key", "Please check that you entered a valid Base32 secret.");
     }
   }
 
@@ -522,10 +531,7 @@ export default function HomeScreen() {
       if (saved) {
         hapticFeedback("success");
         setScannerVisible(false);
-        Alert.alert(
-          "Account added",
-          `${account.issuer}: ${account.name} was added successfully.`,
-        );
+        Alert.alert("Account added", `${account.issuer}: ${account.name} was added successfully.`);
       } else {
         setScanned(false);
       }
@@ -554,26 +560,22 @@ export default function HomeScreen() {
   }
 
   function deleteAccount(id: string) {
-    Alert.alert(
-      "Remove account?",
-      "This removes the account and its secret from this device.",
-      [
-        {
-          text: "Cancel",
-          style: "cancel",
-        },
-        {
-          text: "Remove",
-          style: "destructive",
-          onPress: () => {
-            hapticFeedback("warning");
-            const updated = accounts.filter((account) => account.id !== id);
+    Alert.alert("Remove account?", "This removes the account and its secret from this device.", [
+      {
+        text: "Cancel",
+        style: "cancel",
+      },
+      {
+        text: "Remove",
+        style: "destructive",
+        onPress: () => {
+          hapticFeedback("warning");
+          const updated = accounts.filter((account) => account.id !== id);
 
-            void saveAccounts(updated);
-          },
+          void saveAccounts(updated);
         },
-      ],
-    );
+      },
+    ]);
   }
 
   function openBackup(mode: "export" | "restore") {
@@ -585,7 +587,10 @@ export default function HomeScreen() {
 
   async function exportEncryptedBackup() {
     if (backupPassword.length < 10) {
-      Alert.alert("Use a stronger backup password", "Choose at least 10 characters. You will need this password to restore the backup.");
+      Alert.alert(
+        "Use a stronger backup password",
+        "Choose at least 10 characters. You will need this password to restore the backup.",
+      );
       return;
     }
     setBackupBusy(true);
@@ -594,81 +599,118 @@ export default function HomeScreen() {
       const base = FileSystem.cacheDirectory ?? FileSystem.documentDirectory;
       if (!base) throw new Error("A local file location is unavailable on this device.");
       const uri = `${base}kaalkey-backup-${new Date().toISOString().replace(/[:.]/g, "-")}.kkbackup`;
-      await FileSystem.writeAsStringAsync(uri, encrypted, { encoding: FileSystem.EncodingType.UTF8 });
+      await FileSystem.writeAsStringAsync(uri, encrypted, {
+        encoding: FileSystem.EncodingType.UTF8,
+      });
       if (!(await Sharing.isAvailableAsync())) {
         Alert.alert("Backup created", `Encrypted backup saved temporarily at:\n${uri}`);
       } else {
-        await Sharing.shareAsync(uri, { mimeType: "application/json", dialogTitle: "Save your encrypted KaalKey backup", UTI: "public.json" });
+        await Sharing.shareAsync(uri, {
+          mimeType: "application/json",
+          dialogTitle: "Save your encrypted KaalKey backup",
+          UTI: "public.json",
+        });
       }
       setBackupVisible(false);
       setBackupPassword("");
     } catch (error) {
-      Alert.alert("Backup failed", error instanceof Error ? error.message : "KaalKey could not create the backup.");
-    } finally { setBackupBusy(false); }
+      Alert.alert(
+        "Backup failed",
+        error instanceof Error ? error.message : "KaalKey could not create the backup.",
+      );
+    } finally {
+      setBackupBusy(false);
+    }
   }
 
   async function restoreEncryptedBackup() {
     if (!backupPassword) {
-      Alert.alert("Enter your backup password", "Enter the password used when this backup was created.");
+      Alert.alert(
+        "Enter your backup password",
+        "Enter the password used when this backup was created.",
+      );
       return;
     }
     setBackupBusy(true);
     try {
-      const picked = await DocumentPicker.getDocumentAsync({ type: ["application/json", "public.json", "*/*"], copyToCacheDirectory: true, multiple: false });
+      const picked = await DocumentPicker.getDocumentAsync({
+        type: ["application/json", "public.json", "*/*"],
+        copyToCacheDirectory: true,
+        multiple: false,
+      });
       if (picked.canceled || !picked.assets?.[0]) return;
-      const raw = await FileSystem.readAsStringAsync(picked.assets[0].uri, { encoding: FileSystem.EncodingType.UTF8 });
+      const raw = await FileSystem.readAsStringAsync(picked.assets[0].uri, {
+        encoding: FileSystem.EncodingType.UTF8,
+      });
       const restored = await decryptBackup(raw, backupPassword);
       Alert.alert(
         "Merge backup accounts?",
         `This backup contains ${restored.length} account${restored.length === 1 ? "" : "s"}. KaalKey will keep your existing accounts and add accounts from the backup that are not already present. Duplicate accounts will be skipped.`,
         [
           { text: "Cancel", style: "cancel" },
-          { text: "Merge accounts", onPress: () => { void (async () => {
-            try {
-              // Merge by account identity so restoring the same backup twice does not
-              // create duplicates. Existing local accounts are retained unchanged.
-              const identity = (account: Account) => [
-                account.issuer.trim().toLocaleLowerCase(),
-                account.name.trim().toLocaleLowerCase(),
-                account.secret.replace(/[\s-]/g, "").toUpperCase(),
-                account.algorithm,
-                String(account.digits),
-                String(account.period),
-              ].join("|");
-              const merged = [...accounts];
-              const identities = new Set(merged.map(identity));
-              const ids = new Set(merged.map((account) => account.id));
-              let added = 0;
-              for (const account of restored) {
-                const key = identity(account);
-                if (identities.has(key)) continue;
-                let id = account.id;
-                if (!id || ids.has(id)) {
-                  id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-                  while (ids.has(id)) id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+          {
+            text: "Merge accounts",
+            onPress: () => {
+              void (async () => {
+                try {
+                  // Merge by account identity so restoring the same backup twice does not
+                  // create duplicates. Existing local accounts are retained unchanged.
+                  const identity = (account: Account) =>
+                    [
+                      account.issuer.trim().toLocaleLowerCase(),
+                      account.name.trim().toLocaleLowerCase(),
+                      account.secret.replace(/[\s-]/g, "").toUpperCase(),
+                      account.algorithm,
+                      String(account.digits),
+                      String(account.period),
+                    ].join("|");
+                  const merged = [...accounts];
+                  const identities = new Set(merged.map(identity));
+                  const ids = new Set(merged.map((account) => account.id));
+                  let added = 0;
+                  for (const account of restored) {
+                    const key = identity(account);
+                    if (identities.has(key)) continue;
+                    let id = account.id;
+                    if (!id || ids.has(id)) {
+                      id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+                      while (ids.has(id))
+                        id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+                    }
+                    const safeAccount = { ...account, id };
+                    merged.push(safeAccount);
+                    identities.add(key);
+                    ids.add(id);
+                    added += 1;
+                  }
+                  await SecureStore.setItemAsync(STORAGE_KEY, JSON.stringify(merged));
+                  setAccounts(merged);
+                  setBackupVisible(false);
+                  setSettingsVisible(false);
+                  setBackupPassword("");
+                  Alert.alert(
+                    "Restore complete",
+                    `Added ${added} account${added === 1 ? "" : "s"}. ${restored.length - added} duplicate account${restored.length - added === 1 ? " was" : "s were"} skipped. Your existing accounts were kept.`,
+                  );
+                } catch {
+                  Alert.alert(
+                    "Restore failed",
+                    "KaalKey could not save the restored accounts to secure storage.",
+                  );
                 }
-                const safeAccount = { ...account, id };
-                merged.push(safeAccount);
-                identities.add(key);
-                ids.add(id);
-                added += 1;
-              }
-              await SecureStore.setItemAsync(STORAGE_KEY, JSON.stringify(merged));
-              setAccounts(merged);
-              setBackupVisible(false);
-              setSettingsVisible(false);
-              setBackupPassword("");
-              Alert.alert(
-                "Restore complete",
-                `Added ${added} account${added === 1 ? "" : "s"}. ${restored.length - added} duplicate account${restored.length - added === 1 ? " was" : "s were"} skipped. Your existing accounts were kept.`
-              );
-            } catch { Alert.alert("Restore failed", "KaalKey could not save the restored accounts to secure storage."); }
-          })(); } },
-        ]
+              })();
+            },
+          },
+        ],
       );
     } catch (error) {
-      Alert.alert("Restore failed", error instanceof Error ? error.message : "The backup could not be read.");
-    } finally { setBackupBusy(false); }
+      Alert.alert(
+        "Restore failed",
+        error instanceof Error ? error.message : "The backup could not be read.",
+      );
+    } finally {
+      setBackupBusy(false);
+    }
   }
 
   const visibleAccounts = accounts
@@ -699,7 +741,9 @@ export default function HomeScreen() {
             accessibilityLabel="KaalKey tricolour lock emblem"
           />
           <Text style={styles.splashTitle}>
-            <Text style={styles.splashKaal}>Kaal</Text><Text style={styles.splashK}>K</Text><Text style={styles.splashEy}>ey</Text>
+            <Text style={styles.splashKaal}>Kaal</Text>
+            <Text style={styles.splashK}>K</Text>
+            <Text style={styles.splashEy}>ey</Text>
           </Text>
           <Text style={styles.splashSubtitle}>AUTHENTICATOR</Text>
           <View style={styles.splashBadge}>
@@ -781,13 +825,21 @@ export default function HomeScreen() {
             accessibilityLabel={biometricEnabled ? "Disable app lock" : "Enable app lock"}
           >
             <Text style={styles.securityButtonIcon}>{biometricEnabled ? "🔒" : "🔐"}</Text>
-            <Text style={[styles.securityButtonText, biometricEnabled && styles.securityButtonTextActive]}>
+            <Text
+              style={[
+                styles.securityButtonText,
+                biometricEnabled && styles.securityButtonTextActive,
+              ]}
+            >
               {biometricEnabled ? "LOCK ON" : "SECURITY"}
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.settingsIconButton}
-            onPress={() => { hapticFeedback("selection"); setSettingsVisible(true); }}
+            onPress={() => {
+              hapticFeedback("selection");
+              setSettingsVisible(true);
+            }}
             activeOpacity={0.78}
             accessibilityRole="button"
             accessibilityLabel="Open app settings"
@@ -798,15 +850,9 @@ export default function HomeScreen() {
       </View>
 
       <View style={styles.tricolorStripe}>
-        <View
-          style={[styles.tricolorSegment, { backgroundColor: "#FF9800" }]}
-        />
-        <View
-          style={[styles.tricolorSegment, { backgroundColor: "#FFFFFF" }]}
-        />
-        <View
-          style={[styles.tricolorSegment, { backgroundColor: "#138808" }]}
-        />
+        <View style={[styles.tricolorSegment, { backgroundColor: "#FF9800" }]} />
+        <View style={[styles.tricolorSegment, { backgroundColor: "#FFFFFF" }]} />
+        <View style={[styles.tricolorSegment, { backgroundColor: "#138808" }]} />
       </View>
 
       <ScrollView
@@ -864,19 +910,39 @@ export default function HomeScreen() {
               <Text style={styles.sortLabel}>SORT BY</Text>
               <TouchableOpacity
                 style={[styles.sortButton, sortBy === "service" && styles.sortButtonActive]}
-                onPress={() => { hapticFeedback("selection"); setSortBy("service"); }}
+                onPress={() => {
+                  hapticFeedback("selection");
+                  setSortBy("service");
+                }}
                 accessibilityRole="button"
                 accessibilityLabel="Sort by service name"
               >
-                <Text style={[styles.sortButtonText, sortBy === "service" && styles.sortButtonTextActive]}>Service</Text>
+                <Text
+                  style={[
+                    styles.sortButtonText,
+                    sortBy === "service" && styles.sortButtonTextActive,
+                  ]}
+                >
+                  Service
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={[styles.sortButton, sortBy === "account" && styles.sortButtonActive]}
-                onPress={() => { hapticFeedback("selection"); setSortBy("account"); }}
+                onPress={() => {
+                  hapticFeedback("selection");
+                  setSortBy("account");
+                }}
                 accessibilityRole="button"
                 accessibilityLabel="Sort by account name"
               >
-                <Text style={[styles.sortButtonText, sortBy === "account" && styles.sortButtonTextActive]}>Account</Text>
+                <Text
+                  style={[
+                    styles.sortButtonText,
+                    sortBy === "account" && styles.sortButtonTextActive,
+                  ]}
+                >
+                  Account
+                </Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -893,17 +959,11 @@ export default function HomeScreen() {
             <Text style={styles.emptyTitle}>Your vault starts here</Text>
 
             <Text style={styles.emptyText}>
-              Add an account using its secret key to generate your first
-              verification code.
+              Add an account using its secret key to generate your first verification code.
             </Text>
 
-            <TouchableOpacity
-              style={styles.primaryButton}
-              onPress={openAddAccount}
-            >
-              <Text style={styles.primaryButtonText}>
-                Add your first account
-              </Text>
+            <TouchableOpacity style={styles.primaryButton} onPress={openAddAccount}>
+              <Text style={styles.primaryButtonText}>Add your first account</Text>
             </TouchableOpacity>
           </View>
         ) : visibleAccounts.length === 0 ? (
@@ -955,9 +1015,7 @@ export default function HomeScreen() {
                     activeOpacity={0.68}
                     onPress={() => void copyCode(code)}
                     accessibilityRole="button"
-                    accessibilityLabel={
-                      "Copy verification code for " + account.issuer
-                    }
+                    accessibilityLabel={"Copy verification code for " + account.issuer}
                   >
                     <Text style={styles.code}>
                       {code.slice(0, 3)} {code.slice(3)}
@@ -976,9 +1034,7 @@ export default function HomeScreen() {
         <View style={styles.footer}>
           <Text style={styles.footerBrand}>KAALKEY AUTHENTICATOR</Text>
 
-          <Text style={styles.footerText}>
-            Your codes. Your device. Your control.
-          </Text>
+          <Text style={styles.footerText}>Your codes. Your device. Your control.</Text>
 
           <Text style={styles.version}>EARLY DEVELOPMENT BUILD · 0.1.0</Text>
         </View>
@@ -1004,7 +1060,9 @@ export default function HomeScreen() {
             <View style={styles.modalCard}>
               <View style={styles.modalHeader}>
                 <View style={styles.modalHeaderCopy}>
-                  <Text style={styles.modalTitle}>{editingId ? "Edit account" : "Add account"}</Text>
+                  <Text style={styles.modalTitle}>
+                    {editingId ? "Edit account" : "Add account"}
+                  </Text>
 
                   <Text style={styles.modalSubtitle}>
                     {editingId
@@ -1045,61 +1103,97 @@ export default function HomeScreen() {
                 </TouchableOpacity>
               )}
 
-              {!editingId && (
-                <Text style={styles.manualEntryLabel}>
-                  OR ENTER DETAILS MANUALLY
-                </Text>
-              )}
+              {!editingId && <Text style={styles.manualEntryLabel}>OR ENTER DETAILS MANUALLY</Text>}
 
               <Text style={styles.inputLabel}>SERVICE / ISSUER</Text>
 
-              <TextInput
-                style={styles.input}
-                placeholder="e.g. Google"
-                placeholderTextColor="#66738A"
-                value={issuer}
-                onChangeText={setIssuer}
-                autoCapitalize="words"
-              />
+              <View style={styles.inputClearWrapper}>
+                <TextInput
+                  style={[styles.input, styles.inputWithClearSpace]}
+                  placeholder="e.g. Google"
+                  placeholderTextColor="#66738A"
+                  value={issuer}
+                  onChangeText={setIssuer}
+                  autoCapitalize="words"
+                  accessibilityLabel="Service or issuer"
+                />
+                {issuer.length > 0 && (
+                  <TouchableOpacity
+                    style={styles.clearInputButton}
+                    onPress={() => setIssuer("")}
+                    activeOpacity={0.7}
+                    accessibilityRole="button"
+                    accessibilityLabel="Clear service or issuer"
+                    hitSlop={6}
+                  >
+                    <Text style={styles.clearInputButtonText}>×</Text>
+                  </TouchableOpacity>
+                )}
+              </View>
 
               <Text style={styles.inputLabel}>ACCOUNT NAME</Text>
 
-              <TextInput
-                style={styles.input}
-                placeholder="e.g. you@example.com"
-                placeholderTextColor="#66738A"
-                value={accountName}
-                onChangeText={setAccountName}
-                autoCapitalize="none"
-                keyboardType="email-address"
-              />
+              <View style={styles.inputClearWrapper}>
+                <TextInput
+                  style={[styles.input, styles.inputWithClearSpace]}
+                  placeholder="e.g. you@example.com"
+                  placeholderTextColor="#66738A"
+                  value={accountName}
+                  onChangeText={setAccountName}
+                  autoCapitalize="none"
+                  keyboardType="email-address"
+                  accessibilityLabel="Account name"
+                />
+                {accountName.length > 0 && (
+                  <TouchableOpacity
+                    style={styles.clearInputButton}
+                    onPress={() => setAccountName("")}
+                    activeOpacity={0.7}
+                    accessibilityRole="button"
+                    accessibilityLabel="Clear account name"
+                    hitSlop={6}
+                  >
+                    <Text style={styles.clearInputButtonText}>×</Text>
+                  </TouchableOpacity>
+                )}
+              </View>
 
               <Text style={styles.inputLabel}>SECRET KEY (BASE32)</Text>
 
-              <TextInput
-                style={styles.input}
-                placeholder="Enter your setup key"
-                placeholderTextColor="#66738A"
-                value={secret}
-                onChangeText={setSecret}
-                autoCapitalize="characters"
-                autoCorrect={false}
-                secureTextEntry
-              />
+              <View style={styles.inputClearWrapper}>
+                <TextInput
+                  style={[styles.input, styles.inputWithClearSpace]}
+                  placeholder="Enter your setup key"
+                  placeholderTextColor="#66738A"
+                  value={secret}
+                  onChangeText={setSecret}
+                  autoCapitalize="characters"
+                  autoCorrect={false}
+                  secureTextEntry
+                  accessibilityLabel="Secret key in Base32"
+                />
+                {secret.length > 0 && (
+                  <TouchableOpacity
+                    style={styles.clearInputButton}
+                    onPress={() => setSecret("")}
+                    activeOpacity={0.7}
+                    accessibilityRole="button"
+                    accessibilityLabel="Clear secret key"
+                    hitSlop={6}
+                  >
+                    <Text style={styles.clearInputButtonText}>×</Text>
+                  </TouchableOpacity>
+                )}
+              </View>
 
               <Text style={styles.securityNote}>
-                Use the secret key supplied by the service you are configuring.
-                Never enter your account password here.
+                Use the secret key supplied by the service you are configuring. Never enter your
+                account password here.
               </Text>
 
-              <TouchableOpacity
-                style={styles.primaryButton}
-                onPress={() => void saveAccount()}
-              >
+              <TouchableOpacity style={styles.primaryButton} onPress={() => void saveAccount()}>
                 <Text style={styles.primaryButtonText}>
-                  {editingId
-                    ? "Save changes securely"
-                    : "Save account securely"}
+                  {editingId ? "Save changes securely" : "Save account securely"}
                 </Text>
               </TouchableOpacity>
 
@@ -1125,7 +1219,12 @@ export default function HomeScreen() {
           setModalVisible(true);
         }}
       >
-        <View style={styles.scannerContainer}>
+        <ScrollView
+          style={styles.scannerContainer}
+          contentContainerStyle={styles.scannerScrollContent}
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled"
+        >
           <View style={styles.scannerHeader}>
             <TouchableOpacity
               onPress={() => {
@@ -1143,21 +1242,18 @@ export default function HomeScreen() {
           <View style={styles.scannerIntro}>
             <Text style={styles.scannerTitle}>Scan QR code</Text>
             <Text style={styles.scannerSubtitle}>
-              Point your camera at the authenticator setup QR code from the
-              service you are adding.
+              Point your camera at the authenticator setup QR code from the service you are adding.
             </Text>
           </View>
 
-          <View style={styles.cameraFrame}>
+          <View style={[styles.cameraFrame, { height: scannerCameraHeight }]}>
             {scannerVisible && cameraPermission?.granted ? (
               <CameraView
                 style={styles.cameraPreview}
                 facing="back"
                 mode="picture"
                 barcodeScannerSettings={{ barcodeTypes: ["qr"] }}
-                onBarcodeScanned={
-                  scanned ? undefined : ({ data }) => void handleQrScanned(data)
-                }
+                onBarcodeScanned={scanned ? undefined : ({ data }) => void handleQrScanned(data)}
               />
             ) : (
               <View style={styles.cameraUnavailable}>
@@ -1183,11 +1279,9 @@ export default function HomeScreen() {
               setModalVisible(true);
             }}
           >
-            <Text style={styles.scannerManualText}>
-              Enter details manually instead
-            </Text>
+            <Text style={styles.scannerManualText}>Enter details manually instead</Text>
           </TouchableOpacity>
-        </View>
+        </ScrollView>
       </Modal>
 
       <Modal
@@ -1196,7 +1290,16 @@ export default function HomeScreen() {
         transparent
         onRequestClose={() => setSettingsVisible(false)}
       >
-        <View style={[styles.settingsBackdrop, { paddingTop: Math.max(insets.top, 16), paddingBottom: Math.max(insets.bottom, 16), paddingHorizontal: 16 }]}>
+        <View
+          style={[
+            styles.settingsBackdrop,
+            {
+              paddingTop: Math.max(insets.top, 16),
+              paddingBottom: Math.max(insets.bottom, 16),
+              paddingHorizontal: 16,
+            },
+          ]}
+        >
           <View style={styles.settingsSheet}>
             <ScrollView
               style={styles.settingsScroll}
@@ -1204,130 +1307,242 @@ export default function HomeScreen() {
               showsVerticalScrollIndicator={false}
               keyboardShouldPersistTaps="handled"
             >
-            <View style={styles.settingsTopRow}>
-              <View>
-                <Text style={styles.settingsEyebrow}>KAALKEY PREFERENCES</Text>
-                <Text style={styles.settingsTitle}>App settings</Text>
+              <View style={styles.settingsTopRow}>
+                <View>
+                  <Text style={styles.settingsEyebrow}>KAALKEY PREFERENCES</Text>
+                  <Text style={styles.settingsTitle}>App settings</Text>
+                </View>
+                <TouchableOpacity
+                  style={styles.settingsCloseButton}
+                  onPress={() => setSettingsVisible(false)}
+                  accessibilityRole="button"
+                  accessibilityLabel="Close settings"
+                >
+                  <Text style={styles.settingsCloseText}>✕</Text>
+                </TouchableOpacity>
+              </View>
+
+              <Text style={styles.settingsSectionLabel}>EXPERIENCE</Text>
+              <View style={styles.settingRow}>
+                <View style={styles.settingIconBox}>
+                  <Text style={styles.settingIcon}>📳</Text>
+                </View>
+                <View style={styles.settingCopy}>
+                  <Text style={styles.settingTitleText}>Haptic feedback</Text>
+                  <Text style={styles.settingDescription}>
+                    Gentle feedback for taps and completed actions.
+                  </Text>
+                </View>
+                <TouchableOpacity
+                  style={[styles.settingSwitch, hapticsEnabled && styles.settingSwitchOn]}
+                  onPress={() => void toggleHaptics()}
+                  accessibilityRole="switch"
+                  accessibilityState={{ checked: hapticsEnabled }}
+                  accessibilityLabel="Haptic feedback"
+                >
+                  <View
+                    style={[
+                      styles.settingSwitchThumb,
+                      hapticsEnabled && styles.settingSwitchThumbOn,
+                    ]}
+                  />
+                </TouchableOpacity>
+              </View>
+
+              <Text style={styles.settingsSectionLabel}>SECURITY</Text>
+              <View style={styles.settingRow}>
+                <View style={styles.settingIconBox}>
+                  <Text style={styles.settingIcon}>🔐</Text>
+                </View>
+                <View style={styles.settingCopy}>
+                  <Text style={styles.settingTitleText}>Device authentication lock</Text>
+                  <Text style={styles.settingDescription}>
+                    {biometricEnabled
+                      ? "Your vault locks when KaalKey leaves the foreground."
+                      : "Require your phone’s biometrics or screen-lock PIN, pattern, or password."}
+                  </Text>
+                </View>
+                <TouchableOpacity
+                  style={[styles.settingSwitch, biometricEnabled && styles.settingSwitchOn]}
+                  onPress={() => void toggleBiometricLock()}
+                  accessibilityRole="switch"
+                  accessibilityState={{ checked: biometricEnabled }}
+                  accessibilityLabel="Device authentication app lock"
+                >
+                  <View
+                    style={[
+                      styles.settingSwitchThumb,
+                      biometricEnabled && styles.settingSwitchThumbOn,
+                    ]}
+                  />
+                </TouchableOpacity>
+              </View>
+
+              <Text style={styles.settingsSectionLabel}>BACKUP & RECOVERY</Text>
+              <View style={styles.backupButtonsRow}>
+                <TouchableOpacity
+                  style={styles.backupActionButton}
+                  onPress={() => openBackup("export")}
+                  activeOpacity={0.82}
+                >
+                  <Text style={styles.backupActionIcon}>⬆</Text>
+                  <Text style={styles.backupActionTitle}>Create backup</Text>
+                  <Text style={styles.backupActionDescription}>Encrypted file</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.backupActionButton}
+                  onPress={() => openBackup("restore")}
+                  activeOpacity={0.82}
+                >
+                  <Text style={styles.backupActionIcon}>⬇</Text>
+                  <Text style={styles.backupActionTitle}>Restore backup</Text>
+                  <Text style={styles.backupActionDescription}>Import file</Text>
+                </TouchableOpacity>
+              </View>
+              <Text style={styles.backupSafetyText}>
+                Backups contain your authenticator secrets. They are encrypted with a password you
+                choose. Keep that password safe; KaalKey cannot recover it.
+              </Text>
+
+              <Text style={styles.settingsSectionLabel}>APPEARANCE</Text>
+              <View style={styles.settingRow}>
+                <View style={styles.settingIconBox}>
+                  <Text style={styles.settingIcon}>☀️</Text>
+                </View>
+                <View style={styles.settingCopy}>
+                  <Text style={styles.settingTitleText}>Light appearance</Text>
+                  <Text style={styles.settingDescription}>
+                    KaalKey currently uses its clean light theme.
+                  </Text>
+                </View>
+                <View style={styles.appearanceBadge}>
+                  <Text style={styles.appearanceBadgeText}>ACTIVE</Text>
+                </View>
+              </View>
+
+              <View style={styles.settingsPrivacyNote}>
+                <Text style={styles.settingsPrivacyIcon}>🛡️</Text>
+                <Text style={styles.settingsPrivacyText}>
+                  Your authenticator secrets stay in the on-device secure vault. Preferences are
+                  stored locally.
+                </Text>
               </View>
               <TouchableOpacity
-                style={styles.settingsCloseButton}
+                style={styles.settingsDoneButton}
                 onPress={() => setSettingsVisible(false)}
-                accessibilityRole="button"
-                accessibilityLabel="Close settings"
+                activeOpacity={0.85}
               >
-                <Text style={styles.settingsCloseText}>✕</Text>
+                <Text style={styles.settingsDoneText}>Done</Text>
               </TouchableOpacity>
-            </View>
-
-            <Text style={styles.settingsSectionLabel}>EXPERIENCE</Text>
-            <View style={styles.settingRow}>
-              <View style={styles.settingIconBox}><Text style={styles.settingIcon}>📳</Text></View>
-              <View style={styles.settingCopy}>
-                <Text style={styles.settingTitleText}>Haptic feedback</Text>
-                <Text style={styles.settingDescription}>Gentle feedback for taps and completed actions.</Text>
-              </View>
-              <TouchableOpacity
-                style={[styles.settingSwitch, hapticsEnabled && styles.settingSwitchOn]}
-                onPress={() => void toggleHaptics()}
-                accessibilityRole="switch"
-                accessibilityState={{ checked: hapticsEnabled }}
-                accessibilityLabel="Haptic feedback"
-              >
-                <View style={[styles.settingSwitchThumb, hapticsEnabled && styles.settingSwitchThumbOn]} />
-              </TouchableOpacity>
-            </View>
-
-            <Text style={styles.settingsSectionLabel}>SECURITY</Text>
-            <View style={styles.settingRow}>
-              <View style={styles.settingIconBox}><Text style={styles.settingIcon}>🔐</Text></View>
-              <View style={styles.settingCopy}>
-                <Text style={styles.settingTitleText}>Device authentication lock</Text>
-                <Text style={styles.settingDescription}>{biometricEnabled ? "Your vault locks when KaalKey leaves the foreground." : "Require your phone’s biometrics or screen-lock PIN, pattern, or password."}</Text>
-              </View>
-              <TouchableOpacity
-                style={[styles.settingSwitch, biometricEnabled && styles.settingSwitchOn]}
-                onPress={() => void toggleBiometricLock()}
-                accessibilityRole="switch"
-                accessibilityState={{ checked: biometricEnabled }}
-                accessibilityLabel="Device authentication app lock"
-              >
-                <View style={[styles.settingSwitchThumb, biometricEnabled && styles.settingSwitchThumbOn]} />
-              </TouchableOpacity>
-            </View>
-
-            <Text style={styles.settingsSectionLabel}>BACKUP & RECOVERY</Text>
-            <View style={styles.backupButtonsRow}>
-              <TouchableOpacity style={styles.backupActionButton} onPress={() => openBackup("export")} activeOpacity={0.82}>
-                <Text style={styles.backupActionIcon}>⬆</Text>
-                <Text style={styles.backupActionTitle}>Create backup</Text>
-                <Text style={styles.backupActionDescription}>Encrypted file</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.backupActionButton} onPress={() => openBackup("restore")} activeOpacity={0.82}>
-                <Text style={styles.backupActionIcon}>⬇</Text>
-                <Text style={styles.backupActionTitle}>Restore backup</Text>
-                <Text style={styles.backupActionDescription}>Import file</Text>
-              </TouchableOpacity>
-            </View>
-            <Text style={styles.backupSafetyText}>Backups contain your authenticator secrets. They are encrypted with a password you choose. Keep that password safe; KaalKey cannot recover it.</Text>
-
-            <Text style={styles.settingsSectionLabel}>APPEARANCE</Text>
-            <View style={styles.settingRow}>
-              <View style={styles.settingIconBox}><Text style={styles.settingIcon}>☀️</Text></View>
-              <View style={styles.settingCopy}>
-                <Text style={styles.settingTitleText}>Light appearance</Text>
-                <Text style={styles.settingDescription}>KaalKey currently uses its clean light theme.</Text>
-              </View>
-              <View style={styles.appearanceBadge}><Text style={styles.appearanceBadgeText}>ACTIVE</Text></View>
-            </View>
-
-            <View style={styles.settingsPrivacyNote}>
-              <Text style={styles.settingsPrivacyIcon}>🛡️</Text>
-              <Text style={styles.settingsPrivacyText}>Your authenticator secrets stay in the on-device secure vault. Preferences are stored locally.</Text>
-            </View>
-            <TouchableOpacity
-              style={styles.settingsDoneButton}
-              onPress={() => setSettingsVisible(false)}
-              activeOpacity={0.85}
-            >
-              <Text style={styles.settingsDoneText}>Done</Text>
-            </TouchableOpacity>
             </ScrollView>
           </View>
         </View>
       </Modal>
 
-      <Modal visible={backupVisible} transparent animationType="slide" onRequestClose={() => { setBackupVisible(false); setBackupPassword(""); }}>
+      <Modal
+        visible={backupVisible}
+        transparent
+        animationType="slide"
+        onRequestClose={() => {
+          setBackupVisible(false);
+          setBackupPassword("");
+        }}
+      >
         <View style={styles.settingsBackdrop}>
-          <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : undefined} style={styles.backupModalWrap}>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : undefined}
+            style={styles.backupModalWrap}
+          >
             <View style={styles.backupModal}>
               <View style={styles.settingsTopRow}>
                 <View>
                   <Text style={styles.settingsEyebrow}>SECURE VAULT</Text>
-                  <Text style={styles.settingsTitle}>{backupMode === "export" ? "Create backup" : "Restore backup"}</Text>
+                  <Text style={styles.settingsTitle}>
+                    {backupMode === "export" ? "Create backup" : "Restore backup"}
+                  </Text>
                 </View>
-                <TouchableOpacity style={styles.settingsCloseButton} onPress={() => { setBackupVisible(false); setBackupPassword(""); }} accessibilityLabel="Close backup" accessibilityRole="button">
+                <TouchableOpacity
+                  style={styles.settingsCloseButton}
+                  onPress={() => {
+                    setBackupVisible(false);
+                    setBackupPassword("");
+                  }}
+                  accessibilityLabel="Close backup"
+                  accessibilityRole="button"
+                >
                   <Text style={styles.settingsCloseText}>✕</Text>
                 </TouchableOpacity>
               </View>
               <Text style={styles.backupModalDescription}>
-                {backupMode === "export" ? `Encrypt all ${accounts.length} saved account${accounts.length === 1 ? "" : "s"} into a backup file. Choose a strong password and store the file somewhere private.` : "Choose your KaalKey backup file and password. New accounts will be added to your existing account list; existing accounts will stay as they are."}
+                {backupMode === "export"
+                  ? `Encrypt all ${accounts.length} saved account${accounts.length === 1 ? "" : "s"} into a backup file. Choose a strong password and store the file somewhere private.`
+                  : "Choose your KaalKey backup file and password. New accounts will be added to your existing account list; existing accounts will stay as they are."}
               </Text>
               <Text style={styles.inputLabel}>BACKUP PASSWORD</Text>
-              <TextInput style={styles.input} value={backupPassword} onChangeText={setBackupPassword} placeholder={backupMode === "export" ? "At least 10 characters" : "Enter backup password"} placeholderTextColor="#8290A7" secureTextEntry autoCapitalize="none" autoCorrect={false} textContentType="password" />
-              {backupMode === "export" && <Text style={styles.backupSafetyText}>Use a unique password with at least 10 characters. If you lose it, the backup cannot be decrypted.</Text>}
-              <TouchableOpacity style={[styles.primaryButton, backupBusy && styles.backupDisabled]} disabled={backupBusy} onPress={() => void (backupMode === "export" ? exportEncryptedBackup() : restoreEncryptedBackup())}>
-                <Text style={styles.primaryButtonText}>{backupBusy ? "Please wait…" : backupMode === "export" ? "Encrypt and share backup" : "Choose file and import"}</Text>
+              <View style={styles.inputClearWrapper}>
+                <TextInput
+                  style={[styles.input, styles.inputWithClearSpace]}
+                  value={backupPassword}
+                  onChangeText={setBackupPassword}
+                  placeholder={
+                    backupMode === "export" ? "At least 10 characters" : "Enter backup password"
+                  }
+                  placeholderTextColor="#8290A7"
+                  secureTextEntry
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  textContentType="password"
+                  accessibilityLabel="Backup password"
+                />
+                {backupPassword.length > 0 && (
+                  <TouchableOpacity
+                    style={styles.clearInputButton}
+                    onPress={() => setBackupPassword("")}
+                    activeOpacity={0.7}
+                    accessibilityRole="button"
+                    accessibilityLabel="Clear backup password"
+                    hitSlop={6}
+                  >
+                    <Text style={styles.clearInputButtonText}>×</Text>
+                  </TouchableOpacity>
+                )}
+              </View>
+              {backupMode === "export" && (
+                <Text style={styles.backupSafetyText}>
+                  Use a unique password with at least 10 characters. If you lose it, the backup
+                  cannot be decrypted.
+                </Text>
+              )}
+              <TouchableOpacity
+                style={[styles.primaryButton, backupBusy && styles.backupDisabled]}
+                disabled={backupBusy}
+                onPress={() =>
+                  void (backupMode === "export"
+                    ? exportEncryptedBackup()
+                    : restoreEncryptedBackup())
+                }
+              >
+                <Text style={styles.primaryButtonText}>
+                  {backupBusy
+                    ? "Please wait…"
+                    : backupMode === "export"
+                      ? "Encrypt and share backup"
+                      : "Choose file and import"}
+                </Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.cancelButton} onPress={() => { setBackupVisible(false); setBackupPassword(""); }}>
+              <TouchableOpacity
+                style={styles.cancelButton}
+                onPress={() => {
+                  setBackupVisible(false);
+                  setBackupPassword("");
+                }}
+              >
                 <Text style={styles.cancelButtonText}>Cancel</Text>
               </TouchableOpacity>
             </View>
           </KeyboardAvoidingView>
         </View>
       </Modal>
-
     </SafeAreaView>
   );
 }
-
-
