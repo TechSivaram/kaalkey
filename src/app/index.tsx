@@ -498,6 +498,22 @@ export default function HomeScreen() {
         throw new Error("The QR code uses an unsupported algorithm.");
       }
 
+      // Keep QR-import validation aligned with encrypted-backup validation.
+      if (
+        !Number.isInteger(parsed.digits) ||
+        parsed.digits < 6 ||
+        parsed.digits > 8
+      ) {
+        throw new Error("This QR code must use 6, 7, or 8 digits.");
+      }
+      if (
+        !Number.isInteger(parsed.period) ||
+        parsed.period < 1 ||
+        parsed.period > 120
+      ) {
+        throw new Error("This QR code uses an unsupported time period.");
+      }
+
       const account: Account = {
         id: Date.now().toString() + "-" + Math.random().toString(36).slice(2),
         issuer: normalizedIssuer,
@@ -548,7 +564,7 @@ export default function HomeScreen() {
   }
 
   async function copyCode(code: string) {
-    if (!/^\d{6}$/.test(code)) {
+    if (!/^\d{6,8}$/.test(code)) {
       return;
     }
 
@@ -1039,7 +1055,7 @@ export default function HomeScreen() {
 
           <Text style={styles.footerText}>Your codes. Your device. Your control.</Text>
 
-          <Text style={styles.version}>EARLY DEVELOPMENT BUILD · 0.1.0</Text>
+          <Text style={styles.version}>VERSION 1.0.0</Text>
         </View>
       </ScrollView>
 
