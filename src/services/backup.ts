@@ -25,11 +25,11 @@ async function secureRandomBytes(length: number): Promise<Uint8Array> {
   return Crypto.getRandomBytesAsync(length);
 }
 
-
-
 export async function encryptBackup(accounts: Account[], password: string): Promise<string> {
   if (!validateAccounts(accounts)) {
-    throw new Error("One or more accounts are invalid. Fix the account data before creating a backup.");
+    throw new Error(
+      "One or more accounts are invalid. Fix the account data before creating a backup.",
+    );
   }
   const salt = bytesToHex(await secureRandomBytes(16));
   const iv = bytesToHex(await secureRandomBytes(16));

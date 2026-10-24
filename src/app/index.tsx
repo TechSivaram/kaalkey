@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   Alert,
+  ActivityIndicator,
   BackHandler,
   AppState,
   Image,
@@ -28,6 +29,7 @@ import * as SecureStore from "expo-secure-store";
 import * as OTPAuth from "otpauth";
 import jsQR from "jsqr";
 import jpeg from "jpeg-js";
+import QRCode from "react-native-qrcode-svg";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import type { Account } from "../types/account";
 import { encryptBackup, decryptBackup } from "../services/backup";
@@ -70,7 +72,14 @@ function showBackupMessage(title: string, message: string) {
     Alert.alert(title, message);
   }
 }
-const legalHeadingStyle = { fontSize: 14, lineHeight: 20, fontWeight: "800" as const, color: "#172A46", marginTop: 13, marginBottom: 4 };
+const legalHeadingStyle = {
+  fontSize: 14,
+  lineHeight: 20,
+  fontWeight: "800" as const,
+  color: "#172A46",
+  marginTop: 13,
+  marginBottom: 4,
+};
 const legalBodyStyle = { fontSize: 13, lineHeight: 20, color: "#45556D" };
 
 // Optional haptic feedback; failures never interrupt account actions.
@@ -106,6 +115,7 @@ export default function HomeScreen() {
   const [backupMode, setBackupMode] = useState<"export" | "restore">("export");
   const [backupPassword, setBackupPassword] = useState("");
   const [backupBusy, setBackupBusy] = useState(false);
+  const [activityMessage, setActivityMessage] = useState<string | null>(null);
   const [hapticsEnabled, setHapticsEnabled] = useState(true);
   const [legalLoaded, setLegalLoaded] = useState(false);
   const [legalAccepted, setLegalAccepted] = useState(false);
@@ -125,6 +135,8 @@ export default function HomeScreen() {
   const [secret, setSecret] = useState("");
   const [totpUrlInput, setTotpUrlInput] = useState("");
   const [manualExpanded, setManualExpanded] = useState(false);
+  const [qrAccount, setQrAccount] = useState<Account | null>(null);
+  const [qrRevealed, setQrRevealed] = useState(false);
   const [otpAlgorithm, setOtpAlgorithm] = useState<Account["algorithm"]>("SHA1");
   const [otpDigits, setOtpDigits] = useState<number>(6);
   const [otpPeriod, setOtpPeriod] = useState<string>("30");
@@ -181,9 +193,12 @@ export default function HomeScreen() {
     async function loadLegalAcceptance() {
       try {
         // expo-secure-store is native-only; use browser localStorage on web.
-        const saved = Platform.OS === "web"
-          ? (typeof window !== "undefined" ? window.localStorage.getItem(LEGAL_ACCEPTANCE_KEY) : null)
-          : await SecureStore.getItemAsync(LEGAL_ACCEPTANCE_KEY);
+        const saved =
+          Platform.OS === "web"
+            ? typeof window !== "undefined"
+              ? window.localStorage.getItem(LEGAL_ACCEPTANCE_KEY)
+              : null
+            : await SecureStore.getItemAsync(LEGAL_ACCEPTANCE_KEY);
         if (mounted) setLegalAccepted(saved === LEGAL_VERSION);
       } catch {
         // If the saved decision cannot be read, require acknowledgment again.
@@ -193,7 +208,9 @@ export default function HomeScreen() {
       }
     }
     void loadLegalAcceptance();
-    return () => { mounted = false; };
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   async function acceptLegalNotice() {
@@ -211,7 +228,10 @@ export default function HomeScreen() {
       setLegalReviewVisible(false);
       setLegalChecked(false);
     } catch {
-      Alert.alert("Could not save acknowledgment", "Please try again. You must accept the legal notice before using KaalKey.");
+      Alert.alert(
+        "Could not save acknowledgment",
+        "Please try again. You must accept the legal notice before using KaalKey.",
+      );
     } finally {
       setLegalSaving(false);
     }
@@ -433,7 +453,10 @@ export default function HomeScreen() {
       setAccounts(updated);
       return true;
     } catch {
-      showBackupMessage("Storage error", "Accounts could not be saved. Check browser storage availability and try again.");
+      showBackupMessage(
+        "Storage error",
+        "Accounts could not be saved. Check browser storage availability and try again.",
+      );
       return false;
     }
   }
@@ -464,24 +487,66 @@ export default function HomeScreen() {
     setModalVisible(true);
   }
 
+  function openAccountQr(account: Account) {
+    hapticFeedback("selection");
+    setQrAccount(account);
+    setQrRevealed(false);
+  }
+
+  function closeAccountQr() {
+    setQrRevealed(false);
+    setQrAccount(null);
+  }
+
+  function createAccountOtpAuthUrl(account: Account): string {
+    const label = `${encodeURIComponent(account.issuer)}:${encodeURIComponent(account.name)}`;
+    const params = new URLSearchParams({
+      secret: account.secret,
+      issuer: account.issuer,
+      algorithm: account.algorithm,
+      digits: String(account.digits),
+      period: String(account.period),
+    });
+    return `otpauth://totp/${label}?${params.toString()}`;
+  }
+
   async function saveAccount() {
-    const normalizedSecret = normalizeBase32Secret(secret);
+    const originalAccount = editingId
+      ? accounts.find((account) => account.id === editingId)
+      : undefined;
+    const normalizedSecret = editingId
+      ? (originalAccount?.secret ?? "")
+      : normalizeBase32Secret(secret);
     const normalizedIssuer = issuer.trim();
     const normalizedName = accountName.trim();
 
     if (!normalizedIssuer || !normalizedName || !normalizedSecret) {
-      showBackupMessage("Missing information", "Enter the service name, account name, and secret key.");
+      showBackupMessage(
+        "Missing information",
+        editingId
+          ? "Enter the service name and account name."
+          : "Enter the service name, account name, and secret key.",
+      );
+      return;
+    }
+    if (editingId && !originalAccount) {
+      showBackupMessage(
+        "Account not found",
+        "This account could not be found. Close the editor and try again.",
+      );
       return;
     }
 
+    // Editing is intentionally limited to issuer/service and account name.
+    // Always preserve the original secret and OTP configuration from storage.
     const candidate: Account = {
       id: editingId ?? `${Date.now()}-${Math.random().toString(36).slice(2)}`,
       issuer: normalizedIssuer,
       name: normalizedName,
       secret: normalizedSecret,
-      algorithm: otpAlgorithm,
-      digits: otpDigits,
-      period: Number(otpPeriod),
+      algorithm: originalAccount?.algorithm ?? otpAlgorithm,
+      digits: originalAccount?.digits ?? otpDigits,
+      period: originalAccount?.period ?? Number(otpPeriod),
     };
 
     if (!validateAccount(candidate)) {
@@ -529,14 +594,19 @@ export default function HomeScreen() {
         );
       }
     } catch {
-      showBackupMessage("Invalid secret key", "Please check that you entered a valid Base32 secret.");
+      showBackupMessage(
+        "Invalid secret key",
+        "Please check that you entered a valid Base32 secret.",
+      );
     }
   }
 
   function decodeBase64ToBytes(base64: string): Uint8Array {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     const clean = base64.replace(/[^A-Za-z0-9+/=]/g, "");
-    const output = new Uint8Array(Math.floor((clean.length * 3) / 4) - (clean.endsWith("==") ? 2 : clean.endsWith("=") ? 1 : 0));
+    const output = new Uint8Array(
+      Math.floor((clean.length * 3) / 4) - (clean.endsWith("==") ? 2 : clean.endsWith("=") ? 1 : 0),
+    );
     let outIndex = 0;
     for (let i = 0; i < clean.length; i += 4) {
       const a = alphabet.indexOf(clean[i] || "A");
@@ -564,12 +634,6 @@ export default function HomeScreen() {
   async function importQrImage() {
     try {
       if (Platform.OS === "web") {
-        // Temporary diagnostics for web QR import. These logs contain file metadata
-        // and decode progress only; they never log the image contents or QR secret.
-        const qrLog = (stage: string, details?: unknown) => {
-          if (typeof console !== "undefined") console.info("[KaalKey QR Upload]", stage, details ?? "");
-        };
-        qrLog("button handler started");
         // Use the browser's native file picker; no image is uploaded anywhere.
         const input = document.createElement("input");
         input.type = "file";
@@ -581,30 +645,25 @@ export default function HomeScreen() {
         input.style.width = "1px";
         input.style.height = "1px";
         document.body.appendChild(input);
-        qrLog("file input appended; opening picker", { userAgent: navigator.userAgent });
         input.oncancel = () => {
-          qrLog("picker cancelled");
           input.remove();
         };
         input.onchange = async () => {
-          qrLog("change event fired", { fileCount: input.files?.length ?? 0 });
           const file = input.files?.[0];
           if (!file) {
-            qrLog("change event had no selected file");
             input.remove();
             return;
           }
-          qrLog("file selected", { name: file.name, type: file.type, size: file.size, lastModified: file.lastModified });
           if (!file.type.startsWith("image/")) {
             showQrImportMessage("Unsupported file", "Choose a QR code image such as PNG or JPEG.");
             return;
           }
           let objectUrl: string | undefined;
+          setActivityMessage("Reading QR image…");
           try {
             // Decode via a canvas + jsQR so web import works in browsers that do
             // not implement the experimental BarcodeDetector API.
             objectUrl = URL.createObjectURL(file);
-            qrLog("object URL created", { type: file.type, size: file.size });
             // React Native's `Image` import shadows the browser constructor on web.
             // Resolve the native browser image explicitly so the canvas decoder receives
             // a real HTMLImageElement.
@@ -615,11 +674,9 @@ export default function HomeScreen() {
             const image = new BrowserImage();
             await new Promise<void>((resolve, reject) => {
               image.onload = () => {
-                qrLog("image loaded", { width: image.naturalWidth, height: image.naturalHeight });
                 resolve();
               };
               image.onerror = () => {
-                qrLog("image load error");
                 reject(new Error("Image could not be loaded"));
               };
               image.src = objectUrl!;
@@ -631,17 +688,19 @@ export default function HomeScreen() {
             // Try the browser-native QR decoder first where supported. It is an
             // optional fast path only; jsQR remains the fallback on all browsers.
             let qrText: string | undefined;
-            const Detector = (globalThis as typeof globalThis & {
-              BarcodeDetector?: new (options?: { formats?: string[] }) => {
-                detect(source: HTMLImageElement | HTMLCanvasElement): Promise<{ rawValue?: string }[]>;
-              };
-            }).BarcodeDetector;
+            const Detector = (
+              globalThis as typeof globalThis & {
+                BarcodeDetector?: new (options?: { formats?: string[] }) => {
+                  detect(
+                    source: HTMLImageElement | HTMLCanvasElement,
+                  ): Promise<{ rawValue?: string }[]>;
+                };
+              }
+            ).BarcodeDetector;
             if (Detector) {
               try {
-                qrLog("trying BarcodeDetector");
                 const detected = await new Detector({ formats: ["qr_code"] }).detect(image);
                 qrText = detected.find((item) => item.rawValue)?.rawValue;
-                qrLog("BarcodeDetector completed", { found: Boolean(qrText) });
               } catch {
                 // Some browsers expose BarcodeDetector but cannot decode this file.
               }
@@ -651,7 +710,6 @@ export default function HomeScreen() {
             // full image. Try original, enlarged (for small QR modules), and
             // reduced (for very large screenshots) renderings.
             const scales = [1, sourceWidth < 1400 && sourceHeight < 1400 ? 2 : 0.5, 1.5, 3];
-            qrLog("starting jsQR decode", { width: sourceWidth, height: sourceHeight, scales });
             for (const scale of scales) {
               if (qrText) break;
               const canvas = document.createElement("canvas");
@@ -663,7 +721,9 @@ export default function HomeScreen() {
               context.drawImage(image, 0, 0, canvas.width, canvas.height);
               const decodeCanvas = (left: number, top: number, width: number, height: number) => {
                 const pixels = context.getImageData(left, top, width, height);
-                return jsQR(pixels.data, pixels.width, pixels.height, { inversionAttempts: "attemptBoth" })?.data;
+                return jsQR(pixels.data, pixels.width, pixels.height, {
+                  inversionAttempts: "attemptBoth",
+                })?.data;
               };
               qrText = decodeCanvas(0, 0, canvas.width, canvas.height);
               if (qrText) break;
@@ -673,9 +733,14 @@ export default function HomeScreen() {
               const cropWidth = Math.max(1, Math.round(canvas.width * 0.72));
               const cropHeight = Math.max(1, Math.round(canvas.height * 0.72));
               const positions = [
-                [Math.round((canvas.width - cropWidth) / 2), Math.round((canvas.height - cropHeight) / 2)],
-                [0, 0], [canvas.width - cropWidth, 0],
-                [0, canvas.height - cropHeight], [canvas.width - cropWidth, canvas.height - cropHeight],
+                [
+                  Math.round((canvas.width - cropWidth) / 2),
+                  Math.round((canvas.height - cropHeight) / 2),
+                ],
+                [0, 0],
+                [canvas.width - cropWidth, 0],
+                [0, canvas.height - cropHeight],
+                [canvas.width - cropWidth, canvas.height - cropHeight],
               ];
               for (const [left, top] of positions) {
                 qrText = decodeCanvas(Math.max(0, left), Math.max(0, top), cropWidth, cropHeight);
@@ -683,28 +748,28 @@ export default function HomeScreen() {
               }
             }
             if (!qrText) {
-              qrLog("decode completed: no QR found");
-              showQrImportMessage("No QR code found", "KaalKey could not decode a QR code in this image. Try a screenshot or a higher-resolution PNG/JPEG.");
+              showQrImportMessage(
+                "No QR code found",
+                "KaalKey could not decode a QR code in this image. Try a screenshot or a higher-resolution PNG/JPEG.",
+              );
               return;
             }
-            qrLog("QR decoded; passing to account import handler", { decodedLength: qrText.length });
             await handleQrScanned(qrText, false);
-            qrLog("account import handler resolved");
-          } catch (error) {
-            qrLog("processing error", error instanceof Error ? { name: error.name, message: error.message, stack: error.stack } : error);
-            showQrImportMessage("Could not read image", "Try a clear PNG or JPEG image containing the authenticator setup QR code.");
+          } catch {
+            showQrImportMessage(
+              "Could not read image",
+              "Try a clear PNG or JPEG image containing the authenticator setup QR code.",
+            );
           } finally {
             if (objectUrl) URL.revokeObjectURL(objectUrl);
             input.remove();
-            qrLog("file input cleaned up");
+            setActivityMessage(null);
           }
         };
         // Must be called directly within the user's click gesture.
         try {
           input.click();
-          qrLog("input.click() returned");
-        } catch (error) {
-          qrLog("input.click() threw", error);
+        } catch {
           input.remove();
           showQrImportMessage("Could not open image picker", "Please try Upload QR again.");
         }
@@ -721,6 +786,7 @@ export default function HomeScreen() {
         selectionLimit: 1,
       });
       if (result.canceled || !result.assets?.[0]?.uri) return;
+      setActivityMessage("Importing QR image…");
       const imageUri = result.assets[0].uri;
 
       let normalizedUri: string | undefined;
@@ -754,7 +820,10 @@ export default function HomeScreen() {
           const crop = new Uint8ClampedArray(centerWidth * centerHeight * 4);
           for (let row = 0; row < centerHeight; row++) {
             const from = ((centerY + row) * decodedImage.width + centerX) * 4;
-            crop.set(decodedImage.data.subarray(from, from + centerWidth * 4), row * centerWidth * 4);
+            crop.set(
+              decodedImage.data.subarray(from, from + centerWidth * 4),
+              row * centerWidth * 4,
+            );
           }
           attempts.push({ data: new Uint8Array(crop), width: centerWidth, height: centerHeight });
         }
@@ -775,8 +844,7 @@ export default function HomeScreen() {
           return;
         }
         await handleQrScanned(qrData, false);
-      } catch (error) {
-        console.warn("QR image decode failed", error);
+      } catch {
         showQrImportMessage(
           "Could not read image",
           "KaalKey could not decode this image. Try a PNG or JPEG screenshot with the full QR code visible.",
@@ -790,9 +858,13 @@ export default function HomeScreen() {
           }
         }
       }
-
     } catch {
-      showQrImportMessage("QR image import failed", "KaalKey could not read that image. Please try another QR code image.");
+      showQrImportMessage(
+        "QR image import failed",
+        "KaalKey could not read that image. Please try another QR code image.",
+      );
+    } finally {
+      if (Platform.OS !== "web") setActivityMessage(null);
     }
   }
 
@@ -800,7 +872,10 @@ export default function HomeScreen() {
     try {
       const pasted = (await Clipboard.getStringAsync()).trim();
       if (!pasted) {
-        showBackupMessage("Clipboard is empty", "Copy an otpauth://totp/ URL first, then tap Paste TOTP URL.");
+        showBackupMessage(
+          "Clipboard is empty",
+          "Copy an otpauth://totp/ URL first, then tap Paste TOTP URL.",
+        );
         return;
       }
       setTotpUrlInput(pasted);
@@ -811,9 +886,12 @@ export default function HomeScreen() {
   }
 
   async function importTotpUrl(value = totpUrlInput) {
-    const payload = value.replace(/[\\u200B-\\u200D\\uFEFF]/g, "").trim();
-    if (!/^otpauth:\\/\\/totp\\//i.test(payload)) {
-      showBackupMessage("Invalid TOTP URL", "Paste a complete authenticator URL beginning with otpauth://totp/.");
+    const payload = value.replace(/[\u200B-\u200D\uFEFF]/g, "").trim();
+    if (!/^otpauth:\/\/totp\//i.test(payload)) {
+      showBackupMessage(
+        "Invalid TOTP URL",
+        "Paste a complete authenticator URL beginning with otpauth://totp/.",
+      );
       return;
     }
     await handleQrScanned(payload, false);
@@ -822,15 +900,22 @@ export default function HomeScreen() {
   async function pasteQrImage() {
     try {
       if (Platform.OS === "web") {
-        showBackupMessage("Paste a QR image", "Click this screen and press Ctrl+V (Windows/Linux) or ⌘+V (Mac) after copying a QR image.");
+        showBackupMessage(
+          "Paste a QR image",
+          "Click this screen and press Ctrl+V (Windows/Linux) or ⌘+V (Mac) after copying a QR image.",
+        );
         return;
       }
       const image = await Clipboard.getImageAsync({ format: "png" });
       if (!image?.data) {
-        showBackupMessage("No image in clipboard", "Copy a QR code image, then tap Paste QR Image again.");
+        showBackupMessage(
+          "No image in clipboard",
+          "Copy a QR code image, then tap Paste QR Image again.",
+        );
         return;
       }
-      const extension = (image.contentType || "image/png").includes("jpeg") ? "jpg" : "png";
+      setActivityMessage("Importing pasted QR image…");
+      const extension = "png"; // getImageAsync({ format: "png" }) returns PNG base64 data.
       const sourceUri = `${FileSystem.cacheDirectory}kaalkey-clipboard-${Date.now()}.${extension}`;
       let normalizedUri: string | undefined;
       try {
@@ -846,25 +931,51 @@ export default function HomeScreen() {
         const base64 = await FileSystem.readAsStringAsync(normalized.uri, {
           encoding: FileSystem.EncodingType.Base64,
         });
-        const decodedImage = jpeg.decode(decodeBase64ToBytes(base64), { useTArray: true, formatAsRGBA: true });
-        const qr = jsQR(new Uint8ClampedArray(decodedImage.data), decodedImage.width, decodedImage.height, {
-          inversionAttempts: "attemptBoth",
+        const decodedImage = jpeg.decode(decodeBase64ToBytes(base64), {
+          useTArray: true,
+          formatAsRGBA: true,
         });
+        const qr = jsQR(
+          new Uint8ClampedArray(decodedImage.data),
+          decodedImage.width,
+          decodedImage.height,
+          {
+            inversionAttempts: "attemptBoth",
+          },
+        );
         if (!qr?.data) {
-          showBackupMessage("No QR code found", "The copied image does not contain a readable QR code.");
+          showBackupMessage(
+            "No QR code found",
+            "The copied image does not contain a readable QR code.",
+          );
           return;
         }
         await handleQrScanned(qr.data, false);
       } finally {
-        try { await FileSystem.deleteAsync(sourceUri, { idempotent: true }); } catch {}
+        try {
+          await FileSystem.deleteAsync(sourceUri, { idempotent: true });
+        } catch {}
         if (normalizedUri) {
-          try { await FileSystem.deleteAsync(normalizedUri, { idempotent: true }); } catch {}
+          try {
+            await FileSystem.deleteAsync(normalizedUri, { idempotent: true });
+          } catch {}
         }
+        setActivityMessage(null);
       }
     } catch {
-      showBackupMessage("Could not paste image", "Image pasting is not supported by this clipboard on this device. Use Import QR image instead.");
+      setActivityMessage(null);
+      showBackupMessage(
+        "Could not paste image",
+        "Image pasting is not supported by this clipboard on this device. Use Import QR image instead.",
+      );
     }
   }
+
+  // Keep the paste listener stable while updating the handler after each render.
+  const handleQrScannedRef = useRef(handleQrScanned);
+  useEffect(() => {
+    handleQrScannedRef.current = handleQrScanned;
+  });
 
   useEffect(() => {
     if (Platform.OS !== "web" || !modalVisible || editingId) return;
@@ -877,7 +988,8 @@ export default function HomeScreen() {
         const file = item.getAsFile();
         if (!file) continue;
         event.preventDefault();
-        const image = new Image();
+        setActivityMessage("Importing pasted QR image…");
+        const image = document.createElement("img");
         const objectUrl = URL.createObjectURL(file);
         image.onload = () => {
           try {
@@ -888,17 +1000,28 @@ export default function HomeScreen() {
             if (!ctx) throw new Error("Image processing unavailable");
             ctx.drawImage(image, 0, 0);
             const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const qr = jsQR(pixels.data, pixels.width, pixels.height, { inversionAttempts: "attemptBoth" });
-            if (qr?.data) void handleQrScanned(qr.data, false);
-            else showQrImportMessage("No QR code found", "The pasted image does not contain a readable QR code.");
+            const qr = jsQR(pixels.data, pixels.width, pixels.height, {
+              inversionAttempts: "attemptBoth",
+            });
+            if (qr?.data) void handleQrScannedRef.current(qr.data, false);
+            else
+              showQrImportMessage(
+                "No QR code found",
+                "The pasted image does not contain a readable QR code.",
+              );
           } catch {
-            showQrImportMessage("Could not read pasted image", "Try copying a clear PNG or JPEG image containing the full QR code.");
+            showQrImportMessage(
+              "Could not read pasted image",
+              "Try copying a clear PNG or JPEG image containing the full QR code.",
+            );
           } finally {
             URL.revokeObjectURL(objectUrl);
+            setActivityMessage(null);
           }
         };
         image.onerror = () => {
           URL.revokeObjectURL(objectUrl);
+          setActivityMessage(null);
           showQrImportMessage("Could not read pasted image", "Try a different QR image.");
         };
         image.src = objectUrl;
@@ -907,7 +1030,7 @@ export default function HomeScreen() {
     };
     window.addEventListener("paste", onPaste);
     return () => window.removeEventListener("paste", onPaste);
-  }, [modalVisible, editingId, accounts]);
+  }, [modalVisible, editingId]);
 
   async function openQrScanner() {
     if (Platform.OS === "web") {
@@ -948,6 +1071,7 @@ export default function HomeScreen() {
       if (scanned) return;
       setScanned(true);
     }
+    setActivityMessage("Importing authenticator account…");
 
     try {
       if (!qrPayload.startsWith("otpauth://totp/")) {
@@ -982,18 +1106,10 @@ export default function HomeScreen() {
       }
 
       // Keep QR-import validation aligned with encrypted-backup validation.
-      if (
-        !Number.isInteger(parsed.digits) ||
-        parsed.digits < 6 ||
-        parsed.digits > 8
-      ) {
+      if (!Number.isInteger(parsed.digits) || parsed.digits < 6 || parsed.digits > 8) {
         throw new Error("This QR code must use 6, 7, or 8 digits.");
       }
-      if (
-        !Number.isInteger(parsed.period) ||
-        parsed.period < 1 ||
-        parsed.period > 120
-      ) {
+      if (!Number.isInteger(parsed.period) || parsed.period < 1 || parsed.period > 120) {
         throw new Error("This QR code uses an unsupported time period.");
       }
 
@@ -1032,7 +1148,10 @@ export default function HomeScreen() {
       if (saved) {
         hapticFeedback("success");
         setScannerVisible(false);
-        showBackupMessage("Account added", `${account.issuer}: ${account.name} was added successfully.`);
+        showBackupMessage(
+          "Account added",
+          `${account.issuer}: ${account.name} was added successfully.`,
+        );
       } else if (fromCamera) {
         setScanned(false);
       }
@@ -1043,6 +1162,8 @@ export default function HomeScreen() {
         `KaalKey could not parse this authenticator QR code. ${detail}. Use the service's TOTP setup QR code (usually starts with otpauth://totp/).`,
       );
       if (fromCamera) setScanned(false);
+    } finally {
+      setActivityMessage(null);
     }
   }
 
@@ -1066,7 +1187,10 @@ export default function HomeScreen() {
     const updated = accounts.filter((account) => account.id !== id);
     const saved = await saveAccounts(updated);
     if (saved) {
-      showBackupMessage("Account removed", "The account and its secret were removed from this device.");
+      showBackupMessage(
+        "Account removed",
+        "The account and its secret were removed from this device.",
+      );
     }
   }
 
@@ -1087,7 +1211,9 @@ export default function HomeScreen() {
       {
         text: "Remove",
         style: "destructive",
-        onPress: () => { void removeAccountConfirmed(id); },
+        onPress: () => {
+          void removeAccountConfirmed(id);
+        },
       },
     ]);
   }
@@ -1108,6 +1234,7 @@ export default function HomeScreen() {
       return;
     }
     setBackupBusy(true);
+    setActivityMessage("Encrypting backup…");
     try {
       const encrypted = await encryptBackup(accounts, backupPassword);
       const filename = `kaalkey-backup-${new Date().toISOString().replace(/[:.]/g, "-")}.kkbackup`;
@@ -1128,7 +1255,10 @@ export default function HomeScreen() {
         window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
         setBackupVisible(false);
         setBackupPassword("");
-        showBackupMessage("Backup created", "Your encrypted KaalKey backup has been downloaded. Keep the file and password private.");
+        showBackupMessage(
+          "Backup created",
+          "Your encrypted KaalKey backup has been downloaded. Keep the file and password private.",
+        );
         return;
       }
 
@@ -1156,6 +1286,7 @@ export default function HomeScreen() {
       );
     } finally {
       setBackupBusy(false);
+      setActivityMessage(null);
     }
   }
 
@@ -1187,19 +1318,27 @@ export default function HomeScreen() {
       input.style.width = "1px";
       input.style.height = "1px";
       const cleanup = () => input.remove();
-      input.addEventListener("change", () => {
-        const file = input.files?.[0];
-        cleanup();
-        if (!file) {
+      input.addEventListener(
+        "change",
+        () => {
+          const file = input.files?.[0];
+          cleanup();
+          if (!file) {
+            resolve(null);
+            return;
+          }
+          void file.text().then(resolve, reject);
+        },
+        { once: true },
+      );
+      input.addEventListener(
+        "cancel",
+        () => {
+          cleanup();
           resolve(null);
-          return;
-        }
-        void file.text().then(resolve, reject);
-      }, { once: true });
-      input.addEventListener("cancel", () => {
-        cleanup();
-        resolve(null);
-      }, { once: true });
+        },
+        { once: true },
+      );
       document.body.appendChild(input);
       input.click();
     });
@@ -1217,20 +1356,29 @@ export default function HomeScreen() {
     try {
       const raw = await pickBackupText();
       if (raw === null) return;
+      setActivityMessage("Decrypting backup…");
       const restored = await decryptBackup(raw, backupPassword);
+      setActivityMessage(null);
       const message = `This backup contains ${restored.length} account${restored.length === 1 ? "" : "s"}. KaalKey will keep your existing accounts and add accounts from the backup that are not already present. Duplicate accounts will be skipped.`;
       let shouldMerge = false;
       if (Platform.OS === "web") {
-        shouldMerge = typeof window !== "undefined" && window.confirm(`Merge backup accounts?\n\n${message}`);
+        shouldMerge =
+          typeof window !== "undefined" && window.confirm(`Merge backup accounts?\n\n${message}`);
       } else {
         shouldMerge = await new Promise<boolean>((resolve) => {
-          Alert.alert("Merge backup accounts?", message, [
-            { text: "Cancel", style: "cancel", onPress: () => resolve(false) },
-            { text: "Merge accounts", onPress: () => resolve(true) },
-          ], { cancelable: true, onDismiss: () => resolve(false) });
+          Alert.alert(
+            "Merge backup accounts?",
+            message,
+            [
+              { text: "Cancel", style: "cancel", onPress: () => resolve(false) },
+              { text: "Merge accounts", onPress: () => resolve(true) },
+            ],
+            { cancelable: true, onDismiss: () => resolve(false) },
+          );
         });
       }
       if (!shouldMerge) return;
+      setActivityMessage("Restoring accounts…");
 
       // Merge by account identity; keep existing local accounts unchanged.
       const identity = (account: Account) =>
@@ -1276,6 +1424,7 @@ export default function HomeScreen() {
       );
     } finally {
       setBackupBusy(false);
+      setActivityMessage(null);
     }
   }
 
@@ -1327,9 +1476,22 @@ export default function HomeScreen() {
   if (!legalAccepted || legalReviewVisible) {
     const firstLaunch = !legalAccepted;
     return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: "#F5F7FB" }} edges={["top", "right", "bottom", "left"]}>
+      <SafeAreaView
+        style={{ flex: 1, backgroundColor: "#F5F7FB" }}
+        edges={["top", "right", "bottom", "left"]}
+      >
         <View style={{ flex: 1, paddingHorizontal: 20, paddingTop: 12, paddingBottom: 12 }}>
-          <View style={{ width: "100%", flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 18, paddingVertical: 2 }}>
+          <View
+            style={{
+              width: "100%",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 14,
+              marginBottom: 18,
+              paddingVertical: 2,
+            }}
+          >
             <Image
               source={require("../../assets/images/kaalkey-emblem.png")}
               style={{ width: 88, height: 80 }}
@@ -1338,61 +1500,268 @@ export default function HomeScreen() {
             />
             <View style={{ flex: 1, alignItems: "flex-start", justifyContent: "center" }}>
               <Text style={{ fontSize: 29, lineHeight: 35, fontWeight: "900", letterSpacing: 0.1 }}>
-                <Text style={{ color: "#FF9800" }}>Kaal</Text><Text style={{ color: "#1769E0" }}>K</Text><Text style={{ color: "#168A35" }}>ey</Text>
+                <Text style={{ color: "#FF9800" }}>Kaal</Text>
+                <Text style={{ color: "#1769E0" }}>K</Text>
+                <Text style={{ color: "#168A35" }}>ey</Text>
               </Text>
-              <Text style={{ fontSize: 11, lineHeight: 16, letterSpacing: 2.1, color: "#4B5563", fontWeight: "800", marginTop: 1 }}>AUTHENTICATOR</Text>
-              <View style={{ flexDirection: "row", alignItems: "center", gap: 6, marginTop: 7, paddingHorizontal: 10, paddingVertical: 5, borderWidth: 1, borderColor: "#D6E0EE", borderRadius: 16, backgroundColor: "#FFFFFF" }}>
-                <View style={{ width: 7, height: 7, borderRadius: 4, backgroundColor: "#168A35" }} />
-                <Text style={{ fontSize: 10, fontWeight: "800", letterSpacing: 1, color: "#52627A" }}>LOCAL VAULT</Text>
+              <Text
+                style={{
+                  fontSize: 11,
+                  lineHeight: 16,
+                  letterSpacing: 2.1,
+                  color: "#4B5563",
+                  fontWeight: "800",
+                  marginTop: 1,
+                }}
+              >
+                AUTHENTICATOR
+              </Text>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: 6,
+                  marginTop: 7,
+                  paddingHorizontal: 10,
+                  paddingVertical: 5,
+                  borderWidth: 1,
+                  borderColor: "#D6E0EE",
+                  borderRadius: 16,
+                  backgroundColor: "#FFFFFF",
+                }}
+              >
+                <View
+                  style={{ width: 7, height: 7, borderRadius: 4, backgroundColor: "#168A35" }}
+                />
+                <Text
+                  style={{ fontSize: 10, fontWeight: "800", letterSpacing: 1, color: "#52627A" }}
+                >
+                  LOCAL VAULT
+                </Text>
               </View>
             </View>
           </View>
-          <Text style={{ fontSize: 23, fontWeight: "800", color: "#14233D", marginBottom: 6 }}>{firstLaunch ? "Legal & Privacy Notice" : "Legal information"}</Text>
-          <Text style={{ fontSize: 13, lineHeight: 19, color: "#52627A", marginBottom: 12 }}>{firstLaunch ? "Please review both documents before using KaalKey. They are included in the app and available offline." : "Review KaalKey’s privacy information and terms of use."}</Text>
+          <Text style={{ fontSize: 23, fontWeight: "800", color: "#14233D", marginBottom: 6 }}>
+            {firstLaunch ? "Legal & Privacy Notice" : "Legal information"}
+          </Text>
+          <Text style={{ fontSize: 13, lineHeight: 19, color: "#52627A", marginBottom: 12 }}>
+            {firstLaunch
+              ? "Please review both documents before using KaalKey. They are included in the app and available offline."
+              : "Review KaalKey’s privacy information and terms of use."}
+          </Text>
           <View style={{ flexDirection: "row", gap: 8, marginBottom: 10 }}>
-            <TouchableOpacity onPress={() => setLegalDocument("privacy")} style={{ flex: 1, paddingVertical: 11, borderRadius: 12, backgroundColor: legalDocument === "privacy" ? "#183B68" : "#E6EBF3", alignItems: "center" }}><Text style={{ color: legalDocument === "privacy" ? "#FFFFFF" : "#31435E", fontWeight: "700" }}>Privacy Policy</Text></TouchableOpacity>
-            <TouchableOpacity onPress={() => setLegalDocument("terms")} style={{ flex: 1, paddingVertical: 11, borderRadius: 12, backgroundColor: legalDocument === "terms" ? "#183B68" : "#E6EBF3", alignItems: "center" }}><Text style={{ color: legalDocument === "terms" ? "#FFFFFF" : "#31435E", fontWeight: "700" }}>Terms of Use</Text></TouchableOpacity>
-          </View>
-          <ScrollView style={{ flex: 1, backgroundColor: "#FFFFFF", borderRadius: 18, borderWidth: 1, borderColor: "#E0E6EF" }} contentContainerStyle={{ padding: 16, paddingBottom: 24 }} showsVerticalScrollIndicator keyboardShouldPersistTaps="handled">
-            {legalDocument === "privacy" ? <>
-              <Text style={{ fontSize: 19, fontWeight: "800", color: "#172A46", marginBottom: 5 }}>Privacy Policy</Text>
-              <Text style={{ fontSize: 12, color: "#718097", marginBottom: 14 }}>Version {LEGAL_VERSION} · Applies to KaalKey Authenticator</Text>
-              <Text style={legalHeadingStyle}>1. Information and secrets</Text>
-              <Text style={legalBodyStyle}>KaalKey is an authenticator app. Account labels and the secret values needed to generate one-time codes are sensitive. The app is designed to store account records in the device’s secure storage. Anyone with access to an unlocked device or an exported backup may be able to access sensitive information.</Text>
-              <Text style={legalHeadingStyle}>2. Permissions and device features</Text>
-              <Text style={legalBodyStyle}>If you choose to scan a QR code, KaalKey uses camera permission for that action. Optional device authentication and haptic feedback use the relevant device features. You can manage permissions in your device settings.</Text>
-              <Text style={legalHeadingStyle}>3. Backups</Text>
-              <Text style={legalBodyStyle}>When you create a backup, KaalKey encrypts the backup using a password you choose. Keep both the file and password private and store them securely. Anyone who obtains the file and its password may be able to restore your authenticator accounts. KaalKey cannot recover a forgotten backup password.</Text>
-              <Text style={legalHeadingStyle}>4. Sharing and third parties</Text>
-              <Text style={legalBodyStyle}>The backup flow may use your device’s share sheet or file picker to save, transfer, or select files. The privacy practices of any third-party app or service you choose are governed by that provider. This notice does not make a blanket claim that your device, operating system, or chosen sharing services never process data.</Text>
-              <Text style={legalHeadingStyle}>5. Security and retention</Text>
-              <Text style={legalBodyStyle}>Keep your device updated, protect it with a screen lock, and do not share OTP secrets or backup passwords. Removing the app, clearing its data, or losing the device may make locally stored accounts unavailable. Maintain a secure backup if you need recovery.</Text>
-              <Text style={legalHeadingStyle}>6. Changes and contact</Text>
-              <Text style={legalBodyStyle}>This embedded notice may be revised in a future app release. For privacy questions, contact the app publisher through the official support channel provided with the app.</Text>
-            </> : <>
-              <Text style={{ fontSize: 19, fontWeight: "800", color: "#172A46", marginBottom: 5 }}>Terms of Use</Text>
-              <Text style={{ fontSize: 12, color: "#718097", marginBottom: 14 }}>Version {LEGAL_VERSION} · Applies to KaalKey Authenticator</Text>
-              <Text style={legalHeadingStyle}>1. Your use</Text>
-              <Text style={legalBodyStyle}>You may use KaalKey to generate verification codes for accounts you are authorized to access. You are responsible for complying with applicable laws and the rules of the services for which you use authentication codes.</Text>
-              <Text style={legalHeadingStyle}>2. Protect your accounts</Text>
-              <Text style={legalBodyStyle}>You are responsible for securing your device, authenticator secrets, recovery methods, exported backups, and backup passwords. Do not share codes or secrets with people you do not trust.</Text>
-              <Text style={legalHeadingStyle}>3. No recovery guarantee</Text>
-              <Text style={legalBodyStyle}>KaalKey cannot guarantee that every account can be recovered, that every QR code or configuration will be compatible, or that the app will operate without interruption or error. Keep alternative recovery methods provided by the relevant service.</Text>
-              <Text style={legalHeadingStyle}>4. No professional advice</Text>
-              <Text style={legalBodyStyle}>The app is a utility and does not provide legal, financial, or security incident-response advice. If an account is compromised, follow the affected service’s official recovery and security guidance.</Text>
-              <Text style={legalHeadingStyle}>5. Changes and availability</Text>
-              <Text style={legalBodyStyle}>Features may change between releases. You should keep the app updated and periodically verify that your backup and recovery arrangements work.</Text>
-              <Text style={legalHeadingStyle}>6. Liability and applicable law</Text>
-              <Text style={legalBodyStyle}>To the extent permitted by applicable law, the app is provided without a guarantee of uninterrupted or error-free operation. Nothing in these terms excludes rights or remedies that cannot legally be excluded. Any further limitations or governing-law terms should be reviewed by a qualified lawyer for the publisher’s jurisdiction before release.</Text>
-            </>}
-          </ScrollView>
-          {firstLaunch ? <>
-            <TouchableOpacity onPress={() => setLegalChecked(v => !v)} style={{ flexDirection: "row", alignItems: "center", paddingVertical: 12, gap: 10 }} accessibilityRole="checkbox" accessibilityState={{ checked: legalChecked }}>
-              <View style={{ width: 22, height: 22, borderRadius: 6, borderWidth: 1.5, borderColor: legalChecked ? "#1D6B4A" : "#8997AA", backgroundColor: legalChecked ? "#1D6B4A" : "#FFFFFF", alignItems: "center", justifyContent: "center" }}><Text style={{ color: "#FFFFFF", fontWeight: "800" }}>{legalChecked ? "✓" : ""}</Text></View>
-              <Text style={{ flex: 1, color: "#34445D", fontSize: 12, lineHeight: 18 }}>I have read and agree to the Privacy Policy and Terms of Use.</Text>
+            <TouchableOpacity
+              onPress={() => setLegalDocument("privacy")}
+              style={{
+                flex: 1,
+                paddingVertical: 11,
+                borderRadius: 12,
+                backgroundColor: legalDocument === "privacy" ? "#183B68" : "#E6EBF3",
+                alignItems: "center",
+              }}
+            >
+              <Text
+                style={{
+                  color: legalDocument === "privacy" ? "#FFFFFF" : "#31435E",
+                  fontWeight: "700",
+                }}
+              >
+                Privacy Policy
+              </Text>
             </TouchableOpacity>
-            <TouchableOpacity disabled={!legalChecked || legalSaving} onPress={() => void acceptLegalNotice()} style={{ backgroundColor: legalChecked ? "#183B68" : "#AAB5C4", borderRadius: 14, paddingVertical: 15, alignItems: "center", marginBottom: 4 }}><Text style={{ color: "#FFFFFF", fontSize: 15, fontWeight: "800" }}>{legalSaving ? "Saving…" : "Accept & Continue"}</Text></TouchableOpacity>
-          </> : <TouchableOpacity onPress={() => setLegalReviewVisible(false)} style={{ backgroundColor: "#183B68", borderRadius: 14, paddingVertical: 15, alignItems: "center", marginTop: 12 }}><Text style={{ color: "#FFFFFF", fontSize: 15, fontWeight: "800" }}>Done</Text></TouchableOpacity>}
+            <TouchableOpacity
+              onPress={() => setLegalDocument("terms")}
+              style={{
+                flex: 1,
+                paddingVertical: 11,
+                borderRadius: 12,
+                backgroundColor: legalDocument === "terms" ? "#183B68" : "#E6EBF3",
+                alignItems: "center",
+              }}
+            >
+              <Text
+                style={{
+                  color: legalDocument === "terms" ? "#FFFFFF" : "#31435E",
+                  fontWeight: "700",
+                }}
+              >
+                Terms of Use
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <ScrollView
+            style={{
+              flex: 1,
+              backgroundColor: "#FFFFFF",
+              borderRadius: 18,
+              borderWidth: 1,
+              borderColor: "#E0E6EF",
+            }}
+            contentContainerStyle={{ padding: 16, paddingBottom: 24 }}
+            showsVerticalScrollIndicator
+            keyboardShouldPersistTaps="handled"
+          >
+            {legalDocument === "privacy" ? (
+              <>
+                <Text
+                  style={{ fontSize: 19, fontWeight: "800", color: "#172A46", marginBottom: 5 }}
+                >
+                  Privacy Policy
+                </Text>
+                <Text style={{ fontSize: 12, color: "#718097", marginBottom: 14 }}>
+                  Version {LEGAL_VERSION} · Applies to KaalKey Authenticator
+                </Text>
+                <Text style={legalHeadingStyle}>1. Information and secrets</Text>
+                <Text style={legalBodyStyle}>
+                  KaalKey is an authenticator app. Account labels and the secret values needed to
+                  generate one-time codes are sensitive. The app is designed to store account
+                  records in the device’s secure storage. Anyone with access to an unlocked device
+                  or an exported backup may be able to access sensitive information.
+                </Text>
+                <Text style={legalHeadingStyle}>2. Permissions and device features</Text>
+                <Text style={legalBodyStyle}>
+                  If you choose to scan a QR code, KaalKey uses camera permission for that action.
+                  Optional device authentication and haptic feedback use the relevant device
+                  features. You can manage permissions in your device settings.
+                </Text>
+                <Text style={legalHeadingStyle}>3. Backups</Text>
+                <Text style={legalBodyStyle}>
+                  When you create a backup, KaalKey encrypts the backup using a password you choose.
+                  Keep both the file and password private and store them securely. Anyone who
+                  obtains the file and its password may be able to restore your authenticator
+                  accounts. KaalKey cannot recover a forgotten backup password.
+                </Text>
+                <Text style={legalHeadingStyle}>4. Sharing and third parties</Text>
+                <Text style={legalBodyStyle}>
+                  The backup flow may use your device’s share sheet or file picker to save,
+                  transfer, or select files. The privacy practices of any third-party app or service
+                  you choose are governed by that provider. This notice does not make a blanket
+                  claim that your device, operating system, or chosen sharing services never process
+                  data.
+                </Text>
+                <Text style={legalHeadingStyle}>5. Security and retention</Text>
+                <Text style={legalBodyStyle}>
+                  Keep your device updated, protect it with a screen lock, and do not share OTP
+                  secrets or backup passwords. Removing the app, clearing its data, or losing the
+                  device may make locally stored accounts unavailable. Maintain a secure backup if
+                  you need recovery.
+                </Text>
+                <Text style={legalHeadingStyle}>6. Changes and contact</Text>
+                <Text style={legalBodyStyle}>
+                  This embedded notice may be revised in a future app release. For privacy
+                  questions, contact the app publisher through the official support channel provided
+                  with the app.
+                </Text>
+              </>
+            ) : (
+              <>
+                <Text
+                  style={{ fontSize: 19, fontWeight: "800", color: "#172A46", marginBottom: 5 }}
+                >
+                  Terms of Use
+                </Text>
+                <Text style={{ fontSize: 12, color: "#718097", marginBottom: 14 }}>
+                  Version {LEGAL_VERSION} · Applies to KaalKey Authenticator
+                </Text>
+                <Text style={legalHeadingStyle}>1. Your use</Text>
+                <Text style={legalBodyStyle}>
+                  You may use KaalKey to generate verification codes for accounts you are authorized
+                  to access. You are responsible for complying with applicable laws and the rules of
+                  the services for which you use authentication codes.
+                </Text>
+                <Text style={legalHeadingStyle}>2. Protect your accounts</Text>
+                <Text style={legalBodyStyle}>
+                  You are responsible for securing your device, authenticator secrets, recovery
+                  methods, exported backups, and backup passwords. Do not share codes or secrets
+                  with people you do not trust.
+                </Text>
+                <Text style={legalHeadingStyle}>3. No recovery guarantee</Text>
+                <Text style={legalBodyStyle}>
+                  KaalKey cannot guarantee that every account can be recovered, that every QR code
+                  or configuration will be compatible, or that the app will operate without
+                  interruption or error. Keep alternative recovery methods provided by the relevant
+                  service.
+                </Text>
+                <Text style={legalHeadingStyle}>4. No professional advice</Text>
+                <Text style={legalBodyStyle}>
+                  The app is a utility and does not provide legal, financial, or security
+                  incident-response advice. If an account is compromised, follow the affected
+                  service’s official recovery and security guidance.
+                </Text>
+                <Text style={legalHeadingStyle}>5. Changes and availability</Text>
+                <Text style={legalBodyStyle}>
+                  Features may change between releases. You should keep the app updated and
+                  periodically verify that your backup and recovery arrangements work.
+                </Text>
+                <Text style={legalHeadingStyle}>6. Liability and applicable law</Text>
+                <Text style={legalBodyStyle}>
+                  To the extent permitted by applicable law, the app is provided without a guarantee
+                  of uninterrupted or error-free operation. Nothing in these terms excludes rights
+                  or remedies that cannot legally be excluded. Any further limitations or
+                  governing-law terms should be reviewed by a qualified lawyer for the publisher’s
+                  jurisdiction before release.
+                </Text>
+              </>
+            )}
+          </ScrollView>
+          {firstLaunch ? (
+            <>
+              <TouchableOpacity
+                onPress={() => setLegalChecked((v) => !v)}
+                style={{ flexDirection: "row", alignItems: "center", paddingVertical: 12, gap: 10 }}
+                accessibilityRole="checkbox"
+                accessibilityState={{ checked: legalChecked }}
+              >
+                <View
+                  style={{
+                    width: 22,
+                    height: 22,
+                    borderRadius: 6,
+                    borderWidth: 1.5,
+                    borderColor: legalChecked ? "#1D6B4A" : "#8997AA",
+                    backgroundColor: legalChecked ? "#1D6B4A" : "#FFFFFF",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Text style={{ color: "#FFFFFF", fontWeight: "800" }}>
+                    {legalChecked ? "✓" : ""}
+                  </Text>
+                </View>
+                <Text style={{ flex: 1, color: "#34445D", fontSize: 12, lineHeight: 18 }}>
+                  I have read and agree to the Privacy Policy and Terms of Use.
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                disabled={!legalChecked || legalSaving}
+                onPress={() => void acceptLegalNotice()}
+                style={{
+                  backgroundColor: legalChecked ? "#183B68" : "#AAB5C4",
+                  borderRadius: 14,
+                  paddingVertical: 15,
+                  alignItems: "center",
+                  marginBottom: 4,
+                }}
+              >
+                <Text style={{ color: "#FFFFFF", fontSize: 15, fontWeight: "800" }}>
+                  {legalSaving ? "Saving…" : "Accept & Continue"}
+                </Text>
+              </TouchableOpacity>
+            </>
+          ) : (
+            <TouchableOpacity
+              onPress={() => setLegalReviewVisible(false)}
+              style={{
+                backgroundColor: "#183B68",
+                borderRadius: 14,
+                paddingVertical: 15,
+                alignItems: "center",
+                marginTop: 12,
+              }}
+            >
+              <Text style={{ color: "#FFFFFF", fontSize: 15, fontWeight: "800" }}>Done</Text>
+            </TouchableOpacity>
+          )}
         </View>
       </SafeAreaView>
     );
@@ -1497,7 +1866,10 @@ export default function HomeScreen() {
       </View>
 
       <ScrollView
-        contentContainerStyle={[styles.content, { paddingBottom: Math.max(insets.bottom + 24, 48) }]}
+        contentContainerStyle={[
+          styles.content,
+          { paddingBottom: Math.max(insets.bottom + 24, 48) },
+        ]}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >
@@ -1634,6 +2006,14 @@ export default function HomeScreen() {
                   <View style={styles.accountActions}>
                     <TouchableOpacity
                       style={styles.editButton}
+                      onPress={() => openAccountQr(account)}
+                      accessibilityRole="button"
+                      accessibilityLabel={"View QR code for " + account.issuer}
+                    >
+                      <Text style={styles.editButtonText}>QR</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.editButton}
                       onPress={() => openEditAccount(account)}
                       accessibilityRole="button"
                       accessibilityLabel={"Edit " + account.issuer + " account"}
@@ -1680,6 +2060,96 @@ export default function HomeScreen() {
           <Text style={styles.version}>VERSION 1.0.0</Text>
         </View>
       </ScrollView>
+
+      <Modal
+        visible={qrAccount !== null}
+        transparent
+        animationType="fade"
+        onRequestClose={closeAccountQr}
+      >
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: "rgba(8, 20, 38, 0.72)",
+            justifyContent: "center",
+            padding: 22,
+          }}
+        >
+          <View
+            style={{
+              backgroundColor: "#FFFFFF",
+              borderRadius: 22,
+              padding: 22,
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ color: "#172A46", fontSize: 21, fontWeight: "800", marginBottom: 8 }}>
+              Account QR code
+            </Text>
+            <Text
+              style={{
+                color: "#53637A",
+                fontSize: 14,
+                lineHeight: 20,
+                textAlign: "center",
+                marginBottom: 16,
+              }}
+            >
+              {qrAccount?.issuer} · {qrAccount?.name}
+            </Text>
+            {!qrRevealed ? (
+              <>
+                <Text
+                  style={{
+                    color: "#8A3B18",
+                    fontSize: 14,
+                    lineHeight: 21,
+                    textAlign: "center",
+                    marginBottom: 18,
+                  }}
+                >
+                  Warning: anyone who scans this QR code can generate verification codes for this
+                  account. Only reveal it on a trusted screen.
+                </Text>
+                <TouchableOpacity
+                  style={[styles.primaryButton, { width: "100%" }]}
+                  onPress={() => setQrRevealed(true)}
+                  accessibilityRole="button"
+                >
+                  <Text style={styles.primaryButtonText}>Reveal QR code</Text>
+                </TouchableOpacity>
+              </>
+            ) : qrAccount ? (
+              <>
+                <QRCode
+                  value={createAccountOtpAuthUrl(qrAccount)}
+                  size={230}
+                  backgroundColor="#FFFFFF"
+                  color="#111827"
+                />
+                <Text
+                  style={{
+                    color: "#66738A",
+                    fontSize: 12,
+                    lineHeight: 18,
+                    textAlign: "center",
+                    marginTop: 14,
+                    marginBottom: 12,
+                  }}
+                >
+                  Keep this QR code private. Scanning it copies the account’s authenticator secret.
+                </Text>
+              </>
+            ) : null}
+            <TouchableOpacity
+              style={[styles.cancelButton, { width: "100%", marginTop: 10 }]}
+              onPress={closeAccountQr}
+            >
+              <Text style={styles.cancelButtonText}>Close</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
 
       <Modal
         visible={modalVisible}
@@ -1763,11 +2233,17 @@ export default function HomeScreen() {
               )}
 
               {!editingId && (
-                <TouchableOpacity style={[styles.scanButton, styles.importQrButton]} onPress={() => void pasteQrImage()} accessibilityRole="button">
+                <TouchableOpacity
+                  style={[styles.scanButton, styles.importQrButton]}
+                  onPress={() => void pasteQrImage()}
+                  accessibilityRole="button"
+                >
                   <Text style={styles.scanButtonIcon}>▣</Text>
                   <View style={styles.scanButtonCopy}>
                     <Text style={styles.scanButtonTitle}>Paste QR image</Text>
-                    <Text style={styles.scanButtonSubtitle}>Copy a QR image, then paste it here</Text>
+                    <Text style={styles.scanButtonSubtitle}>
+                      Copy a QR image, then paste it here
+                    </Text>
                   </View>
                   <Text style={styles.scanButtonArrow}>›</Text>
                 </TouchableOpacity>
@@ -1786,10 +2262,16 @@ export default function HomeScreen() {
                     accessibilityLabel="TOTP setup URL"
                   />
                   <View style={{ flexDirection: "row", gap: 8, marginTop: 8 }}>
-                    <TouchableOpacity style={[styles.scanButton, { flex: 1 }]} onPress={() => void importTotpUrl()}>
+                    <TouchableOpacity
+                      style={[styles.scanButton, { flex: 1 }]}
+                      onPress={() => void importTotpUrl()}
+                    >
                       <Text style={styles.scanButtonTitle}>Import URL</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.scanButton, { flex: 1 }]} onPress={() => void pasteTotpUrl()}>
+                    <TouchableOpacity
+                      style={[styles.scanButton, { flex: 1 }]}
+                      onPress={() => void pasteTotpUrl()}
+                    >
                       <Text style={styles.scanButtonTitle}>Paste URL</Text>
                     </TouchableOpacity>
                   </View>
@@ -1803,188 +2285,209 @@ export default function HomeScreen() {
                   accessibilityState={{ expanded: manualExpanded }}
                 >
                   <View style={styles.scanButtonCopy}>
-                    <Text style={styles.scanButtonTitle}>{manualExpanded ? "Hide manual entry" : "Enter details manually"}</Text>
-                    <Text style={styles.scanButtonSubtitle}>Service, account name and secret key</Text>
+                    <Text style={styles.scanButtonTitle}>
+                      {manualExpanded ? "Hide manual entry" : "Enter details manually"}
+                    </Text>
+                    <Text style={styles.scanButtonSubtitle}>
+                      Service, account name and secret key
+                    </Text>
                   </View>
                   <Text style={styles.scanButtonArrow}>{manualExpanded ? "⌄" : "›"}</Text>
                 </TouchableOpacity>
               )}
               {(editingId || manualExpanded) && (
                 <>
-                  {!editingId && <Text style={styles.manualEntryLabel}>OR ENTER DETAILS MANUALLY</Text>}
+                  {!editingId && (
+                    <Text style={styles.manualEntryLabel}>OR ENTER DETAILS MANUALLY</Text>
+                  )}
 
-              <Text style={styles.inputLabel}>SERVICE / ISSUER</Text>
+                  <Text style={styles.inputLabel}>SERVICE / ISSUER</Text>
 
-              <View style={styles.inputClearWrapper}>
-                <TextInput
-                  style={[styles.input, styles.inputWithClearSpace]}
-                  placeholder="e.g. Google"
-                  placeholderTextColor="#66738A"
-                  value={issuer}
-                  onChangeText={setIssuer}
-                  autoCapitalize="words"
-                  accessibilityLabel="Service or issuer"
-                />
-                {issuer.length > 0 && (
-                  <TouchableOpacity
-                    style={styles.clearInputButton}
-                    onPress={() => setIssuer("")}
-                    activeOpacity={0.7}
-                    accessibilityRole="button"
-                    accessibilityLabel="Clear service or issuer"
-                    hitSlop={6}
-                  >
-                    <Text style={styles.clearInputButtonText}>×</Text>
-                  </TouchableOpacity>
-                )}
-              </View>
+                  <View style={styles.inputClearWrapper}>
+                    <TextInput
+                      style={[styles.input, styles.inputWithClearSpace]}
+                      placeholder="e.g. Google"
+                      placeholderTextColor="#66738A"
+                      value={issuer}
+                      onChangeText={setIssuer}
+                      autoCapitalize="words"
+                      accessibilityLabel="Service or issuer"
+                    />
+                    {issuer.length > 0 && (
+                      <TouchableOpacity
+                        style={styles.clearInputButton}
+                        onPress={() => setIssuer("")}
+                        activeOpacity={0.7}
+                        accessibilityRole="button"
+                        accessibilityLabel="Clear service or issuer"
+                        hitSlop={6}
+                      >
+                        <Text style={styles.clearInputButtonText}>×</Text>
+                      </TouchableOpacity>
+                    )}
+                  </View>
 
-              <Text style={styles.inputLabel}>ACCOUNT NAME</Text>
+                  <Text style={styles.inputLabel}>ACCOUNT NAME</Text>
 
-              <View style={styles.inputClearWrapper}>
-                <TextInput
-                  style={[styles.input, styles.inputWithClearSpace]}
-                  placeholder="e.g. you@example.com"
-                  placeholderTextColor="#66738A"
-                  value={accountName}
-                  onChangeText={setAccountName}
-                  autoCapitalize="none"
-                  keyboardType="email-address"
-                  accessibilityLabel="Account name"
-                />
-                {accountName.length > 0 && (
-                  <TouchableOpacity
-                    style={styles.clearInputButton}
-                    onPress={() => setAccountName("")}
-                    activeOpacity={0.7}
-                    accessibilityRole="button"
-                    accessibilityLabel="Clear account name"
-                    hitSlop={6}
-                  >
-                    <Text style={styles.clearInputButtonText}>×</Text>
-                  </TouchableOpacity>
-                )}
-              </View>
+                  <View style={styles.inputClearWrapper}>
+                    <TextInput
+                      style={[styles.input, styles.inputWithClearSpace]}
+                      placeholder="e.g. you@example.com"
+                      placeholderTextColor="#66738A"
+                      value={accountName}
+                      onChangeText={setAccountName}
+                      autoCapitalize="none"
+                      keyboardType="email-address"
+                      accessibilityLabel="Account name"
+                    />
+                    {accountName.length > 0 && (
+                      <TouchableOpacity
+                        style={styles.clearInputButton}
+                        onPress={() => setAccountName("")}
+                        activeOpacity={0.7}
+                        accessibilityRole="button"
+                        accessibilityLabel="Clear account name"
+                        hitSlop={6}
+                      >
+                        <Text style={styles.clearInputButtonText}>×</Text>
+                      </TouchableOpacity>
+                    )}
+                  </View>
 
-              <Text style={styles.inputLabel}>SECRET KEY (BASE32)</Text>
+                  {!editingId && (
+                    <>
+                      <Text style={styles.inputLabel}>
+                        {editingId ? "SECRET KEY (LOCKED)" : "SECRET KEY (BASE32)"}
+                      </Text>
 
-              <View style={styles.inputClearWrapper}>
-                <TextInput
-                  style={[styles.input, styles.inputWithClearSpace]}
-                  placeholder="Enter your setup key"
-                  placeholderTextColor="#66738A"
-                  value={secret}
-                  onChangeText={setSecret}
-                  autoCapitalize="characters"
-                  autoCorrect={false}
-                  secureTextEntry
-                  accessibilityLabel="Secret key in Base32"
-                />
-                {secret.length > 0 && (
-                  <TouchableOpacity
-                    style={styles.clearInputButton}
-                    onPress={() => setSecret("")}
-                    activeOpacity={0.7}
-                    accessibilityRole="button"
-                    accessibilityLabel="Clear secret key"
-                    hitSlop={6}
-                  >
-                    <Text style={styles.clearInputButtonText}>×</Text>
-                  </TouchableOpacity>
-                )}
-              </View>
+                      <View style={styles.inputClearWrapper}>
+                        <TextInput
+                          style={[styles.input, styles.inputWithClearSpace]}
+                          placeholder="Enter your setup key"
+                          placeholderTextColor="#66738A"
+                          value={secret}
+                          onChangeText={setSecret}
+                          autoCapitalize="characters"
+                          autoCorrect={false}
+                          secureTextEntry
+                          editable={!editingId}
+                          selectTextOnFocus={!editingId}
+                          accessibilityLabel={
+                            editingId
+                              ? "Secret key, read-only while editing"
+                              : "Secret key in Base32"
+                          }
+                        />
+                        {!editingId && secret.length > 0 && (
+                          <TouchableOpacity
+                            style={styles.clearInputButton}
+                            onPress={() => setSecret("")}
+                            activeOpacity={0.7}
+                            accessibilityRole="button"
+                            accessibilityLabel="Clear secret key"
+                            hitSlop={6}
+                          >
+                            <Text style={styles.clearInputButtonText}>×</Text>
+                          </TouchableOpacity>
+                        )}
+                      </View>
+                      <Text style={styles.inputLabel}>OTP ALGORITHM</Text>
+                      <View style={styles.optionRow}>
+                        {(["SHA1", "SHA256", "SHA512"] as const).map((algorithm) => (
+                          <TouchableOpacity
+                            key={algorithm}
+                            style={[
+                              styles.optionChip,
+                              otpAlgorithm === algorithm && styles.optionChipSelected,
+                            ]}
+                            onPress={() => setOtpAlgorithm(algorithm)}
+                            accessibilityRole="button"
+                            accessibilityState={{ selected: otpAlgorithm === algorithm }}
+                          >
+                            <Text
+                              style={[
+                                styles.optionChipText,
+                                otpAlgorithm === algorithm && styles.optionChipTextSelected,
+                              ]}
+                            >
+                              {algorithm.replace("SHA", "SHA-")}
+                            </Text>
+                          </TouchableOpacity>
+                        ))}
+                      </View>
 
-              <Text style={styles.inputLabel}>OTP ALGORITHM</Text>
-              <View style={styles.optionRow}>
-                {(["SHA1", "SHA256", "SHA512"] as const).map((algorithm) => (
-                  <TouchableOpacity
-                    key={algorithm}
-                    style={[
-                      styles.optionChip,
-                      otpAlgorithm === algorithm && styles.optionChipSelected,
-                    ]}
-                    onPress={() => setOtpAlgorithm(algorithm)}
-                    accessibilityRole="button"
-                    accessibilityState={{ selected: otpAlgorithm === algorithm }}
-                  >
-                    <Text
-                      style={[
-                        styles.optionChipText,
-                        otpAlgorithm === algorithm && styles.optionChipTextSelected,
-                      ]}
-                    >
-                      {algorithm.replace("SHA", "SHA-")}
-                    </Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
+                      <Text style={styles.inputLabel}>OTP DIGITS</Text>
+                      <View style={styles.optionRow}>
+                        {[6, 7, 8].map((digits) => (
+                          <TouchableOpacity
+                            key={digits}
+                            style={[
+                              styles.optionChip,
+                              otpDigits === digits && styles.optionChipSelected,
+                            ]}
+                            onPress={() => setOtpDigits(digits)}
+                            accessibilityRole="button"
+                            accessibilityState={{ selected: otpDigits === digits }}
+                          >
+                            <Text
+                              style={[
+                                styles.optionChipText,
+                                otpDigits === digits && styles.optionChipTextSelected,
+                              ]}
+                            >
+                              {digits} digits
+                            </Text>
+                          </TouchableOpacity>
+                        ))}
+                      </View>
 
-              <Text style={styles.inputLabel}>OTP DIGITS</Text>
-              <View style={styles.optionRow}>
-                {[6, 7, 8].map((digits) => (
-                  <TouchableOpacity
-                    key={digits}
-                    style={[
-                      styles.optionChip,
-                      otpDigits === digits && styles.optionChipSelected,
-                    ]}
-                    onPress={() => setOtpDigits(digits)}
-                    accessibilityRole="button"
-                    accessibilityState={{ selected: otpDigits === digits }}
-                  >
-                    <Text
-                      style={[
-                        styles.optionChipText,
-                        otpDigits === digits && styles.optionChipTextSelected,
-                      ]}
-                    >
-                      {digits} digits
-                    </Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
+                      <Text style={styles.inputLabel}>REFRESH INTERVAL (SECONDS)</Text>
+                      <TextInput
+                        style={styles.input}
+                        value={otpPeriod}
+                        onChangeText={(value) =>
+                          setOtpPeriod(value.replace(/[^0-9]/g, "").slice(0, 3))
+                        }
+                        keyboardType="number-pad"
+                        placeholder="1–120 seconds"
+                        placeholderTextColor="#66738A"
+                        accessibilityLabel="OTP refresh interval in seconds"
+                      />
+                      <View style={styles.optionRow}>
+                        {[15, 30, 60, 90, 120].map((period) => (
+                          <TouchableOpacity
+                            key={period}
+                            style={[
+                              styles.optionChip,
+                              Number(otpPeriod) === period && styles.optionChipSelected,
+                            ]}
+                            onPress={() => setOtpPeriod(String(period))}
+                            accessibilityRole="button"
+                            accessibilityState={{ selected: Number(otpPeriod) === period }}
+                          >
+                            <Text
+                              style={[
+                                styles.optionChipText,
+                                Number(otpPeriod) === period && styles.optionChipTextSelected,
+                              ]}
+                            >
+                              {period}s
+                            </Text>
+                          </TouchableOpacity>
+                        ))}
+                      </View>
 
-              <Text style={styles.inputLabel}>REFRESH INTERVAL (SECONDS)</Text>
-              <TextInput
-                style={styles.input}
-                value={otpPeriod}
-                onChangeText={(value) => setOtpPeriod(value.replace(/[^0-9]/g, "").slice(0, 3))}
-                keyboardType="number-pad"
-                placeholder="1–120 seconds"
-                placeholderTextColor="#66738A"
-                accessibilityLabel="OTP refresh interval in seconds"
-              />
-              <View style={styles.optionRow}>
-                {[15, 30, 60, 90, 120].map((period) => (
-                  <TouchableOpacity
-                    key={period}
-                    style={[
-                      styles.optionChip,
-                      Number(otpPeriod) === period && styles.optionChipSelected,
-                    ]}
-                    onPress={() => setOtpPeriod(String(period))}
-                    accessibilityRole="button"
-                    accessibilityState={{ selected: Number(otpPeriod) === period }}
-                  >
-                    <Text
-                      style={[
-                        styles.optionChipText,
-                        Number(otpPeriod) === period && styles.optionChipTextSelected,
-                      ]}
-                    >
-                      {period}s
-                    </Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
+                      <Text style={styles.securityNote}>
+                        Use the secret key supplied by the service you are configuring. Never enter
+                        your account password here. Match the algorithm, digit count, and interval
+                        to the service&apos;s setup instructions.
+                      </Text>
+                    </>
+                  )}
+                </>
+              )}
 
-              <Text style={styles.securityNote}>
-                Use the secret key supplied by the service you are configuring. Never enter your
-                account password here. Match the algorithm, digit count, and interval to the
-                service&apos;s setup instructions.
-              </Text>
-
-                </>\n              )}\n\n              <TouchableOpacity style={styles.primaryButton} onPress={() => void saveAccount()}>
+              <TouchableOpacity style={styles.primaryButton} onPress={() => void saveAccount()}>
                 <Text style={styles.primaryButtonText}>
                   {editingId ? "Save changes securely" : "Save account securely"}
                 </Text>
@@ -2047,7 +2550,10 @@ export default function HomeScreen() {
 
           <View style={[styles.cameraFrame, { height: scannerCameraHeight }]}>
             {scannerVisible && Platform.OS === "web" ? (
-              <WebQrScanner active={scannerVisible && !scanned} onDetected={(data) => void handleQrScanned(data)} />
+              <WebQrScanner
+                active={scannerVisible && !scanned}
+                onDetected={(data) => void handleQrScanned(data)}
+              />
             ) : scannerVisible && cameraPermission?.granted ? (
               <CameraView
                 style={styles.cameraPreview}
@@ -2091,12 +2597,7 @@ export default function HomeScreen() {
         transparent
         onRequestClose={() => setSettingsVisible(false)}
       >
-        <View
-          style={[
-            styles.settingsBackdrop,
-            { paddingHorizontal: 16 },
-          ]}
-        >
+        <View style={[styles.settingsBackdrop, { paddingHorizontal: 16 }]}>
           <View style={styles.settingsSheet}>
             <ScrollView
               style={styles.settingsScroll}
@@ -2220,11 +2721,22 @@ export default function HomeScreen() {
 
               <TouchableOpacity
                 style={[styles.settingRow, { marginTop: 8 }]}
-                onPress={() => { setSettingsVisible(false); setLegalDocument("privacy"); setLegalReviewVisible(true); }}
+                onPress={() => {
+                  setSettingsVisible(false);
+                  setLegalDocument("privacy");
+                  setLegalReviewVisible(true);
+                }}
                 accessibilityRole="button"
               >
-                <View style={styles.settingIconBox}><Text style={styles.settingIcon}>📄</Text></View>
-                <View style={styles.settingCopy}><Text style={styles.settingTitleText}>Legal & privacy</Text><Text style={styles.settingDescription}>Review the Privacy Policy and Terms of Use.</Text></View>
+                <View style={styles.settingIconBox}>
+                  <Text style={styles.settingIcon}>📄</Text>
+                </View>
+                <View style={styles.settingCopy}>
+                  <Text style={styles.settingTitleText}>Legal & privacy</Text>
+                  <Text style={styles.settingDescription}>
+                    Review the Privacy Policy and Terms of Use.
+                  </Text>
+                </View>
                 <Text style={{ color: "#60718A", fontSize: 20 }}>›</Text>
               </TouchableOpacity>
 
@@ -2256,12 +2768,7 @@ export default function HomeScreen() {
           setBackupPassword("");
         }}
       >
-        <View
-          style={[
-            styles.settingsBackdrop,
-            { paddingHorizontal: 12 },
-          ]}
-        >
+        <View style={[styles.settingsBackdrop, { paddingHorizontal: 12 }]}>
           <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.backupModalWrap}
@@ -2272,96 +2779,153 @@ export default function HomeScreen() {
               showsVerticalScrollIndicator
               keyboardShouldPersistTaps="handled"
             >
-            <View style={styles.backupModal}>
-              <View style={styles.settingsTopRow}>
-                <View style={styles.dialogTitleCopy}>
-                  <Text style={styles.settingsEyebrow}>SECURE VAULT</Text>
-                  <Text style={styles.settingsTitle}>
-                    {backupMode === "export" ? "Create backup" : "Restore backup"}
-                  </Text>
+              <View style={styles.backupModal}>
+                <View style={styles.settingsTopRow}>
+                  <View style={styles.dialogTitleCopy}>
+                    <Text style={styles.settingsEyebrow}>SECURE VAULT</Text>
+                    <Text style={styles.settingsTitle}>
+                      {backupMode === "export" ? "Create backup" : "Restore backup"}
+                    </Text>
+                  </View>
+                  <TouchableOpacity
+                    style={styles.settingsCloseButton}
+                    hitSlop={10}
+                    onPress={() => {
+                      setBackupVisible(false);
+                      setBackupPassword("");
+                    }}
+                    accessibilityLabel="Close backup"
+                    accessibilityRole="button"
+                  >
+                    <Text style={styles.settingsCloseText}>✕</Text>
+                  </TouchableOpacity>
                 </View>
+                <Text style={styles.backupModalDescription}>
+                  {backupMode === "export"
+                    ? `Encrypt all ${accounts.length} saved account${accounts.length === 1 ? "" : "s"} into a backup file. Choose a strong password and store the file somewhere private.`
+                    : "Choose your KaalKey backup file and password. New accounts will be added to your existing account list; existing accounts will stay as they are."}
+                </Text>
+                <Text style={styles.inputLabel}>BACKUP PASSWORD</Text>
+                <View style={styles.inputClearWrapper}>
+                  <TextInput
+                    style={[styles.input, styles.inputWithClearSpace]}
+                    value={backupPassword}
+                    onChangeText={setBackupPassword}
+                    placeholder={
+                      backupMode === "export" ? "At least 10 characters" : "Enter backup password"
+                    }
+                    placeholderTextColor="#8290A7"
+                    secureTextEntry
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    textContentType="password"
+                    accessibilityLabel="Backup password"
+                  />
+                  {backupPassword.length > 0 && (
+                    <TouchableOpacity
+                      style={styles.clearInputButton}
+                      onPress={() => setBackupPassword("")}
+                      activeOpacity={0.7}
+                      accessibilityRole="button"
+                      accessibilityLabel="Clear backup password"
+                      hitSlop={6}
+                    >
+                      <Text style={styles.clearInputButtonText}>×</Text>
+                    </TouchableOpacity>
+                  )}
+                </View>
+                {backupMode === "export" && (
+                  <Text style={styles.backupSafetyText}>
+                    Use a unique password with at least 10 characters. If you lose it, the backup
+                    cannot be decrypted.
+                  </Text>
+                )}
                 <TouchableOpacity
-                  style={styles.settingsCloseButton}
-                  hitSlop={10}
+                  style={[styles.primaryButton, backupBusy && styles.backupDisabled]}
+                  disabled={backupBusy}
+                  onPress={() =>
+                    void (backupMode === "export"
+                      ? exportEncryptedBackup()
+                      : restoreEncryptedBackup())
+                  }
+                >
+                  <Text style={styles.primaryButtonText}>
+                    {backupBusy
+                      ? "Please wait…"
+                      : backupMode === "export"
+                        ? "Encrypt and share backup"
+                        : "Choose file and import"}
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.cancelButton}
                   onPress={() => {
                     setBackupVisible(false);
                     setBackupPassword("");
                   }}
-                  accessibilityLabel="Close backup"
-                  accessibilityRole="button"
                 >
-                  <Text style={styles.settingsCloseText}>✕</Text>
+                  <Text style={styles.cancelButtonText}>Cancel</Text>
                 </TouchableOpacity>
               </View>
-              <Text style={styles.backupModalDescription}>
-                {backupMode === "export"
-                  ? `Encrypt all ${accounts.length} saved account${accounts.length === 1 ? "" : "s"} into a backup file. Choose a strong password and store the file somewhere private.`
-                  : "Choose your KaalKey backup file and password. New accounts will be added to your existing account list; existing accounts will stay as they are."}
-              </Text>
-              <Text style={styles.inputLabel}>BACKUP PASSWORD</Text>
-              <View style={styles.inputClearWrapper}>
-                <TextInput
-                  style={[styles.input, styles.inputWithClearSpace]}
-                  value={backupPassword}
-                  onChangeText={setBackupPassword}
-                  placeholder={
-                    backupMode === "export" ? "At least 10 characters" : "Enter backup password"
-                  }
-                  placeholderTextColor="#8290A7"
-                  secureTextEntry
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  textContentType="password"
-                  accessibilityLabel="Backup password"
-                />
-                {backupPassword.length > 0 && (
-                  <TouchableOpacity
-                    style={styles.clearInputButton}
-                    onPress={() => setBackupPassword("")}
-                    activeOpacity={0.7}
-                    accessibilityRole="button"
-                    accessibilityLabel="Clear backup password"
-                    hitSlop={6}
-                  >
-                    <Text style={styles.clearInputButtonText}>×</Text>
-                  </TouchableOpacity>
-                )}
-              </View>
-              {backupMode === "export" && (
-                <Text style={styles.backupSafetyText}>
-                  Use a unique password with at least 10 characters. If you lose it, the backup
-                  cannot be decrypted.
-                </Text>
-              )}
-              <TouchableOpacity
-                style={[styles.primaryButton, backupBusy && styles.backupDisabled]}
-                disabled={backupBusy}
-                onPress={() =>
-                  void (backupMode === "export"
-                    ? exportEncryptedBackup()
-                    : restoreEncryptedBackup())
-                }
-              >
-                <Text style={styles.primaryButtonText}>
-                  {backupBusy
-                    ? "Please wait…"
-                    : backupMode === "export"
-                      ? "Encrypt and share backup"
-                      : "Choose file and import"}
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.cancelButton}
-                onPress={() => {
-                  setBackupVisible(false);
-                  setBackupPassword("");
-                }}
-              >
-                <Text style={styles.cancelButtonText}>Cancel</Text>
-              </TouchableOpacity>
-            </View>
             </ScrollView>
           </KeyboardAvoidingView>
+        </View>
+      </Modal>
+      <Modal
+        visible={activityMessage !== null}
+        transparent
+        animationType="fade"
+        statusBarTranslucent
+        navigationBarTranslucent
+        hardwareAccelerated
+        presentationStyle="overFullScreen"
+        onRequestClose={() => {}}
+      >
+        <View
+          accessibilityRole="progressbar"
+          accessibilityLabel={activityMessage ?? "Working"}
+          // Keep the activity layer above every app dialog on web and native.
+          // The Modal is rendered last in this screen so it also wins portal order.
+          pointerEvents="auto"
+          style={{
+            flex: 1,
+            zIndex: 2147483647,
+            elevation: 2147483647,
+            backgroundColor: "rgba(8, 18, 32, 0.42)",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 24,
+          }}
+        >
+          <View
+            style={{
+              minWidth: 190,
+              maxWidth: 300,
+              paddingVertical: 24,
+              paddingHorizontal: 28,
+              borderRadius: 18,
+              backgroundColor: "rgba(255, 255, 255, 0.96)",
+              alignItems: "center",
+              borderWidth: 1,
+              borderColor: "rgba(255, 255, 255, 0.7)",
+            }}
+          >
+            <ActivityIndicator size="large" color="#D98200" />
+            <Text
+              style={{
+                color: "#172A46",
+                fontSize: 14,
+                fontWeight: "700",
+                marginTop: 14,
+                textAlign: "center",
+              }}
+            >
+              {activityMessage ?? "Please wait…"}
+            </Text>
+            <Text style={{ color: "#64748B", fontSize: 12, marginTop: 6, textAlign: "center" }}>
+              Please don’t close or interact with KaalKey.
+            </Text>
+          </View>
         </View>
       </Modal>
     </SafeAreaView>
