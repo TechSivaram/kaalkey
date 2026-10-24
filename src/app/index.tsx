@@ -19,11 +19,15 @@ import {
 import { CameraView, useCameraPermissions } from "expo-camera";
 import * as Clipboard from "expo-clipboard";
 import * as DocumentPicker from "expo-document-picker";
+import * as ImagePicker from "expo-image-picker";
+import * as ImageManipulator from "expo-image-manipulator";
 import * as FileSystem from "expo-file-system/legacy";
 import * as Sharing from "expo-sharing";
 import * as LocalAuthentication from "expo-local-authentication";
 import * as SecureStore from "expo-secure-store";
 import * as OTPAuth from "otpauth";
+import jsQR from "jsqr";
+import jpeg from "jpeg-js";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import type { Account } from "../types/account";
 import { encryptBackup, decryptBackup } from "../services/backup";
@@ -31,12 +35,43 @@ import { generateCode } from "../services/otp";
 import { normalizeBase32Secret, validateAccount } from "../services/account-validation";
 import CountdownRing from "../components/CountdownRing";
 import { styles } from "../styles/home.styles";
+import WebQrScanner from "../components/WebQrScanner";
 
 const STORAGE_KEY = "kaalkey_accounts_v1";
 const BIOMETRIC_ENABLED_KEY = "kaalkey_biometric_lock_enabled_v1";
 const HAPTICS_ENABLED_KEY = "kaalkey_haptics_enabled_v1";
+const LEGAL_ACCEPTANCE_KEY = "kaalkey_legal_acceptance_v1";
+const LEGAL_VERSION = "1.0";
 
 let hapticsAreEnabled = true;
+
+// Account records use SecureStore on native and origin-scoped localStorage on web.
+// Keep this helper limited to account data so native storage behavior stays unchanged.
+async function readAccountsStorage(): Promise<string | null> {
+  if (Platform.OS === "web") {
+    return typeof window !== "undefined" ? window.localStorage.getItem(STORAGE_KEY) : null;
+  }
+  return SecureStore.getItemAsync(STORAGE_KEY);
+}
+
+async function writeAccountsStorage(value: string): Promise<void> {
+  if (Platform.OS === "web") {
+    if (typeof window === "undefined") throw new Error("Browser storage is unavailable.");
+    window.localStorage.setItem(STORAGE_KEY, value);
+    return;
+  }
+  await SecureStore.setItemAsync(STORAGE_KEY, value);
+}
+
+function showBackupMessage(title: string, message: string) {
+  if (Platform.OS === "web" && typeof window !== "undefined") {
+    window.alert(`${title}\n\n${message}`);
+  } else {
+    Alert.alert(title, message);
+  }
+}
+const legalHeadingStyle = { fontSize: 14, lineHeight: 20, fontWeight: "800" as const, color: "#172A46", marginTop: 13, marginBottom: 4 };
+const legalBodyStyle = { fontSize: 13, lineHeight: 20, color: "#45556D" };
 
 // Optional haptic feedback; failures never interrupt account actions.
 function hapticFeedback(kind: "selection" | "success" | "warning" = "selection") {
@@ -72,6 +107,12 @@ export default function HomeScreen() {
   const [backupPassword, setBackupPassword] = useState("");
   const [backupBusy, setBackupBusy] = useState(false);
   const [hapticsEnabled, setHapticsEnabled] = useState(true);
+  const [legalLoaded, setLegalLoaded] = useState(false);
+  const [legalAccepted, setLegalAccepted] = useState(false);
+  const [legalChecked, setLegalChecked] = useState(false);
+  const [legalReviewVisible, setLegalReviewVisible] = useState(false);
+  const [legalDocument, setLegalDocument] = useState<"privacy" | "terms">("privacy");
+  const [legalSaving, setLegalSaving] = useState(false);
   const authenticatingRef = useRef(false);
   const appStateRef = useRef(AppState.currentState);
 
@@ -82,6 +123,8 @@ export default function HomeScreen() {
   const [issuer, setIssuer] = useState("");
   const [accountName, setAccountName] = useState("");
   const [secret, setSecret] = useState("");
+  const [totpUrlInput, setTotpUrlInput] = useState("");
+  const [manualExpanded, setManualExpanded] = useState(false);
   const [otpAlgorithm, setOtpAlgorithm] = useState<Account["algorithm"]>("SHA1");
   const [otpDigits, setOtpDigits] = useState<number>(6);
   const [otpPeriod, setOtpPeriod] = useState<string>("30");
@@ -105,7 +148,7 @@ export default function HomeScreen() {
   useEffect(() => {
     async function loadAccounts() {
       try {
-        const saved = await SecureStore.getItemAsync(STORAGE_KEY);
+        const saved = await readAccountsStorage();
 
         if (saved) {
           const parsed: unknown = JSON.parse(saved);
@@ -132,6 +175,47 @@ export default function HomeScreen() {
 
     void loadAccounts();
   }, []);
+
+  useEffect(() => {
+    let mounted = true;
+    async function loadLegalAcceptance() {
+      try {
+        // expo-secure-store is native-only; use browser localStorage on web.
+        const saved = Platform.OS === "web"
+          ? (typeof window !== "undefined" ? window.localStorage.getItem(LEGAL_ACCEPTANCE_KEY) : null)
+          : await SecureStore.getItemAsync(LEGAL_ACCEPTANCE_KEY);
+        if (mounted) setLegalAccepted(saved === LEGAL_VERSION);
+      } catch {
+        // If the saved decision cannot be read, require acknowledgment again.
+        if (mounted) setLegalAccepted(false);
+      } finally {
+        if (mounted) setLegalLoaded(true);
+      }
+    }
+    void loadLegalAcceptance();
+    return () => { mounted = false; };
+  }, []);
+
+  async function acceptLegalNotice() {
+    if (!legalChecked || legalSaving) return;
+    setLegalSaving(true);
+    try {
+      // Persist acceptance with a web-compatible store in browsers.
+      if (Platform.OS === "web") {
+        if (typeof window === "undefined") throw new Error("Browser storage is unavailable");
+        window.localStorage.setItem(LEGAL_ACCEPTANCE_KEY, LEGAL_VERSION);
+      } else {
+        await SecureStore.setItemAsync(LEGAL_ACCEPTANCE_KEY, LEGAL_VERSION);
+      }
+      setLegalAccepted(true);
+      setLegalReviewVisible(false);
+      setLegalChecked(false);
+    } catch {
+      Alert.alert("Could not save acknowledgment", "Please try again. You must accept the legal notice before using KaalKey.");
+    } finally {
+      setLegalSaving(false);
+    }
+  }
 
   useEffect(() => {
     let mounted = true;
@@ -344,13 +428,12 @@ export default function HomeScreen() {
 
   async function saveAccounts(updated: Account[]): Promise<boolean> {
     try {
-      await SecureStore.setItemAsync(STORAGE_KEY, JSON.stringify(updated));
+      await writeAccountsStorage(JSON.stringify(updated));
 
       setAccounts(updated);
       return true;
     } catch {
-      Alert.alert("Storage error", "Accounts could not be saved securely.");
-
+      showBackupMessage("Storage error", "Accounts could not be saved. Check browser storage availability and try again.");
       return false;
     }
   }
@@ -361,6 +444,8 @@ export default function HomeScreen() {
     setIssuer("");
     setAccountName("");
     setSecret("");
+    setTotpUrlInput("");
+    setManualExpanded(false);
     setOtpAlgorithm("SHA1");
     setOtpDigits(6);
     setOtpPeriod("30");
@@ -385,7 +470,7 @@ export default function HomeScreen() {
     const normalizedName = accountName.trim();
 
     if (!normalizedIssuer || !normalizedName || !normalizedSecret) {
-      Alert.alert("Missing information", "Enter the service name, account name, and secret key.");
+      showBackupMessage("Missing information", "Enter the service name, account name, and secret key.");
       return;
     }
 
@@ -400,7 +485,7 @@ export default function HomeScreen() {
     };
 
     if (!validateAccount(candidate)) {
-      Alert.alert(
+      showBackupMessage(
         "Invalid OTP settings",
         "Check the Base32 secret, algorithm, digit count, and refresh period. Secrets must contain valid Base32 characters; digits must be 6–8 and the period must be 1–120 seconds.",
       );
@@ -416,7 +501,7 @@ export default function HomeScreen() {
       );
 
       if (duplicate) {
-        Alert.alert(
+        showBackupMessage(
           "Account already exists",
           "An account with this service and account name is already saved.",
         );
@@ -438,17 +523,399 @@ export default function HomeScreen() {
         setOtpPeriod("30");
         setEditingId(null);
         setModalVisible(false);
-        Alert.alert(
+        showBackupMessage(
           "Account saved",
           editingId ? "Your account was updated." : "Your account was added securely.",
         );
       }
     } catch {
-      Alert.alert("Invalid secret key", "Please check that you entered a valid Base32 secret.");
+      showBackupMessage("Invalid secret key", "Please check that you entered a valid Base32 secret.");
     }
   }
 
+  function decodeBase64ToBytes(base64: string): Uint8Array {
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    const clean = base64.replace(/[^A-Za-z0-9+/=]/g, "");
+    const output = new Uint8Array(Math.floor((clean.length * 3) / 4) - (clean.endsWith("==") ? 2 : clean.endsWith("=") ? 1 : 0));
+    let outIndex = 0;
+    for (let i = 0; i < clean.length; i += 4) {
+      const a = alphabet.indexOf(clean[i] || "A");
+      const b = alphabet.indexOf(clean[i + 1] || "A");
+      const c = alphabet.indexOf(clean[i + 2] || "A");
+      const d = alphabet.indexOf(clean[i + 3] || "A");
+      const chunk = (a << 18) | (b << 12) | ((c < 0 ? 0 : c) << 6) | (d < 0 ? 0 : d);
+      if (outIndex < output.length) output[outIndex++] = (chunk >> 16) & 255;
+      if (outIndex < output.length) output[outIndex++] = (chunk >> 8) & 255;
+      if (outIndex < output.length) output[outIndex++] = chunk & 255;
+    }
+    return output;
+  }
+
+  function showQrImportMessage(title: string, message: string) {
+    // React Native Alert is not consistently rendered on web. Use the browser
+    // dialog there so failures never appear to do nothing.
+    if (Platform.OS === "web" && typeof window !== "undefined") {
+      window.alert(`${title}\n\n${message}`);
+      return;
+    }
+    Alert.alert(title, message);
+  }
+
+  async function importQrImage() {
+    try {
+      if (Platform.OS === "web") {
+        // Temporary diagnostics for web QR import. These logs contain file metadata
+        // and decode progress only; they never log the image contents or QR secret.
+        const qrLog = (stage: string, details?: unknown) => {
+          if (typeof console !== "undefined") console.info("[KaalKey QR Upload]", stage, details ?? "");
+        };
+        qrLog("button handler started");
+        // Use the browser's native file picker; no image is uploaded anywhere.
+        const input = document.createElement("input");
+        input.type = "file";
+        input.accept = "image/png,image/jpeg,image/webp,image/gif,.png,.jpg,.jpeg,.webp,.gif";
+        // Keep the picker attached to the DOM. Some browsers silently ignore
+        // click() on a detached file input, which looked like upload did nothing.
+        input.style.position = "fixed";
+        input.style.left = "-10000px";
+        input.style.width = "1px";
+        input.style.height = "1px";
+        document.body.appendChild(input);
+        qrLog("file input appended; opening picker", { userAgent: navigator.userAgent });
+        input.oncancel = () => {
+          qrLog("picker cancelled");
+          input.remove();
+        };
+        input.onchange = async () => {
+          qrLog("change event fired", { fileCount: input.files?.length ?? 0 });
+          const file = input.files?.[0];
+          if (!file) {
+            qrLog("change event had no selected file");
+            input.remove();
+            return;
+          }
+          qrLog("file selected", { name: file.name, type: file.type, size: file.size, lastModified: file.lastModified });
+          if (!file.type.startsWith("image/")) {
+            showQrImportMessage("Unsupported file", "Choose a QR code image such as PNG or JPEG.");
+            return;
+          }
+          let objectUrl: string | undefined;
+          try {
+            // Decode via a canvas + jsQR so web import works in browsers that do
+            // not implement the experimental BarcodeDetector API.
+            objectUrl = URL.createObjectURL(file);
+            qrLog("object URL created", { type: file.type, size: file.size });
+            // React Native's `Image` import shadows the browser constructor on web.
+            // Resolve the native browser image explicitly so the canvas decoder receives
+            // a real HTMLImageElement.
+            const BrowserImage = globalThis.Image;
+            if (!BrowserImage) {
+              throw new Error("Browser image decoding is unavailable");
+            }
+            const image = new BrowserImage();
+            await new Promise<void>((resolve, reject) => {
+              image.onload = () => {
+                qrLog("image loaded", { width: image.naturalWidth, height: image.naturalHeight });
+                resolve();
+              };
+              image.onerror = () => {
+                qrLog("image load error");
+                reject(new Error("Image could not be loaded"));
+              };
+              image.src = objectUrl!;
+            });
+            const sourceWidth = image.naturalWidth;
+            const sourceHeight = image.naturalHeight;
+            if (!sourceWidth || !sourceHeight) throw new Error("Image has no readable dimensions");
+
+            // Try the browser-native QR decoder first where supported. It is an
+            // optional fast path only; jsQR remains the fallback on all browsers.
+            let qrText: string | undefined;
+            const Detector = (globalThis as typeof globalThis & {
+              BarcodeDetector?: new (options?: { formats?: string[] }) => {
+                detect(source: HTMLImageElement | HTMLCanvasElement): Promise<{ rawValue?: string }[]>;
+              };
+            }).BarcodeDetector;
+            if (Detector) {
+              try {
+                qrLog("trying BarcodeDetector");
+                const detected = await new Detector({ formats: ["qr_code"] }).detect(image);
+                qrText = detected.find((item) => item.rawValue)?.rawValue;
+                qrLog("BarcodeDetector completed", { found: Boolean(qrText) });
+              } catch {
+                // Some browsers expose BarcodeDetector but cannot decode this file.
+              }
+            }
+
+            // QR codes embedded in screenshots are often small relative to the
+            // full image. Try original, enlarged (for small QR modules), and
+            // reduced (for very large screenshots) renderings.
+            const scales = [1, sourceWidth < 1400 && sourceHeight < 1400 ? 2 : 0.5, 1.5, 3];
+            qrLog("starting jsQR decode", { width: sourceWidth, height: sourceHeight, scales });
+            for (const scale of scales) {
+              if (qrText) break;
+              const canvas = document.createElement("canvas");
+              canvas.width = Math.max(1, Math.round(sourceWidth * scale));
+              canvas.height = Math.max(1, Math.round(sourceHeight * scale));
+              const context = canvas.getContext("2d", { willReadFrequently: true });
+              if (!context) continue;
+              context.imageSmoothingEnabled = scale < 1;
+              context.drawImage(image, 0, 0, canvas.width, canvas.height);
+              const decodeCanvas = (left: number, top: number, width: number, height: number) => {
+                const pixels = context.getImageData(left, top, width, height);
+                return jsQR(pixels.data, pixels.width, pixels.height, { inversionAttempts: "attemptBoth" })?.data;
+              };
+              qrText = decodeCanvas(0, 0, canvas.width, canvas.height);
+              if (qrText) break;
+              // Try the center and four overlapping quadrants for screenshots where
+              // the QR occupies only part of the image. Crops are read from the
+              // already scaled canvas, so they remain local and avoid extra uploads.
+              const cropWidth = Math.max(1, Math.round(canvas.width * 0.72));
+              const cropHeight = Math.max(1, Math.round(canvas.height * 0.72));
+              const positions = [
+                [Math.round((canvas.width - cropWidth) / 2), Math.round((canvas.height - cropHeight) / 2)],
+                [0, 0], [canvas.width - cropWidth, 0],
+                [0, canvas.height - cropHeight], [canvas.width - cropWidth, canvas.height - cropHeight],
+              ];
+              for (const [left, top] of positions) {
+                qrText = decodeCanvas(Math.max(0, left), Math.max(0, top), cropWidth, cropHeight);
+                if (qrText) break;
+              }
+            }
+            if (!qrText) {
+              qrLog("decode completed: no QR found");
+              showQrImportMessage("No QR code found", "KaalKey could not decode a QR code in this image. Try a screenshot or a higher-resolution PNG/JPEG.");
+              return;
+            }
+            qrLog("QR decoded; passing to account import handler", { decodedLength: qrText.length });
+            await handleQrScanned(qrText, false);
+            qrLog("account import handler resolved");
+          } catch (error) {
+            qrLog("processing error", error instanceof Error ? { name: error.name, message: error.message, stack: error.stack } : error);
+            showQrImportMessage("Could not read image", "Try a clear PNG or JPEG image containing the authenticator setup QR code.");
+          } finally {
+            if (objectUrl) URL.revokeObjectURL(objectUrl);
+            input.remove();
+            qrLog("file input cleaned up");
+          }
+        };
+        // Must be called directly within the user's click gesture.
+        try {
+          input.click();
+          qrLog("input.click() returned");
+        } catch (error) {
+          qrLog("input.click() threw", error);
+          input.remove();
+          showQrImportMessage("Could not open image picker", "Please try Upload QR again.");
+        }
+        return;
+      }
+
+      // Use the native photo-library picker on Android/iOS. Expo Camera in this
+      // SDK version does not expose scanFromURLAsync, so decode a normalized JPEG
+      // locally with jpeg-js + jsQR instead of calling a removed API.
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ["images"],
+        allowsEditing: false,
+        quality: 1,
+        selectionLimit: 1,
+      });
+      if (result.canceled || !result.assets?.[0]?.uri) return;
+      const imageUri = result.assets[0].uri;
+
+      let normalizedUri: string | undefined;
+      try {
+        const normalized = await ImageManipulator.manipulateAsync(
+          imageUri,
+          [{ resize: { width: 1800 } }],
+          { compress: 1, format: ImageManipulator.SaveFormat.JPEG },
+        );
+        normalizedUri = normalized.uri;
+        const base64 = await FileSystem.readAsStringAsync(normalized.uri, {
+          encoding: FileSystem.EncodingType.Base64,
+        });
+        const bytes = decodeBase64ToBytes(base64);
+        const decodedImage = jpeg.decode(bytes, { useTArray: true, formatAsRGBA: true });
+        if (!decodedImage.width || !decodedImage.height || !decodedImage.data?.length) {
+          throw new Error("Normalized image could not be decoded");
+        }
+
+        // jsQR works directly on RGBA pixel data. Retry the full image at several
+        // scales and on the center crop, which helps with small QR codes.
+        let qrData: string | undefined;
+        const attempts = [
+          { data: decodedImage.data, width: decodedImage.width, height: decodedImage.height },
+        ];
+        const centerX = Math.floor(decodedImage.width * 0.1);
+        const centerY = Math.floor(decodedImage.height * 0.1);
+        const centerWidth = Math.max(1, decodedImage.width - centerX * 2);
+        const centerHeight = Math.max(1, decodedImage.height - centerY * 2);
+        if (centerWidth < decodedImage.width || centerHeight < decodedImage.height) {
+          const crop = new Uint8ClampedArray(centerWidth * centerHeight * 4);
+          for (let row = 0; row < centerHeight; row++) {
+            const from = ((centerY + row) * decodedImage.width + centerX) * 4;
+            crop.set(decodedImage.data.subarray(from, from + centerWidth * 4), row * centerWidth * 4);
+          }
+          attempts.push({ data: new Uint8Array(crop), width: centerWidth, height: centerHeight });
+        }
+        for (const attempt of attempts) {
+          const qr = jsQR(new Uint8ClampedArray(attempt.data), attempt.width, attempt.height, {
+            inversionAttempts: "attemptBoth",
+          });
+          if (qr?.data) {
+            qrData = qr.data;
+            break;
+          }
+        }
+        if (!qrData) {
+          showQrImportMessage(
+            "No QR code found",
+            "KaalKey decoded the selected image but did not find a QR code. Try a clear, full-resolution PNG or JPEG with the entire code visible.",
+          );
+          return;
+        }
+        await handleQrScanned(qrData, false);
+      } catch (error) {
+        console.warn("QR image decode failed", error);
+        showQrImportMessage(
+          "Could not read image",
+          "KaalKey could not decode this image. Try a PNG or JPEG screenshot with the full QR code visible.",
+        );
+      } finally {
+        if (normalizedUri) {
+          try {
+            await FileSystem.deleteAsync(normalizedUri, { idempotent: true });
+          } catch {
+            // Cache cleanup is best-effort.
+          }
+        }
+      }
+
+    } catch {
+      showQrImportMessage("QR image import failed", "KaalKey could not read that image. Please try another QR code image.");
+    }
+  }
+
+  async function pasteTotpUrl() {
+    try {
+      const pasted = (await Clipboard.getStringAsync()).trim();
+      if (!pasted) {
+        showBackupMessage("Clipboard is empty", "Copy an otpauth://totp/ URL first, then tap Paste TOTP URL.");
+        return;
+      }
+      setTotpUrlInput(pasted);
+      await importTotpUrl(pasted);
+    } catch {
+      showBackupMessage("Could not read clipboard", "Copy the TOTP setup URL and try again.");
+    }
+  }
+
+  async function importTotpUrl(value = totpUrlInput) {
+    const payload = value.replace(/[\\u200B-\\u200D\\uFEFF]/g, "").trim();
+    if (!/^otpauth:\\/\\/totp\\//i.test(payload)) {
+      showBackupMessage("Invalid TOTP URL", "Paste a complete authenticator URL beginning with otpauth://totp/.");
+      return;
+    }
+    await handleQrScanned(payload, false);
+  }
+
+  async function pasteQrImage() {
+    try {
+      if (Platform.OS === "web") {
+        showBackupMessage("Paste a QR image", "Click this screen and press Ctrl+V (Windows/Linux) or ⌘+V (Mac) after copying a QR image.");
+        return;
+      }
+      const image = await Clipboard.getImageAsync({ format: "png" });
+      if (!image?.data) {
+        showBackupMessage("No image in clipboard", "Copy a QR code image, then tap Paste QR Image again.");
+        return;
+      }
+      const extension = (image.contentType || "image/png").includes("jpeg") ? "jpg" : "png";
+      const sourceUri = `${FileSystem.cacheDirectory}kaalkey-clipboard-${Date.now()}.${extension}`;
+      let normalizedUri: string | undefined;
+      try {
+        await FileSystem.writeAsStringAsync(sourceUri, image.data, {
+          encoding: FileSystem.EncodingType.Base64,
+        });
+        const normalized = await ImageManipulator.manipulateAsync(
+          sourceUri,
+          [{ resize: { width: 1800 } }],
+          { compress: 1, format: ImageManipulator.SaveFormat.JPEG },
+        );
+        normalizedUri = normalized.uri;
+        const base64 = await FileSystem.readAsStringAsync(normalized.uri, {
+          encoding: FileSystem.EncodingType.Base64,
+        });
+        const decodedImage = jpeg.decode(decodeBase64ToBytes(base64), { useTArray: true, formatAsRGBA: true });
+        const qr = jsQR(new Uint8ClampedArray(decodedImage.data), decodedImage.width, decodedImage.height, {
+          inversionAttempts: "attemptBoth",
+        });
+        if (!qr?.data) {
+          showBackupMessage("No QR code found", "The copied image does not contain a readable QR code.");
+          return;
+        }
+        await handleQrScanned(qr.data, false);
+      } finally {
+        try { await FileSystem.deleteAsync(sourceUri, { idempotent: true }); } catch {}
+        if (normalizedUri) {
+          try { await FileSystem.deleteAsync(normalizedUri, { idempotent: true }); } catch {}
+        }
+      }
+    } catch {
+      showBackupMessage("Could not paste image", "Image pasting is not supported by this clipboard on this device. Use Import QR image instead.");
+    }
+  }
+
+  useEffect(() => {
+    if (Platform.OS !== "web" || !modalVisible || editingId) return;
+    const onPaste = (event: ClipboardEvent) => {
+      const items = event.clipboardData?.items;
+      if (!items) return;
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        if (!item.type.startsWith("image/")) continue;
+        const file = item.getAsFile();
+        if (!file) continue;
+        event.preventDefault();
+        const image = new Image();
+        const objectUrl = URL.createObjectURL(file);
+        image.onload = () => {
+          try {
+            const canvas = document.createElement("canvas");
+            canvas.width = image.naturalWidth;
+            canvas.height = image.naturalHeight;
+            const ctx = canvas.getContext("2d", { willReadFrequently: true });
+            if (!ctx) throw new Error("Image processing unavailable");
+            ctx.drawImage(image, 0, 0);
+            const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const qr = jsQR(pixels.data, pixels.width, pixels.height, { inversionAttempts: "attemptBoth" });
+            if (qr?.data) void handleQrScanned(qr.data, false);
+            else showQrImportMessage("No QR code found", "The pasted image does not contain a readable QR code.");
+          } catch {
+            showQrImportMessage("Could not read pasted image", "Try copying a clear PNG or JPEG image containing the full QR code.");
+          } finally {
+            URL.revokeObjectURL(objectUrl);
+          }
+        };
+        image.onerror = () => {
+          URL.revokeObjectURL(objectUrl);
+          showQrImportMessage("Could not read pasted image", "Try a different QR image.");
+        };
+        image.src = objectUrl;
+        return;
+      }
+    };
+    window.addEventListener("paste", onPaste);
+    return () => window.removeEventListener("paste", onPaste);
+  }, [modalVisible, editingId, accounts]);
+
   async function openQrScanner() {
+    if (Platform.OS === "web") {
+      setScanned(false);
+      setModalVisible(false);
+      setScannerVisible(true);
+      return;
+    }
     if (!cameraPermission?.granted) {
       const permission = await requestCameraPermission();
 
@@ -466,31 +933,40 @@ export default function HomeScreen() {
     setScannerVisible(true);
   }
 
-  async function handleQrScanned(data: string) {
-    if (scanned) return;
+  async function handleQrScanned(data: string, fromCamera = true) {
+    // Image decoders can include surrounding whitespace or invisible Unicode
+    // characters that are not present in the live camera result. Normalize only
+    // the outer payload/protocol; leave encoded labels and query values untouched.
+    const qrPayload = data
+      .replace(/[\u200B-\u200D\uFEFF]/g, "")
+      .trim()
+      .replace(/^otpauth:\/\/totp\//i, "otpauth://totp/");
 
-    setScanned(true);
+    // `scanned` only debounces repeated live-camera frames. Gallery imports must
+    // still be allowed after the scanner has previously scanned a code.
+    if (fromCamera) {
+      if (scanned) return;
+      setScanned(true);
+    }
 
     try {
-      if (!data.toLowerCase().startsWith("otpauth://totp/")) {
-        Alert.alert(
+      if (!qrPayload.startsWith("otpauth://totp/")) {
+        showQrImportMessage(
           "Unsupported QR code",
           "Scan the authenticator setup QR code supplied by the service. This must be a TOTP code, not a normal login QR code.",
         );
-        setScanned(false);
+        if (fromCamera) setScanned(false);
         return;
       }
 
-      const parsed = OTPAuth.URI.parse(data);
-
-      if (!(parsed instanceof OTPAuth.TOTP)) {
-        Alert.alert(
-          "Unsupported QR code",
-          "This QR code is not a time-based authenticator setup code.",
-        );
-        setScanned(false);
-        return;
+      // Use OTPAuth's URI parser for both live-camera scans and image imports.
+      // Hand-parsing with the platform URL implementation caused valid otpauth
+      // URIs to be rejected on some Android/web runtimes.
+      const parsedUri = OTPAuth.URI.parse(qrPayload);
+      if (!(parsedUri instanceof OTPAuth.TOTP)) {
+        throw new Error("This QR code is not a time-based authenticator setup code.");
       }
+      const parsed = parsedUri;
 
       const normalizedName = parsed.label?.trim();
       const normalizedIssuer = parsed.issuer?.trim() || "Authenticator";
@@ -544,7 +1020,7 @@ export default function HomeScreen() {
 
       if (duplicate) {
         setScannerVisible(false);
-        Alert.alert(
+        showBackupMessage(
           "Account already added",
           `${account.issuer}: ${account.name} is already in KaalKey.`,
         );
@@ -556,16 +1032,17 @@ export default function HomeScreen() {
       if (saved) {
         hapticFeedback("success");
         setScannerVisible(false);
-        Alert.alert("Account added", `${account.issuer}: ${account.name} was added successfully.`);
-      } else {
+        showBackupMessage("Account added", `${account.issuer}: ${account.name} was added successfully.`);
+      } else if (fromCamera) {
         setScanned(false);
       }
-    } catch {
-      Alert.alert(
+    } catch (error) {
+      const detail = error instanceof Error ? error.message : "Unknown QR parsing error";
+      showBackupMessage(
         "Invalid QR code",
-        "KaalKey could not read this authenticator QR code. Try the service's TOTP setup QR code instead.",
+        `KaalKey could not parse this authenticator QR code. ${detail}. Use the service's TOTP setup QR code (usually starts with otpauth://totp/).`,
       );
-      setScanned(false);
+      if (fromCamera) setScanned(false);
     }
   }
 
@@ -584,21 +1061,33 @@ export default function HomeScreen() {
     }
   }
 
+  async function removeAccountConfirmed(id: string) {
+    hapticFeedback("warning");
+    const updated = accounts.filter((account) => account.id !== id);
+    const saved = await saveAccounts(updated);
+    if (saved) {
+      showBackupMessage("Account removed", "The account and its secret were removed from this device.");
+    }
+  }
+
   function deleteAccount(id: string) {
-    Alert.alert("Remove account?", "This removes the account and its secret from this device.", [
-      {
-        text: "Cancel",
-        style: "cancel",
-      },
+    const message = "This removes the account and its secret from this device.";
+
+    // React Native's Alert.alert button callbacks are not implemented consistently
+    // on web. Use the browser's native confirmation dialog there instead.
+    if (Platform.OS === "web" && typeof window !== "undefined") {
+      if (window.confirm(`Remove account?\n\n${message}`)) {
+        void removeAccountConfirmed(id);
+      }
+      return;
+    }
+
+    Alert.alert("Remove account?", message, [
+      { text: "Cancel", style: "cancel" },
       {
         text: "Remove",
         style: "destructive",
-        onPress: () => {
-          hapticFeedback("warning");
-          const updated = accounts.filter((account) => account.id !== id);
-
-          void saveAccounts(updated);
-        },
+        onPress: () => { void removeAccountConfirmed(id); },
       },
     ]);
   }
@@ -612,7 +1101,7 @@ export default function HomeScreen() {
 
   async function exportEncryptedBackup() {
     if (backupPassword.length < 10) {
-      Alert.alert(
+      showBackupMessage(
         "Use a stronger backup password",
         "Choose at least 10 characters. You will need this password to restore the backup.",
       );
@@ -621,14 +1110,36 @@ export default function HomeScreen() {
     setBackupBusy(true);
     try {
       const encrypted = await encryptBackup(accounts, backupPassword);
+      const filename = `kaalkey-backup-${new Date().toISOString().replace(/[:.]/g, "-")}.kkbackup`;
+
+      if (Platform.OS === "web") {
+        if (typeof document === "undefined" || typeof URL === "undefined") {
+          throw new Error("Your browser does not support downloading backup files.");
+        }
+        const blob = new Blob([encrypted], { type: "application/json;charset=utf-8" });
+        const objectUrl = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = objectUrl;
+        link.download = filename;
+        link.style.display = "none";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+        setBackupVisible(false);
+        setBackupPassword("");
+        showBackupMessage("Backup created", "Your encrypted KaalKey backup has been downloaded. Keep the file and password private.");
+        return;
+      }
+
       const base = FileSystem.cacheDirectory ?? FileSystem.documentDirectory;
       if (!base) throw new Error("A local file location is unavailable on this device.");
-      const uri = `${base}kaalkey-backup-${new Date().toISOString().replace(/[:.]/g, "-")}.kkbackup`;
+      const uri = `${base}${filename}`;
       await FileSystem.writeAsStringAsync(uri, encrypted, {
         encoding: FileSystem.EncodingType.UTF8,
       });
       if (!(await Sharing.isAvailableAsync())) {
-        Alert.alert("Backup created", `Encrypted backup saved temporarily at:\n${uri}`);
+        showBackupMessage("Backup created", `Encrypted backup saved temporarily at:\n${uri}`);
       } else {
         await Sharing.shareAsync(uri, {
           mimeType: "application/json",
@@ -639,7 +1150,7 @@ export default function HomeScreen() {
       setBackupVisible(false);
       setBackupPassword("");
     } catch (error) {
-      Alert.alert(
+      showBackupMessage(
         "Backup failed",
         error instanceof Error ? error.message : "KaalKey could not create the backup.",
       );
@@ -648,9 +1159,55 @@ export default function HomeScreen() {
     }
   }
 
+  async function pickBackupText(): Promise<string | null> {
+    if (Platform.OS !== "web") {
+      const picked = await DocumentPicker.getDocumentAsync({
+        type: ["application/json", "public.json", "*/*"],
+        copyToCacheDirectory: true,
+        multiple: false,
+      });
+      if (picked.canceled || !picked.assets?.[0]) return null;
+      return FileSystem.readAsStringAsync(picked.assets[0].uri, {
+        encoding: FileSystem.EncodingType.UTF8,
+      });
+    }
+
+    // Use a native browser file input on web; Expo DocumentPicker/FileSystem URI
+    // handling is not reliable for browser File objects and blob URLs.
+    return new Promise<string | null>((resolve, reject) => {
+      if (typeof document === "undefined") {
+        reject(new Error("The browser file picker is unavailable."));
+        return;
+      }
+      const input = document.createElement("input");
+      input.type = "file";
+      input.accept = ".kkbackup,.json,application/json,text/plain";
+      input.style.position = "fixed";
+      input.style.left = "-10000px";
+      input.style.width = "1px";
+      input.style.height = "1px";
+      const cleanup = () => input.remove();
+      input.addEventListener("change", () => {
+        const file = input.files?.[0];
+        cleanup();
+        if (!file) {
+          resolve(null);
+          return;
+        }
+        void file.text().then(resolve, reject);
+      }, { once: true });
+      input.addEventListener("cancel", () => {
+        cleanup();
+        resolve(null);
+      }, { once: true });
+      document.body.appendChild(input);
+      input.click();
+    });
+  }
+
   async function restoreEncryptedBackup() {
     if (!backupPassword) {
-      Alert.alert(
+      showBackupMessage(
         "Enter your backup password",
         "Enter the password used when this backup was created.",
       );
@@ -658,80 +1215,64 @@ export default function HomeScreen() {
     }
     setBackupBusy(true);
     try {
-      const picked = await DocumentPicker.getDocumentAsync({
-        type: ["application/json", "public.json", "*/*"],
-        copyToCacheDirectory: true,
-        multiple: false,
-      });
-      if (picked.canceled || !picked.assets?.[0]) return;
-      const raw = await FileSystem.readAsStringAsync(picked.assets[0].uri, {
-        encoding: FileSystem.EncodingType.UTF8,
-      });
+      const raw = await pickBackupText();
+      if (raw === null) return;
       const restored = await decryptBackup(raw, backupPassword);
-      Alert.alert(
-        "Merge backup accounts?",
-        `This backup contains ${restored.length} account${restored.length === 1 ? "" : "s"}. KaalKey will keep your existing accounts and add accounts from the backup that are not already present. Duplicate accounts will be skipped.`,
+      const message = `This backup contains ${restored.length} account${restored.length === 1 ? "" : "s"}. KaalKey will keep your existing accounts and add accounts from the backup that are not already present. Duplicate accounts will be skipped.`;
+      let shouldMerge = false;
+      if (Platform.OS === "web") {
+        shouldMerge = typeof window !== "undefined" && window.confirm(`Merge backup accounts?\n\n${message}`);
+      } else {
+        shouldMerge = await new Promise<boolean>((resolve) => {
+          Alert.alert("Merge backup accounts?", message, [
+            { text: "Cancel", style: "cancel", onPress: () => resolve(false) },
+            { text: "Merge accounts", onPress: () => resolve(true) },
+          ], { cancelable: true, onDismiss: () => resolve(false) });
+        });
+      }
+      if (!shouldMerge) return;
+
+      // Merge by account identity; keep existing local accounts unchanged.
+      const identity = (account: Account) =>
         [
-          { text: "Cancel", style: "cancel" },
-          {
-            text: "Merge accounts",
-            onPress: () => {
-              void (async () => {
-                try {
-                  // Merge by account identity so restoring the same backup twice does not
-                  // create duplicates. Existing local accounts are retained unchanged.
-                  const identity = (account: Account) =>
-                    [
-                      account.issuer.trim().toLocaleLowerCase(),
-                      account.name.trim().toLocaleLowerCase(),
-                      account.secret.replace(/[\s-]/g, "").toUpperCase(),
-                      account.algorithm,
-                      String(account.digits),
-                      String(account.period),
-                    ].join("|");
-                  const merged = [...accounts];
-                  const identities = new Set(merged.map(identity));
-                  const ids = new Set(merged.map((account) => account.id));
-                  let added = 0;
-                  for (const account of restored) {
-                    const key = identity(account);
-                    if (identities.has(key)) continue;
-                    let id = account.id;
-                    if (!id || ids.has(id)) {
-                      id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-                      while (ids.has(id))
-                        id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-                    }
-                    const safeAccount = { ...account, id };
-                    merged.push(safeAccount);
-                    identities.add(key);
-                    ids.add(id);
-                    added += 1;
-                  }
-                  await SecureStore.setItemAsync(STORAGE_KEY, JSON.stringify(merged));
-                  setAccounts(merged);
-                  setBackupVisible(false);
-                  setSettingsVisible(false);
-                  setBackupPassword("");
-                  Alert.alert(
-                    "Restore complete",
-                    `Added ${added} account${added === 1 ? "" : "s"}. ${restored.length - added} duplicate account${restored.length - added === 1 ? " was" : "s were"} skipped. Your existing accounts were kept.`,
-                  );
-                } catch {
-                  Alert.alert(
-                    "Restore failed",
-                    "KaalKey could not save the restored accounts to secure storage.",
-                  );
-                }
-              })();
-            },
-          },
-        ],
+          account.issuer.trim().toLocaleLowerCase(),
+          account.name.trim().toLocaleLowerCase(),
+          account.secret.replace(/[\s-]/g, "").toUpperCase(),
+          account.algorithm,
+          String(account.digits),
+          String(account.period),
+        ].join("|");
+      const merged = [...accounts];
+      const identities = new Set(merged.map(identity));
+      const ids = new Set(merged.map((account) => account.id));
+      let added = 0;
+      for (const account of restored) {
+        const key = identity(account);
+        if (identities.has(key)) continue;
+        let id = account.id;
+        if (!id || ids.has(id)) {
+          id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+          while (ids.has(id)) id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+        }
+        const safeAccount = { ...account, id };
+        merged.push(safeAccount);
+        identities.add(key);
+        ids.add(id);
+        added += 1;
+      }
+      await writeAccountsStorage(JSON.stringify(merged));
+      setAccounts(merged);
+      setBackupVisible(false);
+      setSettingsVisible(false);
+      setBackupPassword("");
+      showBackupMessage(
+        "Restore complete",
+        `Added ${added} account${added === 1 ? "" : "s"}. ${restored.length - added} duplicate account${restored.length - added === 1 ? " was" : "s were"} skipped. Your existing accounts were kept.`,
       );
     } catch (error) {
-      Alert.alert(
+      showBackupMessage(
         "Restore failed",
-        error instanceof Error ? error.message : "The backup could not be read.",
+        error instanceof Error ? error.message : "The backup could not be read or saved.",
       );
     } finally {
       setBackupBusy(false);
@@ -755,7 +1296,7 @@ export default function HomeScreen() {
 
   // Branded in-app splash: keep the styled brand text visible for five seconds.
   // This overlay never exposes the vault while lock preferences are loading.
-  if (showBrandSplash) {
+  if (showBrandSplash || !legalLoaded) {
     return (
       <SafeAreaView style={styles.splashScreen} edges={["top", "right", "bottom", "left"]}>
         <View style={styles.splashBrandCard}>
@@ -777,6 +1318,81 @@ export default function HomeScreen() {
           </View>
           <View style={styles.splashDivider} />
           <Text style={styles.splashTagline}>Your codes. Your device. Your control.</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  // First-launch legal notice is embedded and available offline. The vault is not shown until accepted.
+  if (!legalAccepted || legalReviewVisible) {
+    const firstLaunch = !legalAccepted;
+    return (
+      <SafeAreaView style={{ flex: 1, backgroundColor: "#F5F7FB" }} edges={["top", "right", "bottom", "left"]}>
+        <View style={{ flex: 1, paddingHorizontal: 20, paddingTop: 12, paddingBottom: 12 }}>
+          <View style={{ width: "100%", flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 18, paddingVertical: 2 }}>
+            <Image
+              source={require("../../assets/images/kaalkey-emblem.png")}
+              style={{ width: 88, height: 80 }}
+              resizeMode="contain"
+              accessibilityLabel="Original multicolour KaalKey authenticator emblem"
+            />
+            <View style={{ flex: 1, alignItems: "flex-start", justifyContent: "center" }}>
+              <Text style={{ fontSize: 29, lineHeight: 35, fontWeight: "900", letterSpacing: 0.1 }}>
+                <Text style={{ color: "#FF9800" }}>Kaal</Text><Text style={{ color: "#1769E0" }}>K</Text><Text style={{ color: "#168A35" }}>ey</Text>
+              </Text>
+              <Text style={{ fontSize: 11, lineHeight: 16, letterSpacing: 2.1, color: "#4B5563", fontWeight: "800", marginTop: 1 }}>AUTHENTICATOR</Text>
+              <View style={{ flexDirection: "row", alignItems: "center", gap: 6, marginTop: 7, paddingHorizontal: 10, paddingVertical: 5, borderWidth: 1, borderColor: "#D6E0EE", borderRadius: 16, backgroundColor: "#FFFFFF" }}>
+                <View style={{ width: 7, height: 7, borderRadius: 4, backgroundColor: "#168A35" }} />
+                <Text style={{ fontSize: 10, fontWeight: "800", letterSpacing: 1, color: "#52627A" }}>LOCAL VAULT</Text>
+              </View>
+            </View>
+          </View>
+          <Text style={{ fontSize: 23, fontWeight: "800", color: "#14233D", marginBottom: 6 }}>{firstLaunch ? "Legal & Privacy Notice" : "Legal information"}</Text>
+          <Text style={{ fontSize: 13, lineHeight: 19, color: "#52627A", marginBottom: 12 }}>{firstLaunch ? "Please review both documents before using KaalKey. They are included in the app and available offline." : "Review KaalKey’s privacy information and terms of use."}</Text>
+          <View style={{ flexDirection: "row", gap: 8, marginBottom: 10 }}>
+            <TouchableOpacity onPress={() => setLegalDocument("privacy")} style={{ flex: 1, paddingVertical: 11, borderRadius: 12, backgroundColor: legalDocument === "privacy" ? "#183B68" : "#E6EBF3", alignItems: "center" }}><Text style={{ color: legalDocument === "privacy" ? "#FFFFFF" : "#31435E", fontWeight: "700" }}>Privacy Policy</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => setLegalDocument("terms")} style={{ flex: 1, paddingVertical: 11, borderRadius: 12, backgroundColor: legalDocument === "terms" ? "#183B68" : "#E6EBF3", alignItems: "center" }}><Text style={{ color: legalDocument === "terms" ? "#FFFFFF" : "#31435E", fontWeight: "700" }}>Terms of Use</Text></TouchableOpacity>
+          </View>
+          <ScrollView style={{ flex: 1, backgroundColor: "#FFFFFF", borderRadius: 18, borderWidth: 1, borderColor: "#E0E6EF" }} contentContainerStyle={{ padding: 16, paddingBottom: 24 }} showsVerticalScrollIndicator keyboardShouldPersistTaps="handled">
+            {legalDocument === "privacy" ? <>
+              <Text style={{ fontSize: 19, fontWeight: "800", color: "#172A46", marginBottom: 5 }}>Privacy Policy</Text>
+              <Text style={{ fontSize: 12, color: "#718097", marginBottom: 14 }}>Version {LEGAL_VERSION} · Applies to KaalKey Authenticator</Text>
+              <Text style={legalHeadingStyle}>1. Information and secrets</Text>
+              <Text style={legalBodyStyle}>KaalKey is an authenticator app. Account labels and the secret values needed to generate one-time codes are sensitive. The app is designed to store account records in the device’s secure storage. Anyone with access to an unlocked device or an exported backup may be able to access sensitive information.</Text>
+              <Text style={legalHeadingStyle}>2. Permissions and device features</Text>
+              <Text style={legalBodyStyle}>If you choose to scan a QR code, KaalKey uses camera permission for that action. Optional device authentication and haptic feedback use the relevant device features. You can manage permissions in your device settings.</Text>
+              <Text style={legalHeadingStyle}>3. Backups</Text>
+              <Text style={legalBodyStyle}>When you create a backup, KaalKey encrypts the backup using a password you choose. Keep both the file and password private and store them securely. Anyone who obtains the file and its password may be able to restore your authenticator accounts. KaalKey cannot recover a forgotten backup password.</Text>
+              <Text style={legalHeadingStyle}>4. Sharing and third parties</Text>
+              <Text style={legalBodyStyle}>The backup flow may use your device’s share sheet or file picker to save, transfer, or select files. The privacy practices of any third-party app or service you choose are governed by that provider. This notice does not make a blanket claim that your device, operating system, or chosen sharing services never process data.</Text>
+              <Text style={legalHeadingStyle}>5. Security and retention</Text>
+              <Text style={legalBodyStyle}>Keep your device updated, protect it with a screen lock, and do not share OTP secrets or backup passwords. Removing the app, clearing its data, or losing the device may make locally stored accounts unavailable. Maintain a secure backup if you need recovery.</Text>
+              <Text style={legalHeadingStyle}>6. Changes and contact</Text>
+              <Text style={legalBodyStyle}>This embedded notice may be revised in a future app release. For privacy questions, contact the app publisher through the official support channel provided with the app.</Text>
+            </> : <>
+              <Text style={{ fontSize: 19, fontWeight: "800", color: "#172A46", marginBottom: 5 }}>Terms of Use</Text>
+              <Text style={{ fontSize: 12, color: "#718097", marginBottom: 14 }}>Version {LEGAL_VERSION} · Applies to KaalKey Authenticator</Text>
+              <Text style={legalHeadingStyle}>1. Your use</Text>
+              <Text style={legalBodyStyle}>You may use KaalKey to generate verification codes for accounts you are authorized to access. You are responsible for complying with applicable laws and the rules of the services for which you use authentication codes.</Text>
+              <Text style={legalHeadingStyle}>2. Protect your accounts</Text>
+              <Text style={legalBodyStyle}>You are responsible for securing your device, authenticator secrets, recovery methods, exported backups, and backup passwords. Do not share codes or secrets with people you do not trust.</Text>
+              <Text style={legalHeadingStyle}>3. No recovery guarantee</Text>
+              <Text style={legalBodyStyle}>KaalKey cannot guarantee that every account can be recovered, that every QR code or configuration will be compatible, or that the app will operate without interruption or error. Keep alternative recovery methods provided by the relevant service.</Text>
+              <Text style={legalHeadingStyle}>4. No professional advice</Text>
+              <Text style={legalBodyStyle}>The app is a utility and does not provide legal, financial, or security incident-response advice. If an account is compromised, follow the affected service’s official recovery and security guidance.</Text>
+              <Text style={legalHeadingStyle}>5. Changes and availability</Text>
+              <Text style={legalBodyStyle}>Features may change between releases. You should keep the app updated and periodically verify that your backup and recovery arrangements work.</Text>
+              <Text style={legalHeadingStyle}>6. Liability and applicable law</Text>
+              <Text style={legalBodyStyle}>To the extent permitted by applicable law, the app is provided without a guarantee of uninterrupted or error-free operation. Nothing in these terms excludes rights or remedies that cannot legally be excluded. Any further limitations or governing-law terms should be reviewed by a qualified lawyer for the publisher’s jurisdiction before release.</Text>
+            </>}
+          </ScrollView>
+          {firstLaunch ? <>
+            <TouchableOpacity onPress={() => setLegalChecked(v => !v)} style={{ flexDirection: "row", alignItems: "center", paddingVertical: 12, gap: 10 }} accessibilityRole="checkbox" accessibilityState={{ checked: legalChecked }}>
+              <View style={{ width: 22, height: 22, borderRadius: 6, borderWidth: 1.5, borderColor: legalChecked ? "#1D6B4A" : "#8997AA", backgroundColor: legalChecked ? "#1D6B4A" : "#FFFFFF", alignItems: "center", justifyContent: "center" }}><Text style={{ color: "#FFFFFF", fontWeight: "800" }}>{legalChecked ? "✓" : ""}</Text></View>
+              <Text style={{ flex: 1, color: "#34445D", fontSize: 12, lineHeight: 18 }}>I have read and agree to the Privacy Policy and Terms of Use.</Text>
+            </TouchableOpacity>
+            <TouchableOpacity disabled={!legalChecked || legalSaving} onPress={() => void acceptLegalNotice()} style={{ backgroundColor: legalChecked ? "#183B68" : "#AAB5C4", borderRadius: 14, paddingVertical: 15, alignItems: "center", marginBottom: 4 }}><Text style={{ color: "#FFFFFF", fontSize: 15, fontWeight: "800" }}>{legalSaving ? "Saving…" : "Accept & Continue"}</Text></TouchableOpacity>
+          </> : <TouchableOpacity onPress={() => setLegalReviewVisible(false)} style={{ backgroundColor: "#183B68", borderRadius: 14, paddingVertical: 15, alignItems: "center", marginTop: 12 }}><Text style={{ color: "#FFFFFF", fontSize: 15, fontWeight: "800" }}>Done</Text></TouchableOpacity>}
         </View>
       </SafeAreaView>
     );
@@ -819,7 +1435,7 @@ export default function HomeScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
+    <SafeAreaView style={styles.container} edges={["top", "left", "right", "bottom"]}>
       <View style={styles.header}>
         <View style={styles.brandRow}>
           <View style={styles.brandMarkFrame}>
@@ -881,7 +1497,7 @@ export default function HomeScreen() {
       </View>
 
       <ScrollView
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[styles.content, { paddingBottom: Math.max(insets.bottom + 24, 48) }]}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >
@@ -1128,7 +1744,74 @@ export default function HomeScreen() {
                 </TouchableOpacity>
               )}
 
-              {!editingId && <Text style={styles.manualEntryLabel}>OR ENTER DETAILS MANUALLY</Text>}
+              {!editingId && (
+                <TouchableOpacity
+                  style={[styles.scanButton, styles.importQrButton]}
+                  onPress={() => void importQrImage()}
+                  accessibilityRole="button"
+                  accessibilityLabel="Import QR code image"
+                >
+                  <Text style={styles.scanButtonIcon}>▧</Text>
+                  <View style={styles.scanButtonCopy}>
+                    <Text style={styles.scanButtonTitle}>Import QR image</Text>
+                    <Text style={styles.scanButtonSubtitle}>
+                      Choose a QR screenshot from Gallery, Photos, or Files
+                    </Text>
+                  </View>
+                  <Text style={styles.scanButtonArrow}>›</Text>
+                </TouchableOpacity>
+              )}
+
+              {!editingId && (
+                <TouchableOpacity style={[styles.scanButton, styles.importQrButton]} onPress={() => void pasteQrImage()} accessibilityRole="button">
+                  <Text style={styles.scanButtonIcon}>▣</Text>
+                  <View style={styles.scanButtonCopy}>
+                    <Text style={styles.scanButtonTitle}>Paste QR image</Text>
+                    <Text style={styles.scanButtonSubtitle}>Copy a QR image, then paste it here</Text>
+                  </View>
+                  <Text style={styles.scanButtonArrow}>›</Text>
+                </TouchableOpacity>
+              )}
+              {!editingId && (
+                <View style={{ marginBottom: 12 }}>
+                  <Text style={styles.inputLabel}>TOTP SETUP URL</Text>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="otpauth://totp/..."
+                    placeholderTextColor="#66738A"
+                    value={totpUrlInput}
+                    onChangeText={setTotpUrlInput}
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    accessibilityLabel="TOTP setup URL"
+                  />
+                  <View style={{ flexDirection: "row", gap: 8, marginTop: 8 }}>
+                    <TouchableOpacity style={[styles.scanButton, { flex: 1 }]} onPress={() => void importTotpUrl()}>
+                      <Text style={styles.scanButtonTitle}>Import URL</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={[styles.scanButton, { flex: 1 }]} onPress={() => void pasteTotpUrl()}>
+                      <Text style={styles.scanButtonTitle}>Paste URL</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              )}
+              {!editingId && (
+                <TouchableOpacity
+                  style={styles.scanButton}
+                  onPress={() => setManualExpanded((expanded) => !expanded)}
+                  accessibilityRole="button"
+                  accessibilityState={{ expanded: manualExpanded }}
+                >
+                  <View style={styles.scanButtonCopy}>
+                    <Text style={styles.scanButtonTitle}>{manualExpanded ? "Hide manual entry" : "Enter details manually"}</Text>
+                    <Text style={styles.scanButtonSubtitle}>Service, account name and secret key</Text>
+                  </View>
+                  <Text style={styles.scanButtonArrow}>{manualExpanded ? "⌄" : "›"}</Text>
+                </TouchableOpacity>
+              )}
+              {(editingId || manualExpanded) && (
+                <>
+                  {!editingId && <Text style={styles.manualEntryLabel}>OR ENTER DETAILS MANUALLY</Text>}
 
               <Text style={styles.inputLabel}>SERVICE / ISSUER</Text>
 
@@ -1301,7 +1984,7 @@ export default function HomeScreen() {
                 service&apos;s setup instructions.
               </Text>
 
-              <TouchableOpacity style={styles.primaryButton} onPress={() => void saveAccount()}>
+                </>\n              )}\n\n              <TouchableOpacity style={styles.primaryButton} onPress={() => void saveAccount()}>
                 <Text style={styles.primaryButtonText}>
                   {editingId ? "Save changes securely" : "Save account securely"}
                 </Text>
@@ -1331,7 +2014,13 @@ export default function HomeScreen() {
       >
         <ScrollView
           style={styles.scannerContainer}
-          contentContainerStyle={styles.scannerScrollContent}
+          contentContainerStyle={[
+            styles.scannerScrollContent,
+            {
+              paddingTop: Math.max(insets.top + 12, 24),
+              paddingBottom: Math.max(insets.bottom + 24, 36),
+            },
+          ]}
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
         >
@@ -1357,7 +2046,9 @@ export default function HomeScreen() {
           </View>
 
           <View style={[styles.cameraFrame, { height: scannerCameraHeight }]}>
-            {scannerVisible && cameraPermission?.granted ? (
+            {scannerVisible && Platform.OS === "web" ? (
+              <WebQrScanner active={scannerVisible && !scanned} onDetected={(data) => void handleQrScanned(data)} />
+            ) : scannerVisible && cameraPermission?.granted ? (
               <CameraView
                 style={styles.cameraPreview}
                 facing="back"
@@ -1403,11 +2094,7 @@ export default function HomeScreen() {
         <View
           style={[
             styles.settingsBackdrop,
-            {
-              paddingTop: Math.max(insets.top, 16),
-              paddingBottom: Math.max(insets.bottom, 16),
-              paddingHorizontal: 16,
-            },
+            { paddingHorizontal: 16 },
           ]}
         >
           <View style={styles.settingsSheet}>
@@ -1418,12 +2105,13 @@ export default function HomeScreen() {
               keyboardShouldPersistTaps="handled"
             >
               <View style={styles.settingsTopRow}>
-                <View>
+                <View style={styles.dialogTitleCopy}>
                   <Text style={styles.settingsEyebrow}>KAALKEY PREFERENCES</Text>
                   <Text style={styles.settingsTitle}>App settings</Text>
                 </View>
                 <TouchableOpacity
                   style={styles.settingsCloseButton}
+                  hitSlop={10}
                   onPress={() => setSettingsVisible(false)}
                   accessibilityRole="button"
                   accessibilityLabel="Close settings"
@@ -1530,6 +2218,16 @@ export default function HomeScreen() {
                 </View>
               </View>
 
+              <TouchableOpacity
+                style={[styles.settingRow, { marginTop: 8 }]}
+                onPress={() => { setSettingsVisible(false); setLegalDocument("privacy"); setLegalReviewVisible(true); }}
+                accessibilityRole="button"
+              >
+                <View style={styles.settingIconBox}><Text style={styles.settingIcon}>📄</Text></View>
+                <View style={styles.settingCopy}><Text style={styles.settingTitleText}>Legal & privacy</Text><Text style={styles.settingDescription}>Review the Privacy Policy and Terms of Use.</Text></View>
+                <Text style={{ color: "#60718A", fontSize: 20 }}>›</Text>
+              </TouchableOpacity>
+
               <View style={styles.settingsPrivacyNote}>
                 <Text style={styles.settingsPrivacyIcon}>🛡️</Text>
                 <Text style={styles.settingsPrivacyText}>
@@ -1558,14 +2256,25 @@ export default function HomeScreen() {
           setBackupPassword("");
         }}
       >
-        <View style={styles.settingsBackdrop}>
+        <View
+          style={[
+            styles.settingsBackdrop,
+            { paddingHorizontal: 12 },
+          ]}
+        >
           <KeyboardAvoidingView
-            behavior={Platform.OS === "ios" ? "padding" : undefined}
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.backupModalWrap}
           >
+            <ScrollView
+              style={styles.backupModalScroll}
+              contentContainerStyle={styles.backupModalScrollContent}
+              showsVerticalScrollIndicator
+              keyboardShouldPersistTaps="handled"
+            >
             <View style={styles.backupModal}>
               <View style={styles.settingsTopRow}>
-                <View>
+                <View style={styles.dialogTitleCopy}>
                   <Text style={styles.settingsEyebrow}>SECURE VAULT</Text>
                   <Text style={styles.settingsTitle}>
                     {backupMode === "export" ? "Create backup" : "Restore backup"}
@@ -1573,6 +2282,7 @@ export default function HomeScreen() {
                 </View>
                 <TouchableOpacity
                   style={styles.settingsCloseButton}
+                  hitSlop={10}
                   onPress={() => {
                     setBackupVisible(false);
                     setBackupPassword("");
@@ -1650,6 +2360,7 @@ export default function HomeScreen() {
                 <Text style={styles.cancelButtonText}>Cancel</Text>
               </TouchableOpacity>
             </View>
+            </ScrollView>
           </KeyboardAvoidingView>
         </View>
       </Modal>

@@ -81,10 +81,12 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "rgba(15, 23, 42, 0.42)",
     justifyContent: "center",
+    paddingVertical: 12,
   },
   settingsSheet: {
     width: "100%",
     maxHeight: "100%",
+    flexShrink: 1,
     backgroundColor: "#FFFFFF",
     borderRadius: 24,
     paddingHorizontal: 22,
@@ -98,9 +100,15 @@ export const styles = StyleSheet.create({
   settingsScrollContent: { paddingBottom: 18 },
   settingsTopRow: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "space-between",
+    width: "100%",
     marginBottom: 24,
+    gap: 12,
+  },
+  dialogTitleCopy: {
+    flex: 1,
+    minWidth: 0,
   },
   settingsEyebrow: {
     fontSize: 10,
@@ -111,12 +119,18 @@ export const styles = StyleSheet.create({
   },
   settingsTitle: { fontSize: 26, fontWeight: "900", color: "#172033" },
   settingsCloseButton: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    width: 40,
+    height: 40,
+    minWidth: 40,
+    minHeight: 40,
+    borderRadius: 20,
     backgroundColor: "#F1F4F8",
     alignItems: "center",
     justifyContent: "center",
+    flexShrink: 0,
+    marginLeft: 4,
+    zIndex: 2,
+    elevation: 2,
   },
   settingsCloseText: { fontSize: 16, fontWeight: "800", color: "#344054" },
   settingsSectionLabel: {
@@ -188,11 +202,14 @@ export const styles = StyleSheet.create({
   backupActionTitle: { color: "#17243A", fontSize: 13, fontWeight: "800" },
   backupActionDescription: { color: "#77859A", fontSize: 11, marginTop: 4 },
   backupSafetyText: { color: "#7B5B24", fontSize: 11, lineHeight: 16, marginTop: 9 },
-  backupModalWrap: { flex: 1, justifyContent: "flex-end" },
+  backupModalWrap: { flex: 1, justifyContent: "center" },
+  backupModalScroll: { flex: 1 },
+  backupModalScrollContent: { flexGrow: 1, justifyContent: "center", paddingVertical: 12 },
   backupModal: {
+    flexShrink: 0,
     backgroundColor: "#FFFFFF",
-    borderTopLeftRadius: 26,
-    borderTopRightRadius: 26,
+    borderRadius: 26,
+    overflow: "hidden",
     padding: 22,
     paddingBottom: 30,
     borderWidth: 1,
@@ -822,11 +839,14 @@ export const styles = StyleSheet.create({
   modalScroll: {
     flexGrow: 1,
     justifyContent: "center",
+    paddingVertical: 12,
   },
 
   modalCard: {
+    flexShrink: 1,
     backgroundColor: "#FFFFFF",
     borderRadius: 22,
+    overflow: "hidden",
     padding: 22,
     borderWidth: 1,
     borderColor: "#E0E6EE",
@@ -970,6 +990,12 @@ export const styles = StyleSheet.create({
     padding: 15,
     marginBottom: 19,
     gap: 12,
+  },
+
+  importQrButton: {
+    backgroundColor: "#F1F6FF",
+    borderColor: "#B8CBE5",
+    marginTop: -8,
   },
 
   scanButtonIcon: {

@@ -16,14 +16,23 @@ function hexToWordArray(hex: string): CryptoJS.lib.WordArray {
   return CryptoJS.enc.Hex.parse(hex);
 }
 
+async function secureRandomBytes(length: number): Promise<Uint8Array> {
+  if (typeof globalThis.crypto?.getRandomValues === "function") {
+    const bytes = new Uint8Array(length);
+    globalThis.crypto.getRandomValues(bytes);
+    return bytes;
+  }
+  return Crypto.getRandomBytesAsync(length);
+}
+
 
 
 export async function encryptBackup(accounts: Account[], password: string): Promise<string> {
   if (!validateAccounts(accounts)) {
     throw new Error("One or more accounts are invalid. Fix the account data before creating a backup.");
   }
-  const salt = bytesToHex(await Crypto.getRandomBytesAsync(16));
-  const iv = bytesToHex(await Crypto.getRandomBytesAsync(16));
+  const salt = bytesToHex(await secureRandomBytes(16));
+  const iv = bytesToHex(await secureRandomBytes(16));
   const key = CryptoJS.PBKDF2(password, hexToWordArray(salt), {
     keySize: 256 / 32,
     iterations: BACKUP_KDF_ITERATIONS,

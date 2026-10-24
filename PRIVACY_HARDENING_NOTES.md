@@ -1,6 +1,7 @@
 # KaalKey privacy hardening
 
 ## Changes
+
 - Added `expo-screen-capture` (`~58.0.6`) to the Expo SDK 58 dependencies.
 - Enabled screen-capture prevention in the root layout for the entire app lifetime.
   On Android this applies `FLAG_SECURE`, blocking screenshots/recording and blanking
@@ -11,13 +12,16 @@
   list and OTP screen are not rendered.
 
 ## Before building
+
 The uploaded bundle's `package-lock.json` predates `expo-screen-capture`. Run
 `npm install` (or `npx expo install expo-screen-capture`) once to update the lockfile,
 then run `npx expo-doctor`, `npm run lint`, and `npx tsc --noEmit`.
 
 ## Required device verification
+
 This source-only review cannot prove behavior on a running native build. After
 installing a fresh Android/iOS build, verify:
+
 1. With app lock enabled, force-stop and reopen; cancel authentication and confirm no OTPs appear.
 2. With app lock enabled, open OTPs, press Home/Recents, and inspect the preview.
 3. Try a screenshot and screen recording while KaalKey is foregrounded.
