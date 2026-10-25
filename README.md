@@ -1,7 +1,8 @@
 <div align="center">
-  <img src="assets/images/kaalkey-full-logo-white.png" alt="KaalKey Authenticator" width="320" />
 
-# KaalKey Authenticator
+<img src="docs/screenshots/kaalkey-brand-banner.png" alt="KaalKey Authenticator official brand banner: One Moment. One Code. Secure Access." width="100%" />
+
+# <span style="color:#FF8A00">Kaal</span><span style="color:#1673E6">K</span><span style="color:#138A36">ey</span> Authenticator
 
 **Your codes. Your device. Your control.**
 
@@ -12,6 +13,9 @@ A cross-platform authenticator app for generating time-based one-time passwords 
 ![React](https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)
 ![Platforms](https://img.shields.io/badge/Platforms-Android%20%7C%20iOS%20%7C%20Web-3A7D44)
+
+**Brand palette:** <span style="color:#FF8A00">Saffron `#FF8A00`</span> · <span style="color:#1673E6">Blue `#1673E6`</span> · <span style="color:#138A36">Green `#138A36`</span>
+
 </div>
 
 ---
@@ -25,14 +29,12 @@ KaalKey Authenticator helps you manage time-based verification codes for service
 ## 🚀 Features
 
 ### 🔐 One-time passwords
-
 - Generate time-based one-time passwords (TOTP) from saved account secrets.
 - Support common TOTP algorithms: **SHA-1, SHA-256, and SHA-512**.
 - Configurable code length and time period for supported entries.
 - Copy a generated code for use in the service you're signing in to.
 
 ### 📷 Flexible account setup
-
 - Scan an enrollment QR code with the device camera.
 - Import a QR code from an image where the platform and image format are supported.
 - Paste a QR image from the clipboard where browser/device clipboard APIs permit it.
@@ -41,7 +43,6 @@ KaalKey Authenticator helps you manage time-based verification codes for service
 - Validate imported data and report invalid or duplicate entries.
 
 ### 🗂️ Account management
-
 - Store multiple authenticator accounts.
 - Keep service and account names organized.
 - View a QR code generated from an existing account's setup information. **That QR code contains the account secret—share it only if you intend to duplicate the authenticator.**
@@ -49,43 +50,61 @@ KaalKey Authenticator helps you manage time-based verification codes for service
 - For an existing account, edit **Service Name** and **Account Name** only. The secret key and OTP configuration are not intended to be editable through the account-edit form.
 
 ### 💾 Backup and restore
-
 - Export and restore account backups using the app's backup flow.
 - Keep backup files somewhere private and secure.
 - Use the password and import/export instructions shown by the app when creating or restoring a backup.
 
 ### 📱 Cross-platform experience
-
 - Built with Expo and React Native for Android, iOS, and web.
 - Platform-aware camera, file selection, clipboard, storage, and dialog behavior.
 - Activity feedback while longer operations are in progress.
 
 ---
 
+## 🖼️ Screenshots
+
+The screenshots below are the actual KaalKey UI images supplied with this README package. They use the app’s saffron-orange, blue, and green brand accents.
+
+| Home — empty vault | Add account | QR scanner |
+|---|---|---|
+| ![Home screen](docs/screenshots/home-empty-state.png) | ![Add account](docs/screenshots/add-account.png) | ![QR scanner](docs/screenshots/qr-scanner.png) |
+
+| Accounts and live OTP | Account QR security warning | Edit account |
+|---|---|---|
+| ![Account list with OTP](docs/screenshots/account-list-otp.png) | ![Account QR code warning](docs/screenshots/account-qr-code-warning.png) | ![Edit account](docs/screenshots/edit-account.png) |
+
+| App settings | Create encrypted backup | Restore backup |
+|---|---|---|
+| ![App settings](docs/screenshots/app-settings.png) | ![Create backup](docs/screenshots/create-backup.png) | ![Restore backup](docs/screenshots/restore-backup.png) |
+
+> **Screenshot safety:** The account-list and account-QR screenshots are illustrative UI examples. Never publish screenshots containing real OTP secrets, setup QR codes, or private account information.
+
+---
+
 ## 🧰 Technology stack
 
-| Area                  | Technology                                                                                                                                                        | Purpose                                                |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| App framework         | [Expo](https://expo.dev/)                                                                                                                                         | App tooling, builds, and platform integrations         |
-| UI framework          | [React](https://react.dev/)                                                                                                                                       | Component-based interface                              |
-| Cross-platform UI     | [React Native](https://reactnative.dev/)                                                                                                                          | Shared mobile UI and native platform support           |
-| Web rendering         | [React Native Web](https://necolas.github.io/react-native-web/)                                                                                                   | Render the React Native interface in browsers          |
-| Language              | [TypeScript](https://www.typescriptlang.org/)                                                                                                                     | Static typing for application code                     |
-| Navigation            | [Expo Router](https://docs.expo.dev/router/introduction/)                                                                                                         | File-based application routing                         |
-| OTP implementation    | [`otpauth`](https://github.com/hectorm/otpauth)                                                                                                                   | TOTP/OTP generation and URI parsing                    |
-| QR decoding           | [`jsQR`](https://github.com/cozmo/jsQR)                                                                                                                           | Decode QR data from supported image inputs             |
-| QR rendering          | [`react-native-qrcode-svg`](https://github.com/awesomejerry/react-native-qrcode-svg) + [`react-native-svg`](https://github.com/software-mansion/react-native-svg) | Render QR codes in the app                             |
-| Camera                | [Expo Camera](https://docs.expo.dev/versions/latest/sdk/camera/)                                                                                                  | Camera-based QR scanning                               |
-| Image selection       | [Expo Image Picker](https://docs.expo.dev/versions/latest/sdk/imagepicker/)                                                                                       | Select QR images from the device                       |
-| Image processing      | [Expo Image Manipulator](https://docs.expo.dev/versions/latest/sdk/imagemanipulator/)                                                                             | Prepare supported images for processing                |
-| Clipboard             | [Expo Clipboard](https://docs.expo.dev/versions/latest/sdk/clipboard/)                                                                                            | Clipboard integration on supported platforms           |
-| Native storage        | [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)                                                                                        | Secure key-value storage on supported native platforms |
-| File operations       | Expo FileSystem / DocumentPicker / Sharing                                                                                                                        | Work with backup files where supported                 |
-| Crypto utilities      | [`crypto-js`](https://github.com/brix/crypto-js), Expo Crypto                                                                                                     | Cryptographic utilities used by app flows              |
-| Device authentication | Expo Local Authentication                                                                                                                                         | Platform biometric-authentication integration          |
-| Code quality          | ESLint, Prettier, TypeScript                                                                                                                                      | Linting, formatting, and type checking                 |
+| Area | Technology | Purpose |
+|---|---|---|
+| App framework | [Expo](https://expo.dev/) | App tooling, builds, and platform integrations |
+| UI framework | [React](https://react.dev/) | Component-based interface |
+| Cross-platform UI | [React Native](https://reactnative.dev/) | Shared mobile UI and native platform support |
+| Web rendering | [React Native Web](https://necolas.github.io/react-native-web/) | Render the React Native interface in browsers |
+| Language | [TypeScript](https://www.typescriptlang.org/) | Static typing for application code |
+| Navigation | [Expo Router](https://docs.expo.dev/router/introduction/) | File-based application routing |
+| OTP implementation | [`otpauth`](https://github.com/hectorm/otpauth) | TOTP/OTP generation and URI parsing |
+| QR decoding | [`jsQR`](https://github.com/cozmo/jsQR) | Decode QR data from supported image inputs |
+| QR rendering | [`react-native-qrcode-svg`](https://github.com/awesomejerry/react-native-qrcode-svg) + [`react-native-svg`](https://github.com/software-mansion/react-native-svg) | Render QR codes in the app |
+| Camera | [Expo Camera](https://docs.expo.dev/versions/latest/sdk/camera/) | Camera-based QR scanning |
+| Image selection | [Expo Image Picker](https://docs.expo.dev/versions/latest/sdk/imagepicker/) | Select QR images from the device |
+| Image processing | [Expo Image Manipulator](https://docs.expo.dev/versions/latest/sdk/imagemanipulator/) | Prepare supported images for processing |
+| Clipboard | [Expo Clipboard](https://docs.expo.dev/versions/latest/sdk/clipboard/) | Clipboard integration on supported platforms |
+| Native storage | [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/) | Secure key-value storage on supported native platforms |
+| File operations | Expo FileSystem / DocumentPicker / Sharing | Work with backup files where supported |
+| Crypto utilities | [`crypto-js`](https://github.com/brix/crypto-js), Expo Crypto | Cryptographic utilities used by app flows |
+| Device authentication | Expo Local Authentication | Platform biometric-authentication integration |
+| Code quality | ESLint, Prettier, TypeScript | Linting, formatting, and type checking |
 
-_The table reflects dependencies configured in `package.json`; exact behavior can vary by operating system, browser, and runtime permissions._
+*The table reflects dependencies configured in `package.json`; exact behavior can vary by operating system, browser, and runtime permissions.*
 
 ## 🧪 Sample test data
 
@@ -93,14 +112,14 @@ Use the **dummy account below only for development and QA**. Its secret is inten
 
 ### Sample TOTP account
 
-| Field            | Sample value       |
-| ---------------- | ------------------ |
-| Service / issuer | `KaalKey Demo`     |
-| Account name     | `demo@example.com` |
-| Secret (Base32)  | `JBSWY3DPEHPK3PXP` |
-| Algorithm        | `SHA1`             |
-| Digits           | `6`                |
-| Period           | `30` seconds       |
+| Field | Sample value |
+|---|---|
+| Service / issuer | `KaalKey Demo` |
+| Account name | `demo@example.com` |
+| Secret (Base32) | `JBSWY3DPEHPK3PXP` |
+| Algorithm | `SHA1` |
+| Digits | `6` |
+| Period | `30` seconds |
 
 **Sample `otpauth://` URI** — paste this into the app's supported TOTP URL import flow:
 
@@ -116,18 +135,18 @@ If testing manual setup, enter the same values from the table above into the cor
 
 ### Suggested QA scenarios
 
-| Test                    | Input / action                                                | Expected result                                                            |
-| ----------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Import a valid TOTP URI | Use the sample URI above                                      | Account imports and displays a changing six-digit code                     |
-| Reject malformed URI    | Try `otpauth://invalid`                                       | A clear validation message appears; no account is added                    |
-| Reject invalid secret   | Enter a non-Base32 secret such as `NOT A SECRET!`             | Validation prevents importing/saving an unusable entry or reports an error |
-| Duplicate detection     | Import the same sample account twice                          | Duplicate is detected and explained; no unintended duplicate is created    |
-| QR camera flow          | Scan a QR encoding the sample URI                             | The sample account is recognized and can be added                          |
-| QR image upload         | Upload an image containing a QR encoding the sample URI       | The sample account is recognized and can be added                          |
-| Clipboard image import  | Paste a QR image encoding the sample URI where supported      | QR data is decoded or a clear unsupported/invalid-image message appears    |
-| Existing-account edit   | Change only service and account names                         | Labels update; secret, algorithm, digits, and period remain unchanged      |
-| Backup and restore      | Back up the sample account, then restore it in a test profile | Restore follows the app's password and duplicate-handling flow             |
-| Delete account          | Delete the sample account                                     | Confirmation is shown where supported and the account is removed           |
+| Test | Input / action | Expected result |
+|---|---|---|
+| Import a valid TOTP URI | Use the sample URI above | Account imports and displays a changing six-digit code |
+| Reject malformed URI | Try `otpauth://invalid` | A clear validation message appears; no account is added |
+| Reject invalid secret | Enter a non-Base32 secret such as `NOT A SECRET!` | Validation prevents importing/saving an unusable entry or reports an error |
+| Duplicate detection | Import the same sample account twice | Duplicate is detected and explained; no unintended duplicate is created |
+| QR camera flow | Scan a QR encoding the sample URI | The sample account is recognized and can be added |
+| QR image upload | Upload an image containing a QR encoding the sample URI | The sample account is recognized and can be added |
+| Clipboard image import | Paste a QR image encoding the sample URI where supported | QR data is decoded or a clear unsupported/invalid-image message appears |
+| Existing-account edit | Change only service and account names | Labels update; secret, algorithm, digits, and period remain unchanged |
+| Backup and restore | Back up the sample account, then restore it in a test profile | Restore follows the app's password and duplicate-handling flow |
+| Delete account | Delete the sample account | Confirmation is shown where supported and the account is removed |
 
 **QR test fixture tip:** Generate a QR code from the sample URI using a trusted local QR utility or a test fixture in your development environment. Avoid pasting real authenticator URIs or secrets into online QR generators.
 
