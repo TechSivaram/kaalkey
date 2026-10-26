@@ -2559,13 +2559,6 @@ export default function HomeScreen() {
                 style={styles.cameraPreview}
                 facing="back"
                 barcodeScannerSettings={{ barcodeTypes: ["qr"] }}
-                onMountError={({ message }) => {
-                  showQrImportMessage(
-                    "Camera unavailable",
-                    message ||
-                      "KaalKey could not start the camera. Check camera permission and close other apps using the camera.",
-                  );
-                }}
                 onBarcodeScanned={scanned ? undefined : ({ data }) => void handleQrScanned(data)}
               />
             ) : (
