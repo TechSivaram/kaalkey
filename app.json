@@ -10,7 +10,11 @@
         "foregroundImage": "./assets/images/kaalkey-adaptive-icon-safe.png"
       },
       "predictiveBackGestureEnabled": false,
-      "permissions": ["android.permission.USE_BIOMETRIC", "android.permission.USE_FINGERPRINT"],
+      "permissions": [
+        "android.permission.USE_BIOMETRIC",
+        "android.permission.USE_FINGERPRINT",
+        "android.permission.CAMERA"
+      ],
       "package": "com.techsivaram.kaalkey.authenticator",
       "softwareKeyboardLayoutMode": "resize"
     },

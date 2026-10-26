@@ -1,0 +1,5 @@
+KaalKey Android QR scanner update
+
+Android now prefers Expo Camera's native Google Code Scanner and routes the decoded payload into the existing OTPAuth validation and SecureStore account-saving flow. If Google Code Scanner is unavailable, the existing CameraView preview remains as a fallback. The Android CAMERA permission is also explicitly declared for that fallback.
+
+Because app.json changed, create a fresh EAS Android build and install that new APK. Do not use an older APK to test this change. Web scanner code was not changed.

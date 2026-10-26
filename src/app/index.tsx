@@ -143,6 +143,10 @@ export default function HomeScreen() {
   const [scannerVisible, setScannerVisible] = useState(false);
   const [scanned, setScanned] = useState(false);
   const [cameraPermission, requestCameraPermission] = useCameraPermissions();
+  // Android's Google Code Scanner returns through a native event rather than
+  // CameraView's preview callback. Keep its subscription and one-shot state in refs.
+  const nativeScannerSubscriptionRef = useRef<{ remove: () => void } | null>(null);
+  const nativeScanReceivedRef = useRef(false);
 
   useEffect(() => {
     const splashTimer = setTimeout(() => setShowBrandSplash(false), 5000);
@@ -1039,9 +1043,61 @@ export default function HomeScreen() {
       setScannerVisible(true);
       return;
     }
+
+    // Prefer Android's native Google Code Scanner in standalone builds. It runs
+    // outside the embedded preview and reports decoded QR payloads through a
+    // native event, avoiding device-specific CameraView preview detection issues.
+    if (Platform.OS === "android") {
+      setScanned(false);
+      setModalVisible(false);
+      setScannerVisible(false);
+      nativeScanReceivedRef.current = false;
+      nativeScannerSubscriptionRef.current?.remove();
+      nativeScannerSubscriptionRef.current = null;
+
+      try {
+        nativeScannerSubscriptionRef.current = CameraView.onModernBarcodeScanned(({ data }) => {
+          if (nativeScanReceivedRef.current) return;
+          nativeScanReceivedRef.current = true;
+          nativeScannerSubscriptionRef.current?.remove();
+          nativeScannerSubscriptionRef.current = null;
+          void handleQrScanned(data, true);
+        });
+
+        await CameraView.launchScanner({ barcodeTypes: ["qr"] });
+        nativeScannerSubscriptionRef.current?.remove();
+        nativeScannerSubscriptionRef.current = null;
+
+        // If the user dismissed the native scanner without scanning, return to
+        // the Add Account form. A successful scan continues through the normal
+        // validation and secure-storage path below.
+        if (!nativeScanReceivedRef.current) setModalVisible(true);
+        return;
+      } catch {
+        nativeScannerSubscriptionRef.current?.remove();
+        nativeScannerSubscriptionRef.current = null;
+        if (nativeScanReceivedRef.current) return;
+
+        // Google Code Scanner may be unavailable on a device without a supported
+        // Google Play services version. Fall back to the existing CameraView UI.
+        if (!cameraPermission?.granted) {
+          const permission = await requestCameraPermission();
+          if (!permission.granted) {
+            setModalVisible(true);
+            Alert.alert(
+              "Camera permission required",
+              "Allow camera access to scan an authenticator setup QR code.",
+            );
+            return;
+          }
+        }
+        setScannerVisible(true);
+        return;
+      }
+    }
+
     if (!cameraPermission?.granted) {
       const permission = await requestCameraPermission();
-
       if (!permission.granted) {
         Alert.alert(
           "Camera permission required",
@@ -2178,6 +2234,8 @@ export default function HomeScreen() {
         >
           <ScrollView
             contentContainerStyle={styles.modalScroll}
+            showsVerticalScrollIndicator={false}
+            persistentScrollbar={false}
             keyboardShouldPersistTaps="handled"
           >
             <View style={styles.modalCard}>

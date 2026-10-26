@@ -1,4 +1,3 @@
-import * as Crypto from "expo-crypto";
 import CryptoJS from "crypto-js";
 import type { Account } from "../types/account";
 import { validateAccounts } from "./account-validation";
@@ -22,7 +21,17 @@ async function secureRandomBytes(length: number): Promise<Uint8Array> {
     globalThis.crypto.getRandomValues(bytes);
     return bytes;
   }
-  return Crypto.getRandomBytesAsync(length);
+  // Load Expo Crypto only when the runtime lacks Web Crypto. A static import
+  // can crash the entire route at startup if the installed native binary was
+  // built before ExpoCrypto was included. Never substitute non-cryptographic randomness.
+  try {
+    const Crypto = await import("expo-crypto");
+    return await Crypto.getRandomBytesAsync(length);
+  } catch {
+    throw new Error(
+      "Secure random generation is unavailable. Rebuild and reinstall the Android app with expo-crypto included, then try again.",
+    );
+  }
 }
 
 export async function encryptBackup(accounts: Account[], password: string): Promise<string> {
