@@ -2073,6 +2073,12 @@ export default function HomeScreen() {
             backgroundColor: "rgba(8, 20, 38, 0.72)",
             justifyContent: "center",
             padding: 22,
+            ...(Platform.OS === "android"
+              ? {
+                  paddingTop: Math.max(insets.top + 22, 34),
+                  paddingBottom: Math.max(insets.bottom + 22, 34),
+                }
+              : {}),
           }}
         >
           <View
@@ -2161,7 +2167,13 @@ export default function HomeScreen() {
         }}
       >
         <KeyboardAvoidingView
-          style={styles.modalBackdrop}
+          style={[
+            styles.modalBackdrop,
+            Platform.OS === "android" && {
+              paddingTop: Math.max(insets.top + 16, 32),
+              paddingBottom: Math.max(insets.bottom + 16, 32),
+            },
+          ]}
           behavior={Platform.OS === "ios" ? "padding" : undefined}
         >
           <ScrollView
@@ -2596,7 +2608,16 @@ export default function HomeScreen() {
         transparent
         onRequestClose={() => setSettingsVisible(false)}
       >
-        <View style={[styles.settingsBackdrop, { paddingHorizontal: 16 }]}>
+        <View
+          style={[
+            styles.settingsBackdrop,
+            { paddingHorizontal: 16 },
+            Platform.OS === "android" && {
+              paddingTop: Math.max(insets.top + 12, 28),
+              paddingBottom: Math.max(insets.bottom + 12, 28),
+            },
+          ]}
+        >
           <View style={styles.settingsSheet}>
             <ScrollView
               style={styles.settingsScroll}
@@ -2767,7 +2788,16 @@ export default function HomeScreen() {
           setBackupPassword("");
         }}
       >
-        <View style={[styles.settingsBackdrop, { paddingHorizontal: 12 }]}>
+        <View
+          style={[
+            styles.settingsBackdrop,
+            { paddingHorizontal: 12 },
+            Platform.OS === "android" && {
+              paddingTop: Math.max(insets.top + 12, 28),
+              paddingBottom: Math.max(insets.bottom + 12, 28),
+            },
+          ]}
+        >
           <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.backupModalWrap}
@@ -2894,6 +2924,12 @@ export default function HomeScreen() {
             alignItems: "center",
             justifyContent: "center",
             padding: 24,
+            ...(Platform.OS === "android"
+              ? {
+                  paddingTop: Math.max(insets.top + 24, 36),
+                  paddingBottom: Math.max(insets.bottom + 24, 36),
+                }
+              : {}),
           }}
         >
           <View
