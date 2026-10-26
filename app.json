@@ -49,7 +49,8 @@
       ],
       "expo-secure-store",
       "expo-status-bar",
-      "expo-local-authentication"
+      "expo-local-authentication",
+      "expo-sharing"
     ],
     "experiments": {
       "typedRoutes": true,
