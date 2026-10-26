@@ -1,5 +1,28 @@
-KaalKey Android QR scanner update
+KaalKey platform-isolated QR scanner fix candidate
 
-Android now prefers Expo Camera's native Google Code Scanner and routes the decoded payload into the existing OTPAuth validation and SecureStore account-saving flow. If Google Code Scanner is unavailable, the existing CameraView preview remains as a fallback. The Android CAMERA permission is also explicitly declared for that fallback.
+Platform boundaries
+- Web continues to use the existing WebQrScanner component and existing web QR image/paste import code. The new native camera component resolves to an empty web implementation, so native CameraView UI is not rendered on web.
+- Android and iOS use separate platform-resolved NativeQrCamera components.
+- Android alone includes scanCapturedQr.android.ts and the periodic still-frame fallback. iOS keeps the live CameraView barcode callback and does not run Android's capture fallback.
 
-Because app.json changed, create a fresh EAS Android build and install that new APK. Do not use an older APK to test this change. Web scanner code was not changed.
+Android scanner changes
+- Uses the visible CameraView live preview instead of launching the separate Google Code Scanner UI.
+- Keeps CameraView's continuous onBarcodeScanned QR callback as the primary detection path.
+- Adds an Android-only fallback that captures a still from the running preview every ~1.8 seconds, tries Expo Camera's native scanFromURLAsync image scanner, and then tries the installed jpeg-js + jsQR decoder.
+- Shows scanner status/errors below the live preview instead of blocking the camera with repeated diagnostic alerts.
+- When a QR is detected, shows the existing activity overlay with “Analyzing QR code…” before parsing/saving.
+- Uses the existing TOTP validation and secure account-saving flow. Invalid QR codes release the scan lock so the user can aim at another code.
+
+Testing status
+- TypeScript/JSX transpile syntax check and ZIP integrity checks are performed before delivery.
+- Full npm lint and physical-device testing are not available in this environment. Run npm run lint and test in Expo Go on a physical Android phone before building a production APK.
+
+Build/test
+1. Extract this archive into the KaalKey project folder.
+2. Run npm install.
+3. Run npx expo start --clear and test in Expo Go on the physical Android phone.
+4. If the preview opens but does not detect a QR, read the status text shown under the preview and share its exact wording.
+5. Once Expo Go behavior is confirmed, build the standalone APK with:
+   npx eas-cli@latest build --platform android --profile production --clear-cache
+
+Note: the Android fallback takes a still image periodically, so the live preview may briefly pause during capture. It is a fallback while continuous barcode detection is retained; this is not a claim that the issue has been device-verified.

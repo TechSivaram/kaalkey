@@ -17,7 +17,7 @@ import {
   useWindowDimensions,
 } from "react-native";
 
-import { CameraView, useCameraPermissions } from "expo-camera";
+import { useCameraPermissions } from "expo-camera";
 import * as Clipboard from "expo-clipboard";
 import * as DocumentPicker from "expo-document-picker";
 import * as ImagePicker from "expo-image-picker";
@@ -38,6 +38,7 @@ import { normalizeBase32Secret, validateAccount } from "../services/account-vali
 import CountdownRing from "../components/CountdownRing";
 import { styles } from "../styles/home.styles";
 import WebQrScanner from "../components/WebQrScanner";
+import NativeQrCamera from "../components/qr-scanner/NativeQrCamera";
 
 const STORAGE_KEY = "kaalkey_accounts_v1";
 const BIOMETRIC_ENABLED_KEY = "kaalkey_biometric_lock_enabled_v1";
@@ -142,11 +143,16 @@ export default function HomeScreen() {
   const [otpPeriod, setOtpPeriod] = useState<string>("30");
   const [scannerVisible, setScannerVisible] = useState(false);
   const [scanned, setScanned] = useState(false);
+  const [scannerDiagnostic, setScannerDiagnostic] = useState("Point your camera at the QR code.");
   const [cameraPermission, requestCameraPermission] = useCameraPermissions();
-  // Android's Google Code Scanner returns through a native event rather than
-  // CameraView's preview callback. Keep its subscription and one-shot state in refs.
-  const nativeScannerSubscriptionRef = useRef<{ remove: () => void } | null>(null);
-  const nativeScanReceivedRef = useRef(false);
+  const qrProcessingRef = useRef(false);
+  const cameraViewRef = useRef<any>(null);
+  const handleQrScannedRef = useRef(handleQrScanned);
+
+  // Keep callbacks current without remounting the live camera preview.
+  useEffect(() => {
+    handleQrScannedRef.current = handleQrScanned;
+  });
 
   useEffect(() => {
     const splashTimer = setTimeout(() => setShowBrandSplash(false), 5000);
@@ -590,7 +596,9 @@ export default function HomeScreen() {
         setOtpAlgorithm("SHA1");
         setOtpDigits(6);
         setOtpPeriod("30");
+        // Explicitly dismiss both account-entry surfaces after a successful save.
         setEditingId(null);
+        setScannerVisible(false);
         setModalVisible(false);
         showBackupMessage(
           "Account saved",
@@ -975,12 +983,6 @@ export default function HomeScreen() {
     }
   }
 
-  // Keep the paste listener stable while updating the handler after each render.
-  const handleQrScannedRef = useRef(handleQrScanned);
-  useEffect(() => {
-    handleQrScannedRef.current = handleQrScanned;
-  });
-
   useEffect(() => {
     if (Platform.OS !== "web" || !modalVisible || editingId) return;
     const onPaste = (event: ClipboardEvent) => {
@@ -1039,66 +1041,18 @@ export default function HomeScreen() {
   async function openQrScanner() {
     if (Platform.OS === "web") {
       setScanned(false);
+      qrProcessingRef.current = false;
       setModalVisible(false);
       setScannerVisible(true);
       return;
     }
 
-    // Prefer Android's native Google Code Scanner in standalone builds. It runs
-    // outside the embedded preview and reports decoded QR payloads through a
-    // native event, avoiding device-specific CameraView preview detection issues.
-    if (Platform.OS === "android") {
-      setScanned(false);
-      setModalVisible(false);
-      setScannerVisible(false);
-      nativeScanReceivedRef.current = false;
-      nativeScannerSubscriptionRef.current?.remove();
-      nativeScannerSubscriptionRef.current = null;
-
-      try {
-        nativeScannerSubscriptionRef.current = CameraView.onModernBarcodeScanned(({ data }) => {
-          if (nativeScanReceivedRef.current) return;
-          nativeScanReceivedRef.current = true;
-          nativeScannerSubscriptionRef.current?.remove();
-          nativeScannerSubscriptionRef.current = null;
-          void handleQrScanned(data, true);
-        });
-
-        await CameraView.launchScanner({ barcodeTypes: ["qr"] });
-        nativeScannerSubscriptionRef.current?.remove();
-        nativeScannerSubscriptionRef.current = null;
-
-        // If the user dismissed the native scanner without scanning, return to
-        // the Add Account form. A successful scan continues through the normal
-        // validation and secure-storage path below.
-        if (!nativeScanReceivedRef.current) setModalVisible(true);
-        return;
-      } catch {
-        nativeScannerSubscriptionRef.current?.remove();
-        nativeScannerSubscriptionRef.current = null;
-        if (nativeScanReceivedRef.current) return;
-
-        // Google Code Scanner may be unavailable on a device without a supported
-        // Google Play services version. Fall back to the existing CameraView UI.
-        if (!cameraPermission?.granted) {
-          const permission = await requestCameraPermission();
-          if (!permission.granted) {
-            setModalVisible(true);
-            Alert.alert(
-              "Camera permission required",
-              "Allow camera access to scan an authenticator setup QR code.",
-            );
-            return;
-          }
-        }
-        setScannerVisible(true);
-        return;
-      }
-    }
-
+    // Use the same visible live preview on Android in Expo Go and standalone builds.
+    // The native Google Code Scanner opens a separate UI and is not our primary path.
     if (!cameraPermission?.granted) {
       const permission = await requestCameraPermission();
       if (!permission.granted) {
+        setModalVisible(true);
         Alert.alert(
           "Camera permission required",
           "Allow camera access to scan an authenticator setup QR code.",
@@ -1107,6 +1061,8 @@ export default function HomeScreen() {
       }
     }
 
+    qrProcessingRef.current = false;
+    setScannerDiagnostic("Starting camera…");
     setScanned(false);
     setModalVisible(false);
     setScannerVisible(true);
@@ -1124,10 +1080,14 @@ export default function HomeScreen() {
     // `scanned` only debounces repeated live-camera frames. Gallery imports must
     // still be allowed after the scanner has previously scanned a code.
     if (fromCamera) {
-      if (scanned) return;
+      if (qrProcessingRef.current || scanned) return;
+      qrProcessingRef.current = true;
       setScanned(true);
+      setScannerDiagnostic("QR detected. Analyzing…");
     }
-    setActivityMessage("Importing authenticator account…");
+    setActivityMessage("Analyzing QR code…");
+    // Give React Native a frame to display the loader before parsing/saving.
+    await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
 
     try {
       if (!qrPayload.startsWith("otpauth://totp/")) {
@@ -1135,7 +1095,13 @@ export default function HomeScreen() {
           "Unsupported QR code",
           "Scan the authenticator setup QR code supplied by the service. This must be a TOTP code, not a normal login QR code.",
         );
-        if (fromCamera) setScanned(false);
+        if (fromCamera) {
+          qrProcessingRef.current = false;
+          setScanned(false);
+          setScannerDiagnostic(
+            "That QR is not a TOTP setup code. Aim at an authenticator setup QR.",
+          );
+        }
         return;
       }
 
@@ -1203,13 +1169,19 @@ export default function HomeScreen() {
 
       if (saved) {
         hapticFeedback("success");
+        // Close the scanner and ensure the Add Account form stays dismissed.
         setScannerVisible(false);
+        setModalVisible(false);
+        setEditingId(null);
+        qrProcessingRef.current = false;
         showBackupMessage(
           "Account added",
           `${account.issuer}: ${account.name} was added successfully.`,
         );
       } else if (fromCamera) {
+        qrProcessingRef.current = false;
         setScanned(false);
+        setScannerDiagnostic("Could not save the account. You can scan again.");
       }
     } catch (error) {
       const detail = error instanceof Error ? error.message : "Unknown QR parsing error";
@@ -1217,11 +1189,18 @@ export default function HomeScreen() {
         "Invalid QR code",
         `KaalKey could not parse this authenticator QR code. ${detail}. Use the service's TOTP setup QR code (usually starts with otpauth://totp/).`,
       );
-      if (fromCamera) setScanned(false);
+      if (fromCamera) {
+        qrProcessingRef.current = false;
+        setScanned(false);
+        setScannerDiagnostic("QR could not be processed. Aim at the setup QR and try again.");
+      }
     } finally {
       setActivityMessage(null);
     }
   }
+
+  // Android uses CameraView.onBarcodeScanned directly, matching the earlier working scanner.
+  // Do not capture still images periodically; keep the live preview uninterrupted.
 
   async function copyCode(code: string) {
     if (!/^\d{6,8}$/.test(code)) {
@@ -2582,6 +2561,7 @@ export default function HomeScreen() {
         animationType="slide"
         onRequestClose={() => {
           setScannerVisible(false);
+          qrProcessingRef.current = false;
           setModalVisible(true);
         }}
       >
@@ -2601,6 +2581,7 @@ export default function HomeScreen() {
             <TouchableOpacity
               onPress={() => {
                 setScannerVisible(false);
+                qrProcessingRef.current = false;
                 setModalVisible(true);
               }}
               accessibilityRole="button"
@@ -2625,10 +2606,15 @@ export default function HomeScreen() {
                 onDetected={(data) => void handleQrScanned(data)}
               />
             ) : scannerVisible && cameraPermission?.granted ? (
-              <CameraView
+              <NativeQrCamera
+                cameraRef={cameraViewRef}
                 style={styles.cameraPreview}
-                facing="back"
-                barcodeScannerSettings={{ barcodeTypes: ["qr"] }}
+                onCameraReady={() => {
+                  setScannerDiagnostic("Camera ready. Point it at the authenticator QR code.");
+                }}
+                onMountError={(event) => {
+                  setScannerDiagnostic(`Camera could not start: ${event.message}`);
+                }}
                 onBarcodeScanned={scanned ? undefined : ({ data }) => void handleQrScanned(data)}
               />
             ) : (
@@ -2647,11 +2633,17 @@ export default function HomeScreen() {
           <Text style={styles.scannerHint}>
             Keep the entire QR code visible. Your secret stays on this device.
           </Text>
+          {Platform.OS === "android" ? (
+            <Text accessibilityLiveRegion="polite" style={styles.scannerHint}>
+              {scannerDiagnostic}
+            </Text>
+          ) : null}
 
           <TouchableOpacity
             style={styles.scannerManualButton}
             onPress={() => {
               setScannerVisible(false);
+              qrProcessingRef.current = false;
               setModalVisible(true);
             }}
           >

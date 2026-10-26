@@ -1,0 +1,5 @@
+KaalKey - Add Account popup dismissal fix
+
+After a successful manual account save or successful QR account import, the app now explicitly dismisses both the Add Account form and scanner surfaces. The success confirmation and existing validation/storage flow are retained. No scanner implementation or platform-specific web scanning logic was changed.
+
+Verification: ZIP integrity checked. Full npm lint/TypeScript/device testing was not run in this environment.

@@ -1,0 +1,7 @@
+TypeScript fixes for the Android scanner recovery project
+
+- Added NativeQrCamera.tsx as a shared TypeScript declaration/fallback so tsc can resolve the platform-specific NativeQrCamera.android.tsx, NativeQrCamera.ios.tsx, and NativeQrCamera.web.tsx files.
+- Disabled the unused legacy Android still-image helper's unsupported CameraView.scanFromURLAsync call. The recovered scanner uses the live onBarcodeScanned callback.
+- Camera callback parameters are now typed through the shared NativeQrCamera props instead of becoming implicit any.
+
+No account-management, OTP, storage, web QR upload, or QR validation logic was intentionally changed.

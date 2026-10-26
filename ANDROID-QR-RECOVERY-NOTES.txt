@@ -1,0 +1,24 @@
+KaalKey — Android QR Scanner Recovery Candidate
+
+What was compared
+- The newly uploaded kaalkey-authenticator-qr-scanner.zip uses the standard Expo CameraView live preview with barcodeScannerSettings={{ barcodeTypes: ["qr"] }} and onBarcodeScanned.
+- The newer project had added a periodic Android still-image capture and fallback-decoding loop while the native onBarcodeScanned callback was also active.
+
+What changed in this candidate
+- Removed the Android periodic still-image capture / scan fallback loop.
+- Android now relies on the same continuous CameraView.onBarcodeScanned approach as the uploaded earlier project.
+- Kept the existing live camera preview and current QR validation / secure account-saving flow.
+- Kept the existing web scanner and web QR image-upload component files unchanged.
+- Kept the separate iOS camera component unchanged.
+- Kept the existing “Analyzing QR code…” handling after a native scan event.
+
+Validation
+- TypeScript/JSX transpile syntax check passed.
+- ZIP integrity check passed.
+- Full dependency install/lint and physical-device tests were not available here. This is a recovery candidate, not a claim that Android has been device-verified.
+
+Android test
+1. npm install
+2. npx expo start --clear
+3. In Expo Go on a physical Android device, choose Add Account > Scan QR Code.
+4. Confirm live preview appears, then aim at an authenticator TOTP setup QR code.
