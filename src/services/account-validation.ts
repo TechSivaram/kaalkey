@@ -1,5 +1,11 @@
 import * as OTPAuth from "otpauth";
 import type { Account } from "../types/account";
+import {
+  MAX_TOTP_PERIOD_SECONDS,
+  MIN_TOTP_PERIOD_SECONDS,
+  SUPPORTED_TOTP_ALGORITHMS,
+  SUPPORTED_TOTP_DIGITS,
+} from "../constants/totp";
 
 export function normalizeBase32Secret(value: string): string {
   return value.replace(/[\s-]/g, "").replace(/=+$/g, "").toUpperCase();
@@ -22,13 +28,12 @@ export function validateAccount(value: unknown): value is Account {
     !account.name.trim() ||
     typeof account.secret !== "string" ||
     !isValidBase32Secret(account.secret) ||
-    !["SHA1", "SHA256", "SHA512"].includes(account.algorithm ?? "") ||
+    !SUPPORTED_TOTP_ALGORITHMS.includes((account.algorithm ?? "") as (typeof SUPPORTED_TOTP_ALGORITHMS)[number]) ||
     !Number.isInteger(account.digits) ||
-    (account.digits ?? 0) < 6 ||
-    (account.digits ?? 0) > 8 ||
+    !SUPPORTED_TOTP_DIGITS.includes((account.digits ?? 0) as (typeof SUPPORTED_TOTP_DIGITS)[number]) ||
     !Number.isInteger(account.period) ||
-    (account.period ?? 0) < 1 ||
-    (account.period ?? 0) > 120 ||
+    (account.period ?? 0) < MIN_TOTP_PERIOD_SECONDS ||
+    (account.period ?? 0) > MAX_TOTP_PERIOD_SECONDS ||
     (account.group !== undefined && typeof account.group !== "string")
   ) {
     return false;

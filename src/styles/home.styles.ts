@@ -1,4 +1,5 @@
 import { Platform, StyleSheet } from "react-native";
+import { COLORS } from "../constants/colors";
 
 export const styles = StyleSheet.create({
   splashScreen: {
@@ -18,7 +19,7 @@ export const styles = StyleSheet.create({
     borderRadius: 28,
     borderWidth: 1,
     borderColor: "#E2E8F0",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: COLORS.white,
     shadowColor: "#14213D",
     shadowOpacity: 0.08,
     shadowRadius: 24,
@@ -27,12 +28,12 @@ export const styles = StyleSheet.create({
   },
   splashLogo: { width: 116, height: 116, marginBottom: 12 },
   splashTitle: { fontSize: 42, fontWeight: "900", letterSpacing: -1.2 },
-  splashKaal: { color: "#D98200" },
+  splashKaal: { color: COLORS.saffronDark },
   splashK: { color: "#173D75" },
-  splashEy: { color: "#138808" },
+  splashEy: { color: COLORS.indiaGreen },
   splashSubtitle: {
     marginTop: 4,
-    color: "#344054",
+    color: COLORS.slateDark,
     fontSize: 13,
     fontWeight: "800",
     letterSpacing: 4.2,
@@ -47,16 +48,16 @@ export const styles = StyleSheet.create({
     borderRadius: 22,
     borderWidth: 1,
     borderColor: "#DCE5EC",
-    backgroundColor: "#F8FAFC",
+    backgroundColor: COLORS.surfaceLight,
   },
-  splashDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: "#138808" },
+  splashDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: COLORS.indiaGreen },
   splashBadgeText: { color: "#475467", fontSize: 10, fontWeight: "800", letterSpacing: 1.8 },
   splashDivider: {
     width: 84,
     height: 4,
     borderRadius: 2,
     marginTop: 28,
-    backgroundColor: "#FF9800",
+    backgroundColor: COLORS.saffron,
   },
   splashTagline: {
     marginTop: 18,
@@ -71,8 +72,8 @@ export const styles = StyleSheet.create({
     height: 42,
     borderRadius: 13,
     borderWidth: 1,
-    borderColor: "#DCE2EA",
-    backgroundColor: "#F8FAFC",
+    borderColor: COLORS.borderLight,
+    backgroundColor: COLORS.surfaceLight,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -87,7 +88,7 @@ export const styles = StyleSheet.create({
     width: "100%",
     maxHeight: "100%",
     flexShrink: 1,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: COLORS.white,
     borderRadius: 24,
     paddingHorizontal: 22,
     paddingTop: 24,
@@ -114,17 +115,17 @@ export const styles = StyleSheet.create({
     fontSize: 10,
     letterSpacing: 1.8,
     fontWeight: "800",
-    color: "#138808",
+    color: COLORS.indiaGreen,
     marginBottom: 5,
   },
-  settingsTitle: { fontSize: 26, fontWeight: "900", color: "#172033" },
+  settingsTitle: { fontSize: 26, fontWeight: "900", color: COLORS.textPrimary },
   settingsCloseButton: {
     width: 40,
     height: 40,
     minWidth: 40,
     minHeight: 40,
     borderRadius: 20,
-    backgroundColor: "#F1F4F8",
+    backgroundColor: COLORS.homeSubtleSurface,
     alignItems: "center",
     justifyContent: "center",
     flexShrink: 0,
@@ -132,7 +133,7 @@ export const styles = StyleSheet.create({
     zIndex: 2,
     elevation: 2,
   },
-  settingsCloseText: { fontSize: 16, fontWeight: "800", color: "#344054" },
+  settingsCloseText: { fontSize: 16, fontWeight: "800", color: COLORS.slateDark },
   settingsSectionLabel: {
     color: "#7A8698",
     fontSize: 10,
@@ -159,7 +160,7 @@ export const styles = StyleSheet.create({
   },
   settingIcon: { fontSize: 20 },
   settingCopy: { flex: 1 },
-  settingTitleText: { fontSize: 14, fontWeight: "800", color: "#172033", marginBottom: 3 },
+  settingTitleText: { fontSize: 14, fontWeight: "800", color: COLORS.textPrimary, marginBottom: 3 },
   settingDescription: { fontSize: 11, lineHeight: 16, color: "#697586" },
   settingSwitch: {
     width: 46,
@@ -169,12 +170,12 @@ export const styles = StyleSheet.create({
     padding: 3,
     justifyContent: "center",
   },
-  settingSwitchOn: { backgroundColor: "#138808" },
+  settingSwitchOn: { backgroundColor: COLORS.indiaGreen },
   settingSwitchThumb: {
     width: 21,
     height: 21,
     borderRadius: 11,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: COLORS.white,
     elevation: 2,
     alignSelf: "flex-start",
   },
@@ -185,7 +186,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 9,
     paddingVertical: 6,
   },
-  appearanceBadgeText: { fontSize: 9, fontWeight: "900", color: "#138808", letterSpacing: 0.6 },
+  appearanceBadgeText: { fontSize: 9, fontWeight: "900", color: COLORS.indiaGreen, letterSpacing: 0.6 },
   backupButtonsRow: { flexDirection: "row", gap: 10, marginTop: 2 },
   backupActionButton: {
     flex: 1,
@@ -193,12 +194,12 @@ export const styles = StyleSheet.create({
     borderRadius: 15,
     borderWidth: 1,
     borderColor: "#DCE5F0",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: COLORS.white,
     padding: 13,
     alignItems: "flex-start",
     justifyContent: "center",
   },
-  backupActionIcon: { fontSize: 21, color: "#138808", marginBottom: 7, fontWeight: "800" },
+  backupActionIcon: { fontSize: 21, color: COLORS.indiaGreen, marginBottom: 7, fontWeight: "800" },
   backupActionTitle: { color: "#17243A", fontSize: 13, fontWeight: "800" },
   backupActionDescription: { color: "#77859A", fontSize: 11, marginTop: 4 },
   backupSafetyText: { color: "#7B5B24", fontSize: 11, lineHeight: 16, marginTop: 9 },
@@ -207,13 +208,13 @@ export const styles = StyleSheet.create({
   backupModalScrollContent: { flexGrow: 1, justifyContent: "center", paddingVertical: 12 },
   backupModal: {
     flexShrink: 0,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: COLORS.white,
     borderRadius: 26,
     overflow: "hidden",
     padding: 22,
     paddingBottom: 30,
     borderWidth: 1,
-    borderColor: "#E7EDF5",
+    borderColor: COLORS.homeBorder,
   },
   backupModalDescription: {
     color: "#5E6C82",
@@ -233,21 +234,21 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F5F8FC",
     borderRadius: 14,
     borderWidth: 1,
-    borderColor: "#E7EDF5",
+    borderColor: COLORS.homeBorder,
   },
   settingsPrivacyIcon: { fontSize: 20 },
-  settingsPrivacyText: { flex: 1, color: "#596579", fontSize: 11, lineHeight: 16 },
+  settingsPrivacyText: { flex: 1, color: COLORS.settingsMutedText, fontSize: 11, lineHeight: 16 },
   settingsDoneButton: {
     marginTop: 18,
     borderRadius: 15,
-    backgroundColor: "#FF9800",
+    backgroundColor: COLORS.saffron,
     paddingVertical: 15,
     alignItems: "center",
   },
-  settingsDoneText: { color: "#101827", fontWeight: "900", fontSize: 14 },
+  settingsDoneText: { color: COLORS.darkText, fontWeight: "900", fontSize: 14 },
   container: {
     flex: 1,
-    backgroundColor: "#F4F6F9",
+    backgroundColor: COLORS.homeSoftSurface,
   },
 
   tricolorStripe: {
@@ -267,8 +268,8 @@ export const styles = StyleSheet.create({
     paddingVertical: 9,
     borderRadius: 13,
     borderWidth: 1,
-    borderColor: "#DCE2EA",
-    backgroundColor: "#F8FAFC",
+    borderColor: COLORS.borderLight,
+    backgroundColor: COLORS.surfaceLight,
   },
   securityButtonActive: {
     borderColor: "#B7E3C2",
@@ -285,13 +286,13 @@ export const styles = StyleSheet.create({
     letterSpacing: 0.5,
   },
   securityButtonTextActive: {
-    color: "#138808",
+    color: COLORS.indiaGreen,
   },
   lockScreen: {
     ...StyleSheet.absoluteFill,
     zIndex: 1000,
     elevation: 1000,
-    backgroundColor: "#F4F6F9",
+    backgroundColor: COLORS.homeSoftSurface,
     alignItems: "center",
     justifyContent: "center",
     padding: 24,
@@ -300,10 +301,10 @@ export const styles = StyleSheet.create({
     width: "100%",
     maxWidth: 380,
     alignItems: "center",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: COLORS.white,
     borderRadius: 26,
     borderWidth: 1,
-    borderColor: "#E1E6ED",
+    borderColor: COLORS.homeCardBorder,
     paddingHorizontal: 26,
     paddingTop: 32,
     paddingBottom: 28,
@@ -319,19 +320,19 @@ export const styles = StyleSheet.create({
   },
   lockIcon: { fontSize: 34 },
   lockBrand: {
-    color: "#172033",
+    color: COLORS.textPrimary,
     fontSize: 25,
     fontWeight: "900",
     marginBottom: 10,
   },
   lockTitle: {
-    color: "#172033",
+    color: COLORS.textPrimary,
     fontSize: 19,
     fontWeight: "800",
     textAlign: "center",
   },
   lockDescription: {
-    color: "#657186",
+    color: COLORS.homeSecondaryText,
     fontSize: 13,
     lineHeight: 20,
     textAlign: "center",
@@ -340,18 +341,18 @@ export const styles = StyleSheet.create({
   },
   unlockButton: {
     width: "100%",
-    backgroundColor: "#FF9800",
+    backgroundColor: COLORS.saffron,
     borderRadius: 14,
     paddingVertical: 15,
     alignItems: "center",
   },
   unlockButtonText: {
-    color: "#101827",
+    color: COLORS.darkText,
     fontSize: 13,
     fontWeight: "900",
   },
   lockFootnote: {
-    color: "#8290A7",
+    color: COLORS.placeholder,
     fontSize: 10,
     marginTop: 18,
     textAlign: "center",
@@ -361,7 +362,7 @@ export const styles = StyleSheet.create({
     paddingTop: 8,
     paddingHorizontal: 18,
     paddingBottom: 10,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: COLORS.white,
     borderBottomWidth: 1,
     borderBottomColor: "#E7EAF0",
   },
@@ -378,7 +379,7 @@ export const styles = StyleSheet.create({
     height: 82,
     padding: 4,
     borderRadius: 10,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: COLORS.white,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -402,21 +403,21 @@ export const styles = StyleSheet.create({
   },
 
   brandKaal: {
-    color: "#FF9800",
+    color: COLORS.saffron,
   },
 
   brandK: {
-    color: "#1769E0",
+    color: COLORS.linkBlue,
   },
 
   brandEy: {
-    color: "#168A35",
+    color: COLORS.successGreen,
   },
 
   brandSubtitle: {
     marginTop: 1,
     marginBottom: 7,
-    color: "#4B5563",
+    color: COLORS.secondaryText,
     fontSize: 10,
     fontWeight: "800",
     letterSpacing: 2.1,
@@ -437,7 +438,7 @@ export const styles = StyleSheet.create({
     width: 6,
     height: 6,
     borderRadius: 3,
-    backgroundColor: "#138808",
+    backgroundColor: COLORS.indiaGreen,
   },
 
   secureText: {
@@ -466,7 +467,7 @@ export const styles = StyleSheet.create({
   },
 
   eyebrow: {
-    color: "#FF9800",
+    color: COLORS.saffron,
     fontSize: 10,
     fontWeight: "800",
     letterSpacing: 1.8,
@@ -506,14 +507,14 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: "#DCE2EA",
-    backgroundColor: "#FFFFFF",
+    borderColor: COLORS.borderLight,
+    backgroundColor: COLORS.white,
   },
 
   searchInput: {
     flex: 1,
     minHeight: 44,
-    color: "#172033",
+    color: COLORS.textPrimary,
     paddingLeft: 14,
     paddingRight: 4,
     fontSize: 13,
@@ -527,7 +528,7 @@ export const styles = StyleSheet.create({
   },
 
   clearSearchButtonText: {
-    color: "#9A4D00",
+    color: COLORS.amberDark,
     fontSize: 25,
     lineHeight: 29,
     fontWeight: "400",
@@ -541,7 +542,7 @@ export const styles = StyleSheet.create({
   },
 
   sortLabel: {
-    color: "#778397",
+    color: COLORS.homeMutedText,
     fontSize: 9,
     fontWeight: "800",
     letterSpacing: 1.2,
@@ -554,22 +555,22 @@ export const styles = StyleSheet.create({
     borderRadius: 9,
     borderWidth: 1,
     borderColor: "#FFCC80",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: COLORS.white,
   },
 
   sortButtonActive: {
-    borderColor: "#FF9800",
-    backgroundColor: "#FFF7ED",
+    borderColor: COLORS.saffron,
+    backgroundColor: COLORS.saffronSurface,
   },
 
   sortButtonText: {
-    color: "#596579",
+    color: COLORS.settingsMutedText,
     fontSize: 11,
     fontWeight: "700",
   },
 
   sortButtonTextActive: {
-    color: "#9A4D00",
+    color: COLORS.amberDark,
   },
 
   accountActions: {
@@ -583,25 +584,25 @@ export const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: "#FF9800",
-    backgroundColor: "#FFF7ED",
+    borderColor: COLORS.saffron,
+    backgroundColor: COLORS.saffronSurface,
   },
 
   editButtonText: {
-    color: "#9A4D00",
+    color: COLORS.amberDark,
     fontSize: 11,
     fontWeight: "700",
   },
 
   sectionTitle: {
-    color: "#172033",
+    color: COLORS.textPrimary,
     fontSize: 20,
     fontWeight: "800",
     letterSpacing: -0.4,
   },
 
   accountCount: {
-    color: "#778397",
+    color: COLORS.homeMutedText,
     fontSize: 9,
     fontWeight: "800",
     letterSpacing: 1.5,
@@ -609,11 +610,11 @@ export const styles = StyleSheet.create({
   },
 
   addButton: {
-    backgroundColor: "#FF9800",
+    backgroundColor: COLORS.saffron,
     paddingHorizontal: 18,
     paddingVertical: 12,
     borderRadius: 13,
-    shadowColor: "#C96D00",
+    shadowColor: COLORS.saffronShadow,
     shadowOpacity: 0.12,
     shadowRadius: 9,
     shadowOffset: { width: 0, height: 3 },
@@ -621,58 +622,58 @@ export const styles = StyleSheet.create({
   },
 
   addButtonText: {
-    color: "#101827",
+    color: COLORS.darkText,
     fontSize: 13,
     fontWeight: "800",
   },
 
   emptyCard: {
     borderWidth: 1,
-    borderColor: "#E1E6ED",
+    borderColor: COLORS.homeCardBorder,
     borderRadius: 20,
     padding: 24,
     alignItems: "center",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: COLORS.white,
   },
 
   emptyIcon: {
     width: 54,
     height: 54,
     borderRadius: 18,
-    backgroundColor: "#FFF0DD",
+    backgroundColor: COLORS.saffronLight,
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 17,
   },
 
   emptyIconText: {
-    color: "#FF9800",
+    color: COLORS.saffron,
     fontSize: 30,
   },
 
   emptyTitle: {
-    color: "#172033",
+    color: COLORS.textPrimary,
     fontSize: 17,
     fontWeight: "800",
     marginBottom: 9,
   },
 
   emptyText: {
-    color: "#657186",
+    color: COLORS.homeSecondaryText,
     fontSize: 13,
     lineHeight: 21,
     textAlign: "center",
   },
 
   primaryButton: {
-    backgroundColor: "#FF9800",
+    backgroundColor: COLORS.saffron,
     borderRadius: 14,
     minHeight: 51,
     paddingHorizontal: 18,
     alignItems: "center",
     justifyContent: "center",
     marginTop: 21,
-    shadowColor: "#C96D00",
+    shadowColor: COLORS.saffronShadow,
     shadowOpacity: 0.13,
     shadowRadius: 9,
     shadowOffset: { width: 0, height: 3 },
@@ -680,15 +681,15 @@ export const styles = StyleSheet.create({
   },
 
   primaryButtonText: {
-    color: "#101827",
+    color: COLORS.darkText,
     fontSize: 14,
     fontWeight: "800",
   },
 
   accountCard: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: COLORS.white,
     borderWidth: 1,
-    borderColor: "#E0E6EE",
+    borderColor: COLORS.borderSoft,
     borderRadius: 20,
     padding: 16,
     marginBottom: 13,
@@ -709,7 +710,7 @@ export const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 15,
-    backgroundColor: "#FFF0DD",
+    backgroundColor: COLORS.saffronLight,
     borderWidth: 1,
     borderColor: "#F5D4AD",
     alignItems: "center",
@@ -717,7 +718,7 @@ export const styles = StyleSheet.create({
   },
 
   accountIconText: {
-    color: "#B95D00",
+    color: COLORS.saffronTextDark,
     fontSize: 20,
     fontWeight: "900",
   },
@@ -727,13 +728,13 @@ export const styles = StyleSheet.create({
   },
 
   accountIssuer: {
-    color: "#172033",
+    color: COLORS.textPrimary,
     fontSize: 14,
     fontWeight: "800",
   },
 
   accountName: {
-    color: "#68758A",
+    color: COLORS.mutedText,
     fontSize: 12,
     marginTop: 4,
   },
@@ -778,14 +779,14 @@ export const styles = StyleSheet.create({
   },
 
   countdownNumber: {
-    color: "#172033",
+    color: COLORS.textPrimary,
     fontSize: 16,
     fontWeight: "800",
     fontVariant: ["tabular-nums"],
   },
 
   code: {
-    color: "#172033",
+    color: COLORS.textPrimary,
     fontSize: 32,
     fontWeight: "800",
     letterSpacing: 3,
@@ -793,7 +794,7 @@ export const styles = StyleSheet.create({
   },
 
   copyHint: {
-    color: "#B95D00",
+    color: COLORS.saffronTextDark,
     fontSize: 9,
     fontWeight: "800",
     letterSpacing: 1.5,
@@ -805,18 +806,18 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 24,
     borderTopWidth: 1,
-    borderTopColor: "#E0E6EE",
+    borderTopColor: COLORS.borderSoft,
   },
 
   footerBrand: {
-    color: "#566276",
+    color: COLORS.slateText,
     fontSize: 10,
     fontWeight: "800",
     letterSpacing: 2,
   },
 
   footerText: {
-    color: "#7A8597",
+    color: COLORS.homePlaceholderText,
     fontSize: 12,
     marginTop: 9,
   },
@@ -844,12 +845,12 @@ export const styles = StyleSheet.create({
 
   modalCard: {
     flexShrink: 1,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: COLORS.white,
     borderRadius: 22,
     overflow: "hidden",
     padding: 22,
     borderWidth: 1,
-    borderColor: "#E0E6EE",
+    borderColor: COLORS.borderSoft,
   },
 
   modalHeader: {
@@ -866,7 +867,7 @@ export const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: "#F1F4F8",
+    backgroundColor: COLORS.homeSubtleSurface,
     alignItems: "center",
     justifyContent: "center",
     flexShrink: 0,
@@ -874,19 +875,19 @@ export const styles = StyleSheet.create({
   },
 
   modalTitle: {
-    color: "#172033",
+    color: COLORS.textPrimary,
     fontSize: 24,
     fontWeight: "800",
   },
 
   modalSubtitle: {
-    color: "#68758A",
+    color: COLORS.mutedText,
     fontSize: 12,
     marginTop: 7,
   },
 
   closeButton: {
-    color: "#344054",
+    color: COLORS.slateDark,
     fontSize: 27,
     lineHeight: 30,
     fontWeight: "500",
@@ -895,7 +896,7 @@ export const styles = StyleSheet.create({
   },
 
   inputLabel: {
-    color: "#566276",
+    color: COLORS.slateText,
     fontSize: 10,
     fontWeight: "800",
     letterSpacing: 1.3,
@@ -904,11 +905,11 @@ export const styles = StyleSheet.create({
   },
 
   input: {
-    backgroundColor: "#F8FAFC",
+    backgroundColor: COLORS.surfaceLight,
     borderWidth: 1,
-    borderColor: "#DCE2EA",
+    borderColor: COLORS.borderLight,
     borderRadius: 11,
-    color: "#172033",
+    color: COLORS.textPrimary,
     paddingHorizontal: 14,
     paddingVertical: 13,
     fontSize: 14,
@@ -934,7 +935,7 @@ export const styles = StyleSheet.create({
   },
 
   clearInputButtonText: {
-    color: "#9A4D00",
+    color: COLORS.amberDark,
     fontSize: 25,
     lineHeight: 29,
     fontWeight: "500",
@@ -951,30 +952,30 @@ export const styles = StyleSheet.create({
 
   optionChip: {
     borderWidth: 1,
-    borderColor: "#DCE2EA",
+    borderColor: COLORS.borderLight,
     borderRadius: 10,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    backgroundColor: "#F8FAFC",
+    backgroundColor: COLORS.surfaceLight,
   },
 
   optionChipSelected: {
-    borderColor: "#FF9800",
-    backgroundColor: "#FFF0DD",
+    borderColor: COLORS.saffron,
+    backgroundColor: COLORS.saffronLight,
   },
 
   optionChipText: {
-    color: "#566276",
+    color: COLORS.slateText,
     fontSize: 12,
     fontWeight: "700",
   },
 
   optionChipTextSelected: {
-    color: "#9A4D00",
+    color: COLORS.amberDark,
   },
 
   securityNote: {
-    color: "#68758A",
+    color: COLORS.mutedText,
     fontSize: 11,
     lineHeight: 17,
     marginTop: 15,
@@ -983,8 +984,8 @@ export const styles = StyleSheet.create({
   scanButton: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#FFF7ED",
-    borderColor: "#FF9800",
+    backgroundColor: COLORS.saffronSurface,
+    borderColor: COLORS.saffron,
     borderWidth: 1,
     borderRadius: 15,
     padding: 15,
@@ -999,7 +1000,7 @@ export const styles = StyleSheet.create({
   },
 
   scanButtonIcon: {
-    color: "#FF9800",
+    color: COLORS.saffron,
     fontSize: 28,
     fontWeight: "800",
   },
@@ -1009,25 +1010,25 @@ export const styles = StyleSheet.create({
   },
 
   scanButtonTitle: {
-    color: "#172033",
+    color: COLORS.textPrimary,
     fontSize: 15,
     fontWeight: "800",
   },
 
   scanButtonSubtitle: {
-    color: "#68758A",
+    color: COLORS.mutedText,
     fontSize: 11,
     lineHeight: 16,
     marginTop: 4,
   },
 
   scanButtonArrow: {
-    color: "#FF9800",
+    color: COLORS.saffron,
     fontSize: 28,
   },
 
   manualEntryLabel: {
-    color: "#7A8597",
+    color: COLORS.homePlaceholderText,
     fontSize: 9,
     fontWeight: "800",
     letterSpacing: 1.4,
@@ -1054,14 +1055,14 @@ export const styles = StyleSheet.create({
   },
 
   scannerBack: {
-    color: "#FF9800",
+    color: COLORS.saffron,
     fontSize: 15,
     fontWeight: "700",
     paddingVertical: 8,
   },
 
   scannerStep: {
-    color: "#8290A7",
+    color: COLORS.placeholder,
     fontSize: 9,
     fontWeight: "800",
     letterSpacing: 1.6,
@@ -1093,7 +1094,7 @@ export const styles = StyleSheet.create({
     borderRadius: 24,
     borderWidth: 1,
     borderColor: "#314451",
-    backgroundColor: "#111B2B",
+    backgroundColor: COLORS.homeDarkSurface,
   },
 
   cameraPreview: {
@@ -1106,7 +1107,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 24,
-    backgroundColor: "#111B2B",
+    backgroundColor: COLORS.homeDarkSurface,
   },
 
   cameraUnavailableText: {
@@ -1124,7 +1125,7 @@ export const styles = StyleSheet.create({
     height: 34,
     borderTopWidth: 4,
     borderLeftWidth: 4,
-    borderColor: "#FF9800",
+    borderColor: COLORS.saffron,
     borderTopLeftRadius: 9,
   },
 
@@ -1136,7 +1137,7 @@ export const styles = StyleSheet.create({
     height: 34,
     borderTopWidth: 4,
     borderRightWidth: 4,
-    borderColor: "#FF9800",
+    borderColor: COLORS.saffron,
     borderTopRightRadius: 9,
   },
 
@@ -1148,7 +1149,7 @@ export const styles = StyleSheet.create({
     height: 34,
     borderBottomWidth: 4,
     borderLeftWidth: 4,
-    borderColor: "#FF9800",
+    borderColor: COLORS.saffron,
     borderBottomLeftRadius: 9,
   },
 
@@ -1160,12 +1161,12 @@ export const styles = StyleSheet.create({
     height: 34,
     borderBottomWidth: 4,
     borderRightWidth: 4,
-    borderColor: "#FF9800",
+    borderColor: COLORS.saffron,
     borderBottomRightRadius: 9,
   },
 
   scannerHint: {
-    color: "#8290A7",
+    color: COLORS.placeholder,
     fontSize: 12,
     lineHeight: 18,
     textAlign: "center",
@@ -1179,7 +1180,7 @@ export const styles = StyleSheet.create({
   },
 
   scannerManualText: {
-    color: "#FF9800",
+    color: COLORS.saffron,
     fontSize: 13,
     fontWeight: "700",
   },
@@ -1190,12 +1191,12 @@ export const styles = StyleSheet.create({
     marginTop: 5,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: "#FF9800",
-    backgroundColor: "#FFF7ED",
+    borderColor: COLORS.saffron,
+    backgroundColor: COLORS.saffronSurface,
   },
 
   cancelButtonText: {
-    color: "#9A4D00",
+    color: COLORS.amberDark,
     fontSize: 13,
     fontWeight: "700",
   },

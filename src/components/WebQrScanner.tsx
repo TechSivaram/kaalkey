@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { Platform, Text, View } from "react-native";
 import jsQR from "jsqr";
+import { WEB_QR_SCAN_THROTTLE_MS } from "../constants/ui";
+import { COLORS } from "../constants/colors";
+import {
+  WEB_QR_CAMERA_IDEAL_HEIGHT,
+  WEB_QR_CAMERA_IDEAL_WIDTH,
+  WEB_QR_SCAN_CENTER_CROP_RATIO,
+  WEB_QR_SCAN_MAX_FRAME_WIDTH,
+} from "../constants/qr";
 
 type Props = {
   active: boolean;
@@ -44,8 +52,8 @@ export default function WebQrScanner({ active, onDetected }: Props) {
           audio: false,
           video: {
             facingMode: { ideal: "environment" },
-            width: { ideal: 1280 },
-            height: { ideal: 720 },
+            width: { ideal: WEB_QR_CAMERA_IDEAL_WIDTH },
+            height: { ideal: WEB_QR_CAMERA_IDEAL_HEIGHT },
           },
         });
         if (disposed) {
@@ -80,12 +88,12 @@ export default function WebQrScanner({ active, onDetected }: Props) {
           if (
             video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA &&
             video.videoWidth > 0 &&
-            now - lastScan > 180
+            now - lastScan > WEB_QR_SCAN_THROTTLE_MS
           ) {
             lastScan = now;
             try {
               // Limit the frame dimensions for consistent performance.
-              const scale = Math.min(1, 1280 / video.videoWidth);
+              const scale = Math.min(1, WEB_QR_SCAN_MAX_FRAME_WIDTH / video.videoWidth);
               canvas.width = Math.max(1, Math.round(video.videoWidth * scale));
               canvas.height = Math.max(1, Math.round(video.videoHeight * scale));
               context.drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -97,8 +105,8 @@ export default function WebQrScanner({ active, onDetected }: Props) {
               // If the full frame misses, retry the central region; this helps
               // when a QR is small in a wide webcam frame.
               if (!result) {
-                const cropWidth = Math.max(1, Math.floor(canvas.width * 0.7));
-                const cropHeight = Math.max(1, Math.floor(canvas.height * 0.7));
+                const cropWidth = Math.max(1, Math.floor(canvas.width * WEB_QR_SCAN_CENTER_CROP_RATIO));
+                const cropHeight = Math.max(1, Math.floor(canvas.height * WEB_QR_SCAN_CENTER_CROP_RATIO));
                 const cropX = Math.floor((canvas.width - cropWidth) / 2);
                 const cropY = Math.floor((canvas.height - cropHeight) / 2);
                 pixels = context.getImageData(cropX, cropY, cropWidth, cropHeight);
@@ -149,7 +157,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
         minHeight: 220,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#101828",
+        backgroundColor: COLORS.webScannerBackground,
         overflow: "hidden",
       }}
     >
@@ -166,7 +174,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
               width: "100%",
               height: 240,
               objectFit: "contain",
-              backgroundColor: "#101828",
+              backgroundColor: COLORS.webScannerBackground,
             }}
           />
           <Text style={{ color: "white", fontSize: 12, padding: 8, textAlign: "center" }}>

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Animated, Easing, View } from "react-native";
 import { styles } from "../styles/home.styles";
+import { COUNTDOWN_RING_ANIMATION_DURATION_MS } from "../constants/ui";
+import { COLORS } from "../constants/colors";
 
 type CountdownRingProps = {
   secondsRemaining: number;
@@ -10,13 +12,13 @@ type CountdownRingProps = {
 export default function CountdownRing({ secondsRemaining, period }: CountdownRingProps) {
   const [pulse] = useState(() => new Animated.Value(1));
   const progress = secondsRemaining / Math.max(1, period);
-  const countdownColor = secondsRemaining <= 5 ? "#D94841" : "#138808";
+  const countdownColor = secondsRemaining <= 5 ? COLORS.danger : COLORS.indiaGreen;
 
   useEffect(() => {
     pulse.setValue(0.94);
     Animated.timing(pulse, {
       toValue: 1,
-      duration: 220,
+      duration: COUNTDOWN_RING_ANIMATION_DURATION_MS,
       easing: Easing.out(Easing.cubic),
       useNativeDriver: true,
     }).start();
@@ -48,7 +50,7 @@ export default function CountdownRing({ secondsRemaining, period }: CountdownRin
         );
       })}
       <Animated.Text
-        style={[styles.countdownNumber, { color: secondsRemaining <= 5 ? "#D94841" : "#172033" }]}
+        style={[styles.countdownNumber, { color: secondsRemaining <= 5 ? COLORS.danger : COLORS.textPrimary }]}
       >
         {secondsRemaining}
       </Animated.Text>
