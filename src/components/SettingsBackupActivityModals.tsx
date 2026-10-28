@@ -8,7 +8,6 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  StyleSheet,
 } from "react-native";
 import type { Account } from "../types/account";
 import { styles } from "../styles/home.styles";
@@ -22,6 +21,10 @@ import type { BackupMode } from "../types/backupMode";
 import { getBackupModalDescription } from "../utils/backupModalDescription";
 import { COLORS } from "../constants/colors";
 import ActivityOverlayModal from "./ActivityOverlayModal";
+import {
+  settingsBackupActivityStyles as inlineStyles,
+  getSettingsBackdropStyles,
+} from "../styles/component.styles";
 
 type Props = {
   insets: { top: number; bottom: number };
@@ -48,12 +51,6 @@ type Props = {
 
 /** Settings, backup, and blocking activity dialogs for the vault screen. */
 export default function SettingsBackupActivityModals(props: Props) {
-  const inlineStyles = StyleSheet.create({
-    inline1: { paddingHorizontal: 16 },
-    inline2: { marginTop: 8 },
-    inline3: { color: "#60718A", fontSize: 20 },
-    inline4: { paddingHorizontal: 12 },
-  });
   const {
     insets,
     settingsVisible,
@@ -84,16 +81,7 @@ export default function SettingsBackupActivityModals(props: Props) {
         transparent
         onRequestClose={() => setSettingsVisible(false)}
       >
-        <View
-          style={[
-            styles.settingsBackdrop,
-            inlineStyles.inline1,
-            Platform.OS === "android" && {
-              paddingTop: Math.max(insets.top + 12, 28),
-              paddingBottom: Math.max(insets.bottom + 12, 28),
-            },
-          ]}
-        >
+        <View style={[styles.settingsBackdrop, ...getSettingsBackdropStyles(insets)]}>
           <View style={styles.settingsSheet}>
             <ScrollView
               style={styles.settingsScroll}
@@ -216,7 +204,7 @@ export default function SettingsBackupActivityModals(props: Props) {
               </View>
 
               <TouchableOpacity
-                style={[styles.settingRow, inlineStyles.inline2]}
+                style={[styles.settingRow, inlineStyles.settingRowOffset]}
                 onPress={() => {
                   setSettingsVisible(false);
                   setLegalDocument("privacy");
@@ -233,7 +221,7 @@ export default function SettingsBackupActivityModals(props: Props) {
                     Review the Privacy Policy and Terms of Use.
                   </Text>
                 </View>
-                <Text style={inlineStyles.inline3}>›</Text>
+                <Text style={inlineStyles.legalChevron}>›</Text>
               </TouchableOpacity>
 
               <View style={styles.settingsPrivacyNote}>
@@ -264,16 +252,7 @@ export default function SettingsBackupActivityModals(props: Props) {
           setBackupPassword("");
         }}
       >
-        <View
-          style={[
-            styles.settingsBackdrop,
-            inlineStyles.inline4,
-            Platform.OS === "android" && {
-              paddingTop: Math.max(insets.top + 12, 28),
-              paddingBottom: Math.max(insets.bottom + 12, 28),
-            },
-          ]}
-        >
+        <View style={[styles.settingsBackdrop, ...getSettingsBackdropStyles(insets, true)]}>
           <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.backupModalWrap}

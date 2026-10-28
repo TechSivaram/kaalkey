@@ -1,8 +1,9 @@
 import type { Dispatch, SetStateAction } from "react";
-import { Text, TextInput, TouchableOpacity, View, StyleSheet } from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { TOTP_URI_PREFIX } from "../constants/totp";
 import { COLORS } from "../constants/colors";
 import { styles } from "../styles/home.styles";
+import { accountTotpUrlImportStyles as inlineStyles } from "../styles/component.styles";
 
 type Props = {
   value: string;
@@ -13,14 +14,8 @@ type Props = {
 
 /** Controlled TOTP setup URL input and import/paste actions. */
 export default function AccountTotpUrlImport({ value, setValue, onImport, onPaste }: Props) {
-  const inlineStyles = StyleSheet.create({
-    inline1: { marginBottom: 12 },
-    inline2: { flexDirection: "row", gap: 8, marginTop: 8 },
-    inline3: { flex: 1 },
-    inline4: { flex: 1 },
-  });
   return (
-    <View style={inlineStyles.inline1}>
+    <View style={inlineStyles.fieldGroup}>
       <Text style={styles.inputLabel}>TOTP SETUP URL</Text>
       <TextInput
         style={styles.input}
@@ -32,15 +27,15 @@ export default function AccountTotpUrlImport({ value, setValue, onImport, onPast
         autoCorrect={false}
         accessibilityLabel="TOTP setup URL"
       />
-      <View style={inlineStyles.inline2}>
+      <View style={inlineStyles.actionRow}>
         <TouchableOpacity
-          style={[styles.scanButton, inlineStyles.inline3]}
+          style={[styles.scanButton, inlineStyles.importButton]}
           onPress={() => void onImport(value)}
         >
           <Text style={styles.scanButtonTitle}>Import URL</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.scanButton, inlineStyles.inline4]}
+          style={[styles.scanButton, inlineStyles.pasteButton]}
           onPress={() => void onPaste()}
         >
           <Text style={styles.scanButtonTitle}>Paste URL</Text>

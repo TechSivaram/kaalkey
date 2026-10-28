@@ -1,7 +1,7 @@
-import { Image, Text, TouchableOpacity, View, StyleSheet } from "react-native";
-import { COLORS } from "../constants/colors";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { BUTTON_ACTIVE_OPACITY_STANDARD } from "../constants/ui";
 import { styles } from "../styles/home.styles";
+import { homeHeaderAccentStyles } from "../styles/component.styles";
 
 type HomeHeaderProps = {
   biometricEnabled: boolean;
@@ -15,11 +15,6 @@ export default function HomeHeader({
   onToggleBiometricLock,
   onOpenSettings,
 }: HomeHeaderProps) {
-  const inlineStyles = StyleSheet.create({
-    inline1: { backgroundColor: COLORS.saffron },
-    inline2: { backgroundColor: COLORS.white },
-    inline3: { backgroundColor: COLORS.indiaGreen },
-  });
   return (
     <>
       <View style={styles.header}>
@@ -74,9 +69,9 @@ export default function HomeHeader({
       </View>
 
       <View style={styles.tricolorStripe}>
-        <View style={[styles.tricolorSegment, inlineStyles.inline1]} />
-        <View style={[styles.tricolorSegment, inlineStyles.inline2]} />
-        <View style={[styles.tricolorSegment, inlineStyles.inline3]} />
+        <View style={[styles.tricolorSegment, homeHeaderAccentStyles.saffron]} />
+        <View style={[styles.tricolorSegment, homeHeaderAccentStyles.white]} />
+        <View style={[styles.tricolorSegment, homeHeaderAccentStyles.green]} />
       </View>
     </>
   );

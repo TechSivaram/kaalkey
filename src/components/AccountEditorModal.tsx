@@ -6,6 +6,7 @@ import AccountManualEntryFields from "./AccountManualEntryFields";
 import AccountEditorHeader from "./AccountEditorHeader";
 import AccountEditorFooter from "./AccountEditorFooter";
 import { styles } from "../styles/home.styles";
+import { getAccountEditorBackdropStyles } from "../styles/component.styles";
 
 type Props = {
   modalVisible: boolean;
@@ -79,13 +80,7 @@ export default function AccountEditorModal(props: Props) {
       }}
     >
       <KeyboardAvoidingView
-        style={[
-          styles.modalBackdrop,
-          Platform.OS === "android" && {
-            paddingTop: Math.max(insets.top + 16, 32),
-            paddingBottom: Math.max(insets.bottom + 16, 32),
-          },
-        ]}
+        style={[styles.modalBackdrop, ...getAccountEditorBackdropStyles(insets)]}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
       >
         <ScrollView

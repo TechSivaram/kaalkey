@@ -1,15 +1,11 @@
-import {
-  Modal,
-  Platform,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-  StyleSheet,
-} from "react-native";
+import { Modal, Platform, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "../styles/home.styles";
 import WebQrScanner from "./WebQrScanner";
 import NativeQrCamera from "./qr-scanner/NativeQrCamera";
+import {
+  getQrScannerCameraFrameStyle,
+  getQrScannerScrollContentStyle,
+} from "../styles/component.styles";
 
 type Props = {
   scannerVisible: boolean;
@@ -41,9 +37,6 @@ export default function QrScannerModal({
   cameraViewRef,
   handleQrScanned,
 }: Props) {
-  const inlineStyles = StyleSheet.create({
-    inline1: { height: scannerCameraHeight },
-  });
   return (
     <Modal
       visible={scannerVisible}
@@ -58,10 +51,7 @@ export default function QrScannerModal({
         style={styles.scannerContainer}
         contentContainerStyle={[
           styles.scannerScrollContent,
-          {
-            paddingTop: Math.max(insets.top + 12, 24),
-            paddingBottom: Math.max(insets.bottom + 24, 36),
-          },
+          ...getQrScannerScrollContentStyle(insets),
         ]}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
@@ -88,7 +78,7 @@ export default function QrScannerModal({
           </Text>
         </View>
 
-        <View style={[styles.cameraFrame, inlineStyles.inline1]}>
+        <View style={[styles.cameraFrame, getQrScannerCameraFrameStyle(scannerCameraHeight)]}>
           {scannerVisible && Platform.OS === "web" ? (
             <WebQrScanner
               active={scannerVisible && !scanned}

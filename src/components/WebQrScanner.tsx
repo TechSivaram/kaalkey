@@ -1,10 +1,9 @@
 import { getWebQrCameraErrorMessage } from "../utils/webQrScanner";
 import { useEffect, useRef, useState } from "react";
-import type { CSSProperties } from "react";
-import { Platform, Text, View, StyleSheet } from "react-native";
+import { Platform, Text, View } from "react-native";
 import jsQR from "jsqr";
 import { WEB_QR_SCAN_THROTTLE_MS } from "../constants/ui";
-import { COLORS } from "../constants/colors";
+import { webQrScannerStyles as styles, webQrVideoStyle } from "../styles/component.styles";
 import {
   WEB_QR_CAMERA_IDEAL_HEIGHT,
   WEB_QR_CAMERA_IDEAL_WIDTH,
@@ -20,31 +19,6 @@ type Props = {
 /** Browser-only camera scanner. Uses jsQR directly so a stalled experimental
  * BarcodeDetector cannot block frame decoding. */
 export default function WebQrScanner({ active, onDetected }: Props) {
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      width: "100%",
-      minHeight: 220,
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: COLORS.webScannerBackground,
-      overflow: "hidden",
-    },
-    message: {
-      color: "white",
-      fontSize: 12,
-      padding: 8,
-      textAlign: "center",
-    },
-  });
-  // HTMLVideoElement uses browser CSS types, not React Native ViewStyle.
-  const videoStyle: CSSProperties = {
-    display: "block",
-    width: "100%",
-    height: 240,
-    objectFit: "contain",
-    backgroundColor: COLORS.webScannerBackground,
-  };
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const frameRef = useRef<number | null>(null);
@@ -183,7 +157,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
             playsInline
             autoPlay
             aria-label="QR scanner camera preview"
-            style={videoStyle}
+            style={webQrVideoStyle}
           />
           <Text style={styles.message}>{message}</Text>
         </>

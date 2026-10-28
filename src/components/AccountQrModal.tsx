@@ -1,7 +1,11 @@
-import { Modal, Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Modal, Text, TouchableOpacity, View } from "react-native";
 import QRCode from "react-native-qrcode-svg";
 import type { Account } from "../types/account";
 import { styles as homeStyles } from "../styles/home.styles";
+import {
+  accountQrModalStyles as styles,
+  getAccountQrOverlayStyles,
+} from "../styles/component.styles";
 import { COLORS } from "../constants/colors";
 
 type Props = {
@@ -22,13 +26,7 @@ export default function AccountQrModal({
   createAccountOtpAuthUrl,
   closeAccountQr,
 }: Props) {
-  const overlayStyle = [
-    styles.overlay,
-    Platform.OS === "android" && {
-      paddingTop: Math.max(insets.top + 22, 34),
-      paddingBottom: Math.max(insets.bottom + 22, 34),
-    },
-  ];
+  const overlayStyle = getAccountQrOverlayStyles(insets);
 
   return (
     <Modal
@@ -81,53 +79,3 @@ export default function AccountQrModal({
     </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: "rgba(8, 20, 38, 0.72)",
-    justifyContent: "center",
-    padding: 22,
-  },
-  card: {
-    backgroundColor: COLORS.white,
-    borderRadius: 22,
-    padding: 22,
-    alignItems: "center",
-  },
-  title: {
-    color: COLORS.navy,
-    fontSize: 21,
-    fontWeight: "800",
-    marginBottom: 8,
-  },
-  accountLabel: {
-    color: "#53637A",
-    fontSize: 14,
-    lineHeight: 20,
-    textAlign: "center",
-    marginBottom: 16,
-  },
-  warning: {
-    color: "#8A3B18",
-    fontSize: 14,
-    lineHeight: 21,
-    textAlign: "center",
-    marginBottom: 18,
-  },
-  fullWidth: {
-    width: "100%",
-  },
-  privacyHint: {
-    color: COLORS.textMuted,
-    fontSize: 12,
-    lineHeight: 18,
-    textAlign: "center",
-    marginTop: 14,
-    marginBottom: 12,
-  },
-  closeButton: {
-    width: "100%",
-    marginTop: 10,
-  },
-});

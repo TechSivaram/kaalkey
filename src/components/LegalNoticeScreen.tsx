@@ -1,11 +1,12 @@
 import type { Dispatch, SetStateAction } from "react";
-import { View, StyleSheet } from "react-native";
+import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import LegalDocumentScrollPanel from "./LegalDocumentScrollPanel";
 import LegalDocumentTabs from "./LegalDocumentTabs";
 import LegalNoticeFooter from "./LegalNoticeFooter";
 import LegalNoticeHeader from "./LegalNoticeHeader";
 import type { LegalDocument } from "../types/legalDocument";
+import { legalNoticeScreenStyles } from "../styles/component.styles";
 
 type Props = {
   firstLaunch: boolean;
@@ -29,13 +30,9 @@ export default function LegalNoticeScreen({
   onAccept,
   onDone,
 }: Props) {
-  const inlineStyles = StyleSheet.create({
-    inline1: { flex: 1, backgroundColor: "#F5F7FB" },
-    inline2: { flex: 1, paddingHorizontal: 20, paddingTop: 12, paddingBottom: 12 },
-  });
   return (
-    <SafeAreaView style={inlineStyles.inline1} edges={["top", "right", "bottom", "left"]}>
-      <View style={inlineStyles.inline2}>
+    <SafeAreaView style={legalNoticeScreenStyles.screen} edges={["top", "right", "bottom", "left"]}>
+      <View style={legalNoticeScreenStyles.content}>
         <LegalNoticeHeader firstLaunch={firstLaunch} />
         <LegalDocumentTabs legalDocument={legalDocument} setLegalDocument={setLegalDocument} />
         <LegalDocumentScrollPanel legalDocument={legalDocument} />
