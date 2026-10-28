@@ -1,5 +1,6 @@
 /** Image preprocessing defaults used when importing QR codes from images. */
-export const QR_IMAGE_MAX_WIDTH = 1800;
+// Keep native gallery/paste decoding lightweight; large images are resized before JPEG/Base64/RGBA work.
+export const QR_IMAGE_MAX_WIDTH = 1000;
 
 /** Browser camera QR scanning settings. Keep values stable unless intentionally tuning scan performance. */
 export const WEB_QR_CAMERA_IDEAL_WIDTH = 1280;

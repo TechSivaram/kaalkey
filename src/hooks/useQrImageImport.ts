@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Alert, Platform } from "react-native";
+import { Camera } from "expo-camera";
 import * as Clipboard from "expo-clipboard";
 import * as ImagePicker from "expo-image-picker";
 import * as ImageManipulator from "expo-image-manipulator";
@@ -7,15 +8,7 @@ import * as FileSystem from "expo-file-system/legacy";
 import { decodeQrPixels } from "../services/qr-image-decoder";
 import jpeg from "jpeg-js";
 import { decodeBase64ToBytes } from "../services/base64";
-import {
-  QR_IMAGE_MAX_WIDTH,
-  QR_IMAGE_SMALL_SOURCE_THRESHOLD,
-  QR_IMAGE_SMALL_SOURCE_SCALE,
-  QR_IMAGE_LARGE_SOURCE_SCALE,
-  QR_IMAGE_ALTERNATE_SCALE,
-  QR_IMAGE_HIGH_SCALE,
-  QR_IMAGE_CROP_RATIO,
-} from "../constants/qr";
+import { QR_IMAGE_MAX_WIDTH } from "../constants/qr";
 
 type UseQrImageImportOptions = {
   onQrScanned: (data: string, fromCamera?: boolean) => Promise<void>;
@@ -121,52 +114,33 @@ export function useQrImageImport({
               }
             }
 
-            // QR codes embedded in screenshots are often small relative to the
-            // full image. Try original, enlarged (for small QR modules), and
-            // reduced (for very large screenshots) renderings.
-            const scales = [
-              1,
-              sourceWidth < QR_IMAGE_SMALL_SOURCE_THRESHOLD &&
-              sourceHeight < QR_IMAGE_SMALL_SOURCE_THRESHOLD
-                ? QR_IMAGE_SMALL_SOURCE_SCALE
-                : QR_IMAGE_LARGE_SOURCE_SCALE,
-              QR_IMAGE_ALTERNATE_SCALE,
-              QR_IMAGE_HIGH_SCALE,
-            ];
-            for (const scale of scales) {
-              if (qrText) break;
+            // Keep the fallback bounded: normalized full image, center crop, and at
+            // most one alternate scale. The former 4-scale × 6-region loop could
+            // trigger up to 24 jsQR attempts after BarcodeDetector failed.
+            const maxDimension = 1800;
+            const sourceMaxDimension = Math.max(sourceWidth, sourceHeight);
+            const baseScale = Math.min(1, maxDimension / sourceMaxDimension);
+            const primaryScale = sourceMaxDimension < 900 ? 1.5 : baseScale;
+            const decodeAtScale = (scale: number, cropCenter = false) => {
               const canvas = document.createElement("canvas");
               canvas.width = Math.max(1, Math.round(sourceWidth * scale));
               canvas.height = Math.max(1, Math.round(sourceHeight * scale));
               const context = canvas.getContext("2d", { willReadFrequently: true });
-              if (!context) continue;
+              if (!context) return undefined;
               context.imageSmoothingEnabled = scale < 1;
               context.drawImage(image, 0, 0, canvas.width, canvas.height);
-              const decodeCanvas = (left: number, top: number, width: number, height: number) => {
-                const pixels = context.getImageData(left, top, width, height);
-                return decodeQrPixels(pixels.data, pixels.width, pixels.height);
-              };
-              qrText = decodeCanvas(0, 0, canvas.width, canvas.height);
-              if (qrText) break;
-              // Try the center and four overlapping quadrants for screenshots where
-              // the QR occupies only part of the image. Crops are read from the
-              // already scaled canvas, so they remain local and avoid extra uploads.
-              const cropWidth = Math.max(1, Math.round(canvas.width * QR_IMAGE_CROP_RATIO));
-              const cropHeight = Math.max(1, Math.round(canvas.height * QR_IMAGE_CROP_RATIO));
-              const positions = [
-                [
-                  Math.round((canvas.width - cropWidth) / 2),
-                  Math.round((canvas.height - cropHeight) / 2),
-                ],
-                [0, 0],
-                [canvas.width - cropWidth, 0],
-                [0, canvas.height - cropHeight],
-                [canvas.width - cropWidth, canvas.height - cropHeight],
-              ];
-              for (const [left, top] of positions) {
-                qrText = decodeCanvas(Math.max(0, left), Math.max(0, top), cropWidth, cropHeight);
-                if (qrText) break;
-              }
+              const left = cropCenter ? Math.floor(canvas.width * 0.14) : 0;
+              const top = cropCenter ? Math.floor(canvas.height * 0.14) : 0;
+              const width = Math.max(1, canvas.width - left * 2);
+              const height = Math.max(1, canvas.height - top * 2);
+              const pixels = context.getImageData(left, top, width, height);
+              return decodeQrPixels(pixels.data, pixels.width, pixels.height);
+            };
+            if (!qrText) qrText = decodeAtScale(primaryScale);
+            if (!qrText) qrText = decodeAtScale(primaryScale, true);
+            if (!qrText) {
+              const alternateScale = primaryScale < 1 ? 1 : 0.75;
+              if (alternateScale !== primaryScale) qrText = decodeAtScale(alternateScale);
             }
             if (!qrText) {
               showQrImportMessage(
@@ -197,9 +171,9 @@ export function useQrImageImport({
         return;
       }
 
-      // Use the native photo-library picker on Android/iOS. Expo Camera in this
-      // SDK version does not expose scanFromURLAsync, so decode a normalized JPEG
-      // locally with jpeg-js + jsQR instead of calling a removed API.
+      // Use the native photo-library picker on Android/iOS. Ask Expo Camera's
+      // native image scanner to decode the picked URI before falling back to the
+      // JavaScript JPEG/Base64/RGBA pipeline.
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ["images"],
         allowsEditing: false,
@@ -209,6 +183,21 @@ export function useQrImageImport({
       if (result.canceled || !result.assets?.[0]?.uri) return;
       setActivityMessage("Importing QR image…");
       const imageUri = result.assets[0].uri;
+
+      // Native image scanning avoids copying the image through Base64 and
+      // decoding its pixels in JavaScript. Expo Camera supports this on Android
+      // and iOS; if it fails or finds no QR, retain the existing fallback.
+      try {
+        const nativeResults = await Camera.scanFromURLAsync(imageUri, ["qr"]);
+        const nativeQr = nativeResults.find((item) => item.data)?.data;
+        if (nativeQr) {
+          await onQrScanned(nativeQr, false);
+          setActivityMessage(null);
+          return;
+        }
+      } catch {
+        // Native image decoding may fail for unsupported image formats/URIs.
+      }
 
       let normalizedUri: string | undefined;
       try {
