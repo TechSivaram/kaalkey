@@ -51,59 +51,62 @@ export function useBiometricLock() {
     };
   }, []);
 
-  const authenticateUser = useCallback(async (
-    promptMessage = "Unlock KaalKey Authenticator",
-    unlockOnSuccess = true,
-  ): Promise<boolean> => {
-    if (authenticatingRef.current) return false;
-    authenticatingRef.current = true;
-    setAuthenticating(true);
-    try {
-      // Use Android's native BiometricPrompt with device-credential fallback enabled.
-      // This allows biometrics when available and the OS screen-lock credential (PIN,
-      // pattern, or password) when supported. Never unlock unless the native API succeeds.
-      const result = await LocalAuthentication.authenticateAsync({
-        promptMessage,
-        promptSubtitle: "Use biometrics or your device screen lock",
-        cancelLabel: "Cancel",
-        disableDeviceFallback: false,
-        biometricsSecurityLevel: "strong",
-      });
-      if (result.success) {
-        if (unlockOnSuccess) setIsUnlocked(true);
-        return true;
-      }
+  const authenticateUser = useCallback(
+    async (
+      promptMessage = "Unlock KaalKey Authenticator",
+      unlockOnSuccess = true,
+    ): Promise<boolean> => {
+      if (authenticatingRef.current) return false;
+      authenticatingRef.current = true;
+      setAuthenticating(true);
+      try {
+        // Use Android's native BiometricPrompt with device-credential fallback enabled.
+        // This allows biometrics when available and the OS screen-lock credential (PIN,
+        // pattern, or password) when supported. Never unlock unless the native API succeeds.
+        const result = await LocalAuthentication.authenticateAsync({
+          promptMessage,
+          promptSubtitle: "Use biometrics or your device screen lock",
+          cancelLabel: "Cancel",
+          disableDeviceFallback: false,
+          biometricsSecurityLevel: "strong",
+        });
+        if (result.success) {
+          if (unlockOnSuccess) setIsUnlocked(true);
+          return true;
+        }
 
-      // A missing device screen lock must not create a fallback or bypass.
-      if (result.error === "not_enrolled" || result.error === "passcode_not_set") {
+        // A missing device screen lock must not create a fallback or bypass.
+        if (result.error === "not_enrolled" || result.error === "passcode_not_set") {
+          Alert.alert(
+            "Set up your device screen lock",
+            "KaalKey uses your phone's built-in authentication. Set a device PIN, pattern, or password in your phone's security settings, then try again. Biometrics are optional.",
+          );
+        } else if (result.error === "not_available") {
+          Alert.alert(
+            "Device authentication unavailable",
+            "Your phone could not start secure authentication. Check that a device screen lock is configured, then try again.",
+          );
+        } else if (result.error === "lockout") {
+          Alert.alert(
+            "Authentication temporarily locked",
+            "Your phone has temporarily disabled authentication after too many attempts. Wait and try again.",
+          );
+        }
+        // Cancellation, failed verification, and every other error leave the vault locked.
+        return false;
+      } catch {
         Alert.alert(
-          "Set up your device screen lock",
-          "KaalKey uses your phone's built-in authentication. Set a device PIN, pattern, or password in your phone's security settings, then try again. Biometrics are optional.",
+          "Authentication unavailable",
+          "KaalKey could not start the phone's secure authentication prompt. Please try again.",
         );
-      } else if (result.error === "not_available") {
-        Alert.alert(
-          "Device authentication unavailable",
-          "Your phone could not start secure authentication. Check that a device screen lock is configured, then try again.",
-        );
-      } else if (result.error === "lockout") {
-        Alert.alert(
-          "Authentication temporarily locked",
-          "Your phone has temporarily disabled authentication after too many attempts. Wait and try again.",
-        );
+        return false;
+      } finally {
+        authenticatingRef.current = false;
+        setAuthenticating(false);
       }
-      // Cancellation, failed verification, and every other error leave the vault locked.
-      return false;
-    } catch {
-      Alert.alert(
-        "Authentication unavailable",
-        "KaalKey could not start the phone's secure authentication prompt. Please try again.",
-      );
-      return false;
-    } finally {
-      authenticatingRef.current = false;
-      setAuthenticating(false);
-    }
-  }, []);
+    },
+    [],
+  );
 
   const toggleBiometricLock = useCallback(async () => {
     // Do not expose a non-working native-auth switch on web. The web build currently

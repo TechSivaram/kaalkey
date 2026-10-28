@@ -11,9 +11,7 @@ export default function AccountEditorHeader({ editingId, onClose }: Props) {
   return (
     <View style={styles.modalHeader}>
       <View style={styles.modalHeaderCopy}>
-        <Text style={styles.modalTitle}>
-          {editingId ? "Edit account" : "Add account"}
-        </Text>
+        <Text style={styles.modalTitle}>{editingId ? "Edit account" : "Add account"}</Text>
         <Text style={styles.modalSubtitle}>
           {editingId
             ? "Update the service, account name, or secret key."

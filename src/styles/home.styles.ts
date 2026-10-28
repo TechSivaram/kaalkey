@@ -186,7 +186,12 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 9,
     paddingVertical: 6,
   },
-  appearanceBadgeText: { fontSize: 9, fontWeight: "900", color: COLORS.indiaGreen, letterSpacing: 0.6 },
+  appearanceBadgeText: {
+    fontSize: 9,
+    fontWeight: "900",
+    color: COLORS.indiaGreen,
+    letterSpacing: 0.6,
+  },
   backupButtonsRow: { flexDirection: "row", gap: 10, marginTop: 2 },
   backupActionButton: {
     flex: 1,

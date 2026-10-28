@@ -2,16 +2,11 @@ import { useRef, useState } from "react";
 import { Alert, Platform } from "react-native";
 import { useCameraPermissions } from "expo-camera";
 import * as Clipboard from "expo-clipboard";
-import * as OTPAuth from "otpauth";
 import type { Account } from "../types/account";
-import { validateAccount } from "../services/account-validation";
-import {
-  MAX_TOTP_PERIOD_SECONDS,
-  MIN_TOTP_PERIOD_SECONDS,
-  SUPPORTED_TOTP_ALGORITHMS,
-  SUPPORTED_TOTP_DIGITS,
-  TOTP_URI_PREFIX,
-} from "../constants/totp";
+import { parseTotpAccountFromUri } from "../services/totp-account-import";
+import { hasDuplicateAccount } from "../services/account-duplicates";
+import { TOTP_URI_PREFIX } from "../constants/totp";
+import { isTotpQrPayload, normalizeTotpQrPayload } from "../utils/totpQrPayload";
 
 type UseQrAccountScannerOptions = {
   accounts: Account[];
@@ -73,10 +68,7 @@ export function useQrAccountScanner({
   async function handleQrScanned(data: string, fromCamera = true) {
     // Image decoders can include surrounding whitespace or invisible Unicode
     // characters. Normalize only the outer payload/protocol; preserve encoded values.
-    const qrPayload = data
-      .replace(/[\u200B-\u200D\uFEFF]/g, "")
-      .trim()
-      .replace(/^otpauth:\/\/totp\//i, TOTP_URI_PREFIX);
+    const qrPayload = normalizeTotpQrPayload(data);
 
     // `scanned` debounces repeated live-camera frames. Image imports remain available.
     if (fromCamera) {
@@ -89,7 +81,7 @@ export function useQrAccountScanner({
     await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
 
     try {
-      if (!qrPayload.toLowerCase().startsWith(TOTP_URI_PREFIX)) {
+      if (!isTotpQrPayload(qrPayload)) {
         showMessage(
           "Unsupported QR code",
           "Scan the authenticator setup QR code supplied by the service. This must be a TOTP code, not a normal login QR code.",
@@ -97,50 +89,16 @@ export function useQrAccountScanner({
         if (fromCamera) {
           qrProcessingRef.current = false;
           setScanned(false);
-          setScannerDiagnostic("That QR is not a TOTP setup code. Aim at an authenticator setup QR.");
+          setScannerDiagnostic(
+            "That QR is not a TOTP setup code. Aim at an authenticator setup QR.",
+          );
         }
         return;
       }
 
-      const parsedUri = OTPAuth.URI.parse(qrPayload);
-      if (!(parsedUri instanceof OTPAuth.TOTP)) {
-        throw new Error("This QR code is not a time-based authenticator setup code.");
-      }
-      const parsed = parsedUri;
-      const normalizedName = parsed.label?.trim();
-      const normalizedIssuer = parsed.issuer?.trim() || "Authenticator";
-      const normalizedSecret = parsed.secret.base32;
-      const algorithm = parsed.algorithm;
+      const account = parseTotpAccountFromUri(qrPayload);
 
-      if (!normalizedName || !normalizedSecret) {
-        throw new Error("The QR code is missing account details.");
-      }
-      if (!SUPPORTED_TOTP_ALGORITHMS.includes(algorithm as (typeof SUPPORTED_TOTP_ALGORITHMS)[number])) {
-        throw new Error("The QR code uses an unsupported algorithm.");
-      }
-      if (!Number.isInteger(parsed.digits) || !SUPPORTED_TOTP_DIGITS.includes(parsed.digits as (typeof SUPPORTED_TOTP_DIGITS)[number])) {
-        throw new Error("This QR code must use 6, 7, or 8 digits.");
-      }
-      if (!Number.isInteger(parsed.period) || parsed.period < MIN_TOTP_PERIOD_SECONDS || parsed.period > MAX_TOTP_PERIOD_SECONDS) {
-        throw new Error("This QR code uses an unsupported time period.");
-      }
-
-      const account: Account = {
-        id: Date.now().toString() + "-" + Math.random().toString(36).slice(2),
-        issuer: normalizedIssuer,
-        name: normalizedName,
-        secret: normalizedSecret,
-        algorithm: algorithm as Account["algorithm"],
-        digits: parsed.digits,
-        period: parsed.period,
-      };
-      if (!validateAccount(account)) throw new Error("The QR code could not be validated.");
-
-      const duplicate = accounts.some(
-        (existing) =>
-          existing.issuer.toLowerCase() === account.issuer.toLowerCase() &&
-          existing.name.toLowerCase() === account.name.toLowerCase(),
-      );
+      const duplicate = hasDuplicateAccount(accounts, account.issuer, account.name);
       if (duplicate) {
         setScannerVisible(false);
         showMessage(
@@ -180,8 +138,8 @@ export function useQrAccountScanner({
   }
 
   async function importTotpUrl(value: string) {
-    const payload = value.replace(/[\u200B-\u200D\uFEFF]/g, "").trim();
-    if (!payload.toLowerCase().startsWith(TOTP_URI_PREFIX)) {
+    const payload = normalizeTotpQrPayload(value);
+    if (!isTotpQrPayload(payload)) {
       showMessage(
         "Invalid TOTP URL",
         `Paste a complete authenticator URL beginning with ${TOTP_URI_PREFIX}.`,
@@ -191,7 +149,7 @@ export function useQrAccountScanner({
     await handleQrScanned(payload, false);
   }
 
-  async function pasteTotpUrl(setTotpUrlInput: (value: string) => void, value: string) {
+  async function pasteTotpUrl(setTotpUrlInput: (value: string) => void) {
     try {
       const pasted = (await Clipboard.getStringAsync()).trim();
       if (!pasted) {

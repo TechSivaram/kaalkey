@@ -4,7 +4,7 @@ import * as Clipboard from "expo-clipboard";
 import * as ImagePicker from "expo-image-picker";
 import * as ImageManipulator from "expo-image-manipulator";
 import * as FileSystem from "expo-file-system/legacy";
-import jsQR from "jsqr";
+import { decodeQrPixels } from "../services/qr-image-decoder";
 import jpeg from "jpeg-js";
 import { decodeBase64ToBytes } from "../services/base64";
 import {
@@ -126,7 +126,8 @@ export function useQrImageImport({
             // reduced (for very large screenshots) renderings.
             const scales = [
               1,
-              sourceWidth < QR_IMAGE_SMALL_SOURCE_THRESHOLD && sourceHeight < QR_IMAGE_SMALL_SOURCE_THRESHOLD
+              sourceWidth < QR_IMAGE_SMALL_SOURCE_THRESHOLD &&
+              sourceHeight < QR_IMAGE_SMALL_SOURCE_THRESHOLD
                 ? QR_IMAGE_SMALL_SOURCE_SCALE
                 : QR_IMAGE_LARGE_SOURCE_SCALE,
               QR_IMAGE_ALTERNATE_SCALE,
@@ -143,9 +144,7 @@ export function useQrImageImport({
               context.drawImage(image, 0, 0, canvas.width, canvas.height);
               const decodeCanvas = (left: number, top: number, width: number, height: number) => {
                 const pixels = context.getImageData(left, top, width, height);
-                return jsQR(pixels.data, pixels.width, pixels.height, {
-                  inversionAttempts: "attemptBoth",
-                })?.data;
+                return decodeQrPixels(pixels.data, pixels.width, pixels.height);
               };
               qrText = decodeCanvas(0, 0, canvas.width, canvas.height);
               if (qrText) break;
@@ -250,11 +249,13 @@ export function useQrImageImport({
           attempts.push({ data: new Uint8Array(crop), width: centerWidth, height: centerHeight });
         }
         for (const attempt of attempts) {
-          const qr = jsQR(new Uint8ClampedArray(attempt.data), attempt.width, attempt.height, {
-            inversionAttempts: "attemptBoth",
-          });
-          if (qr?.data) {
-            qrData = qr.data;
+          const qrDataFromPixels = decodeQrPixels(
+            new Uint8ClampedArray(attempt.data),
+            attempt.width,
+            attempt.height,
+          );
+          if (qrDataFromPixels) {
+            qrData = qrDataFromPixels;
             break;
           }
         }
@@ -328,22 +329,19 @@ export function useQrImageImport({
           useTArray: true,
           formatAsRGBA: true,
         });
-        const qr = jsQR(
+        const qrData = decodeQrPixels(
           new Uint8ClampedArray(decodedImage.data),
           decodedImage.width,
           decodedImage.height,
-          {
-            inversionAttempts: "attemptBoth",
-          },
         );
-        if (!qr?.data) {
+        if (!qrData) {
           showQrImportMessage(
             "No QR code found",
             "The copied image does not contain a readable QR code.",
           );
           return;
         }
-        await onQrScanned(qr.data, false);
+        await onQrScanned(qrData, false);
       } finally {
         try {
           await FileSystem.deleteAsync(sourceUri, { idempotent: true });
@@ -387,10 +385,8 @@ export function useQrImageImport({
             if (!ctx) throw new Error("Image processing unavailable");
             ctx.drawImage(image, 0, 0);
             const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const qr = jsQR(pixels.data, pixels.width, pixels.height, {
-              inversionAttempts: "attemptBoth",
-            });
-            if (qr?.data) void onQrScannedRef.current(qr.data, false);
+            const qrData = decodeQrPixels(pixels.data, pixels.width, pixels.height);
+            if (qrData) void onQrScannedRef.current(qrData, false);
             else
               showQrImportMessage(
                 "No QR code found",

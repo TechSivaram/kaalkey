@@ -1,15 +1,5 @@
 import type { Account } from "../types/account";
-
-function accountIdentity(account: Account): string {
-  return [
-    account.issuer.trim().toLocaleLowerCase(),
-    account.name.trim().toLocaleLowerCase(),
-    account.secret.replace(/[\s-]/g, "").toUpperCase(),
-    account.algorithm,
-    String(account.digits),
-    String(account.period),
-  ].join("|");
-}
+import { getAccountIdentity } from "./account-identity";
 
 /** Merge restored accounts while preserving existing accounts and skipping duplicates. */
 export function mergeRestoredAccounts(
@@ -17,12 +7,12 @@ export function mergeRestoredAccounts(
   restored: Account[],
 ): { accounts: Account[]; added: number } {
   const merged = [...existing];
-  const identities = new Set(merged.map(accountIdentity));
+  const identities = new Set(merged.map(getAccountIdentity));
   const ids = new Set(merged.map((account) => account.id));
   let added = 0;
 
   for (const account of restored) {
-    const key = accountIdentity(account);
+    const key = getAccountIdentity(account);
     if (identities.has(key)) continue;
 
     let id = account.id;

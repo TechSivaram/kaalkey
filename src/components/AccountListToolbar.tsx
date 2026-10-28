@@ -1,9 +1,4 @@
-import {
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { styles } from "../styles/home.styles";
 import type { AccountSortBy } from "../hooks/useAccountList";
 import { BUTTON_ACTIVE_OPACITY } from "../constants/ui";
@@ -63,10 +58,7 @@ export default function AccountListToolbar({
           accessibilityLabel="Sort by service name"
         >
           <Text
-            style={[
-              styles.sortButtonText,
-              sortBy === "service" && styles.sortButtonTextActive,
-            ]}
+            style={[styles.sortButtonText, sortBy === "service" && styles.sortButtonTextActive]}
           >
             Service
           </Text>
@@ -81,10 +73,7 @@ export default function AccountListToolbar({
           accessibilityLabel="Sort by account name"
         >
           <Text
-            style={[
-              styles.sortButtonText,
-              sortBy === "account" && styles.sortButtonTextActive,
-            ]}
+            style={[styles.sortButtonText, sortBy === "account" && styles.sortButtonTextActive]}
           >
             Account
           </Text>

@@ -1,20 +1,11 @@
 import * as OTPAuth from "otpauth";
+import { isValidBase32Secret, normalizeBase32Secret } from "../utils/base32";
 import type { Account } from "../types/account";
 import {
-  MAX_TOTP_PERIOD_SECONDS,
-  MIN_TOTP_PERIOD_SECONDS,
-  SUPPORTED_TOTP_ALGORITHMS,
-  SUPPORTED_TOTP_DIGITS,
-} from "../constants/totp";
-
-export function normalizeBase32Secret(value: string): string {
-  return value.replace(/[\s-]/g, "").replace(/=+$/g, "").toUpperCase();
-}
-
-export function isValidBase32Secret(value: string): boolean {
-  const secret = normalizeBase32Secret(value);
-  return /^[A-Z2-7]+$/.test(secret) && secret.length % 8 !== 1;
-}
+  isSupportedTotpAlgorithm,
+  isSupportedTotpDigits,
+  isSupportedTotpPeriod,
+} from "../utils/totpValidation";
 
 export function validateAccount(value: unknown): value is Account {
   if (!value || typeof value !== "object") return false;
@@ -28,12 +19,9 @@ export function validateAccount(value: unknown): value is Account {
     !account.name.trim() ||
     typeof account.secret !== "string" ||
     !isValidBase32Secret(account.secret) ||
-    !SUPPORTED_TOTP_ALGORITHMS.includes((account.algorithm ?? "") as (typeof SUPPORTED_TOTP_ALGORITHMS)[number]) ||
-    !Number.isInteger(account.digits) ||
-    !SUPPORTED_TOTP_DIGITS.includes((account.digits ?? 0) as (typeof SUPPORTED_TOTP_DIGITS)[number]) ||
-    !Number.isInteger(account.period) ||
-    (account.period ?? 0) < MIN_TOTP_PERIOD_SECONDS ||
-    (account.period ?? 0) > MAX_TOTP_PERIOD_SECONDS ||
+    !isSupportedTotpAlgorithm(account.algorithm) ||
+    !isSupportedTotpDigits(account.digits) ||
+    !isSupportedTotpPeriod(account.period) ||
     (account.group !== undefined && typeof account.group !== "string")
   ) {
     return false;

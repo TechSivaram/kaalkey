@@ -1,5 +1,15 @@
 import type { Dispatch, SetStateAction } from "react";
-import { KeyboardAvoidingView, Modal, Platform, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  KeyboardAvoidingView,
+  Modal,
+  Platform,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  StyleSheet,
+} from "react-native";
 import type { Account } from "../types/account";
 import { styles } from "../styles/home.styles";
 import { MIN_BACKUP_PASSWORD_LENGTH } from "../constants/backup";
@@ -8,22 +18,29 @@ import {
   BUTTON_ACTIVE_OPACITY_SOFT,
   BUTTON_ACTIVE_OPACITY_STRONG,
 } from "../constants/ui";
+import type { BackupMode } from "../types/backupMode";
+import { getBackupModalDescription } from "../utils/backupModalDescription";
 import { COLORS } from "../constants/colors";
 import ActivityOverlayModal from "./ActivityOverlayModal";
 
-type BackupMode = "export" | "restore";
 type Props = {
   insets: { top: number; bottom: number };
-  settingsVisible: boolean; setSettingsVisible: Dispatch<SetStateAction<boolean>>;
-  hapticsEnabled: boolean; toggleHaptics: () => Promise<void>;
-  biometricEnabled: boolean; toggleBiometricLock: () => Promise<void>;
+  settingsVisible: boolean;
+  setSettingsVisible: Dispatch<SetStateAction<boolean>>;
+  hapticsEnabled: boolean;
+  toggleHaptics: () => Promise<void>;
+  biometricEnabled: boolean;
+  toggleBiometricLock: () => Promise<void>;
   openBackup: (mode: BackupMode) => void;
   setLegalReviewVisible: Dispatch<SetStateAction<boolean>>;
   setLegalDocument: Dispatch<SetStateAction<"privacy" | "terms">>;
-  backupVisible: boolean; setBackupVisible: Dispatch<SetStateAction<boolean>>;
+  backupVisible: boolean;
+  setBackupVisible: Dispatch<SetStateAction<boolean>>;
   backupMode: BackupMode;
-  backupPassword: string; setBackupPassword: Dispatch<SetStateAction<string>>;
-  accounts: Account[]; backupBusy: boolean;
+  backupPassword: string;
+  setBackupPassword: Dispatch<SetStateAction<string>>;
+  accounts: Account[];
+  backupBusy: boolean;
   exportEncryptedBackup: () => Promise<void>;
   restoreEncryptedBackup: () => Promise<void>;
   activityMessage: string | null;
@@ -31,11 +48,33 @@ type Props = {
 
 /** Settings, backup, and blocking activity dialogs for the vault screen. */
 export default function SettingsBackupActivityModals(props: Props) {
+  const inlineStyles = StyleSheet.create({
+    inline1: { paddingHorizontal: 16 },
+    inline2: { marginTop: 8 },
+    inline3: { color: "#60718A", fontSize: 20 },
+    inline4: { paddingHorizontal: 12 },
+  });
   const {
-    insets, settingsVisible, setSettingsVisible, hapticsEnabled, toggleHaptics,
-    biometricEnabled, toggleBiometricLock, openBackup, setLegalReviewVisible, setLegalDocument,
-    backupVisible, setBackupVisible, backupMode, backupPassword, setBackupPassword,
-    accounts, backupBusy, exportEncryptedBackup, restoreEncryptedBackup, activityMessage,
+    insets,
+    settingsVisible,
+    setSettingsVisible,
+    hapticsEnabled,
+    toggleHaptics,
+    biometricEnabled,
+    toggleBiometricLock,
+    openBackup,
+    setLegalReviewVisible,
+    setLegalDocument,
+    backupVisible,
+    setBackupVisible,
+    backupMode,
+    backupPassword,
+    setBackupPassword,
+    accounts,
+    backupBusy,
+    exportEncryptedBackup,
+    restoreEncryptedBackup,
+    activityMessage,
   } = props;
   return (
     <>
@@ -48,7 +87,7 @@ export default function SettingsBackupActivityModals(props: Props) {
         <View
           style={[
             styles.settingsBackdrop,
-            { paddingHorizontal: 16 },
+            inlineStyles.inline1,
             Platform.OS === "android" && {
               paddingTop: Math.max(insets.top + 12, 28),
               paddingBottom: Math.max(insets.bottom + 12, 28),
@@ -177,7 +216,7 @@ export default function SettingsBackupActivityModals(props: Props) {
               </View>
 
               <TouchableOpacity
-                style={[styles.settingRow, { marginTop: 8 }]}
+                style={[styles.settingRow, inlineStyles.inline2]}
                 onPress={() => {
                   setSettingsVisible(false);
                   setLegalDocument("privacy");
@@ -194,7 +233,7 @@ export default function SettingsBackupActivityModals(props: Props) {
                     Review the Privacy Policy and Terms of Use.
                   </Text>
                 </View>
-                <Text style={{ color: "#60718A", fontSize: 20 }}>›</Text>
+                <Text style={inlineStyles.inline3}>›</Text>
               </TouchableOpacity>
 
               <View style={styles.settingsPrivacyNote}>
@@ -228,7 +267,7 @@ export default function SettingsBackupActivityModals(props: Props) {
         <View
           style={[
             styles.settingsBackdrop,
-            { paddingHorizontal: 12 },
+            inlineStyles.inline4,
             Platform.OS === "android" && {
               paddingTop: Math.max(insets.top + 12, 28),
               paddingBottom: Math.max(insets.bottom + 12, 28),
@@ -267,9 +306,7 @@ export default function SettingsBackupActivityModals(props: Props) {
                   </TouchableOpacity>
                 </View>
                 <Text style={styles.backupModalDescription}>
-                  {backupMode === "export"
-                    ? `Encrypt all ${accounts.length} saved account${accounts.length === 1 ? "" : "s"} into a backup file. Choose a strong password and store the file somewhere private.`
-                    : "Choose your KaalKey backup file and password. New accounts will be added to your existing account list; existing accounts will stay as they are."}
+                  {getBackupModalDescription(backupMode, accounts.length)}
                 </Text>
                 <Text style={styles.inputLabel}>BACKUP PASSWORD</Text>
                 <View style={styles.inputClearWrapper}>
@@ -304,8 +341,8 @@ export default function SettingsBackupActivityModals(props: Props) {
                 </View>
                 {backupMode === "export" && (
                   <Text style={styles.backupSafetyText}>
-                    Use a unique password with at least {MIN_BACKUP_PASSWORD_LENGTH} characters. If you lose it, the backup
-                    cannot be decrypted.
+                    Use a unique password with at least {MIN_BACKUP_PASSWORD_LENGTH} characters. If
+                    you lose it, the backup cannot be decrypted.
                   </Text>
                 )}
                 <TouchableOpacity

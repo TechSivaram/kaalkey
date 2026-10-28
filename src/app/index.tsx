@@ -148,21 +148,15 @@ export default function HomeScreen() {
     showBackupMessage,
     hapticFeedback,
   });
-  const {
-    qrAccount,
-    qrRevealed,
-    setQrRevealed,
-    openAccountQr,
-    closeAccountQr,
-  } = useAccountQrModal(hapticFeedback);
+  const { qrAccount, qrRevealed, setQrRevealed, openAccountQr, closeAccountQr } =
+    useAccountQrModal(hapticFeedback);
 
   async function pasteTotpUrl() {
-    await pasteTotpUrlFromClipboard(setTotpUrlInput, totpUrlInput);
+    await pasteTotpUrlFromClipboard(setTotpUrlInput);
   }
 
   // Android uses CameraView.onBarcodeScanned directly, matching the earlier working scanner.
   // Do not capture still images periodically; keep the live preview uninterrupted.
-
 
   const { searchQuery, setSearchQuery, sortBy, setSortBy, visibleAccounts } =
     useAccountList(accounts);
@@ -216,10 +210,7 @@ export default function HomeScreen() {
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >
-        <AccountSectionHeader
-          accountCount={accounts.length}
-          onAddAccount={openAddAccount}
-        />
+        <AccountSectionHeader accountCount={accounts.length} onAddAccount={openAddAccount} />
 
         {accounts.length > 0 && (
           <AccountListToolbar

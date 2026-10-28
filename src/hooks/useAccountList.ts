@@ -1,29 +1,18 @@
 import { useMemo, useState } from "react";
 import type { Account } from "../types/account";
+import { getVisibleAccounts, type AccountSortBy } from "../utils/accountList";
 
-export type AccountSortBy = "service" | "account";
+export type { AccountSortBy } from "../utils/accountList";
 
 /** Owns the account-list search, sort preference, and derived visible rows. */
 export function useAccountList(accounts: Account[]) {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState<AccountSortBy>("service");
 
-  const visibleAccounts = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase();
-
-    return accounts
-      .filter(
-        (account) =>
-          !query ||
-          account.issuer.toLowerCase().includes(query) ||
-          account.name.toLowerCase().includes(query),
-      )
-      .sort((a, b) => {
-        const first = sortBy === "service" ? a.issuer : a.name;
-        const second = sortBy === "service" ? b.issuer : b.name;
-        return first.localeCompare(second, undefined, { sensitivity: "base" });
-      });
-  }, [accounts, searchQuery, sortBy]);
+  const visibleAccounts = useMemo(
+    () => getVisibleAccounts(accounts, searchQuery, sortBy),
+    [accounts, searchQuery, sortBy],
+  );
 
   return { searchQuery, setSearchQuery, sortBy, setSortBy, visibleAccounts };
 }

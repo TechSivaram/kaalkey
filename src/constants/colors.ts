@@ -33,7 +33,6 @@ export const COLORS = {
   legalMutedText: "#718097",
   legalAcceptedGreen: "#1D6B4A",
 
-
   /** Repeated home-screen and scanner colors retained from existing styles. */
   homeSubtleSurface: "#F1F4F8",
   homeBorder: "#E7EDF5",

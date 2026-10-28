@@ -1,5 +1,7 @@
+import { getWebQrCameraErrorMessage } from "../utils/webQrScanner";
 import { useEffect, useRef, useState } from "react";
-import { Platform, Text, View } from "react-native";
+import type { CSSProperties } from "react";
+import { Platform, Text, View, StyleSheet } from "react-native";
 import jsQR from "jsqr";
 import { WEB_QR_SCAN_THROTTLE_MS } from "../constants/ui";
 import { COLORS } from "../constants/colors";
@@ -18,6 +20,31 @@ type Props = {
 /** Browser-only camera scanner. Uses jsQR directly so a stalled experimental
  * BarcodeDetector cannot block frame decoding. */
 export default function WebQrScanner({ active, onDetected }: Props) {
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      width: "100%",
+      minHeight: 220,
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: COLORS.webScannerBackground,
+      overflow: "hidden",
+    },
+    message: {
+      color: "white",
+      fontSize: 12,
+      padding: 8,
+      textAlign: "center",
+    },
+  });
+  // HTMLVideoElement uses browser CSS types, not React Native ViewStyle.
+  const videoStyle: CSSProperties = {
+    display: "block",
+    width: "100%",
+    height: 240,
+    objectFit: "contain",
+    backgroundColor: COLORS.webScannerBackground,
+  };
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const frameRef = useRef<number | null>(null);
@@ -105,8 +132,14 @@ export default function WebQrScanner({ active, onDetected }: Props) {
               // If the full frame misses, retry the central region; this helps
               // when a QR is small in a wide webcam frame.
               if (!result) {
-                const cropWidth = Math.max(1, Math.floor(canvas.width * WEB_QR_SCAN_CENTER_CROP_RATIO));
-                const cropHeight = Math.max(1, Math.floor(canvas.height * WEB_QR_SCAN_CENTER_CROP_RATIO));
+                const cropWidth = Math.max(
+                  1,
+                  Math.floor(canvas.width * WEB_QR_SCAN_CENTER_CROP_RATIO),
+                );
+                const cropHeight = Math.max(
+                  1,
+                  Math.floor(canvas.height * WEB_QR_SCAN_CENTER_CROP_RATIO),
+                );
                 const cropX = Math.floor((canvas.width - cropWidth) / 2);
                 const cropY = Math.floor((canvas.height - cropHeight) / 2);
                 pixels = context.getImageData(cropX, cropY, cropWidth, cropHeight);
@@ -130,16 +163,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
         };
         frameRef.current = requestAnimationFrame(scanFrame);
       } catch (error) {
-        const name = error instanceof Error ? error.name : "";
-        setMessage(
-          name === "NotAllowedError"
-            ? "Camera permission denied. Allow camera access in browser settings, then reopen the scanner."
-            : name === "NotFoundError"
-              ? "No camera was found on this device."
-              : name === "NotReadableError"
-                ? "The camera is busy in another app or browser tab."
-                : "Could not start camera. Use HTTPS or localhost and check browser permissions.",
-        );
+        setMessage(getWebQrCameraErrorMessage(error));
       }
     };
     void start();
@@ -150,17 +174,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
   }, [active]);
 
   return (
-    <View
-      style={{
-        flex: 1,
-        width: "100%",
-        minHeight: 220,
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: COLORS.webScannerBackground,
-        overflow: "hidden",
-      }}
-    >
+    <View style={styles.container}>
       {Platform.OS === "web" ? (
         <>
           <video
@@ -169,17 +183,9 @@ export default function WebQrScanner({ active, onDetected }: Props) {
             playsInline
             autoPlay
             aria-label="QR scanner camera preview"
-            style={{
-              display: "block",
-              width: "100%",
-              height: 240,
-              objectFit: "contain",
-              backgroundColor: COLORS.webScannerBackground,
-            }}
+            style={videoStyle}
           />
-          <Text style={{ color: "white", fontSize: 12, padding: 8, textAlign: "center" }}>
-            {message}
-          </Text>
+          <Text style={styles.message}>{message}</Text>
         </>
       ) : null}
     </View>

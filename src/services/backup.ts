@@ -5,6 +5,69 @@ import { validateAccounts } from "./account-validation";
 const BACKUP_FORMAT = "kaalkey-encrypted-backup";
 const BACKUP_VERSION = 1;
 const BACKUP_KDF_ITERATIONS = 250000;
+
+type BackupEnvelope = {
+  format: string;
+  version: number;
+  kdf: string;
+  iterations: number;
+  salt: string;
+  iv: string;
+  ciphertext: string;
+  mac: string;
+};
+
+function parseBackupEnvelope(raw: string): BackupEnvelope {
+  let envelope: unknown;
+  try {
+    envelope = JSON.parse(raw);
+  } catch {
+    throw new Error("The backup file is not valid JSON.");
+  }
+
+  if (
+    !envelope ||
+    typeof envelope !== "object" ||
+    (envelope as BackupEnvelope).format !== BACKUP_FORMAT ||
+    (envelope as BackupEnvelope).version !== BACKUP_VERSION ||
+    (envelope as BackupEnvelope).kdf !== "PBKDF2-SHA256" ||
+    (envelope as BackupEnvelope).iterations !== BACKUP_KDF_ITERATIONS ||
+    typeof (envelope as BackupEnvelope).salt !== "string" ||
+    !/^[a-f0-9]{32}$/i.test((envelope as BackupEnvelope).salt) ||
+    typeof (envelope as BackupEnvelope).iv !== "string" ||
+    !/^[a-f0-9]{32}$/i.test((envelope as BackupEnvelope).iv) ||
+    typeof (envelope as BackupEnvelope).ciphertext !== "string" ||
+    !(envelope as BackupEnvelope).ciphertext ||
+    typeof (envelope as BackupEnvelope).mac !== "string" ||
+    !/^[a-f0-9]{64}$/i.test((envelope as BackupEnvelope).mac)
+  ) {
+    throw new Error("This is not a supported KaalKey encrypted backup.");
+  }
+
+  return envelope as BackupEnvelope;
+}
+
+function parseBackupPayload(text: string): Account[] {
+  let payload: unknown;
+  try {
+    payload = JSON.parse(text);
+  } catch {
+    throw new Error("Backup password is incorrect or the backup file is damaged.");
+  }
+
+  if (
+    !payload ||
+    typeof payload !== "object" ||
+    (payload as { format?: unknown }).format !== BACKUP_FORMAT ||
+    (payload as { version?: unknown }).version !== BACKUP_VERSION ||
+    !validateAccounts((payload as { accounts?: unknown }).accounts)
+  ) {
+    throw new Error("The backup contents are invalid or incomplete.");
+  }
+
+  return (payload as { accounts: Account[] }).accounts;
+}
+
 function bytesToHex(bytes: Uint8Array): string {
   return Array.from(bytes)
     .map((byte) => byte.toString(16).padStart(2, "0"))
@@ -84,22 +147,7 @@ export async function encryptBackup(accounts: Account[], password: string): Prom
 }
 
 export async function decryptBackup(raw: string, password: string): Promise<Account[]> {
-  const envelope = JSON.parse(raw);
-  if (
-    !envelope ||
-    envelope.format !== BACKUP_FORMAT ||
-    envelope.version !== BACKUP_VERSION ||
-    envelope.kdf !== "PBKDF2-SHA256" ||
-    envelope.iterations !== BACKUP_KDF_ITERATIONS ||
-    typeof envelope.salt !== "string" ||
-    !/^[a-f0-9]{32}$/i.test(envelope.salt) ||
-    typeof envelope.iv !== "string" ||
-    !/^[a-f0-9]{32}$/i.test(envelope.iv) ||
-    typeof envelope.ciphertext !== "string" ||
-    typeof envelope.mac !== "string"
-  ) {
-    throw new Error("This is not a supported KaalKey encrypted backup.");
-  }
+  const envelope = parseBackupEnvelope(raw);
   const macKey = CryptoJS.PBKDF2(password, hexToWordArray(envelope.salt + "01"), {
     keySize: 256 / 32,
     iterations: BACKUP_KDF_ITERATIONS,
@@ -107,11 +155,7 @@ export async function decryptBackup(raw: string, password: string): Promise<Acco
   });
   const authenticated = `${BACKUP_FORMAT}.${BACKUP_VERSION}.${envelope.salt}.${envelope.iv}.${envelope.ciphertext}`;
   const expectedMac = CryptoJS.HmacSHA256(authenticated, macKey).toString(CryptoJS.enc.Hex);
-  if (
-    expectedMac.length !== envelope.mac.length ||
-    !CryptoJS.enc.Hex.parse(expectedMac).toString() ||
-    expectedMac.toLowerCase() !== envelope.mac.toLowerCase()
-  ) {
+  if (expectedMac.toLowerCase() !== envelope.mac.toLowerCase()) {
     throw new Error("Backup password is incorrect or the backup file has been modified.");
   }
   const key = CryptoJS.PBKDF2(password, hexToWordArray(envelope.salt), {
@@ -126,13 +170,5 @@ export async function decryptBackup(raw: string, password: string): Promise<Acco
   );
   const text = decrypted.toString(CryptoJS.enc.Utf8);
   if (!text) throw new Error("Backup password is incorrect or the file is damaged.");
-  const payload = JSON.parse(text);
-  if (
-    payload?.format !== BACKUP_FORMAT ||
-    payload?.version !== BACKUP_VERSION ||
-    !validateAccounts(payload.accounts)
-  ) {
-    throw new Error("The backup contents are invalid or incomplete.");
-  }
-  return payload.accounts;
+  return parseBackupPayload(text);
 }

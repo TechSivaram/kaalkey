@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
 import { Alert, Platform } from "react-native";
 import type { Account } from "../types/account";
-import { readAccountsStorage, writeAccountsStorage } from "../services/account-storage";
-import { normalizeBase32Secret, validateAccount } from "../services/account-validation";
+import {
+  readAccountsStorage,
+  writeAccountRecords,
+  parseStoredAccounts,
+} from "../services/account-storage";
+import { normalizeBase32Secret } from "../utils/base32";
+import { validateAccount } from "../services/account-validation";
 import { hasDuplicateAccount } from "../services/account-duplicates";
 import {
-  DEFAULT_TOTP_ALGORITHM,
-  DEFAULT_TOTP_DIGITS,
-  DEFAULT_TOTP_PERIOD_SECONDS,
-  MAX_TOTP_PERIOD_SECONDS,
-  MIN_TOTP_PERIOD_SECONDS,
-  SUPPORTED_TOTP_DIGITS,
-} from "../constants/totp";
-
+  getMissingAccountInfoMessage,
+  getInvalidOtpSettingsMessage,
+  getDuplicateAccountMessage,
+  getAccountSavedMessage,
+} from "../utils/accountFormMessages";
+import { getDefaultAccountFormValues, createAccountCandidate } from "../utils/accountFormState";
 type UseAccountsOptions = {
   showMessage: (title: string, message: string) => void;
   hapticFeedback: (kind?: "selection" | "success" | "warning") => void;
@@ -34,9 +37,22 @@ export function useAccounts({
   const [secret, setSecret] = useState("");
   const [totpUrlInput, setTotpUrlInput] = useState("");
   const [manualExpanded, setManualExpanded] = useState(false);
-  const [otpAlgorithm, setOtpAlgorithm] = useState<Account["algorithm"]>(DEFAULT_TOTP_ALGORITHM);
-  const [otpDigits, setOtpDigits] = useState<number>(DEFAULT_TOTP_DIGITS);
-  const [otpPeriod, setOtpPeriod] = useState<string>(String(DEFAULT_TOTP_PERIOD_SECONDS));
+  const formDefaults = getDefaultAccountFormValues();
+  const [otpAlgorithm, setOtpAlgorithm] = useState<Account["algorithm"]>(formDefaults.otpAlgorithm);
+  const [otpDigits, setOtpDigits] = useState<number>(formDefaults.otpDigits);
+  const [otpPeriod, setOtpPeriod] = useState<string>(formDefaults.otpPeriod);
+
+  function resetAccountForm() {
+    const defaults = getDefaultAccountFormValues();
+    setIssuer(defaults.issuer);
+    setAccountName(defaults.accountName);
+    setSecret(defaults.secret);
+    setTotpUrlInput(defaults.totpUrlInput);
+    setManualExpanded(defaults.manualExpanded);
+    setOtpAlgorithm(defaults.otpAlgorithm);
+    setOtpDigits(defaults.otpDigits);
+    setOtpPeriod(defaults.otpPeriod);
+  }
 
   useEffect(() => {
     let mounted = true;
@@ -45,18 +61,17 @@ export function useAccounts({
       try {
         const saved = await readAccountsStorage();
         if (saved) {
-          const parsed: unknown = JSON.parse(saved);
-          if (Array.isArray(parsed)) {
-            const validAccounts = parsed.filter(validateAccount);
-            if (mounted) setAccounts(validAccounts);
-            if (validAccounts.length !== parsed.length) {
+          const result = parseStoredAccounts(saved);
+          if (result.invalidContainer) {
+            Alert.alert("Storage data invalid", "Saved account data could not be read safely.");
+          } else {
+            if (mounted) setAccounts(result.accounts);
+            if (result.invalidCount > 0) {
               Alert.alert(
                 "Some saved accounts need attention",
-                `${parsed.length - validAccounts.length} invalid account record(s) were not loaded. Valid accounts remain available. Consider creating a backup before making further changes.`,
+                `${result.invalidCount} invalid account record(s) were not loaded. Valid accounts remain available. Consider creating a backup before making further changes.`,
               );
             }
-          } else {
-            Alert.alert("Storage data invalid", "Saved account data could not be read safely.");
           }
         }
       } catch {
@@ -74,7 +89,7 @@ export function useAccounts({
 
   async function saveAccounts(updated: Account[]): Promise<boolean> {
     try {
-      await writeAccountsStorage(JSON.stringify(updated));
+      await writeAccountRecords(updated);
       setAccounts(updated);
       return true;
     } catch {
@@ -89,14 +104,7 @@ export function useAccounts({
   function openAddAccount() {
     hapticFeedback("selection");
     setEditingId(null);
-    setIssuer("");
-    setAccountName("");
-    setSecret("");
-    setTotpUrlInput("");
-    setManualExpanded(false);
-    setOtpAlgorithm(DEFAULT_TOTP_ALGORITHM);
-    setOtpDigits(DEFAULT_TOTP_DIGITS);
-    setOtpPeriod(String(DEFAULT_TOTP_PERIOD_SECONDS));
+    resetAccountForm();
     setModalVisible(true);
   }
 
@@ -124,12 +132,7 @@ export function useAccounts({
     const normalizedName = accountName.trim();
 
     if (!normalizedIssuer || !normalizedName || !normalizedSecret) {
-      showMessage(
-        "Missing information",
-        currentEditingId
-          ? "Enter the service name and account name."
-          : "Enter the service name, account name, and secret key.",
-      );
+      showMessage("Missing information", getMissingAccountInfoMessage(Boolean(currentEditingId)));
       return;
     }
     if (currentEditingId && !originalAccount) {
@@ -142,30 +145,32 @@ export function useAccounts({
 
     // Editing is intentionally limited to issuer/service and account name.
     // Preserve the original secret and OTP configuration from storage.
-    const candidate: Account = {
-      id: currentEditingId ?? `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+    const candidate = createAccountCandidate({
+      editingId: currentEditingId,
+      originalAccount,
       issuer: normalizedIssuer,
-      name: normalizedName,
+      accountName: normalizedName,
       secret: normalizedSecret,
-      algorithm: originalAccount?.algorithm ?? otpAlgorithm,
-      digits: originalAccount?.digits ?? otpDigits,
-      period: originalAccount?.period ?? Number(otpPeriod),
-    };
+      otpAlgorithm,
+      otpDigits,
+      otpPeriod,
+    });
 
     if (!validateAccount(candidate)) {
-      showMessage(
-        "Invalid OTP settings",
-        `Check the Base32 secret, algorithm, digit count, and refresh period. Secrets must contain valid Base32 characters; digits must be ${SUPPORTED_TOTP_DIGITS.join(", ")} and the period must be ${MIN_TOTP_PERIOD_SECONDS}–${MAX_TOTP_PERIOD_SECONDS} seconds.`,
-      );
+      showMessage("Invalid OTP settings", getInvalidOtpSettingsMessage());
       return;
     }
 
     try {
-      if (hasDuplicateAccount(accounts, normalizedIssuer, normalizedName, currentEditingId ?? undefined)) {
-        showMessage(
-          "Account already exists",
-          "An account with this service and account name is already saved.",
-        );
+      if (
+        hasDuplicateAccount(
+          accounts,
+          normalizedIssuer,
+          normalizedName,
+          currentEditingId ?? undefined,
+        )
+      ) {
+        showMessage("Account already exists", getDuplicateAccountMessage());
         return;
       }
 
@@ -176,19 +181,11 @@ export function useAccounts({
 
       if (saved) {
         hapticFeedback("success");
-        setIssuer("");
-        setAccountName("");
-        setSecret("");
-        setOtpAlgorithm(DEFAULT_TOTP_ALGORITHM);
-        setOtpDigits(DEFAULT_TOTP_DIGITS);
-        setOtpPeriod(String(DEFAULT_TOTP_PERIOD_SECONDS));
+        resetAccountForm();
         setEditingId(null);
         setScannerVisible(false);
         setModalVisible(false);
-        showMessage(
-          "Account saved",
-          currentEditingId ? "Your account was updated." : "Your account was added securely.",
-        );
+        showMessage("Account saved", getAccountSavedMessage(Boolean(currentEditingId)));
       }
     } catch {
       showMessage("Invalid secret key", "Please check that you entered a valid Base32 secret.");

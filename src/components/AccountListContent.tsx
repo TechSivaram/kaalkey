@@ -3,6 +3,7 @@ import type { Account } from "../types/account";
 import { styles } from "../styles/home.styles";
 import AccountCard from "./AccountCard";
 import EmptyVaultState from "./EmptyVaultState";
+import { getAccountListStatusMessage } from "../utils/accountListMessages";
 
 type AccountListContentProps = {
   loaded: boolean;
@@ -29,7 +30,7 @@ export default function AccountListContent({
   onDelete,
 }: AccountListContentProps) {
   if (!loaded) {
-    return <Text style={styles.emptyText}>Loading secure vault...</Text>;
+    return <Text style={styles.emptyText}>{getAccountListStatusMessage("loading")}</Text>;
   }
 
   if (accounts.length === 0) {
@@ -37,7 +38,7 @@ export default function AccountListContent({
   }
 
   if (visibleAccounts.length === 0) {
-    return <Text style={styles.emptyText}>No accounts match your search.</Text>;
+    return <Text style={styles.emptyText}>{getAccountListStatusMessage("no-match")}</Text>;
   }
 
   return visibleAccounts.map((account) => (

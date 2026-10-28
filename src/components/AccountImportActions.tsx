@@ -18,32 +18,37 @@ type Props = {
 
 export default function AccountImportActions(props: Props) {
   const {
-    editingId, totpUrlInput, setTotpUrlInput, manualExpanded, setManualExpanded,
-    openQrScanner, importQrImage, pasteQrImage, importTotpUrl, pasteTotpUrl,
+    editingId,
+    totpUrlInput,
+    setTotpUrlInput,
+    manualExpanded,
+    setManualExpanded,
+    openQrScanner,
+    importQrImage,
+    pasteQrImage,
+    importTotpUrl,
+    pasteTotpUrl,
   } = props;
   return (
     <>
-              {!editingId && (
-                <AccountQrImportActions
-                  onScan={openQrScanner}
-                  onImportImage={importQrImage}
-                  onPasteImage={pasteQrImage}
-                />
-              )}
-              {!editingId && (
-                <AccountTotpUrlImport
-                  value={totpUrlInput}
-                  setValue={setTotpUrlInput}
-                  onImport={importTotpUrl}
-                  onPaste={pasteTotpUrl}
-                />
-              )}
-              {!editingId && (
-                <AccountManualEntryToggle
-                  expanded={manualExpanded}
-                  setExpanded={setManualExpanded}
-                />
-              )}
+      {!editingId && (
+        <AccountQrImportActions
+          onScan={openQrScanner}
+          onImportImage={importQrImage}
+          onPasteImage={pasteQrImage}
+        />
+      )}
+      {!editingId && (
+        <AccountTotpUrlImport
+          value={totpUrlInput}
+          setValue={setTotpUrlInput}
+          onImport={importTotpUrl}
+          onPaste={pasteTotpUrl}
+        />
+      )}
+      {!editingId && (
+        <AccountManualEntryToggle expanded={manualExpanded} setExpanded={setManualExpanded} />
+      )}
     </>
   );
 }

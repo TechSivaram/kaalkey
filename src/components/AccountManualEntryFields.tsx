@@ -25,18 +25,27 @@ type Props = {
 /** Manual account identity and TOTP fields within the account editor. */
 export default function AccountManualEntryFields(props: Props) {
   const {
-    editingId, manualExpanded, issuer, setIssuer, accountName, setAccountName,
-    secret, setSecret, otpAlgorithm, setOtpAlgorithm, otpDigits, setOtpDigits,
-    otpPeriod, setOtpPeriod,
+    editingId,
+    manualExpanded,
+    issuer,
+    setIssuer,
+    accountName,
+    setAccountName,
+    secret,
+    setSecret,
+    otpAlgorithm,
+    setOtpAlgorithm,
+    otpDigits,
+    setOtpDigits,
+    otpPeriod,
+    setOtpPeriod,
   } = props;
 
   if (!editingId && !manualExpanded) return null;
 
   return (
     <>
-      {!editingId && (
-        <Text style={styles.manualEntryLabel}>OR ENTER DETAILS MANUALLY</Text>
-      )}
+      {!editingId && <Text style={styles.manualEntryLabel}>OR ENTER DETAILS MANUALLY</Text>}
 
       <AccountIdentityFields
         issuer={issuer}

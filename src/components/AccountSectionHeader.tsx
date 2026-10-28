@@ -1,6 +1,7 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import { BUTTON_ACTIVE_OPACITY_STANDARD } from "../constants/ui";
 import { styles } from "../styles/home.styles";
+import { getAccountCountLabel } from "../utils/accountListMessages";
 
 type AccountSectionHeaderProps = {
   accountCount: number;
@@ -17,7 +18,7 @@ export default function AccountSectionHeader({
       <View>
         <Text style={styles.sectionTitle}>Your accounts</Text>
         <Text style={styles.accountCount}>
-          {accountCount} {accountCount === 1 ? "ACCOUNT" : "ACCOUNTS"}
+          {accountCount} {getAccountCountLabel(accountCount)}
         </Text>
       </View>
 

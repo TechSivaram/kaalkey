@@ -4,7 +4,7 @@ import * as FileSystem from "expo-file-system/legacy";
 import * as Sharing from "expo-sharing";
 import type { Account } from "../types/account";
 import { encryptBackup, decryptBackup } from "../services/backup";
-import { writeAccountsStorage } from "../services/account-storage";
+import { writeAccountRecords } from "../services/account-storage";
 import { mergeRestoredAccounts } from "../services/account-merge";
 import {
   BACKUP_FILE_EXTENSION,
@@ -13,6 +13,12 @@ import {
   BACKUP_WEB_FILE_ACCEPT,
   MIN_BACKUP_PASSWORD_LENGTH,
 } from "../constants/backup";
+import type { BackupMode } from "../types/backupMode";
+import {
+  getRestoreCompletionMessage,
+  getRestoreConfirmationMessage,
+  getBackupPasswordValidationMessage,
+} from "../utils/backupRestoreMessage";
 
 type UseBackupManagerOptions = {
   accounts: Account[];
@@ -22,7 +28,7 @@ type UseBackupManagerOptions = {
   setBackupBusy: (busy: boolean) => void;
   setActivityMessage: (message: string | null) => void;
   setBackupVisible: (visible: boolean) => void;
-  setBackupMode: (mode: "export" | "restore") => void;
+  setBackupMode: (mode: BackupMode) => void;
   setSettingsVisible: (visible: boolean) => void;
   showBackupMessage: (title: string, message: string) => void;
   hapticFeedback: (kind?: "selection" | "success" | "warning") => void;
@@ -41,7 +47,7 @@ export function useBackupManager({
   showBackupMessage,
   hapticFeedback,
 }: UseBackupManagerOptions) {
-  function openBackup(mode: "export" | "restore") {
+  function openBackup(mode: BackupMode) {
     hapticFeedback("selection");
     setBackupMode(mode);
     setBackupPassword("");
@@ -52,7 +58,7 @@ export function useBackupManager({
     if (backupPassword.length < MIN_BACKUP_PASSWORD_LENGTH) {
       showBackupMessage(
         "Use a stronger backup password",
-        `Choose at least ${MIN_BACKUP_PASSWORD_LENGTH} characters. You will need this password to restore the backup.`,
+        getBackupPasswordValidationMessage(MIN_BACKUP_PASSWORD_LENGTH),
       );
       return;
     }
@@ -182,7 +188,7 @@ export function useBackupManager({
       setActivityMessage("Decrypting backup…");
       const restored = await decryptBackup(raw, backupPassword);
       setActivityMessage(null);
-      const message = `This backup contains ${restored.length} account${restored.length === 1 ? "" : "s"}. KaalKey will keep your existing accounts and add accounts from the backup that are not already present. Duplicate accounts will be skipped.`;
+      const message = getRestoreConfirmationMessage(restored.length);
       let shouldMerge = false;
       if (Platform.OS === "web") {
         shouldMerge =
@@ -205,15 +211,12 @@ export function useBackupManager({
 
       // Merge by account identity; keep existing local accounts unchanged.
       const { accounts: merged, added } = mergeRestoredAccounts(accounts, restored);
-      await writeAccountsStorage(JSON.stringify(merged));
+      await writeAccountRecords(merged);
       setAccounts(merged);
       setBackupVisible(false);
       setSettingsVisible(false);
       setBackupPassword("");
-      showBackupMessage(
-        "Restore complete",
-        `Added ${added} account${added === 1 ? "" : "s"}. ${restored.length - added} duplicate account${restored.length - added === 1 ? " was" : "s were"} skipped. Your existing accounts were kept.`,
-      );
+      showBackupMessage("Restore complete", getRestoreCompletionMessage(added, restored.length));
     } catch (error) {
       showBackupMessage(
         "Restore failed",

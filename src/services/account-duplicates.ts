@@ -1,4 +1,5 @@
 import type { Account } from "../types/account";
+import { normalizeAccountText } from "../utils/accountText";
 
 /**
  * Returns whether an account with the same issuer and account name already exists.
@@ -10,13 +11,13 @@ export function hasDuplicateAccount(
   name: string,
   excludeId?: string,
 ): boolean {
-  const normalizedIssuer = issuer.toLowerCase();
-  const normalizedName = name.toLowerCase();
+  const normalizedIssuer = normalizeAccountText(issuer);
+  const normalizedName = normalizeAccountText(name);
 
   return accounts.some(
     (existing) =>
       existing.id !== excludeId &&
-      existing.issuer.toLowerCase() === normalizedIssuer &&
-      existing.name.toLowerCase() === normalizedName,
+      normalizeAccountText(existing.issuer) === normalizedIssuer &&
+      normalizeAccountText(existing.name) === normalizedName,
   );
 }

@@ -31,9 +31,7 @@ export default function AccountCard({
     <View style={styles.accountCard}>
       <View style={styles.accountHeader}>
         <View style={styles.accountIcon}>
-          <Text style={styles.accountIconText}>
-            {account.issuer.slice(0, 1).toUpperCase()}
-          </Text>
+          <Text style={styles.accountIconText}>{account.issuer.slice(0, 1).toUpperCase()}</Text>
         </View>
 
         <View style={styles.accountInfo}>

@@ -20,9 +20,7 @@ export default function AccountQrImportActions({ onScan, onImportImage, onPasteI
         <Text style={styles.scanButtonIcon}>▦</Text>
         <View style={styles.scanButtonCopy}>
           <Text style={styles.scanButtonTitle}>Scan QR code</Text>
-          <Text style={styles.scanButtonSubtitle}>
-            Use your camera to add an account instantly
-          </Text>
+          <Text style={styles.scanButtonSubtitle}>Use your camera to add an account instantly</Text>
         </View>
         <Text style={styles.scanButtonArrow}>›</Text>
       </TouchableOpacity>
@@ -51,9 +49,7 @@ export default function AccountQrImportActions({ onScan, onImportImage, onPasteI
         <Text style={styles.scanButtonIcon}>▣</Text>
         <View style={styles.scanButtonCopy}>
           <Text style={styles.scanButtonTitle}>Paste QR image</Text>
-          <Text style={styles.scanButtonSubtitle}>
-            Copy a QR image, then paste it here
-          </Text>
+          <Text style={styles.scanButtonSubtitle}>Copy a QR image, then paste it here</Text>
         </View>
         <Text style={styles.scanButtonArrow}>›</Text>
       </TouchableOpacity>

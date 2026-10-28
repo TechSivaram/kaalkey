@@ -38,11 +38,7 @@ export function useHaptics() {
     try {
       if (Platform.OS === "android") {
         const pattern =
-          kind === "success"
-            ? [0, 22, 45, 28]
-            : kind === "warning"
-              ? [0, 38, 55, 38]
-              : 12;
+          kind === "success" ? [0, 22, 45, 28] : kind === "warning" ? [0, 38, 55, 38] : 12;
         Vibration.vibrate(pattern);
       } else if (Platform.OS === "ios") {
         Vibration.vibrate(kind === "success" ? 35 : kind === "warning" ? 45 : 15);
