@@ -3,7 +3,7 @@ import * as DocumentPicker from "expo-document-picker";
 import * as FileSystem from "expo-file-system/legacy";
 import * as Sharing from "expo-sharing";
 import type { Account } from "../types/account";
-import { encryptBackup, decryptBackup } from "../services/backup";
+import { encryptBackup, decryptBackup, generateBackupPassword } from "../services/backup";
 import { writeAccountRecords } from "../services/account-storage";
 import { mergeRestoredAccounts } from "../services/account-merge";
 import {
@@ -11,13 +11,11 @@ import {
   BACKUP_FILENAME_PREFIX,
   BACKUP_MIME_TYPE,
   BACKUP_WEB_FILE_ACCEPT,
-  MIN_BACKUP_PASSWORD_LENGTH,
 } from "../constants/backup";
 import type { BackupMode } from "../types/backupMode";
 import {
   getRestoreCompletionMessage,
   getRestoreConfirmationMessage,
-  getBackupPasswordValidationMessage,
 } from "../utils/backupRestoreMessage";
 
 type UseBackupManagerOptions = {
@@ -47,18 +45,35 @@ export function useBackupManager({
   showBackupMessage,
   hapticFeedback,
 }: UseBackupManagerOptions) {
-  function openBackup(mode: BackupMode) {
+  async function openBackup(mode: BackupMode) {
     hapticFeedback("selection");
     setBackupMode(mode);
     setBackupPassword("");
+    if (mode === "export") {
+      setBackupBusy(true);
+      setActivityMessage("Generating secure backup password…");
+      try {
+        setBackupPassword(await generateBackupPassword());
+        setBackupVisible(true);
+      } catch (error) {
+        showBackupMessage(
+          "Could not generate backup password",
+          error instanceof Error ? error.message : "Secure random generation is unavailable.",
+        );
+      } finally {
+        setBackupBusy(false);
+        setActivityMessage(null);
+      }
+      return;
+    }
     setBackupVisible(true);
   }
 
   async function exportEncryptedBackup() {
-    if (backupPassword.length < MIN_BACKUP_PASSWORD_LENGTH) {
+    if (!/^KK-\d{14}-[a-f0-9]{64}$/.test(backupPassword)) {
       showBackupMessage(
-        "Use a stronger backup password",
-        getBackupPasswordValidationMessage(MIN_BACKUP_PASSWORD_LENGTH),
+        "Backup password unavailable",
+        "Close this dialog and create a new backup to generate a secure password.",
       );
       return;
     }
@@ -66,7 +81,10 @@ export function useBackupManager({
     setActivityMessage("Encrypting backup…");
     try {
       const encrypted = await encryptBackup(accounts, backupPassword);
-      const filename = `${BACKUP_FILENAME_PREFIX}${new Date().toISOString().replace(/[:.]/g, "-")}${BACKUP_FILE_EXTENSION}`;
+      // Reuse the timestamp embedded in the generated password so the password
+      // and backup filename identify the same backup creation time.
+      const passwordTimestamp = backupPassword.split("-")[1];
+      const filename = `${BACKUP_FILENAME_PREFIX}${passwordTimestamp}${BACKUP_FILE_EXTENSION}`;
 
       if (Platform.OS === "web") {
         if (typeof document === "undefined" || typeof URL === "undefined") {

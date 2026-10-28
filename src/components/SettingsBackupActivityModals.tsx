@@ -1,5 +1,7 @@
 import type { Dispatch, SetStateAction } from "react";
+import * as Clipboard from "expo-clipboard";
 import {
+  Alert,
   KeyboardAvoidingView,
   Modal,
   Platform,
@@ -11,7 +13,6 @@ import {
 } from "react-native";
 import type { Account } from "../types/account";
 import { styles } from "../styles/home.styles";
-import { MIN_BACKUP_PASSWORD_LENGTH } from "../constants/backup";
 import {
   BUTTON_ACTIVE_OPACITY,
   BUTTON_ACTIVE_OPACITY_SOFT,
@@ -183,8 +184,8 @@ export default function SettingsBackupActivityModals(props: Props) {
                 </TouchableOpacity>
               </View>
               <Text style={styles.backupSafetyText}>
-                Backups contain your authenticator secrets. They are encrypted with a password you
-                choose. Keep that password safe; KaalKey cannot recover it.
+                Backups contain your authenticator secrets. KaalKey generates a unique password for
+                each backup. Save it separately; KaalKey cannot recover it.
               </Text>
 
               <Text style={styles.settingsSectionLabel}>APPEARANCE</Text>
@@ -288,41 +289,91 @@ export default function SettingsBackupActivityModals(props: Props) {
                   {getBackupModalDescription(backupMode, accounts.length)}
                 </Text>
                 <Text style={styles.inputLabel}>BACKUP PASSWORD</Text>
-                <View style={styles.inputClearWrapper}>
-                  <TextInput
-                    style={[styles.input, styles.inputWithClearSpace]}
-                    value={backupPassword}
-                    onChangeText={setBackupPassword}
-                    placeholder={
-                      backupMode === "export"
-                        ? `At least ${MIN_BACKUP_PASSWORD_LENGTH} characters`
-                        : "Enter backup password"
-                    }
-                    placeholderTextColor={COLORS.placeholder}
-                    secureTextEntry
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    textContentType="password"
-                    accessibilityLabel="Backup password"
-                  />
-                  {backupPassword.length > 0 && (
+                {backupMode === "export" ? (
+                  <View>
+                    <View
+                      style={{
+                        backgroundColor: "#F5F8FC",
+                        borderWidth: 1,
+                        borderColor: "#DCE5F0",
+                        borderRadius: 12,
+                        padding: 12,
+                      }}
+                    >
+                      <Text
+                        selectable
+                        style={{
+                          color: "#17243A",
+                          fontSize: 12,
+                          lineHeight: 19,
+                          fontWeight: "700",
+                          letterSpacing: 0.2,
+                        }}
+                      >
+                        {backupPassword || "Generating secure password…"}
+                      </Text>
+                    </View>
                     <TouchableOpacity
-                      style={styles.clearInputButton}
-                      onPress={() => setBackupPassword("")}
+                      style={[styles.cancelButton, { marginTop: 10, borderColor: "#16834A" }]}
+                      disabled={!backupPassword || backupBusy}
+                      onPress={() => {
+                        void Clipboard.setStringAsync(backupPassword)
+                          .then(() => {
+                            if (Platform.OS === "web" && typeof window !== "undefined") {
+                              window.alert("Backup password copied. Save it somewhere safe.");
+                            } else {
+                              Alert.alert(
+                                "Password copied",
+                                "Save it somewhere safe, such as WhatsApp.",
+                              );
+                            }
+                          })
+                          .catch(() => {
+                            Alert.alert("Copy failed", "Select and copy the password manually.");
+                          });
+                      }}
                       activeOpacity={BUTTON_ACTIVE_OPACITY}
                       accessibilityRole="button"
-                      accessibilityLabel="Clear backup password"
-                      hitSlop={6}
+                      accessibilityLabel="Copy generated backup password"
                     >
-                      <Text style={styles.clearInputButtonText}>×</Text>
+                      <Text
+                        style={[styles.cancelButtonText, { color: "#16834A", fontWeight: "800" }]}
+                      >
+                        Copy generated password
+                      </Text>
                     </TouchableOpacity>
-                  )}
-                </View>
-                {backupMode === "export" && (
-                  <Text style={styles.backupSafetyText}>
-                    Use a unique password with at least {MIN_BACKUP_PASSWORD_LENGTH} characters. If
-                    you lose it, the backup cannot be decrypted.
-                  </Text>
+                    <Text style={styles.backupSafetyText}>
+                      Save this password separately (for example, in WhatsApp). Anyone with both the
+                      backup file and password can restore your authenticator accounts.
+                    </Text>
+                  </View>
+                ) : (
+                  <View style={styles.inputClearWrapper}>
+                    <TextInput
+                      style={[styles.input, styles.inputWithClearSpace]}
+                      value={backupPassword}
+                      onChangeText={setBackupPassword}
+                      placeholder="Enter backup password"
+                      placeholderTextColor={COLORS.placeholder}
+                      secureTextEntry
+                      autoCapitalize="none"
+                      autoCorrect={false}
+                      textContentType="password"
+                      accessibilityLabel="Backup password"
+                    />
+                    {backupPassword.length > 0 && (
+                      <TouchableOpacity
+                        style={styles.clearInputButton}
+                        onPress={() => setBackupPassword("")}
+                        activeOpacity={BUTTON_ACTIVE_OPACITY}
+                        accessibilityRole="button"
+                        accessibilityLabel="Clear backup password"
+                        hitSlop={6}
+                      >
+                        <Text style={styles.clearInputButtonText}>×</Text>
+                      </TouchableOpacity>
+                    )}
+                  </View>
                 )}
                 <TouchableOpacity
                   style={[styles.primaryButton, backupBusy && styles.backupDisabled]}

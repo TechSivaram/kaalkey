@@ -4,7 +4,7 @@ import { validateAccounts } from "./account-validation";
 
 const BACKUP_FORMAT = "kaalkey-encrypted-backup";
 const BACKUP_VERSION = 1;
-const BACKUP_KDF_ITERATIONS = 250000;
+const BACKUP_KDF_ITERATIONS = 1;
 
 type BackupEnvelope = {
   format: string;
@@ -95,6 +95,13 @@ async function secureRandomBytes(length: number): Promise<Uint8Array> {
       "Secure random generation is unavailable. Rebuild and reinstall the Android app with expo-crypto included, then try again.",
     );
   }
+}
+
+/** Generate a portable KaalKey backup password: KK-UTC_TIMESTAMP-256_BIT_RANDOM_HEX. */
+export async function generateBackupPassword(): Promise<string> {
+  const timestamp = new Date().toISOString().replace(/\D/g, "").slice(0, 14);
+  const randomSecret = bytesToHex(await secureRandomBytes(32));
+  return `KK-${timestamp}-${randomSecret}`;
 }
 
 export async function encryptBackup(accounts: Account[], password: string): Promise<string> {
