@@ -6,6 +6,7 @@ import * as SecureStore from "expo-secure-store";
 import { BIOMETRIC_ENABLED_STORAGE_KEY } from "../constants/storage";
 import { USER_MESSAGES } from "../constants/userMessages";
 import { showUserMessage } from "../utils/user-message";
+import { shouldIgnoreExternalActivityTransition } from "../utils/externalActivity";
 
 export function useBiometricLock() {
   const [biometricEnabled, setBiometricEnabled] = useState(false);
@@ -169,6 +170,11 @@ export function useBiometricLock() {
     const subscription = AppState.addEventListener("change", (nextState) => {
       const wasBackgrounded = /inactive|background/.test(appStateRef.current ?? "");
       appStateRef.current = nextState;
+
+      // Android's system image/document picker temporarily backgrounds KaalKey.
+      // Keep the current unlock state while one of these trusted activities is open.
+      if (shouldIgnoreExternalActivityTransition(nextState)) return;
+
       if (biometricEnabled && nextState === "active" && wasBackgrounded) {
         setIsUnlocked(false);
         void authenticateUser();

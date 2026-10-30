@@ -1,6 +1,7 @@
 import { Alert, Platform } from "react-native";
 import { USER_MESSAGES } from "../constants/userMessages";
 import * as DocumentPicker from "expo-document-picker";
+import { beginExternalActivity } from "../utils/externalActivity";
 import * as FileSystem from "expo-file-system/legacy";
 import * as Sharing from "expo-sharing";
 import type { Account } from "../types/account";
@@ -122,11 +123,16 @@ export function useBackupManager({
           USER_MESSAGES.backup.backupSavedTemporary(uri),
         );
       } else {
-        await Sharing.shareAsync(uri, {
-          mimeType: BACKUP_MIME_TYPE,
-          dialogTitle: USER_MESSAGES.backup.saveBackupTitle,
-          UTI: "public.json",
-        });
+        const finishExternalActivity = beginExternalActivity();
+        try {
+          await Sharing.shareAsync(uri, {
+            mimeType: BACKUP_MIME_TYPE,
+            dialogTitle: USER_MESSAGES.backup.saveBackupTitle,
+            UTI: "public.json",
+          });
+        } finally {
+          finishExternalActivity();
+        }
       }
       setBackupVisible(false);
       setBackupPassword("");
@@ -143,15 +149,20 @@ export function useBackupManager({
 
   async function pickBackupText(): Promise<string | null> {
     if (Platform.OS !== "web") {
-      const picked = await DocumentPicker.getDocumentAsync({
-        type: ["application/json", "public.json", "*/*"],
-        copyToCacheDirectory: true,
-        multiple: false,
-      });
-      if (picked.canceled || !picked.assets?.[0]) return null;
-      return FileSystem.readAsStringAsync(picked.assets[0].uri, {
-        encoding: FileSystem.EncodingType.UTF8,
-      });
+      const finishExternalActivity = beginExternalActivity();
+      try {
+        const picked = await DocumentPicker.getDocumentAsync({
+          type: ["application/json", "public.json", "*/*"],
+          copyToCacheDirectory: true,
+          multiple: false,
+        });
+        if (picked.canceled || !picked.assets?.[0]) return null;
+        return await FileSystem.readAsStringAsync(picked.assets[0].uri, {
+          encoding: FileSystem.EncodingType.UTF8,
+        });
+      } finally {
+        finishExternalActivity();
+      }
     }
 
     // Use a native browser file input on web; Expo DocumentPicker/FileSystem URI

@@ -5,6 +5,7 @@ import { showUserMessage } from "../utils/user-message";
 import { Camera } from "expo-camera";
 import * as Clipboard from "expo-clipboard";
 import * as ImagePicker from "expo-image-picker";
+import { beginExternalActivity } from "../utils/externalActivity";
 import * as ImageManipulator from "expo-image-manipulator";
 import * as FileSystem from "expo-file-system/legacy";
 import { decodeQrPixels } from "../services/qr-image-decoder";
@@ -168,12 +169,18 @@ export function useQrImageImport({
       // Use the native photo-library picker on Android/iOS. Ask Expo Camera's
       // native image scanner to decode the picked URI before falling back to the
       // JavaScript JPEG/Base64/RGBA pipeline.
-      const result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ["images"],
-        allowsEditing: false,
-        quality: 1,
-        selectionLimit: 1,
-      });
+      const finishExternalActivity = beginExternalActivity();
+      let result: ImagePicker.ImagePickerResult;
+      try {
+        result = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ["images"],
+          allowsEditing: false,
+          quality: 1,
+          selectionLimit: 1,
+        });
+      } finally {
+        finishExternalActivity();
+      }
       if (result.canceled || !result.assets?.[0]?.uri) return;
       setActivityMessage(USER_MESSAGES.activity.importingQrImage);
       const imageUri = result.assets[0].uri;
