@@ -1,3 +1,4 @@
+import { useAppLanguage } from "../i18n";
 import type { Dispatch, SetStateAction } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import type { Account } from "../types/account";
@@ -36,16 +37,17 @@ export default function AccountTotpFields({
   otpPeriod,
   setOtpPeriod,
 }: Props) {
+  const { t } = useAppLanguage();
   return (
     <>
       <Text style={styles.inputLabel}>
-        {editingId ? "SECRET KEY (LOCKED)" : "SECRET KEY (BASE32)"}
+        {editingId ? t("SECRET KEY (LOCKED)") : t("SECRET KEY (BASE32)")}
       </Text>
 
       <View style={styles.inputClearWrapper}>
         <TextInput
           style={[styles.input, styles.inputWithClearSpace]}
-          placeholder="Enter your setup key"
+          placeholder={t("Enter your setup key")}
           placeholderTextColor={COLORS.textMuted}
           value={secret}
           onChangeText={setSecret}
@@ -55,7 +57,7 @@ export default function AccountTotpFields({
           editable={!editingId}
           selectTextOnFocus={!editingId}
           accessibilityLabel={
-            editingId ? "Secret key, read-only while editing" : "Secret key in Base32"
+            editingId ? t("Secret key, read-only while editing") : t("Secret key in Base32")
           }
         />
         {!editingId && secret.length > 0 && (
@@ -64,14 +66,14 @@ export default function AccountTotpFields({
             onPress={() => setSecret("")}
             activeOpacity={BUTTON_ACTIVE_OPACITY}
             accessibilityRole="button"
-            accessibilityLabel="Clear secret key"
+            accessibilityLabel={t("Clear secret key")}
             hitSlop={6}
           >
             <Text style={styles.clearInputButtonText}>×</Text>
           </TouchableOpacity>
         )}
       </View>
-      <Text style={styles.inputLabel}>OTP ALGORITHM</Text>
+      <Text style={styles.inputLabel}>{t("OTP ALGORITHM")}</Text>
       <View style={styles.optionRow}>
         {SUPPORTED_TOTP_ALGORITHMS.map((algorithm) => (
           <TouchableOpacity
@@ -93,7 +95,7 @@ export default function AccountTotpFields({
         ))}
       </View>
 
-      <Text style={styles.inputLabel}>OTP DIGITS</Text>
+      <Text style={styles.inputLabel}>{t("OTP DIGITS")}</Text>
       <View style={styles.optionRow}>
         {SUPPORTED_TOTP_DIGITS.map((digits) => (
           <TouchableOpacity
@@ -106,13 +108,13 @@ export default function AccountTotpFields({
             <Text
               style={[styles.optionChipText, otpDigits === digits && styles.optionChipTextSelected]}
             >
-              {digits} digits
+              {digits} {t("digits")}
             </Text>
           </TouchableOpacity>
         ))}
       </View>
 
-      <Text style={styles.inputLabel}>REFRESH INTERVAL (SECONDS)</Text>
+      <Text style={styles.inputLabel}>{t("REFRESH INTERVAL (SECONDS)")}</Text>
       <TextInput
         style={styles.input}
         value={otpPeriod}
@@ -120,9 +122,9 @@ export default function AccountTotpFields({
           setOtpPeriod(value.replace(/[^0-9]/g, "").slice(0, TOTP_PERIOD_INPUT_MAX_LENGTH))
         }
         keyboardType="number-pad"
-        placeholder={`${MIN_TOTP_PERIOD_SECONDS}–${MAX_TOTP_PERIOD_SECONDS} seconds`}
+        placeholder={`${MIN_TOTP_PERIOD_SECONDS}–${MAX_TOTP_PERIOD_SECONDS} ${t("seconds")}`}
         placeholderTextColor={COLORS.textMuted}
-        accessibilityLabel="OTP refresh interval in seconds"
+        accessibilityLabel={t("OTP refresh interval in seconds")}
       />
       <View style={styles.optionRow}>
         {TOTP_PERIOD_PRESETS.map((period) => (
@@ -146,9 +148,9 @@ export default function AccountTotpFields({
       </View>
 
       <Text style={styles.securityNote}>
-        Use the secret key supplied by the service you are configuring. Never enter your account
-        password here. Match the algorithm, digit count, and interval to the service&apos;s setup
-        instructions.
+        {t(
+          "Use the secret key supplied by the service you are configuring. Never enter your account password here. Match the algorithm, digit count, and interval to the service’s setup instructions.",
+        )}
       </Text>
     </>
   );

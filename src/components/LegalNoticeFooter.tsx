@@ -1,6 +1,7 @@
 import type { Dispatch, SetStateAction } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { getLegalNoticeFooterStyles } from "../styles/component.styles";
+import { useAppLanguage } from "../i18n";
 
 type Props = {
   firstLaunch: boolean;
@@ -20,6 +21,7 @@ export default function LegalNoticeFooter({
   onAccept,
   onDone,
 }: Props) {
+  const { t } = useAppLanguage();
   const inlineStyles = getLegalNoticeFooterStyles(legalChecked);
   if (firstLaunch) {
     return (
@@ -34,7 +36,7 @@ export default function LegalNoticeFooter({
             <Text style={inlineStyles.checkmark}>{legalChecked ? "✓" : ""}</Text>
           </View>
           <Text style={inlineStyles.agreement}>
-            I have read and agree to the Privacy Policy and Terms of Use.
+            {t("I have read and agree to the Privacy Policy and Terms of Use.")}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -43,7 +45,7 @@ export default function LegalNoticeFooter({
           style={inlineStyles.accept}
         >
           <Text style={inlineStyles.acceptText}>
-            {legalSaving ? "Saving…" : "Accept & Continue"}
+            {legalSaving ? t("Saving…") : t("Accept & Continue")}
           </Text>
         </TouchableOpacity>
       </>
@@ -52,7 +54,7 @@ export default function LegalNoticeFooter({
 
   return (
     <TouchableOpacity onPress={onDone} style={inlineStyles.done}>
-      <Text style={inlineStyles.doneText}>Done</Text>
+      <Text style={inlineStyles.doneText}>{t("Done")}</Text>
     </TouchableOpacity>
   );
 }

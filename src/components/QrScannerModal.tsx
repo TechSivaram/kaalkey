@@ -1,3 +1,4 @@
+import { useAppLanguage } from "../i18n";
 import { useState } from "react";
 import { Modal, Platform, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { USER_MESSAGES } from "../constants/userMessages";
@@ -39,6 +40,7 @@ export default function QrScannerModal({
   cameraViewRef,
   handleQrScanned,
 }: Props) {
+  const { t } = useAppLanguage();
   const [torchEnabled, setTorchEnabled] = useState(false);
 
   // Reset torch when scanner closes so it never remains on after leaving.
@@ -74,17 +76,19 @@ export default function QrScannerModal({
               setModalVisible(true);
             }}
             accessibilityRole="button"
-            accessibilityLabel="Back to add account"
+            accessibilityLabel={t("Back to add account")}
           >
-            <Text style={styles.scannerBack}>‹ Back</Text>
+            <Text style={styles.scannerBack}>‹ {t("Back")}</Text>
           </TouchableOpacity>
-          <Text style={styles.scannerStep}>SECURE SETUP</Text>
+          <Text style={styles.scannerStep}>{t("SECURE SETUP")}</Text>
         </View>
 
         <View style={styles.scannerIntro}>
-          <Text style={styles.scannerTitle}>Scan QR code</Text>
+          <Text style={styles.scannerTitle}>{t("Scan QR code")}</Text>
           <Text style={styles.scannerSubtitle}>
-            Point your camera at the authenticator setup QR code from the service you are adding.
+            {t(
+              "Point your camera at the authenticator setup QR code from the service you are adding.",
+            )}
           </Text>
         </View>
 
@@ -110,7 +114,7 @@ export default function QrScannerModal({
           ) : (
             <View style={styles.cameraUnavailable}>
               <Text style={styles.cameraUnavailableText}>
-                Camera unavailable. Check camera permission and try again.
+                {t("Camera unavailable. Check camera permission and try again.")}
               </Text>
             </View>
           )}
@@ -122,18 +126,18 @@ export default function QrScannerModal({
             <TouchableOpacity
               onPress={() => setTorchEnabled((enabled) => !enabled)}
               accessibilityRole="button"
-              accessibilityLabel={torchEnabled ? "Turn flashlight off" : "Turn flashlight on"}
+              accessibilityLabel={torchEnabled ? t("Turn flashlight off") : t("Turn flashlight on")}
               style={styles.scannerTorchButton}
             >
               <Text style={styles.scannerTorchText}>
-                {torchEnabled ? "☀ Flashlight on" : "☼ Flashlight"}
+                {torchEnabled ? `☀ ${t("Flashlight on")}` : `☼ ${t("Flashlight")}`}
               </Text>
             </TouchableOpacity>
           ) : null}
         </View>
 
         <Text style={styles.scannerHint}>
-          Keep the entire QR code visible. Your secret stays on this device.
+          {t("Keep the entire QR code visible. Your secret stays on this device.")}
         </Text>
         {Platform.OS === "android" ? (
           <Text accessibilityLiveRegion="polite" style={styles.scannerHint}>
@@ -147,7 +151,7 @@ export default function QrScannerModal({
             closeScanner();
           }}
         >
-          <Text style={styles.scannerManualText}>Enter details manually instead</Text>
+          <Text style={styles.scannerManualText}>{t("Enter details manually instead")}</Text>
         </TouchableOpacity>
       </ScrollView>
     </Modal>

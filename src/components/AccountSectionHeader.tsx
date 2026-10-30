@@ -1,3 +1,4 @@
+import { useAppLanguage } from "../i18n";
 import { Text, TouchableOpacity, View } from "react-native";
 import { BUTTON_ACTIVE_OPACITY_STANDARD } from "../constants/ui";
 import { styles } from "../styles/home.styles";
@@ -13,10 +14,11 @@ export default function AccountSectionHeader({
   accountCount,
   onAddAccount,
 }: AccountSectionHeaderProps) {
+  const { t } = useAppLanguage();
   return (
     <View style={styles.sectionHeader}>
       <View>
-        <Text style={styles.sectionTitle}>Your accounts</Text>
+        <Text style={styles.sectionTitle}>{t("Your accounts")}</Text>
         <Text style={styles.accountCount}>
           {accountCount} {getAccountCountLabel(accountCount)}
         </Text>
@@ -27,9 +29,9 @@ export default function AccountSectionHeader({
         activeOpacity={BUTTON_ACTIVE_OPACITY_STANDARD}
         onPress={onAddAccount}
         accessibilityRole="button"
-        accessibilityLabel="Add account"
+        accessibilityLabel={t("Add account")}
       >
-        <Text style={styles.addButtonText}>+ Add</Text>
+        <Text style={styles.addButtonText}>{t("+ Add")}</Text>
       </TouchableOpacity>
     </View>
   );

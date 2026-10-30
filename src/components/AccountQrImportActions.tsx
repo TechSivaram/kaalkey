@@ -1,3 +1,4 @@
+import { useAppLanguage } from "../i18n";
 import { Text, TouchableOpacity, View } from "react-native";
 import { styles } from "../styles/home.styles";
 
@@ -9,18 +10,21 @@ type Props = {
 
 /** QR camera, gallery, and clipboard import actions. */
 export default function AccountQrImportActions({ onScan, onImportImage, onPasteImage }: Props) {
+  const { t } = useAppLanguage();
   return (
     <>
       <TouchableOpacity
         style={styles.scanButton}
         onPress={() => void onScan()}
         accessibilityRole="button"
-        accessibilityLabel="Scan authenticator QR code"
+        accessibilityLabel={t("Scan authenticator QR code")}
       >
         <Text style={styles.scanButtonIcon}>▦</Text>
         <View style={styles.scanButtonCopy}>
-          <Text style={styles.scanButtonTitle}>Scan QR code</Text>
-          <Text style={styles.scanButtonSubtitle}>Use your camera to add an account instantly</Text>
+          <Text style={styles.scanButtonTitle}>{t("Scan QR code")}</Text>
+          <Text style={styles.scanButtonSubtitle}>
+            {t("Use your camera to add an account instantly")}
+          </Text>
         </View>
         <Text style={styles.scanButtonArrow}>›</Text>
       </TouchableOpacity>
@@ -29,13 +33,13 @@ export default function AccountQrImportActions({ onScan, onImportImage, onPasteI
         style={[styles.scanButton, styles.importQrButton]}
         onPress={() => void onImportImage()}
         accessibilityRole="button"
-        accessibilityLabel="Upload QR image"
+        accessibilityLabel={t("Upload QR image")}
       >
         <Text style={styles.scanButtonIcon}>▧</Text>
         <View style={styles.scanButtonCopy}>
-          <Text style={styles.scanButtonTitle}>Upload QR Image</Text>
+          <Text style={styles.scanButtonTitle}>{t("Upload QR Image")}</Text>
           <Text style={styles.scanButtonSubtitle}>
-            Choose a QR screenshot from Gallery, Photos, or Files
+            {t("Choose a QR screenshot from Gallery, Photos, or Files")}
           </Text>
         </View>
         <Text style={styles.scanButtonArrow}>›</Text>
@@ -48,9 +52,9 @@ export default function AccountQrImportActions({ onScan, onImportImage, onPasteI
       >
         <Text style={styles.scanButtonIcon}>▣</Text>
         <View style={styles.scanButtonCopy}>
-          <Text style={styles.scanButtonTitle}>Paste QR Image / URL</Text>
+          <Text style={styles.scanButtonTitle}>{t("Paste QR Image / URL")}</Text>
           <Text style={styles.scanButtonSubtitle}>
-            Paste a copied QR image or authenticator setup URL
+            {t("Paste a copied QR image or authenticator setup URL")}
           </Text>
         </View>
         <Text style={styles.scanButtonArrow}>›</Text>

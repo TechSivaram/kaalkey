@@ -1,9 +1,9 @@
 import { Text } from "react-native";
+import { useAppLanguage } from "../i18n";
 import type { Account } from "../types/account";
 import { styles } from "../styles/home.styles";
 import AccountCard from "./AccountCard";
 import EmptyVaultState from "./EmptyVaultState";
-import { getAccountListStatusMessage } from "../utils/accountListMessages";
 
 type AccountListContentProps = {
   loaded: boolean;
@@ -29,8 +29,10 @@ export default function AccountListContent({
   onEdit,
   onDelete,
 }: AccountListContentProps) {
+  const { t } = useAppLanguage();
+
   if (!loaded) {
-    return <Text style={styles.emptyText}>{getAccountListStatusMessage("loading")}</Text>;
+    return <Text style={styles.emptyText}>{t("Loading secure vault...")}</Text>;
   }
 
   if (accounts.length === 0) {
@@ -38,7 +40,7 @@ export default function AccountListContent({
   }
 
   if (visibleAccounts.length === 0) {
-    return <Text style={styles.emptyText}>{getAccountListStatusMessage("no-match")}</Text>;
+    return <Text style={styles.emptyText}>{t("No accounts match your search.")}</Text>;
   }
 
   return visibleAccounts.map((account) => (

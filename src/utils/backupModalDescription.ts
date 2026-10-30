@@ -1,11 +1,19 @@
+import type { AppLanguage } from "../i18n";
+import { translate } from "../i18n";
 import type { BackupMode } from "../types/backupMode";
 
-/** Returns the explanatory copy shown in the encrypted-backup dialog. */
-export function getBackupModalDescription(mode: BackupMode, accountCount: number): string {
+/** Returns localized explanatory copy shown in the encrypted-backup dialog. */
+export function getBackupModalDescription(
+  mode: BackupMode,
+  accountCount: number,
+  language: AppLanguage,
+): string {
   if (mode === "export") {
-    const accountLabel = accountCount === 1 ? "account" : "accounts";
-    return `Encrypt all ${accountCount} saved ${accountLabel} into a backup file. KaalKey generates a unique password; copy and save it separately from the file.`;
+    const accountLabel = translate(language, accountCount === 1 ? "account" : "accounts");
+    return translate(language, "Backup export description")
+      .replace("{count}", String(accountCount))
+      .replace("{accountLabel}", accountLabel);
   }
 
-  return "Choose your KaalKey backup file and password. New accounts will be added to your existing account list; existing accounts will stay as they are.";
+  return translate(language, "Backup restore description");
 }

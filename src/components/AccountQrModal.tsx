@@ -1,3 +1,4 @@
+import { useAppLanguage } from "../i18n";
 import { Modal, Text, TouchableOpacity, View } from "react-native";
 import QRCode from "react-native-qrcode-svg";
 import type { Account } from "../types/account";
@@ -26,6 +27,7 @@ export default function AccountQrModal({
   createAccountOtpAuthUrl,
   closeAccountQr,
 }: Props) {
+  const { t } = useAppLanguage();
   const overlayStyle = getAccountQrOverlayStyles(insets);
 
   return (
@@ -37,22 +39,19 @@ export default function AccountQrModal({
     >
       <View style={overlayStyle}>
         <View style={styles.card}>
-          <Text style={styles.title}>Account QR code</Text>
+          <Text style={styles.title}>{t("Account QR code")}</Text>
           <Text style={styles.accountLabel}>
             {qrAccount?.issuer} · {qrAccount?.name}
           </Text>
           {!qrRevealed ? (
             <>
-              <Text style={styles.warning}>
-                Warning: anyone who scans this QR code can generate verification codes for this
-                account. Only reveal it on a trusted screen.
-              </Text>
+              <Text style={styles.warning}>{t("QR export warning")}</Text>
               <TouchableOpacity
                 style={[homeStyles.primaryButton, styles.fullWidth]}
                 onPress={() => setQrRevealed(true)}
                 accessibilityRole="button"
               >
-                <Text style={homeStyles.primaryButtonText}>Reveal QR code</Text>
+                <Text style={homeStyles.primaryButtonText}>{t("Reveal QR code")}</Text>
               </TouchableOpacity>
             </>
           ) : qrAccount ? (
@@ -63,16 +62,14 @@ export default function AccountQrModal({
                 backgroundColor={COLORS.white}
                 color="#111827"
               />
-              <Text style={styles.privacyHint}>
-                Keep this QR code private. Scanning it copies the account’s authenticator secret.
-              </Text>
+              <Text style={styles.privacyHint}>{t("QR privacy hint")}</Text>
             </>
           ) : null}
           <TouchableOpacity
             style={[homeStyles.cancelButton, styles.closeButton]}
             onPress={closeAccountQr}
           >
-            <Text style={homeStyles.cancelButtonText}>Close</Text>
+            <Text style={homeStyles.cancelButtonText}>{t("Close")}</Text>
           </TouchableOpacity>
         </View>
       </View>

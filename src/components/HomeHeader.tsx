@@ -2,6 +2,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import { BUTTON_ACTIVE_OPACITY_STANDARD } from "../constants/ui";
 import { styles } from "../styles/home.styles";
 import { homeHeaderAccentStyles } from "../styles/component.styles";
+import { useAppLanguage } from "../i18n";
 
 type HomeHeaderProps = {
   biometricEnabled: boolean;
@@ -15,6 +16,7 @@ export default function HomeHeader({
   onToggleBiometricLock,
   onOpenSettings,
 }: HomeHeaderProps) {
+  const { t } = useAppLanguage();
   return (
     <>
       <View style={styles.header}>
@@ -24,7 +26,7 @@ export default function HomeHeader({
               source={require("../../assets/images/kaalkey-full-logo-white.png")}
               style={styles.brandMark}
               resizeMode="contain"
-              accessibilityLabel="KaalKey tricolour lock emblem"
+              accessibilityLabel={t("KaalKey tricolour lock emblem")}
             />
           </View>
           <View style={styles.brandTextBlock}>
@@ -33,10 +35,10 @@ export default function HomeHeader({
               <Text style={styles.brandK}>K</Text>
               <Text style={styles.brandEy}>ey</Text>
             </Text>
-            <Text style={styles.brandSubtitle}>AUTHENTICATOR</Text>
+            <Text style={styles.brandSubtitle}>{t("AUTHENTICATOR")}</Text>
             <View style={styles.secureBadge}>
               <View style={styles.greenDot} />
-              <Text style={styles.secureText}>LOCAL VAULT</Text>
+              <Text style={styles.secureText}>{t("LOCAL VAULT")}</Text>
             </View>
           </View>
           <TouchableOpacity
@@ -44,7 +46,7 @@ export default function HomeHeader({
             onPress={onToggleBiometricLock}
             activeOpacity={BUTTON_ACTIVE_OPACITY_STANDARD}
             accessibilityRole="button"
-            accessibilityLabel={biometricEnabled ? "Disable app lock" : "Enable app lock"}
+            accessibilityLabel={biometricEnabled ? t("Disable app lock") : t("Enable app lock")}
           >
             <Text style={styles.securityButtonIcon}>{biometricEnabled ? "🔒" : "🔐"}</Text>
             <Text
@@ -53,7 +55,7 @@ export default function HomeHeader({
                 biometricEnabled && styles.securityButtonTextActive,
               ]}
             >
-              {biometricEnabled ? "LOCK ON" : "SECURITY"}
+              {biometricEnabled ? t("LOCK ON") : t("SECURITY")}
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -61,7 +63,7 @@ export default function HomeHeader({
             onPress={onOpenSettings}
             activeOpacity={BUTTON_ACTIVE_OPACITY_STANDARD}
             accessibilityRole="button"
-            accessibilityLabel="Open app settings"
+            accessibilityLabel={t("Open app settings")}
           >
             <Text style={styles.settingsIcon}>⚙</Text>
           </TouchableOpacity>

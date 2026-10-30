@@ -5,6 +5,7 @@ import CountdownRing from "./CountdownRing";
 import { styles } from "../styles/home.styles";
 import { BUTTON_ACTIVE_OPACITY_CODE } from "../constants/ui";
 import { getTotpCountdown } from "../services/totp-time";
+import { useAppLanguage } from "../i18n";
 
 type Props = {
   account: Account;
@@ -24,6 +25,7 @@ export default function AccountCard({
   onEdit,
   onDelete,
 }: Props) {
+  const { t } = useAppLanguage();
   const code = generateCode(account);
   const { period, secondsRemaining } = getTotpCountdown(now, account.period);
 
@@ -44,24 +46,33 @@ export default function AccountCard({
             style={styles.editButton}
             onPress={() => onViewQr(account)}
             accessibilityRole="button"
-            accessibilityLabel={`View QR code for ${account.issuer}`}
+            accessibilityLabel={`${t("View QR code for account")} ${account.issuer}`}
           >
-            <Text style={styles.editButtonText}>QR</Text>
+            <Text style={styles.editButtonText}>▦</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.editButton}
             onPress={() => onEdit(account)}
             accessibilityRole="button"
-            accessibilityLabel={`Edit ${account.issuer} account`}
+            accessibilityLabel={`${t("Edit")} ${account.issuer}`}
           >
-            <Text style={styles.editButtonText}>Edit</Text>
+            <Text style={styles.editButtonText}>✎</Text>
           </TouchableOpacity>
           <TouchableOpacity
+            style={styles.editButton}
             onPress={() => onDelete(account.id)}
             accessibilityRole="button"
-            accessibilityLabel={`Remove ${account.issuer} account`}
+            accessibilityLabel={`${t("Remove account")} ${account.issuer}`}
           >
-            <Text style={styles.deleteIcon}>×</Text>
+            <View style={styles.deleteCan}>
+              <View style={styles.deleteCanHandle} />
+              <View style={styles.deleteCanLid} />
+              <View style={styles.deleteCanBody}>
+                <View style={styles.deleteCanLine} />
+                <View style={styles.deleteCanLine} />
+                <View style={styles.deleteCanLine} />
+              </View>
+            </View>
           </TouchableOpacity>
         </View>
       </View>
@@ -72,12 +83,12 @@ export default function AccountCard({
           activeOpacity={BUTTON_ACTIVE_OPACITY_CODE}
           onPress={() => void onCopyCode(code)}
           accessibilityRole="button"
-          accessibilityLabel={`Copy verification code for ${account.issuer}`}
+          accessibilityLabel={`${t("Copy verification code")} ${account.issuer}`}
         >
           <Text style={styles.code}>
             {code.slice(0, 3)} {code.slice(3)}
           </Text>
-          <Text style={styles.copyHint}>TAP TO COPY</Text>
+          <Text style={styles.copyHint}>{t("TAP TO COPY")}</Text>
         </TouchableOpacity>
 
         <CountdownRing secondsRemaining={secondsRemaining} period={period} />

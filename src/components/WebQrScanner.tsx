@@ -1,5 +1,6 @@
 import { getWebQrCameraErrorMessage } from "../utils/webQrScanner";
-import { useEffect, useRef, useState } from "react";
+import { translate, useAppLanguage } from "../i18n";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Platform, Text, View } from "react-native";
 import jsQR from "jsqr";
 import { WEB_QR_SCAN_THROTTLE_MS } from "../constants/ui";
@@ -19,6 +20,8 @@ type Props = {
 /** Browser-only camera scanner. Uses jsQR directly so a stalled experimental
  * BarcodeDetector cannot block frame decoding. */
 export default function WebQrScanner({ active, onDetected }: Props) {
+  const { language } = useAppLanguage();
+  const t = useCallback((key: string) => translate(language, key), [language]);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const frameRef = useRef<number | null>(null);
@@ -45,7 +48,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
       try {
         if (!navigator.mediaDevices?.getUserMedia) {
           setMessage(
-            "Camera unavailable. Open this page on HTTPS or localhost and allow camera access.",
+            t("Camera unavailable. Open this page on HTTPS or localhost and allow camera access."),
           );
           return;
         }
@@ -64,7 +67,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
         streamRef.current = stream;
         const video = videoRef.current;
         if (!video) {
-          setMessage("Camera preview is unavailable. Close and reopen the scanner.");
+          setMessage(t("Camera preview is unavailable. Close and reopen the scanner."));
           stop();
           return;
         }
@@ -73,12 +76,12 @@ export default function WebQrScanner({ active, onDetected }: Props) {
         video.playsInline = true;
         video.autoplay = true;
         await video.play();
-        setMessage("Camera ready — point it at the full QR code.");
+        setMessage(t("Camera ready — point it at the full QR code."));
 
         const canvas = document.createElement("canvas");
         const context = canvas.getContext("2d", { willReadFrequently: true });
         if (!context) {
-          setMessage("This browser cannot process camera frames.");
+          setMessage(t("This browser cannot process camera frames."));
           stop();
           return;
         }
@@ -122,14 +125,14 @@ export default function WebQrScanner({ active, onDetected }: Props) {
                 });
               }
               if (result?.data && !disposed) {
-                setMessage("QR code detected.");
+                setMessage(t("QR code detected."));
                 stop();
                 onDetectedRef.current(result.data);
                 return;
               }
             } catch {
               setMessage(
-                "Couldn't read camera frames. Check camera permissions and reload this page.",
+                t("Couldn't read camera frames. Check camera permissions and reload this page."),
               );
             }
           }
@@ -137,7 +140,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
         };
         frameRef.current = requestAnimationFrame(scanFrame);
       } catch (error) {
-        setMessage(getWebQrCameraErrorMessage(error));
+        setMessage(t(getWebQrCameraErrorMessage(error)));
       }
     };
     void start();
@@ -145,7 +148,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
       disposed = true;
       stop();
     };
-  }, [active]);
+  }, [active, language, t]);
 
   return (
     <View style={styles.container}>
@@ -156,7 +159,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
             muted
             playsInline
             autoPlay
-            aria-label="QR scanner camera preview"
+            aria-label={t("QR scanner camera preview")}
             style={webQrVideoStyle}
           />
           <Text style={styles.message}>{message}</Text>

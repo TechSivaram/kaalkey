@@ -32,6 +32,7 @@ import HomeFooter from "../components/HomeFooter";
 import AccountListToolbar from "../components/AccountListToolbar";
 import AccountListContent from "../components/AccountListContent";
 import DesktopProductInfo from "../components/DesktopProductInfo";
+import { useAppLanguage } from "../i18n";
 
 export default function HomeScreen() {
   const { width: windowWidth } = useWindowDimensions();
@@ -85,6 +86,7 @@ export default function HomeScreen() {
   };
 
   const insets = useSafeAreaInsets();
+  const { language, setLanguage, t } = useAppLanguage();
   const scannerCameraHeight = useScannerCameraHeight();
   const { now, showBrandSplash } = useHomeLifecycle();
   const {
@@ -377,6 +379,8 @@ export default function HomeScreen() {
             restoreEncryptedBackup={restoreEncryptedBackup}
             activityMessage={activityMessage}
             clearAllAccounts={clearAllAccounts}
+            language={language}
+            setLanguage={setLanguage}
           />
         </View>
       </SafeAreaView>
@@ -386,7 +390,7 @@ export default function HomeScreen() {
             {...({ onMouseDown: onSplitterMouseDown } as any)}
             style={styles.webDesktopSplitter}
             accessibilityRole="adjustable"
-            accessibilityLabel="Resize app and brand panels"
+            accessibilityLabel={t("Resize app and brand panels")}
           >
             <View style={styles.webDesktopSplitterGrip}>
               <View style={styles.webDesktopSplitterGripLine} />

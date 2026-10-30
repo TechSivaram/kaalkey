@@ -1048,10 +1048,52 @@ export const styles = StyleSheet.create({
     marginTop: 4,
   },
 
-  deleteIcon: {
-    color: "#8A95A6",
-    fontSize: 28,
-    paddingHorizontal: 5,
+  deleteCan: {
+    width: 13,
+    height: 15,
+    alignItems: "center",
+    justifyContent: "flex-end",
+  },
+
+  deleteCanHandle: {
+    position: "absolute",
+    top: 0,
+    width: 5,
+    height: 2,
+    borderWidth: 1,
+    borderColor: COLORS.amberDark,
+    borderBottomWidth: 0,
+    borderTopLeftRadius: 2,
+    borderTopRightRadius: 2,
+  },
+
+  deleteCanLid: {
+    position: "absolute",
+    top: 3,
+    width: 13,
+    height: 2,
+    borderRadius: 1,
+    backgroundColor: COLORS.amberDark,
+  },
+
+  deleteCanBody: {
+    width: 10,
+    height: 10,
+    borderWidth: 1.2,
+    borderColor: COLORS.amberDark,
+    borderTopWidth: 0,
+    borderBottomLeftRadius: 2,
+    borderBottomRightRadius: 2,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    paddingTop: 2,
+  },
+
+  deleteCanLine: {
+    width: 1,
+    height: 5,
+    backgroundColor: COLORS.amberDark,
+    opacity: 0.75,
   },
 
   codeRow: {

@@ -1,3 +1,4 @@
+import { useAppLanguage } from "../i18n";
 import type { Dispatch, SetStateAction } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { TOTP_URI_PREFIX } from "../constants/totp";
@@ -14,9 +15,10 @@ type Props = {
 
 /** Setup URL input with an inline import action and clipboard paste support. */
 export default function AccountTotpUrlImport({ value, setValue, onImport, onPaste }: Props) {
+  const { t } = useAppLanguage();
   return (
     <View style={inlineStyles.fieldGroup}>
-      <Text style={styles.inputLabel}>TOTP SETUP URL</Text>
+      <Text style={styles.inputLabel}>{t("TOTP SETUP URL")}</Text>
       <View style={inlineStyles.urlInputRow}>
         <TextInput
           style={[styles.input, inlineStyles.urlInput]}
@@ -26,13 +28,13 @@ export default function AccountTotpUrlImport({ value, setValue, onImport, onPast
           onChangeText={setValue}
           autoCapitalize="none"
           autoCorrect={false}
-          accessibilityLabel="TOTP setup URL"
+          accessibilityLabel={t("TOTP setup URL")}
         />
         <TouchableOpacity
           style={inlineStyles.inlineImportButton}
           onPress={() => void onImport(value)}
           accessibilityRole="button"
-          accessibilityLabel="Import setup URL"
+          accessibilityLabel={t("Import setup URL")}
           disabled={!value.trim()}
         >
           <Text style={inlineStyles.inlineImportIcon}>↧</Text>

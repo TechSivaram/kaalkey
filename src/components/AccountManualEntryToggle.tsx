@@ -1,3 +1,4 @@
+import { useAppLanguage } from "../i18n";
 import type { Dispatch, SetStateAction } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { styles } from "../styles/home.styles";
@@ -9,6 +10,7 @@ type Props = {
 
 /** Toggle for opening or closing the manual account-entry form. */
 export default function AccountManualEntryToggle({ expanded, setExpanded }: Props) {
+  const { t } = useAppLanguage();
   return (
     <TouchableOpacity
       style={styles.scanButton}
@@ -18,9 +20,9 @@ export default function AccountManualEntryToggle({ expanded, setExpanded }: Prop
     >
       <View style={styles.scanButtonCopy}>
         <Text style={styles.scanButtonTitle}>
-          {expanded ? "Hide manual entry" : "Enter details manually"}
+          {expanded ? t("Hide manual entry") : t("Enter details manually")}
         </Text>
-        <Text style={styles.scanButtonSubtitle}>Service, account name and secret key</Text>
+        <Text style={styles.scanButtonSubtitle}>{t("Service, account name and secret key")}</Text>
       </View>
       <Text style={styles.scanButtonArrow}>{expanded ? "⌄" : "›"}</Text>
     </TouchableOpacity>

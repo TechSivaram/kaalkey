@@ -1,3 +1,4 @@
+import { useAppLanguage } from "../i18n";
 import type { Dispatch, SetStateAction } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { styles } from "../styles/home.styles";
@@ -18,18 +19,19 @@ export default function AccountIdentityFields({
   accountName,
   setAccountName,
 }: Props) {
+  const { t } = useAppLanguage();
   return (
     <>
-      <Text style={styles.inputLabel}>SERVICE / ISSUER</Text>
+      <Text style={styles.inputLabel}>{t("SERVICE / ISSUER")}</Text>
       <View style={styles.inputClearWrapper}>
         <TextInput
           style={[styles.input, styles.inputWithClearSpace]}
-          placeholder="e.g. Google"
+          placeholder={t("e.g. Google")}
           placeholderTextColor={COLORS.textMuted}
           value={issuer}
           onChangeText={setIssuer}
           autoCapitalize="words"
-          accessibilityLabel="Service or issuer"
+          accessibilityLabel={t("Service or issuer")}
         />
         {issuer.length > 0 && (
           <TouchableOpacity
@@ -37,7 +39,7 @@ export default function AccountIdentityFields({
             onPress={() => setIssuer("")}
             activeOpacity={BUTTON_ACTIVE_OPACITY}
             accessibilityRole="button"
-            accessibilityLabel="Clear service or issuer"
+            accessibilityLabel={t("Clear service or issuer")}
             hitSlop={6}
           >
             <Text style={styles.clearInputButtonText}>×</Text>
@@ -45,17 +47,17 @@ export default function AccountIdentityFields({
         )}
       </View>
 
-      <Text style={styles.inputLabel}>ACCOUNT NAME</Text>
+      <Text style={styles.inputLabel}>{t("ACCOUNT NAME")}</Text>
       <View style={styles.inputClearWrapper}>
         <TextInput
           style={[styles.input, styles.inputWithClearSpace]}
-          placeholder="e.g. you@example.com"
+          placeholder={t("e.g. you@example.com")}
           placeholderTextColor={COLORS.textMuted}
           value={accountName}
           onChangeText={setAccountName}
           autoCapitalize="none"
           keyboardType="email-address"
-          accessibilityLabel="Account name"
+          accessibilityLabel={t("Account name")}
         />
         {accountName.length > 0 && (
           <TouchableOpacity
@@ -63,7 +65,7 @@ export default function AccountIdentityFields({
             onPress={() => setAccountName("")}
             activeOpacity={BUTTON_ACTIVE_OPACITY}
             accessibilityRole="button"
-            accessibilityLabel="Clear account name"
+            accessibilityLabel={t("Clear account name")}
             hitSlop={6}
           >
             <Text style={styles.clearInputButtonText}>×</Text>

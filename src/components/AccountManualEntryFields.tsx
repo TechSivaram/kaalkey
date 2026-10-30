@@ -1,3 +1,4 @@
+import { useAppLanguage } from "../i18n";
 import type { Dispatch, SetStateAction } from "react";
 import { Text } from "react-native";
 import type { Account } from "../types/account";
@@ -41,11 +42,13 @@ export default function AccountManualEntryFields(props: Props) {
     setOtpPeriod,
   } = props;
 
+  const { t } = useAppLanguage();
+
   if (!editingId && !manualExpanded) return null;
 
   return (
     <>
-      {!editingId && <Text style={styles.manualEntryLabel}>OR ENTER DETAILS MANUALLY</Text>}
+      {!editingId && <Text style={styles.manualEntryLabel}>{t("OR ENTER DETAILS MANUALLY")}</Text>}
 
       <AccountIdentityFields
         issuer={issuer}
