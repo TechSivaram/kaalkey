@@ -520,14 +520,14 @@ export const styles = StyleSheet.create({
   webMobileLayout: {
     flex: 1,
     width: "100%",
-    alignItems: "flex-start",
+    alignItems: "stretch",
     backgroundColor: "#E9EEF4",
   },
   webMobileRoot: {
     flex: 1,
     width: "100%",
     maxWidth: 460,
-    alignItems: "flex-start",
+    alignItems: "stretch",
     backgroundColor: "#E9EEF4",
   },
   webRoot: {
