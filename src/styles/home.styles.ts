@@ -1538,7 +1538,6 @@ export const styles = StyleSheet.create({
   backupCopyButton: { marginTop: 10, borderColor: "#16834A" },
   backupCopyButtonText: { color: "#16834A", fontWeight: "800" },
   webAppPanel: { flex: 1, minWidth: 320, minHeight: "100%" },
-
 });
 
 export function getWebRootPanelStyle(width: number): ViewStyle {

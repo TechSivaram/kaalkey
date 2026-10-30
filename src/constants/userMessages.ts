@@ -14,21 +14,25 @@ export const USER_MESSAGES = {
   },
   qr: {
     unsupportedTitle: "Unsupported QR code",
-    unsupportedBody: "Scan the authenticator setup QR code supplied by the service. This must be a TOTP code, not a normal login QR code.",
+    unsupportedBody:
+      "Scan the authenticator setup QR code supplied by the service. This must be a TOTP code, not a normal login QR code.",
     unsupportedDiagnostic: "That QR is not a TOTP setup code. Aim at an authenticator setup QR.",
     detectedDiagnostic: "QR detected. Analyzing…",
     startingCamera: "Starting camera…",
     analyzing: "Analyzing QR code…",
     duplicateTitle: "Account already added",
-    duplicateBody: (issuer: string, account: string) => `${issuer}: ${account} is already in KaalKey.`,
+    duplicateBody: (issuer: string, account: string) =>
+      `${issuer}: ${account} is already in KaalKey.`,
     addedTitle: "Account added",
     addedBody: (issuer: string, account: string) => `${issuer}: ${account} was added successfully.`,
     saveFailedDiagnostic: "Could not save the account. You can scan again.",
     invalidTitle: "Invalid QR code",
-    invalidBody: (detail: string, prefix: string) => `KaalKey could not parse this authenticator QR code. ${detail}. Use the service's TOTP setup QR code (usually starts with ${prefix}).`,
+    invalidBody: (detail: string, prefix: string) =>
+      `KaalKey could not parse this authenticator QR code. ${detail}. Use the service's TOTP setup QR code (usually starts with ${prefix}).`,
     parseFailedDiagnostic: "QR could not be processed. Aim at the setup QR and try again.",
     invalidUrlTitle: "Invalid TOTP URL",
-    invalidUrlBody: (prefix: string) => `Paste a complete authenticator URL beginning with ${prefix}.`,
+    invalidUrlBody: (prefix: string) =>
+      `Paste a complete authenticator URL beginning with ${prefix}.`,
     clipboardEmptyTitle: "Clipboard is empty",
     clipboardEmptyBody: (prefix: string) => `Copy an ${prefix} URL first, then tap Paste TOTP URL.`,
     clipboardErrorTitle: "Could not read clipboard",
@@ -59,7 +63,8 @@ export const USER_MESSAGES = {
     notFoundTitle: "Account not found",
     notFoundBody: "This account could not be found. Close the editor and try again.",
     removeConfirmBody: "This removes the account and its secret from this device.",
-    clearConfirmBody: "This permanently removes all authenticator accounts and their secrets from this device. Create an encrypted backup first if you may need these accounts later.",
+    clearConfirmBody:
+      "This permanently removes all authenticator accounts and their secrets from this device. Create an encrypted backup first if you may need these accounts later.",
   },
   backup: {
     passwordCopiedTitle: "Password copied",
@@ -78,8 +83,10 @@ export const USER_MESSAGES = {
     generatePasswordErrorTitle: "Could not generate backup password",
     secureRandomUnavailable: "Secure random generation is unavailable.",
     passwordUnavailableTitle: "Backup password unavailable",
-    passwordUnavailableBody: "Close this dialog and create a new backup to generate a secure password.",
-    backupDownloadedBody: "Your encrypted KaalKey backup has been downloaded. Keep the file and password private.",
+    passwordUnavailableBody:
+      "Close this dialog and create a new backup to generate a secure password.",
+    backupDownloadedBody:
+      "Your encrypted KaalKey backup has been downloaded. Keep the file and password private.",
     backupFailedTitle: "Backup failed",
     backupCreateErrorBody: "KaalKey could not create the backup.",
     restoreFailedTitle: "Restore failed",
@@ -103,20 +110,26 @@ export const USER_MESSAGES = {
   },
   biometric: {
     deviceLockTitle: "Set up your device screen lock",
-    deviceLockBody: "KaalKey uses your phone's built-in authentication. Set a device PIN, pattern, or password in your phone's security settings, then try again. Biometrics are optional.",
+    deviceLockBody:
+      "KaalKey uses your phone's built-in authentication. Set a device PIN, pattern, or password in your phone's security settings, then try again. Biometrics are optional.",
     unavailableTitle: "Device authentication unavailable",
-    unavailableBody: "Your phone could not start secure authentication. Check that a device screen lock is configured, then try again.",
+    unavailableBody:
+      "Your phone could not start secure authentication. Check that a device screen lock is configured, then try again.",
     lockedTitle: "Authentication temporarily locked",
-    lockedBody: "Your phone has temporarily disabled authentication after too many attempts. Wait and try again.",
+    lockedBody:
+      "Your phone has temporarily disabled authentication after too many attempts. Wait and try again.",
     promptErrorTitle: "Authentication unavailable",
-    promptErrorBody: "KaalKey could not start the phone's secure authentication prompt. Please try again.",
-    webLock: "Device authentication lock is not available in the web version yet. The web vault remains unlocked; use the Android app for native device authentication.",
+    promptErrorBody:
+      "KaalKey could not start the phone's secure authentication prompt. Please try again.",
+    webLock:
+      "Device authentication lock is not available in the web version yet. The web vault remains unlocked; use the Android app for native device authentication.",
     disabledTitle: "App lock disabled",
     disabledBody: "KaalKey app lock has been turned off.",
     saveErrorTitle: "Could not save setting",
     disableSaveError: "The app lock remains enabled. Please try again.",
     enabledTitle: "App lock enabled",
-    enabledBody: "KaalKey will request your phone's built-in authentication when opened and when you return to it.",
+    enabledBody:
+      "KaalKey will request your phone's built-in authentication when opened and when you return to it.",
     enableSaveError: "App lock could not be enabled. Please try again.",
   },
 } as const;

@@ -51,10 +51,7 @@ export function useQrAccountScanner({
       const permission = await requestCameraPermission();
       if (!permission.granted) {
         setModalVisible(true);
-        Alert.alert(
-          USER_MESSAGES.cameraPermission.title,
-          USER_MESSAGES.cameraPermission.body,
-        );
+        Alert.alert(USER_MESSAGES.cameraPermission.title, USER_MESSAGES.cameraPermission.body);
         return;
       }
     }
@@ -83,16 +80,11 @@ export function useQrAccountScanner({
 
     try {
       if (!isTotpQrPayload(qrPayload)) {
-        showMessage(
-          USER_MESSAGES.qr.unsupportedTitle,
-          USER_MESSAGES.qr.unsupportedBody,
-        );
+        showMessage(USER_MESSAGES.qr.unsupportedTitle, USER_MESSAGES.qr.unsupportedBody);
         if (fromCamera) {
           qrProcessingRef.current = false;
           setScanned(false);
-          setScannerDiagnostic(
-            USER_MESSAGES.qr.unsupportedDiagnostic,
-          );
+          setScannerDiagnostic(USER_MESSAGES.qr.unsupportedDiagnostic);
         }
         return;
       }
@@ -116,7 +108,10 @@ export function useQrAccountScanner({
         setModalVisible(false);
         setEditingId(null);
         qrProcessingRef.current = false;
-        showMessage(USER_MESSAGES.qr.addedTitle, USER_MESSAGES.qr.addedBody(account.issuer, account.name));
+        showMessage(
+          USER_MESSAGES.qr.addedTitle,
+          USER_MESSAGES.qr.addedBody(account.issuer, account.name),
+        );
       } else if (fromCamera) {
         qrProcessingRef.current = false;
         setScanned(false);

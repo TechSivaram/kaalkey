@@ -65,7 +65,10 @@ export function useAccounts({
         if (saved) {
           const result = parseStoredAccounts(saved);
           if (result.invalidContainer) {
-            showUserMessage(USER_MESSAGES.account.storageInvalidTitle, USER_MESSAGES.account.storageInvalidBody);
+            showUserMessage(
+              USER_MESSAGES.account.storageInvalidTitle,
+              USER_MESSAGES.account.storageInvalidBody,
+            );
           } else {
             if (mounted) setAccounts(result.accounts);
             if (result.invalidCount > 0) {
@@ -77,7 +80,10 @@ export function useAccounts({
           }
         }
       } catch {
-        showUserMessage(USER_MESSAGES.account.storageErrorTitle, USER_MESSAGES.account.storageErrorBody);
+        showUserMessage(
+          USER_MESSAGES.account.storageErrorTitle,
+          USER_MESSAGES.account.storageErrorBody,
+        );
       } finally {
         if (mounted) setLoaded(true);
       }
@@ -95,10 +101,7 @@ export function useAccounts({
       setAccounts(updated);
       return true;
     } catch {
-      showMessage(
-        USER_MESSAGES.account.storageErrorTitle,
-        USER_MESSAGES.account.saveErrorBody,
-      );
+      showMessage(USER_MESSAGES.account.storageErrorTitle, USER_MESSAGES.account.saveErrorBody);
       return false;
     }
   }
@@ -134,14 +137,14 @@ export function useAccounts({
     const normalizedName = accountName.trim();
 
     if (!normalizedIssuer || !normalizedName || !normalizedSecret) {
-      showMessage(USER_MESSAGES.account.missingTitle, getMissingAccountInfoMessage(Boolean(currentEditingId)));
+      showMessage(
+        USER_MESSAGES.account.missingTitle,
+        getMissingAccountInfoMessage(Boolean(currentEditingId)),
+      );
       return;
     }
     if (currentEditingId && !originalAccount) {
-      showMessage(
-        USER_MESSAGES.account.notFoundTitle,
-        USER_MESSAGES.account.notFoundBody,
-      );
+      showMessage(USER_MESSAGES.account.notFoundTitle, USER_MESSAGES.account.notFoundBody);
       return;
     }
 
@@ -187,10 +190,16 @@ export function useAccounts({
         setEditingId(null);
         setScannerVisible(false);
         setModalVisible(false);
-        showMessage(USER_MESSAGES.account.savedTitle, getAccountSavedMessage(Boolean(currentEditingId)));
+        showMessage(
+          USER_MESSAGES.account.savedTitle,
+          getAccountSavedMessage(Boolean(currentEditingId)),
+        );
       }
     } catch {
-      showMessage(USER_MESSAGES.account.invalidSecretTitle, USER_MESSAGES.account.invalidSecretBody);
+      showMessage(
+        USER_MESSAGES.account.invalidSecretTitle,
+        USER_MESSAGES.account.invalidSecretBody,
+      );
     }
   }
 
@@ -206,7 +215,8 @@ export function useAccounts({
   function deleteAccount(id: string) {
     const message = USER_MESSAGES.account.removeConfirmBody;
     if (Platform.OS === "web" && typeof window !== "undefined") {
-      if (window.confirm(`${USER_MESSAGES.account.removeConfirmWebTitle}\n\n${message}`)) void removeAccountConfirmed(id);
+      if (window.confirm(`${USER_MESSAGES.account.removeConfirmWebTitle}\n\n${message}`))
+        void removeAccountConfirmed(id);
       return;
     }
     Alert.alert(USER_MESSAGES.account.removeConfirmTitle, message, [
@@ -228,8 +238,7 @@ export function useAccounts({
   }
 
   function clearAllAccounts() {
-    const message =
-      USER_MESSAGES.account.clearConfirmBody;
+    const message = USER_MESSAGES.account.clearConfirmBody;
     if (Platform.OS === "web" && typeof window !== "undefined") {
       if (window.confirm(`Clear all accounts?\n\n${message}\n\nThis cannot be undone.`)) {
         void clearAllAccountsConfirmed();
@@ -238,7 +247,11 @@ export function useAccounts({
     }
     Alert.alert(USER_MESSAGES.account.clearConfirmTitle, `${message}\n\nThis cannot be undone.`, [
       { text: USER_MESSAGES.account.cancelButton, style: "cancel" },
-      { text: USER_MESSAGES.account.clearButton, style: "destructive", onPress: () => void clearAllAccountsConfirmed() },
+      {
+        text: USER_MESSAGES.account.clearButton,
+        style: "destructive",
+        onPress: () => void clearAllAccountsConfirmed(),
+      },
     ]);
   }
 

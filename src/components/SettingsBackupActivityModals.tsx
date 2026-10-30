@@ -202,7 +202,9 @@ export default function SettingsBackupActivityModals(props: Props) {
                   <Text style={styles.settingIcon}>🗑️</Text>
                 </View>
                 <View style={styles.settingCopy}>
-                  <Text style={[styles.settingTitleText, inlineStyles.clearAllTitle]}>Clear all accounts</Text>
+                  <Text style={[styles.settingTitleText, inlineStyles.clearAllTitle]}>
+                    Clear all accounts
+                  </Text>
                   <Text style={styles.settingDescription}>
                     Permanently remove every account and secret from this device. Back up first.
                   </Text>
@@ -313,13 +315,8 @@ export default function SettingsBackupActivityModals(props: Props) {
                 <Text style={styles.inputLabel}>BACKUP PASSWORD</Text>
                 {backupMode === "export" ? (
                   <View>
-                    <View
-                      style={styles.backupPasswordCard}
-                    >
-                      <Text
-                        selectable
-                        style={styles.backupPasswordText}
-                      >
+                    <View style={styles.backupPasswordCard}>
+                      <Text selectable style={styles.backupPasswordText}>
                         {backupPassword || "Generating secure password…"}
                       </Text>
                     </View>
@@ -329,19 +326,23 @@ export default function SettingsBackupActivityModals(props: Props) {
                       onPress={() => {
                         void Clipboard.setStringAsync(backupPassword)
                           .then(() => {
-                            showUserMessage(USER_MESSAGES.backup.passwordCopiedTitle, USER_MESSAGES.backup.passwordCopiedBody);
+                            showUserMessage(
+                              USER_MESSAGES.backup.passwordCopiedTitle,
+                              USER_MESSAGES.backup.passwordCopiedBody,
+                            );
                           })
                           .catch(() => {
-                            showUserMessage(USER_MESSAGES.backup.copyFailedTitle, USER_MESSAGES.backup.copyFailedBody);
+                            showUserMessage(
+                              USER_MESSAGES.backup.copyFailedTitle,
+                              USER_MESSAGES.backup.copyFailedBody,
+                            );
                           });
                       }}
                       activeOpacity={BUTTON_ACTIVE_OPACITY}
                       accessibilityRole="button"
                       accessibilityLabel="Copy generated backup password"
                     >
-                      <Text
-                        style={[styles.cancelButtonText, styles.backupCopyButtonText]}
-                      >
+                      <Text style={[styles.cancelButtonText, styles.backupCopyButtonText]}>
                         Copy generated password
                       </Text>
                     </TouchableOpacity>

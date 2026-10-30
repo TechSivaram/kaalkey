@@ -59,10 +59,7 @@ export function useHaptics() {
       setHapticsEnabled(next);
       if (next) hapticFeedback("success");
     } catch {
-      showUserMessage(
-        USER_MESSAGES.haptics.saveFailedTitle,
-        USER_MESSAGES.haptics.saveFailedBody,
-      );
+      showUserMessage(USER_MESSAGES.haptics.saveFailedTitle, USER_MESSAGES.haptics.saveFailedBody);
     }
   }, [hapticFeedback]);
 

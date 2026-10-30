@@ -89,10 +89,7 @@ export function useBiometricLock() {
             USER_MESSAGES.biometric.unavailableBody,
           );
         } else if (result.error === "lockout") {
-          Alert.alert(
-            USER_MESSAGES.biometric.lockedTitle,
-            USER_MESSAGES.biometric.lockedBody,
-          );
+          Alert.alert(USER_MESSAGES.biometric.lockedTitle, USER_MESSAGES.biometric.lockedBody);
         }
         // Cancellation, failed verification, and every other error leave the vault locked.
         return false;
@@ -114,8 +111,7 @@ export function useBiometricLock() {
     // Do not expose a non-working native-auth switch on web. The web build currently
     // has no implemented browser-authentication flow, so keep its app-level lock OFF.
     if (Platform.OS === "web") {
-      const message =
-        USER_MESSAGES.biometric.webLock;
+      const message = USER_MESSAGES.biometric.webLock;
       showUserMessage(USER_MESSAGES.biometric.unavailableTitle, message);
       setBiometricEnabled(false);
       setIsUnlocked(true);
@@ -134,7 +130,10 @@ export function useBiometricLock() {
         Alert.alert(USER_MESSAGES.biometric.disabledTitle, USER_MESSAGES.biometric.disabledBody);
       } catch {
         setIsUnlocked(false);
-        Alert.alert(USER_MESSAGES.biometric.saveErrorTitle, USER_MESSAGES.biometric.disableSaveError);
+        Alert.alert(
+          USER_MESSAGES.biometric.saveErrorTitle,
+          USER_MESSAGES.biometric.disableSaveError,
+        );
       }
       return;
     }
@@ -147,10 +146,7 @@ export function useBiometricLock() {
       await SecureStore.setItemAsync(BIOMETRIC_ENABLED_STORAGE_KEY, "true");
       setBiometricEnabled(true);
       setIsUnlocked(true);
-      Alert.alert(
-        USER_MESSAGES.biometric.enabledTitle,
-        USER_MESSAGES.biometric.enabledBody,
-      );
+      Alert.alert(USER_MESSAGES.biometric.enabledTitle, USER_MESSAGES.biometric.enabledBody);
     } catch {
       Alert.alert(USER_MESSAGES.biometric.saveErrorTitle, USER_MESSAGES.biometric.enableSaveError);
     }

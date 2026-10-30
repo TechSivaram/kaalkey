@@ -117,7 +117,10 @@ export function useBackupManager({
         encoding: FileSystem.EncodingType.UTF8,
       });
       if (!(await Sharing.isAvailableAsync())) {
-        showBackupMessage(USER_MESSAGES.backup.backupCreatedTitle, USER_MESSAGES.backup.backupSavedTemporary(uri));
+        showBackupMessage(
+          USER_MESSAGES.backup.backupCreatedTitle,
+          USER_MESSAGES.backup.backupSavedTemporary(uri),
+        );
       } else {
         await Sharing.shareAsync(uri, {
           mimeType: BACKUP_MIME_TYPE,
@@ -208,14 +211,19 @@ export function useBackupManager({
       let shouldMerge = false;
       if (Platform.OS === "web") {
         shouldMerge =
-          typeof window !== "undefined" && window.confirm(`${USER_MESSAGES.backup.mergeConfirmTitle}\n\n${message}`);
+          typeof window !== "undefined" &&
+          window.confirm(`${USER_MESSAGES.backup.mergeConfirmTitle}\n\n${message}`);
       } else {
         shouldMerge = await new Promise<boolean>((resolve) => {
           Alert.alert(
             USER_MESSAGES.backup.mergeConfirmTitle,
             message,
             [
-              { text: USER_MESSAGES.account.cancelButton, style: "cancel", onPress: () => resolve(false) },
+              {
+                text: USER_MESSAGES.account.cancelButton,
+                style: "cancel",
+                onPress: () => resolve(false),
+              },
               { text: USER_MESSAGES.backup.mergeConfirmButton, onPress: () => resolve(true) },
             ],
             { cancelable: true, onDismiss: () => resolve(false) },
@@ -232,7 +240,10 @@ export function useBackupManager({
       setBackupVisible(false);
       setSettingsVisible(false);
       setBackupPassword("");
-      showBackupMessage(USER_MESSAGES.backup.restoreCompleteTitle, getRestoreCompletionMessage(added, restored.length));
+      showBackupMessage(
+        USER_MESSAGES.backup.restoreCompleteTitle,
+        getRestoreCompletionMessage(added, restored.length),
+      );
     } catch (error) {
       showBackupMessage(
         USER_MESSAGES.backup.restoreFailedTitle,
