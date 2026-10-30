@@ -25,6 +25,31 @@ A cross-platform authenticator app for generating time-based one-time passwords 
 
 > The Render URL above is the **live demo**, not necessarily the marketing portal.
 
+## 🖼️ Screenshots
+
+### Web
+
+![KaalKey Authenticator web app](docs/screenshots/kaalkey-web-desktop.png)
+
+### App screens
+
+| Screen           | Screenshot                                                       |
+| ---------------- | ---------------------------------------------------------------- |
+| Account OTP      | ![Account OTP](docs/screenshots/account-list-otp.png)            |
+| Add account      | ![Add account](docs/screenshots/add-account.png)                 |
+| Edit account     | ![Edit account](docs/screenshots/edit-account.png)               |
+| QR scanner       | ![QR scanner](docs/screenshots/qr-scanner.png)                   |
+| QR code warning  | ![QR code warning](docs/screenshots/account-qr-code-warning.png) |
+| App settings     | ![App settings](docs/screenshots/app-settings.png)               |
+| Home empty state | ![Home empty state](docs/screenshots/home-empty-state.png)       |
+| Create backup    | ![Create backup](docs/screenshots/create-backup.png)             |
+| Restore backup   | ![Restore backup](docs/screenshots/restore-backup.png)           |
+| Download         | ![Download](docs/screenshots/download.png)                       |
+
+[Browse the screenshots folder](docs/screenshots/).
+
+---
+
 ## ✨ What is KaalKey?
 
 KaalKey Authenticator helps you manage time-based verification codes for services that support standard `otpauth://` TOTP enrollment. Add accounts by scanning a setup QR code, importing a QR image, pasting supported setup data, or entering details manually.
@@ -194,7 +219,7 @@ After the build finishes, open the [KaalKeyAuthenticator build details in Expo](
 
 #### Build dashboard
 
-![KaalKey Android production build in the Expo dashboard](docs/screenshots/expo-android-production-build.png)
+![Build dashboard](docs/screenshots/expo-android-production-build.png)
 
 #### Install on a test device
 
