@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Alert, Platform, Vibration } from "react-native";
+import { Platform, Vibration } from "react-native";
+import { showUserMessage } from "../utils/user-message";
 import * as SecureStore from "expo-secure-store";
 
 import { HAPTICS_ENABLED_STORAGE_KEY } from "../constants/storage";
+import { USER_MESSAGES } from "../constants/userMessages";
 
 type HapticKind = "selection" | "success" | "warning";
 
@@ -57,9 +59,9 @@ export function useHaptics() {
       setHapticsEnabled(next);
       if (next) hapticFeedback("success");
     } catch {
-      Alert.alert(
-        "Could not save setting",
-        "Haptic feedback preference could not be saved. Please try again.",
+      showUserMessage(
+        USER_MESSAGES.haptics.saveFailedTitle,
+        USER_MESSAGES.haptics.saveFailedBody,
       );
     }
   }, [hapticFeedback]);

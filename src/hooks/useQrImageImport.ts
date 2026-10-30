@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
-import { Alert, Platform } from "react-native";
+import { Platform } from "react-native";
+import { USER_MESSAGES } from "../constants/userMessages";
+import { showUserMessage } from "../utils/user-message";
 import { Camera } from "expo-camera";
 import * as Clipboard from "expo-clipboard";
 import * as ImagePicker from "expo-image-picker";
@@ -31,13 +33,7 @@ export function useQrImageImport({
   });
 
   function showQrImportMessage(title: string, message: string) {
-    // React Native Alert is not consistently rendered on web. Use the browser
-    // dialog there so failures never appear to do nothing.
-    if (Platform.OS === "web" && typeof window !== "undefined") {
-      window.alert(`${title}\n\n${message}`);
-      return;
-    }
-    Alert.alert(title, message);
+    showUserMessage(title, message);
   }
 
   async function importQrImage() {
@@ -49,10 +45,7 @@ export function useQrImageImport({
         input.accept = "image/png,image/jpeg,image/webp,image/gif,.png,.jpg,.jpeg,.webp,.gif";
         // Keep the picker attached to the DOM. Some browsers silently ignore
         // click() on a detached file input, which looked like upload did nothing.
-        input.style.position = "fixed";
-        input.style.left = "-10000px";
-        input.style.width = "1px";
-        input.style.height = "1px";
+        input.hidden = true;
         document.body.appendChild(input);
         input.oncancel = () => {
           input.remove();
@@ -68,7 +61,7 @@ export function useQrImageImport({
             return;
           }
           let objectUrl: string | undefined;
-          setActivityMessage("Reading QR image…");
+          setActivityMessage(USER_MESSAGES.activity.readingQrImage);
           try {
             // Decode via a canvas + jsQR so web import works in browsers that do
             // not implement the experimental BarcodeDetector API.
@@ -182,7 +175,7 @@ export function useQrImageImport({
         selectionLimit: 1,
       });
       if (result.canceled || !result.assets?.[0]?.uri) return;
-      setActivityMessage("Importing QR image…");
+      setActivityMessage(USER_MESSAGES.activity.importingQrImage);
       const imageUri = result.assets[0].uri;
 
       // Native image scanning avoids copying the image through Base64 and
@@ -322,13 +315,13 @@ export function useQrImageImport({
         }
         const normalizedText = normalizeTotpQrPayload(clipboardText);
         if (clipboardText && isTotpQrPayload(normalizedText)) {
-          setActivityMessage("Importing authenticator account…");
+          setActivityMessage(USER_MESSAGES.activity.importingAccount);
           await onQrScannedRef.current(normalizedText, false);
           return;
         }
 
         if (clipboardImage) {
-          setActivityMessage("Importing pasted QR image…");
+          setActivityMessage(USER_MESSAGES.activity.importingPastedImage);
           let objectUrl: string | undefined;
           try {
             const BrowserImage = globalThis.Image;
@@ -385,7 +378,7 @@ export function useQrImageImport({
         );
         return;
       }
-      setActivityMessage("Importing pasted QR image…");
+      setActivityMessage(USER_MESSAGES.activity.importingPastedImage);
       const extension = "png"; // getImageAsync({ format: "png" }) returns PNG base64 data.
       const sourceUri = `${FileSystem.cacheDirectory}kaalkey-clipboard-${Date.now()}.${extension}`;
       let normalizedUri: string | undefined;
@@ -463,7 +456,7 @@ export function useQrImageImport({
       const normalizedText = normalizeTotpQrPayload(pastedText);
       if (pastedText && isTotpQrPayload(normalizedText)) {
         event.preventDefault();
-        setActivityMessage("Importing authenticator account…");
+        setActivityMessage(USER_MESSAGES.activity.importingAccount);
         void onQrScannedRef.current(normalizedText, false).finally(() => {
           setActivityMessage(null);
         });
@@ -478,7 +471,7 @@ export function useQrImageImport({
         const file = item.getAsFile();
         if (!file) continue;
         event.preventDefault();
-        setActivityMessage("Importing pasted QR image…");
+        setActivityMessage(USER_MESSAGES.activity.importingPastedImage);
         const image = document.createElement("img");
         const objectUrl = URL.createObjectURL(file);
         image.onload = () => {

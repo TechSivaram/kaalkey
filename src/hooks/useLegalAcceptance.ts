@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { Alert, Platform } from "react-native";
+import { Platform } from "react-native";
+import { showUserMessage } from "../utils/user-message";
 import * as SecureStore from "expo-secure-store";
 
 import { LEGAL_ACCEPTANCE_STORAGE_KEY } from "../constants/storage";
 import { LEGAL_VERSION } from "../constants/legal";
+import { USER_MESSAGES } from "../constants/userMessages";
 
 export function useLegalAcceptance() {
   const [legalLoaded, setLegalLoaded] = useState(false);
@@ -55,9 +57,9 @@ export function useLegalAcceptance() {
       setLegalReviewVisible(false);
       setLegalChecked(false);
     } catch {
-      Alert.alert(
-        "Could not save acknowledgment",
-        "Please try again. You must accept the legal notice before using KaalKey.",
+      showUserMessage(
+        USER_MESSAGES.legalAcceptance.saveFailedTitle,
+        USER_MESSAGES.legalAcceptance.saveFailedBody,
       );
     } finally {
       setLegalSaving(false);

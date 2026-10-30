@@ -3,7 +3,7 @@ import { Platform, ScrollView, View, useWindowDimensions } from "react-native";
 
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import { createAccountOtpAuthUrl } from "../services/otp-auth-uri";
-import { styles } from "../styles/home.styles";
+import { styles, getWebRootPanelStyle } from "../styles/home.styles";
 import SplashScreen from "../components/SplashScreen";
 import LegalNoticeScreen from "../components/LegalNoticeScreen";
 import VaultLockScreen from "../components/VaultLockScreen";
@@ -153,6 +153,7 @@ export default function HomeScreen() {
     openEditAccount,
     saveAccount,
     deleteAccount,
+    clearAllAccounts,
   } = useAccounts({
     showMessage: showBackupMessage,
     hapticFeedback,
@@ -249,16 +250,7 @@ export default function HomeScreen() {
         style={
           Platform.OS === "web"
             ? showDesktopBranding
-              ? [
-                  styles.webRoot,
-                  {
-                    width: currentAppPanelWidth,
-                    minWidth: 400,
-                    flexGrow: 0,
-                    flexShrink: 0,
-                    flexBasis: currentAppPanelWidth,
-                  },
-                ]
+              ? [styles.webRoot, getWebRootPanelStyle(currentAppPanelWidth)]
               : styles.webMobileRoot
             : styles.container
         }
@@ -384,6 +376,7 @@ export default function HomeScreen() {
             exportEncryptedBackup={exportEncryptedBackup}
             restoreEncryptedBackup={restoreEncryptedBackup}
             activityMessage={activityMessage}
+            clearAllAccounts={clearAllAccounts}
           />
         </View>
       </SafeAreaView>
@@ -401,7 +394,7 @@ export default function HomeScreen() {
               <View style={styles.webDesktopSplitterGripLine} />
             </View>
           </View>
-          <View style={[styles.webBrandPanel, { flex: 1, minWidth: 320, minHeight: "100%" }]}>
+          <View style={[styles.webBrandPanel, styles.webBrandPanelContent]}>
             <DesktopProductInfo />
           </View>
         </>

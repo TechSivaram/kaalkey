@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal, Platform, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { USER_MESSAGES } from "../constants/userMessages";
 import { styles } from "../styles/home.styles";
 import WebQrScanner from "./WebQrScanner";
 import NativeQrCamera from "./qr-scanner/NativeQrCamera";
@@ -99,7 +100,7 @@ export default function QrScannerModal({
               style={styles.cameraPreview}
               enableTorch={torchEnabled}
               onCameraReady={() => {
-                setScannerDiagnostic("Camera ready. Point it at the authenticator QR code.");
+                setScannerDiagnostic(USER_MESSAGES.activity.cameraReady);
               }}
               onMountError={(event) => {
                 setScannerDiagnostic(`Camera could not start: ${event.message}`);
@@ -122,17 +123,9 @@ export default function QrScannerModal({
               onPress={() => setTorchEnabled((enabled) => !enabled)}
               accessibilityRole="button"
               accessibilityLabel={torchEnabled ? "Turn flashlight off" : "Turn flashlight on"}
-              style={{
-                position: "absolute",
-                right: 14,
-                bottom: 14,
-                paddingHorizontal: 14,
-                paddingVertical: 10,
-                borderRadius: 22,
-                backgroundColor: "rgba(0,0,0,0.68)",
-              }}
+              style={styles.scannerTorchButton}
             >
-              <Text style={{ color: "#FFFFFF", fontWeight: "700" }}>
+              <Text style={styles.scannerTorchText}>
                 {torchEnabled ? "☀ Flashlight on" : "☼ Flashlight"}
               </Text>
             </TouchableOpacity>

@@ -1,4 +1,5 @@
 import { Platform, StyleSheet } from "react-native";
+import type { ViewStyle } from "react-native";
 import { COLORS } from "../constants/colors";
 
 export const styles = StyleSheet.create({
@@ -512,6 +513,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 28,
     backgroundColor: "#E9EEF4",
   },
+  webBrandPanelContent: { flex: 1, minWidth: 320, minHeight: "100%" },
   webBrandImage: {
     width: "100%",
     maxWidth: 680,
@@ -1507,4 +1509,38 @@ export const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: "700",
   },
+
+  scannerTorchButton: {
+    position: "absolute",
+    right: 14,
+    bottom: 14,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    borderRadius: 22,
+    backgroundColor: "rgba(0,0,0,0.68)",
+  },
+  scannerTorchText: { color: "#FFFFFF", fontWeight: "700" },
+
+  backupPasswordCard: {
+    backgroundColor: "#F5F8FC",
+    borderWidth: 1,
+    borderColor: "#DCE5F0",
+    borderRadius: 12,
+    padding: 12,
+  },
+  backupPasswordText: {
+    color: "#17243A",
+    fontSize: 12,
+    lineHeight: 19,
+    fontWeight: "700",
+    letterSpacing: 0.2,
+  },
+  backupCopyButton: { marginTop: 10, borderColor: "#16834A" },
+  backupCopyButtonText: { color: "#16834A", fontWeight: "800" },
+  webAppPanel: { flex: 1, minWidth: 320, minHeight: "100%" },
+
 });
+
+export function getWebRootPanelStyle(width: number): ViewStyle {
+  return { width, minWidth: 400, flexGrow: 0, flexShrink: 0, flexBasis: width };
+}

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Alert, Platform } from "react-native";
+import { USER_MESSAGES } from "../constants/userMessages";
+import { showUserMessage } from "../utils/user-message";
 import type { Account } from "../types/account";
 import {
   readAccountsStorage,
@@ -63,11 +65,11 @@ export function useAccounts({
         if (saved) {
           const result = parseStoredAccounts(saved);
           if (result.invalidContainer) {
-            Alert.alert("Storage data invalid", "Saved account data could not be read safely.");
+            showUserMessage(USER_MESSAGES.account.storageInvalidTitle, USER_MESSAGES.account.storageInvalidBody);
           } else {
             if (mounted) setAccounts(result.accounts);
             if (result.invalidCount > 0) {
-              Alert.alert(
+              showUserMessage(
                 "Some saved accounts need attention",
                 `${result.invalidCount} invalid account record(s) were not loaded. Valid accounts remain available. Consider creating a backup before making further changes.`,
               );
@@ -75,7 +77,7 @@ export function useAccounts({
           }
         }
       } catch {
-        Alert.alert("Storage error", "Saved accounts could not be loaded.");
+        showUserMessage(USER_MESSAGES.account.storageErrorTitle, USER_MESSAGES.account.storageErrorBody);
       } finally {
         if (mounted) setLoaded(true);
       }
@@ -94,8 +96,8 @@ export function useAccounts({
       return true;
     } catch {
       showMessage(
-        "Storage error",
-        "Accounts could not be saved. Check browser storage availability and try again.",
+        USER_MESSAGES.account.storageErrorTitle,
+        USER_MESSAGES.account.saveErrorBody,
       );
       return false;
     }
@@ -132,13 +134,13 @@ export function useAccounts({
     const normalizedName = accountName.trim();
 
     if (!normalizedIssuer || !normalizedName || !normalizedSecret) {
-      showMessage("Missing information", getMissingAccountInfoMessage(Boolean(currentEditingId)));
+      showMessage(USER_MESSAGES.account.missingTitle, getMissingAccountInfoMessage(Boolean(currentEditingId)));
       return;
     }
     if (currentEditingId && !originalAccount) {
       showMessage(
-        "Account not found",
-        "This account could not be found. Close the editor and try again.",
+        USER_MESSAGES.account.notFoundTitle,
+        USER_MESSAGES.account.notFoundBody,
       );
       return;
     }
@@ -157,7 +159,7 @@ export function useAccounts({
     });
 
     if (!validateAccount(candidate)) {
-      showMessage("Invalid OTP settings", getInvalidOtpSettingsMessage());
+      showMessage(USER_MESSAGES.account.invalidOtpTitle, getInvalidOtpSettingsMessage());
       return;
     }
 
@@ -170,7 +172,7 @@ export function useAccounts({
           currentEditingId ?? undefined,
         )
       ) {
-        showMessage("Account already exists", getDuplicateAccountMessage());
+        showMessage(USER_MESSAGES.account.duplicateTitle, getDuplicateAccountMessage());
         return;
       }
 
@@ -185,10 +187,10 @@ export function useAccounts({
         setEditingId(null);
         setScannerVisible(false);
         setModalVisible(false);
-        showMessage("Account saved", getAccountSavedMessage(Boolean(currentEditingId)));
+        showMessage(USER_MESSAGES.account.savedTitle, getAccountSavedMessage(Boolean(currentEditingId)));
       }
     } catch {
-      showMessage("Invalid secret key", "Please check that you entered a valid Base32 secret.");
+      showMessage(USER_MESSAGES.account.invalidSecretTitle, USER_MESSAGES.account.invalidSecretBody);
     }
   }
 
@@ -197,23 +199,46 @@ export function useAccounts({
     const updated = accounts.filter((account) => account.id !== id);
     const saved = await saveAccounts(updated);
     if (saved) {
-      showMessage("Account removed", "The account and its secret were removed from this device.");
+      showMessage(USER_MESSAGES.account.removedTitle, USER_MESSAGES.account.removedBody);
     }
   }
 
   function deleteAccount(id: string) {
-    const message = "This removes the account and its secret from this device.";
+    const message = USER_MESSAGES.account.removeConfirmBody;
     if (Platform.OS === "web" && typeof window !== "undefined") {
-      if (window.confirm(`Remove account?\n\n${message}`)) void removeAccountConfirmed(id);
+      if (window.confirm(`${USER_MESSAGES.account.removeConfirmWebTitle}\n\n${message}`)) void removeAccountConfirmed(id);
       return;
     }
-    Alert.alert("Remove account?", message, [
-      { text: "Cancel", style: "cancel" },
+    Alert.alert(USER_MESSAGES.account.removeConfirmTitle, message, [
+      { text: USER_MESSAGES.account.cancelButton, style: "cancel" },
       {
         text: "Remove",
         style: "destructive",
         onPress: () => void removeAccountConfirmed(id),
       },
+    ]);
+  }
+
+  async function clearAllAccountsConfirmed() {
+    hapticFeedback("warning");
+    const saved = await saveAccounts([]);
+    if (saved) {
+      showMessage(USER_MESSAGES.account.clearedTitle, USER_MESSAGES.account.clearedBody);
+    }
+  }
+
+  function clearAllAccounts() {
+    const message =
+      USER_MESSAGES.account.clearConfirmBody;
+    if (Platform.OS === "web" && typeof window !== "undefined") {
+      if (window.confirm(`Clear all accounts?\n\n${message}\n\nThis cannot be undone.`)) {
+        void clearAllAccountsConfirmed();
+      }
+      return;
+    }
+    Alert.alert(USER_MESSAGES.account.clearConfirmTitle, `${message}\n\nThis cannot be undone.`, [
+      { text: USER_MESSAGES.account.cancelButton, style: "cancel" },
+      { text: USER_MESSAGES.account.clearButton, style: "destructive", onPress: () => void clearAllAccountsConfirmed() },
     ]);
   }
 
@@ -244,5 +269,6 @@ export function useAccounts({
     openEditAccount,
     saveAccount,
     deleteAccount,
+    clearAllAccounts,
   };
 }

@@ -1,7 +1,6 @@
 import type { Dispatch, SetStateAction } from "react";
 import * as Clipboard from "expo-clipboard";
 import {
-  Alert,
   KeyboardAvoidingView,
   Modal,
   Platform,
@@ -20,7 +19,9 @@ import {
 } from "../constants/ui";
 import type { BackupMode } from "../types/backupMode";
 import { getBackupModalDescription } from "../utils/backupModalDescription";
+import { showUserMessage } from "../utils/user-message";
 import { COLORS } from "../constants/colors";
+import { USER_MESSAGES } from "../constants/userMessages";
 import ActivityOverlayModal from "./ActivityOverlayModal";
 import {
   settingsBackupActivityStyles as inlineStyles,
@@ -48,6 +49,7 @@ type Props = {
   exportEncryptedBackup: () => Promise<void>;
   restoreEncryptedBackup: () => Promise<void>;
   activityMessage: string | null;
+  clearAllAccounts: () => void;
 };
 
 /** Settings, backup, and blocking activity dialogs for the vault screen. */
@@ -73,6 +75,7 @@ export default function SettingsBackupActivityModals(props: Props) {
     exportEncryptedBackup,
     restoreEncryptedBackup,
     activityMessage,
+    clearAllAccounts,
   } = props;
   return (
     <>
@@ -188,6 +191,25 @@ export default function SettingsBackupActivityModals(props: Props) {
                 each backup. Save it separately; KaalKey cannot recover it.
               </Text>
 
+              <Text style={styles.settingsSectionLabel}>DANGER ZONE</Text>
+              <TouchableOpacity
+                style={[styles.settingRow, inlineStyles.clearAllRow]}
+                onPress={clearAllAccounts}
+                accessibilityRole="button"
+                accessibilityLabel="Clear all authenticator accounts"
+              >
+                <View style={styles.settingIconBox}>
+                  <Text style={styles.settingIcon}>🗑️</Text>
+                </View>
+                <View style={styles.settingCopy}>
+                  <Text style={[styles.settingTitleText, inlineStyles.clearAllTitle]}>Clear all accounts</Text>
+                  <Text style={styles.settingDescription}>
+                    Permanently remove every account and secret from this device. Back up first.
+                  </Text>
+                </View>
+                <Text style={inlineStyles.clearAllChevron}>›</Text>
+              </TouchableOpacity>
+
               <Text style={styles.settingsSectionLabel}>APPEARANCE</Text>
               <View style={styles.settingRow}>
                 <View style={styles.settingIconBox}>
@@ -292,44 +314,25 @@ export default function SettingsBackupActivityModals(props: Props) {
                 {backupMode === "export" ? (
                   <View>
                     <View
-                      style={{
-                        backgroundColor: "#F5F8FC",
-                        borderWidth: 1,
-                        borderColor: "#DCE5F0",
-                        borderRadius: 12,
-                        padding: 12,
-                      }}
+                      style={styles.backupPasswordCard}
                     >
                       <Text
                         selectable
-                        style={{
-                          color: "#17243A",
-                          fontSize: 12,
-                          lineHeight: 19,
-                          fontWeight: "700",
-                          letterSpacing: 0.2,
-                        }}
+                        style={styles.backupPasswordText}
                       >
                         {backupPassword || "Generating secure password…"}
                       </Text>
                     </View>
                     <TouchableOpacity
-                      style={[styles.cancelButton, { marginTop: 10, borderColor: "#16834A" }]}
+                      style={[styles.cancelButton, styles.backupCopyButton]}
                       disabled={!backupPassword || backupBusy}
                       onPress={() => {
                         void Clipboard.setStringAsync(backupPassword)
                           .then(() => {
-                            if (Platform.OS === "web" && typeof window !== "undefined") {
-                              window.alert("Backup password copied. Save it somewhere safe.");
-                            } else {
-                              Alert.alert(
-                                "Password copied",
-                                "Save it somewhere safe, such as WhatsApp.",
-                              );
-                            }
+                            showUserMessage(USER_MESSAGES.backup.passwordCopiedTitle, USER_MESSAGES.backup.passwordCopiedBody);
                           })
                           .catch(() => {
-                            Alert.alert("Copy failed", "Select and copy the password manually.");
+                            showUserMessage(USER_MESSAGES.backup.copyFailedTitle, USER_MESSAGES.backup.copyFailedBody);
                           });
                       }}
                       activeOpacity={BUTTON_ACTIVE_OPACITY}
@@ -337,7 +340,7 @@ export default function SettingsBackupActivityModals(props: Props) {
                       accessibilityLabel="Copy generated backup password"
                     >
                       <Text
-                        style={[styles.cancelButtonText, { color: "#16834A", fontWeight: "800" }]}
+                        style={[styles.cancelButtonText, styles.backupCopyButtonText]}
                       >
                         Copy generated password
                       </Text>

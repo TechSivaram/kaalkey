@@ -4,6 +4,8 @@ import * as LocalAuthentication from "expo-local-authentication";
 import * as SecureStore from "expo-secure-store";
 
 import { BIOMETRIC_ENABLED_STORAGE_KEY } from "../constants/storage";
+import { USER_MESSAGES } from "../constants/userMessages";
+import { showUserMessage } from "../utils/user-message";
 
 export function useBiometricLock() {
   const [biometricEnabled, setBiometricEnabled] = useState(false);
@@ -78,26 +80,26 @@ export function useBiometricLock() {
         // A missing device screen lock must not create a fallback or bypass.
         if (result.error === "not_enrolled" || result.error === "passcode_not_set") {
           Alert.alert(
-            "Set up your device screen lock",
-            "KaalKey uses your phone's built-in authentication. Set a device PIN, pattern, or password in your phone's security settings, then try again. Biometrics are optional.",
+            USER_MESSAGES.biometric.deviceLockTitle,
+            USER_MESSAGES.biometric.deviceLockBody,
           );
         } else if (result.error === "not_available") {
           Alert.alert(
-            "Device authentication unavailable",
-            "Your phone could not start secure authentication. Check that a device screen lock is configured, then try again.",
+            USER_MESSAGES.biometric.unavailableTitle,
+            USER_MESSAGES.biometric.unavailableBody,
           );
         } else if (result.error === "lockout") {
           Alert.alert(
-            "Authentication temporarily locked",
-            "Your phone has temporarily disabled authentication after too many attempts. Wait and try again.",
+            USER_MESSAGES.biometric.lockedTitle,
+            USER_MESSAGES.biometric.lockedBody,
           );
         }
         // Cancellation, failed verification, and every other error leave the vault locked.
         return false;
       } catch {
         Alert.alert(
-          "Authentication unavailable",
-          "KaalKey could not start the phone's secure authentication prompt. Please try again.",
+          USER_MESSAGES.biometric.promptErrorTitle,
+          USER_MESSAGES.biometric.promptErrorBody,
         );
         return false;
       } finally {
@@ -113,12 +115,8 @@ export function useBiometricLock() {
     // has no implemented browser-authentication flow, so keep its app-level lock OFF.
     if (Platform.OS === "web") {
       const message =
-        "Device authentication lock is not available in the web version yet. The web vault remains unlocked; use the Android app for native device authentication.";
-      if (typeof window !== "undefined" && typeof window.alert === "function") {
-        window.alert(message);
-      } else {
-        Alert.alert("Authentication unavailable", message);
-      }
+        USER_MESSAGES.biometric.webLock;
+      showUserMessage(USER_MESSAGES.biometric.unavailableTitle, message);
       setBiometricEnabled(false);
       setIsUnlocked(true);
       return;
@@ -133,10 +131,10 @@ export function useBiometricLock() {
         await SecureStore.setItemAsync(BIOMETRIC_ENABLED_STORAGE_KEY, "false");
         setBiometricEnabled(false);
         setIsUnlocked(true);
-        Alert.alert("App lock disabled", "KaalKey app lock has been turned off.");
+        Alert.alert(USER_MESSAGES.biometric.disabledTitle, USER_MESSAGES.biometric.disabledBody);
       } catch {
         setIsUnlocked(false);
-        Alert.alert("Could not save setting", "The app lock remains enabled. Please try again.");
+        Alert.alert(USER_MESSAGES.biometric.saveErrorTitle, USER_MESSAGES.biometric.disableSaveError);
       }
       return;
     }
@@ -150,11 +148,11 @@ export function useBiometricLock() {
       setBiometricEnabled(true);
       setIsUnlocked(true);
       Alert.alert(
-        "App lock enabled",
-        "KaalKey will request your phone's built-in authentication when opened and when you return to it.",
+        USER_MESSAGES.biometric.enabledTitle,
+        USER_MESSAGES.biometric.enabledBody,
       );
     } catch {
-      Alert.alert("Could not save setting", "App lock could not be enabled. Please try again.");
+      Alert.alert(USER_MESSAGES.biometric.saveErrorTitle, USER_MESSAGES.biometric.enableSaveError);
     }
   }, [authenticateUser, biometricEnabled]);
 

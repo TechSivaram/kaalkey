@@ -1,4 +1,5 @@
 import { Alert, Platform } from "react-native";
+import { USER_MESSAGES } from "../constants/userMessages";
 import * as DocumentPicker from "expo-document-picker";
 import * as FileSystem from "expo-file-system/legacy";
 import * as Sharing from "expo-sharing";
@@ -51,14 +52,14 @@ export function useBackupManager({
     setBackupPassword("");
     if (mode === "export") {
       setBackupBusy(true);
-      setActivityMessage("Generating secure backup password…");
+      setActivityMessage(USER_MESSAGES.backup.generatingPassword);
       try {
         setBackupPassword(await generateBackupPassword());
         setBackupVisible(true);
       } catch (error) {
         showBackupMessage(
-          "Could not generate backup password",
-          error instanceof Error ? error.message : "Secure random generation is unavailable.",
+          USER_MESSAGES.backup.generatePasswordErrorTitle,
+          error instanceof Error ? error.message : USER_MESSAGES.backup.secureRandomUnavailable,
         );
       } finally {
         setBackupBusy(false);
@@ -72,13 +73,13 @@ export function useBackupManager({
   async function exportEncryptedBackup() {
     if (!/^KK-\d{14}-[a-f0-9]{64}$/.test(backupPassword)) {
       showBackupMessage(
-        "Backup password unavailable",
-        "Close this dialog and create a new backup to generate a secure password.",
+        USER_MESSAGES.backup.passwordUnavailableTitle,
+        USER_MESSAGES.backup.passwordUnavailableBody,
       );
       return;
     }
     setBackupBusy(true);
-    setActivityMessage("Encrypting backup…");
+    setActivityMessage(USER_MESSAGES.backup.encrypting);
     try {
       const encrypted = await encryptBackup(accounts, backupPassword);
       // Reuse the timestamp embedded in the generated password so the password
@@ -88,14 +89,14 @@ export function useBackupManager({
 
       if (Platform.OS === "web") {
         if (typeof document === "undefined" || typeof URL === "undefined") {
-          throw new Error("Your browser does not support downloading backup files.");
+          throw new Error(USER_MESSAGES.backup.browserDownloadUnsupported);
         }
         const blob = new Blob([encrypted], { type: `${BACKUP_MIME_TYPE};charset=utf-8` });
         const objectUrl = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = objectUrl;
         link.download = filename;
-        link.style.display = "none";
+        link.hidden = true;
         document.body.appendChild(link);
         link.click();
         link.remove();
@@ -103,24 +104,24 @@ export function useBackupManager({
         setBackupVisible(false);
         setBackupPassword("");
         showBackupMessage(
-          "Backup created",
-          "Your encrypted KaalKey backup has been downloaded. Keep the file and password private.",
+          USER_MESSAGES.backup.backupCreatedTitle,
+          USER_MESSAGES.backup.backupDownloadedBody,
         );
         return;
       }
 
       const base = FileSystem.cacheDirectory ?? FileSystem.documentDirectory;
-      if (!base) throw new Error("A local file location is unavailable on this device.");
+      if (!base) throw new Error(USER_MESSAGES.backup.localFileUnavailable);
       const uri = `${base}${filename}`;
       await FileSystem.writeAsStringAsync(uri, encrypted, {
         encoding: FileSystem.EncodingType.UTF8,
       });
       if (!(await Sharing.isAvailableAsync())) {
-        showBackupMessage("Backup created", `Encrypted backup saved temporarily at:\n${uri}`);
+        showBackupMessage(USER_MESSAGES.backup.backupCreatedTitle, USER_MESSAGES.backup.backupSavedTemporary(uri));
       } else {
         await Sharing.shareAsync(uri, {
           mimeType: BACKUP_MIME_TYPE,
-          dialogTitle: "Save your encrypted KaalKey backup",
+          dialogTitle: USER_MESSAGES.backup.saveBackupTitle,
           UTI: "public.json",
         });
       }
@@ -128,8 +129,8 @@ export function useBackupManager({
       setBackupPassword("");
     } catch (error) {
       showBackupMessage(
-        "Backup failed",
-        error instanceof Error ? error.message : "KaalKey could not create the backup.",
+        USER_MESSAGES.backup.backupFailedTitle,
+        error instanceof Error ? error.message : USER_MESSAGES.backup.backupCreateErrorBody,
       );
     } finally {
       setBackupBusy(false);
@@ -160,10 +161,7 @@ export function useBackupManager({
       const input = document.createElement("input");
       input.type = "file";
       input.accept = BACKUP_WEB_FILE_ACCEPT;
-      input.style.position = "fixed";
-      input.style.left = "-10000px";
-      input.style.width = "1px";
-      input.style.height = "1px";
+      input.hidden = true;
       const cleanup = () => input.remove();
       input.addEventListener(
         "change",
@@ -203,29 +201,29 @@ export function useBackupManager({
     try {
       const raw = await pickBackupText();
       if (raw === null) return;
-      setActivityMessage("Decrypting backup…");
+      setActivityMessage(USER_MESSAGES.backup.decrypting);
       const restored = await decryptBackup(raw, backupPassword);
       setActivityMessage(null);
       const message = getRestoreConfirmationMessage(restored.length);
       let shouldMerge = false;
       if (Platform.OS === "web") {
         shouldMerge =
-          typeof window !== "undefined" && window.confirm(`Merge backup accounts?\n\n${message}`);
+          typeof window !== "undefined" && window.confirm(`${USER_MESSAGES.backup.mergeConfirmTitle}\n\n${message}`);
       } else {
         shouldMerge = await new Promise<boolean>((resolve) => {
           Alert.alert(
-            "Merge backup accounts?",
+            USER_MESSAGES.backup.mergeConfirmTitle,
             message,
             [
-              { text: "Cancel", style: "cancel", onPress: () => resolve(false) },
-              { text: "Merge accounts", onPress: () => resolve(true) },
+              { text: USER_MESSAGES.account.cancelButton, style: "cancel", onPress: () => resolve(false) },
+              { text: USER_MESSAGES.backup.mergeConfirmButton, onPress: () => resolve(true) },
             ],
             { cancelable: true, onDismiss: () => resolve(false) },
           );
         });
       }
       if (!shouldMerge) return;
-      setActivityMessage("Restoring accounts…");
+      setActivityMessage(USER_MESSAGES.backup.restoring);
 
       // Merge by account identity; keep existing local accounts unchanged.
       const { accounts: merged, added } = mergeRestoredAccounts(accounts, restored);
@@ -234,11 +232,11 @@ export function useBackupManager({
       setBackupVisible(false);
       setSettingsVisible(false);
       setBackupPassword("");
-      showBackupMessage("Restore complete", getRestoreCompletionMessage(added, restored.length));
+      showBackupMessage(USER_MESSAGES.backup.restoreCompleteTitle, getRestoreCompletionMessage(added, restored.length));
     } catch (error) {
       showBackupMessage(
-        "Restore failed",
-        error instanceof Error ? error.message : "The backup could not be read or saved.",
+        USER_MESSAGES.backup.restoreFailedTitle,
+        error instanceof Error ? error.message : USER_MESSAGES.backup.backupReadErrorBody,
       );
     } finally {
       setBackupBusy(false);

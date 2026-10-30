@@ -85,6 +85,15 @@ export const settingsBackupActivityStyles = StyleSheet.create({
   settingRowOffset: { marginTop: 8 },
   legalChevron: { color: "#60718A", fontSize: 20 },
   backupContent: { paddingHorizontal: 12 },
+  clearAllRow: {
+    borderWidth: 1,
+    borderColor: "#F2C5C5",
+    backgroundColor: "#FFF7F7",
+    borderRadius: 12,
+    marginTop: 8,
+  },
+  clearAllTitle: { color: "#B42318" },
+  clearAllChevron: { color: "#B42318", fontSize: 20, fontWeight: "700" },
 });
 
 export const webQrScannerStyles = StyleSheet.create({
