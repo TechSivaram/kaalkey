@@ -29,11 +29,11 @@ export default function AccountQrImportActions({ onScan, onImportImage, onPasteI
         style={[styles.scanButton, styles.importQrButton]}
         onPress={() => void onImportImage()}
         accessibilityRole="button"
-        accessibilityLabel="Import QR code image"
+        accessibilityLabel="Upload QR image"
       >
         <Text style={styles.scanButtonIcon}>▧</Text>
         <View style={styles.scanButtonCopy}>
-          <Text style={styles.scanButtonTitle}>Import QR image</Text>
+          <Text style={styles.scanButtonTitle}>Upload QR Image</Text>
           <Text style={styles.scanButtonSubtitle}>
             Choose a QR screenshot from Gallery, Photos, or Files
           </Text>
@@ -48,8 +48,10 @@ export default function AccountQrImportActions({ onScan, onImportImage, onPasteI
       >
         <Text style={styles.scanButtonIcon}>▣</Text>
         <View style={styles.scanButtonCopy}>
-          <Text style={styles.scanButtonTitle}>Paste QR image</Text>
-          <Text style={styles.scanButtonSubtitle}>Copy a QR image, then paste it here</Text>
+          <Text style={styles.scanButtonTitle}>Paste QR Image / URL</Text>
+          <Text style={styles.scanButtonSubtitle}>
+            Paste a copied QR image or authenticator setup URL
+          </Text>
         </View>
         <Text style={styles.scanButtonArrow}>›</Text>
       </TouchableOpacity>

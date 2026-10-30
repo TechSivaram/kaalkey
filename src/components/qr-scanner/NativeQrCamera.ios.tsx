@@ -7,6 +7,7 @@ type Props = {
   onCameraReady: () => void;
   onMountError: (event: { message: string }) => void;
   onBarcodeScanned?: (event: { data: string }) => void;
+  enableTorch?: boolean;
 };
 
 /** iOS-only camera component, isolated from Android's fallback frame scanning. */
@@ -16,12 +17,14 @@ export default function NativeQrCamera({
   onCameraReady,
   onMountError,
   onBarcodeScanned,
+  enableTorch,
 }: Props) {
   return (
     <CameraView
       ref={cameraRef}
       style={style}
       facing="back"
+      enableTorch={enableTorch}
       barcodeScannerSettings={{ barcodeTypes: ["qr"] }}
       onCameraReady={onCameraReady}
       onMountError={onMountError}

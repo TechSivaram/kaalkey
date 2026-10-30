@@ -9,6 +9,7 @@ import { decodeQrPixels } from "../services/qr-image-decoder";
 import jpeg from "jpeg-js";
 import { decodeBase64ToBytes } from "../services/base64";
 import { QR_IMAGE_MAX_WIDTH } from "../constants/qr";
+import { isTotpQrPayload, normalizeTotpQrPayload } from "../utils/totpQrPayload";
 
 type UseQrImageImportOptions = {
   onQrScanned: (data: string, fromCamera?: boolean) => Promise<void>;
@@ -282,10 +283,97 @@ export function useQrImageImport({
 
   async function pasteQrImage() {
     try {
+      // Clipboard may contain either an authenticator setup URL or a QR image.
+      // Prefer text when it is a supported otpauth URI; otherwise continue to image.
+      if (Platform.OS !== "web") {
+        const clipboardText = (await Clipboard.getStringAsync()).trim();
+        if (/^otpauth:\/\/totp\//i.test(clipboardText)) {
+          await onQrScannedRef.current(clipboardText, false);
+          return;
+        }
+      }
       if (Platform.OS === "web") {
+        // Clipboard.read() is required here: readText() cannot retrieve a copied
+        // QR screenshot. This button is invoked from a user gesture, so browsers
+        // that permit clipboard access can return text/plain or image/* items.
+        let clipboardText = "";
+        let clipboardImage: Blob | undefined;
+        try {
+          const clipboardItems = await navigator.clipboard?.read?.();
+          for (const item of clipboardItems ?? []) {
+            if (!clipboardText && item.types.includes("text/plain")) {
+              clipboardText = (await (await item.getType("text/plain")).text()).trim();
+            }
+            if (!clipboardImage) {
+              const imageType = item.types.find((type) => type.startsWith("image/"));
+              if (imageType) clipboardImage = await item.getType(imageType);
+            }
+          }
+        } catch {
+          // Some browsers expose readText but deny read() or image clipboard
+          // access. Try text-only access before reporting a permission failure.
+        }
+        if (!clipboardText) {
+          try {
+            clipboardText = ((await navigator.clipboard?.readText?.()) ?? "").trim();
+          } catch {
+            clipboardText = "";
+          }
+        }
+        const normalizedText = normalizeTotpQrPayload(clipboardText);
+        if (clipboardText && isTotpQrPayload(normalizedText)) {
+          setActivityMessage("Importing authenticator account…");
+          await onQrScannedRef.current(normalizedText, false);
+          return;
+        }
+
+        if (clipboardImage) {
+          setActivityMessage("Importing pasted QR image…");
+          let objectUrl: string | undefined;
+          try {
+            const BrowserImage = globalThis.Image;
+            if (!BrowserImage) throw new Error("Browser image decoding is unavailable");
+            objectUrl = URL.createObjectURL(clipboardImage);
+            const image = new BrowserImage();
+            await new Promise<void>((resolve, reject) => {
+              image.onload = () => resolve();
+              image.onerror = () => reject(new Error("Clipboard image could not be loaded"));
+              image.src = objectUrl!;
+            });
+            const canvas = document.createElement("canvas");
+            canvas.width = image.naturalWidth;
+            canvas.height = image.naturalHeight;
+            const context = canvas.getContext("2d", { willReadFrequently: true });
+            if (!context) throw new Error("Image processing is unavailable");
+            context.drawImage(image, 0, 0);
+            const pixels = context.getImageData(0, 0, canvas.width, canvas.height);
+            const qrData = decodeQrPixels(pixels.data, pixels.width, pixels.height);
+            if (!qrData) {
+              showQrImportMessage(
+                "No QR code found",
+                "The copied image does not contain a readable QR code.",
+              );
+              return;
+            }
+            await onQrScannedRef.current(qrData, false);
+            return;
+          } catch {
+            showQrImportMessage(
+              "Could not paste image",
+              "The copied image could not be decoded. Try copying a clear QR screenshot.",
+            );
+            return;
+          } finally {
+            if (objectUrl) URL.revokeObjectURL(objectUrl);
+            setActivityMessage(null);
+          }
+        }
+
         showQrImportMessage(
-          "Paste a QR image",
-          "Click this screen and press Ctrl+V (Windows/Linux) or ⌘+V (Mac) after copying a QR image.",
+          "Clipboard unavailable",
+          clipboardText
+            ? "Clipboard text is not a valid authenticator setup URL. Copy an otpauth:// URL or QR image and try again."
+            : "KaalKey could not read text or an image from the clipboard. Allow clipboard access, then copy the QR image or otpauth:// URL and tap Paste QR Image / URL again.",
         );
         return;
       }
@@ -354,7 +442,35 @@ export function useQrImageImport({
   useEffect(() => {
     if (Platform.OS !== "web" || !modalVisible || editingId) return;
     const onPaste = (event: ClipboardEvent) => {
-      const items = event.clipboardData?.items;
+      // Let normal paste behavior work inside the manual URL field and other
+      // editable controls. Only the Add Account screen itself should auto-import
+      // clipboard content when Ctrl+V is used outside an editor.
+      const target = event.target;
+      if (
+        target instanceof HTMLElement &&
+        (target.isContentEditable || target.closest("input, textarea, [contenteditable='true']"))
+      ) {
+        return;
+      }
+
+      const clipboard = event.clipboardData;
+      if (!clipboard) return;
+
+      // Browser paste events expose text and images separately. Handle an
+      // authenticator setup URL first so Ctrl+V works for copied otpauth links
+      // as well as QR screenshots.
+      const pastedText = clipboard.getData("text/plain").trim();
+      const normalizedText = normalizeTotpQrPayload(pastedText);
+      if (pastedText && isTotpQrPayload(normalizedText)) {
+        event.preventDefault();
+        setActivityMessage("Importing authenticator account…");
+        void onQrScannedRef.current(normalizedText, false).finally(() => {
+          setActivityMessage(null);
+        });
+        return;
+      }
+
+      const items = clipboard.items;
       if (!items) return;
       for (let i = 0; i < items.length; i++) {
         const item = items[i];

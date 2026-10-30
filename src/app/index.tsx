@@ -1,4 +1,5 @@
-import { ScrollView } from "react-native";
+import { useRef, useState } from "react";
+import { Platform, ScrollView, View, useWindowDimensions } from "react-native";
 
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import { createAccountOtpAuthUrl } from "../services/otp-auth-uri";
@@ -30,8 +31,59 @@ import HomeHeader from "../components/HomeHeader";
 import HomeFooter from "../components/HomeFooter";
 import AccountListToolbar from "../components/AccountListToolbar";
 import AccountListContent from "../components/AccountListContent";
+import DesktopProductInfo from "../components/DesktopProductInfo";
 
 export default function HomeScreen() {
+  const { width: windowWidth } = useWindowDimensions();
+  const showDesktopBranding = Platform.OS === "web" && windowWidth >= 900;
+  const [appPanelWidth, setAppPanelWidth] = useState(0);
+  const initialAppPanelWidth = Math.max(400, Math.min(windowWidth * 0.27, windowWidth - 334));
+  const currentAppPanelWidth = appPanelWidth || initialAppPanelWidth;
+  const splitterDragStart = useRef<{ pointerX: number; panelWidth: number } | null>(null);
+
+  const onSplitterMouseDown = (event: any) => {
+    // React Native Web exposes DOM coordinates on nativeEvent; fall back to the
+    // synthetic event for browser builds that expose them directly.
+    const nativeEvent = event?.nativeEvent ?? event;
+    const pointerX = nativeEvent?.clientX ?? nativeEvent?.pageX;
+    if (typeof pointerX !== "number" || (nativeEvent?.button != null && nativeEvent.button !== 0))
+      return;
+
+    event?.preventDefault?.();
+    nativeEvent?.preventDefault?.();
+    splitterDragStart.current = { pointerX, panelWidth: currentAppPanelWidth };
+
+    const onMove = (moveEvent: MouseEvent) => {
+      const drag = splitterDragStart.current;
+      if (!drag) return;
+      const moveX = moveEvent.clientX;
+      if (typeof moveX !== "number") return;
+      const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+      const splitterWidth = 14;
+      const brandMinimumWidth = 320;
+      const maxAppWidth = Math.max(400, viewportWidth - brandMinimumWidth - splitterWidth);
+      const nextWidth = Math.max(
+        400,
+        Math.min(maxAppWidth, drag.panelWidth + moveX - drag.pointerX),
+      );
+      setAppPanelWidth(nextWidth);
+      moveEvent.preventDefault();
+    };
+
+    const stopDragging = () => {
+      splitterDragStart.current = null;
+      document.removeEventListener("mousemove", onMove, true);
+      document.removeEventListener("mouseup", stopDragging, true);
+      window.removeEventListener("blur", stopDragging);
+    };
+
+    // Capture at document level so dragging continues even when the pointer
+    // leaves the narrow splitter surface.
+    document.addEventListener("mousemove", onMove, true);
+    document.addEventListener("mouseup", stopDragging, true);
+    window.addEventListener("blur", stopDragging);
+  };
+
   const insets = useSafeAreaInsets();
   const scannerCameraHeight = useScannerCameraHeight();
   const { now, showBrandSplash } = useHomeLifecycle();
@@ -192,127 +244,168 @@ export default function HomeScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.container} edges={["top", "left", "right", "bottom"]}>
-      <HomeHeader
-        biometricEnabled={biometricEnabled}
-        onToggleBiometricLock={() => void toggleBiometricLock()}
-        onOpenSettings={() => {
-          hapticFeedback("selection");
-          setSettingsVisible(true);
-        }}
-      />
-
-      <ScrollView
-        contentContainerStyle={[
-          styles.content,
-          { paddingBottom: Math.max(insets.bottom + 24, 48) },
-        ]}
-        showsVerticalScrollIndicator={false}
-        keyboardShouldPersistTaps="handled"
+    <View style={showDesktopBranding ? styles.webDesktopLayout : styles.webMobileLayout}>
+      <SafeAreaView
+        style={
+          Platform.OS === "web"
+            ? showDesktopBranding
+              ? [
+                  styles.webRoot,
+                  {
+                    width: currentAppPanelWidth,
+                    minWidth: 400,
+                    flexGrow: 0,
+                    flexShrink: 0,
+                    flexBasis: currentAppPanelWidth,
+                  },
+                ]
+              : styles.webMobileRoot
+            : styles.container
+        }
+        edges={["top", "left", "right", "bottom"]}
       >
-        <AccountSectionHeader accountCount={accounts.length} onAddAccount={openAddAccount} />
-
-        {accounts.length > 0 && (
-          <AccountListToolbar
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-            sortBy={sortBy}
-            setSortBy={setSortBy}
-            hapticFeedback={hapticFeedback}
+        <View style={Platform.OS === "web" ? styles.webAppShell : styles.nativeAppShell}>
+          <HomeHeader
+            biometricEnabled={biometricEnabled}
+            onToggleBiometricLock={() => void toggleBiometricLock()}
+            onOpenSettings={() => {
+              hapticFeedback("selection");
+              setSettingsVisible(true);
+            }}
           />
-        )}
 
-        <AccountListContent
-          loaded={loaded}
-          accounts={accounts}
-          visibleAccounts={visibleAccounts}
-          now={now}
-          onAddAccount={openAddAccount}
-          onCopyCode={copyCode}
-          onViewQr={openAccountQr}
-          onEdit={openEditAccount}
-          onDelete={deleteAccount}
-        />
+          <ScrollView
+            contentContainerStyle={[
+              styles.content,
+              { paddingBottom: Math.max(insets.bottom + 24, 48) },
+            ]}
+            showsVerticalScrollIndicator={false}
+            keyboardShouldPersistTaps="handled"
+          >
+            <AccountSectionHeader accountCount={accounts.length} onAddAccount={openAddAccount} />
 
-        <HomeFooter />
-      </ScrollView>
+            {accounts.length > 0 && (
+              <AccountListToolbar
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                sortBy={sortBy}
+                setSortBy={setSortBy}
+                hapticFeedback={hapticFeedback}
+              />
+            )}
 
-      <AccountQrModal
-        qrAccount={qrAccount}
-        qrRevealed={qrRevealed}
-        setQrRevealed={setQrRevealed}
-        insets={insets}
-        createAccountOtpAuthUrl={createAccountOtpAuthUrl}
-        closeAccountQr={closeAccountQr}
-      />
+            <AccountListContent
+              loaded={loaded}
+              accounts={accounts}
+              visibleAccounts={visibleAccounts}
+              now={now}
+              onAddAccount={openAddAccount}
+              onCopyCode={copyCode}
+              onViewQr={openAccountQr}
+              onEdit={openEditAccount}
+              onDelete={deleteAccount}
+            />
 
-      <AccountEditorModal
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-        editingId={editingId}
-        setEditingId={setEditingId}
-        issuer={issuer}
-        setIssuer={setIssuer}
-        accountName={accountName}
-        setAccountName={setAccountName}
-        secret={secret}
-        setSecret={setSecret}
-        totpUrlInput={totpUrlInput}
-        setTotpUrlInput={setTotpUrlInput}
-        manualExpanded={manualExpanded}
-        setManualExpanded={setManualExpanded}
-        otpAlgorithm={otpAlgorithm}
-        setOtpAlgorithm={setOtpAlgorithm}
-        otpDigits={otpDigits}
-        setOtpDigits={setOtpDigits}
-        otpPeriod={otpPeriod}
-        setOtpPeriod={setOtpPeriod}
-        insets={insets}
-        openQrScanner={openQrScanner}
-        importQrImage={importQrImage}
-        pasteQrImage={pasteQrImage}
-        importTotpUrl={importTotpUrl}
-        pasteTotpUrl={pasteTotpUrl}
-        saveAccount={saveAccount}
-      />
+            <HomeFooter />
+          </ScrollView>
 
-      <QrScannerModal
-        scannerVisible={scannerVisible}
-        setScannerVisible={setScannerVisible}
-        setModalVisible={setModalVisible}
-        qrProcessingRef={qrProcessingRef}
-        insets={insets}
-        scannerCameraHeight={scannerCameraHeight}
-        scanned={scanned}
-        scannerDiagnostic={scannerDiagnostic}
-        setScannerDiagnostic={setScannerDiagnostic}
-        cameraPermission={cameraPermission}
-        cameraViewRef={cameraViewRef}
-        handleQrScanned={handleQrScanned}
-      />
+          <AccountQrModal
+            qrAccount={qrAccount}
+            qrRevealed={qrRevealed}
+            setQrRevealed={setQrRevealed}
+            insets={insets}
+            createAccountOtpAuthUrl={createAccountOtpAuthUrl}
+            closeAccountQr={closeAccountQr}
+          />
 
-      <SettingsBackupActivityModals
-        insets={insets}
-        settingsVisible={settingsVisible}
-        setSettingsVisible={setSettingsVisible}
-        hapticsEnabled={hapticsEnabled}
-        toggleHaptics={toggleHaptics}
-        biometricEnabled={biometricEnabled}
-        toggleBiometricLock={toggleBiometricLock}
-        openBackup={openBackup}
-        setLegalReviewVisible={setLegalReviewVisible}
-        setLegalDocument={setLegalDocument}
-        backupVisible={backupVisible}
-        setBackupVisible={setBackupVisible}
-        backupMode={backupMode}
-        backupPassword={backupPassword}
-        setBackupPassword={setBackupPassword}
-        accounts={accounts}
-        backupBusy={backupBusy}
-        exportEncryptedBackup={exportEncryptedBackup}
-        restoreEncryptedBackup={restoreEncryptedBackup}
-        activityMessage={activityMessage}
-      />
-    </SafeAreaView>
+          <AccountEditorModal
+            modalVisible={modalVisible}
+            setModalVisible={setModalVisible}
+            editingId={editingId}
+            setEditingId={setEditingId}
+            issuer={issuer}
+            setIssuer={setIssuer}
+            accountName={accountName}
+            setAccountName={setAccountName}
+            secret={secret}
+            setSecret={setSecret}
+            totpUrlInput={totpUrlInput}
+            setTotpUrlInput={setTotpUrlInput}
+            manualExpanded={manualExpanded}
+            setManualExpanded={setManualExpanded}
+            otpAlgorithm={otpAlgorithm}
+            setOtpAlgorithm={setOtpAlgorithm}
+            otpDigits={otpDigits}
+            setOtpDigits={setOtpDigits}
+            otpPeriod={otpPeriod}
+            setOtpPeriod={setOtpPeriod}
+            insets={insets}
+            openQrScanner={openQrScanner}
+            importQrImage={importQrImage}
+            pasteQrImage={pasteQrImage}
+            importTotpUrl={importTotpUrl}
+            pasteTotpUrl={pasteTotpUrl}
+            saveAccount={saveAccount}
+          />
+
+          <QrScannerModal
+            scannerVisible={scannerVisible}
+            setScannerVisible={setScannerVisible}
+            setModalVisible={setModalVisible}
+            qrProcessingRef={qrProcessingRef}
+            insets={insets}
+            scannerCameraHeight={scannerCameraHeight}
+            scanned={scanned}
+            scannerDiagnostic={scannerDiagnostic}
+            setScannerDiagnostic={setScannerDiagnostic}
+            cameraPermission={cameraPermission}
+            cameraViewRef={cameraViewRef}
+            handleQrScanned={handleQrScanned}
+          />
+
+          <SettingsBackupActivityModals
+            insets={insets}
+            settingsVisible={settingsVisible}
+            setSettingsVisible={setSettingsVisible}
+            hapticsEnabled={hapticsEnabled}
+            toggleHaptics={toggleHaptics}
+            biometricEnabled={biometricEnabled}
+            toggleBiometricLock={toggleBiometricLock}
+            openBackup={openBackup}
+            setLegalReviewVisible={setLegalReviewVisible}
+            setLegalDocument={setLegalDocument}
+            backupVisible={backupVisible}
+            setBackupVisible={setBackupVisible}
+            backupMode={backupMode}
+            backupPassword={backupPassword}
+            setBackupPassword={setBackupPassword}
+            accounts={accounts}
+            backupBusy={backupBusy}
+            exportEncryptedBackup={exportEncryptedBackup}
+            restoreEncryptedBackup={restoreEncryptedBackup}
+            activityMessage={activityMessage}
+          />
+        </View>
+      </SafeAreaView>
+      {showDesktopBranding && (
+        <>
+          <View
+            {...({ onMouseDown: onSplitterMouseDown } as any)}
+            style={styles.webDesktopSplitter}
+            accessibilityRole="adjustable"
+            accessibilityLabel="Resize app and brand panels"
+          >
+            <View style={styles.webDesktopSplitterGrip}>
+              <View style={styles.webDesktopSplitterGripLine} />
+              <View style={styles.webDesktopSplitterGripLine} />
+              <View style={styles.webDesktopSplitterGripLine} />
+            </View>
+          </View>
+          <View style={[styles.webBrandPanel, { flex: 1, minWidth: 320, minHeight: "100%" }]}>
+            <DesktopProductInfo />
+          </View>
+        </>
+      )}
+    </View>
   );
 }

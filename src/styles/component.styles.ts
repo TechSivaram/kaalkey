@@ -260,9 +260,22 @@ export const getCountdownDynamicStyles = (pulse: any, numberColor: string) =>
 
 export const accountTotpUrlImportStyles = StyleSheet.create({
   fieldGroup: { marginBottom: 12 },
-  actionRow: { flexDirection: "row", gap: 8, marginTop: 8 },
-  importButton: { flex: 1 },
-  pasteButton: { flex: 1 },
+  urlInputRow: { flexDirection: "row", alignItems: "center", position: "relative" },
+  urlInput: { flex: 1, paddingRight: 54 },
+  inlineImportButton: {
+    position: "absolute",
+    right: 6,
+    top: 6,
+    bottom: 6,
+    width: 42,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FFF2DF",
+    borderWidth: 1,
+    borderColor: "#FFD39A",
+  },
+  inlineImportIcon: { color: "#E88700", fontSize: 24, fontWeight: "800" },
 });
 export const getAccountQrOverlayStyles = (insets: { top: number; bottom: number }) => [
   accountQrModalStyles.overlay,

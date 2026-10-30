@@ -12,33 +12,30 @@ type Props = {
   onPaste: () => Promise<void>;
 };
 
-/** Controlled TOTP setup URL input and import/paste actions. */
+/** Setup URL input with an inline import action and clipboard paste support. */
 export default function AccountTotpUrlImport({ value, setValue, onImport, onPaste }: Props) {
   return (
     <View style={inlineStyles.fieldGroup}>
       <Text style={styles.inputLabel}>TOTP SETUP URL</Text>
-      <TextInput
-        style={styles.input}
-        placeholder={`${TOTP_URI_PREFIX}...`}
-        placeholderTextColor={COLORS.textMuted}
-        value={value}
-        onChangeText={setValue}
-        autoCapitalize="none"
-        autoCorrect={false}
-        accessibilityLabel="TOTP setup URL"
-      />
-      <View style={inlineStyles.actionRow}>
+      <View style={inlineStyles.urlInputRow}>
+        <TextInput
+          style={[styles.input, inlineStyles.urlInput]}
+          placeholder={`${TOTP_URI_PREFIX}...`}
+          placeholderTextColor={COLORS.textMuted}
+          value={value}
+          onChangeText={setValue}
+          autoCapitalize="none"
+          autoCorrect={false}
+          accessibilityLabel="TOTP setup URL"
+        />
         <TouchableOpacity
-          style={[styles.scanButton, inlineStyles.importButton]}
+          style={inlineStyles.inlineImportButton}
           onPress={() => void onImport(value)}
+          accessibilityRole="button"
+          accessibilityLabel="Import setup URL"
+          disabled={!value.trim()}
         >
-          <Text style={styles.scanButtonTitle}>Import URL</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.scanButton, inlineStyles.pasteButton]}
-          onPress={() => void onPaste()}
-        >
-          <Text style={styles.scanButtonTitle}>Paste URL</Text>
+          <Text style={inlineStyles.inlineImportIcon}>↧</Text>
         </TouchableOpacity>
       </View>
     </View>

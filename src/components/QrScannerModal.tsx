@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Modal, Platform, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "../styles/home.styles";
 import WebQrScanner from "./WebQrScanner";
@@ -37,14 +38,22 @@ export default function QrScannerModal({
   cameraViewRef,
   handleQrScanned,
 }: Props) {
+  const [torchEnabled, setTorchEnabled] = useState(false);
+
+  // Reset torch when scanner closes so it never remains on after leaving.
+  const closeScanner = () => {
+    setTorchEnabled(false);
+    setScannerVisible(false);
+    qrProcessingRef.current = false;
+    setModalVisible(true);
+  };
+
   return (
     <Modal
       visible={scannerVisible}
       animationType="slide"
       onRequestClose={() => {
-        setScannerVisible(false);
-        qrProcessingRef.current = false;
-        setModalVisible(true);
+        closeScanner();
       }}
     >
       <ScrollView
@@ -88,6 +97,7 @@ export default function QrScannerModal({
             <NativeQrCamera
               cameraRef={cameraViewRef}
               style={styles.cameraPreview}
+              enableTorch={torchEnabled}
               onCameraReady={() => {
                 setScannerDiagnostic("Camera ready. Point it at the authenticator QR code.");
               }}
@@ -107,6 +117,26 @@ export default function QrScannerModal({
           <View pointerEvents="none" style={styles.scanCornerTR} />
           <View pointerEvents="none" style={styles.scanCornerBL} />
           <View pointerEvents="none" style={styles.scanCornerBR} />
+          {Platform.OS !== "web" && cameraPermission?.granted ? (
+            <TouchableOpacity
+              onPress={() => setTorchEnabled((enabled) => !enabled)}
+              accessibilityRole="button"
+              accessibilityLabel={torchEnabled ? "Turn flashlight off" : "Turn flashlight on"}
+              style={{
+                position: "absolute",
+                right: 14,
+                bottom: 14,
+                paddingHorizontal: 14,
+                paddingVertical: 10,
+                borderRadius: 22,
+                backgroundColor: "rgba(0,0,0,0.68)",
+              }}
+            >
+              <Text style={{ color: "#FFFFFF", fontWeight: "700" }}>
+                {torchEnabled ? "☀ Flashlight on" : "☼ Flashlight"}
+              </Text>
+            </TouchableOpacity>
+          ) : null}
         </View>
 
         <Text style={styles.scannerHint}>
@@ -121,9 +151,7 @@ export default function QrScannerModal({
         <TouchableOpacity
           style={styles.scannerManualButton}
           onPress={() => {
-            setScannerVisible(false);
-            qrProcessingRef.current = false;
-            setModalVisible(true);
+            closeScanner();
           }}
         >
           <Text style={styles.scannerManualText}>Enter details manually instead</Text>
