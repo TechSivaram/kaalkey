@@ -120,30 +120,34 @@ export default function SettingsBackupActivityModals(props: Props) {
               <View style={styles.settingsTopRow}>
                 <View style={styles.dialogTitleCopy}>
                   <Text style={styles.settingsEyebrow}>
-                    {translate(language, "KAALKEY PREFERENCES")}
+                    {translate(language, "settings.eyebrow")}
                   </Text>
-                  <Text style={styles.settingsTitle}>{translate(language, "App settings")}</Text>
+                  <Text style={styles.settingsTitle}>{translate(language, "settings.title")}</Text>
                 </View>
                 <TouchableOpacity
                   style={styles.settingsCloseButton}
                   hitSlop={10}
                   onPress={() => setSettingsVisible(false)}
                   accessibilityRole="button"
-                  accessibilityLabel={translate(language, "Close settings")}
+                  accessibilityLabel={translate(language, "common.closeSettings")}
                 >
                   <Text style={styles.settingsCloseText}>✕</Text>
                 </TouchableOpacity>
               </View>
 
-              <Text style={styles.settingsSectionLabel}>{translate(language, "LANGUAGE")}</Text>
+              <Text style={styles.settingsSectionLabel}>
+                {translate(language, "settings.language.section")}
+              </Text>
               <View style={[styles.settingRow, languageDropdownOpen && { zIndex: 30 }]}>
                 <View style={styles.settingIconBox}>
                   <Text style={styles.settingIcon}>🌐</Text>
                 </View>
                 <View style={styles.settingCopy}>
-                  <Text style={styles.settingTitleText}>{translate(language, "language")}</Text>
+                  <Text style={styles.settingTitleText}>
+                    {translate(language, "settings.language.name")}
+                  </Text>
                   <Text style={styles.settingDescription}>
-                    {translate(language, "languageDescription")}
+                    {translate(language, "settings.language.description")}
                   </Text>
                   <View
                     style={{
@@ -158,9 +162,12 @@ export default function SettingsBackupActivityModals(props: Props) {
                         setLanguageSearch(value);
                         openLanguageDropdown();
                       }}
-                      placeholder={translate(language, "Search language (name or code)")}
+                      placeholder={translate(language, "settings.language.searchLanguageName")}
                       placeholderTextColor="#718096"
-                      accessibilityLabel={translate(language, "Search supported languages")}
+                      accessibilityLabel={translate(
+                        language,
+                        "settings.language.searchSupportedLanguages",
+                      )}
                       autoCapitalize="none"
                       autoCorrect={false}
                       style={{
@@ -212,7 +219,10 @@ export default function SettingsBackupActivityModals(props: Props) {
                           <TouchableOpacity
                             onPress={() => setLanguageDropdownOpen(false)}
                             accessibilityRole="button"
-                            accessibilityLabel={translate(language, "Close language dropdown")}
+                            accessibilityLabel={translate(
+                              language,
+                              "settings.language.closeLanguageDropdown",
+                            )}
                             hitSlop={12}
                           >
                             <Text
@@ -271,7 +281,7 @@ export default function SettingsBackupActivityModals(props: Props) {
                           ))}
                           {matchingLanguages.length === 0 ? (
                             <Text style={{ color: "#536477", paddingVertical: 8 }}>
-                              {translate(language, "No translated language found.")}
+                              {translate(language, "settings.language.noTranslatedLanguage")}
                             </Text>
                           ) : null}
                         </ScrollView>
@@ -281,17 +291,19 @@ export default function SettingsBackupActivityModals(props: Props) {
                 </View>
               </View>
 
-              <Text style={styles.settingsSectionLabel}>{translate(language, "EXPERIENCE")}</Text>
+              <Text style={styles.settingsSectionLabel}>
+                {translate(language, "settings.experience.section")}
+              </Text>
               <View style={styles.settingRow}>
                 <View style={styles.settingIconBox}>
                   <Text style={styles.settingIcon}>📳</Text>
                 </View>
                 <View style={styles.settingCopy}>
                   <Text style={styles.settingTitleText}>
-                    {translate(language, "Haptic feedback")}
+                    {translate(language, "settings.haptics.title")}
                   </Text>
                   <Text style={styles.settingDescription}>
-                    {translate(language, "Gentle feedback for taps and completed actions.")}
+                    {translate(language, "settings.haptics.description")}
                   </Text>
                 </View>
                 <TouchableOpacity
@@ -299,7 +311,7 @@ export default function SettingsBackupActivityModals(props: Props) {
                   onPress={() => void toggleHaptics()}
                   accessibilityRole="switch"
                   accessibilityState={{ checked: hapticsEnabled }}
-                  accessibilityLabel={translate(language, "Haptic feedback")}
+                  accessibilityLabel={translate(language, "settings.haptics.title")}
                 >
                   <View
                     style={[
@@ -310,22 +322,21 @@ export default function SettingsBackupActivityModals(props: Props) {
                 </TouchableOpacity>
               </View>
 
-              <Text style={styles.settingsSectionLabel}>{translate(language, "SECURITY")}</Text>
+              <Text style={styles.settingsSectionLabel}>
+                {translate(language, "settings.security.section")}
+              </Text>
               <View style={styles.settingRow}>
                 <View style={styles.settingIconBox}>
                   <Text style={styles.settingIcon}>🔐</Text>
                 </View>
                 <View style={styles.settingCopy}>
                   <Text style={styles.settingTitleText}>
-                    {translate(language, "Device authentication lock")}
+                    {translate(language, "settings.deviceLock.title")}
                   </Text>
                   <Text style={styles.settingDescription}>
                     {biometricEnabled
-                      ? translate(language, "Your vault locks when KaalKey leaves the foreground.")
-                      : translate(
-                          language,
-                          "Require your phone’s biometrics or screen-lock PIN, pattern, or password.",
-                        )}
+                      ? translate(language, "settings.deviceLock.description")
+                      : translate(language, "settings.deviceLock.requirement")}
                   </Text>
                 </View>
                 <TouchableOpacity
@@ -333,7 +344,7 @@ export default function SettingsBackupActivityModals(props: Props) {
                   onPress={() => void toggleBiometricLock()}
                   accessibilityRole="switch"
                   accessibilityState={{ checked: biometricEnabled }}
-                  accessibilityLabel={translate(language, "Device authentication app lock")}
+                  accessibilityLabel={translate(language, "settings.deviceLock.accessibilityLabel")}
                 >
                   <View
                     style={[
@@ -345,7 +356,7 @@ export default function SettingsBackupActivityModals(props: Props) {
               </View>
 
               <Text style={styles.settingsSectionLabel}>
-                {translate(language, "BACKUP & RECOVERY")}
+                {translate(language, "settings.backup.section")}
               </Text>
               <View style={styles.backupButtonsRow}>
                 <TouchableOpacity
@@ -355,10 +366,10 @@ export default function SettingsBackupActivityModals(props: Props) {
                 >
                   <Text style={styles.backupActionIcon}>⬆</Text>
                   <Text style={styles.backupActionTitle}>
-                    {translate(language, "Create backup")}
+                    {translate(language, "backupRestore.createBackup")}
                   </Text>
                   <Text style={styles.backupActionDescription}>
-                    {translate(language, "Encrypted file")}
+                    {translate(language, "backupRestore.encryptedFile")}
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -368,56 +379,62 @@ export default function SettingsBackupActivityModals(props: Props) {
                 >
                   <Text style={styles.backupActionIcon}>⬇</Text>
                   <Text style={styles.backupActionTitle}>
-                    {translate(language, "Restore backup")}
+                    {translate(language, "backupRestore.restoreBackup")}
                   </Text>
                   <Text style={styles.backupActionDescription}>
-                    {translate(language, "Import file")}
+                    {translate(language, "backupRestore.importFile")}
                   </Text>
                 </TouchableOpacity>
               </View>
               <Text style={styles.backupSafetyText}>
-                {translate(language, "Backup safety note")}
+                {translate(language, "backupRestore.safetyNote")}
               </Text>
 
-              <Text style={styles.settingsSectionLabel}>{translate(language, "DANGER ZONE")}</Text>
+              <Text style={styles.settingsSectionLabel}>
+                {translate(language, "settings.danger.section")}
+              </Text>
               <TouchableOpacity
                 style={[styles.settingRow, inlineStyles.clearAllRow]}
                 onPress={clearAllAccounts}
                 accessibilityRole="button"
-                accessibilityLabel={translate(language, "Clear all authenticator accounts")}
+                accessibilityLabel={translate(
+                  language,
+                  "settings.danger.clearAccountsAccessibilityLabel",
+                )}
               >
                 <View style={styles.settingIconBox}>
                   <Text style={styles.settingIcon}>🗑️</Text>
                 </View>
                 <View style={styles.settingCopy}>
                   <Text style={[styles.settingTitleText, inlineStyles.clearAllTitle]}>
-                    {translate(language, "Clear all accounts")}
+                    {translate(language, "settings.danger.clearAccounts")}
                   </Text>
                   <Text style={styles.settingDescription}>
-                    {translate(
-                      language,
-                      "Permanently remove every account and secret from this device. Back up first.",
-                    )}
+                    {translate(language, "settings.danger.clearAccountsDescription")}
                   </Text>
                 </View>
                 <Text style={inlineStyles.clearAllChevron}>›</Text>
               </TouchableOpacity>
 
-              <Text style={styles.settingsSectionLabel}>{translate(language, "APPEARANCE")}</Text>
+              <Text style={styles.settingsSectionLabel}>
+                {translate(language, "settings.appearance.section")}
+              </Text>
               <View style={styles.settingRow}>
                 <View style={styles.settingIconBox}>
                   <Text style={styles.settingIcon}>☀️</Text>
                 </View>
                 <View style={styles.settingCopy}>
                   <Text style={styles.settingTitleText}>
-                    {translate(language, "Light appearance")}
+                    {translate(language, "settings.appearance.title")}
                   </Text>
                   <Text style={styles.settingDescription}>
-                    {translate(language, "KaalKey currently uses its clean light theme.")}
+                    {translate(language, "settings.appearance.description")}
                   </Text>
                 </View>
                 <View style={styles.appearanceBadge}>
-                  <Text style={styles.appearanceBadgeText}>{translate(language, "ACTIVE")}</Text>
+                  <Text style={styles.appearanceBadgeText}>
+                    {translate(language, "accounts.active")}
+                  </Text>
                 </View>
               </View>
 
@@ -435,10 +452,10 @@ export default function SettingsBackupActivityModals(props: Props) {
                 </View>
                 <View style={styles.settingCopy}>
                   <Text style={styles.settingTitleText}>
-                    {translate(language, "Legal & privacy")}
+                    {translate(language, "settings.privacy.title")}
                   </Text>
                   <Text style={styles.settingDescription}>
-                    {translate(language, "Review the Privacy Policy and Terms of Use.")}
+                    {translate(language, "settings.privacy.description")}
                   </Text>
                 </View>
                 <Text style={inlineStyles.legalChevron}>›</Text>
@@ -447,10 +464,7 @@ export default function SettingsBackupActivityModals(props: Props) {
               <View style={styles.settingsPrivacyNote}>
                 <Text style={styles.settingsPrivacyIcon}>🛡️</Text>
                 <Text style={styles.settingsPrivacyText}>
-                  {translate(
-                    language,
-                    "Your authenticator secrets stay in the on-device secure vault. Preferences are stored locally.",
-                  )}
+                  {translate(language, "settings.privacy.storageNote")}
                 </Text>
               </View>
               <TouchableOpacity
@@ -458,7 +472,9 @@ export default function SettingsBackupActivityModals(props: Props) {
                 onPress={() => setSettingsVisible(false)}
                 activeOpacity={BUTTON_ACTIVE_OPACITY_STRONG}
               >
-                <Text style={styles.settingsDoneText}>{translate(language, "Done")}</Text>
+                <Text style={styles.settingsDoneText}>
+                  {translate(language, "common.doneButton")}
+                </Text>
               </TouchableOpacity>
             </ScrollView>
           </View>
@@ -489,12 +505,12 @@ export default function SettingsBackupActivityModals(props: Props) {
                 <View style={styles.settingsTopRow}>
                   <View style={styles.dialogTitleCopy}>
                     <Text style={styles.settingsEyebrow}>
-                      {translate(language, "SECURE VAULT")}
+                      {translate(language, "backupRestore.secureVault")}
                     </Text>
                     <Text style={styles.settingsTitle}>
                       {backupMode === "export"
-                        ? translate(language, "Create backup")
-                        : translate(language, "Restore backup")}
+                        ? translate(language, "backupRestore.createBackup")
+                        : translate(language, "backupRestore.restoreBackup")}
                     </Text>
                   </View>
                   <TouchableOpacity
@@ -504,7 +520,7 @@ export default function SettingsBackupActivityModals(props: Props) {
                       setBackupVisible(false);
                       setBackupPassword("");
                     }}
-                    accessibilityLabel={translate(language, "Close backup")}
+                    accessibilityLabel={translate(language, "backupRestore.closeBackup")}
                     accessibilityRole="button"
                   >
                     <Text style={styles.settingsCloseText}>✕</Text>
@@ -513,12 +529,15 @@ export default function SettingsBackupActivityModals(props: Props) {
                 <Text style={styles.backupModalDescription}>
                   {getBackupModalDescription(backupMode, accounts.length, language)}
                 </Text>
-                <Text style={styles.inputLabel}>{translate(language, "BACKUP PASSWORD")}</Text>
+                <Text style={styles.inputLabel}>
+                  {translate(language, "backupRestore.backupPassword")}
+                </Text>
                 {backupMode === "export" ? (
                   <View>
                     <View style={styles.backupPasswordCard}>
                       <Text selectable style={styles.backupPasswordText}>
-                        {backupPassword || translate(language, "Generating secure password…")}
+                        {backupPassword ||
+                          translate(language, "backupRestore.generatingSecurePassword")}
                       </Text>
                     </View>
                     <TouchableOpacity
@@ -541,21 +560,15 @@ export default function SettingsBackupActivityModals(props: Props) {
                       }}
                       activeOpacity={BUTTON_ACTIVE_OPACITY}
                       accessibilityRole="button"
-                      accessibilityLabel={translate(language, "Copy generated backup password")}
+                      accessibilityLabel={translate(language, "backupRestore.copyGeneratedBackup")}
                     >
                       <Text style={[styles.cancelButtonText, styles.backupCopyButtonText]}>
-                        {translate(language, "Copy generated password")}
+                        {translate(language, "backupRestore.copyPassword")}
                       </Text>
                     </TouchableOpacity>
                     <Text style={styles.backupSafetyText}>
-                      {translate(
-                        language,
-                        "Save this password separately (for example, in WhatsApp). Anyone with both the",
-                      )}
-                      {translate(
-                        language,
-                        "backup file and password can restore your authenticator accounts.",
-                      )}
+                      {translate(language, "backupRestore.passwordSafety")}
+                      {translate(language, "backupRestore.backupFilePassword")}
                     </Text>
                   </View>
                 ) : (
@@ -564,13 +577,13 @@ export default function SettingsBackupActivityModals(props: Props) {
                       style={[styles.input, styles.inputWithClearSpace]}
                       value={backupPassword}
                       onChangeText={setBackupPassword}
-                      placeholder={translate(language, "Enter backup password")}
+                      placeholder={translate(language, "backupRestore.enterBackupPassword")}
                       placeholderTextColor={COLORS.placeholder}
                       secureTextEntry
                       autoCapitalize="none"
                       autoCorrect={false}
                       textContentType="password"
-                      accessibilityLabel={translate(language, "Backup password")}
+                      accessibilityLabel={translate(language, "backupRestore.backupPassword2")}
                     />
                     {backupPassword.length > 0 && (
                       <TouchableOpacity
@@ -578,7 +591,10 @@ export default function SettingsBackupActivityModals(props: Props) {
                         onPress={() => setBackupPassword("")}
                         activeOpacity={BUTTON_ACTIVE_OPACITY}
                         accessibilityRole="button"
-                        accessibilityLabel={translate(language, "Clear backup password")}
+                        accessibilityLabel={translate(
+                          language,
+                          "backupRestore.clearBackupPassword",
+                        )}
                         hitSlop={6}
                       >
                         <Text style={styles.clearInputButtonText}>×</Text>
@@ -597,10 +613,10 @@ export default function SettingsBackupActivityModals(props: Props) {
                 >
                   <Text style={styles.primaryButtonText}>
                     {backupBusy
-                      ? translate(language, "Please wait…")
+                      ? translate(language, "activity.wait")
                       : backupMode === "export"
-                        ? translate(language, "Encrypt and share backup")
-                        : translate(language, "Choose file and import")}
+                        ? translate(language, "backupRestore.encryptShareBackup")
+                        : translate(language, "backupRestore.importAction")}
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -610,7 +626,9 @@ export default function SettingsBackupActivityModals(props: Props) {
                     setBackupPassword("");
                   }}
                 >
-                  <Text style={styles.cancelButtonText}>{translate(language, "Cancel")}</Text>
+                  <Text style={styles.cancelButtonText}>
+                    {translate(language, "messages.account.cancelButton")}
+                  </Text>
                 </TouchableOpacity>
               </View>
             </ScrollView>

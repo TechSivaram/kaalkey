@@ -18,7 +18,7 @@ export default function AccountSectionHeader({
   return (
     <View style={styles.sectionHeader}>
       <View>
-        <Text style={styles.sectionTitle}>{t("Your accounts")}</Text>
+        <Text style={styles.sectionTitle}>{t("accounts.accounts")}</Text>
         <Text style={styles.accountCount}>
           {accountCount} {getAccountCountLabel(accountCount)}
         </Text>
@@ -29,9 +29,9 @@ export default function AccountSectionHeader({
         activeOpacity={BUTTON_ACTIVE_OPACITY_STANDARD}
         onPress={onAddAccount}
         accessibilityRole="button"
-        accessibilityLabel={t("Add account")}
+        accessibilityLabel={t("accountForm.addAccount")}
       >
-        <Text style={styles.addButtonText}>{t("+ Add")}</Text>
+        <Text style={styles.addButtonText}>{t("accounts.add")}</Text>
       </TouchableOpacity>
     </View>
   );

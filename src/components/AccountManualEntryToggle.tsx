@@ -20,9 +20,9 @@ export default function AccountManualEntryToggle({ expanded, setExpanded }: Prop
     >
       <View style={styles.scanButtonCopy}>
         <Text style={styles.scanButtonTitle}>
-          {expanded ? t("Hide manual entry") : t("Enter details manually")}
+          {expanded ? t("accountForm.hideManualEntry") : t("accountForm.enterDetailsManually2")}
         </Text>
-        <Text style={styles.scanButtonSubtitle}>{t("Service, account name and secret key")}</Text>
+        <Text style={styles.scanButtonSubtitle}>{t("accountForm.serviceAccountName")}</Text>
       </View>
       <Text style={styles.scanButtonArrow}>{expanded ? "⌄" : "›"}</Text>
     </TouchableOpacity>

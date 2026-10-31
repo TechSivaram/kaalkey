@@ -191,6 +191,7 @@ export default function HomeScreen() {
     setActivityMessage,
   });
   const { openBackup, exportEncryptedBackup, restoreEncryptedBackup } = useBackupManager({
+    language,
     accounts,
     setAccounts,
     backupPassword,
@@ -390,7 +391,7 @@ export default function HomeScreen() {
             {...({ onMouseDown: onSplitterMouseDown } as any)}
             style={styles.webDesktopSplitter}
             accessibilityRole="adjustable"
-            accessibilityLabel={t("Resize app and brand panels")}
+            accessibilityLabel={t("common.resizeAppBrand")}
           >
             <View style={styles.webDesktopSplitterGrip}>
               <View style={styles.webDesktopSplitterGripLine} />

@@ -47,9 +47,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
     const start = async () => {
       try {
         if (!navigator.mediaDevices?.getUserMedia) {
-          setMessage(
-            t("Camera unavailable. Open this page on HTTPS or localhost and allow camera access."),
-          );
+          setMessage(t("qrScanner.cameraUnavailableOpen"));
           return;
         }
         const stream = await navigator.mediaDevices.getUserMedia({
@@ -67,7 +65,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
         streamRef.current = stream;
         const video = videoRef.current;
         if (!video) {
-          setMessage(t("Camera preview is unavailable. Close and reopen the scanner."));
+          setMessage(t("qrScanner.cameraPreviewUnavailable"));
           stop();
           return;
         }
@@ -76,12 +74,12 @@ export default function WebQrScanner({ active, onDetected }: Props) {
         video.playsInline = true;
         video.autoplay = true;
         await video.play();
-        setMessage(t("Camera ready — point it at the full QR code."));
+        setMessage(t("qrScanner.cameraReadyPoint"));
 
         const canvas = document.createElement("canvas");
         const context = canvas.getContext("2d", { willReadFrequently: true });
         if (!context) {
-          setMessage(t("This browser cannot process camera frames."));
+          setMessage(t("qrScanner.browserCannotProcess"));
           stop();
           return;
         }
@@ -125,15 +123,13 @@ export default function WebQrScanner({ active, onDetected }: Props) {
                 });
               }
               if (result?.data && !disposed) {
-                setMessage(t("QR code detected."));
+                setMessage(t("qrScanner.qrCodeDetected"));
                 stop();
                 onDetectedRef.current(result.data);
                 return;
               }
             } catch {
-              setMessage(
-                t("Couldn't read camera frames. Check camera permissions and reload this page."),
-              );
+              setMessage(t("qrScanner.couldnTRead"));
             }
           }
           if (!disposed) frameRef.current = requestAnimationFrame(scanFrame);
@@ -159,7 +155,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
             muted
             playsInline
             autoPlay
-            aria-label={t("QR scanner camera preview")}
+            aria-label={t("qrScanner.qrScannerCamera")}
             style={webQrVideoStyle}
           />
           <Text style={styles.message}>{message}</Text>

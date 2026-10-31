@@ -13,18 +13,18 @@ export default function AccountEditorHeader({ editingId, onClose }: Props) {
   return (
     <View style={styles.modalHeader}>
       <View style={styles.modalHeaderCopy}>
-        <Text style={styles.modalTitle}>{editingId ? t("Edit") : t("Add account")}</Text>
+        <Text style={styles.modalTitle}>
+          {editingId ? t("accounts.edit") : t("accountForm.addAccount")}
+        </Text>
         <Text style={styles.modalSubtitle}>
-          {editingId
-            ? t("Update the service, account name, or secret key.")
-            : t("Scan a QR code for the easiest setup, or enter details manually.")}
+          {editingId ? t("accountForm.updateServiceAccount") : t("addAccount.setupGuidance")}
         </Text>
       </View>
       <TouchableOpacity
         onPress={onClose}
         style={styles.modalCloseButton}
         accessibilityRole="button"
-        accessibilityLabel={t("Close account form")}
+        accessibilityLabel={t("accountForm.closeAccountForm")}
         hitSlop={8}
       >
         <Text style={styles.closeButton}>×</Text>

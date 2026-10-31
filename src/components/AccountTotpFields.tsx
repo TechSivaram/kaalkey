@@ -41,13 +41,13 @@ export default function AccountTotpFields({
   return (
     <>
       <Text style={styles.inputLabel}>
-        {editingId ? t("SECRET KEY (LOCKED)") : t("SECRET KEY (BASE32)")}
+        {editingId ? t("accountForm.secretKeyLocked") : t("accountForm.secretKeyBase322")}
       </Text>
 
       <View style={styles.inputClearWrapper}>
         <TextInput
           style={[styles.input, styles.inputWithClearSpace]}
-          placeholder={t("Enter your setup key")}
+          placeholder={t("accountForm.enterSetupKey")}
           placeholderTextColor={COLORS.textMuted}
           value={secret}
           onChangeText={setSecret}
@@ -57,7 +57,7 @@ export default function AccountTotpFields({
           editable={!editingId}
           selectTextOnFocus={!editingId}
           accessibilityLabel={
-            editingId ? t("Secret key, read-only while editing") : t("Secret key in Base32")
+            editingId ? t("accountForm.secretKeyRead") : t("accountForm.secretKeyBase32")
           }
         />
         {!editingId && secret.length > 0 && (
@@ -66,14 +66,14 @@ export default function AccountTotpFields({
             onPress={() => setSecret("")}
             activeOpacity={BUTTON_ACTIVE_OPACITY}
             accessibilityRole="button"
-            accessibilityLabel={t("Clear secret key")}
+            accessibilityLabel={t("accountForm.clearSecretKey")}
             hitSlop={6}
           >
             <Text style={styles.clearInputButtonText}>×</Text>
           </TouchableOpacity>
         )}
       </View>
-      <Text style={styles.inputLabel}>{t("OTP ALGORITHM")}</Text>
+      <Text style={styles.inputLabel}>{t("accountForm.otpAlgorithm")}</Text>
       <View style={styles.optionRow}>
         {SUPPORTED_TOTP_ALGORITHMS.map((algorithm) => (
           <TouchableOpacity
@@ -95,7 +95,7 @@ export default function AccountTotpFields({
         ))}
       </View>
 
-      <Text style={styles.inputLabel}>{t("OTP DIGITS")}</Text>
+      <Text style={styles.inputLabel}>{t("accountForm.otpDigits")}</Text>
       <View style={styles.optionRow}>
         {SUPPORTED_TOTP_DIGITS.map((digits) => (
           <TouchableOpacity
@@ -108,13 +108,13 @@ export default function AccountTotpFields({
             <Text
               style={[styles.optionChipText, otpDigits === digits && styles.optionChipTextSelected]}
             >
-              {digits} {t("digits")}
+              {digits} {t("accountForm.digits")}
             </Text>
           </TouchableOpacity>
         ))}
       </View>
 
-      <Text style={styles.inputLabel}>{t("REFRESH INTERVAL (SECONDS)")}</Text>
+      <Text style={styles.inputLabel}>{t("accountForm.refreshIntervalSeconds")}</Text>
       <TextInput
         style={styles.input}
         value={otpPeriod}
@@ -122,9 +122,9 @@ export default function AccountTotpFields({
           setOtpPeriod(value.replace(/[^0-9]/g, "").slice(0, TOTP_PERIOD_INPUT_MAX_LENGTH))
         }
         keyboardType="number-pad"
-        placeholder={`${MIN_TOTP_PERIOD_SECONDS}–${MAX_TOTP_PERIOD_SECONDS} ${t("seconds")}`}
+        placeholder={`${MIN_TOTP_PERIOD_SECONDS}–${MAX_TOTP_PERIOD_SECONDS} ${t("accountForm.seconds")}`}
         placeholderTextColor={COLORS.textMuted}
-        accessibilityLabel={t("OTP refresh interval in seconds")}
+        accessibilityLabel={t("accountForm.otpRefreshInterval")}
       />
       <View style={styles.optionRow}>
         {TOTP_PERIOD_PRESETS.map((period) => (
@@ -147,11 +147,7 @@ export default function AccountTotpFields({
         ))}
       </View>
 
-      <Text style={styles.securityNote}>
-        {t(
-          "Use the secret key supplied by the service you are configuring. Never enter your account password here. Match the algorithm, digit count, and interval to the service’s setup instructions.",
-        )}
-      </Text>
+      <Text style={styles.securityNote}>{t("accountForm.secretKeySupplied")}</Text>
     </>
   );
 }

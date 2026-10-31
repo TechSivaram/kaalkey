@@ -15,14 +15,12 @@ export default function EmptyVaultState({ onAddAccount }: EmptyVaultStateProps) 
         <Text style={styles.emptyIconText}>+</Text>
       </View>
 
-      <Text style={styles.emptyTitle}>{t("Your vault starts here")}</Text>
+      <Text style={styles.emptyTitle}>{t("accounts.vaultStartsHere")}</Text>
 
-      <Text style={styles.emptyText}>
-        {t("Add an account using its secret key to generate your first verification code.")}
-      </Text>
+      <Text style={styles.emptyText}>{t("accounts.emptyHint")}</Text>
 
       <TouchableOpacity style={styles.primaryButton} onPress={onAddAccount}>
-        <Text style={styles.primaryButtonText}>{t("Add your first account")}</Text>
+        <Text style={styles.primaryButtonText}>{t("accounts.addFirstAccount")}</Text>
       </TouchableOpacity>
     </View>
   );

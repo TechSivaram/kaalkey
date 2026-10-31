@@ -48,7 +48,9 @@ export default function AccountManualEntryFields(props: Props) {
 
   return (
     <>
-      {!editingId && <Text style={styles.manualEntryLabel}>{t("OR ENTER DETAILS MANUALLY")}</Text>}
+      {!editingId && (
+        <Text style={styles.manualEntryLabel}>{t("accountForm.enterDetailsManually")}</Text>
+      )}
 
       <AccountIdentityFields
         issuer={issuer}

@@ -29,11 +29,11 @@ export default function AccountListToolbar({
           style={styles.searchInput}
           value={searchQuery}
           onChangeText={setSearchQuery}
-          placeholder={t("Search service or account")}
+          placeholder={t("accounts.searchServiceAccount")}
           placeholderTextColor={COLORS.placeholder}
           autoCapitalize="none"
           autoCorrect={false}
-          accessibilityLabel={t("Search accounts")}
+          accessibilityLabel={t("accounts.searchAccounts")}
         />
         {searchQuery.length > 0 && (
           <TouchableOpacity
@@ -41,7 +41,7 @@ export default function AccountListToolbar({
             onPress={() => setSearchQuery("")}
             activeOpacity={BUTTON_ACTIVE_OPACITY}
             accessibilityRole="button"
-            accessibilityLabel={t("Clear search")}
+            accessibilityLabel={t("accounts.clearSearch")}
             hitSlop={8}
           >
             <Text style={styles.clearSearchButtonText}>×</Text>
@@ -49,7 +49,7 @@ export default function AccountListToolbar({
         )}
       </View>
       <View style={styles.sortRow}>
-        <Text style={styles.sortLabel}>{t("SORT BY")}</Text>
+        <Text style={styles.sortLabel}>{t("accounts.sort")}</Text>
         <TouchableOpacity
           style={[styles.sortButton, sortBy === "service" && styles.sortButtonActive]}
           onPress={() => {
@@ -57,12 +57,12 @@ export default function AccountListToolbar({
             setSortBy("service");
           }}
           accessibilityRole="button"
-          accessibilityLabel={t("Sort by service name")}
+          accessibilityLabel={t("accounts.sortServiceName")}
         >
           <Text
             style={[styles.sortButtonText, sortBy === "service" && styles.sortButtonTextActive]}
           >
-            {t("Service")}
+            {t("accounts.service")}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -72,12 +72,12 @@ export default function AccountListToolbar({
             setSortBy("account");
           }}
           accessibilityRole="button"
-          accessibilityLabel={t("Sort by account name")}
+          accessibilityLabel={t("accounts.sortAccountName")}
         >
           <Text
             style={[styles.sortButtonText, sortBy === "account" && styles.sortButtonTextActive]}
           >
-            {t("Account")}
+            {t("accounts.account")}
           </Text>
         </TouchableOpacity>
       </View>

@@ -22,16 +22,16 @@ export default function AccountIdentityFields({
   const { t } = useAppLanguage();
   return (
     <>
-      <Text style={styles.inputLabel}>{t("SERVICE / ISSUER")}</Text>
+      <Text style={styles.inputLabel}>{t("accountForm.serviceIssuer2")}</Text>
       <View style={styles.inputClearWrapper}>
         <TextInput
           style={[styles.input, styles.inputWithClearSpace]}
-          placeholder={t("e.g. Google")}
+          placeholder={t("accountForm.eGGoogle")}
           placeholderTextColor={COLORS.textMuted}
           value={issuer}
           onChangeText={setIssuer}
           autoCapitalize="words"
-          accessibilityLabel={t("Service or issuer")}
+          accessibilityLabel={t("accountForm.serviceIssuer")}
         />
         {issuer.length > 0 && (
           <TouchableOpacity
@@ -39,7 +39,7 @@ export default function AccountIdentityFields({
             onPress={() => setIssuer("")}
             activeOpacity={BUTTON_ACTIVE_OPACITY}
             accessibilityRole="button"
-            accessibilityLabel={t("Clear service or issuer")}
+            accessibilityLabel={t("accountForm.clearServiceIssuer")}
             hitSlop={6}
           >
             <Text style={styles.clearInputButtonText}>×</Text>
@@ -47,17 +47,17 @@ export default function AccountIdentityFields({
         )}
       </View>
 
-      <Text style={styles.inputLabel}>{t("ACCOUNT NAME")}</Text>
+      <Text style={styles.inputLabel}>{t("accountForm.accountName2")}</Text>
       <View style={styles.inputClearWrapper}>
         <TextInput
           style={[styles.input, styles.inputWithClearSpace]}
-          placeholder={t("e.g. you@example.com")}
+          placeholder={t("accountForm.eGExample")}
           placeholderTextColor={COLORS.textMuted}
           value={accountName}
           onChangeText={setAccountName}
           autoCapitalize="none"
           keyboardType="email-address"
-          accessibilityLabel={t("Account name")}
+          accessibilityLabel={t("accountForm.accountName")}
         />
         {accountName.length > 0 && (
           <TouchableOpacity
@@ -65,7 +65,7 @@ export default function AccountIdentityFields({
             onPress={() => setAccountName("")}
             activeOpacity={BUTTON_ACTIVE_OPACITY}
             accessibilityRole="button"
-            accessibilityLabel={t("Clear account name")}
+            accessibilityLabel={t("accountForm.clearAccountName")}
             hitSlop={6}
           >
             <Text style={styles.clearInputButtonText}>×</Text>

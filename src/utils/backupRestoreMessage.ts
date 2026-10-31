@@ -1,15 +1,19 @@
+import type { AppLanguage } from "../i18n";
+import { translate } from "../i18n";
+
 /** Returns the completion copy shown after a backup restore. */
-export function getRestoreCompletionMessage(added: number, restored: number): string {
-  const addedLabel = added === 1 ? "account" : "accounts";
+export function getRestoreCompletionMessage(
+  added: number,
+  restored: number,
+  language: AppLanguage,
+): string {
   const skipped = restored - added;
-  const skippedLabel = skipped === 1 ? "account was" : "accounts were";
-  return `Added ${added} ${addedLabel}. ${skipped} duplicate ${skippedLabel} skipped. Your existing accounts were kept.`;
+  return translate(language, "backupRestore.restoreCompletionBody", { added, skipped });
 }
 
 /** Returns the confirmation copy shown before merging restored accounts. */
-export function getRestoreConfirmationMessage(accountCount: number): string {
-  const accountLabel = accountCount === 1 ? "account" : "accounts";
-  return `This backup contains ${accountCount} ${accountLabel}. KaalKey will keep your existing accounts and add accounts from the backup that are not already present. Duplicate accounts will be skipped.`;
+export function getRestoreConfirmationMessage(accountCount: number, language: AppLanguage): string {
+  return translate(language, "backupRestore.mergeConfirmationBody", { count: accountCount });
 }
 
 /** Returns the password-length validation copy shown before backup encryption. */

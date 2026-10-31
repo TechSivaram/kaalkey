@@ -21,14 +21,10 @@ export default function VaultLockScreen({ biometricReady, authenticating, onUnlo
         </View>
         <Text style={styles.lockBrand}>KaalKey</Text>
         <Text style={styles.lockTitle}>
-          {!biometricReady ? t("Securing your vault…") : t("Your vault is protected")}
+          {!biometricReady ? t("home.securingVault") : t("home.vaultProtected")}
         </Text>
         <Text style={styles.lockDescription}>
-          {!biometricReady
-            ? t("Checking your secure lock settings. Your codes remain hidden.")
-            : t(
-                "Use your phone’s biometrics or screen-lock PIN, pattern, or password to access your one-time verification codes.",
-              )}
+          {!biometricReady ? t("home.checkingSecureLock") : t("home.unlockRequirement")}
         </Text>
         {biometricReady && (
           <TouchableOpacity
@@ -38,11 +34,11 @@ export default function VaultLockScreen({ biometricReady, authenticating, onUnlo
             activeOpacity={BUTTON_ACTIVE_OPACITY_SOFT}
           >
             <Text style={styles.unlockButtonText}>
-              {authenticating ? t("Waiting for verification…") : t("Unlock securely")}
+              {authenticating ? t("home.waitingVerification") : t("home.unlockSecurely")}
             </Text>
           </TouchableOpacity>
         )}
-        <Text style={styles.lockFootnote}>{t("Your secrets stay stored on this device.")}</Text>
+        <Text style={styles.lockFootnote}>{t("home.secretsStayStored")}</Text>
       </View>
     </SafeAreaView>
   );

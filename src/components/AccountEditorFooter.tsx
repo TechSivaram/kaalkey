@@ -15,12 +15,12 @@ export default function AccountEditorFooter({ editingId, onSave, onCancel }: Pro
     <View>
       <TouchableOpacity style={styles.primaryButton} onPress={() => void onSave()}>
         <Text style={styles.primaryButtonText}>
-          {editingId ? t("Save changes securely") : t("Save account securely")}
+          {editingId ? t("accountForm.saveChangesSecurely") : t("accountForm.saveAccountSecurely")}
         </Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.cancelButton} onPress={onCancel}>
-        <Text style={styles.cancelButtonText}>{t("Cancel")}</Text>
+        <Text style={styles.cancelButtonText}>{t("messages.account.cancelButton")}</Text>
       </TouchableOpacity>
     </View>
   );

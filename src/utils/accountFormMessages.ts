@@ -7,9 +7,7 @@ import { USER_MESSAGES } from "../constants/userMessages";
 
 /** Copy shown when required account fields are missing. */
 export function getMissingAccountInfoMessage(editing: boolean): string {
-  return editing
-    ? USER_MESSAGES.account.missingEditingBody
-    : USER_MESSAGES.account.missingBody;
+  return editing ? USER_MESSAGES.account.missingEditingBody : USER_MESSAGES.account.missingBody;
 }
 
 /** Copy shown when account OTP configuration is invalid. */

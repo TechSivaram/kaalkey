@@ -18,7 +18,7 @@ export default function AccountTotpUrlImport({ value, setValue, onImport, onPast
   const { t } = useAppLanguage();
   return (
     <View style={inlineStyles.fieldGroup}>
-      <Text style={styles.inputLabel}>{t("TOTP SETUP URL")}</Text>
+      <Text style={styles.inputLabel}>{t("accountForm.totpSetupUrl2")}</Text>
       <View style={inlineStyles.urlInputRow}>
         <TextInput
           style={[styles.input, inlineStyles.urlInput]}
@@ -28,13 +28,13 @@ export default function AccountTotpUrlImport({ value, setValue, onImport, onPast
           onChangeText={setValue}
           autoCapitalize="none"
           autoCorrect={false}
-          accessibilityLabel={t("TOTP setup URL")}
+          accessibilityLabel={t("accountForm.totpSetupUrl")}
         />
         <TouchableOpacity
           style={inlineStyles.inlineImportButton}
           onPress={() => void onImport(value)}
           accessibilityRole="button"
-          accessibilityLabel={t("Import setup URL")}
+          accessibilityLabel={t("accountForm.importSetupUrl")}
           disabled={!value.trim()}
         >
           <Text style={inlineStyles.inlineImportIcon}>↧</Text>

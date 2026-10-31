@@ -35,9 +35,7 @@ export default function LegalNoticeFooter({
           <View style={inlineStyles.checkbox}>
             <Text style={inlineStyles.checkmark}>{legalChecked ? "✓" : ""}</Text>
           </View>
-          <Text style={inlineStyles.agreement}>
-            {t("I have read and agree to the Privacy Policy and Terms of Use.")}
-          </Text>
+          <Text style={inlineStyles.agreement}>{t("legal.iReadAgree")}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           disabled={!legalChecked || legalSaving}
@@ -45,7 +43,7 @@ export default function LegalNoticeFooter({
           style={inlineStyles.accept}
         >
           <Text style={inlineStyles.acceptText}>
-            {legalSaving ? t("Saving…") : t("Accept & Continue")}
+            {legalSaving ? t("legal.saving") : t("legal.acceptContinue")}
           </Text>
         </TouchableOpacity>
       </>
@@ -54,7 +52,7 @@ export default function LegalNoticeFooter({
 
   return (
     <TouchableOpacity onPress={onDone} style={inlineStyles.done}>
-      <Text style={inlineStyles.doneText}>{t("Done")}</Text>
+      <Text style={inlineStyles.doneText}>{t("common.doneButton")}</Text>
     </TouchableOpacity>
   );
 }

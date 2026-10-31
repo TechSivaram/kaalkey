@@ -13,20 +13,20 @@ export default function SplashScreen() {
           source={require("../../assets/images/kaalkey-full-logo-white.png")}
           style={styles.splashLogo}
           resizeMode="contain"
-          accessibilityLabel={t("KaalKey tricolour lock emblem")}
+          accessibilityLabel={t("home.tricolourLockEmblem")}
         />
         <Text style={styles.splashTitle}>
           <Text style={styles.splashKaal}>Kaal</Text>
           <Text style={styles.splashK}>K</Text>
           <Text style={styles.splashEy}>ey</Text>
         </Text>
-        <Text style={styles.splashSubtitle}>{t("KAALKEY AUTHENTICATOR")}</Text>
+        <Text style={styles.splashSubtitle}>{t("home.authenticator")}</Text>
         <View style={styles.splashBadge}>
           <View style={styles.splashDot} />
-          <Text style={styles.splashBadgeText}>{t("YOUR LOCAL VAULT")}</Text>
+          <Text style={styles.splashBadgeText}>{t("home.localVault")}</Text>
         </View>
         <View style={styles.splashDivider} />
-        <Text style={styles.splashTagline}>{t("Your codes. Your device. Your control.")}</Text>
+        <Text style={styles.splashTagline}>{t("home.codesDeviceControl")}</Text>
       </View>
     </SafeAreaView>
   );

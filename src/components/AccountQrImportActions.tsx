@@ -17,14 +17,12 @@ export default function AccountQrImportActions({ onScan, onImportImage, onPasteI
         style={styles.scanButton}
         onPress={() => void onScan()}
         accessibilityRole="button"
-        accessibilityLabel={t("Scan authenticator QR code")}
+        accessibilityLabel={t("addAccount.scanAuthenticatorQr")}
       >
         <Text style={styles.scanButtonIcon}>▦</Text>
         <View style={styles.scanButtonCopy}>
-          <Text style={styles.scanButtonTitle}>{t("Scan QR code")}</Text>
-          <Text style={styles.scanButtonSubtitle}>
-            {t("Use your camera to add an account instantly")}
-          </Text>
+          <Text style={styles.scanButtonTitle}>{t("addAccount.scanQrCode2")}</Text>
+          <Text style={styles.scanButtonSubtitle}>{t("addAccount.cameraAddAccount")}</Text>
         </View>
         <Text style={styles.scanButtonArrow}>›</Text>
       </TouchableOpacity>
@@ -33,14 +31,12 @@ export default function AccountQrImportActions({ onScan, onImportImage, onPasteI
         style={[styles.scanButton, styles.importQrButton]}
         onPress={() => void onImportImage()}
         accessibilityRole="button"
-        accessibilityLabel={t("Upload QR image")}
+        accessibilityLabel={t("addAccount.uploadQrImage")}
       >
         <Text style={styles.scanButtonIcon}>▧</Text>
         <View style={styles.scanButtonCopy}>
-          <Text style={styles.scanButtonTitle}>{t("Upload QR Image")}</Text>
-          <Text style={styles.scanButtonSubtitle}>
-            {t("Choose a QR screenshot from Gallery, Photos, or Files")}
-          </Text>
+          <Text style={styles.scanButtonTitle}>{t("addAccount.uploadQrImage2")}</Text>
+          <Text style={styles.scanButtonSubtitle}>{t("addAccount.chooseQrScreenshot")}</Text>
         </View>
         <Text style={styles.scanButtonArrow}>›</Text>
       </TouchableOpacity>
@@ -52,10 +48,8 @@ export default function AccountQrImportActions({ onScan, onImportImage, onPasteI
       >
         <Text style={styles.scanButtonIcon}>▣</Text>
         <View style={styles.scanButtonCopy}>
-          <Text style={styles.scanButtonTitle}>{t("Paste QR Image / URL")}</Text>
-          <Text style={styles.scanButtonSubtitle}>
-            {t("Paste a copied QR image or authenticator setup URL")}
-          </Text>
+          <Text style={styles.scanButtonTitle}>{t("addAccount.pasteQr")}</Text>
+          <Text style={styles.scanButtonSubtitle}>{t("addAccount.pasteCopiedQr")}</Text>
         </View>
         <Text style={styles.scanButtonArrow}>›</Text>
       </TouchableOpacity>

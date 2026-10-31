@@ -16,10 +16,10 @@ export default function LegalDocumentTabs({ legalDocument, setLegalDocument }: P
   return (
     <View style={inlineStyles.tabs}>
       <TouchableOpacity onPress={() => setLegalDocument("privacy")} style={inlineStyles.privacyTab}>
-        <Text style={inlineStyles.privacyText}>{t("Privacy Policy")}</Text>
+        <Text style={inlineStyles.privacyText}>{t("legal.privacy.title")}</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => setLegalDocument("terms")} style={inlineStyles.termsTab}>
-        <Text style={inlineStyles.termsText}>{t("Terms of Use")}</Text>
+        <Text style={inlineStyles.termsText}>{t("legal.terms.title")}</Text>
       </TouchableOpacity>
     </View>
   );

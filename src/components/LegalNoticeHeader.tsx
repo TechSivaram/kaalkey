@@ -14,7 +14,7 @@ export default function LegalNoticeHeader({ firstLaunch }: Props) {
           source={require("../../assets/images/kaalkey-emblem.png")}
           style={inlineStyles.emblem}
           resizeMode="contain"
-          accessibilityLabel={t("Original multicolour KaalKey authenticator emblem")}
+          accessibilityLabel={t("legal.originalMulticolourAuthenticator")}
         />
         <View style={inlineStyles.copy}>
           <Text style={inlineStyles.brand}>
@@ -22,22 +22,18 @@ export default function LegalNoticeHeader({ firstLaunch }: Props) {
             <Text style={inlineStyles.blue}>K</Text>
             <Text style={inlineStyles.green}>ey</Text>
           </Text>
-          <Text style={inlineStyles.subtitle}>{t("AUTHENTICATOR")}</Text>
+          <Text style={inlineStyles.subtitle}>{t("home.authenticator2")}</Text>
           <View style={inlineStyles.badge}>
             <View style={inlineStyles.dot} />
-            <Text style={inlineStyles.badgeText}>{t("LOCAL VAULT")}</Text>
+            <Text style={inlineStyles.badgeText}>{t("home.localVault2")}</Text>
           </View>
         </View>
       </View>
       <Text style={inlineStyles.title}>
-        {firstLaunch ? t("Legal & Privacy Notice") : t("Legal information")}
+        {firstLaunch ? t("legal.legalPrivacyNotice") : t("legal.legalInformation")}
       </Text>
       <Text style={inlineStyles.description}>
-        {firstLaunch
-          ? t(
-              "Please review both documents before using KaalKey. They are included in the app and available offline.",
-            )
-          : t("Review KaalKey’s privacy information and terms of use.")}
+        {firstLaunch ? t("legal.reviewBothDocuments") : t("legal.reviewSPrivacy")}
       </Text>
     </>
   );

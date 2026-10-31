@@ -32,7 +32,7 @@ export default function AccountListContent({
   const { t } = useAppLanguage();
 
   if (!loaded) {
-    return <Text style={styles.emptyText}>{t("Loading secure vault...")}</Text>;
+    return <Text style={styles.emptyText}>{t("accounts.loadingSecureVault")}</Text>;
   }
 
   if (accounts.length === 0) {
@@ -40,7 +40,7 @@ export default function AccountListContent({
   }
 
   if (visibleAccounts.length === 0) {
-    return <Text style={styles.emptyText}>{t("No accounts match your search.")}</Text>;
+    return <Text style={styles.emptyText}>{t("accounts.noAccountsMatch")}</Text>;
   }
 
   return visibleAccounts.map((account) => (

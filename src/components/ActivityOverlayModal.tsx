@@ -26,7 +26,7 @@ export default function ActivityOverlayModal({ insets, activityMessage }: Props)
     >
       <View
         accessibilityRole="progressbar"
-        accessibilityLabel={activityMessage ?? t("Working")}
+        accessibilityLabel={activityMessage ?? t("activity.working")}
         // Keep the activity layer above every app dialog on web and native.
         // The Modal is rendered last in this screen so it also wins portal order.
         pointerEvents="auto"
@@ -34,8 +34,8 @@ export default function ActivityOverlayModal({ insets, activityMessage }: Props)
       >
         <View style={inlineStyles.card}>
           <ActivityIndicator size="large" color={COLORS.saffronDark} />
-          <Text style={inlineStyles.message}>{activityMessage ?? t("Please wait…")}</Text>
-          <Text style={inlineStyles.hint}>{t("Please don’t close or interact with KaalKey.")}</Text>
+          <Text style={inlineStyles.message}>{activityMessage ?? t("activity.wait")}</Text>
+          <Text style={inlineStyles.hint}>{t("activity.donTClose")}</Text>
         </View>
       </View>
     </Modal>

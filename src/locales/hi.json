@@ -1,5 +1,502 @@
 {
-  "language": "भाषा",
-  "languageDescription": "KaalKey में उपयोग की जाने वाली भाषा चुनें।",
-  "done": "हो गया"
+  "settings": {
+    "language": {
+      "name": "भाषा",
+      "description": "KaalKey में उपयोग की जाने वाली भाषा चुनें।",
+      "english": "अंग्रेज़ी",
+      "telugu": "तेलुगु",
+      "hindi": "हिन्दी",
+      "section": "भाषा",
+      "searchLanguageName": "भाषा खोजें (नाम या कोड)",
+      "searchSupportedLanguages": "समर्थित भाषाएँ खोजें",
+      "closeLanguageDropdown": "भाषा सूची बंद करें",
+      "noTranslatedLanguage": "कोई भाषा नहीं मिली।"
+    },
+    "title": "ऐप सेटिंग्स",
+    "eyebrow": "KAALKEY प्राथमिकताएँ",
+    "experience": {
+      "section": "अनुभव"
+    },
+    "security": {
+      "section": "सुरक्षा"
+    },
+    "backup": {
+      "section": "बैकअप और पुनर्प्राप्ति"
+    },
+    "danger": {
+      "section": "खतरे का क्षेत्र",
+      "clearAccounts": "सभी खाते हटाएँ",
+      "clearAccountsDescription": "इस डिवाइस से सभी खाते और रहस्य स्थायी रूप से हटाएँ। पहले बैकअप लें।",
+      "clearAccountsAccessibilityLabel": "सभी ऑथेंटिकेटर खाते हटाएँ"
+    },
+    "appearance": {
+      "section": "रूप",
+      "title": "लाइट थीम",
+      "description": "KaalKey अभी अपनी साफ़ लाइट थीम का उपयोग करता है।"
+    },
+    "haptics": {
+      "title": "हैप्टिक प्रतिक्रिया",
+      "description": "टैप और पूर्ण किए गए कार्यों के लिए हल्की प्रतिक्रिया।"
+    },
+    "deviceLock": {
+      "title": "डिवाइस प्रमाणीकरण लॉक",
+      "description": "KaalKey के बैकग्राउंड में जाने पर आपका वॉल्ट लॉक हो जाता है।",
+      "requirement": "अपने फ़ोन का बायोमेट्रिक या स्क्रीन लॉक PIN, पैटर्न या पासवर्ड आवश्यक करें।",
+      "accessibilityLabel": "डिवाइस प्रमाणीकरण ऐप लॉक"
+    },
+    "privacy": {
+      "title": "कानूनी जानकारी और गोपनीयता",
+      "description": "गोपनीयता नीति और उपयोग की शर्तें देखें।",
+      "storageNote": "आपके ऑथेंटिकेटर रहस्य डिवाइस के सुरक्षित वॉल्ट में रहते हैं। प्राथमिकताएँ स्थानीय रूप से संग्रहीत हैं।"
+    }
+  },
+  "accounts": {
+    "edit": "संपादित करें",
+    "sortAccountName": "खाते के नाम से क्रमबद्ध करें",
+    "loadingSecureVault": "सुरक्षित वॉल्ट लोड हो रहा है...",
+    "tapCopy": "कॉपी करने के लिए टैप करें",
+    "noAccountsMatch": "आपकी खोज से कोई खाता मेल नहीं खाता।",
+    "viewQrCode": "खाते का QR कोड देखें",
+    "removeAccount": "खाता हटाएँ",
+    "copyVerificationCode": "सत्यापन कोड कॉपी करें",
+    "active": "सक्रिय",
+    "sort": "क्रमबद्ध करें",
+    "account": "खाता",
+    "clearSearch": "खोज साफ़ करें",
+    "sortServiceName": "सेवा के नाम से क्रमबद्ध करें",
+    "addFirstAccount": "अपना पहला खाता जोड़ें",
+    "searchAccounts": "खाते खोजें",
+    "searchServiceAccount": "सेवा या खाता खोजें",
+    "accounts": "आपके खाते",
+    "add": "+ जोड़ें",
+    "vaultStartsHere": "आपका वॉल्ट यहाँ शुरू होता है",
+    "service": "सेवा",
+    "emptyHint": "अपना पहला सत्यापन कोड बनाने के लिए गुप्त कुंजी से खाता जोड़ें।"
+  },
+  "common": {
+    "done": "हो गया",
+    "doneButton": "पूर्ण",
+    "closeSettings": "सेटिंग्स बंद करें",
+    "separator": "−",
+    "article": "a",
+    "save": "सहेजें",
+    "delete": "हटाएँ",
+    "resizeAppBrand": "ऐप और ब्रांड पैनल का आकार बदलें"
+  },
+  "qrImport": {
+    "readPastedImage": "पेस्ट की गई इमेज नहीं पढ़ी जा सकी"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "इस बैकअप में खातों की संख्या: {count}। KaalKey आपके मौजूदा खातों को बनाए रखेगा और केवल नए खातों को बैकअप से जोड़ेगा। डुप्लिकेट खाते छोड़ दिए जाएंगे।",
+    "restoreCompletionBody": "जोड़े गए खाते: {added}। छोड़े गए डुप्लिकेट खाते: {skipped}। आपके मौजूदा खाते सुरक्षित रखे गए हैं।",
+    "copyPassword": "बनाया गया पासवर्ड कॉपी करें",
+    "passwordSafety": "इस पासवर्ड को अलग से सुरक्षित रखें (जैसे WhatsApp में)। जिसके पास दोनों हों",
+    "importAction": "फ़ाइल चुनें और आयात करें",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "सुरक्षित वॉल्ट",
+    "createBackup": "बैकअप बनाएँ",
+    "encryptedFile": "एन्क्रिप्टेड फ़ाइल",
+    "restoreBackup": "बैकअप पुनर्स्थापित करें",
+    "safetyNote": "बैकअप में आपके ऑथेंटिकेटर रहस्य होते हैं। KaalKey हर बैकअप के लिए एक अलग पासवर्ड बनाता है। उसे अलग से सुरक्षित रखें; KaalKey उसे पुनर्प्राप्त नहीं कर सकता।",
+    "generatingSecurePassword": "सुरक्षित पासवर्ड बनाया जा रहा है…",
+    "importFile": "फ़ाइल आयात करें",
+    "backupPassword": "बैकअप पासवर्ड",
+    "account": "खाता",
+    "accounts": "खाते",
+    "exportDescription": "{count} सहेजे गए {accountLabel} को बैकअप फ़ाइल में एन्क्रिप्ट करें। KaalKey एक विशिष्ट पासवर्ड बनाता है; उसे कॉपी करके फ़ाइल से अलग सुरक्षित रखें.",
+    "restoreDescription": "अपनी KaalKey बैकअप फ़ाइल और पासवर्ड चुनें। नए खाते आपकी मौजूदा खाते की सूची में जोड़े जाएंगे; मौजूदा खाते वैसे ही रहेंगे.",
+    "enterBackupPassword": "बैकअप पासवर्ड दर्ज करें",
+    "closeBackup": "बैकअप बंद करें",
+    "copyGeneratedBackup": "बनाया गया बैकअप पासवर्ड कॉपी करें",
+    "backupPassword2": "बैकअप पासवर्ड",
+    "clearBackupPassword": "बैकअप पासवर्ड साफ़ करें",
+    "backupFilePassword": "वह बैकअप फ़ाइल और पासवर्ड से आपके ऑथेंटिकेटर खाते पुनर्स्थापित कर सकता है।",
+    "encryptShareBackup": "बैकअप एन्क्रिप्ट करके साझा करें"
+  },
+  "home": {
+    "unlockSecurely": "सुरक्षित रूप से अनलॉक करें",
+    "disableAppLock": "ऐप लॉक बंद करें",
+    "enableAppLock": "ऐप लॉक चालू करें",
+    "checkingSecureLock": "आपकी सुरक्षित लॉक सेटिंग जाँची जा रही हैं। आपके कोड छिपे रहेंगे।",
+    "waitingVerification": "सत्यापन की प्रतीक्षा…",
+    "secretsStayStored": "आपके रहस्य इसी डिवाइस पर संग्रहीत रहते हैं।",
+    "openAppSettings": "ऐप सेटिंग खोलें",
+    "versionLabel": "संस्करण",
+    "unlockRequirement": "अपने वन-टाइम सत्यापन कोड देखने के लिए फ़ोन का बायोमेट्रिक्स या स्क्रीन लॉक PIN, पैटर्न अथवा पासवर्ड इस्तेमाल करें।",
+    "localVault": "आपका स्थानीय वॉल्ट",
+    "codesDeviceControl": "आपके कोड। आपका डिवाइस। आपका नियंत्रण।",
+    "securingVault": "आपका वॉल्ट सुरक्षित किया जा रहा है…",
+    "vaultProtected": "आपका वॉल्ट सुरक्षित है",
+    "lock": "लॉक चालू",
+    "localVault2": "स्थानीय वॉल्ट",
+    "authenticator": "कालकी ऑथेंटिकेटर",
+    "tricolourLockEmblem": "KaalKey तिरंगा लॉक चिह्न",
+    "authenticator2": "ऑथेंटिकेटर"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "यदि आप QR कोड स्कैन करते हैं, तो KaalKey उस कार्य के लिए कैमरा अनुमति का उपयोग करता है। वैकल्पिक डिवाइस प्रमाणीकरण और हैप्टिक प्रतिक्रिया संबंधित डिवाइस सुविधाओं का उपयोग करते हैं। आप डिवाइस सेटिंग्स में अनुमतियाँ प्रबंधित कर सकते हैं।",
+        "heading": "2. अनुमतियाँ और डिवाइस सुविधाएँ"
+      },
+      "backups": {
+        "body": "बैकअप बनाते समय KaalKey आपके चुने हुए पासवर्ड से उसे एन्क्रिप्ट करता है। फ़ाइल और पासवर्ड दोनों को निजी और सुरक्षित रखें। फ़ाइल और पासवर्ड प्राप्त करने वाला व्यक्ति आपके ऑथेंटिकेटर खाते पुनर्स्थापित कर सकता है। KaalKey भूला हुआ बैकअप पासवर्ड पुनर्प्राप्त नहीं कर सकता।",
+        "heading": "3. बैकअप"
+      },
+      "security": {
+        "body": "अपने डिवाइस को अपडेट रखें, स्क्रीन लॉक से सुरक्षित करें और OTP रहस्य या बैकअप पासवर्ड साझा न करें। ऐप हटाने, उसका डेटा साफ़ करने या डिवाइस खोने से स्थानीय खाते अनुपलब्ध हो सकते हैं। पुनर्प्राप्ति के लिए सुरक्षित बैकअप रखें।",
+        "heading": "5. सुरक्षा और डेटा रखना"
+      },
+      "information": {
+        "heading": "1. जानकारी और गोपनीय जानकारी",
+        "body": "KaalKey एक ऑथेंटिकेटर ऐप है। खाते के नाम और एक बार उपयोग होने वाले कोड बनाने के लिए आवश्यक गुप्त मान संवेदनशील हैं। ऐप खाते के रिकॉर्ड को डिवाइस के सुरक्षित संग्रहण में रखने के लिए बनाया गया है। अनलॉक डिवाइस या निर्यात किए गए बैकअप तक पहुँच रखने वाला व्यक्ति संवेदनशील जानकारी देख सकता है।"
+      },
+      "sharing": {
+        "heading": "4. साझा करना और तृतीय पक्ष",
+        "body": "बैकअप प्रक्रिया फ़ाइलों को सहेजने, स्थानांतरित करने या चुनने के लिए आपके डिवाइस के शेयर विकल्प या फ़ाइल चयनकर्ता का उपयोग कर सकती है। आपके चुने हुए तृतीय-पक्ष ऐप या सेवा की गोपनीयता नीतियाँ उस प्रदाता द्वारा निर्धारित होती हैं। यह सूचना यह दावा नहीं करती कि आपका डिवाइस, ऑपरेटिंग सिस्टम या चुनी हुई साझा सेवाएँ कभी डेटा संसाधित नहीं करतीं।"
+      },
+      "changes": {
+        "heading": "6. बदलाव और संपर्क",
+        "body": "इस सूचना को भविष्य के ऐप रिलीज़ में संशोधित किया जा सकता है। गोपनीयता प्रश्नों के लिए ऐप के साथ दिए गए आधिकारिक सहायता माध्यम से प्रकाशक से संपर्क करें।"
+      },
+      "title": "गोपनीयता नीति"
+    },
+    "terms": {
+      "use": {
+        "body": "आप उन खातों के लिए सत्यापन कोड बनाने हेतु KaalKey का उपयोग कर सकते हैं जिन तक पहुँचने की अनुमति है। लागू कानूनों और संबंधित सेवाओं के नियमों का पालन करना आपकी ज़िम्मेदारी है।",
+        "heading": "1. आपका उपयोग"
+      },
+      "protectAccounts": {
+        "body": "अपने डिवाइस, ऑथेंटिकेटर रहस्य, पुनर्प्राप्ति तरीके, निर्यात किए गए बैकअप और बैकअप पासवर्ड सुरक्षित रखना आपकी ज़िम्मेदारी है। भरोसा न होने वाले लोगों से कोड या रहस्य साझा न करें।",
+        "heading": "2. अपने खातों की सुरक्षा करें"
+      },
+      "availability": {
+        "body": "रिलीज़ के बीच सुविधाएँ बदल सकती हैं। ऐप अपडेट रखें और समय-समय पर जाँचें कि बैकअप और पुनर्प्राप्ति व्यवस्था काम करती है।",
+        "heading": "5. बदलाव और उपलब्धता"
+      },
+      "recovery": {
+        "body": "KaalKey यह गारंटी नहीं देता कि हर खाते को पुनर्प्राप्त किया जा सकेगा, हर QR कोड या कॉन्फ़िगरेशन संगत होगा, या ऐप बिना रुकावट अथवा त्रुटि के चलेगा। संबंधित सेवा के वैकल्पिक पुनर्प्राप्ति तरीके रखें।",
+        "heading": "3. पुनर्प्राप्ति की गारंटी नहीं"
+      },
+      "advice": {
+        "heading": "4. पेशेवर सलाह नहीं",
+        "body": "यह ऐप एक उपयोगिता है और कानूनी, वित्तीय या सुरक्षा घटना-प्रतिक्रिया सलाह नहीं देता। खाता प्रभावित होने पर संबंधित सेवा के आधिकारिक पुनर्प्राप्ति और सुरक्षा निर्देशों का पालन करें।"
+      },
+      "liability": {
+        "heading": "6. दायित्व और लागू कानून",
+        "body": "लागू कानून की अनुमति की सीमा तक, ऐप निर्बाध या त्रुटि-मुक्त संचालन की गारंटी के बिना प्रदान किया जाता है। इन शर्तों में ऐसे अधिकार या उपाय शामिल नहीं हैं जिन्हें कानूनन हटाया नहीं जा सकता। प्रकाशक के क्षेत्राधिकार की अतिरिक्त सीमाओं या लागू कानून की शर्तों की रिलीज़ से पहले योग्य वकील समीक्षा करें।"
+      },
+      "title": "उपयोग की शर्तें"
+    },
+    "version": "संस्करण",
+    "saving": "सेव हो रहा है…",
+    "acceptContinue": "स्वीकार करें और जारी रखें",
+    "appliesAuthenticator": "KaalKey ऑथेंटिकेटर पर लागू",
+    "reviewBothDocuments": "KaalKey का उपयोग करने से पहले दोनों दस्तावेज़ पढ़ें। वे ऐप में शामिल हैं और ऑफ़लाइन उपलब्ध हैं।",
+    "originalMulticolourAuthenticator": "KaalKey का मूल बहुरंगी ऑथेंटिकेटर चिह्न",
+    "legalPrivacyNotice": "कानूनी और गोपनीयता सूचना",
+    "legalInformation": "कानूनी जानकारी",
+    "reviewSPrivacy": "KaalKey की गोपनीयता जानकारी और उपयोग की शर्तें देखें।",
+    "iReadAgree": "मैंने गोपनीयता नीति और उपयोग की शर्तें पढ़ ली हैं और सहमत हूँ।"
+  },
+  "qrScanner": {
+    "keepEntireQr": "पूरा QR कोड दिखाई देता रहे। आपकी गुप्त कुंजी इसी डिवाइस पर रहती है।",
+    "back": "वापस",
+    "turnFlashlightOff": "फ़्लैशलाइट बंद करें",
+    "turnFlashlight": "फ़्लैशलाइट चालू करें",
+    "flashlight": "फ़्लैशलाइट चालू है",
+    "flashlight2": "फ़्लैशलाइट",
+    "cameraUnavailableOpen": "कैमरा उपलब्ध नहीं है। इस पेज को HTTPS या localhost पर खोलें और कैमरा अनुमति दें।",
+    "cameraPreviewUnavailable": "कैमरा पूर्वावलोकन उपलब्ध नहीं है। स्कैनर बंद करके फिर खोलें।",
+    "cameraReadyPoint": "कैमरा तैयार है — इसे पूरे QR कोड की ओर रखें।",
+    "browserCannotProcess": "यह ब्राउज़र कैमरा फ़्रेम संसाधित नहीं कर सकता।",
+    "qrCodeDetected": "QR कोड मिल गया।",
+    "couldnTRead": "कैमरा फ़्रेम पढ़ नहीं सके। कैमरा अनुमति जाँचें और पेज फिर से लोड करें।",
+    "cameraPermissionDenied": "कैमरा अनुमति नहीं मिली। ब्राउज़र सेटिंग्स में कैमरा अनुमति दें और स्कैनर फिर खोलें।",
+    "noCameraWas": "इस डिवाइस पर कोई कैमरा नहीं मिला।",
+    "cameraBusyAnother": "कैमरा किसी अन्य ऐप या ब्राउज़र टैब में उपयोग हो रहा है।",
+    "startCameraHttps": "कैमरा शुरू नहीं हो सका। HTTPS या localhost का उपयोग करें और ब्राउज़र अनुमति जाँचें।",
+    "qrScannerCamera": "QR स्कैनर कैमरा पूर्वावलोकन",
+    "cameraUnavailableCheck": "कैमरा उपलब्ध नहीं है। कैमरा अनुमति जाँचें और फिर कोशिश करें।",
+    "pointCameraAuthenticator": "जिस सेवा को जोड़ रहे हैं, उसके ऑथेंटिकेटर QR कोड पर कैमरा रखें।",
+    "backAddAccount": "खाता जोड़ने पर वापस जाएँ",
+    "secureSetup": "सुरक्षित सेटअप",
+    "enterDetailsManually": "इसके बजाय विवरण मैन्युअल रूप से दर्ज करें"
+  },
+  "accountForm": {
+    "hideManualEntry": "मैन्युअल प्रविष्टि छिपाएँ",
+    "secretKeySupplied": "जिस सेवा को सेट कर रहे हैं उसकी दी हुई गुप्त कुंजी इस्तेमाल करें। यहाँ कभी भी अपने खाते का पासवर्ड न डालें। एल्गोरिदम, अंकों की संख्या और अंतराल सेवा के सेटअप निर्देशों से मिलाएँ।",
+    "updateServiceAccount": "सेवा, खाते का नाम या गुप्त कुंजी अपडेट करें।",
+    "secretKeyRead": "संपादन के दौरान गुप्त कुंजी केवल पढ़ने योग्य है",
+    "secretKeyBase32": "Base32 में गुप्त कुंजी",
+    "digits": "अंक",
+    "seconds": "सेकंड",
+    "enterDetailsManually": "या विवरण मैन्युअल रूप से दर्ज करें",
+    "enterDetailsManually2": "विवरण मैन्युअल रूप से दर्ज करें",
+    "serviceAccountName": "सेवा, खाते का नाम और गुप्त कुंजी",
+    "saveChangesSecurely": "बदलाव सुरक्षित रूप से सहेजें",
+    "saveAccountSecurely": "खाता सुरक्षित रूप से सहेजें",
+    "serviceIssuer": "सेवा या जारीकर्ता",
+    "accountName": "खाता नाम",
+    "secretKey": "गुप्त कुंजी",
+    "serviceIssuer2": "सेवा / जारीकर्ता",
+    "eGGoogle": "जैसे Google",
+    "clearServiceIssuer": "सेवा या जारीकर्ता साफ़ करें",
+    "eGExample": "जैसे you@example.com",
+    "clearAccountName": "खाता नाम साफ़ करें",
+    "secretKeyLocked": "गुप्त कुंजी (लॉक)",
+    "secretKeyBase322": "गुप्त कुंजी (BASE32)",
+    "enterSetupKey": "अपनी सेटअप कुंजी दर्ज करें",
+    "clearSecretKey": "गुप्त कुंजी साफ़ करें",
+    "otpAlgorithm": "OTP एल्गोरिदम",
+    "otpDigits": "OTP अंक",
+    "refreshIntervalSeconds": "रिफ़्रेश अंतराल (सेकंड)",
+    "otpRefreshInterval": "सेकंड में OTP रिफ़्रेश अंतराल",
+    "closeAccountForm": "खाता फ़ॉर्म बंद करें",
+    "totpSetupUrl": "TOTP सेटअप URL",
+    "importSetupUrl": "सेटअप URL आयात करें",
+    "totpSetupUrl2": "TOTP सेटअप URL",
+    "accountName2": "खाता नाम",
+    "addAccount": "खाता जोड़ें"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "ऑथेंटिकेटर QR कोड स्कैन करें",
+    "setupGuidance": "आसान सेटअप के लिए QR कोड स्कैन करें या विवरण मैन्युअल रूप से दर्ज करें।",
+    "cameraAddAccount": "खाता तुरंत जोड़ने के लिए कैमरे का उपयोग करें",
+    "scanQrCode2": "QR कोड स्कैन करें",
+    "uploadQrImage": "QR छवि अपलोड करें",
+    "chooseQrScreenshot": "गैलरी, फ़ोटो या फ़ाइलों से QR स्क्रीनशॉट चुनें",
+    "pasteQr": "QR छवि / URL पेस्ट करें",
+    "pasteCopiedQr": "कॉपी की गई QR छवि या ऑथेंटिकेटर सेटअप URL पेस्ट करें",
+    "uploadQrImage2": "QR छवि अपलोड करें"
+  },
+  "accountQr": {
+    "close": "बंद करें",
+    "accountQrCode": "खाता QR कोड",
+    "revealQrCode": "QR कोड दिखाएँ",
+    "exportWarning": "इस QR कोड को स्कैन करने वाला कोई भी व्यक्ति इस खाते के सत्यापन कोड बना सकता है। इसे केवल भरोसेमंद स्क्रीन पर दिखाएँ।",
+    "privacyHint": "इस QR कोड को निजी रखें। इसे स्कैन करने से खाते की ऑथेंटिकेटर गुप्त कुंजी कॉपी हो जाती है।"
+  },
+  "productInfo": {
+    "backupRestore": "बैकअप और पुनर्स्थापना",
+    "backupRestoreDescription": "ऑथेंटिकेटर डेटा का बैकअप लें और दूसरे डिवाइस पर जाने पर उसे पुनर्स्थापित करें।",
+    "privacyDescription": "अपने सत्यापन खाते एक जगह रखें। सेटअप प्रबंधित करने के लिए बैकअप, पुनर्स्थापना और डिवाइस लॉक विकल्पों का उपयोग करें।",
+    "timeBasedCodes": "समय-आधारित कोड",
+    "generateOneTimeCodes": "दो-चरणीय सत्यापन के लिए अपने खातों के बदलते वन-टाइम कोड बनाएँ।",
+    "quickAccountSetup": "त्वरित खाता सेटअप",
+    "quickSetupDescription": "खाता जोड़ने के लिए ऑथेंटिकेटर QR कोड स्कैन करें या QR छवि आयात करें।",
+    "accountsOnePlace": "सभी खाते एक जगह",
+    "accountsInOnePlaceDescription": "अपने खाते एक जगह रखें और साइन इन करते समय सही खाता ढूँढें।",
+    "privateAccountVault": "निजी खाता वॉल्ट",
+    "privateVaultDescription": "अपने ऑथेंटिकेटर खातों को स्थानीय रूप से प्रबंधित करें और डिवाइस लॉक विकल्प का उपयोग करें।",
+    "easyCodeAccess": "कोड तक आसान पहुँच",
+    "easyCodeAccessDescription": "वर्तमान कोड कॉपी करें या सरल इंटरफ़ेस में खाते का विवरण प्रबंधित करें।",
+    "authenticatorTechsivaram": "ऑथेंटिकेटर · TECHSIVARAM द्वारा",
+    "mobileAuthenticator": "आपका मोबाइल ऑथेंटिकेटर",
+    "tagline": "दो-चरणीय सत्यापन प्रबंधित करने का आसान तरीका।",
+    "heroDescription": "समय-आधारित सत्यापन कोड के लिए सरल ऑथेंटिकेटर। Android के KaalKey में अपने खाते के कोड आसानी से पाएँ।",
+    "timeBasedCodes2": "समय-आधारित कोड",
+    "privateDesign": "डिज़ाइन से ही निजी",
+    "builtSimpleAuthenticator": "सरल ऑथेंटिकेटर प्रक्रिया के लिए बनाया गया",
+    "qrSetupTimed": "QR सेटअप · समयबद्ध कोड · खाता प्रबंधन",
+    "privacyTitle": "आपके खाते। आपके कोड। आपका नियंत्रण।",
+    "authenticator": "KAALKEY · ऑथेंटिकेटर",
+    "brandBanner": "KaalKey ब्रांड बैनर",
+    "logo": "KaalKey लोगो"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "रद्द करें",
+      "storageInvalidTitle": "संग्रहण डेटा अमान्य है",
+      "storageInvalidBody": "सहेजा गया खाता डेटा सुरक्षित रूप से पढ़ा नहीं जा सका।",
+      "storageErrorTitle": "संग्रहण त्रुटि",
+      "storageErrorBody": "सहेजे गए खाते लोड नहीं किए जा सके।",
+      "missingTitle": "जानकारी अनुपलब्ध",
+      "missingEditingBody": "सेवा का नाम और खाते का नाम दर्ज करें।",
+      "missingBody": "सेवा का नाम, खाते का नाम और गुप्त कुंजी दर्ज करें।",
+      "invalidOtpBody": "Base32 गुप्त कुंजी, एल्गोरिदम, अंकों की संख्या और रिफ़्रेश अवधि जाँचें। गुप्त कुंजी में मान्य Base32 अक्षर होने चाहिए; अंकों की संख्या {digits} और अवधि {minPeriod}–{maxPeriod} सेकंड होनी चाहिए।",
+      "duplicateBody": "इस सेवा और खाते के नाम वाला खाता पहले से सेव है।",
+      "updatedBody": "आपका खाता अपडेट किया गया।",
+      "addedBody": "आपका खाता सुरक्षित रूप से जोड़ा गया।",
+      "invalidOtpTitle": "अमान्य OTP सेटिंग्स",
+      "duplicateTitle": "खाता पहले से मौजूद है",
+      "savedTitle": "खाता सेव किया गया",
+      "invalidSecretTitle": "अमान्य गुप्त कुंजी",
+      "invalidSecretBody": "कृपया सत्यापन करें कि आपने सही Base32 गुप्त कुंजी दर्ज की है।",
+      "removedTitle": "खाता हटा दिया गया",
+      "removedBody": "खाता और उसकी गुप्त कुंजी इस डिवाइस से हटा दी गई है।",
+      "clearedTitle": "सभी खाते साफ़ हो गए",
+      "clearedBody": "सभी ऑथेंटिकेटर खाते और उनकी कुंजियाँ इस डिवाइस से हटा दी गई हैं।",
+      "someSavedAccountsNeedAttentionTitle": "कुछ सहेजे गए खातों को ध्यान देने की आवश्यकता है",
+      "someSavedAccountsNeedAttentionBody": "{count} अमान्य खाता रिकॉर्ड लोड नहीं किए गए। वैध खाते उपलब्ध हैं। आगे के बदलाव करने से पहले बैकअप बनाना विचार करें।",
+      "removeConfirmTitle": "खाता हटाएँ?",
+      "removeConfirmWebTitle": "खाता हटाएँ?",
+      "removeButton": "हटाएँ",
+      "clearButton": "सभी साफ़ करें",
+      "clearConfirmTitle": "सभी खाते साफ़ करें?",
+      "saveErrorBody": "खाते सेव नहीं किए जा सके। ब्राउज़र स्टोरेज उपलब्ध है या नहीं जाँचें और फिर प्रयास करें।",
+      "notFoundTitle": "खाता नहीं मिला",
+      "notFoundBody": "यह खाता नहीं मिला। एडिटर बंद करें और फिर प्रयास करें।",
+      "removeConfirmBody": "यह खाता और उसकी गुप्त कुंजी इस डिवाइस से हटा देता है।",
+      "clearConfirmBody": "यह सभी ऑथेंटिकेटर खातों और उनकी कुंजियों को इस डिवाइस से स्थायी रूप से हटा देता है। यदि आपको बाद में इन खातों की आवश्यकता हो सकती है, तो पहले एन्क्रिप्टेड बैकअप बनाएं।",
+      "clearConfirmUndoBody": "इसे वापस नहीं किया जा सकता।"
+    },
+    "biometric": {
+      "cancelButton": "रद्द करें",
+      "saveErrorTitle": "सेटिंग सेव नहीं की जा सकी",
+      "unlockPrompt": "KaalKey ऑथेंटिकेटर अनलॉक करें",
+      "promptSubtitle": "बायोमेट्रिक्स या अपने डिवाइस के स्क्रीन लॉक का उपयोग करें",
+      "disableConfirmPrompt": "KaalKey ऐप लॉक बंद करने की पुष्टि करें",
+      "enablePrompt": "KaalKey के लिए ऐप लॉक सक्षम करें",
+      "deviceLockTitle": "अपने डिवाइस स्क्रीन लॉक को सेट करें",
+      "deviceLockBody": "KaalKey आपके फ़ोन की बिल्ट-इन प्रमाणीकरण प्रणाली का उपयोग करता है। अपने फ़ोन की सुरक्षा सेटिंग्स में डिवाइस PIN, पैटर्न या पासवर्ड सेट करें, फिर पुनः प्रयास करें। बायोमेट्रिक्स वैकल्पिक है।",
+      "unavailableTitle": "डिवाइस प्रमाणीकरण उपलब्ध नहीं है",
+      "unavailableBody": "आपके फ़ोन ने सुरक्षित प्रमाणीकरण शुरू नहीं किया। सुनिश्चित करें कि डिवाइस स्क्रीन लॉक कॉन्फ़िगर है, फिर पुनः प्रयास करें।",
+      "lockedTitle": "प्रमाणीकरण अस्थायी रूप से लॉक है",
+      "lockedBody": "बहुत सारे प्रयासों के बाद आपके फ़ोन ने प्रमाणीकरण को अस्थायी रूप से अक्षम कर दिया है। कुछ क्षण प्रतीक्षा करें और पुनः प्रयास करें।",
+      "promptErrorTitle": "प्रमाणीकरण उपलब्ध नहीं है",
+      "promptErrorBody": "KaalKey फ़ोन का सुरक्षित प्रमाणीकरण प्रॉम्प्ट शुरू नहीं कर सका। कृपया पुनः प्रयास करें।",
+      "webLock": "वेब संस्करण में डिवाइस प्रमाणीकरण लॉक अभी उपलब्ध नहीं है। वेब वॉल्ट अनलॉक रहता है; मूल डिवाइस प्रमाणीकरण के लिए Android ऐप का उपयोग करें।",
+      "disabledTitle": "ऐप लॉक अक्षम है",
+      "disabledBody": "KaalKey ऐप लॉक बंद कर दिया गया है।",
+      "disableSaveError": "ऐप लॉक अभी भी सक्षम है। कृपया पुनः प्रयास करें।",
+      "enabledTitle": "ऐप लॉक सक्षम है",
+      "enabledBody": "ऐप खोलते समय और फिर से वापस लौटते समय KaalKey आपके फ़ोन की बिल्ट-इन प्रमाणीकरण प्रणाली का अनुरोध करेगा।",
+      "enableSaveError": "ऐप लॉक सक्षम नहीं किया जा सका। कृपया पुनः प्रयास करें।"
+    },
+    "qr": {
+      "startingCamera": "कैमरा शुरू हो रहा है…",
+      "unsupportedTitle": "असमर्थित QR कोड",
+      "unsupportedBody": "सेवा द्वारा दिए गए ऑथेंटिकेटर सेटअप QR कोड को स्कैन करें। यह सामान्य लॉगिन QR कोड नहीं बल्कि TOTP कोड होना चाहिए।",
+      "unsupportedDiagnostic": "यह QR TOTP सेटअप कोड नहीं है। ऑथेंटिकेटर सेटअप QR पर निशाना लगाएँ।",
+      "detectedDiagnostic": "QR पता चला। विश्लेषण हो रहा है…",
+      "analyzing": "QR कोड का विश्लेषण किया जा रहा है…",
+      "duplicateTitle": "खाता पहले से जोड़ दिया गया है",
+      "duplicateBody": "{issuer}: {account} पहले से ही KaalKey में है।",
+      "addedTitle": "खाता जोड़ दिया गया",
+      "addedBody": "{issuer}: {account} सफलतापूर्वक जोड़ दिया गया।",
+      "saveFailedDiagnostic": "खाता सेव नहीं किया जा सका। आप फिर से स्कैन कर सकते हैं।",
+      "invalidTitle": "अमान्य QR कोड",
+      "invalidBody": "KaalKey इस ऑथेंटिकेटर QR कोड को पार्स नहीं कर सका। {detail}. सेवा का TOTP सेटअप QR कोड उपयोग करें (आमतौर पर {prefix} से शुरू होता है)।",
+      "parseFailedDiagnostic": "QR प्रोसेस नहीं हो सका। सेटअप QR पर निशाना लगाकर पुनः प्रयास करें।",
+      "invalidUrlTitle": "अमान्य TOTP URL",
+      "invalidUrlBody": "{prefix} से शुरू होने वाला पूरा ऑथेंटिकेटर URL पेस्ट करें।",
+      "clipboardEmptyTitle": "क्लिपबोर्ड खाली है",
+      "clipboardEmptyBody": "पहले {prefix} URL कॉपी करें, फिर Paste TOTP URL टैप करें।",
+      "clipboardErrorTitle": "क्लिपबोर्ड पढ़ा नहीं जा सका",
+      "clipboardErrorBody": "TOTP सेटअप URL कॉपी करें और पुनः प्रयास करें।"
+    },
+    "haptics": {
+      "saveFailedTitle": "सेटिंग सेव नहीं की जा सकी",
+      "saveFailedBody": "हैप्टिक फीडबैक प्रिफरेंस सेव नहीं किया जा सका। कृपया पुनः प्रयास करें।"
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "स्वीकृति सेव नहीं की जा सकी",
+      "saveFailedBody": "कृपया पुनः प्रयास करें। KaalKey का उपयोग करने से पहले कानूनी सूचना स्वीकार करनी होगी।"
+    },
+    "cameraPermission": {
+      "title": "कैमरा अनुमति आवश्यक है",
+      "body": "ऑथेंटिकेटर सेटअप QR कोड स्कैन करने के लिए कैमरा एक्सेस अनुमति दें।"
+    },
+    "storage": {
+      "browserUnavailable": "ब्राउज़र स्टोरेज उपलब्ध नहीं है।",
+      "browserFilePickerUnavailable": "ब्राउज़र फ़ाइल पिकर उपलब्ध नहीं है।"
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "असमर्थित फ़ाइल",
+      "unsupportedFileBody": "PNG या JPEG जैसे QR कोड इमेज चुनें।",
+      "browserDecoderUnavailable": "ब्राउज़र इमेज डिकोडिंग उपलब्ध नहीं है",
+      "imageLoadFailed": "इमेज लोड नहीं हो सकी",
+      "unreadableDimensions": "इमेज में पढ़ने योग्य आयाम नहीं हैं",
+      "noQrCodeFoundTitle": "QR कोड नहीं मिला",
+      "noQrCodeFoundBody": "KaalKey इस इमेज में QR कोड को डिकोड नहीं कर सका। स्क्रीनशॉट या उच्च-रिज़ॉल्यूशन PNG/JPEG आज़माएँ।",
+      "couldNotReadImageTitle": "इमेज पढ़ी नहीं जा सकी",
+      "couldNotReadImageBody": "ऑथेंटिकेटर सेटअप QR कोड वाली साफ़ PNG या JPEG इमेज आज़माएँ।",
+      "couldNotOpenPickerTitle": "इमेज पिकर नहीं खुल सका",
+      "couldNotOpenPickerBody": "कृपया Upload QR फिर से आज़माएँ।",
+      "normalizedDecodeFailed": "सामान्यीकृत इमेज डिकोड नहीं हो सकी",
+      "clipboardImageLoadFailed": "क्लिपबोर्ड इमेज लोड नहीं हो सकी",
+      "imageProcessingUnavailable": "इमेज प्रोसेसिंग उपलब्ध नहीं है",
+      "imageProcessingUnavailableAlt": "इमेज प्रोसेसिंग उपलब्ध नहीं है",
+      "noImageInClipboardTitle": "क्लिपबोर्ड में इमेज नहीं है",
+      "noImageInClipboardBody": "QR कोड इमेज कॉपी करें, फिर Paste QR Image फिर से दबाएँ।",
+      "clipboardUnavailableTitle": "क्लिपबोर्ड उपलब्ध नहीं है",
+      "clipboardUnavailableBody": "क्लिपबोर्ड टेक्स्ट सही ऑथेंटिकेटर सेटअप URL नहीं है। otpauth:// URL या QR इमेज कॉपी करें और फिर कोशिश करें।",
+      "clipboardAccessBody": "KaalKey क्लिपबोर्ड से टेक्स्ट या इमेज नहीं पढ़ सका। क्लिपबोर्ड एक्सेस दें, फिर QR इमेज या otpauth:// URL कॉपी करें और Paste QR Image / URL फिर से दबाएँ।",
+      "couldNotPasteImageTitle": "इमेज पेस्ट नहीं हो सकी",
+      "couldNotPasteImageBody": "इस डिवाइस के इस क्लिपबोर्ड में इमेज पेस्ट समर्थित नहीं है। बजाय Import QR image का उपयोग करें।",
+      "sourceImageDecodeFailure": "अलग QR इमेज आज़माएँ।",
+      "pastedImportFailureBody": "अलग QR इमेज आज़माएँ।",
+      "sourceImageReadFailure": "साफ़ QR स्क्रीनशॉट कॉपी करके आज़माएँ।",
+      "importFailedTitle": "QR इमेज आयात विफल",
+      "importFailedBody": "KaalKey उस इमेज को नहीं पढ़ सका। कृपया किसी अन्य QR कोड इमेज से कोशिश करें।",
+      "notFoundBody": "कॉपी की गई इमेज में पढ़ने योग्य QR कोड नहीं है।",
+      "pastedNotFoundBody": "पेस्ट की गई इमेज में पढ़ने योग्य QR कोड नहीं है।",
+      "pastedReadFailureBody": "पूरा QR कोड वाली साफ़ PNG या JPEG इमेज कॉपी करके आज़माएँ।",
+      "noQrCodeTextBody": "KaalKey ने चुनी गई इमेज डिकोड की, लेकिन QR कोड नहीं मिला। पूरा कोड दिखाई देने वाली साफ़, पूर्ण-रिज़ॉल्यूशन PNG या JPEG आज़माएँ।"
+    },
+    "totpImport": {
+      "invalidTotpCode": "यह QR कोड टाइम-आधारित ऑथेंटिकेटर सेटअप कोड नहीं है।",
+      "missingAccountDetails": "QR कोड में खाते का विवरण नहीं है।",
+      "unsupportedAlgorithm": "QR कोड unsupported algorithm का उपयोग कर रहा है।",
+      "unsupportedDigits": "इस QR कोड में 6, 7 या 8 अंक होने चाहिए।",
+      "unsupportedPeriod": "इस QR कोड में unsupported time period का उपयोग किया गया है।",
+      "invalidAccount": "QR कोड मान्य नहीं किया जा सका।"
+    },
+    "backup": {
+      "invalidJson": "बैकअप फ़ाइल मान्य JSON नहीं है।",
+      "unsupportedFormat": "यह समर्थित KaalKey एन्क्रिप्टेड बैकअप नहीं है।",
+      "invalidPasswordOrDamaged": "बैकअप पासवर्ड गलत है या बैकअप फ़ाइल दूषित है।",
+      "invalidContents": "बैकअप सामग्री अमान्य या अपूर्ण है।",
+      "secureRandomUnavailableDetailed": "सुरक्षित यादृच्छिक जनरेशन उपलब्ध नहीं है। expo-crypto के साथ Android ऐप पुनः बनाकर पुनः इंस्टॉल करें, फिर कोशिश करें।",
+      "invalidAccountDataForBackup": "एक या अधिक खाते अमान्य हैं। बैकअप बनाने से पहले खाता डेटा ठीक करें।",
+      "invalidPasswordOrModified": "बैकअप पासवर्ड गलत है या बैकअप फ़ाइल बदल दी गई है।",
+      "invalidPasswordOrFileDamaged": "बैकअप पासवर्ड गलत है या फ़ाइल दूषित है।",
+      "passwordCopiedTitle": "पासवर्ड कॉपी हो गया",
+      "enterPasswordTitle": "अपना बैकअप पासवर्ड दर्ज करें",
+      "enterPasswordBody": "उस पासवर्ड को दर्ज करें जिसका उपयोग इस बैकअप के निर्माण के समय किया गया था।",
+      "passwordCopiedBody": "इसे सुरक्षित जगह पर रखें, जैसे WhatsApp।",
+      "copyFailedTitle": "कॉपी विफल",
+      "copyFailedBody": "पासवर्ड को मैन्युअल रूप से चुनें और कॉपी करें।",
+      "generatingPassword": "सुरक्षित बैकअप पासवर्ड बनाया जा रहा है…",
+      "encrypting": "बैकअप एन्क्रिप्ट किया जा रहा है…",
+      "decrypting": "बैकअप डिक्रिप्ट किया जा रहा है…",
+      "restoring": "खाते बहाल किए जा रहे हैं…",
+      "backupCreatedTitle": "बैकअप बनाया गया",
+      "restoreCompleteTitle": "बहाली पूर्ण",
+      "mergeConfirmTitle": "बैकअप खातों को मिलाएँ?",
+      "mergeConfirmButton": "खाते मिलाएँ",
+      "backupSavedTemporary": "एन्क्रिप्टेड बैकअप अस्थायी रूप से यहाँ सेव किया गया:\n{uri}",
+      "generatePasswordErrorTitle": "बैकअप पासवर्ड नहीं बनाया जा सका",
+      "secureRandomUnavailable": "सुरक्षित रैंडम जनरेशन उपलब्ध नहीं है।",
+      "passwordUnavailableTitle": "बैकअप पासवर्ड उपलब्ध नहीं है",
+      "passwordUnavailableBody": "इस डायलॉग को बंद करें और सुरक्षित पासवर्ड बनाने के लिए नया बैकअप बनाएं।",
+      "backupDownloadedBody": "आपका एन्क्रिप्टेड KaalKey बैकअप डाउनलोड हो गया है। फ़ाइल और पासवर्ड को निजी रखें।",
+      "backupFailedTitle": "बैकअप विफल",
+      "backupCreateErrorBody": "KaalKey बैकअप नहीं बना सका।",
+      "restoreFailedTitle": "बहाली विफल",
+      "backupReadErrorBody": "बैकअप पढ़ा या सेव नहीं जा सका।",
+      "browserDownloadUnsupported": "आपके ब्राउज़र में बैकअप फ़ाइलें डाउनलोड करने का समर्थन नहीं है।",
+      "localFileUnavailable": "इस डिवाइस पर स्थानीय फ़ाइल स्थान उपलब्ध नहीं है।",
+      "saveBackupTitle": "अपना एन्क्रिप्टेड KaalKey बैकअप सेव करें"
+    },
+    "clipboard": {
+      "copiedTitle": "कोड कॉपी हो गया",
+      "copiedBody": "आपका सत्यापन कोड कॉपी हो गया है।",
+      "errorTitle": "त्रुटि",
+      "errorBody": "सत्यापन कोड कॉपी नहीं किया जा सका।"
+    },
+    "activity": {
+      "cameraReady": "कैमरा तैयार है। ऑथेंटिकेटर QR कोड पर इंगित करें।",
+      "readingQrImage": "QR छवि पढ़ी जा रही है…",
+      "importingQrImage": "QR छवि आयात की जा रही है…",
+      "importingAccount": "ऑथेंटिकेटर खाता आयात किया जा रहा है…",
+      "importingPastedImage": "पेस्ट की गई QR छवि आयात की जा रही है…"
+    }
+  },
+  "activity": {
+    "working": "काम हो रहा है",
+    "wait": "कृपया प्रतीक्षा करें…",
+    "donTClose": "कृपया KaalKey को बंद न करें या उसमें बदलाव न करें।"
+  }
 }

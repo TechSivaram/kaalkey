@@ -9,11 +9,14 @@ export function getBackupModalDescription(
   language: AppLanguage,
 ): string {
   if (mode === "export") {
-    const accountLabel = translate(language, accountCount === 1 ? "account" : "accounts");
-    return translate(language, "Backup export description")
+    const accountLabel = translate(
+      language,
+      accountCount === 1 ? "backupRestore.account" : "backupRestore.accounts",
+    );
+    return translate(language, "backupRestore.exportDescription")
       .replace("{count}", String(accountCount))
       .replace("{accountLabel}", accountLabel);
   }
 
-  return translate(language, "Backup restore description");
+  return translate(language, "backupRestore.restoreDescription");
 }

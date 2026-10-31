@@ -39,19 +39,19 @@ export default function AccountQrModal({
     >
       <View style={overlayStyle}>
         <View style={styles.card}>
-          <Text style={styles.title}>{t("Account QR code")}</Text>
+          <Text style={styles.title}>{t("accountQr.accountQrCode")}</Text>
           <Text style={styles.accountLabel}>
             {qrAccount?.issuer} · {qrAccount?.name}
           </Text>
           {!qrRevealed ? (
             <>
-              <Text style={styles.warning}>{t("QR export warning")}</Text>
+              <Text style={styles.warning}>{t("accountQr.exportWarning")}</Text>
               <TouchableOpacity
                 style={[homeStyles.primaryButton, styles.fullWidth]}
                 onPress={() => setQrRevealed(true)}
                 accessibilityRole="button"
               >
-                <Text style={homeStyles.primaryButtonText}>{t("Reveal QR code")}</Text>
+                <Text style={homeStyles.primaryButtonText}>{t("accountQr.revealQrCode")}</Text>
               </TouchableOpacity>
             </>
           ) : qrAccount ? (
@@ -62,14 +62,14 @@ export default function AccountQrModal({
                 backgroundColor={COLORS.white}
                 color="#111827"
               />
-              <Text style={styles.privacyHint}>{t("QR privacy hint")}</Text>
+              <Text style={styles.privacyHint}>{t("accountQr.privacyHint")}</Text>
             </>
           ) : null}
           <TouchableOpacity
             style={[homeStyles.cancelButton, styles.closeButton]}
             onPress={closeAccountQr}
           >
-            <Text style={homeStyles.cancelButtonText}>{t("Close")}</Text>
+            <Text style={homeStyles.cancelButtonText}>{t("accountQr.close")}</Text>
           </TouchableOpacity>
         </View>
       </View>

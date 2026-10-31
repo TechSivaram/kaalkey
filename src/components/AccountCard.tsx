@@ -46,7 +46,7 @@ export default function AccountCard({
             style={styles.editButton}
             onPress={() => onViewQr(account)}
             accessibilityRole="button"
-            accessibilityLabel={`${t("View QR code for account")} ${account.issuer}`}
+            accessibilityLabel={`${t("accounts.viewQrCode")} ${account.issuer}`}
           >
             <Text style={styles.editButtonText}>▦</Text>
           </TouchableOpacity>
@@ -54,7 +54,7 @@ export default function AccountCard({
             style={styles.editButton}
             onPress={() => onEdit(account)}
             accessibilityRole="button"
-            accessibilityLabel={`${t("Edit")} ${account.issuer}`}
+            accessibilityLabel={`${t("accounts.edit")} ${account.issuer}`}
           >
             <Text style={styles.editButtonText}>✎</Text>
           </TouchableOpacity>
@@ -62,7 +62,7 @@ export default function AccountCard({
             style={styles.editButton}
             onPress={() => onDelete(account.id)}
             accessibilityRole="button"
-            accessibilityLabel={`${t("Remove account")} ${account.issuer}`}
+            accessibilityLabel={`${t("accounts.removeAccount")} ${account.issuer}`}
           >
             <View style={styles.deleteCan}>
               <View style={styles.deleteCanHandle} />
@@ -83,12 +83,12 @@ export default function AccountCard({
           activeOpacity={BUTTON_ACTIVE_OPACITY_CODE}
           onPress={() => void onCopyCode(code)}
           accessibilityRole="button"
-          accessibilityLabel={`${t("Copy verification code")} ${account.issuer}`}
+          accessibilityLabel={`${t("accounts.copyVerificationCode")} ${account.issuer}`}
         >
           <Text style={styles.code}>
             {code.slice(0, 3)} {code.slice(3)}
           </Text>
-          <Text style={styles.copyHint}>{t("TAP TO COPY")}</Text>
+          <Text style={styles.copyHint}>{t("accounts.tapCopy")}</Text>
         </TouchableOpacity>
 
         <CountdownRing secondsRemaining={secondsRemaining} period={period} />
