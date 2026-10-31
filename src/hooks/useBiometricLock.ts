@@ -56,7 +56,7 @@ export function useBiometricLock() {
 
   const authenticateUser = useCallback(
     async (
-      promptMessage = "Unlock KaalKey Authenticator",
+      promptMessage: string = USER_MESSAGES.biometric.unlockPrompt,
       unlockOnSuccess = true,
     ): Promise<boolean> => {
       if (authenticatingRef.current) return false;
@@ -68,8 +68,8 @@ export function useBiometricLock() {
         // pattern, or password) when supported. Never unlock unless the native API succeeds.
         const result = await LocalAuthentication.authenticateAsync({
           promptMessage,
-          promptSubtitle: "Use biometrics or your device screen lock",
-          cancelLabel: "Cancel",
+          promptSubtitle: USER_MESSAGES.biometric.promptSubtitle,
+          cancelLabel: USER_MESSAGES.biometric.cancelButton,
           disableDeviceFallback: false,
           biometricsSecurityLevel: "strong",
         });
@@ -122,7 +122,10 @@ export function useBiometricLock() {
     if (biometricEnabled) {
       // Do not unlock as a side effect of confirming the setting change. Only disable
       // the lock after authentication succeeds and the preference is persisted.
-      const authenticated = await authenticateUser("Confirm to turn off KaalKey app lock", false);
+      const authenticated = await authenticateUser(
+        USER_MESSAGES.biometric.disableConfirmPrompt,
+        false,
+      );
       if (!authenticated) return;
       try {
         await SecureStore.setItemAsync(BIOMETRIC_ENABLED_STORAGE_KEY, "false");
@@ -141,7 +144,7 @@ export function useBiometricLock() {
 
     // Biometrics are not required to enable app lock. The native OS prompt can use
     // the configured device credential when biometrics are unavailable.
-    const authenticated = await authenticateUser("Enable app lock for KaalKey", false);
+    const authenticated = await authenticateUser(USER_MESSAGES.biometric.enablePrompt, false);
     if (!authenticated) return;
     try {
       await SecureStore.setItemAsync(BIOMETRIC_ENABLED_STORAGE_KEY, "true");

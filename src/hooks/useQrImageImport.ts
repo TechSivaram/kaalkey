@@ -58,7 +58,10 @@ export function useQrImageImport({
             return;
           }
           if (!file.type.startsWith("image/")) {
-            showQrImportMessage("Unsupported file", "Choose a QR code image such as PNG or JPEG.");
+            showQrImportMessage(
+              USER_MESSAGES.qrImport.unsupportedFileTitle,
+              USER_MESSAGES.qrImport.unsupportedFileBody,
+            );
             return;
           }
           let objectUrl: string | undefined;
@@ -72,7 +75,7 @@ export function useQrImageImport({
             // a real HTMLImageElement.
             const BrowserImage = globalThis.Image;
             if (!BrowserImage) {
-              throw new Error("Browser image decoding is unavailable");
+              throw new Error(USER_MESSAGES.qrImport.browserDecoderUnavailable);
             }
             const image = new BrowserImage();
             await new Promise<void>((resolve, reject) => {
@@ -80,13 +83,15 @@ export function useQrImageImport({
                 resolve();
               };
               image.onerror = () => {
-                reject(new Error("Image could not be loaded"));
+                reject(new Error(USER_MESSAGES.qrImport.imageLoadFailed));
               };
               image.src = objectUrl!;
             });
             const sourceWidth = image.naturalWidth;
             const sourceHeight = image.naturalHeight;
-            if (!sourceWidth || !sourceHeight) throw new Error("Image has no readable dimensions");
+            if (!sourceWidth || !sourceHeight) {
+              throw new Error(USER_MESSAGES.qrImport.unreadableDimensions);
+            }
 
             // Try the browser-native QR decoder first where supported. It is an
             // optional fast path only; jsQR remains the fallback on all browsers.
@@ -139,16 +144,16 @@ export function useQrImageImport({
             }
             if (!qrText) {
               showQrImportMessage(
-                "No QR code found",
-                "KaalKey could not decode a QR code in this image. Try a screenshot or a higher-resolution PNG/JPEG.",
+                USER_MESSAGES.qrImport.noQrCodeFoundTitle,
+                USER_MESSAGES.qrImport.noQrCodeFoundBody,
               );
               return;
             }
             await onQrScanned(qrText, false);
           } catch {
             showQrImportMessage(
-              "Could not read image",
-              "Try a clear PNG or JPEG image containing the authenticator setup QR code.",
+              USER_MESSAGES.qrImport.couldNotReadImageTitle,
+              USER_MESSAGES.qrImport.couldNotReadImageBody,
             );
           } finally {
             if (objectUrl) URL.revokeObjectURL(objectUrl);
@@ -161,7 +166,10 @@ export function useQrImageImport({
           input.click();
         } catch {
           input.remove();
-          showQrImportMessage("Could not open image picker", "Please try Upload QR again.");
+          showQrImportMessage(
+            USER_MESSAGES.qrImport.couldNotOpenPickerTitle,
+            USER_MESSAGES.qrImport.couldNotOpenPickerBody,
+          );
         }
         return;
       }
@@ -214,7 +222,7 @@ export function useQrImageImport({
         const bytes = decodeBase64ToBytes(base64);
         const decodedImage = jpeg.decode(bytes, { useTArray: true, formatAsRGBA: true });
         if (!decodedImage.width || !decodedImage.height || !decodedImage.data?.length) {
-          throw new Error("Normalized image could not be decoded");
+          throw new Error(USER_MESSAGES.qrImport.normalizedDecodeFailed);
         }
 
         // jsQR works directly on RGBA pixel data. Retry the full image at several
@@ -251,16 +259,16 @@ export function useQrImageImport({
         }
         if (!qrData) {
           showQrImportMessage(
-            "No QR code found",
-            "KaalKey decoded the selected image but did not find a QR code. Try a clear, full-resolution PNG or JPEG with the entire code visible.",
+            USER_MESSAGES.qrImport.noQrCodeFoundTitle,
+            USER_MESSAGES.qrImport.noQrCodeTextBody,
           );
           return;
         }
         await onQrScanned(qrData, false);
       } catch {
         showQrImportMessage(
-          "Could not read image",
-          "KaalKey could not decode this image. Try a PNG or JPEG screenshot with the full QR code visible.",
+          USER_MESSAGES.qrImport.couldNotReadImageTitle,
+          USER_MESSAGES.qrImport.couldNotReadImageBody,
         );
       } finally {
         if (normalizedUri) {
@@ -273,8 +281,8 @@ export function useQrImageImport({
       }
     } catch {
       showQrImportMessage(
-        "QR image import failed",
-        "KaalKey could not read that image. Please try another QR code image.",
+        USER_MESSAGES.qrImport.importFailedTitle,
+        USER_MESSAGES.qrImport.importFailedBody,
       );
     } finally {
       if (Platform.OS !== "web") setActivityMessage(null);
@@ -332,26 +340,29 @@ export function useQrImageImport({
           let objectUrl: string | undefined;
           try {
             const BrowserImage = globalThis.Image;
-            if (!BrowserImage) throw new Error("Browser image decoding is unavailable");
+            if (!BrowserImage) {
+              throw new Error(USER_MESSAGES.qrImport.browserDecoderUnavailable);
+            }
             objectUrl = URL.createObjectURL(clipboardImage);
             const image = new BrowserImage();
             await new Promise<void>((resolve, reject) => {
               image.onload = () => resolve();
-              image.onerror = () => reject(new Error("Clipboard image could not be loaded"));
+              image.onerror = () =>
+                reject(new Error(USER_MESSAGES.qrImport.clipboardImageLoadFailed));
               image.src = objectUrl!;
             });
             const canvas = document.createElement("canvas");
             canvas.width = image.naturalWidth;
             canvas.height = image.naturalHeight;
             const context = canvas.getContext("2d", { willReadFrequently: true });
-            if (!context) throw new Error("Image processing is unavailable");
+            if (!context) throw new Error(USER_MESSAGES.qrImport.imageProcessingUnavailable);
             context.drawImage(image, 0, 0);
             const pixels = context.getImageData(0, 0, canvas.width, canvas.height);
             const qrData = decodeQrPixels(pixels.data, pixels.width, pixels.height);
             if (!qrData) {
               showQrImportMessage(
-                "No QR code found",
-                "The copied image does not contain a readable QR code.",
+                USER_MESSAGES.qrImport.noQrCodeFoundTitle,
+                USER_MESSAGES.qrImport.notFoundBody,
               );
               return;
             }
@@ -359,8 +370,8 @@ export function useQrImageImport({
             return;
           } catch {
             showQrImportMessage(
-              "Could not paste image",
-              "The copied image could not be decoded. Try copying a clear QR screenshot.",
+              USER_MESSAGES.qrImport.couldNotPasteImageTitle,
+              USER_MESSAGES.qrImport.sourceImageReadFailure,
             );
             return;
           } finally {
@@ -370,18 +381,18 @@ export function useQrImageImport({
         }
 
         showQrImportMessage(
-          "Clipboard unavailable",
+          USER_MESSAGES.qrImport.clipboardUnavailableTitle,
           clipboardText
-            ? "Clipboard text is not a valid authenticator setup URL. Copy an otpauth:// URL or QR image and try again."
-            : "KaalKey could not read text or an image from the clipboard. Allow clipboard access, then copy the QR image or otpauth:// URL and tap Paste QR Image / URL again.",
+            ? USER_MESSAGES.qrImport.clipboardUnavailableBody
+            : USER_MESSAGES.qrImport.clipboardAccessBody,
         );
         return;
       }
       const image = await Clipboard.getImageAsync({ format: "png" });
       if (!image?.data) {
         showQrImportMessage(
-          "No image in clipboard",
-          "Copy a QR code image, then tap Paste QR Image again.",
+          USER_MESSAGES.qrImport.noImageInClipboardTitle,
+          USER_MESSAGES.qrImport.noImageInClipboardBody,
         );
         return;
       }
@@ -413,8 +424,8 @@ export function useQrImageImport({
         );
         if (!qrData) {
           showQrImportMessage(
-            "No QR code found",
-            "The copied image does not contain a readable QR code.",
+            USER_MESSAGES.qrImport.noQrCodeFoundTitle,
+            USER_MESSAGES.qrImport.notFoundBody,
           );
           return;
         }
@@ -433,8 +444,8 @@ export function useQrImageImport({
     } catch {
       setActivityMessage(null);
       showQrImportMessage(
-        "Could not paste image",
-        "Image pasting is not supported by this clipboard on this device. Use Import QR image instead.",
+        USER_MESSAGES.qrImport.couldNotPasteImageTitle,
+        USER_MESSAGES.qrImport.couldNotPasteImageBody,
       );
     }
   }
@@ -487,20 +498,20 @@ export function useQrImageImport({
             canvas.width = image.naturalWidth;
             canvas.height = image.naturalHeight;
             const ctx = canvas.getContext("2d", { willReadFrequently: true });
-            if (!ctx) throw new Error("Image processing unavailable");
+            if (!ctx) throw new Error(USER_MESSAGES.qrImport.imageProcessingUnavailableAlt);
             ctx.drawImage(image, 0, 0);
             const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
             const qrData = decodeQrPixels(pixels.data, pixels.width, pixels.height);
             if (qrData) void onQrScannedRef.current(qrData, false);
             else
               showQrImportMessage(
-                "No QR code found",
-                "The pasted image does not contain a readable QR code.",
+                USER_MESSAGES.qrImport.noQrCodeFoundTitle,
+                USER_MESSAGES.qrImport.pastedNotFoundBody,
               );
           } catch {
             showQrImportMessage(
-              "Could not read pasted image",
-              "Try copying a clear PNG or JPEG image containing the full QR code.",
+              USER_MESSAGES.qrImport.couldNotReadImageTitle,
+              USER_MESSAGES.qrImport.pastedReadFailureBody,
             );
           } finally {
             URL.revokeObjectURL(objectUrl);
@@ -510,7 +521,10 @@ export function useQrImageImport({
         image.onerror = () => {
           URL.revokeObjectURL(objectUrl);
           setActivityMessage(null);
-          showQrImportMessage("Could not read pasted image", "Try a different QR image.");
+          showQrImportMessage(
+            USER_MESSAGES.qrImport.couldNotReadImageTitle,
+            USER_MESSAGES.qrImport.pastedImportFailureBody,
+          );
         };
         image.src = objectUrl;
         return;

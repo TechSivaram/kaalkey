@@ -1,4 +1,5 @@
 import * as OTPAuth from "otpauth";
+import { USER_MESSAGES } from "../constants/userMessages";
 import type { Account } from "../types/account";
 import { validateAccount } from "./account-validation";
 import {
@@ -12,7 +13,7 @@ import {
 export function parseTotpAccountFromUri(uri: string): Account {
   const parsedUri = OTPAuth.URI.parse(uri);
   if (!(parsedUri instanceof OTPAuth.TOTP)) {
-    throw new Error("This QR code is not a time-based authenticator setup code.");
+    throw new Error(USER_MESSAGES.totpImport.invalidTotpCode);
   }
 
   const normalizedName = parsedUri.label?.trim();
@@ -21,25 +22,25 @@ export function parseTotpAccountFromUri(uri: string): Account {
   const algorithm = parsedUri.algorithm;
 
   if (!normalizedName || !normalizedSecret) {
-    throw new Error("The QR code is missing account details.");
+    throw new Error(USER_MESSAGES.totpImport.missingAccountDetails);
   }
   if (
     !SUPPORTED_TOTP_ALGORITHMS.includes(algorithm as (typeof SUPPORTED_TOTP_ALGORITHMS)[number])
   ) {
-    throw new Error("The QR code uses an unsupported algorithm.");
+    throw new Error(USER_MESSAGES.totpImport.unsupportedAlgorithm);
   }
   if (
     !Number.isInteger(parsedUri.digits) ||
     !SUPPORTED_TOTP_DIGITS.includes(parsedUri.digits as (typeof SUPPORTED_TOTP_DIGITS)[number])
   ) {
-    throw new Error("This QR code must use 6, 7, or 8 digits.");
+    throw new Error(USER_MESSAGES.totpImport.unsupportedDigits);
   }
   if (
     !Number.isInteger(parsedUri.period) ||
     parsedUri.period < MIN_TOTP_PERIOD_SECONDS ||
     parsedUri.period > MAX_TOTP_PERIOD_SECONDS
   ) {
-    throw new Error("This QR code uses an unsupported time period.");
+    throw new Error(USER_MESSAGES.totpImport.unsupportedPeriod);
   }
 
   const account: Account = {
@@ -51,6 +52,6 @@ export function parseTotpAccountFromUri(uri: string): Account {
     digits: parsedUri.digits,
     period: parsedUri.period,
   };
-  if (!validateAccount(account)) throw new Error("The QR code could not be validated.");
+  if (!validateAccount(account)) throw new Error(USER_MESSAGES.totpImport.invalidAccount);
   return account;
 }

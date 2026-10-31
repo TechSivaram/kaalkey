@@ -73,8 +73,8 @@ export function useAccounts({
             if (mounted) setAccounts(result.accounts);
             if (result.invalidCount > 0) {
               showUserMessage(
-                "Some saved accounts need attention",
-                `${result.invalidCount} invalid account record(s) were not loaded. Valid accounts remain available. Consider creating a backup before making further changes.`,
+                USER_MESSAGES.account.someSavedAccountsNeedAttentionTitle,
+                USER_MESSAGES.account.someSavedAccountsNeedAttentionBody(result.invalidCount),
               );
             }
           }
@@ -222,7 +222,7 @@ export function useAccounts({
     Alert.alert(USER_MESSAGES.account.removeConfirmTitle, message, [
       { text: USER_MESSAGES.account.cancelButton, style: "cancel" },
       {
-        text: "Remove",
+        text: USER_MESSAGES.account.removeButton,
         style: "destructive",
         onPress: () => void removeAccountConfirmed(id),
       },
@@ -239,13 +239,16 @@ export function useAccounts({
 
   function clearAllAccounts() {
     const message = USER_MESSAGES.account.clearConfirmBody;
+    const undoNote = USER_MESSAGES.account.clearConfirmUndoBody;
     if (Platform.OS === "web" && typeof window !== "undefined") {
-      if (window.confirm(`Clear all accounts?\n\n${message}\n\nThis cannot be undone.`)) {
+      if (
+        window.confirm(`${USER_MESSAGES.account.clearConfirmTitle}\n\n${message}\n\n${undoNote}`)
+      ) {
         void clearAllAccountsConfirmed();
       }
       return;
     }
-    Alert.alert(USER_MESSAGES.account.clearConfirmTitle, `${message}\n\nThis cannot be undone.`, [
+    Alert.alert(USER_MESSAGES.account.clearConfirmTitle, `${message}\n\n${undoNote}`, [
       { text: USER_MESSAGES.account.cancelButton, style: "cancel" },
       {
         text: USER_MESSAGES.account.clearButton,

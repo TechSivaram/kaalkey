@@ -2,6 +2,7 @@ import { Platform } from "react-native";
 import * as SecureStore from "expo-secure-store";
 
 import { ACCOUNTS_STORAGE_KEY } from "../constants/storage";
+import { USER_MESSAGES } from "../constants/userMessages";
 import type { Account } from "../types/account";
 import { validateAccount } from "./account-validation";
 
@@ -16,7 +17,9 @@ export async function readAccountsStorage(): Promise<string | null> {
 
 export async function writeAccountsStorage(value: string): Promise<void> {
   if (Platform.OS === "web") {
-    if (typeof window === "undefined") throw new Error("Browser storage is unavailable.");
+    if (typeof window === "undefined") {
+      throw new Error(USER_MESSAGES.storage.browserUnavailable);
+    }
     window.localStorage.setItem(ACCOUNTS_STORAGE_KEY, value);
     return;
   }

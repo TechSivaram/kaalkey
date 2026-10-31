@@ -169,7 +169,7 @@ export function useBackupManager({
     // handling is not reliable for browser File objects and blob URLs.
     return new Promise<string | null>((resolve, reject) => {
       if (typeof document === "undefined") {
-        reject(new Error("The browser file picker is unavailable."));
+        reject(new Error(USER_MESSAGES.storage.browserFilePickerUnavailable));
         return;
       }
       const input = document.createElement("input");
@@ -206,8 +206,8 @@ export function useBackupManager({
   async function restoreEncryptedBackup() {
     if (!backupPassword) {
       showBackupMessage(
-        "Enter your backup password",
-        "Enter the password used when this backup was created.",
+        USER_MESSAGES.backup.enterPasswordTitle,
+        USER_MESSAGES.backup.enterPasswordBody,
       );
       return;
     }

@@ -513,7 +513,10 @@ const dictionaries: Record<AppLanguage, Record<string, string>> = {
     "Backup restore description":
       "మీ KaalKey బ్యాకప్ ఫైల్‌ను మరియు పాస్‌వర్డ్‌ను ఎంచుకోండి. కొత్త ఖాతాలు మీ ప్రస్తుత ఖాతాల జాబితాకు జోడించబడతాయి; ఇప్పటికే ఉన్న ఖాతాలు అలాగే ఉంటాయి.",
     "Starting camera…": "కెమెరా ప్రారంభిస్తోంది…",
-    "Resize app and brand panels": "Resize app and brand panels",
+    "Resize app and brand panels": "యాప్ మరియు బ్రాండ్ ప్యానెళ్లను మార్చండి",
+    "-": "−",
+    a: "a",
+    "expo-crypto": "expo-crypto",
   },
 
   hi: {
@@ -796,29 +799,9 @@ const dictionaries: Record<AppLanguage, Record<string, string>> = {
       "अपनी KaalKey बैकअप फ़ाइल और पासवर्ड चुनें। नए खाते आपकी मौजूदा खाते की सूची में जोड़े जाएंगे; मौजूदा खाते वैसे ही रहेंगे.",
     "Starting camera…": "कैमरा शुरू हो रहा है…",
     "Resize app and brand panels": "ऐप और ब्रांड पैनल का आकार बदलें",
-    "-": "-",
-    AUTHENTICATOR: "ఆథెంటికేటర్",
-    Account: "ఖాతా",
-    Back: "వెనుకకు",
-    Cancel: "రద్దు",
-    Close: "మూసివేయండి",
-    Done: "పూర్తయింది",
-    Edit: "సవరించండి",
-    Flashlight: "ఫ్లాష్లైట్",
-    SECURITY: "భద్రత",
-    Service: "సేవ",
-    VERSION: "వెర్షన్",
-    Version: "వెర్షన్",
-    Working: "పని జరుగుతోంది",
+    "-": "−",
     a: "a",
-    canvas: "క్యాన్వాస్",
-    digits: "అంకెలు",
     "expo-crypto": "expo-crypto",
-    img: "చిత్రం",
-    input: "ఇన్‌పుట్",
-    privacy: "గోప్యత",
-    seconds: "సెకన్లు",
-    terms: "నిబంధనలు",
   },
 };
 
@@ -834,11 +817,29 @@ export function detectLanguage(): AppLanguage {
   return "en";
 }
 
-export function translate(language: AppLanguage, key: string): string {
-  return dictionaries[language][key] ?? dictionaries.en[key] ?? key;
+export function interpolateTemplate(
+  template: string,
+  values: Record<string, string | number> = {},
+) {
+  return template.replace(/\{([A-Za-z0-9_]+)\}/g, (_, key: string) => {
+    const value = values[key];
+    return value === undefined || value === null ? `{${key}}` : String(value);
+  });
+}
+
+export function translate(
+  language: AppLanguage,
+  key: string,
+  values?: Record<string, string | number>,
+): string {
+  const template = dictionaries[language][key] ?? dictionaries.en[key] ?? key;
+  return values ? interpolateTemplate(template, values) : template;
 }
 
 let currentLanguage: AppLanguage = detectLanguage();
+export function getCurrentLanguage(): AppLanguage {
+  return currentLanguage;
+}
 let languageInitialized = false;
 const languageListeners = new Set<(language: AppLanguage) => void>();
 

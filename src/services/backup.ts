@@ -1,4 +1,5 @@
 import CryptoJS from "crypto-js";
+import { USER_MESSAGES } from "../constants/userMessages";
 import type { Account } from "../types/account";
 import { validateAccounts } from "./account-validation";
 
@@ -22,7 +23,7 @@ function parseBackupEnvelope(raw: string): BackupEnvelope {
   try {
     envelope = JSON.parse(raw);
   } catch {
-    throw new Error("The backup file is not valid JSON.");
+    throw new Error(USER_MESSAGES.backup.invalidJson);
   }
 
   if (
@@ -41,7 +42,7 @@ function parseBackupEnvelope(raw: string): BackupEnvelope {
     typeof (envelope as BackupEnvelope).mac !== "string" ||
     !/^[a-f0-9]{64}$/i.test((envelope as BackupEnvelope).mac)
   ) {
-    throw new Error("This is not a supported KaalKey encrypted backup.");
+    throw new Error(USER_MESSAGES.backup.unsupportedFormat);
   }
 
   return envelope as BackupEnvelope;
@@ -52,7 +53,7 @@ function parseBackupPayload(text: string): Account[] {
   try {
     payload = JSON.parse(text);
   } catch {
-    throw new Error("Backup password is incorrect or the backup file is damaged.");
+    throw new Error(USER_MESSAGES.backup.invalidPasswordOrDamaged);
   }
 
   if (
@@ -62,7 +63,7 @@ function parseBackupPayload(text: string): Account[] {
     (payload as { version?: unknown }).version !== BACKUP_VERSION ||
     !validateAccounts((payload as { accounts?: unknown }).accounts)
   ) {
-    throw new Error("The backup contents are invalid or incomplete.");
+    throw new Error(USER_MESSAGES.backup.invalidContents);
   }
 
   return (payload as { accounts: Account[] }).accounts;
@@ -91,9 +92,7 @@ async function secureRandomBytes(length: number): Promise<Uint8Array> {
     const Crypto = await import("expo-crypto");
     return await Crypto.getRandomBytesAsync(length);
   } catch {
-    throw new Error(
-      "Secure random generation is unavailable. Rebuild and reinstall the Android app with expo-crypto included, then try again.",
-    );
+    throw new Error(USER_MESSAGES.backup.secureRandomUnavailableDetailed);
   }
 }
 
@@ -106,9 +105,7 @@ export async function generateBackupPassword(): Promise<string> {
 
 export async function encryptBackup(accounts: Account[], password: string): Promise<string> {
   if (!validateAccounts(accounts)) {
-    throw new Error(
-      "One or more accounts are invalid. Fix the account data before creating a backup.",
-    );
+    throw new Error(USER_MESSAGES.backup.invalidAccountDataForBackup);
   }
   const salt = bytesToHex(await secureRandomBytes(16));
   const iv = bytesToHex(await secureRandomBytes(16));
@@ -163,7 +160,7 @@ export async function decryptBackup(raw: string, password: string): Promise<Acco
   const authenticated = `${BACKUP_FORMAT}.${BACKUP_VERSION}.${envelope.salt}.${envelope.iv}.${envelope.ciphertext}`;
   const expectedMac = CryptoJS.HmacSHA256(authenticated, macKey).toString(CryptoJS.enc.Hex);
   if (expectedMac.toLowerCase() !== envelope.mac.toLowerCase()) {
-    throw new Error("Backup password is incorrect or the backup file has been modified.");
+    throw new Error(USER_MESSAGES.backup.invalidPasswordOrModified);
   }
   const key = CryptoJS.PBKDF2(password, hexToWordArray(envelope.salt), {
     keySize: 256 / 32,
@@ -176,6 +173,6 @@ export async function decryptBackup(raw: string, password: string): Promise<Acco
     { iv: hexToWordArray(envelope.iv), mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 },
   );
   const text = decrypted.toString(CryptoJS.enc.Utf8);
-  if (!text) throw new Error("Backup password is incorrect or the file is damaged.");
+  if (!text) throw new Error(USER_MESSAGES.backup.invalidPasswordOrFileDamaged);
   return parseBackupPayload(text);
 }

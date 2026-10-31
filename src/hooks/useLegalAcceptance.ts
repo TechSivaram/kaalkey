@@ -48,7 +48,8 @@ export function useLegalAcceptance() {
     try {
       // Persist acceptance with a web-compatible store in browsers.
       if (Platform.OS === "web") {
-        if (typeof window === "undefined") throw new Error("Browser storage is unavailable");
+        if (typeof window === "undefined")
+          throw new Error(USER_MESSAGES.storage.browserUnavailable);
         window.localStorage.setItem(LEGAL_ACCEPTANCE_STORAGE_KEY, LEGAL_VERSION);
       } else {
         await SecureStore.setItemAsync(LEGAL_ACCEPTANCE_STORAGE_KEY, LEGAL_VERSION);
