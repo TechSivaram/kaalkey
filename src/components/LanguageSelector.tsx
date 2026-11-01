@@ -43,7 +43,9 @@ export default function LanguageSelector(p: Props) {
         autoCapitalize="none"
         autoCorrect={false}
         style={s.input}
-        onLayout={(event) => setInputBottom(event.nativeEvent.layout.y + event.nativeEvent.layout.height)}
+        onLayout={(event) =>
+          setInputBottom(event.nativeEvent.layout.y + event.nativeEvent.layout.height)
+        }
       />
       {p.open ? (
         <View style={[s.dropdown, { top: inputBottom }]}>

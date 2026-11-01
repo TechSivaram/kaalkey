@@ -1,11 +1,7 @@
 import * as SecureStore from "expo-secure-store";
 import en from "./locales/en.json";
 import { useCallback, useEffect, useState } from "react";
-import {
-  AppLanguage,
-  ENGLISH_LANGUAGE,
-  LanguageOption,
-} from "./i18n/languages";
+import { AppLanguage, ENGLISH_LANGUAGE, LanguageOption } from "./i18n/languages";
 
 export type { AppLanguage, LanguageOption } from "./i18n/languages";
 export { ENGLISH_LANGUAGE } from "./i18n/languages";
@@ -33,7 +29,7 @@ type TranslationManifest = {
   languages: RemoteLanguage[];
 };
 
-const englishDictionary: TranslationDictionary = en;
+const englishDictionary: TranslationDictionary = en as TranslationDictionary;
 let remoteDictionaries: Record<string, TranslationDictionary> = {};
 let languageOptions: LanguageOption[] = [ENGLISH_LANGUAGE];
 let remoteLanguageMetadata: Record<string, RemoteLanguage> = {};
@@ -83,9 +79,25 @@ function parseLanguageList(value: unknown): RemoteLanguage[] {
     if (record.languages && typeof record.languages === "object") {
       return Object.entries(record.languages)
         .map(([code, metadata]) => {
-          if (typeof metadata === "string") return normalizeLanguage({ code, file: metadata });
+          if (typeof metadata === "string") {
+            return normalizeLanguage({
+              code,
+              name: code,
+              nativeName: code,
+              searchTerms: code,
+              file: metadata,
+            });
+          }
           if (metadata && typeof metadata === "object") {
-            return normalizeLanguage({ code, ...(metadata as RemoteLanguage) });
+            const item = metadata as Record<string, unknown>;
+            return normalizeLanguage({
+              code,
+              name: typeof item.name === "string" ? item.name : code,
+              nativeName: typeof item.nativeName === "string" ? item.nativeName : code,
+              searchTerms: typeof item.searchTerms === "string" ? item.searchTerms : code,
+              ...(typeof item.file === "string" ? { file: item.file } : {}),
+              ...(typeof item.url === "string" ? { url: item.url } : {}),
+            });
           }
           return null;
         })
@@ -118,7 +130,7 @@ function normalizeLanguage(item: RemoteLanguage): RemoteLanguage {
 }
 
 function normalizeManifest(value: unknown): TranslationManifest {
-  const languages = parseLanguageList(value).filter((item) => item.code !== "en");
+  const languages = parseLanguageList(value);
   return { languages };
 }
 
@@ -146,30 +158,9 @@ async function setStoredValue(key: string, value: string): Promise<void> {
   await SecureStore.setItemAsync(key, value);
 }
 
-
 // SecureStore has small-value limits on some native versions. Translation JSON
 // can be larger, so native cache entries are stored in small numbered chunks.
 const NATIVE_CACHE_CHUNK_SIZE = 1500;
-
-async function getCachedTranslation(code: string, serverUrl: string): Promise<string | null> {
-  if (typeof window !== "undefined") return getStoredValue(`${TRANSLATION_CACHE_PREFIX}${cacheScope(serverUrl)}.${code}`);
-
-  try {
-    const manifest = await getStoredValue(`${TRANSLATION_CACHE_PREFIX}${cacheScope(serverUrl)}.${code}.chunks`);
-    const count = manifest ? Number(manifest) : 0;
-    if (!Number.isFinite(count) || count <= 0) return null;
-
-    const chunks = await Promise.all(
-      Array.from({ length: count }, (_, index) =>
-        getStoredValue(`${TRANSLATION_CACHE_PREFIX}${cacheScope(serverUrl)}.${code}.${index}`),
-      ),
-    );
-    if (chunks.some((chunk) => chunk === null)) return null;
-    return chunks.join("");
-  } catch {
-    return null;
-  }
-}
 
 async function cacheTranslation(code: string, serverUrl: string, value: string): Promise<void> {
   if (typeof window !== "undefined") {
@@ -184,7 +175,10 @@ async function cacheTranslation(code: string, serverUrl: string, value: string):
       value.slice(index * NATIVE_CACHE_CHUNK_SIZE, (index + 1) * NATIVE_CACHE_CHUNK_SIZE),
     );
   }
-  await setStoredValue(`${TRANSLATION_CACHE_PREFIX}${cacheScope(serverUrl)}.${code}.chunks`, String(chunkCount));
+  await setStoredValue(
+    `${TRANSLATION_CACHE_PREFIX}${cacheScope(serverUrl)}.${code}.chunks`,
+    String(chunkCount),
+  );
 }
 
 function setLanguageOptions(remoteLanguages: RemoteLanguage[]) {
@@ -266,7 +260,9 @@ export function getCurrentLanguage(): AppLanguage {
 
 async function loadCachedManifest(serverUrl: string): Promise<TranslationManifest | null> {
   try {
-    const cached = await getStoredValue(`${TRANSLATION_MANIFEST_CACHE_KEY}.${cacheScope(serverUrl)}`);
+    const cached = await getStoredValue(
+      `${TRANSLATION_MANIFEST_CACHE_KEY}.${cacheScope(serverUrl)}`,
+    );
     if (!cached) return null;
     const parsed = JSON.parse(cached);
     return normalizeManifest(parsed);
@@ -308,7 +304,10 @@ async function loadManifest(serverUrl: string): Promise<void> {
     }
 
     const remote = await fetchManifest(serverUrl);
-    await setStoredValue(`${TRANSLATION_MANIFEST_CACHE_KEY}.${cacheScope(serverUrl)}`, JSON.stringify(remote));
+    await setStoredValue(
+      `${TRANSLATION_MANIFEST_CACHE_KEY}.${cacheScope(serverUrl)}`,
+      JSON.stringify(remote),
+    );
     setLanguageOptions(remote.languages);
     manifestLoaded = true;
 
@@ -331,16 +330,6 @@ async function loadTranslation(language: AppLanguage): Promise<boolean> {
   if (language === "en") return true;
   const remoteLanguage = remoteLanguageMetadata[language];
   if (!remoteLanguage) return false;
-
-  const cached = await getCachedTranslation(language, configuredServerUrl);
-  if (cached) {
-    try {
-      remoteDictionaries[language] = JSON.parse(cached);
-      return true;
-    } catch {
-      // Ignore a corrupt cache and refresh from the server.
-    }
-  }
 
   translationLoading = true;
   notifyState();
@@ -422,7 +411,8 @@ export async function initializeTranslations(): Promise<void> {
 
   await loadManifest(configuredServerUrl);
   if (!languageSelectionMade) {
-    const selected = saved && languageOptions.some((item) => item.code === saved) ? saved : detectLanguage();
+    const selected =
+      saved && languageOptions.some((item) => item.code === saved) ? saved : detectLanguage();
     if (selected !== "en") {
       await selectLanguage(selected);
     } else {
