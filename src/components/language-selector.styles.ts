@@ -23,7 +23,6 @@ export const languageSelectorStyles = StyleSheet.create({
   },
   dropdown: {
     position: "absolute",
-    top: 70,
     left: 0,
     right: 0,
     maxHeight: 260,

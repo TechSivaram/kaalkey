@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import type { AppLanguage } from "../i18n/languages";
 import { SUPPORTED_LANGUAGES } from "../i18n/languages";
@@ -19,6 +20,7 @@ type Props = {
 };
 
 export default function LanguageSelector(p: Props) {
+  const [inputBottom, setInputBottom] = useState(0);
   const matches = useLanguageSearch(p.search);
   const selectedName =
     SUPPORTED_LANGUAGES.find((item) => item.code === p.language)?.nativeName ?? p.language;
@@ -40,9 +42,10 @@ export default function LanguageSelector(p: Props) {
         autoCapitalize="none"
         autoCorrect={false}
         style={s.input}
+        onLayout={(event) => setInputBottom(event.nativeEvent.layout.y + event.nativeEvent.layout.height)}
       />
       {p.open ? (
-        <View style={s.dropdown}>
+        <View style={[s.dropdown, { top: inputBottom }]}>
           <TouchableOpacity onPress={p.onClose} accessibilityRole="button">
             <Text style={s.close}>✕</Text>
           </TouchableOpacity>
