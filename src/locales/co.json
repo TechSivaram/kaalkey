@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Lingua",
+      "description": "Sceglite a lingua aduprata in KaalKey.",
+      "english": "inglese",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "LINGUA",
+      "searchLanguageName": "Ricerca lingua (nome o codice)",
+      "searchSupportedLanguages": "Ricerca lingue supportate",
+      "closeLanguageDropdown": "Chiudi menu a tendina lingua",
+      "noTranslatedLanguage": "Nisuna lingua tradutta truvata.",
+      "serverUrl": "Servitore di traduzzione URL",
+      "serverUrlDescription": "KaalKey scarica a lista di lingue è e traduzioni da stu servitore.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Salvà u servitore di traduzzione"
+    },
+    "title": "Paràmetri di l'app",
+    "eyebrow": "KAALKEY PREFERENZE",
+    "experience": {
+      "section": "ESPERIENZA"
+    },
+    "security": {
+      "section": "SICUREZZA"
+    },
+    "backup": {
+      "section": "BACKUP & RECUPERATION"
+    },
+    "danger": {
+      "section": "ZONA PERICULU",
+      "clearAccounts": "Cancella tutti i conti",
+      "clearAccountsDescription": "Elimina permanentemente ogni contu è secretu da stu dispusitivu. Backup prima.",
+      "clearAccountsAccessibilityLabel": "Sguassà tutti i cunti di l'autenticatore"
+    },
+    "appearance": {
+      "section": "APPARENZA",
+      "title": "L'apparenza di luce",
+      "description": "KaalKey usa attualmente u so tema di luce pulita."
+    },
+    "haptics": {
+      "title": "Feedback haptic",
+      "description": "Feedback gentile per i tocchi è l'azzioni finite."
+    },
+    "deviceLock": {
+      "title": "Bloccu di autentificazione di u dispositivu",
+      "description": "A vostra volta si chjude quandu KaalKey lascia u primu pianu.",
+      "requirement": "Richiede a biometria di u vostru telefunu o a serratura di u screnu PIN, mudellu o password.",
+      "accessibilityLabel": "Bloccu di l'app di autentificazione di u dispositivu"
+    },
+    "privacy": {
+      "title": "Legale è privacy",
+      "description": "Rivedi a Politica di Privacità è i Termini d'Usu.",
+      "storageNote": "I vostri segreti di l'autentificatore stanu in a volta sicura di u dispositivu. E preferenze sò guardate in u locu."
+    }
+  },
+  "accounts": {
+    "edit": "Edit",
+    "sortAccountName": "Ordine per nome di contu",
+    "loadingSecureVault": "Caricamentu di a volta sicura...",
+    "tapCopy": "TAP PER COPIA",
+    "noAccountsMatch": "Nisun contu currisponde à a vostra ricerca.",
+    "viewQrCode": "Vede u codice QR per u contu",
+    "removeAccount": "Eliminate u contu",
+    "copyVerificationCode": "Copia u codice di verificazione",
+    "active": "ATTIVI",
+    "sort": "ORDINATÀ",
+    "account": "contu",
+    "clearSearch": "Sguassà a ricerca",
+    "sortServiceName": "Ordine per nome di serviziu",
+    "addFirstAccount": "Aghjunghjite u vostru primu contu",
+    "searchAccounts": "Ricerca cunti",
+    "searchServiceAccount": "Ricerca serviziu o contu",
+    "accounts": "I vostri cunti",
+    "add": "+ Aghjunghjite",
+    "vaultStartsHere": "A vostra volta principia quì",
+    "service": "serviziu",
+    "emptyHint": "Aghjunghjite un contu utilizendu a so chjave secreta per generà u vostru primu codice di verificazione."
+  },
+  "common": {
+    "done": "Fattu",
+    "doneButton": "Fattu",
+    "closeSettings": "Chiudi i paràmetri",
+    "separator": "-",
+    "article": "a",
+    "save": "Salvà",
+    "delete": "Sguassà",
+    "resizeAppBrand": "Ridimensionà app è pannelli di marca"
+  },
+  "qrImport": {
+    "readPastedImage": "Ùn si pudia leghje l'immagine incollata"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Conti in questa copia di salvezza: {count}. KaalKey mantene i vostri cunti esistenti è aghjunghje qualsiasi cunti chì ùn sò micca digià prisenti. I cunti duplicati seranu saltati.",
+    "restoreCompletionBody": "Cunti aghjuntu: {added}. Conti duplicati saltati: {skipped}. I vostri cunti esistenti sò stati guardati.",
+    "copyPassword": "Copia a password generata",
+    "passwordSafety": "Salvà sta password separatamente (per esempiu, in WhatsApp). Qualchissia cù i dui",
+    "importAction": "Sceglie u schedariu è impurtà",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "VAULT SECURE",
+    "createBackup": "Crea una copia di salvezza",
+    "encryptedFile": "File criptatu",
+    "restoreBackup": "Risturà a copia di salvezza",
+    "safetyNote": "I backups cuntenenu i vostri secreti di l'autenticatore. KaalKey genera una password unica per ogni copia di salvezza. Salvà separatamente; KaalKey ùn pò micca ricuperà.",
+    "generatingSecurePassword": "Generazione di password sicura...",
+    "importFile": "Import file",
+    "backupPassword": "BACKUP PASSWORD",
+    "account": "contu",
+    "accounts": "cunti",
+    "exportDescription": "Cripta tutti i {count} salvati {accountLabel} in un schedariu di salvezza. KaalKey genera una password unica; copià è salvate separatamente da u schedariu.",
+    "restoreDescription": "Sceglite u vostru schedariu di salvezza KaalKey è password. I novi cunti seranu aghjuntu à a vostra lista di cunti esistenti; i cunti esistenti resteranu cum'è sò.",
+    "enterBackupPassword": "Inserite a password di salvezza",
+    "closeBackup": "Chiudi copia di salvezza",
+    "copyGeneratedBackup": "Copia a password di salvezza generata",
+    "backupPassword2": "Backup password",
+    "clearBackupPassword": "Sguassà a password di salvezza",
+    "backupFilePassword": "u schedariu di salvezza è a password ponu restaurà i vostri cunti autentificatori.",
+    "encryptShareBackup": "Cifrate è sparte a copia di salvezza"
+  },
+  "home": {
+    "unlockSecurely": "Sblocca in modu sicuru",
+    "disableAppLock": "Disattivà u bloccu di l'app",
+    "enableAppLock": "Attivà u bloccu di l'app",
+    "checkingSecureLock": "Verificate i vostri paràmetri di serratura sicura. I vostri codici restanu nascosti.",
+    "waitingVerification": "Aspittendu a verificazione...",
+    "secretsStayStored": "I vostri sicreti sò stati guardati in stu dispusitivu.",
+    "openAppSettings": "Apri i paràmetri di l'app",
+    "versionLabel": "VERSIONE",
+    "unlockRequirement": "Aduprate a biometria di u vostru telefunu o a serratura di u screnu PIN, u mudellu, o a password per accede à i vostri codici di verificazione una volta.",
+    "localVault": "A VOSTRA VAULT LOCAL",
+    "codesDeviceControl": "I vostri codici. U vostru dispusitivu. U vostru cuntrollu.",
+    "securingVault": "Assicurendu a vostra volta...",
+    "vaultProtected": "A vostra volta hè prutetta",
+    "lock": "LOCK ON",
+    "localVault2": "VOLTA LOCAL",
+    "authenticator": "KAALKEY AUTHENTICATOR",
+    "tricolourLockEmblem": "KaalKey emblema di serratura tricolore",
+    "authenticator2": "AUTENTICATORE"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Se sceglite di scansà un codice QR, KaalKey usa l'autorizazione di a camera per quella azzione. L'autentificazione opzionale di u dispositivu è u feedback haptic utilizanu e funzioni pertinenti di u dispositivu. Pudete gestisce i permessi in i paràmetri di u vostru dispositivu.",
+        "heading": "2. Permissions è funziunalità dispusitivu"
+      },
+      "backups": {
+        "body": "Quandu crea una copia di salvezza, KaalKey cripta a copia di salvezza cù una password chì sceglite. Mantene u schedariu è a password privati ​​​​è guardate in modu sicuru. Qualchidunu chì uttene u schedariu è a so password pò esse capace di restaurà i vostri cunti di autentificatore. KaalKey ùn pò micca ricuperà una password di salvezza scurdata.",
+        "heading": "3. Backups"
+      },
+      "security": {
+        "body": "Mantene u vostru dispositivu aghjurnatu, prutegge lu cun un serratura di u screnu, è ùn sparte micca OTP secreti o password di salvezza. Sguassà l'app, sguassate i so dati, o perde u dispositivu pò fà chì i cunti almacenati in u locu ùn sò micca dispunibili. Mantene una copia di salvezza sicura se avete bisognu di ricuperazione.",
+        "heading": "5. Sicurezza è retenzioni"
+      },
+      "information": {
+        "heading": "1. Informazioni è secreti",
+        "body": "KaalKey hè una app di autenticazione. L'etichetti di u contu è i valori secreti necessarii per generà codici una volta sò sensittivi. L'app hè pensata per almacenà i registri di u contu in u almacenamentu sicuru di u dispusitivu. Qualchese chì hà accessu à un dispositivu sbloccatu o una copia di salvezza esportata pò esse capace di accede à l'infurmazioni sensibili."
+      },
+      "sharing": {
+        "heading": "4. Sparte è terzu",
+        "body": "U flussu di salvezza pò utilizà a scheda di spartera di u vostru dispositivu o u selettore di schedari per salvà, trasferisce o selezziunate i fugliali. E pratiche di privacy di qualsiasi app o serviziu di terzu chì sceglite sò guvernati da quellu fornitore. Stu avvisu ùn face una pretensione manta chì u vostru dispusitivu, sistema upirativu, o i servizii di spartera scelti mai prucessu dati."
+      },
+      "changes": {
+        "heading": "6. Cambiamenti è cuntattu",
+        "body": "Stu avvisu incrustatu pò esse rivisu in una futura versione di l'app. Per e dumande di privacy, cuntattate l'editore di l'app attraversu u canali di supportu ufficiale furnitu cù l'app."
+      },
+      "title": "Pulitica di privacy"
+    },
+    "terms": {
+      "use": {
+        "body": "Pudete aduprà KaalKey per generà codici di verificazione per i cunti chì site autorizatu à accede. Sò rispunsevuli di rispettà e lege applicabili è e regule di i servizii per i quali utilizate codici di autentificazione.",
+        "heading": "1. U vostru usu"
+      },
+      "protectAccounts": {
+        "body": "Sò rispunsevuli di assicurà u vostru dispositivu, i secreti di l'autentificatore, i metudi di ricuperazione, e copie di salvezza esportate è e password di salvezza. Ùn sparte micca codici o sicreti cù e persone chì ùn avete micca fiducia.",
+        "heading": "2. Prutegge u vostru contu"
+      },
+      "availability": {
+        "body": "E caratteristiche ponu cambià trà e versioni. Duvete mantene l'app aghjurnata è verificate periodicamente chì i vostri arrangiamenti di salvezza è ricuperazione funzionanu.",
+        "heading": "5. Cambiamenti è dispunibilità"
+      },
+      "recovery": {
+        "body": "KaalKey ùn pò micca guarantisci chì ogni contu pò esse recuperatu, chì ogni codice o cunfigurazione QR serà cumpatibile, o chì l'app operarà senza interruzzione o errore. Mantene i metudi di ricuperazione alternativu furniti da u serviziu pertinente.",
+        "heading": "3. Nisuna guaranzia di ricuperazione"
+      },
+      "advice": {
+        "heading": "4. Nisun cunsigliu prufessiunale",
+        "body": "L'app hè una utilità è ùn furnisce micca cunsiglii legali, finanziarii o di sicurezza per incidenti-risposta. Se un contu hè cumprumissu, seguite a guida ufficiale di ricuperazione è sicurezza di u serviziu affettatu."
+      },
+      "liability": {
+        "heading": "6. Responsabilità è lege applicabile",
+        "body": "In a misura permessa da a lege applicabile, l'app hè furnita senza una garanzia di operazione ininterrotta o senza errore. Nunda in questi termini esclude diritti o rimedi chì ùn ponu micca legalmente escluditi. Ogni limitazione supplementaria o termini di a lege di regula deve esse riveduta da un avvucatu qualificatu per a ghjuridizione di l'editore prima di liberazione."
+      },
+      "title": "Termini di usu"
+    },
+    "version": "Versione",
+    "saving": "Salvà…",
+    "acceptContinue": "Accetta è Cuntinuà",
+    "appliesAuthenticator": "S'applica à KaalKey Authenticator",
+    "reviewBothDocuments": "Per piacè esaminà i dui documenti prima di utilizà KaalKey. Sò inclusi in l'app è dispunibuli offline.",
+    "originalMulticolourAuthenticator": "Emblema d'autentificatore multicolore originale KaalKey.",
+    "legalPrivacyNotice": "Avvisu Legale è Privacy",
+    "legalInformation": "L'infurmazione legale",
+    "reviewSPrivacy": "Verificate l'infurmazione di privacy di KaalKey è i termini d'usu.",
+    "iReadAgree": "Aghju lettu è accunsenu a Politica di Privacità è i Termini d'Usu."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Mantene tuttu u codice QR visibili. U vostru sicretu ferma nantu à stu dispusitivu.",
+    "back": "Torna",
+    "turnFlashlightOff": "Spegni a torcia",
+    "turnFlashlight": "Accende a torcia",
+    "flashlight": "Linterna accesa",
+    "flashlight2": "torcia",
+    "cameraUnavailableOpen": "Camera indisponibile. Aprite sta pagina nantu à HTTPS o locale host è permette l'accessu à a camera.",
+    "cameraPreviewUnavailable": "L'anteprima di a camera ùn hè micca dispunibule. Chiudi è riapertura u scanner.",
+    "cameraReadyPoint": "Camera pronta - punta à u codice QR cumpletu.",
+    "browserCannotProcess": "Stu navigatore ùn pò micca processà frames di càmera.",
+    "qrCodeDetected": "QR codice rilevatu.",
+    "couldnTRead": "Ùn pudia micca leghje i frames di a camera. Verificate i permessi di a camera è ricaricà sta pagina.",
+    "cameraPermissionDenied": "L'autorizazione di a camera hè denegata. Permette l'accessu à a camera in i paràmetri di u navigatore, dopu apre u scanner.",
+    "noCameraWas": "Nisuna camera hè stata truvata nant'à stu dispusitivu.",
+    "cameraBusyAnother": "A camera hè occupata in una altra app o tabulazione di u navigatore.",
+    "startCameraHttps": "Ùn pudia micca inizià a camera. Aduprate HTTPS o localhost è verificate i permessi di u navigatore.",
+    "qrScannerCamera": "QR scanner camera preview",
+    "cameraUnavailableCheck": "Camera indisponibile. Verificate u permessu di a camera è pruvate di novu.",
+    "pointCameraAuthenticator": "Puntate a vostra camera versu u codice QR di l'installazione di l'autentificatore da u serviziu chì aghjunghje.",
+    "backAddAccount": "Torna à aghjunghje contu",
+    "secureSetup": "SETUP SECURE",
+    "enterDetailsManually": "Inserite i dettagli manualmente invece"
+  },
+  "accountForm": {
+    "hideManualEntry": "Nascondi l'entrata manuale",
+    "secretKeySupplied": "Aduprate a chjave secreta furnita da u serviziu chì cunfigurate. Ùn inserite mai a password di u vostru contu quì. Abbina l'algoritmu, u numeru di cifre è l'intervallu cù l'istruzzioni di installazione di u serviziu.",
+    "updateServiceAccount": "Aghjurnà u serviziu, u nome di u contu o a chjave secreta.",
+    "secretKeyRead": "Chjave secreta, sola lettura durante l'edità",
+    "secretKeyBase32": "Chjave secreta in Base32",
+    "digits": "cifre",
+    "seconds": "seconde",
+    "enterDetailsManually": "O ENTRATE I DETTAGLI MANUALMENTE",
+    "enterDetailsManually2": "Inserite i dettagli manualmente",
+    "serviceAccountName": "U serviziu, u nome di u contu è a chjave secreta",
+    "saveChangesSecurely": "Salvà i cambiamenti in modu sicuru",
+    "saveAccountSecurely": "Salvà u contu in modu sicuru",
+    "serviceIssuer": "Serviziu o emittente",
+    "accountName": "Nome di u contu",
+    "secretKey": "Chjave secreta",
+    "serviceIssuer2": "SERVICE / EMISSIONE",
+    "eGGoogle": "p.e. Google",
+    "clearServiceIssuer": "Serviziu chjaru o emittente",
+    "eGExample": "p.e. tu@esempiu.com",
+    "clearAccountName": "Cancella u nome di u contu",
+    "secretKeyLocked": "CHIAVE SECRETA (BLOCCATA)",
+    "secretKeyBase322": "CHIAVE SECRETA (BASE32)",
+    "enterSetupKey": "Inserite a vostra chjave di cunfigurazione",
+    "clearSecretKey": "Chjave chjave secreta",
+    "otpAlgorithm": "OTP ALGORITMU",
+    "otpDigits": "OTP CIFRE",
+    "refreshIntervalSeconds": "INTERVALU DI REFRESH (SECONDI)",
+    "otpRefreshInterval": "OTP intervallu di rinfrescante in seconde",
+    "closeAccountForm": "Chiudi forma di contu",
+    "totpSetupUrl": "TOTP cunfigurazione URL",
+    "importSetupUrl": "Configurazione di l'importazione URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "NOME CONTU",
+    "addAccount": "Aggiungi contu"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Scansà u codice di l'autentificatore QR.",
+    "setupGuidance": "Scansate un codice QR per a cunfigurazione più faciule, o inserite i dettagli manualmente.",
+    "cameraAddAccount": "Aduprate a vostra camera per aghjunghje un contu istantaneamente",
+    "scanQrCode2": "Scansà u codice QR.",
+    "uploadQrImage": "Caricate QR imagine",
+    "chooseQrScreenshot": "Sceglite una QR screenshot da Galleria, Foto, o File",
+    "pasteQr": "Incolla QR imagine / URL",
+    "pasteCopiedQr": "Incolla una QR immagine copiata o una configurazione di autentificatore URL",
+    "uploadQrImage2": "Caricate QR imagine"
+  },
+  "accountQr": {
+    "close": "Chiudi",
+    "accountQrCode": "Cuntu QR codice",
+    "revealQrCode": "Revelà u codice QR.",
+    "exportWarning": "Attenzione: chiunque scansa stu codice QR pò generà codici di verificazione per stu contu. Revelà solu nantu à una pantalla di fiducia.",
+    "privacyHint": "Mantene stu codice QR privatu. A scansione copia u sicretu di l'autentificatore di u contu."
+  },
+  "productInfo": {
+    "backupRestore": "Salvà è restaurà",
+    "backupRestoreDescription": "Fate una copia di salvezza di i vostri dati di autentificatore è restaurà quandu si move in un altru dispositivu.",
+    "privacyDescription": "Mantene i vostri cunti di verificazione in un locu. Aduprate l'opzioni di salvezza, restaurazione è bloccu di u dispositivu di l'app per gestisce a vostra cunfigurazione in modu rispunsevule.",
+    "timeBasedCodes": "Codici basati in u tempu",
+    "generateOneTimeCodes": "Generate codici rotanti una volta per i vostri cunti per compie a verificazione in dui passi.",
+    "quickAccountSetup": "Configurazione rapida di u contu",
+    "quickSetupDescription": "Scansate un codice autentificatore QR o impurtate una maghjina QR per aghjunghje un contu.",
+    "accountsOnePlace": "Conti in un locu",
+    "accountsInOnePlaceDescription": "Mantene i vostri cunti salvati inseme è truvate l'entrata ghjusta quandu hè u tempu di firmà.",
+    "privateAccountVault": "Vault di cuntu privatu",
+    "privateVaultDescription": "Gestite e vostre entrate di autentificatore in u locu è utilizate l'opzione di bloccu di u dispositivu dispunibule di l'app.",
+    "easyCodeAccess": "Accessu à u codice faciule",
+    "easyCodeAccessDescription": "Copia un codice attuale o gestisce i dettagli di u contu attraversu una interfaccia pulita è focalizzata.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · BY TECHSIVARAM",
+    "mobileAuthenticator": "U vostru AUTHENTICATOR MOBILE",
+    "tagline": "Un modu più simplice per gestisce a vostra verificazione in dui passi.",
+    "heroDescription": "Una sperienza d'autentificazione focalizzata per i codici di verificazione basati in u tempu. Mantene i codici di cunti cumpatibili vicinu cù KaalKey per Android.",
+    "timeBasedCodes2": "CODICI BASATI IN TEMPU",
+    "privateDesign": "PRIVATU PER DESIGN",
+    "builtSimpleAuthenticator": "Custruitu per un flussu di travagliu SIMPLU AUTHENTICATOR",
+    "qrSetupTimed": "QR SETUP · CODICI TIMED · GESTIONE DI CONTU",
+    "privacyTitle": "I vostri cunti. I vostri codici. U vostru cuntrollu.",
+    "authenticator": "KAALKEY · AUTHENTICATOR",
+    "brandBanner": "KaalKey banner di marca",
+    "logo": "KaalKey logu"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Cancella",
+      "storageInvalidTitle": "Dati di almacenamiento invalidu",
+      "storageInvalidBody": "I dati di u contu salvati ùn anu pussutu esse letti in modu sicuru.",
+      "storageErrorTitle": "Errore di almacenamiento",
+      "storageErrorBody": "I cunti salvati ùn anu pussutu esse caricati.",
+      "missingTitle": "L'infurmazioni mancanti",
+      "missingEditingBody": "Inserite u nome di serviziu è u nome di u contu.",
+      "missingBody": "Inserite u nome di serviziu, u nome di u contu è a chjave secreta.",
+      "invalidOtpBody": "Verificate u sicretu Base32, l'algoritmu, u numeru di cifre è u periodu di rinfrescante. I sicreti devenu cuntene Base32 caratteri validi; e cifre deve esse {digits} è u periodu deve esse {minPeriod}–{maxPeriod} seconde.",
+      "duplicateBody": "Un contu cù stu serviziu è u nome di u contu hè digià salvatu.",
+      "updatedBody": "U vostru contu hè statu aghjurnatu.",
+      "addedBody": "U vostru contu hè statu aghjuntu in modu sicuru.",
+      "invalidOtpTitle": "OTP paràmetri invalidi",
+      "duplicateTitle": "U contu esiste digià",
+      "savedTitle": "Contu salvatu",
+      "invalidSecretTitle": "Chjave secreta invalida",
+      "invalidSecretBody": "Per piacè verificate chì avete inseritu un sicretu Base32 validu.",
+      "removedTitle": "U contu sguassatu",
+      "removedBody": "U contu è u so sicretu sò stati cacciati da stu dispusitivu.",
+      "clearedTitle": "Conti sbulicati",
+      "clearedBody": "Tutti i cunti autentificatori è i sicreti sò stati eliminati da stu dispusitivu.",
+      "someSavedAccountsNeedAttentionTitle": "Certi cunti salvati necessitanu attenzione",
+      "someSavedAccountsNeedAttentionBody": "{count} record di contu invalidu ùn sò micca stati caricati. I conti validi restanu dispunibili. Pensate à creà una copia di salvezza prima di fà più cambiamenti.",
+      "removeConfirmTitle": "Eliminate u contu ?",
+      "removeConfirmWebTitle": "Eliminate u contu ?",
+      "removeButton": "Eliminate",
+      "clearButton": "Pulisce tuttu",
+      "clearConfirmTitle": "Cancella tutti i conti?",
+      "saveErrorBody": "I cunti ùn anu pussutu esse salvati. Verificate a dispunibilità di almacenamiento di u navigatore è pruvate di novu.",
+      "notFoundTitle": "Cuntu micca trovu",
+      "notFoundBody": "Stu contu ùn pudia esse trovu. Chiudi l'editore è pruvate di novu.",
+      "removeConfirmBody": "Stu sguassate u contu è u so sicretu da stu dispusitivu.",
+      "clearConfirmBody": "Questu sguassate permanentemente tutti i cunti autentificatori è i so sicreti da stu dispusitivu. Crea una copia di salvezza criptata prima se pudete avè bisognu di sti cunti dopu.",
+      "clearConfirmUndoBody": "Questu ùn pò micca esse annullatu."
+    },
+    "biometric": {
+      "cancelButton": "Cancella",
+      "saveErrorTitle": "Ùn pudia micca salvà u paràmetru",
+      "unlockPrompt": "Sblocca l'autenticatore KaalKey.",
+      "promptSubtitle": "Aduprate a biometria o u bloccu di u screnu di u vostru dispositivu",
+      "disableConfirmPrompt": "Cunfirmate per disattivà KaalKey serratura di l'app",
+      "enablePrompt": "Attivà u bloccu di l'app per KaalKey",
+      "deviceLockTitle": "Configurate u bloccu di u screnu di u vostru dispositivu",
+      "deviceLockBody": "KaalKey usa l'autentificazione integrata di u vostru telefunu. Pone un dispositivu PIN, un mudellu, o una password in i paràmetri di sicurità di u vostru telefunu, poi pruvate di novu. A biometria hè facultativa.",
+      "unavailableTitle": "L'autentificazione di u dispositivu ùn hè micca dispunibule",
+      "unavailableBody": "U vostru telefunu ùn pudia micca inizià l'autentificazione sicura. Verificate chì una serratura di u screnu di u dispositivu hè cunfigurata, poi pruvate di novu.",
+      "lockedTitle": "Autentificazione temporaneamente bloccata",
+      "lockedBody": "U vostru telefunu hà temporaneamente disattivatu l'autentificazione dopu troppu tentativi. Aspetta è pruvate di novu.",
+      "promptErrorTitle": "Autentificazione micca dispunibile",
+      "promptErrorBody": "KaalKey ùn hà micca pussutu inizià a richiesta di autentificazione sicura di u telefunu. Per piacè pruvate di novu.",
+      "webLock": "U serratura di autentificazione di u dispositivu ùn hè micca dispunibule ancu in a versione web. A volta web resta sbloccata; aduprate l'applicazione Android per l'autentificazione di u dispositivu nativu.",
+      "disabledTitle": "Bloccu di l'app disattivatu",
+      "disabledBody": "KaalKey app lock hè stata disattivata.",
+      "disableSaveError": "A serratura di l'app resta attivata. Per piacè pruvate di novu.",
+      "enabledTitle": "Bloccu app attivatu",
+      "enabledBody": "KaalKey richiederà l'autentificazione integrata di u vostru telefunu quandu hè apertu è quandu vi turnate.",
+      "enableSaveError": "U serratura di l'app ùn pò micca esse attivata. Per piacè pruvate di novu."
+    },
+    "qr": {
+      "startingCamera": "Accumincia a camera...",
+      "unsupportedTitle": "Codice QR micca supportatu",
+      "unsupportedBody": "Scansate u codice QR di cunfigurazione di l'autentificatore furnitu da u serviziu. Questu deve esse un codice TOTP, micca un codice QR di login normale.",
+      "unsupportedDiagnostic": "Ddu QR ùn hè micca un codice di stallazione TOTP. Scopu à una configurazione di autentificatore QR.",
+      "detectedDiagnostic": "QR rilevatu. Analizendu…",
+      "analyzing": "Analizendu u codice QR...",
+      "duplicateTitle": "Cuntu digià aghjuntu",
+      "duplicateBody": "{issuer}: {account} hè digià in KaalKey.",
+      "addedTitle": "Cuntu aghjuntu",
+      "addedBody": "{issuer} : {account} hè statu aghjuntu cù successu.",
+      "saveFailedDiagnostic": "Ùn pudia micca salvà u contu. Pudete scansà dinò.",
+      "invalidTitle": "Codice QR invalidu",
+      "invalidBody": "KaalKey ùn pudia analizà stu codice QR autentificatore. {detail}. Aduprate u codice TOTP di setup di u serviziu QR (di solitu principia cù {prefix}).",
+      "parseFailedDiagnostic": "QR ùn pudia esse trattatu. Puntate à a cunfigurazione QR è pruvate di novu.",
+      "invalidUrlTitle": "TOTP URL invalidu",
+      "invalidUrlBody": "Incolla un autentificatore cumpletu URL chì principia cù {prefix}.",
+      "clipboardEmptyTitle": "Clipboard hè viotu",
+      "clipboardEmptyBody": "Copia un {prefix} URL prima, poi tocca Incolla TOTP URL.",
+      "clipboardErrorTitle": "Ùn si pudia leghje u clipboard",
+      "clipboardErrorBody": "Copia a TOTP setup URL è pruvate di novu."
+    },
+    "haptics": {
+      "saveFailedTitle": "Ùn pudia micca salvà u paràmetru",
+      "saveFailedBody": "A preferenza di feedback haptic ùn pò micca esse salvata. Per piacè pruvate di novu."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Ùn pudia micca salvà a ricunniscenza",
+      "saveFailedBody": "Per piacè pruvate di novu. Duvete accettà l'avvisu legale prima di utilizà KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Permissione di a camera necessaria",
+      "body": "Permette l'accessu à a camera per scansà un codice QR di setup d'autentificatore."
+    },
+    "storage": {
+      "browserUnavailable": "U almacenamentu di u navigatore ùn hè micca dispunibule.",
+      "browserFilePickerUnavailable": "U selettore di fugliale di u navigatore ùn hè micca dispunibule."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "File micca supportatu",
+      "unsupportedFileBody": "Sceglite una maghjina di codice QR cum'è PNG o JPEG.",
+      "browserDecoderUnavailable": "A decodificazione di l'imaghjini di u navigatore ùn hè micca dispunibule",
+      "imageLoadFailed": "L'imagine ùn pò micca esse caricata",
+      "unreadableDimensions": "L'imagine ùn hà micca dimensioni leghjite",
+      "noQrCodeFoundTitle": "Nisun codice QR trovu",
+      "noQrCodeFoundBody": "KaalKey ùn pudia micca decodificà un codice QR in questa maghjina. Pruvate una screenshot o una risoluzione più alta PNG/JPEG.",
+      "couldNotReadImageTitle": "Impossibile leghje l'imagine",
+      "couldNotReadImageBody": "Pruvate una maghjina PNG o JPEG chjara chì cuntene u codice QR di cunfigurazione di l'autentificatore.",
+      "couldNotOpenPickerTitle": "Impossibile apre u selettore d'imaghjini",
+      "couldNotOpenPickerBody": "Per piacè pruvate à Caricà QR di novu.",
+      "normalizedDecodeFailed": "L'imaghjini nurmalizzati ùn anu pussutu esse decodificati",
+      "clipboardImageLoadFailed": "L'immagine di u clipboard ùn pò micca esse caricata",
+      "imageProcessingUnavailable": "U trattamentu di l'imaghjini ùn hè micca dispunibule",
+      "imageProcessingUnavailableAlt": "U trattamentu di l'imaghjini ùn hè micca dispunibule",
+      "noImageInClipboardTitle": "Nisuna imagine in u clipboard",
+      "noImageInClipboardBody": "Copia una maghjina di codice QR, poi tocca Incolla QR Image di novu.",
+      "clipboardUnavailableTitle": "Clipboard indisponibile",
+      "clipboardUnavailableBody": "U testu di u clipboard ùn hè micca una cunfigurazione valida di l'autentificatore URL. Copia un otpauth:// URL o QR imagine è pruvate di novu.",
+      "clipboardAccessBody": "KaalKey ùn pudia micca leghje u testu o una maghjina da u clipboard. Permette l'accessu à i clipboard, dopu copià l'imaghjini QR o otpauth:// URL è toccu Incolla QR Image / URL di novu.",
+      "couldNotPasteImageTitle": "Ùn si pudia incollà l'imagine",
+      "couldNotPasteImageBody": "L'incolla di l'imaghjini ùn hè micca supportatu da stu clipboard in stu dispusitivu. Aduprate invece l'Importà QR imagine.",
+      "sourceImageDecodeFailure": "Pruvate una diversa QR imagine.",
+      "pastedImportFailureBody": "Pruvate una diversa QR imagine.",
+      "sourceImageReadFailure": "Pruvate à cupià una QR screenshot chjara.",
+      "importFailedTitle": "QR importazione di l'imaghjini fiascatu",
+      "importFailedBody": "KaalKey ùn pudia leghje quella maghjina. Pruvate un altru codice QR imagine.",
+      "notFoundBody": "L'imaghjina copiata ùn cuntene micca un codice QR leggibile.",
+      "pastedNotFoundBody": "L'imagine incollata ùn cuntene micca un codice QR leggibile.",
+      "pastedReadFailureBody": "Pruvate à cupià una maghjina PNG o JPEG chjara chì cuntene u codice QR cumpletu.",
+      "noQrCodeTextBody": "KaalKey hà decodificatu l'imaghjina selezziunata ma ùn hà micca trovu un codice QR. Pruvate un PNG o JPEG chjara è a piena risoluzione cù u codice tutale visibile."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Stu codice QR ùn hè micca un codice di cunfigurazione di l'autentificatore basatu in u tempu.",
+      "missingAccountDetails": "U codice QR manca i dettagli di u contu.",
+      "unsupportedAlgorithm": "U codice QR usa un algoritmu micca supportatu.",
+      "unsupportedDigits": "Stu codice QR deve aduprà 6, 7 o 8 cifre.",
+      "unsupportedPeriod": "Stu codice QR usa un periodu di tempu micca supportatu.",
+      "invalidAccount": "U codice QR ùn pudia esse cunvalidatu."
+    },
+    "backup": {
+      "invalidJson": "U schedariu di salvezza ùn hè micca validu JSON.",
+      "unsupportedFormat": "Questa ùn hè micca una copia di salvezza criptata KaalKey supportata.",
+      "invalidPasswordOrDamaged": "A password di salvezza hè sbagliata o u schedariu di salvezza hè dannatu.",
+      "invalidContents": "U cuntenutu di salvezza hè invalidu o incompletu.",
+      "secureRandomUnavailableDetailed": "A generazione aleatoria sicura ùn hè micca dispunibule. Ricustruisce è reinstalla l'applicazione Android cù expo-crypto inclusa, poi pruvate di novu.",
+      "invalidAccountDataForBackup": "Unu o più cunti ùn sò micca validi. Fix i dati contu prima di creà una copia di salvezza.",
+      "invalidPasswordOrModified": "A password di salvezza hè incorrecta o u schedariu di salvezza hè statu mudificatu.",
+      "invalidPasswordOrFileDamaged": "A password di salvezza hè sbagliata o u schedariu hè dannatu.",
+      "passwordCopiedTitle": "Password copiata",
+      "enterPasswordTitle": "Inserite a vostra password di salvezza",
+      "enterPasswordBody": "Inserite a password utilizata quandu sta copia di salvezza hè stata creata.",
+      "passwordCopiedBody": "Salvà in un locu sicuru, cum'è WhatsApp.",
+      "copyFailedTitle": "Copia falluta",
+      "copyFailedBody": "Selezziunate è copià a password manualmente.",
+      "generatingPassword": "Generazione di password di salvezza sicura...",
+      "encrypting": "Criptazione di a copia di salvezza...",
+      "decrypting": "Decrypting backup...",
+      "restoring": "Ripristina i cunti...",
+      "backupCreatedTitle": "Backup creatu",
+      "restoreCompleteTitle": "Restore cumpletu",
+      "mergeConfirmTitle": "Unisce i cunti di salvezza?",
+      "mergeConfirmButton": "Unisci i cunti",
+      "backupSavedTemporary": "Copia di salvezza criptata salvata temporaneamente à:\n{uri}",
+      "generatePasswordErrorTitle": "Ùn pudia micca generà password di salvezza",
+      "secureRandomUnavailable": "A generazione aleatoria sicura ùn hè micca dispunibule.",
+      "passwordUnavailableTitle": "A password di salvezza ùn hè micca dispunibule",
+      "passwordUnavailableBody": "Chiudi stu dialogu è crea una nova copia di salvezza per generà una password sicura.",
+      "backupDownloadedBody": "A vostra copia di salvezza KaalKey criptata hè stata scaricata. Mantene u schedariu è a password privata.",
+      "backupFailedTitle": "A copia di salvezza hà fiascatu",
+      "backupCreateErrorBody": "KaalKey ùn pudia micca creà a copia di salvezza.",
+      "restoreFailedTitle": "Risturà fiascatu",
+      "backupReadErrorBody": "A copia di salvezza ùn pò esse leghjite o salvate.",
+      "browserDownloadUnsupported": "U vostru navigatore ùn sustene micca u scaricamentu di i fugliali di salvezza.",
+      "localFileUnavailable": "Un locu di u schedariu locale ùn hè micca dispunibule nantu à stu dispusitivu.",
+      "saveBackupTitle": "Salvà a vostra copia di salvezza KaalKey criptata"
+    },
+    "clipboard": {
+      "copiedTitle": "Codice copiatu",
+      "copiedBody": "U vostru codice di verificazione hè statu copiatu.",
+      "errorTitle": "Errore",
+      "errorBody": "Ùn pudia micca copià u codice di verificazione."
+    },
+    "activity": {
+      "cameraReady": "Camera pronta. Puntate à u codice di l'autentificatore QR.",
+      "readingQrImage": "Lettura di QR imagine...",
+      "importingQrImage": "Importazione di QR imagine...",
+      "importingAccount": "Importazione di u contu autentificatore...",
+      "importingPastedImage": "Importazione di l'immagine incollata QR..."
+    }
+  },
+  "activity": {
+    "working": "U travagliu",
+    "wait": "Per piacè aspettate…",
+    "donTClose": "Per piacè ùn chjude micca o interagisce cù KaalKey.",
+    "loadingLanguages": "Caricamentu di e lingue dispunibili…",
+    "loadingTranslation": "Caricamentu di a traduzzione…"
+  }
+}

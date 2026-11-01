@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Harshe",
+      "description": "Zaɓi harshen da ake amfani da shi a cikin KaalKey.",
+      "english": "Turanci",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "HARSHE",
+      "searchLanguageName": "Bincika harshe (suna ko lamba)",
+      "searchSupportedLanguages": "Bincika goyan bayan harsuna",
+      "closeLanguageDropdown": "Rufe zazzage harshe",
+      "noTranslatedLanguage": "Ba a sami yaren da aka fassara ba.",
+      "serverUrl": "Sabar fassarar URL",
+      "serverUrlDescription": "KaalKey yana sauke jerin harshe da fassarorin daga wannan uwar garken.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Ajiye uwar garken fassara"
+    },
+    "title": "Saitunan app",
+    "eyebrow": "KAALKEY KYAUTA",
+    "experience": {
+      "section": "FARUWA"
+    },
+    "security": {
+      "section": "TSARO"
+    },
+    "backup": {
+      "section": "Ajiyayyen & Farfadowa"
+    },
+    "danger": {
+      "section": "ZANIN HADARI",
+      "clearAccounts": "Share duk asusun",
+      "clearAccountsDescription": "Cire kowane asusu da sirri na dindindin daga wannan na'urar. Back up farko.",
+      "clearAccountsAccessibilityLabel": "Share duk asusun masu tabbatarwa"
+    },
+    "appearance": {
+      "section": "BAYYANA",
+      "title": "Hasken bayyanar",
+      "description": "KaalKey a halin yanzu yana amfani da jigon haske mai tsabta."
+    },
+    "haptics": {
+      "title": "Ra'ayin Haptic",
+      "description": "Takaitaccen martani don famfo da ayyukan da aka kammala."
+    },
+    "deviceLock": {
+      "title": "Kulle tabbatar da na'ura",
+      "description": "Rufin ku yana kulle lokacin da KaalKey ya bar gaba.",
+      "requirement": "Bukatar ma'aunin yanayin wayarku ko kulle allo PIN, tsari, ko kalmar sirri.",
+      "accessibilityLabel": "Kulle kayan aikin na'urar"
+    },
+    "privacy": {
+      "title": "Shari'a & keɓantawa",
+      "description": "Yi bita Dokar Keɓantawa da Sharuɗɗan Amfani.",
+      "storageNote": "Asirin masu tabbatar da ku suna tsayawa a cikin amintaccen rumbun na'urar. Ana adana abubuwan da ake so a gida."
+    }
+  },
+  "accounts": {
+    "edit": "Gyara",
+    "sortAccountName": "Tsara da sunan asusun",
+    "loadingSecureVault": "Ana loda amintaccen vault...",
+    "tapCopy": "TABA DON KWAFI",
+    "noAccountsMatch": "Babu asusun ajiya da ya dace da bincikenku.",
+    "viewQrCode": "Duba QR lambar don asusu",
+    "removeAccount": "Cire asusun",
+    "copyVerificationCode": "Kwafi lambar tabbatarwa",
+    "active": "AIKI",
+    "sort": "SARA TA",
+    "account": "Asusu",
+    "clearSearch": "Share bincike",
+    "sortServiceName": "Tsara da sunan sabis",
+    "addFirstAccount": "Ƙara asusunku na farko",
+    "searchAccounts": "Bincika asusun",
+    "searchServiceAccount": "Bincika sabis ko asusu",
+    "accounts": "Asusun ku",
+    "add": "+ Ƙara",
+    "vaultStartsHere": "Rukunin ku yana farawa a nan",
+    "service": "Sabis",
+    "emptyHint": "Ƙara asusu ta amfani da maɓallin sirrinsa don samar da lambar tabbatarwa ta farko."
+  },
+  "common": {
+    "done": "Anyi",
+    "doneButton": "Anyi",
+    "closeSettings": "Rufe saituna",
+    "separator": "-",
+    "article": "a",
+    "save": "Ajiye",
+    "delete": "Share",
+    "resizeAppBrand": "Maimaita girman ƙa'idar da tambarin alamar"
+  },
+  "qrImport": {
+    "readPastedImage": "An kasa karanta hoton da aka liƙa"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Asusu a cikin wannan madadin: {count}. KaalKey zai adana asusun ku na yanzu kuma ya ƙara duk wani asusun da ba a riga ya kasance ba. Za a tsallake asusun kwafi.",
+    "restoreCompletionBody": "An kara lissafin: {added}. Kwafin asusu sun tsallake: {skipped}. An adana asusun ku na yanzu.",
+    "copyPassword": "Kwafi kalmar sirri da aka samar",
+    "passwordSafety": "Ajiye wannan kalmar sirri daban (misali, a cikin WhatsApp). Duk wanda yake da duka biyun",
+    "importAction": "Zaɓi fayil kuma shigo da shi",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "SACURE VAULT",
+    "createBackup": "Ƙirƙiri madadin",
+    "encryptedFile": "Fayil da aka ɓoye",
+    "restoreBackup": "Maida madadin",
+    "safetyNote": "Ajiyayyen yana ƙunshe da asirin masu tabbatar da ku. KaalKey yana haifar da keɓaɓɓen kalmar sirri don kowane madadin. Ajiye shi daban; KaalKey ba zai iya dawo da shi ba.",
+    "generatingSecurePassword": "Samar da amintaccen kalmar sirri…",
+    "importFile": "Shigo fayil",
+    "backupPassword": "MAGANAR KYAUTA",
+    "account": "asusu",
+    "accounts": "asusun",
+    "exportDescription": "Rufe duk {count} da aka ajiye {accountLabel} cikin fayil ɗin ajiya. KaalKey yana haifar da kalmar sirri ta musamman; kwafi kuma ajiye shi daban daga fayil ɗin.",
+    "restoreDescription": "Zaɓi fayil ɗin ajiyar ku KaalKey da kalmar wucewa. Za a ƙara sabbin asusu zuwa lissafin da ke akwai; Asusu na yanzu za su kasance kamar yadda suke.",
+    "enterBackupPassword": "Shigar da kalmar wucewa",
+    "closeBackup": "Rufe madadin",
+    "copyGeneratedBackup": "Kwafi kalmar sirri da aka samar",
+    "backupPassword2": "Ajiyayyen kalmar sirri",
+    "clearBackupPassword": "Share kalmar sirri ta madadin",
+    "backupFilePassword": "madadin fayil da kalmar wucewa za su iya dawo da asusun masu tabbatar da ku.",
+    "encryptShareBackup": "Encrypt kuma raba madadin"
+  },
+  "home": {
+    "unlockSecurely": "Buɗe amintacce",
+    "disableAppLock": "Kashe kulle app",
+    "enableAppLock": "Kunna kulle app",
+    "checkingSecureLock": "Duba amintattun saitunan kulle ku. Lambobin ku sun kasance a ɓoye.",
+    "waitingVerification": "Ana jiran tabbatarwa…",
+    "secretsStayStored": "Sirrin ku ya kasance a adana akan wannan na'urar.",
+    "openAppSettings": "Bude saitunan app",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "Yi amfani da na'urar tantancewa ta wayarku ko kulle allo PIN, tsari, ko kalmar wucewa don samun damar lambobin tabbatarwa na lokaci ɗaya.",
+    "localVault": "HUKUNCIN KU",
+    "codesDeviceControl": "Lambobin ku. Na'urar ku. Ikon sarrafa ku.",
+    "securingVault": "Ana tsare ajiyar ku…",
+    "vaultProtected": "Akwatin ku yana da kariya",
+    "lock": "KULLE",
+    "localVault2": "LOCAL VAULT",
+    "authenticator": "KAALKEY AUTHENTICATOR",
+    "tricolourLockEmblem": "KaalKey alamar makullin tricolor",
+    "authenticator2": "AUTHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Idan ka zaɓi bincika lambar QR, KaalKey yana amfani da izinin kyamara don wannan aikin. Tabbacin na'urar zaɓi da amsa haptic suna amfani da fasalin na'urar da ta dace. Kuna iya sarrafa izini a cikin saitunan na'urar ku.",
+        "heading": "2. Izini da fasalin na'urar"
+      },
+      "backups": {
+        "body": "Lokacin da kuka ƙirƙiri madadin, KaalKey yana ɓoye maajiyar ta amfani da kalmar sirri da kuka zaɓa. Kiyaye duka fayil ɗin da kalmar sirri a sirri kuma adana su amintacce. Duk wanda ya sami fayil ɗin da kalmar wucewar sa na iya iya maido da asusun ajiyar ku. KaalKey ba zai iya dawo da kalmar sirri da aka manta da ita ba.",
+        "heading": "3. Ajiyayyen"
+      },
+      "security": {
+        "body": "Ci gaba da sabunta na'urarka, kare ta tare da makullin allo, kuma kar a raba sirrin OTP ko madaidaitan kalmomin shiga. Cire ƙa'idar, share bayanansa, ko rasa na'urar na iya sa ba a samu asusu a cikin gida da aka adana ba. Rike amintaccen madadin idan kuna buƙatar murmurewa.",
+        "heading": "5. Tsaro da riƙewa"
+      },
+      "information": {
+        "heading": "1. Bayani da sirri",
+        "body": "KaalKey app ne mai tabbatarwa. Alamun lissafi da ƙimar sirrin da ake buƙata don samar da lambobin lokaci ɗaya suna da hankali. An ƙera ƙa'idar don adana bayanan asusun a cikin amintaccen ma'ajiyar na'urar. Duk wanda ke da damar yin amfani da na'urar da aka buɗe ko madadin da aka fitar zai iya samun damar samun bayanai masu mahimmanci."
+      },
+      "sharing": {
+        "heading": "4. Sharing da na uku",
+        "body": "Gudun wariyar ajiya na iya amfani da takardar rabon na'urarka ko mai ɗaukar fayil don adanawa, canja wuri, ko zaɓi fayiloli. Ayyukan sirri na kowane app ko sabis na ɓangare na uku ana gudanar da su ta hanyar mai badawa. Wannan sanarwar ba ta yin da'awar cewa na'urarka, tsarin aiki, ko ayyukan rabawa da aka zaɓa ba su taɓa sarrafa bayanai ba."
+      },
+      "changes": {
+        "heading": "6. Canje-canje da lamba",
+        "body": "Ana iya sabunta wannan sanarwar da aka shigar a cikin sakin app na gaba. Don tambayoyin sirri, tuntuɓi mawallafin app ta hanyar tashar tallafi ta hukuma da aka bayar tare da ƙa'idar."
+      },
+      "title": "Manufar Keɓantawa"
+    },
+    "terms": {
+      "use": {
+        "body": "Kuna iya amfani da KaalKey don samar da lambobin tabbatarwa don asusun da aka ba ku izinin shiga. Kai ne ke da alhakin bin ƙa'idodin da suka dace da ka'idojin sabis waɗanda kuke amfani da lambobin tantancewa don su.",
+        "heading": "1. Amfanin ku"
+      },
+      "protectAccounts": {
+        "body": "Kai ne ke da alhakin kiyaye na'urarka, sirrin masu tabbatarwa, hanyoyin dawo da su, ma'ajin da aka fitar da su, da majiyar kalmomin shiga. Kada ku raba lambobi ko sirri tare da mutanen da ba ku amince da su ba.",
+        "heading": "2. Kare asusun ku"
+      },
+      "availability": {
+        "body": "Fasaloli na iya canzawa tsakanin sakewa. Ya kamata ku ci gaba da sabunta ƙa'idar kuma ku tabbatar lokaci-lokaci cewa tsarin ajiyar ku da dawo da aiki yana aiki.",
+        "heading": "5. Canje-canje da samuwa"
+      },
+      "recovery": {
+        "body": "KaalKey ba zai iya ba da garantin cewa za a iya dawo da kowane asusu ba, cewa kowane lambar QR zai dace, ko kuma app ɗin zai yi aiki ba tare da tsangwama ko kuskure ba. Ajiye madadin hanyoyin dawo da sabis ɗin da ya dace ya samar.",
+        "heading": "3. Babu garantin dawowa"
+      },
+      "advice": {
+        "heading": "4. Babu shawarwarin sana'a",
+        "body": "Ka'idar abin amfani ne kuma baya bayar da shawarar amsa ta hanyar doka, kuɗi, ko tsaro. Idan an lalata wani asusu, bi tsarin dawowa da jagorar tsaro na aikin da abin ya shafa."
+      },
+      "liability": {
+        "heading": "6. Alhaki da doka mai aiki",
+        "body": "Iyakar abin da doka ta zartar, ana samar da app ɗin ba tare da garantin aiki mara yankewa ko kuskure ba. Babu wani abu a cikin waɗannan sharuɗɗan da ya keɓance haƙƙi ko magunguna waɗanda ba za a iya keɓance su bisa doka ba. Duk wani ƙarin iyakancewa ko sharuɗɗan dokar mulki yakamata ƙwararren lauya ya duba shi don ikon mawallafin kafin a sake shi."
+      },
+      "title": "Sharuɗɗan Amfani"
+    },
+    "version": "Sigar",
+    "saving": "Ana ajiyewa…",
+    "acceptContinue": "Karɓa & Ci gaba",
+    "appliesAuthenticator": "Ya shafi KaalKey Mai tabbatarwa",
+    "reviewBothDocuments": "Da fatan za a sake nazarin takaddun biyu kafin amfani da KaalKey. Ana haɗa su a cikin app kuma ana samun su ta layi.",
+    "originalMulticolourAuthenticator": "Asalin launuka masu yawa KaalKey tambarin tabbatarwa",
+    "legalPrivacyNotice": "Sanarwa na Shari'a & Keɓantawa",
+    "legalInformation": "Bayanin doka",
+    "reviewSPrivacy": "Bita KaalKey bayanan sirri da sharuɗɗan amfani.",
+    "iReadAgree": "Na karanta kuma na yarda da Dokar Sirri da Sharuɗɗan Amfani."
+  },
+  "qrScanner": {
+    "keepEntireQr": "A kiyaye gaba dayan lambar QR bayyane. Sirrin ku yana kan wannan na'urar.",
+    "back": "Baya",
+    "turnFlashlightOff": "Kashe fitilar tocila",
+    "turnFlashlight": "Kunna walƙiya",
+    "flashlight": "Tocila a kunne",
+    "flashlight2": "Hasken walƙiya",
+    "cameraUnavailableOpen": "Babu kamara Bude wannan shafin akan HTTPS ko localhost kuma ba da izinin shiga kamara.",
+    "cameraPreviewUnavailable": "Babu samfotin kamara. Rufe kuma sake buɗe na'urar daukar hotan takardu.",
+    "cameraReadyPoint": "Shirya kyamara - nuna shi a cikakkiyar lambar QR.",
+    "browserCannotProcess": "Wannan mai binciken ba zai iya sarrafa firam ɗin kamara ba.",
+    "qrCodeDetected": "QR an gano lambar.",
+    "couldnTRead": "An kasa karanta firam ɗin kamara. Duba izinin kyamara kuma sake loda wannan shafin.",
+    "cameraPermissionDenied": "An ƙi izinin kyamara. Bada damar shiga kamara a cikin saitunan mai lilo, sannan sake buɗe na'urar daukar hotan takardu.",
+    "noCameraWas": "Ba a sami kyamara akan wannan na'urar ba.",
+    "cameraBusyAnother": "Kyamarar tana aiki a cikin wani app ko shafin burauza.",
+    "startCameraHttps": "An kasa fara kamara. Yi amfani da HTTPS ko localhost kuma duba izinin burauza.",
+    "qrScannerCamera": "QR duban kyamarar na'urar daukar hotan takardu",
+    "cameraUnavailableCheck": "Babu kamara Duba izinin kyamara kuma a sake gwadawa.",
+    "pointCameraAuthenticator": "Nuna kyamarar ku zuwa lambar saitin mai gaskatawa QR daga sabis ɗin da kuke ƙarawa.",
+    "backAddAccount": "Koma don ƙara lissafi",
+    "secureSetup": "SAURAN SATA",
+    "enterDetailsManually": "Shigar da bayanai da hannu maimakon"
+  },
+  "accountForm": {
+    "hideManualEntry": "Ɓoye shigarwar hannu",
+    "secretKeySupplied": "Yi amfani da maɓallin sirrin da sabis ɗin da kuke saitawa ya kawo. Kada ku taɓa shigar da kalmar wucewa ta asusun ku anan. Daidaita algorithm, ƙidayar lambobi, da tazara zuwa umarnin saitin sabis.",
+    "updateServiceAccount": "Sabunta sabis ɗin, sunan lissafi, ko maɓallin sirri.",
+    "secretKeyRead": "Maɓallin sirri, karantawa kawai yayin gyarawa",
+    "secretKeyBase32": "Makullin sirri a Base32",
+    "digits": "lambobi",
+    "seconds": "seconds",
+    "enterDetailsManually": "KO SHIGA BAYANI DA HANNU",
+    "enterDetailsManually2": "Shigar da cikakkun bayanai da hannu",
+    "serviceAccountName": "Sabis, sunan asusun da maɓallin sirri",
+    "saveChangesSecurely": "Ajiye canje-canje amintacce",
+    "saveAccountSecurely": "Ajiye asusu amin",
+    "serviceIssuer": "Sabis ko mai bayarwa",
+    "accountName": "Sunan asusun",
+    "secretKey": "Makullin sirri",
+    "serviceIssuer2": "HIDIMAR / MAI bayarwa",
+    "eGGoogle": "misali Google",
+    "clearServiceIssuer": "Share sabis ko mai bayarwa",
+    "eGExample": "misali ka@example.com",
+    "clearAccountName": "Share sunan asusun",
+    "secretKeyLocked": "MABUDIN SIRRIN (KUlle)",
+    "secretKeyBase322": "MABUDIN SIRRIN (BASE32)",
+    "enterSetupKey": "Shigar da maɓallin saitin ku",
+    "clearSecretKey": "Share maɓalli na sirri",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP LABARI",
+    "refreshIntervalSeconds": "SAKE TSAYA ( seconds)",
+    "otpRefreshInterval": "OTP sabunta tazarar cikin daƙiƙa",
+    "closeAccountForm": "Rufe fam ɗin asusu",
+    "totpSetupUrl": "TOTP saitin URL",
+    "importSetupUrl": "Shigo saitin URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "ACCOUNT SUNA",
+    "addAccount": "Ƙara lissafi"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Na'urar tantancewa QR lamba",
+    "setupGuidance": "Duba lambar QR don saitin mafi sauƙi, ko shigar da cikakkun bayanai da hannu.",
+    "cameraAddAccount": "Yi amfani da kyamararka don ƙara lissafi nan take",
+    "scanQrCode2": "Duba QR code",
+    "uploadQrImage": "Sanya hoton QR.",
+    "chooseQrScreenshot": "Zaɓi hoton QR daga Gallery, Hotuna, ko Fayiloli",
+    "pasteQr": "Manna QR hoto / URL",
+    "pasteCopiedQr": "Manna hoton da aka kwafi QR ko saitin mai gaskatawa URL",
+    "uploadQrImage2": "Sanya hoton QR."
+  },
+  "accountQr": {
+    "close": "Kusa",
+    "accountQrCode": "Asusu QR code",
+    "revealQrCode": "Bayyana QR code",
+    "exportWarning": "Gargadi: duk wanda ya duba wannan lambar QR na iya samar da lambobin tantancewa don wannan asusu. Bayyana shi kawai akan amintaccen allo.",
+    "privacyHint": "A kiyaye wannan lambar QR mai zaman kansa. Duban shi yana kwafin sirrin mai tabbatar da asusun."
+  },
+  "productInfo": {
+    "backupRestore": "Ajiyayyen & mayar",
+    "backupRestoreDescription": "Ajiye bayanan sahihancin ku kuma mayar da su lokacin da kuka matsa zuwa wata na'ura.",
+    "privacyDescription": "Ajiye asusun tabbatarwa a wuri guda. Yi amfani da wariyar ajiya, maidowa, da zaɓuɓɓukan kulle na'urar don sarrafa saitin ku da amana.",
+    "timeBasedCodes": "Lambobin tushen lokaci",
+    "generateOneTimeCodes": "Ƙirƙirar lambobin wucewa na lokaci ɗaya mai jujjuya don asusunku don kammala tabbatarwa ta mataki biyu.",
+    "quickAccountSetup": "Saitin asusu mai sauri",
+    "quickSetupDescription": "Bincika mai tabbatarwa QR lamba ko shigo da hoto QR don ƙara lissafi.",
+    "accountsOnePlace": "Asusu a wuri guda",
+    "accountsInOnePlaceDescription": "Ajiye asusun ajiyar ku tare kuma nemo madaidaicin shigarwa idan lokacin shiga yayi.",
+    "privateAccountVault": "Rukunin asusun sirri",
+    "privateVaultDescription": "Sarrafa shigarwar masu tabbatar da ku a gida kuma yi amfani da zaɓin kulle na'urar da ke akwai.",
+    "easyCodeAccess": "Sauƙaƙe samun damar lamba",
+    "easyCodeAccessDescription": "Kwafi lambar yanzu ko sarrafa bayanan asusu ta hanyar tsaftataccen mahalli mai mai da hankali.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · BY TECHSIVARAM",
+    "mobileAuthenticator": "AUTHENTICATOR WAYARKA",
+    "tagline": "Hanya mafi sauƙi don sarrafa tabbatarwar ku ta mataki biyu.",
+    "heroDescription": "Ƙwarewar mai tabbatar da mayar da hankali don lambobin tabbatarwa na tushen lokaci. Ajiye lambobin asusu masu jituwa kusa da KaalKey don Android.",
+    "timeBasedCodes2": "LABARI MAI GIDAN LOKACI",
+    "privateDesign": "SIRRI TA TSIRA",
+    "builtSimpleAuthenticator": "GINANA DON SAUKI GUDA GUDANAR DA AUTHENTICATOR",
+    "qrSetupTimed": "QR SITAB · LADUBBAN LOKACI · Gudanar da lissafi",
+    "privacyTitle": "Asusun ku. Lambobin ku. Ikon sarrafa ku.",
+    "authenticator": "KAALKEY · AUTHENTICATOR",
+    "brandBanner": "KaalKey banner",
+    "logo": "KaalKey tambari"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Soke",
+      "storageInvalidTitle": "Bayanan ajiya ba daidai ba ne",
+      "storageInvalidBody": "An kasa karanta bayanan asusu da aka adana lafiya.",
+      "storageErrorTitle": "Kuskuren ajiya",
+      "storageErrorBody": "An kasa loda asusun ajiya.",
+      "missingTitle": "Bacewar bayani",
+      "missingEditingBody": "Shigar da sunan sabis da sunan asusun.",
+      "missingBody": "Shigar da sunan sabis, sunan lissafi, da maɓallin sirri.",
+      "invalidOtpBody": "Duba Base32 sirrin, algorithm, ƙidayar lambobi, da lokacin wartsakewa. Dole ne asirin ya ƙunshi ingantattun haruffa Base32; lambobi dole ne su zama {digits} kuma lokacin dole ne ya kasance {minPeriod} –{maxPeriod} dakika.",
+      "duplicateBody": "An riga an adana asusu mai wannan sabis ɗin da sunan asusun.",
+      "updatedBody": "An sabunta asusun ku.",
+      "addedBody": "An ƙara asusun ku amintacce.",
+      "invalidOtpTitle": "Saituna mara inganci OTP",
+      "duplicateTitle": "Akwai asusu",
+      "savedTitle": "Ajiye asusu",
+      "invalidSecretTitle": "Maɓallin sirri mara inganci",
+      "invalidSecretBody": "Da fatan za a bincika cewa kun shigar da ingantaccen sirri Base32.",
+      "removedTitle": "An cire asusun",
+      "removedBody": "An cire asusun da sirrinsa daga wannan na'urar.",
+      "clearedTitle": "An share asusun",
+      "clearedBody": "An cire duk bayanan sirri da sirri daga wannan na'urar.",
+      "someSavedAccountsNeedAttentionTitle": "Wasu ajiyayyun asusun suna buƙatar kulawa",
+      "someSavedAccountsNeedAttentionBody": "{count} rikodin (s) mara inganci ba a loda shi ba. Ingatattun asusu suna nan. Yi la'akari da ƙirƙirar madadin kafin yin ƙarin canje-canje.",
+      "removeConfirmTitle": "Cire asusun?",
+      "removeConfirmWebTitle": "Cire asusun?",
+      "removeButton": "Cire",
+      "clearButton": "Share duk",
+      "clearConfirmTitle": "Share duk asusun?",
+      "saveErrorBody": "An kasa adana asusu. Bincika samuwan ma'ajiyar burauza kuma a sake gwadawa.",
+      "notFoundTitle": "Ba a sami asusu ba",
+      "notFoundBody": "Ba a iya samun wannan asusun ba. Rufe editan kuma a sake gwadawa.",
+      "removeConfirmBody": "Wannan yana cire asusun da sirrinsa daga wannan na'urar.",
+      "clearConfirmBody": "Wannan har abada yana cire duk asusun masu gaskatawa da sirrin su daga wannan na'urar. Ƙirƙiri rufaffen madadin farko idan kuna iya buƙatar waɗannan asusun daga baya.",
+      "clearConfirmUndoBody": "Ba za a iya soke wannan ba."
+    },
+    "biometric": {
+      "cancelButton": "Soke",
+      "saveErrorTitle": "An kasa ajiye saitin",
+      "unlockPrompt": "Buɗe KaalKey Mai tabbatarwa",
+      "promptSubtitle": "Yi amfani da na'urorin halitta ko kulle allo na na'urarka",
+      "disableConfirmPrompt": "Tabbatar da kashe KaalKey kulle app",
+      "enablePrompt": "Kunna makullin app don KaalKey",
+      "deviceLockTitle": "Saita makullin allo na na'urar ku",
+      "deviceLockBody": "KaalKey yana amfani da ginanniyar ingantacciyar wayar ku. Saita na'ura PIN, tsari, ko kalmar sirri a cikin saitunan tsaro na wayarka, sannan a sake gwadawa. Kwayoyin halitta na zaɓi ne.",
+      "unavailableTitle": "Babu tabbacin na'urar",
+      "unavailableBody": "Wayarka ta kasa fara ingantaccen tabbaci. Duba cewa an saita kulle allo na na'ura, sannan a sake gwadawa.",
+      "lockedTitle": "An kulle tabbaci na ɗan lokaci",
+      "lockedBody": "Wayarka ta kashe tantancewa na ɗan lokaci bayan yunƙuri da yawa. Jira kuma a sake gwadawa.",
+      "promptErrorTitle": "Babu tabbaci",
+      "promptErrorBody": "KaalKey ya kasa fara amintaccen saurin tabbatar da wayar. Da fatan za a sake gwadawa.",
+      "webLock": "Babu makullin tabbatar da na'ura a cikin sigar gidan yanar gizon tukuna. Rukunin gidan yanar gizon ya kasance a buɗe; yi amfani da Android app don ingantaccen na'urar.",
+      "disabledTitle": "An kashe kulle app",
+      "disabledBody": "KaalKey an kashe makullin app.",
+      "disableSaveError": "Kulle app ɗin ya kasance yana kunna. Da fatan za a sake gwadawa.",
+      "enabledTitle": "An kunna kulle app",
+      "enabledBody": "KaalKey zai nemi ginannen ingantacciyar wayarku lokacin buɗewa da lokacin da kuka dawo gare ta.",
+      "enableSaveError": "Ba a iya kunna kulle app ba. Da fatan za a sake gwadawa."
+    },
+    "qr": {
+      "startingCamera": "Fara kamara…",
+      "unsupportedTitle": "Lambar mara tallafi QR",
+      "unsupportedBody": "Duba saitin mai gaskatawa QR lambar da sabis ɗin ya kawo. Wannan dole ne ya zama lambar TOTP, ba lambar shiga ta al'ada ba QR.",
+      "unsupportedDiagnostic": "Wannan QR ba TOTP bane lambar saitin. Nufin saitin mai tabbatarwa QR.",
+      "detectedDiagnostic": "QR an gano shi. Ana nazarin…",
+      "analyzing": "Ana nazarin lambar QR…",
+      "duplicateTitle": "An riga an ƙara asusun",
+      "duplicateBody": "{issuer}: {account} ya riga ya shiga KaalKey.",
+      "addedTitle": "Aka kara lissafi",
+      "addedBody": "{issuer}: {account} an ƙara shi cikin nasara.",
+      "saveFailedDiagnostic": "An kasa ajiye asusun. Kuna iya sake dubawa.",
+      "invalidTitle": "Code mara aiki QR",
+      "invalidBody": "KaalKey ya kasa tantance wannan ingantaccen lambar QR. {detail}. Yi amfani da lambar saitin TOTP QR (yawanci yana farawa da {prefix}).",
+      "parseFailedDiagnostic": "QR ba a iya sarrafa shi ba. Nufin saitin QR kuma a sake gwadawa.",
+      "invalidUrlTitle": "Ba daidai ba TOTP URL",
+      "invalidUrlBody": "Manna cikakken mai tabbatarwa URL farawa da {prefix}.",
+      "clipboardEmptyTitle": "Clipboard fanko ne",
+      "clipboardEmptyBody": "Kwafi {prefix} URL da farko, sannan danna Manna TOTP URL.",
+      "clipboardErrorTitle": "An kasa karanta allo",
+      "clipboardErrorBody": "Kwafi saitin TOTP URL kuma a sake gwadawa."
+    },
+    "haptics": {
+      "saveFailedTitle": "An kasa ajiye saitin",
+      "saveFailedBody": "Ba za a iya ajiye zaɓin ra'ayin Haptic ba. Da fatan za a sake gwadawa."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "An kasa ajiye yarda",
+      "saveFailedBody": "Da fatan za a sake gwadawa. Dole ne ku karɓi sanarwar doka kafin amfani da KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Ana buƙatar izinin kyamara",
+      "body": "Bada damar kamara don bincika saitin mai gaskatawa QR lambar."
+    },
+    "storage": {
+      "browserUnavailable": "Babu ma'ajiyar mai lilo.",
+      "browserFilePickerUnavailable": "Babu mai ɗaukar fayil ɗin mai lilo."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Fayil mara tallafi",
+      "unsupportedFileBody": "Zaɓi hoton lambar QR kamar PNG ko JPEG.",
+      "browserDecoderUnavailable": "Babu gyara hoton mai lilo",
+      "imageLoadFailed": "An kasa loda hoton",
+      "unreadableDimensions": "Hoto ba shi da girma da za a iya karantawa",
+      "noQrCodeFoundTitle": "Babu lambar QR da aka samu",
+      "noQrCodeFoundBody": "KaalKey ya kasa yanke lambar QR a cikin wannan hoton. Gwada hoton allo ko mafi girman ƙuduri PNG/JPEG.",
+      "couldNotReadImageTitle": "An kasa karanta hoto",
+      "couldNotReadImageBody": "Gwada bayyananniyar hoton PNG ko JPEG mai dauke da lambar saitin ingantaccen QR.",
+      "couldNotOpenPickerTitle": "An kasa buɗe mai ɗaukar hoto",
+      "couldNotOpenPickerBody": "Da fatan za a gwada Loda QR kuma.",
+      "normalizedDecodeFailed": "An kasa canza hoton da aka daidaita",
+      "clipboardImageLoadFailed": "Ba za a iya loda hoton allo ba",
+      "imageProcessingUnavailable": "Babu sarrafa hoto",
+      "imageProcessingUnavailableAlt": "Babu sarrafa hoto",
+      "noImageInClipboardTitle": "Babu hoto a allo",
+      "noImageInClipboardBody": "Kwafi hoton lambar QR, sannan danna Manna QR Hoto kuma.",
+      "clipboardUnavailableTitle": "Babu allo allo",
+      "clipboardUnavailableBody": "Rubutun allo ba ingantaccen saitin mai tantancewa ba ne URL. Kwafi hoton otpauth:// URL ko QR sannan a sake gwadawa.",
+      "clipboardAccessBody": "KaalKey ya kasa karanta rubutu ko hoto daga allo. Bada damar shiga allo, sannan kwafi hoton QR ko kuma otpauth:// URL kuma danna Manna QR Hoto / URL sake.",
+      "couldNotPasteImageTitle": "An kasa manna hoto",
+      "couldNotPasteImageBody": "Wannan hoton allo baya samun goyan bayan liƙa a wannan na'urar. Yi amfani da Hoton Shigo QR maimakon.",
+      "sourceImageDecodeFailure": "Gwada wani hoton QR daban.",
+      "pastedImportFailureBody": "Gwada wani hoton QR daban.",
+      "sourceImageReadFailure": "Gwada kwafin bayyanannen hoton QR.",
+      "importFailedTitle": "QR shigo da hoto ya kasa",
+      "importFailedBody": "KaalKey ya kasa karanta wannan hoton. Da fatan za a gwada wani hoton lambar QR.",
+      "notFoundBody": "Hoton da aka kwafi bashi da lambar QR mai iya karantawa.",
+      "pastedNotFoundBody": "Hoton da aka liƙa bashi da lambar QR mai iya karantawa.",
+      "pastedReadFailureBody": "Gwada kwafin bayyanannen PNG ko JPEG mai dauke da cikakken lambar QR.",
+      "noQrCodeTextBody": "KaalKey ya yanke hoton da aka zaɓa amma bai sami lambar QR ba. Gwada bayyananne, cikakken ƙuduri PNG ko JPEG tare da ganuwa gaba ɗaya lambar."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Wannan lambar QR ba lambar saitin ingantaccen lokaci ba ce.",
+      "missingAccountDetails": "Lambar QR ta ɓace bayanan asusu.",
+      "unsupportedAlgorithm": "Lambar QR tana amfani da algorithm mara tallafi.",
+      "unsupportedDigits": "Wannan lambar QR dole ne ta yi amfani da lambobi 6, 7, ko 8.",
+      "unsupportedPeriod": "Wannan lambar QR tana amfani da lokaci mara tallafi.",
+      "invalidAccount": "Ba a iya inganta lambar QR ba."
+    },
+    "backup": {
+      "invalidJson": "Fayil ɗin ajiyar baya aiki JSON.",
+      "unsupportedFormat": "Wannan ba majiyar rufaffen tallafi ba ne KaalKey.",
+      "invalidPasswordOrDamaged": "Kalmar sirrin Ajiyayyen ba daidai ba ne ko kuma fayil ɗin ajiyar ya lalace.",
+      "invalidContents": "Abubuwan da ke cikin ajiyar baya aiki ko bai cika ba.",
+      "secureRandomUnavailableDetailed": "Babu amintaccen tsara bazuwar. Sake ginawa da sake shigar da Android app tare da expo-crypto wanda aka haɗa, sannan a sake gwadawa.",
+      "invalidAccountDataForBackup": "Asusu ɗaya ko fiye ba su aiki. Gyara bayanan asusun kafin ƙirƙirar madadin.",
+      "invalidPasswordOrModified": "Kalmar sirrin Ajiyayyen ba daidai ba ne ko kuma an canza fayil ɗin madadin.",
+      "invalidPasswordOrFileDamaged": "Kalmar sirri ta Ajiyayyen ba daidai ba ne ko fayil ɗin ya lalace.",
+      "passwordCopiedTitle": "An kwafi kalmar wucewa",
+      "enterPasswordTitle": "Shigar da kalmar sirrin ajiyar ku",
+      "enterPasswordBody": "Shigar da kalmar wucewa da aka yi amfani da ita lokacin da aka ƙirƙiri wannan madadin.",
+      "passwordCopiedBody": "Ajiye shi a wani wuri mai aminci, kamar WhatsApp.",
+      "copyFailedTitle": "Kwafi ya kasa",
+      "copyFailedBody": "Zaɓi kuma kwafi kalmar wucewa da hannu.",
+      "generatingPassword": "Samar da amintaccen kalmar sirri…",
+      "encrypting": "Rufewa madadin…",
+      "decrypting": "Ana ɓata madadin…",
+      "restoring": "Ana dawo da asusun…",
+      "backupCreatedTitle": "An ƙirƙiri Ajiyayyen",
+      "restoreCompleteTitle": "Maida cikakke",
+      "mergeConfirmTitle": "Haɗa asusun ajiyar kuɗi?",
+      "mergeConfirmButton": "Haɗa asusun ajiya",
+      "backupSavedTemporary": "Rufaffen madadin ajiya na ɗan lokaci a:\n{uri}",
+      "generatePasswordErrorTitle": "An kasa samar da kalmar wucewa ta madadin",
+      "secureRandomUnavailable": "Babu amintaccen tsara bazuwar.",
+      "passwordUnavailableTitle": "Babu kalmar sirri ta Ajiyayyen",
+      "passwordUnavailableBody": "Rufe wannan maganganun kuma ƙirƙirar sabon madadin don samar da amintaccen kalmar sirri.",
+      "backupDownloadedBody": "An zazzage majiyar ku KaalKey rufaffen. Ajiye fayil ɗin da kalmar sirri a sirri.",
+      "backupFailedTitle": "Ajiyayyen ya kasa",
+      "backupCreateErrorBody": "KaalKey ya kasa ƙirƙirar madadin.",
+      "restoreFailedTitle": "An kasa dawowa",
+      "backupReadErrorBody": "Ba za a iya karantawa ko adana waƙar ba.",
+      "browserDownloadUnsupported": "Mai binciken ku baya goyan bayan zazzage fayilolin madadin.",
+      "localFileUnavailable": "Babu wurin wurin fayil na gida akan wannan na'urar.",
+      "saveBackupTitle": "Ajiye bayanan sirrinka KaalKey."
+    },
+    "clipboard": {
+      "copiedTitle": "An kwafi lambar",
+      "copiedBody": "An kwafi lambar tabbatarwa.",
+      "errorTitle": "Kuskure",
+      "errorBody": "An kasa kwafe lambar tabbatarwa."
+    },
+    "activity": {
+      "cameraReady": "An shirya kamara. Nuna shi a lambar tabbacin QR.",
+      "readingQrImage": "Hoton yana karanta QR…",
+      "importingQrImage": "Ana shigo da hoton QR…",
+      "importingAccount": "Ana shigo da asusun tantancewa…",
+      "importingPastedImage": "Ana shigo da hoton da aka liƙa QR…"
+    }
+  },
+  "activity": {
+    "working": "Aiki",
+    "wait": "Da fatan za a jira…",
+    "donTClose": "Don Allah kar a rufe ko mu'amala da KaalKey.",
+    "loadingLanguages": "Ana loda samammun harsuna…",
+    "loadingTranslation": "Ana loda fassarar…"
+  }
+}

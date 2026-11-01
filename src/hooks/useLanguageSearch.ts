@@ -1,13 +1,14 @@
 import { useMemo } from "react";
-import { SUPPORTED_LANGUAGES } from "../i18n/languages";
-export function useLanguageSearch(search: string) {
+import type { LanguageOption } from "../i18n/languages";
+
+export function useLanguageSearch(search: string, languages: LanguageOption[]) {
   return useMemo(() => {
     const query = search.trim().toLocaleLowerCase();
-    if (!query) return SUPPORTED_LANGUAGES.slice(0, 5);
-    return SUPPORTED_LANGUAGES.filter((item) =>
+    if (!query) return languages.slice(0, 5);
+    return languages.filter((item) =>
       `${item.name} ${item.nativeName} ${item.code} ${item.searchTerms}`
         .toLocaleLowerCase()
         .includes(query),
     );
-  }, [search]);
+  }, [search, languages]);
 }

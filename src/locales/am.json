@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "ቋንቋ",
+      "description": "በKaalKey ውስጥ ጥቅም ላይ የዋለውን ቋንቋ ይምረጡ።",
+      "english": "እንግሊዝኛ",
+      "telugu": "ቴሉጉኛ",
+      "hindi": "ሂንዲ",
+      "section": "ቋንቋ",
+      "searchLanguageName": "ቋንቋ ይፈልጉ (ስም ወይም ኮድ)",
+      "searchSupportedLanguages": "የሚደገፉ ቋንቋዎችን ይፈልጉ",
+      "closeLanguageDropdown": "የቋንቋ ተቆልቋይ ዝጋ",
+      "noTranslatedLanguage": "ምንም የተተረጎመ ቋንቋ አልተገኘም።",
+      "serverUrl": "የትርጉም አገልጋይ URL",
+      "serverUrlDescription": "KaalKey የቋንቋ ዝርዝሩን እና ትርጉሞችን ከዚህ አገልጋይ ያወርዳል።",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "የትርጉም አገልጋይ አስቀምጥ"
+    },
+    "title": "የመተግበሪያ ቅንብሮች",
+    "eyebrow": "KAALKEY ምርጫዎች",
+    "experience": {
+      "section": "ልምድ"
+    },
+    "security": {
+      "section": "ደህንነት"
+    },
+    "backup": {
+      "section": "ምትኬ እና መልሶ ማግኛ"
+    },
+    "danger": {
+      "section": "አደገኛ ዞን",
+      "clearAccounts": "ሁሉንም መለያዎች ያጽዱ",
+      "clearAccountsDescription": "ሁሉንም መለያ እና ሚስጥር ከዚህ መሳሪያ እስከመጨረሻው ያስወግዱ። መጀመሪያ ምትኬ ያስቀምጡ።",
+      "clearAccountsAccessibilityLabel": "ሁሉንም አረጋጋጭ መለያዎች ያጽዱ"
+    },
+    "appearance": {
+      "section": "መልክ",
+      "title": "የብርሃን መልክ",
+      "description": "KaalKey በአሁኑ ጊዜ ንጹህ የብርሃን ገጽታውን ይጠቀማል።"
+    },
+    "haptics": {
+      "title": "ሃፕቲክ ግብረመልስ",
+      "description": "ለቧንቧዎች እና ለተጠናቀቁ ድርጊቶች ረጋ ያለ ግብረመልስ።"
+    },
+    "deviceLock": {
+      "title": "የመሣሪያ ማረጋገጫ መቆለፊያ",
+      "description": "KaalKey ከፊት ለፊት ሲወጣ ካዝናዎ ይቆለፋል።",
+      "requirement": "የስልክዎን ባዮሜትሪክስ ወይም ስክሪን-መቆለፊያ PIN፣ ስርዓተ-ጥለት ወይም የይለፍ ቃል ይጠይቁ።",
+      "accessibilityLabel": "የመሣሪያ ማረጋገጫ መተግበሪያ መቆለፊያ"
+    },
+    "privacy": {
+      "title": "ህጋዊ እና ግላዊነት",
+      "description": "የግላዊነት መመሪያውን እና የአጠቃቀም ውልን ይገምግሙ።",
+      "storageNote": "የእርስዎ አረጋጋጭ ሚስጥሮች በመሳሪያው ላይ ደህንነቱ በተጠበቀ ቮልት ውስጥ ይቆያሉ። ምርጫዎች በአካባቢው ይከማቻሉ."
+    }
+  },
+  "accounts": {
+    "edit": "አርትዕ",
+    "sortAccountName": "በመለያ ስም ደርድር",
+    "loadingSecureVault": "ደህንነቱ የተጠበቀ ቮልት በመጫን ላይ...",
+    "tapCopy": "ለመቅዳት መታ ያድርጉ",
+    "noAccountsMatch": "ከፍለጋህ ጋር የሚዛመድ ምንም መለያ የለም።",
+    "viewQrCode": "ለመለያ QR ኮድ ይመልከቱ",
+    "removeAccount": "መለያ አስወግድ",
+    "copyVerificationCode": "የማረጋገጫ ኮድ ቅዳ",
+    "active": "ንቁ",
+    "sort": "በ ደርድር",
+    "account": "መለያ",
+    "clearSearch": "ፍለጋን አጽዳ",
+    "sortServiceName": "በአገልግሎት ስም ደርድር",
+    "addFirstAccount": "የመጀመሪያ መለያዎን ያክሉ",
+    "searchAccounts": "መለያዎችን ይፈልጉ",
+    "searchServiceAccount": "አገልግሎት ወይም መለያ ይፈልጉ",
+    "accounts": "የእርስዎ መለያዎች",
+    "add": "+ ጨምር",
+    "vaultStartsHere": "የእርስዎ ካዝና እዚህ ይጀምራል",
+    "service": "አገልግሎት",
+    "emptyHint": "የመጀመሪያውን የማረጋገጫ ኮድ ለማመንጨት ሚስጥራዊ ቁልፉን ተጠቅመው መለያ ያክሉ።"
+  },
+  "common": {
+    "done": "ተከናውኗል",
+    "doneButton": "ተከናውኗል",
+    "closeSettings": "ቅንብሮችን ዝጋ",
+    "separator": "-",
+    "article": "ሀ",
+    "save": "አስቀምጥ",
+    "delete": "ሰርዝ",
+    "resizeAppBrand": "የመተግበሪያ እና የምርት ስም ፓነሎችን መጠን ቀይር"
+  },
+  "qrImport": {
+    "readPastedImage": "የተለጠፈ ምስል ማንበብ አልተቻለም"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "በዚህ ምትኬ ውስጥ ያሉ መለያዎች፡ {count}። KaalKey ያሉህን መለያዎች ያቆያል እና የሌሉ መለያዎችን ይጨምራል። የተባዙ መለያዎች ይዘለላሉ።",
+    "restoreCompletionBody": "መለያዎች ታክለዋል፡ {added} የተባዙ መለያዎች ተዘለዋል፡ {skipped}። ነባር መለያዎችህ ተጠብቀዋል።",
+    "copyPassword": "የመነጨ የይለፍ ቃል ቅዳ",
+    "passwordSafety": "ይህንን የይለፍ ቃል ለየብቻ ያስቀምጡ (ለምሳሌ በWhatsApp)። ከሁለቱም ጋር ያለ ማንኛውም ሰው",
+    "importAction": "ፋይል ይምረጡ እና ያስመጡ",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "ደህንነቱ የተጠበቀ ቮልት",
+    "createBackup": "ምትኬን ይፍጠሩ",
+    "encryptedFile": "የተመሰጠረ ፋይል",
+    "restoreBackup": "ምትኬን ወደነበረበት መልስ",
+    "safetyNote": "ምትኬዎች የእርስዎን አረጋጋጭ ሚስጥሮች ይይዛሉ። KaalKey ለእያንዳንዱ ምትኬ ልዩ የይለፍ ቃል ያመነጫል። በተናጠል ያስቀምጡ; KaalKey መልሶ ማግኘት አይችልም።",
+    "generatingSecurePassword": "ደህንነቱ የተጠበቀ የይለፍ ቃል በማመንጨት ላይ…",
+    "importFile": "ፋይል አስመጣ",
+    "backupPassword": "የመጠባበቂያ ይለፍ ቃል",
+    "account": "መለያ",
+    "accounts": "መለያዎች",
+    "exportDescription": "ሁሉንም {count} የተቀመጡ {accountLabel} ወደ ምትኬ ፋይል ያመስጥሩ። KaalKey ልዩ የይለፍ ቃል ያመነጫል; ገልብጠው ከፋይሉ ለይተው ያስቀምጡት።",
+    "restoreDescription": "የእርስዎን KaalKey ምትኬ ፋይል እና የይለፍ ቃል ይምረጡ። አዲስ መለያዎች ወደ ነባር መለያ ዝርዝርዎ ይታከላሉ። ነባር መለያዎች እንደነበሩ ይቆያሉ።",
+    "enterBackupPassword": "የመጠባበቂያ ይለፍ ቃል ያስገቡ",
+    "closeBackup": "ምትኬን ዝጋ",
+    "copyGeneratedBackup": "የመነጨ የምትኬ ይለፍ ቃል ቅዳ",
+    "backupPassword2": "የመጠባበቂያ ይለፍ ቃል",
+    "clearBackupPassword": "የምትኬ ይለፍ ቃል አጽዳ",
+    "backupFilePassword": "የመጠባበቂያ ፋይል እና የይለፍ ቃል የእርስዎን አረጋጋጭ መለያዎች ወደነበሩበት ሊመልሱ ይችላሉ።",
+    "encryptShareBackup": "ማመስጠር እና ምትኬን አጋራ"
+  },
+  "home": {
+    "unlockSecurely": "ደህንነቱ በተጠበቀ ሁኔታ ይክፈቱ",
+    "disableAppLock": "የመተግበሪያ መቆለፊያን አሰናክል",
+    "enableAppLock": "የመተግበሪያ መቆለፊያን አንቃ",
+    "checkingSecureLock": "ደህንነቱ የተጠበቀ የመቆለፊያ ቅንብሮችን በመፈተሽ ላይ። ኮዶችዎ እንደተደበቁ ይቆያሉ።",
+    "waitingVerification": "ማረጋገጫን በመጠበቅ ላይ…",
+    "secretsStayStored": "ሚስጥሮችህ በዚህ መሳሪያ ላይ ተከማችተው ይቆያሉ።",
+    "openAppSettings": "የመተግበሪያ ቅንብሮችን ይክፈቱ",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "የአንድ ጊዜ የማረጋገጫ ኮዶችዎን ለመድረስ የስልክዎን ባዮሜትሪክስ ወይም ስክሪን-መቆለፊያ PIN፣ ስርዓተ-ጥለት ወይም የይለፍ ቃል ይጠቀሙ።",
+    "localVault": "የእርስዎ አካባቢያዊ ቮልት",
+    "codesDeviceControl": "የእርስዎ ኮዶች። የእርስዎ መሣሪያ። የእርስዎ ቁጥጥር።",
+    "securingVault": "ካዝናህን በማስጠበቅ ላይ…",
+    "vaultProtected": "ካዝናህ የተጠበቀ ነው።",
+    "lock": "ቆልፍ",
+    "localVault2": "አካባቢያዊ ቮልት",
+    "authenticator": "KAALKEY አረጋጋጭ",
+    "tricolourLockEmblem": "KaalKey ባለሶስት ቀለም መቆለፊያ አርማ",
+    "authenticator2": "አረጋጋጭ"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "የQR ኮድ ለመቃኘት ከመረጡ፣ KaalKey ለድርጊቱ የካሜራ ፍቃድ ይጠቀማል። የአማራጭ መሳሪያ ማረጋገጫ እና የሃፕቲክ ግብረመልስ ተዛማጅነት ያላቸውን የመሣሪያ ባህሪያት ይጠቀማሉ። በመሣሪያዎ ቅንብሮች ውስጥ ፈቃዶችን ማስተዳደር ይችላሉ።",
+        "heading": "2. ፈቃዶች እና የመሳሪያ ባህሪያት"
+      },
+      "backups": {
+        "body": "ምትኬን ሲፈጥሩ KaalKey የመረጡትን የይለፍ ቃል በመጠቀም ምትኬን ያመስጥረዋል። ሁለቱንም ፋይሉን እና የይለፍ ቃሉን የግል እና ደህንነቱ በተጠበቀ ሁኔታ ያከማቹ። ፋይሉን እና የይለፍ ቃሉን ያገኘ ማንኛውም ሰው የእርስዎን አረጋጋጭ መለያዎች ወደነበረበት መመለስ ይችላል። KaalKey የተረሳ የመጠባበቂያ ይለፍ ቃል መልሶ ማግኘት አይችልም።",
+        "heading": "3. ምትኬዎች"
+      },
+      "security": {
+        "body": "መሣሪያዎን ማዘመን፣በስክሪን መቆለፊያ ጠብቀውት፣እና የOTP ሚስጥሮችን ወይም የመጠባበቂያ የይለፍ ቃሎችን አታጋራ። መተግበሪያውን ማስወገድ፣ ውሂቡን ማጽዳት ወይም መሳሪያውን ማጣት በአገር ውስጥ የተከማቹ መለያዎች እንዳይገኙ ሊያደርግ ይችላል። መልሶ ማግኘት ከፈለጉ ደህንነቱ የተጠበቀ ምትኬን ያስቀምጡ።",
+        "heading": "5. ደህንነት እና ማቆየት"
+      },
+      "information": {
+        "heading": "1. መረጃ እና ሚስጥሮች",
+        "body": "KaalKey አረጋጋጭ መተግበሪያ ነው። የመለያ መለያዎች እና የአንድ ጊዜ ኮዶችን ለመፍጠር የሚያስፈልጉት ሚስጥራዊ እሴቶች ሚስጥራዊነት ያላቸው ናቸው። መተግበሪያው የመለያ መዝገቦችን በመሣሪያው ደህንነቱ በተጠበቀ ማከማቻ ውስጥ ለማከማቸት የተነደፈ ነው። የተከፈተ መሳሪያ ወይም ወደ ውጭ የተላከ ምትኬ ያለው ማንኛውም ሰው ሚስጥራዊነት ያለው መረጃ ማግኘት ይችል ይሆናል።"
+      },
+      "sharing": {
+        "heading": "4. ማጋራት እና ሶስተኛ ወገኖች",
+        "body": "የመጠባበቂያ ፍሰቱ ፋይሎችን ለማስቀመጥ፣ ለማስተላለፍ ወይም ለመምረጥ የመሣሪያዎን መጋሪያ ሉህ ወይም ፋይል መራጭ ሊጠቀም ይችላል። የመረጡት ማንኛውም የሶስተኛ ወገን መተግበሪያ ወይም አገልግሎት የግላዊነት ልማዶች የሚተዳደሩት በአቅራቢው ነው። ይህ ማስታወቂያ መሳሪያዎ፣ ኦፐሬቲንግ ሲስተምዎ ወይም የመረጡት የማጋሪያ አገልግሎቶች መቼም ቢሆን ውሂብን አያስኬዱም የሚል ብርድ ልብስ አያደርግም።"
+      },
+      "changes": {
+        "heading": "6. ለውጦች እና ግንኙነት",
+        "body": "ይህ የተካተተ ማስታወቂያ ወደፊት በሚለቀቀው መተግበሪያ ውስጥ ሊከለስ ይችላል። ለግላዊነት ጥያቄዎች የመተግበሪያውን አሳታሚ ከመተግበሪያው ጋር በተሰጠው ኦፊሴላዊ የድጋፍ ሰርጥ በኩል ያግኙ።"
+      },
+      "title": "የግላዊነት ፖሊሲ"
+    },
+    "terms": {
+      "use": {
+        "body": "እንዲደርሱባቸው ለተፈቀደልዎ መለያዎች የማረጋገጫ ኮዶችን ለመፍጠር KaalKeyን መጠቀም ይችላሉ። እርስዎ የሚመለከታቸው ህጎችን እና የማረጋገጫ ኮዶችን የሚጠቀሙባቸው የአገልግሎቶች ደንቦችን የማክበር ሃላፊነት አለብዎት።",
+        "heading": "1. የእርስዎ አጠቃቀም"
+      },
+      "protectAccounts": {
+        "body": "የእርስዎን መሣሪያ፣ የአረጋጋጭ ሚስጥሮችን፣ የመልሶ ማግኛ ዘዴዎችን፣ ወደ ውጭ የሚላኩ መጠባበቂያዎችን እና የመጠባበቂያ የይለፍ ቃሎችን የመጠበቅ ኃላፊነት አለብዎት። ከማታምኗቸው ሰዎች ጋር ኮዶችን ወይም ሚስጥሮችን አታጋራ።",
+        "heading": "2. መለያዎችዎን ይጠብቁ"
+      },
+      "availability": {
+        "body": "በተለቀቁት መካከል ባህሪያት ሊለወጡ ይችላሉ። መተግበሪያውን ማዘመን እና የመጠባበቂያ እና የመልሶ ማግኛ ዝግጅቶች መስራታቸውን በየጊዜው ማረጋገጥ አለብዎት።",
+        "heading": "5. ለውጦች እና ተገኝነት"
+      },
+      "recovery": {
+        "body": "KaalKey እያንዳንዱ መለያ ወደነበረበት ለመመለስ፣ እያንዳንዱ የQR ኮድ ወይም ውቅረት ተኳሃኝ እንደሚሆን ወይም መተግበሪያው ያለ መቆራረጥ ወይም ስህተት እንደሚሰራ ዋስትና ሊሰጥ አይችልም። በሚመለከተው አገልግሎት የሚሰጡ አማራጭ የመልሶ ማግኛ ዘዴዎችን ያስቀምጡ።",
+        "heading": "3. የመልሶ ማግኛ ዋስትና የለም"
+      },
+      "advice": {
+        "heading": "4. የባለሙያ ምክር የለም",
+        "body": "መተግበሪያው መገልገያ ነው እና የህግ፣ የገንዘብ ወይም የደህንነት ችግር-ምላሽ ምክር አይሰጥም። አንድ መለያ ከተጠለፈ፣ የተጎዳውን አገልግሎት ኦፊሴላዊ መልሶ ማግኛ እና የደህንነት መመሪያ ይከተሉ።"
+      },
+      "liability": {
+        "heading": "6. ተጠያቂነት እና ተፈፃሚነት ያለው ህግ",
+        "body": "የሚመለከተው ህግ በሚፈቅደው መጠን አፕሊኬሽኑ ያለማቋረጥ ወይም ከስህተት የፀዳ አሰራር ዋስትና ይሰጣል። በእነዚህ ውሎች ውስጥ ምንም ነገር በህጋዊ መንገድ ሊገለሉ የማይችሉ መብቶችን ወይም መፍትሄዎችን አያጠቃልልም። ማንኛቸውም ተጨማሪ ገደቦች ወይም የአስተዳደር ህግ ውሎች ከመለቀቃቸው በፊት ለአሳታሚው ስልጣን ብቁ በሆነ ጠበቃ መገምገም አለባቸው።"
+      },
+      "title": "የአጠቃቀም ውል"
+    },
+    "version": "ሥሪት",
+    "saving": "በማስቀመጥ ላይ…",
+    "acceptContinue": "ተቀበል እና ቀጥል",
+    "appliesAuthenticator": "ለKaalKey አረጋጋጭ ተፈጻሚ ይሆናል።",
+    "reviewBothDocuments": "እባክዎ KaalKey ከመጠቀምዎ በፊት ሁለቱንም ሰነዶች ይመልከቱ። በመተግበሪያው ውስጥ የተካተቱ እና ከመስመር ውጭ ይገኛሉ።",
+    "originalMulticolourAuthenticator": "ኦሪጅናል ባለብዙ ቀለም KaalKey አረጋጋጭ አርማ",
+    "legalPrivacyNotice": "የህግ እና የግላዊነት ማስታወቂያ",
+    "legalInformation": "የህግ መረጃ",
+    "reviewSPrivacy": "የKaalKeyን ግላዊነት መረጃ እና የአጠቃቀም ውል ይገምግሙ።",
+    "iReadAgree": "የግላዊነት መመሪያውን እና የአጠቃቀም ውልን አንብቤ ተስማምቻለሁ።"
+  },
+  "qrScanner": {
+    "keepEntireQr": "መላውን QR ኮድ እንዲታይ ያቆዩት። ሚስጥርህ በዚህ መሳሪያ ላይ ይቆያል።",
+    "back": "ተመለስ",
+    "turnFlashlightOff": "የእጅ ባትሪ ያጥፉ",
+    "turnFlashlight": "የእጅ ባትሪ አብራ",
+    "flashlight": "የእጅ ባትሪ በርቷል።",
+    "flashlight2": "የእጅ ባትሪ",
+    "cameraUnavailableOpen": "ካሜራ የለም። ይህንን ገጽ በHTTPS ወይም localhost ላይ ይክፈቱ እና የካሜራ መዳረሻን ይፍቀዱ።",
+    "cameraPreviewUnavailable": "የካሜራ ቅድመ እይታ አይገኝም። ስካነሩን ይዝጉ እና እንደገና ይክፈቱ።",
+    "cameraReadyPoint": "ካሜራ ዝግጁ - ሙሉ QR ኮድ ላይ ጠቁመው።",
+    "browserCannotProcess": "ይህ አሳሽ የካሜራ ፍሬሞችን ማካሄድ አይችልም።",
+    "qrCodeDetected": "QR ኮድ ተገኝቷል።",
+    "couldnTRead": "የካሜራ ፍሬሞችን ማንበብ አልተቻለም። የካሜራ ፈቃዶችን ይፈትሹ እና ይህን ገጽ እንደገና ይጫኑት።",
+    "cameraPermissionDenied": "የካሜራ ፍቃድ ተከልክሏል። በአሳሽ ቅንብሮች ውስጥ የካሜራ መዳረሻን ይፍቀዱ፣ ከዚያ ስካነሩን እንደገና ይክፈቱት።",
+    "noCameraWas": "በዚህ መሳሪያ ላይ ምንም ካሜራ አልተገኘም።",
+    "cameraBusyAnother": "ካሜራው በሌላ መተግበሪያ ወይም አሳሽ ትር ላይ ስራ በዝቶበታል።",
+    "startCameraHttps": "ካሜራ መጀመር አልተቻለም። HTTPS ወይም localhost ይጠቀሙ እና የአሳሽ ፈቃዶችን ያረጋግጡ።",
+    "qrScannerCamera": "የQR ስካነር ካሜራ ቅድመ እይታ",
+    "cameraUnavailableCheck": "ካሜራ የለም። የካሜራ ፍቃድ ይፈትሹ እና እንደገና ይሞክሩ።",
+    "pointCameraAuthenticator": "ካሜራዎን ከሚያክሉት አገልግሎት የ QR ኮድ ወደ አረጋጋጭ ያቅርቡ።",
+    "backAddAccount": "መለያ ለመጨመር ተመለስ",
+    "secureSetup": "ደህንነቱ የተጠበቀ ማዋቀር",
+    "enterDetailsManually": "በምትኩ ዝርዝሮችን በእጅ አስገባ"
+  },
+  "accountForm": {
+    "hideManualEntry": "በእጅ ግቤት ደብቅ",
+    "secretKeySupplied": "እያዋቀሩት ባለው አገልግሎት የቀረበውን ሚስጥራዊ ቁልፍ ተጠቀም። የመለያዎን ይለፍ ቃል እዚህ በጭራሽ አያስገቡ። አልጎሪዝምን፣ አሃዝ ቆጠራውን እና ክፍተቱን ከአገልግሎቱ የማዋቀር መመሪያዎች ጋር አዛምድ።",
+    "updateServiceAccount": "አገልግሎቱን፣ የመለያውን ስም ወይም ሚስጥራዊ ቁልፉን ያዘምኑ።",
+    "secretKeyRead": "ሚስጥራዊ ቁልፍ፣ በማርትዕ ጊዜ ተነባቢ-ብቻ",
+    "secretKeyBase32": "ሚስጥራዊ ቁልፍ በBase32",
+    "digits": "አሃዞች",
+    "seconds": "ሰከንዶች",
+    "enterDetailsManually": "ወይም ዝርዝሮችን በእጅ ያስገቡ",
+    "enterDetailsManually2": "ዝርዝሮችን በእጅ ያስገቡ",
+    "serviceAccountName": "አገልግሎት, የመለያ ስም እና ሚስጥራዊ ቁልፍ",
+    "saveChangesSecurely": "ለውጦችን ደህንነቱ በተጠበቀ ሁኔታ ያስቀምጡ",
+    "saveAccountSecurely": "መለያውን ደህንነቱ በተጠበቀ ሁኔታ ያስቀምጡ",
+    "serviceIssuer": "አገልግሎት ወይም ሰጪ",
+    "accountName": "መለያ ስም",
+    "secretKey": "ሚስጥራዊ ቁልፍ",
+    "serviceIssuer2": "አገልግሎት / ሰጪ",
+    "eGGoogle": "ለምሳሌ. ጎግል",
+    "clearServiceIssuer": "አገልግሎት ወይም ሰጪውን ያጽዱ",
+    "eGExample": "ለምሳሌ. you@example.com",
+    "clearAccountName": "የመለያ ስም አጽዳ",
+    "secretKeyLocked": "ሚስጥራዊ ቁልፍ (የተቆለፈ)",
+    "secretKeyBase322": "ሚስጥራዊ ቁልፍ (BASE32)",
+    "enterSetupKey": "የማዋቀር ቁልፍዎን ያስገቡ",
+    "clearSecretKey": "የሚስጥር ቁልፍን አጽዳ",
+    "otpAlgorithm": "OTP አልጎሪዝም",
+    "otpDigits": "OTP አሃዞች",
+    "refreshIntervalSeconds": "ክፍተቱን አድስ (ሰከንዶች)",
+    "otpRefreshInterval": "OTP የማደስ ክፍተት በሰከንዶች ውስጥ",
+    "closeAccountForm": "የመለያ ቅጽ ዝጋ",
+    "totpSetupUrl": "TOTP ማዋቀር URL",
+    "importSetupUrl": "ማዋቀር URL አስመጣ",
+    "totpSetupUrl2": "TOTP ማዋቀር URL",
+    "accountName2": "መለያ ስም",
+    "addAccount": "መለያ ያክሉ"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "አረጋጋጭ QR ኮድ ይቃኙ",
+    "setupGuidance": "በጣም ቀላሉን ለማዋቀር የQR ኮድ ይቃኙ ወይም ዝርዝሮችን በእጅ ያስገቡ።",
+    "cameraAddAccount": "መለያ በፍጥነት ለመጨመር ካሜራዎን ይጠቀሙ",
+    "scanQrCode2": "QR ኮድ ይቃኙ",
+    "uploadQrImage": "የQR ምስል ይስቀሉ።",
+    "chooseQrScreenshot": "ከጋለሪ፣ ፎቶዎች ወይም ፋይሎች የQR ቅጽበታዊ ገጽ እይታን ይምረጡ",
+    "pasteQr": "የQR ምስል/URL ለጥፍ",
+    "pasteCopiedQr": "የተቀዳ QR ምስል ወይም አረጋጋጭ ማዋቀር URL ለጥፍ",
+    "uploadQrImage2": "የQR ምስል ይስቀሉ።"
+  },
+  "accountQr": {
+    "close": "ዝጋ",
+    "accountQrCode": "መለያ QR ኮድ",
+    "revealQrCode": "የQR ኮድ አሳይ",
+    "exportWarning": "ማስጠንቀቂያ፡ ይህን QR ኮድ የሚቃኝ ማንኛውም ሰው ለዚህ መለያ የማረጋገጫ ኮዶችን መፍጠር ይችላል። በታመነ ማያ ገጽ ላይ ብቻ ይግለጡት።",
+    "privacyHint": "ይህንን የQR ኮድ የግል ያድርጉት። እሱን መቃኘት የመለያውን አረጋጋጭ ሚስጥር ይቀዳል።"
+  },
+  "productInfo": {
+    "backupRestore": "ምትኬ እና እነበረበት መልስ",
+    "backupRestoreDescription": "የአረጋጋጭ ውሂብዎን ምትኬ ያስቀምጡ እና ወደ ሌላ መሳሪያ ሲንቀሳቀሱ ወደነበረበት ይመልሱት።",
+    "privacyDescription": "የማረጋገጫ መለያዎችዎን በአንድ ቦታ ያስቀምጡ። ማዋቀርዎን በኃላፊነት ለማስተዳደር የመተግበሪያውን ምትኬ፣ እነበረበት መልስ እና የመሣሪያ-መቆለፊያ አማራጮችን ይጠቀሙ።",
+    "timeBasedCodes": "በጊዜ ላይ የተመሰረቱ ኮዶች",
+    "generateOneTimeCodes": "ባለ ሁለት ደረጃ ማረጋገጫን ለማጠናቀቅ ለመለያዎችዎ የሚሽከረከሩ የአንድ ጊዜ የይለፍ ኮድ ይፍጠሩ።",
+    "quickAccountSetup": "ፈጣን መለያ ማዋቀር",
+    "quickSetupDescription": "መለያ ለመጨመር አረጋጋጭ QR ኮድ ይቃኙ ወይም የQR ምስል ያስመጡ።",
+    "accountsOnePlace": "መለያዎች በአንድ ቦታ",
+    "accountsInOnePlaceDescription": "የተቀመጡ መለያዎችዎን አንድ ላይ ያቆዩ እና ለመግባት ጊዜው ሲደርስ ትክክለኛውን ግቤት ያግኙ።",
+    "privateAccountVault": "የግል መለያ ማከማቻ",
+    "privateVaultDescription": "የአረጋጋጭ ግቤቶችዎን በአገር ውስጥ ያስተዳድሩ እና የመተግበሪያውን የመሳሪያ-መቆለፊያ አማራጭ ይጠቀሙ።",
+    "easyCodeAccess": "ቀላል የኮድ መዳረሻ",
+    "easyCodeAccessDescription": "የአሁኑን ኮድ ይቅዱ ወይም የመለያ ዝርዝሮችን በንጹህ እና በተተኮረ በይነገጽ ያስተዳድሩ።",
+    "authenticatorTechsivaram": "አረጋጋጭ · በቴክሲቫራም",
+    "mobileAuthenticator": "የሞባይል አረጋጋጭ",
+    "tagline": "ባለ ሁለት ደረጃ ማረጋገጫዎን ለማስተዳደር ቀላሉ መንገድ።",
+    "heroDescription": "በጊዜ-ተኮር የማረጋገጫ ኮዶች ላይ ያተኮረ አረጋጋጭ ተሞክሮ። ለAndroid ከKaalKey ጋር ተኳዃኝ የመለያ ኮዶችን በቅርብ ያቆዩ።",
+    "timeBasedCodes2": "በጊዜ ላይ የተመሰረቱ ኮዶች",
+    "privateDesign": "በንድፍ የግል",
+    "builtSimpleAuthenticator": "ለቀላል አረጋጋጭ የስራ ፍሰት የተሰራ",
+    "qrSetupTimed": "QR ማዋቀር · ጊዜያዊ ኮዶች · የመለያ አስተዳደር",
+    "privacyTitle": "የእርስዎ መለያዎች። የእርስዎ ኮዶች። የእርስዎ ቁጥጥር።",
+    "authenticator": "KAALKEY · አረጋጋጭ",
+    "brandBanner": "KaalKey የምርት ስም ባነር",
+    "logo": "KaalKey አርማ"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "ሰርዝ",
+      "storageInvalidTitle": "የማከማቻ ውሂብ ልክ ያልሆነ ነው።",
+      "storageInvalidBody": "የተቀመጠ የመለያ ውሂብ በደህና ሊነበብ አልቻለም።",
+      "storageErrorTitle": "የማከማቻ ስህተት",
+      "storageErrorBody": "የተቀመጡ መለያዎች ሊጫኑ አልቻሉም።",
+      "missingTitle": "መረጃ ይጎድላል",
+      "missingEditingBody": "የአገልግሎት ስም እና መለያ ስም ያስገቡ.",
+      "missingBody": "የአገልግሎት ስም፣ የመለያ ስም እና ሚስጥራዊ ቁልፉን ያስገቡ።",
+      "invalidOtpBody": "የBase32 ሚስጥር፣ ስልተ ቀመር፣ አሃዛዊ ቁጥር እና የማደስ ጊዜን ያረጋግጡ። ሚስጥሮች ትክክለኛ Base32 ቁምፊዎች መያዝ አለባቸው; አሃዞች {digits} መሆን አለባቸው እና ወቅቱ {minPeriod}–{maxPeriod} ሰከንዶች መሆን አለበት።",
+      "duplicateBody": "የዚህ አገልግሎት እና የመለያ ስም ያለው መለያ አስቀድሞ ተቀምጧል።",
+      "updatedBody": "መለያህ ተዘምኗል።",
+      "addedBody": "መለያዎ ደህንነቱ በተጠበቀ ሁኔታ ታክሏል።",
+      "invalidOtpTitle": "ልክ ያልሆኑ የOTP ቅንብሮች",
+      "duplicateTitle": "መለያ አስቀድሞ አለ።",
+      "savedTitle": "መለያ ተቀምጧል",
+      "invalidSecretTitle": "ልክ ያልሆነ ሚስጥራዊ ቁልፍ",
+      "invalidSecretBody": "እባክዎ ትክክለኛ የBase32 ሚስጥር እንዳስገቡ ያረጋግጡ።",
+      "removedTitle": "መለያ ተወግዷል",
+      "removedBody": "መለያው እና ሚስጥሩ ከዚህ መሳሪያ ተወግደዋል።",
+      "clearedTitle": "መለያዎች ጸድተዋል።",
+      "clearedBody": "ሁሉም አረጋጋጭ መለያዎች እና ሚስጥሮች ከዚህ መሳሪያ ተወግደዋል።",
+      "someSavedAccountsNeedAttentionTitle": "አንዳንድ የተቀመጡ መለያዎች ትኩረት ያስፈልጋቸዋል",
+      "someSavedAccountsNeedAttentionBody": "{count} ልክ ያልሆነ የመለያ መዝገብ(ዎች) አልተጫነም። ትክክለኛ መለያዎች እንዳሉ ይቆያሉ። ተጨማሪ ለውጦችን ከማድረግዎ በፊት ምትኬ መፍጠር ያስቡበት።",
+      "removeConfirmTitle": "መለያ ይወገድ?",
+      "removeConfirmWebTitle": "መለያ ይወገድ?",
+      "removeButton": "አስወግድ",
+      "clearButton": "ሁሉንም አጽዳ",
+      "clearConfirmTitle": "ሁሉንም መለያዎች ይጽዱ?",
+      "saveErrorBody": "መለያዎች ሊቀመጡ አልቻሉም። የአሳሽ ማከማቻ መኖሩን ያረጋግጡ እና እንደገና ይሞክሩ።",
+      "notFoundTitle": "መለያ አልተገኘም።",
+      "notFoundBody": "ይህ መለያ ሊገኝ አልቻለም። አርታዒውን ይዝጉ እና እንደገና ይሞክሩ።",
+      "removeConfirmBody": "ይሄ መለያውን እና ምስጢሩን ከዚህ መሳሪያ ያስወግዳል።",
+      "clearConfirmBody": "ይህ ሁሉንም አረጋጋጭ መለያዎች እና ምስጢሮቻቸውን ከዚህ መሳሪያ እስከመጨረሻው ያስወግዳል። እነዚህን መለያዎች በኋላ ሊፈልጓቸው ከቻሉ መጀመሪያ የተመሰጠረ መጠባበቂያ ይፍጠሩ።",
+      "clearConfirmUndoBody": "ይህ ሊቀለበስ አይችልም።"
+    },
+    "biometric": {
+      "cancelButton": "ሰርዝ",
+      "saveErrorTitle": "ቅንብርን ማስቀመጥ አልተቻለም",
+      "unlockPrompt": "KaalKey አረጋጋጭ ይክፈቱ",
+      "promptSubtitle": "ባዮሜትሪክስ ወይም የመሣሪያዎን ማያ ገጽ መቆለፊያ ይጠቀሙ",
+      "disableConfirmPrompt": "የKaalKey መተግበሪያ መቆለፊያን ለማጥፋት ያረጋግጡ",
+      "enablePrompt": "ለKaalKey የመተግበሪያ መቆለፊያን አንቃ",
+      "deviceLockTitle": "የመሣሪያዎን ማያ ገጽ መቆለፊያ ያዘጋጁ",
+      "deviceLockBody": "KaalKey የስልክዎን አብሮገነብ ማረጋገጫ ይጠቀማል። መሣሪያ PIN፣ ስርዓተ ጥለት ወይም የይለፍ ቃል በስልክዎ የደህንነት ቅንብሮች ውስጥ ያቀናብሩ እና እንደገና ይሞክሩ። ባዮሜትሪክስ አማራጭ ነው።",
+      "unavailableTitle": "የመሣሪያ ማረጋገጫ የለም።",
+      "unavailableBody": "ስልክዎ ደህንነቱ የተጠበቀ ማረጋገጥ ሊጀምር አልቻለም። የመሣሪያ ማያ ገጽ መቆለፊያ መዋቀሩን ያረጋግጡ፣ ከዚያ እንደገና ይሞክሩ።",
+      "lockedTitle": "ማረጋገጫ ለጊዜው ተቆልፏል",
+      "lockedBody": "ከብዙ ሙከራዎች በኋላ ስልክዎ ለጊዜው ማረጋገጥን አሰናክሏል። ይጠብቁ እና እንደገና ይሞክሩ።",
+      "promptErrorTitle": "ማረጋገጫ አይገኝም",
+      "promptErrorBody": "KaalKey የስልኩን ደህንነቱ የተጠበቀ የማረጋገጫ ጥያቄ ማስጀመር አልቻለም። እባክህ እንደገና ሞክር።",
+      "webLock": "የመሣሪያ ማረጋገጫ መቆለፊያ እስካሁን በድር ስሪት ውስጥ አይገኝም። የድረ-ገጽ ማስቀመጫው እንደተከፈተ ይቆያል; ለቤተኛ መሳሪያ ማረጋገጫ የAndroid መተግበሪያን ይጠቀሙ።",
+      "disabledTitle": "የመተግበሪያ መቆለፊያ ተሰናክሏል።",
+      "disabledBody": "የKaalKey መተግበሪያ መቆለፊያ ጠፍቷል።",
+      "disableSaveError": "የመተግበሪያው መቆለፊያ እንደነቃ ይቆያል። እባክህ እንደገና ሞክር።",
+      "enabledTitle": "የመተግበሪያ መቆለፊያ ነቅቷል።",
+      "enabledBody": "KaalKey ሲከፈት እና ወደ እሱ ሲመለሱ የስልክዎን አብሮገነብ ማረጋገጫ ይጠይቃል።",
+      "enableSaveError": "የመተግበሪያ መቆለፊያ ሊነቃ አልቻለም። እባክህ እንደገና ሞክር።"
+    },
+    "qr": {
+      "startingCamera": "ካሜራን በመጀመር ላይ…",
+      "unsupportedTitle": "የማይደገፍ QR ኮድ",
+      "unsupportedBody": "በአገልግሎቱ የቀረበውን አረጋጋጭ ማዋቀር QR ኮድ ይቃኙ። ይህ TOTP ኮድ መሆን አለበት እንጂ መደበኛ የመግቢያ QR ኮድ መሆን የለበትም።",
+      "unsupportedDiagnostic": "ያ QR TOTP የማዋቀር ኮድ አይደለም። አረጋጋጭ ማዋቀር QR ላይ ዒላማ ያድርጉ።",
+      "detectedDiagnostic": "QR ተገኝቷል። በመተንተን ላይ…",
+      "analyzing": "QR ኮድ በመተንተን ላይ…",
+      "duplicateTitle": "መለያ አስቀድሞ ታክሏል።",
+      "duplicateBody": "{issuer}፡ {account} አስቀድሞ በKaalKey አለ።",
+      "addedTitle": "መለያ ታክሏል።",
+      "addedBody": "{issuer}፡ {account} በተሳካ ሁኔታ ታክሏል።",
+      "saveFailedDiagnostic": "መለያውን ማስቀመጥ አልተቻለም። እንደገና መቃኘት ይችላሉ።",
+      "invalidTitle": "ልክ ያልሆነ QR ኮድ",
+      "invalidBody": "KaalKey ይህን አረጋጋጭ QR ኮድ መተንተን አልቻለም። {detail} የአገልግሎቱን TOTP ማዋቀር QR ኮድ ይጠቀሙ (ብዙውን ጊዜ በ{prefix} ይጀምራል)።",
+      "parseFailedDiagnostic": "QR ሊሰራ አልቻለም። በማዋቀሩ QR ላይ ዒላማ ያድርጉ እና እንደገና ይሞክሩ።",
+      "invalidUrlTitle": "ልክ ያልሆነ TOTP URL",
+      "invalidUrlBody": "ከ{prefix} ጀምሮ የተሟላ አረጋጋጭ URL ለጥፍ።",
+      "clipboardEmptyTitle": "ክሊፕቦርድ ባዶ ነው።",
+      "clipboardEmptyBody": "መጀመሪያ {prefix} URL ይቅዱ እና ከዚያ TOTP URL ለጥፍ ይንኩ።",
+      "clipboardErrorTitle": "ቅንጥብ ሰሌዳ ማንበብ አልተቻለም",
+      "clipboardErrorBody": "የTOTP ማዋቀር URL ይቅዱ እና እንደገና ይሞክሩ።"
+    },
+    "haptics": {
+      "saveFailedTitle": "ቅንብርን ማስቀመጥ አልተቻለም",
+      "saveFailedBody": "የሃፕቲክ ግብረመልስ ምርጫ ሊቀመጥ አልቻለም። እባክህ እንደገና ሞክር።"
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "እውቅናን ማስቀመጥ አልተቻለም",
+      "saveFailedBody": "እባክህ እንደገና ሞክር። KaalKey ከመጠቀምዎ በፊት ህጋዊ ማሳሰቢያውን መቀበል አለብዎት።"
+    },
+    "cameraPermission": {
+      "title": "የካሜራ ፍቃድ ያስፈልጋል",
+      "body": "የአረጋጋጭ ማዋቀር QR ኮድ ለመቃኘት የካሜራ መዳረሻ ይፍቀዱ።"
+    },
+    "storage": {
+      "browserUnavailable": "የአሳሽ ማከማቻ የለም።",
+      "browserFilePickerUnavailable": "የአሳሽ ፋይል መራጭ አይገኝም።"
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "የማይደገፍ ፋይል",
+      "unsupportedFileBody": "እንደ PNG ወይም JPEG ያለ የQR ኮድ ምስል ይምረጡ።",
+      "browserDecoderUnavailable": "የአሳሽ ምስል መፍታት አይገኝም",
+      "imageLoadFailed": "ምስል ሊጫን አልቻለም",
+      "unreadableDimensions": "ምስል ምንም ሊነበብ የሚችል ልኬቶች የሉትም።",
+      "noQrCodeFoundTitle": "ምንም QR ኮድ አልተገኘም።",
+      "noQrCodeFoundBody": "KaalKey በዚህ ምስል ላይ የQR ኮድ መፍታት አልቻለም። ቅጽበታዊ ገጽ እይታ ወይም ከፍተኛ ጥራት PNG/JPEG ይሞክሩ።",
+      "couldNotReadImageTitle": "ምስል ማንበብ አልተቻለም",
+      "couldNotReadImageBody": "የአረጋጋጭ ማዋቀር QR ኮድ የያዘ ግልጽ PNG ወይም JPEG ምስል ይሞክሩ።",
+      "couldNotOpenPickerTitle": "ምስል መራጭን መክፈት አልተቻለም",
+      "couldNotOpenPickerBody": "እባክዎን QRን እንደገና ለመጫን ይሞክሩ።",
+      "normalizedDecodeFailed": "መደበኛ ምስል ሊገለበጥ አልቻለም",
+      "clipboardImageLoadFailed": "የቅንጥብ ሰሌዳ ምስል ሊጫን አልቻለም",
+      "imageProcessingUnavailable": "ምስል ማቀናበር አይገኝም",
+      "imageProcessingUnavailableAlt": "ምስል ማቀናበር የለም።",
+      "noImageInClipboardTitle": "በቅንጥብ ሰሌዳ ውስጥ ምንም ምስል የለም።",
+      "noImageInClipboardBody": "የQR ኮድ ምስል ይቅዱ እና ከዚያ የQR ምስልን እንደገና ይንኩ።",
+      "clipboardUnavailableTitle": "ክሊፕቦርድ የለም።",
+      "clipboardUnavailableBody": "የቅንጥብ ሰሌዳ ጽሑፍ ትክክለኛ አረጋጋጭ ማዋቀር URL አይደለም። የ otpauth:// URL ወይም QR ምስል ይቅዱ እና እንደገና ይሞክሩ።",
+      "clipboardAccessBody": "KaalKey ጽሑፍ ወይም ምስል ከቅንጥብ ሰሌዳው ላይ ማንበብ አልቻለም። የቅንጥብ ሰሌዳ መዳረሻ ይፍቀዱ፣ ከዚያ የQR ምስሉን ይቅዱ ወይም otpauth:// URL እና QR ምስል / URLን እንደገና ለጥፍ ንካ።",
+      "couldNotPasteImageTitle": "ምስል መለጠፍ አልተቻለም",
+      "couldNotPasteImageBody": "ምስል መለጠፍ በዚህ መሳሪያ ላይ በዚህ ቅንጥብ ሰሌዳ አይደገፍም። በምትኩ አስመጣ QR ምስል ተጠቀም።",
+      "sourceImageDecodeFailure": "የተለየ QR ምስል ይሞክሩ።",
+      "pastedImportFailureBody": "የተለየ QR ምስል ይሞክሩ።",
+      "sourceImageReadFailure": "ግልጽ የሆነ QR ቅጽበታዊ ገጽ እይታን ለመቅዳት ይሞክሩ።",
+      "importFailedTitle": "የQR ምስል ማስመጣት አልተሳካም።",
+      "importFailedBody": "KaalKey ያንን ምስል ማንበብ አልቻለም። እባክዎ ሌላ የQR ኮድ ምስል ይሞክሩ።",
+      "notFoundBody": "የተቀዳው ምስል ሊነበብ የሚችል QR ኮድ አልያዘም።",
+      "pastedNotFoundBody": "የተለጠፈው ምስል ሊነበብ የሚችል QR ኮድ አልያዘም።",
+      "pastedReadFailureBody": "ሙሉ QR ኮድ የያዘ ግልጽ PNG ወይም JPEG ምስል ለመቅዳት ይሞክሩ።",
+      "noQrCodeTextBody": "KaalKey የተመረጠውን ምስል ፈትቷል ነገር ግን የQR ኮድ አላገኘም። ግልጽ፣ ሙሉ ጥራት PNG ወይም JPEG ከጠቅላላው ኮድ ጋር ይሞክሩ።"
+    },
+    "totpImport": {
+      "invalidTotpCode": "ይህ QR ኮድ በጊዜ ላይ የተመሰረተ አረጋጋጭ ማዋቀሪያ ኮድ አይደለም።",
+      "missingAccountDetails": "የQR ኮድ የመለያ ዝርዝሮች ይጎድላል።",
+      "unsupportedAlgorithm": "የQR ኮድ የማይደገፍ ስልተ ቀመር ይጠቀማል።",
+      "unsupportedDigits": "ይህ QR ኮድ 6፣ 7 ወይም 8 አሃዞችን መጠቀም አለበት።",
+      "unsupportedPeriod": "ይህ QR ኮድ የማይደገፍ ጊዜ ይጠቀማል።",
+      "invalidAccount": "የQR ኮድ ሊረጋገጥ አልቻለም።"
+    },
+    "backup": {
+      "invalidJson": "የመጠባበቂያ ፋይሉ ልክ ያልሆነ JSON ነው።",
+      "unsupportedFormat": "ይህ የሚደገፍ KaalKey የተመሰጠረ መጠባበቂያ አይደለም።",
+      "invalidPasswordOrDamaged": "የመጠባበቂያ ይለፍ ቃል ትክክል አይደለም ወይም የመጠባበቂያ ፋይሉ ተጎድቷል።",
+      "invalidContents": "የመጠባበቂያ ይዘቶቹ ልክ ያልሆኑ ወይም ያልተሟሉ ናቸው።",
+      "secureRandomUnavailableDetailed": "ደህንነቱ የተጠበቀ የዘፈቀደ ትውልድ አይገኝም። የAndroid መተግበሪያን ከexpo-crypto ጋር እንደገና ይገንቡ እና እንደገና ይጫኑት፣ ከዚያ እንደገና ይሞክሩ።",
+      "invalidAccountDataForBackup": "አንድ ወይም ከዚያ በላይ መለያዎች ልክ ያልሆኑ ናቸው። ምትኬን ከመፍጠርዎ በፊት የመለያውን ውሂብ ያስተካክሉ።",
+      "invalidPasswordOrModified": "የመጠባበቂያ ይለፍ ቃል ትክክል አይደለም ወይም የመጠባበቂያ ፋይሉ ተስተካክሏል።",
+      "invalidPasswordOrFileDamaged": "የመጠባበቂያ ይለፍ ቃል ትክክል አይደለም ወይም ፋይሉ ተጎድቷል።",
+      "passwordCopiedTitle": "የይለፍ ቃል ተቀድቷል።",
+      "enterPasswordTitle": "የምትኬ የይለፍ ቃልህን አስገባ",
+      "enterPasswordBody": "ይህ ምትኬ ሲፈጠር ጥቅም ላይ የዋለውን የይለፍ ቃል ያስገቡ።",
+      "passwordCopiedBody": "እንደ WhatsApp ያለ ደህንነቱ በተጠበቀ ቦታ ያስቀምጡት።",
+      "copyFailedTitle": "መቅዳት አልተሳካም።",
+      "copyFailedBody": "የይለፍ ቃሉን እራስዎ ይምረጡ እና ይቅዱ።",
+      "generatingPassword": "ደህንነቱ የተጠበቀ የመጠባበቂያ ይለፍ ቃል በማመንጨት ላይ…",
+      "encrypting": "ምትኬን በማመስጠር ላይ…",
+      "decrypting": "ምትኬን በመፍታት ላይ…",
+      "restoring": "መለያዎችን ወደነበሩበት በመመለስ ላይ…",
+      "backupCreatedTitle": "ምትኬ ተፈጥሯል።",
+      "restoreCompleteTitle": "እነበረበት መልስ ተጠናቋል",
+      "mergeConfirmTitle": "የምትኬ መለያዎችን አዋህድ?",
+      "mergeConfirmButton": "መለያዎችን አዋህድ",
+      "backupSavedTemporary": "የተመሰጠረ ምትኬ በጊዜያዊነት ተቀምጧል፡\n{uri}",
+      "generatePasswordErrorTitle": "የመጠባበቂያ ይለፍ ቃል ማመንጨት አልተቻለም",
+      "secureRandomUnavailable": "ደህንነቱ የተጠበቀ የዘፈቀደ ትውልድ አይገኝም።",
+      "passwordUnavailableTitle": "የመጠባበቂያ ይለፍ ቃል የለም።",
+      "passwordUnavailableBody": "ደህንነቱ የተጠበቀ የይለፍ ቃል ለማመንጨት ይህንን ንግግር ዝጋ እና አዲስ ምትኬ ይፍጠሩ።",
+      "backupDownloadedBody": "የእርስዎ የተመሰጠረ የKaalKey ምትኬ ወርዷል። ፋይሉን እና የይለፍ ቃሉን የግል ያድርጉት።",
+      "backupFailedTitle": "ምትኬ አልተሳካም።",
+      "backupCreateErrorBody": "KaalKey ምትኬን መፍጠር አልቻለም።",
+      "restoreFailedTitle": "ወደነበረበት መመለስ አልተሳካም።",
+      "backupReadErrorBody": "ምትኬው ሊነበብ ወይም ሊቀመጥ አልቻለም።",
+      "browserDownloadUnsupported": "አሳሽህ የምትኬ ፋይሎችን ማውረድ አይደግፍም።",
+      "localFileUnavailable": "በዚህ መሳሪያ ላይ የአካባቢ ፋይል መገኛ አይገኝም።",
+      "saveBackupTitle": "የተመሰጠረውን የKaalKey ምትኬዎን ያስቀምጡ"
+    },
+    "clipboard": {
+      "copiedTitle": "ኮድ ተቀድቷል።",
+      "copiedBody": "የማረጋገጫ ኮድህ ተቀድቷል።",
+      "errorTitle": "ስህተት",
+      "errorBody": "የማረጋገጫ ኮዱን መቅዳት አልተቻለም።"
+    },
+    "activity": {
+      "cameraReady": "ካሜራ ዝግጁ ነው። አረጋጋጭ QR ኮድ ላይ ጠቁመው።",
+      "readingQrImage": "የQR ምስል በማንበብ ላይ…",
+      "importingQrImage": "የQR ምስል በማስመጣት ላይ…",
+      "importingAccount": "የአረጋጋጭ መለያን በማስመጣት ላይ…",
+      "importingPastedImage": "የተለጠፈ QR ምስል በማስመጣት ላይ…"
+    }
+  },
+  "activity": {
+    "working": "በመስራት ላይ",
+    "wait": "እባክዎ ይጠብቁ…",
+    "donTClose": "እባክዎን ከKaalKey ጋር አይዝጉ ወይም አይገናኙ።",
+    "loadingLanguages": "የሚገኙ ቋንቋዎችን በመጫን ላይ…",
+    "loadingTranslation": "ትርጉምን በመጫን ላይ…"
+  }
+}

@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Dil",
+      "description": "KaalKey'da kullanılan dili seçin.",
+      "english": "İngilizce",
+      "telugu": "Telugu dili",
+      "hindi": "Hintçe",
+      "section": "DİL",
+      "searchLanguageName": "Arama dili (isim veya kod)",
+      "searchSupportedLanguages": "Desteklenen dilleri arayın",
+      "closeLanguageDropdown": "Dil açılır menüsünü kapat",
+      "noTranslatedLanguage": "Çevrilmiş dil bulunamadı.",
+      "serverUrl": "Çeviri sunucusu URL",
+      "serverUrlDescription": "KaalKey dil listesini ve çevirileri bu sunucudan indirir.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Çeviri sunucusunu kaydet"
+    },
+    "title": "Uygulama ayarları",
+    "eyebrow": "KAALKEY TERCİHLER",
+    "experience": {
+      "section": "DENEYİM"
+    },
+    "security": {
+      "section": "GÜVENLİK"
+    },
+    "backup": {
+      "section": "YEDEKLEME VE KURTARMA"
+    },
+    "danger": {
+      "section": "TEHLİKE BÖLGESİ",
+      "clearAccounts": "Tüm hesapları temizle",
+      "clearAccountsDescription": "Bu cihazdaki tüm hesapları ve gizli bilgileri kalıcı olarak kaldırın. Önce yedekleyin.",
+      "clearAccountsAccessibilityLabel": "Tüm kimlik doğrulayıcı hesaplarını temizle"
+    },
+    "appearance": {
+      "section": "GÖRÜNÜM",
+      "title": "Hafif görünüm",
+      "description": "KaalKey şu anda temiz ışık temasını kullanıyor."
+    },
+    "haptics": {
+      "title": "Dokunsal geribildirim",
+      "description": "Dokunma ve tamamlanan eylemler için nazik geri bildirim."
+    },
+    "deviceLock": {
+      "title": "Cihaz kimlik doğrulama kilidi",
+      "description": "KaalKey ön plandan çıktığında kasanız kilitlenir.",
+      "requirement": "Telefonunuzun biyometrisini veya ekran kilidini PIN, desenini veya şifresini zorunlu kılın.",
+      "accessibilityLabel": "Cihaz kimlik doğrulama uygulama kilidi"
+    },
+    "privacy": {
+      "title": "Yasal ve gizlilik",
+      "description": "Gizlilik Politikasını ve Kullanım Koşullarını inceleyin.",
+      "storageNote": "Kimlik doğrulayıcı sırlarınız cihazdaki güvenli kasada kalır. Tercihler yerel olarak depolanır."
+    }
+  },
+  "accounts": {
+    "edit": "Düzenle",
+    "sortAccountName": "Hesap adına göre sırala",
+    "loadingSecureVault": "Güvenli kasa yükleniyor...",
+    "tapCopy": "KOPYALAMAK İÇİN DOKUNUN",
+    "noAccountsMatch": "Aramanızla eşleşen hesap yok.",
+    "viewQrCode": "Hesabın QR kodunu görüntüle",
+    "removeAccount": "Hesabı kaldır",
+    "copyVerificationCode": "Doğrulama kodunu kopyala",
+    "active": "AKTİF",
+    "sort": "SIRALAMA ŞARTI",
+    "account": "Hesap",
+    "clearSearch": "Aramayı temizle",
+    "sortServiceName": "Hizmet adına göre sırala",
+    "addFirstAccount": "İlk hesabınızı ekleyin",
+    "searchAccounts": "Hesapları arayın",
+    "searchServiceAccount": "Hizmet veya hesap arayın",
+    "accounts": "Hesaplarınız",
+    "add": "+ Ekle",
+    "vaultStartsHere": "Kasanız burada başlıyor",
+    "service": "Hizmet",
+    "emptyHint": "İlk doğrulama kodunuzu oluşturmak için gizli anahtarını kullanarak bir hesap ekleyin."
+  },
+  "common": {
+    "done": "Bitti",
+    "doneButton": "Bitti",
+    "closeSettings": "Ayarları kapat",
+    "separator": "-",
+    "article": "bir",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "resizeAppBrand": "Uygulama ve marka panellerini yeniden boyutlandırın"
+  },
+  "qrImport": {
+    "readPastedImage": "Yapıştırılan resim okunamadı"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Bu yedeklemedeki hesaplar: {count}. KaalKey mevcut hesaplarınızı koruyacak ve mevcut olmayan hesapları ekleyecektir. Yinelenen hesaplar atlanacaktır.",
+    "restoreCompletionBody": "Eklenen hesaplar: {added}. Yinelenen hesaplar atlandı: {skipped}. Mevcut hesaplarınız muhafaza edildi.",
+    "copyPassword": "Oluşturulan şifreyi kopyala",
+    "passwordSafety": "Bu şifreyi ayrı olarak kaydedin (örneğin, WhatsApp içine). Her ikisine de sahip olan herkes",
+    "importAction": "Dosyayı seçin ve içe aktarın",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "GÜVENLİ KASA",
+    "createBackup": "Yedek oluştur",
+    "encryptedFile": "Şifreli dosya",
+    "restoreBackup": "Yedeği geri yükle",
+    "safetyNote": "Yedeklemeler kimlik doğrulayıcı sırlarınızı içerir. KaalKey her yedekleme için benzersiz bir şifre oluşturur. Ayrı olarak kaydedin; KaalKey onu kurtaramaz.",
+    "generatingSecurePassword": "Güvenli şifre oluşturuluyor…",
+    "importFile": "Dosyayı içe aktar",
+    "backupPassword": "YEDEK ŞİFRE",
+    "account": "hesap",
+    "accounts": "hesaplar",
+    "exportDescription": "Bir yedekleme dosyasına kaydedilen tüm {count} {accountLabel} dosyasını şifreleyin. KaalKey benzersiz bir şifre oluşturur; dosyadan ayrı olarak kopyalayıp kaydedin.",
+    "restoreDescription": "KaalKey yedekleme dosyanızı ve şifrenizi seçin. Mevcut hesap listenize yeni hesaplar eklenecektir; mevcut hesaplar olduğu gibi kalacaktır.",
+    "enterBackupPassword": "Yedekleme şifresini girin",
+    "closeBackup": "Yedeklemeyi kapat",
+    "copyGeneratedBackup": "Oluşturulan yedekleme şifresini kopyala",
+    "backupPassword2": "Yedekleme şifresi",
+    "clearBackupPassword": "Yedekleme şifresini temizle",
+    "backupFilePassword": "yedekleme dosyası ve şifre, kimlik doğrulayıcı hesaplarınızı geri yükleyebilir.",
+    "encryptShareBackup": "Yedeklemeyi şifreleyin ve paylaşın"
+  },
+  "home": {
+    "unlockSecurely": "Güvenli bir şekilde kilidini açın",
+    "disableAppLock": "Uygulama kilidini devre dışı bırak",
+    "enableAppLock": "Uygulama kilidini etkinleştir",
+    "checkingSecureLock": "Güvenli kilit ayarlarınız kontrol ediliyor. Kodlarınız gizli kalır.",
+    "waitingVerification": "Doğrulama bekleniyor…",
+    "secretsStayStored": "Sırlarınız bu cihazda saklı kalır.",
+    "openAppSettings": "Uygulama ayarlarını aç",
+    "versionLabel": "VERSİYON",
+    "unlockRequirement": "Tek seferlik doğrulama kodlarınıza erişmek için telefonunuzun biyometrisini veya ekran kilidini PIN, desenini veya şifresini kullanın.",
+    "localVault": "YEREL KASANIZ",
+    "codesDeviceControl": "Kodlarınız. Cihazınız. Senin kontrolün.",
+    "securingVault": "Kasanız güvence altına alınıyor…",
+    "vaultProtected": "Kasanız korunuyor",
+    "lock": "KİLİT AÇ",
+    "localVault2": "YEREL KASA",
+    "authenticator": "KAALKEY DOĞRULAYICI",
+    "tricolourLockEmblem": "KaalKey üç renkli kilit amblemi",
+    "authenticator2": "DOĞRULAYICI"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Bir QR kodunu taramayı seçerseniz, KaalKey bu eylem için kamera iznini kullanır. İsteğe bağlı cihaz kimlik doğrulaması ve dokunsal geri bildirim, ilgili cihaz özelliklerini kullanır. İzinleri cihaz ayarlarınızdan yönetebilirsiniz.",
+        "heading": "2. İzinler ve cihaz özellikleri"
+      },
+      "backups": {
+        "body": "Bir yedekleme oluşturduğunuzda, KaalKey, seçtiğiniz bir parolayı kullanarak yedeği şifreler. Hem dosyayı hem de şifreyi gizli tutun ve güvenli bir şekilde saklayın. Dosyayı ve parolasını ele geçiren herkes, kimlik doğrulayıcı hesaplarınızı geri yükleyebilir. KaalKey unutulmuş bir yedekleme şifresini kurtaramaz.",
+        "heading": "3. Yedeklemeler"
+      },
+      "security": {
+        "body": "Cihazınızı güncel tutun, ekran kilidiyle koruyun ve OTP sırları veya yedek şifreleri paylaşmayın. Uygulamanın kaldırılması, verilerinin temizlenmesi veya cihazın kaybedilmesi, yerel olarak depolanan hesapların kullanılamamasına neden olabilir. Kurtarmaya ihtiyacınız varsa güvenli bir yedekleme yapın.",
+        "heading": "5. Güvenlik ve saklama"
+      },
+      "information": {
+        "heading": "1. Bilgi ve sırlar",
+        "body": "KaalKey bir kimlik doğrulama uygulamasıdır. Tek seferlik kodlar oluşturmak için gereken hesap etiketleri ve gizli değerler hassastır. Uygulama, hesap kayıtlarını cihazın güvenli deposunda saklamak için tasarlanmıştır. Kilidi açılmış bir cihaza veya dışa aktarılan bir yedeğe erişimi olan herkes hassas bilgilere erişebilir."
+      },
+      "sharing": {
+        "heading": "4. Paylaşım ve üçüncü taraflar",
+        "body": "Yedekleme akışı, dosyaları kaydetmek, aktarmak veya seçmek için cihazınızın paylaşım sayfasını veya dosya seçiciyi kullanabilir. Seçtiğiniz herhangi bir üçüncü taraf uygulamasının veya hizmetinin gizlilik uygulamaları, o sağlayıcı tarafından yönetilir. Bu bildirim, cihazınızın, işletim sisteminizin veya seçtiğiniz paylaşım hizmetlerinin hiçbir zaman veri işlemediğine dair genel bir iddiada bulunmaz."
+      },
+      "changes": {
+        "heading": "6. Değişiklikler ve iletişim",
+        "body": "Bu gömülü bildirim, gelecekteki bir uygulama sürümünde revize edilebilir. Gizlilikle ilgili sorularınız için uygulamayla birlikte sağlanan resmi destek kanalı aracılığıyla uygulama yayıncısıyla iletişime geçin."
+      },
+      "title": "Gizlilik Politikası"
+    },
+    "terms": {
+      "use": {
+        "body": "Erişim yetkisine sahip olduğunuz hesaplara yönelik doğrulama kodları oluşturmak için KaalKey kullanabilirsiniz. Geçerli yasalara ve kimlik doğrulama kodlarını kullandığınız hizmetlerin kurallarına uymak sizin sorumluluğunuzdadır.",
+        "heading": "1. Kullanımınız"
+      },
+      "protectAccounts": {
+        "body": "Cihazınızın, kimlik doğrulayıcı sırlarının, kurtarma yöntemlerinin, dışa aktarılan yedeklerin ve yedekleme şifrelerinin güvenliğinin sağlanmasından siz sorumlusunuz. Güvenmediğiniz kişilerle kodları veya sırları paylaşmayın.",
+        "heading": "2. Hesaplarınızı koruyun"
+      },
+      "availability": {
+        "body": "Özellikler sürümler arasında değişebilir. Uygulamayı güncel tutmalı ve yedekleme ve kurtarma düzenlemelerinizin çalıştığını düzenli aralıklarla doğrulamalısınız.",
+        "heading": "5. Değişiklikler ve kullanılabilirlik"
+      },
+      "recovery": {
+        "body": "KaalKey her hesabın kurtarılabileceğini, her QR kodun veya yapılandırmanın uyumlu olacağını veya uygulamanın kesintisiz veya hatasız çalışacağını garanti edemez. İlgili servis tarafından sağlanan alternatif kurtarma yöntemlerini saklayın.",
+        "heading": "3. Kurtarma garantisi yok"
+      },
+      "advice": {
+        "heading": "4. Profesyonel tavsiye yok",
+        "body": "Uygulama bir yardımcı programdır ve hukuki, mali veya güvenlikle ilgili olay-müdahale tavsiyesi sağlamaz. Bir hesabın güvenliği ihlal edilirse etkilenen hizmetin resmi kurtarma ve güvenlik yönergelerini izleyin."
+      },
+      "liability": {
+        "heading": "6. Sorumluluk ve geçerli kanun",
+        "body": "Yürürlükteki yasaların izin verdiği ölçüde, uygulama kesintisiz veya hatasız çalışma garantisi verilmeden sağlanır. Bu şartlarda yer alan hiçbir şey, yasal olarak hariç tutulamayacak hakları veya çözümleri hariç tutmaz. Diğer sınırlamalar veya geçerli yasa hükümleri, yayınlanmadan önce yayıncının yargı yetkisine sahip nitelikli bir avukat tarafından incelenmelidir."
+      },
+      "title": "Kullanım Koşulları"
+    },
+    "version": "Sürüm",
+    "saving": "Kaydediliyor…",
+    "acceptContinue": "Kabul Et ve Devam Et",
+    "appliesAuthenticator": "KaalKey Kimlik Doğrulayıcı için geçerlidir",
+    "reviewBothDocuments": "Lütfen KaalKey kullanmadan önce her iki belgeyi de inceleyin. Uygulamaya dahil edilirler ve çevrimdışı olarak kullanılabilirler.",
+    "originalMulticolourAuthenticator": "Orijinal çok renkli KaalKey kimlik doğrulama amblemi",
+    "legalPrivacyNotice": "Yasal ve Gizlilik Bildirimi",
+    "legalInformation": "Yasal bilgiler",
+    "reviewSPrivacy": "KaalKey'in gizlilik bilgilerini ve kullanım koşullarını inceleyin.",
+    "iReadAgree": "Gizlilik Politikasını ve Kullanım Koşullarını okudum ve kabul ediyorum."
+  },
+  "qrScanner": {
+    "keepEntireQr": "QR kodunun tamamını görünür tutun. Sırrınız bu cihazda kalacak.",
+    "back": "Geri",
+    "turnFlashlightOff": "El fenerini kapat",
+    "turnFlashlight": "El fenerini aç",
+    "flashlight": "El feneri açık",
+    "flashlight2": "El feneri",
+    "cameraUnavailableOpen": "Kamera kullanılamıyor. Bu sayfayı HTTPS veya localhost'ta açın ve kamera erişimine izin verin.",
+    "cameraPreviewUnavailable": "Kamera önizlemesi kullanılamıyor. Tarayıcıyı kapatıp yeniden açın.",
+    "cameraReadyPoint": "Kamera hazır — tam QR koduna doğrultun.",
+    "browserCannotProcess": "Bu tarayıcı kamera çerçevelerini işleyemiyor.",
+    "qrCodeDetected": "QR kodu algılandı.",
+    "couldnTRead": "Kamera çerçeveleri okunamadı. Kamera izinlerini kontrol edin ve bu sayfayı yeniden yükleyin.",
+    "cameraPermissionDenied": "Kamera izni reddedildi. Tarayıcı ayarlarında kamera erişimine izin verin, ardından tarayıcıyı yeniden açın.",
+    "noCameraWas": "Bu cihazda kamera bulunamadı.",
+    "cameraBusyAnother": "Kamera başka bir uygulama veya tarayıcı sekmesinde meşgul.",
+    "startCameraHttps": "Kamera başlatılamadı. HTTPS veya localhost kullanın ve tarayıcı izinlerini kontrol edin.",
+    "qrScannerCamera": "QR tarayıcı kamera önizlemesi",
+    "cameraUnavailableCheck": "Kamera kullanılamıyor. Kamera iznini kontrol edip tekrar deneyin.",
+    "pointCameraAuthenticator": "Kameranızı, eklediğiniz hizmetteki kimlik doğrulama kurulumu QR koduna doğrultun.",
+    "backAddAccount": "Hesap eklemeye geri dön",
+    "secureSetup": "GÜVENLİ KURULUM",
+    "enterDetailsManually": "Bunun yerine ayrıntıları manuel olarak girin"
+  },
+  "accountForm": {
+    "hideManualEntry": "Manuel girişi gizle",
+    "secretKeySupplied": "Yapılandırdığınız hizmetin sağladığı gizli anahtarı kullanın. Buraya asla hesap şifrenizi girmeyin. Algoritmayı, rakam sayısını ve aralığı hizmetin kurulum talimatlarıyla eşleştirin.",
+    "updateServiceAccount": "Hizmeti, hesap adını veya gizli anahtarı güncelleyin.",
+    "secretKeyRead": "Gizli anahtar, düzenleme sırasında salt okunur",
+    "secretKeyBase32": "Base32 içindeki gizli anahtar",
+    "digits": "rakamlar",
+    "seconds": "saniye",
+    "enterDetailsManually": "VEYA DETAYLARI MANUEL OLARAK GİRİN",
+    "enterDetailsManually2": "Ayrıntıları manuel olarak girin",
+    "serviceAccountName": "Hizmet, hesap adı ve gizli anahtar",
+    "saveChangesSecurely": "Değişiklikleri güvenli bir şekilde kaydedin",
+    "saveAccountSecurely": "Hesabı güvenli bir şekilde kaydet",
+    "serviceIssuer": "Hizmet veya veren kuruluş",
+    "accountName": "Hesap adı",
+    "secretKey": "Gizli anahtar",
+    "serviceIssuer2": "HİZMET / VERİCİ",
+    "eGGoogle": "örneğin Google",
+    "clearServiceIssuer": "Hizmeti veya veren kuruluşu temizle",
+    "eGExample": "örneğin sen@example.com",
+    "clearAccountName": "Hesap adını temizle",
+    "secretKeyLocked": "GİZLİ ANAHTAR (KİLİTLİ)",
+    "secretKeyBase322": "GİZLİ ANAHTAR (BASE32)",
+    "enterSetupKey": "Kurulum anahtarınızı girin",
+    "clearSecretKey": "Gizli anahtarı temizle",
+    "otpAlgorithm": "OTP ALGORİTMA",
+    "otpDigits": "OTP RAKAMLAR",
+    "refreshIntervalSeconds": "YENİLEME ARALIĞI (SANİYE)",
+    "otpRefreshInterval": "OTP saniye cinsinden yenileme aralığı",
+    "closeAccountForm": "Hesap formunu kapat",
+    "totpSetupUrl": "TOTP kurulum URL",
+    "importSetupUrl": "İçe aktarma kurulumu URL",
+    "totpSetupUrl2": "TOTP KURULUM URL",
+    "accountName2": "HESAP ADI",
+    "addAccount": "Hesap ekle"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Kimlik doğrulayıcı QR kodunu tara",
+    "setupGuidance": "En kolay kurulum için QR kodunu tarayın veya ayrıntıları manuel olarak girin.",
+    "cameraAddAccount": "Anında hesap eklemek için kameranızı kullanın",
+    "scanQrCode2": "QR kodunu tara",
+    "uploadQrImage": "QR resmini yükle",
+    "chooseQrScreenshot": "Galeri, Fotoğraflar veya Dosyalar'dan bir QR ekran görüntüsü seçin",
+    "pasteQr": "QR resmi / URL yapıştır",
+    "pasteCopiedQr": "Kopyalanan bir QR görüntüyü veya kimlik doğrulama kurulumunu URL yapıştırın",
+    "uploadQrImage2": "QR resmini yükle"
+  },
+  "accountQr": {
+    "close": "Kapat",
+    "accountQrCode": "Hesap QR kodu",
+    "revealQrCode": "QR kodunu göster",
+    "exportWarning": "Uyarı: Bu QR kodunu tarayan herkes bu hesap için doğrulama kodları oluşturabilir. Yalnızca güvenilir bir ekranda gösterin.",
+    "privacyHint": "Bu QR kodunu gizli tutun. Taramak, hesabın kimlik doğrulayıcı sırrını kopyalar."
+  },
+  "productInfo": {
+    "backupRestore": "Yedekleme ve geri yükleme",
+    "backupRestoreDescription": "Kimlik doğrulayıcı verilerinizi yedekleyin ve başka bir cihaza geçtiğinizde geri yükleyin.",
+    "privacyDescription": "Doğrulama hesaplarınızı tek bir yerde tutun. Kurulumunuzu sorumlu bir şekilde yönetmek için uygulamanın yedekleme, geri yükleme ve cihaz kilitleme seçeneklerini kullanın.",
+    "timeBasedCodes": "Zamana dayalı kodlar",
+    "generateOneTimeCodes": "İki adımlı doğrulamayı tamamlamak için hesaplarınız için dönüşümlü tek seferlik geçiş kodları oluşturun.",
+    "quickAccountSetup": "Hızlı hesap kurulumu",
+    "quickSetupDescription": "Bir hesap eklemek için kimlik doğrulayıcının QR kodunu tarayın veya bir QR görüntüsünü içe aktarın.",
+    "accountsOnePlace": "Hesaplar tek yerde",
+    "accountsInOnePlaceDescription": "Kayıtlı hesaplarınızı bir arada tutun ve oturum açma zamanı geldiğinde doğru girişi bulun.",
+    "privateAccountVault": "Özel hesap kasası",
+    "privateVaultDescription": "Kimlik doğrulayıcı girişlerinizi yerel olarak yönetin ve uygulamanın mevcut cihaz kilitleme seçeneğini kullanın.",
+    "easyCodeAccess": "Kolay kod erişimi",
+    "easyCodeAccessDescription": "Temiz, odaklanmış bir arayüz aracılığıyla geçerli bir kodu kopyalayın veya hesap ayrıntılarını yönetin.",
+    "authenticatorTechsivaram": "DOĞRULAYICI · TECHSIVARAM TARAFINDAN",
+    "mobileAuthenticator": "MOBİL DOĞRULAYICINIZ",
+    "tagline": "İki adımlı doğrulamanızı yönetmenin daha basit bir yolu.",
+    "heroDescription": "Zamana dayalı doğrulama kodları için odaklanmış bir kimlik doğrulayıcı deneyimi. Uyumlu hesap kodlarını Android için KaalKey ile elinizin altında tutun.",
+    "timeBasedCodes2": "ZAMAN TABANLI KODLAR",
+    "privateDesign": "TASARIM İLE ÖZEL",
+    "builtSimpleAuthenticator": "BASİT BİR DOĞRULAMA İŞ AKIŞI İÇİN TASARLANDI",
+    "qrSetupTimed": "QR KURULUM · ZAMANLI KODLAR · HESAP YÖNETİMİ",
+    "privacyTitle": "Hesaplarınız. Kodlarınız. Senin kontrolün.",
+    "authenticator": "KAALKEY · DOĞRULAYICI",
+    "brandBanner": "KaalKey marka banner'ı",
+    "logo": "KaalKey logosu"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "İptal",
+      "storageInvalidTitle": "Depolama verileri geçersiz",
+      "storageInvalidBody": "Kaydedilen hesap verileri güvenli bir şekilde okunamadı.",
+      "storageErrorTitle": "Depolama hatası",
+      "storageErrorBody": "Kayıtlı hesaplar yüklenemedi.",
+      "missingTitle": "Eksik bilgi",
+      "missingEditingBody": "Hizmet adını ve hesap adını girin.",
+      "missingBody": "Hizmet adını, hesap adını ve gizli anahtarı girin.",
+      "invalidOtpBody": "Base32 sırrını, algoritmayı, rakam sayısını ve yenileme periyodunu kontrol edin. Gizli diziler geçerli Base32 karakterler içermelidir; rakamlar {digits} olmalı ve süre {minPeriod}–{maxPeriod} saniye olmalıdır.",
+      "duplicateBody": "Bu hizmete ve hesap adına sahip bir hesap zaten kayıtlı.",
+      "updatedBody": "Hesabınız güncellendi.",
+      "addedBody": "Hesabınız güvenli bir şekilde eklendi.",
+      "invalidOtpTitle": "Geçersiz OTP ayarları",
+      "duplicateTitle": "Hesap zaten mevcut",
+      "savedTitle": "Hesap kaydedildi",
+      "invalidSecretTitle": "Geçersiz gizli anahtar",
+      "invalidSecretBody": "Lütfen geçerli bir Base32 sırrı girdiğinizi kontrol edin.",
+      "removedTitle": "Hesap kaldırıldı",
+      "removedBody": "Hesap ve sırrı bu cihazdan kaldırıldı.",
+      "clearedTitle": "Hesaplar temizlendi",
+      "clearedBody": "Tüm kimlik doğrulayıcı hesapları ve sırları bu cihazdan kaldırıldı.",
+      "someSavedAccountsNeedAttentionTitle": "Bazı kayıtlı hesaplarla ilgilenilmesi gerekiyor",
+      "someSavedAccountsNeedAttentionBody": "{count} geçersiz hesap kaydı yüklenmedi. Geçerli hesaplar kullanılabilir durumda kalır. Daha fazla değişiklik yapmadan önce bir yedek oluşturmayı düşünün.",
+      "removeConfirmTitle": "Hesap kaldırılsın mı?",
+      "removeConfirmWebTitle": "Hesap kaldırılsın mı?",
+      "removeButton": "Kaldır",
+      "clearButton": "Tümünü temizle",
+      "clearConfirmTitle": "Tüm hesaplar temizlensin mi?",
+      "saveErrorBody": "Hesaplar kaydedilemedi. Tarayıcı depolama alanının kullanılabilirliğini kontrol edin ve tekrar deneyin.",
+      "notFoundTitle": "Hesap bulunamadı",
+      "notFoundBody": "Bu hesap bulunamadı. Düzenleyiciyi kapatıp tekrar deneyin.",
+      "removeConfirmBody": "Bu işlem, hesabı ve hesabın sırrını bu cihazdan kaldırır.",
+      "clearConfirmBody": "Bu, tüm kimlik doğrulayıcı hesapları ve bunların sırlarını bu cihazdan kalıcı olarak kaldırır. Bu hesaplara daha sonra ihtiyacınız olursa öncelikle şifreli bir yedek oluşturun.",
+      "clearConfirmUndoBody": "Bu geri alınamaz."
+    },
+    "biometric": {
+      "cancelButton": "İptal",
+      "saveErrorTitle": "Ayar kaydedilemedi",
+      "unlockPrompt": "KaalKey Kimlik Doğrulayıcının kilidini açın",
+      "promptSubtitle": "Biyometriyi veya cihazınızın ekran kilidini kullanın",
+      "disableConfirmPrompt": "KaalKey uygulama kilidini kapatmayı onaylayın",
+      "enablePrompt": "KaalKey için uygulama kilidini etkinleştir",
+      "deviceLockTitle": "Cihazınızın ekran kilidini ayarlayın",
+      "deviceLockBody": "KaalKey telefonunuzun yerleşik kimlik doğrulamasını kullanır. Telefonunuzun güvenlik ayarlarında bir cihaz PIN, desen veya şifre belirleyin ve tekrar deneyin. Biyometri isteğe bağlıdır.",
+      "unavailableTitle": "Cihaz kimlik doğrulaması kullanılamıyor",
+      "unavailableBody": "Telefonunuz güvenli kimlik doğrulamayı başlatamadı. Cihaz ekran kilidinin yapılandırıldığını kontrol edin ve tekrar deneyin.",
+      "lockedTitle": "Kimlik doğrulama geçici olarak kilitlendi",
+      "lockedBody": "Çok sayıda denemeden sonra telefonunuz kimlik doğrulamayı geçici olarak devre dışı bıraktı. Bekleyin ve tekrar deneyin.",
+      "promptErrorTitle": "Kimlik doğrulama kullanılamıyor",
+      "promptErrorBody": "KaalKey telefonun güvenli kimlik doğrulama istemini başlatamadı. Lütfen tekrar deneyin.",
+      "webLock": "Cihaz kimlik doğrulama kilidi henüz web sürümünde mevcut değil. Web kasasının kilidi açık kalır; yerel cihaz kimlik doğrulaması için Android uygulamasını kullanın.",
+      "disabledTitle": "Uygulama kilidi devre dışı bırakıldı",
+      "disabledBody": "KaalKey uygulama kilidi kapatıldı.",
+      "disableSaveError": "Uygulama kilidi etkin kalır. Lütfen tekrar deneyin.",
+      "enabledTitle": "Uygulama kilidi etkin",
+      "enabledBody": "KaalKey, açıldığında ve geri döndüğünüzde telefonunuzun yerleşik kimlik doğrulamasını isteyecektir.",
+      "enableSaveError": "Uygulama kilidi etkinleştirilemedi. Lütfen tekrar deneyin."
+    },
+    "qr": {
+      "startingCamera": "Kamera başlatılıyor…",
+      "unsupportedTitle": "Desteklenmeyen QR kodu",
+      "unsupportedBody": "Hizmet tarafından sağlanan kimlik doğrulayıcı kurulum QR kodunu tarayın. Bu bir TOTP kodu olmalıdır, normal bir oturum açma QR kodu değil.",
+      "unsupportedDiagnostic": "Bu QR bir TOTP kurulum kodu değil. Bir kimlik doğrulama kurulumunu hedefleyin QR.",
+      "detectedDiagnostic": "QR algılandı. Analiz ediliyor…",
+      "analyzing": "QR kodu analiz ediliyor…",
+      "duplicateTitle": "Hesap zaten eklendi",
+      "duplicateBody": "{issuer}: {account} zaten KaalKey içinde.",
+      "addedTitle": "Hesap eklendi",
+      "addedBody": "{issuer}: {account} başarıyla eklendi.",
+      "saveFailedDiagnostic": "Hesap kaydedilemedi. Tekrar tarayabilirsiniz.",
+      "invalidTitle": "Geçersiz QR kodu",
+      "invalidBody": "KaalKey bu kimlik doğrulayıcının QR kodunu ayrıştıramadı. {detail}. Hizmetin TOTP kurulum QR kodunu kullanın (genellikle {prefix} ile başlar).",
+      "parseFailedDiagnostic": "QR işlenemedi. Kurulumu QR hedefleyin ve tekrar deneyin.",
+      "invalidUrlTitle": "Geçersiz TOTP URL",
+      "invalidUrlBody": "{prefix} ile başlayan tam bir kimlik doğrulayıcıyı URL yapıştırın.",
+      "clipboardEmptyTitle": "Pano boş",
+      "clipboardEmptyBody": "Önce bir {prefix} URL kopyalayın, ardından Yapıştır TOTP URL öğesine dokunun.",
+      "clipboardErrorTitle": "Pano okunamadı",
+      "clipboardErrorBody": "TOTP kurulumunu URL kopyalayın ve tekrar deneyin."
+    },
+    "haptics": {
+      "saveFailedTitle": "Ayar kaydedilemedi",
+      "saveFailedBody": "Dokunsal geribildirim tercihi kaydedilemedi. Lütfen tekrar deneyin."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Onay kaydedilemedi",
+      "saveFailedBody": "Lütfen tekrar deneyin. KaalKey'yi kullanmadan önce yasal bildirimi kabul etmelisiniz."
+    },
+    "cameraPermission": {
+      "title": "Kamera izni gerekli",
+      "body": "Kimlik doğrulayıcı kurulum QR kodunu taramak için kamera erişimine izin verin."
+    },
+    "storage": {
+      "browserUnavailable": "Tarayıcı depolama alanı kullanılamıyor.",
+      "browserFilePickerUnavailable": "Tarayıcı dosya seçicisi kullanılamıyor."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Desteklenmeyen dosya",
+      "unsupportedFileBody": "PNG veya JPEG gibi bir QR kod görüntüsü seçin.",
+      "browserDecoderUnavailable": "Tarayıcı görselinin kod çözümü kullanılamıyor",
+      "imageLoadFailed": "Resim yüklenemedi",
+      "unreadableDimensions": "Resmin okunabilir boyutu yok",
+      "noQrCodeFoundTitle": "QR kodu bulunamadı",
+      "noQrCodeFoundBody": "KaalKey bu görüntüdeki QR kodunun kodunu çözemedi. Bir ekran görüntüsü veya daha yüksek çözünürlüklü PNG/JPEG deneyin.",
+      "couldNotReadImageTitle": "Resim okunamadı",
+      "couldNotReadImageBody": "Kimlik doğrulayıcı kurulum QR kodunu içeren net bir PNG veya JPEG görüntüsünü deneyin.",
+      "couldNotOpenPickerTitle": "Resim seçici açılamadı",
+      "couldNotOpenPickerBody": "Lütfen QR Yüklemeyi tekrar deneyin.",
+      "normalizedDecodeFailed": "Normalleştirilmiş görüntünün kodu çözülemedi",
+      "clipboardImageLoadFailed": "Pano resmi yüklenemedi",
+      "imageProcessingUnavailable": "Görüntü işleme kullanılamıyor",
+      "imageProcessingUnavailableAlt": "Görüntü işleme kullanılamıyor",
+      "noImageInClipboardTitle": "Panoda resim yok",
+      "noImageInClipboardBody": "Bir QR kodlu görüntüyü kopyalayın ve ardından QR Görüntüsünü Yapıştır'a tekrar dokunun.",
+      "clipboardUnavailableTitle": "Pano kullanılamıyor",
+      "clipboardUnavailableBody": "Pano metni geçerli bir kimlik doğrulayıcı kurulumu değil URL. Bir otpauth:// URL veya QR görüntüsünü kopyalayın ve tekrar deneyin.",
+      "clipboardAccessBody": "KaalKey panodaki metni veya resmi okuyamadı. Pano erişimine izin verin, ardından QR görüntüsünü veya otpauth:// URL dosyasını kopyalayın ve QR Görüntüsünü Yapıştır / URL öğesine tekrar dokunun.",
+      "couldNotPasteImageTitle": "Resim yapıştırılamadı",
+      "couldNotPasteImageBody": "Bu cihazdaki pano, resim yapıştırmayı desteklemiyor. Bunun yerine İçe Aktarma QR resmini kullanın.",
+      "sourceImageDecodeFailure": "Farklı bir QR görüntü deneyin.",
+      "pastedImportFailureBody": "Farklı bir QR görüntü deneyin.",
+      "sourceImageReadFailure": "Net bir QR ekran görüntüsünü kopyalamayı deneyin.",
+      "importFailedTitle": "QR resim içe aktarımı başarısız oldu",
+      "importFailedBody": "KaalKey bu görüntüyü okuyamadı. Lütfen başka bir QR kod resmi deneyin.",
+      "notFoundBody": "Kopyalanan görüntü okunabilir bir QR kodu içermiyor.",
+      "pastedNotFoundBody": "Yapıştırılan görüntü okunabilir bir QR kodu içermiyor.",
+      "pastedReadFailureBody": "Tam QR kodunu içeren net bir PNG veya JPEG resmi kopyalamayı deneyin.",
+      "noQrCodeTextBody": "KaalKey seçilen görüntünün kodunu çözdü ancak QR kodunu bulamadı. Kodun tamamının görünür olduğu net, tam çözünürlüklü bir PNG veya JPEG deneyin."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Bu QR kodu, zamana dayalı bir kimlik doğrulayıcı kurulum kodu değildir.",
+      "missingAccountDetails": "QR kodunda hesap ayrıntıları eksik.",
+      "unsupportedAlgorithm": "QR kodu desteklenmeyen bir algoritma kullanıyor.",
+      "unsupportedDigits": "Bu QR kodu 6, 7 veya 8 rakam kullanmalıdır.",
+      "unsupportedPeriod": "Bu QR kodu desteklenmeyen bir zaman dilimi kullanıyor.",
+      "invalidAccount": "QR kodu doğrulanamadı."
+    },
+    "backup": {
+      "invalidJson": "Yedekleme dosyası geçerli değil JSON.",
+      "unsupportedFormat": "Bu desteklenen bir KaalKey şifreli yedekleme değil.",
+      "invalidPasswordOrDamaged": "Yedekleme şifresi yanlış veya yedekleme dosyası hasarlı.",
+      "invalidContents": "Yedekleme içerikleri geçersiz veya eksik.",
+      "secureRandomUnavailableDetailed": "Güvenli rastgele oluşturma kullanılamıyor. Android uygulamasını expo-crypto dahil olarak yeniden oluşturup yeniden yükleyin, ardından tekrar deneyin.",
+      "invalidAccountDataForBackup": "Bir veya daha fazla hesap geçersiz. Yedekleme oluşturmadan önce hesap verilerini düzeltin.",
+      "invalidPasswordOrModified": "Yedekleme şifresi yanlış veya yedekleme dosyası değiştirilmiş.",
+      "invalidPasswordOrFileDamaged": "Yedekleme şifresi yanlış veya dosya hasarlı.",
+      "passwordCopiedTitle": "Şifre kopyalandı",
+      "enterPasswordTitle": "Yedekleme şifrenizi girin",
+      "enterPasswordBody": "Bu yedekleme oluşturulduğunda kullanılan şifreyi girin.",
+      "passwordCopiedBody": "Bunu WhatsApp gibi güvenli bir yere kaydedin.",
+      "copyFailedTitle": "Kopyalama başarısız oldu",
+      "copyFailedBody": "Şifreyi manuel olarak seçip kopyalayın.",
+      "generatingPassword": "Güvenli yedekleme şifresi oluşturuluyor…",
+      "encrypting": "Yedekleme şifreleniyor…",
+      "decrypting": "Yedeklemenin şifresi çözülüyor…",
+      "restoring": "Hesaplar geri yükleniyor…",
+      "backupCreatedTitle": "Yedekleme oluşturuldu",
+      "restoreCompleteTitle": "Geri yükleme tamamlandı",
+      "mergeConfirmTitle": "Yedek hesaplar birleştirilsin mi?",
+      "mergeConfirmButton": "Hesapları birleştir",
+      "backupSavedTemporary": "Şifrelenmiş yedekleme geçici olarak şu konuma kaydedildi:\n{uri}",
+      "generatePasswordErrorTitle": "Yedekleme şifresi oluşturulamadı",
+      "secureRandomUnavailable": "Güvenli rastgele oluşturma kullanılamıyor.",
+      "passwordUnavailableTitle": "Yedekleme şifresi kullanılamıyor",
+      "passwordUnavailableBody": "Bu iletişim kutusunu kapatın ve güvenli bir parola oluşturmak için yeni bir yedek oluşturun.",
+      "backupDownloadedBody": "Şifrelenmiş KaalKey yedeğiniz indirildi. Dosyayı ve şifreyi gizli tutun.",
+      "backupFailedTitle": "Yedekleme başarısız oldu",
+      "backupCreateErrorBody": "KaalKey yedeklemeyi oluşturamadı.",
+      "restoreFailedTitle": "Geri yükleme başarısız oldu",
+      "backupReadErrorBody": "Yedekleme okunamadı veya kaydedilemedi.",
+      "browserDownloadUnsupported": "Tarayıcınız yedekleme dosyalarının indirilmesini desteklemiyor.",
+      "localFileUnavailable": "Bu cihazda yerel dosya konumu mevcut değil.",
+      "saveBackupTitle": "Şifrelenmiş KaalKey yedeğinizi kaydedin"
+    },
+    "clipboard": {
+      "copiedTitle": "Kod kopyalandı",
+      "copiedBody": "Doğrulama kodunuz kopyalandı.",
+      "errorTitle": "Hata",
+      "errorBody": "Doğrulama kodu kopyalanamadı."
+    },
+    "activity": {
+      "cameraReady": "Kamera hazır. Kimlik doğrulayıcının QR koduna doğrultun.",
+      "readingQrImage": "QR resmi okunuyor…",
+      "importingQrImage": "QR resim içe aktarılıyor…",
+      "importingAccount": "Kimlik doğrulayıcı hesabı içe aktarılıyor…",
+      "importingPastedImage": "Yapıştırılan QR resim içe aktarılıyor…"
+    }
+  },
+  "activity": {
+    "working": "Çalışma",
+    "wait": "Lütfen bekleyin…",
+    "donTClose": "Lütfen KaalKey'i kapatmayın veya onunla etkileşime girmeyin.",
+    "loadingLanguages": "Mevcut diller yükleniyor…",
+    "loadingTranslation": "Çeviri yükleniyor…"
+  }
+}

@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Keel",
+      "description": "Valige keeles KaalKey kasutatav keel.",
+      "english": "inglise keel",
+      "telugu": "telugu",
+      "hindi": "hindi",
+      "section": "KEEL",
+      "searchLanguageName": "Otsingu keel (nimi või kood)",
+      "searchSupportedLanguages": "Otsige toetatud keeli",
+      "closeLanguageDropdown": "Sule keele rippmenüü",
+      "noTranslatedLanguage": "Tõlgitud keelt ei leitud.",
+      "serverUrl": "Tõlkeserver URL",
+      "serverUrlDescription": "KaalKey laadib sellest serverist alla keelte loendi ja tõlked.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Salvesta tõlkeserver"
+    },
+    "title": "Rakenduse seaded",
+    "eyebrow": "KAALKEY EELISED",
+    "experience": {
+      "section": "KOGEMUS"
+    },
+    "security": {
+      "section": "TURVALISUS"
+    },
+    "backup": {
+      "section": "VARUNDAMINE JA TAASTAMINE"
+    },
+    "danger": {
+      "section": "OHUTSOON",
+      "clearAccounts": "Kustutage kõik kontod",
+      "clearAccountsDescription": "Eemaldage sellest seadmest jäädavalt kõik kontod ja saladused. Esmalt tagasi.",
+      "clearAccountsAccessibilityLabel": "Kustutage kõik autentimiskontod"
+    },
+    "appearance": {
+      "section": "VÄLIMUS",
+      "title": "Kerge välimus",
+      "description": "KaalKey kasutab praegu oma puhta valguse teemat."
+    },
+    "haptics": {
+      "title": "Haptiline tagasiside",
+      "description": "Õrn tagasiside puudutuste ja lõpetatud toimingute kohta."
+    },
+    "deviceLock": {
+      "title": "Seadme autentimise lukk",
+      "description": "Teie varahoidla lukustub, kui KaalKey esiplaanilt lahkub.",
+      "requirement": "Nõua oma telefoni biomeetriat või ekraanilukku PIN, mustrit või parooli.",
+      "accessibilityLabel": "Seadme autentimise rakenduse lukk"
+    },
+    "privacy": {
+      "title": "Õiguslik ja privaatsus",
+      "description": "Vaadake üle privaatsuspoliitika ja kasutustingimused.",
+      "storageNote": "Teie autentimissaladused jäävad seadmesse turvahoidlasse. Eelistused salvestatakse kohapeal."
+    }
+  },
+  "accounts": {
+    "edit": "Muuda",
+    "sortAccountName": "Sorteeri konto nime järgi",
+    "loadingSecureVault": "Turvalise vara laadimine...",
+    "tapCopy": "PUUDUTAGE KOPeerimiseks",
+    "noAccountsMatch": "Ükski konto ei vasta teie otsingule.",
+    "viewQrCode": "Vaadake konto QR koodi",
+    "removeAccount": "Eemalda konto",
+    "copyVerificationCode": "Kopeerige kinnituskood",
+    "active": "AKTIIVNE",
+    "sort": "SORTEERI ALUS",
+    "account": "konto",
+    "clearSearch": "Tühjenda otsing",
+    "sortServiceName": "Sorteeri teenuse nime järgi",
+    "addFirstAccount": "Lisage oma esimene konto",
+    "searchAccounts": "Otsige kontosid",
+    "searchServiceAccount": "Otsi teenust või kontot",
+    "accounts": "Teie kontod",
+    "add": "+ Lisa",
+    "vaultStartsHere": "Teie varahoidla algab siit",
+    "service": "Teenindus",
+    "emptyHint": "Lisage konto, kasutades selle salavõtit, et luua oma esimene kinnituskood."
+  },
+  "common": {
+    "done": "Valmis",
+    "doneButton": "Valmis",
+    "closeSettings": "Sulge seaded",
+    "separator": "-",
+    "article": "a",
+    "save": "Salvesta",
+    "delete": "Kustuta",
+    "resizeAppBrand": "Rakenduse ja brändipaneelide suuruse muutmine"
+  },
+  "qrImport": {
+    "readPastedImage": "Kleebitud pilti ei õnnestunud lugeda"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Selles varukoopias olevad kontod: {count}. KaalKey säilitab teie olemasolevad kontod ja lisab kõik kontod, mida veel pole. Duplikaatkontod jäetakse vahele.",
+    "restoreCompletionBody": "Lisatud kontod: {added}. Duplikaatkontod vahele jäetud: {skipped}. Teie olemasolevad kontod jäeti alles.",
+    "copyPassword": "Kopeeri loodud parool",
+    "passwordSafety": "Salvestage see parool eraldi (näiteks kaustas WhatsApp). Igaüks, kellel on mõlemad",
+    "importAction": "Valige fail ja importige",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "TURVALINE VAULT",
+    "createBackup": "Loo varukoopia",
+    "encryptedFile": "Krüpteeritud fail",
+    "restoreBackup": "Taastage varukoopia",
+    "safetyNote": "Varukoopiad sisaldavad teie autentimise saladusi. KaalKey genereerib iga varukoopia jaoks kordumatu parooli. Salvestage see eraldi; KaalKey ei saa seda taastada.",
+    "generatingSecurePassword": "Turvalise parooli genereerimine…",
+    "importFile": "Impordi fail",
+    "backupPassword": "VARUPAROOL",
+    "account": "konto",
+    "accounts": "kontosid",
+    "exportDescription": "Krüptige kõik {count}, mis on salvestatud {accountLabel}, varukoopiafailiks. KaalKey genereerib kordumatu parooli; kopeerige ja salvestage see failist eraldi.",
+    "restoreDescription": "Valige oma KaalKey varufail ja parool. Uued kontod lisatakse teie olemasolevasse kontode loendisse; olemasolevad kontod jäävad samaks.",
+    "enterBackupPassword": "Sisestage varuparool",
+    "closeBackup": "Sule varukoopia",
+    "copyGeneratedBackup": "Kopeerige loodud varuparool",
+    "backupPassword2": "Varuparool",
+    "clearBackupPassword": "Tühjendage varuparool",
+    "backupFilePassword": "varukoopiafail ja parool võivad teie autentimiskontod taastada.",
+    "encryptShareBackup": "Varukoopia krüptimine ja jagamine"
+  },
+  "home": {
+    "unlockSecurely": "Avage turvaliselt",
+    "disableAppLock": "Keela rakenduse lukk",
+    "enableAppLock": "Luba rakenduse lukustus",
+    "checkingSecureLock": "Turvaluku seadete kontrollimine. Teie koodid jäävad peidetuks.",
+    "waitingVerification": "Kinnituse ootel…",
+    "secretsStayStored": "Teie saladused salvestatakse sellesse seadmesse.",
+    "openAppSettings": "Avage rakenduse seaded",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "Kasutage oma ühekordsetele kinnituskoodidele juurdepääsuks oma telefoni biomeetriat või ekraanilukku PIN, mustrit või parooli.",
+    "localVault": "TEIE KOHALIK VAULT",
+    "codesDeviceControl": "Teie koodid. Teie seade. Sinu kontroll.",
+    "securingVault": "Teie varahoidla turvamine…",
+    "vaultProtected": "Teie varahoidla on kaitstud",
+    "lock": "LUKUSTUS SISSE",
+    "localVault2": "KOHALIK VAULT",
+    "authenticator": "KAALKEY AUTENTIKAATOR",
+    "tricolourLockEmblem": "KaalKey kolmevärviline lukuembleem",
+    "authenticator2": "AUTENTIKAATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Kui otsustate skannida QR koodi, kasutab KaalKey selle toimingu jaoks kaamera luba. Valikuline seadme autentimine ja haptiline tagasiside kasutavad seadme asjakohaseid funktsioone. Lubasid saate hallata oma seadme seadetes.",
+        "heading": "2. Load ja seadme funktsioonid"
+      },
+      "backups": {
+        "body": "Varukoopia loomisel krüpteerib KaalKey varukoopia teie valitud parooliga. Hoidke nii fail kui ka parool privaatsed ja hoidke neid turvaliselt. Igaüks, kes saab faili ja selle parooli, võib teie autentimiskontod taastada. KaalKey ei saa unustatud varuparooli taastada.",
+        "heading": "3. Varukoopiad"
+      },
+      "security": {
+        "body": "Hoidke oma seadet ajakohasena, kaitske seda ekraanilukuga ja ärge jagage OTP saladusi ega varuparoole. Rakenduse eemaldamine, selle andmete kustutamine või seadme kaotamine võivad muuta lokaalselt salvestatud kontod kättesaamatuks. Kui vajate taastamist, säilitage turvaline varukoopia.",
+        "heading": "5. Turvalisus ja säilitamine"
+      },
+      "information": {
+        "heading": "1. Teave ja saladused",
+        "body": "KaalKey on autentimisrakendus. Kontosildid ja ühekordsete koodide genereerimiseks vajalikud salaväärtused on tundlikud. Rakendus on loodud kontokirjete salvestamiseks seadme turvalises salvestusruumis. Igaüks, kellel on juurdepääs lukustamata seadmele või eksporditud varukoopiale, võib pääseda juurde tundlikule teabele."
+      },
+      "sharing": {
+        "heading": "4. Jagamine ja kolmandad osapooled",
+        "body": "Varundusvoog võib failide salvestamiseks, edastamiseks või valimiseks kasutada teie seadme jagamislehte või failivalijat. Teie valitud kolmanda osapoole rakenduse või teenuse privaatsuspõhimõtteid reguleerib see pakkuja. See teatis ei anna üldist väidet, et teie seade, operatsioonisüsteem või valitud jagamisteenused ei töötle kunagi andmeid."
+      },
+      "changes": {
+        "heading": "6. Muudatused ja kontakt",
+        "body": "See manustatud teatis võidakse tulevases rakenduse versioonis üle vaadata. Privaatsusküsimuste korral võtke rakendusega kaasas oleva ametliku tugikanali kaudu ühendust rakenduse väljaandjaga."
+      },
+      "title": "Privaatsuspoliitika"
+    },
+    "terms": {
+      "use": {
+        "body": "Võite kasutada KaalKey, et luua kinnituskoodid kontodele, millele teil on juurdepääs. Vastutate kehtivate seaduste ja teenuste reeglite järgimise eest, mille jaoks autentimiskoode kasutate.",
+        "heading": "1. Teie kasutus"
+      },
+      "protectAccounts": {
+        "body": "Teie vastutate oma seadme, autentimise saladuste, taastemeetodite, eksporditud varukoopiate ja varuparoolide kaitsmise eest. Ärge jagage koode ega saladusi inimestega, keda te ei usalda.",
+        "heading": "2. Kaitske oma kontosid"
+      },
+      "availability": {
+        "body": "Funktsioonid võivad versioonide vahel muutuda. Peaksite rakendust värskendama ja perioodiliselt kontrollima, kas teie varundus- ja taastekorraldus toimib.",
+        "heading": "5. Muudatused ja saadavus"
+      },
+      "recovery": {
+        "body": "KaalKey ei saa garanteerida, et iga konto saab taastada, et iga QR kood või konfiguratsioon on ühilduv või et rakendus töötab katkestuste ja vigadeta. Hoidke alles vastava teenuse pakutavad alternatiivsed taastamismeetodid.",
+        "heading": "3. Tagastamise garantii puudub"
+      },
+      "advice": {
+        "heading": "4. Ei mingit professionaalset nõu",
+        "body": "Rakendus on utiliit ega anna juriidilist, finants- ega turvaintsidentidele reageerimise nõu. Kui konto on ohus, järgige mõjutatud teenuse ametlikke taastamis- ja turvajuhiseid."
+      },
+      "liability": {
+        "heading": "6. Vastutus ja kohaldatav õigus",
+        "body": "Kohaldatava seadusega lubatud ulatuses pakutakse rakendust ilma katkestusteta või vigadeta töötamise garantiita. Miski nendes tingimustes ei välista õigusi ega õiguskaitsevahendeid, mida ei saa seaduslikult välistada. Kõik täiendavad piirangud või kehtivate seaduste tingimused peaks enne avaldamist üle vaatama väljaandja jurisdiktsiooni kvalifitseeritud jurist."
+      },
+      "title": "Kasutustingimused"
+    },
+    "version": "Versioon",
+    "saving": "Salvestamine…",
+    "acceptContinue": "Nõustu ja jätka",
+    "appliesAuthenticator": "Kehtib KaalKey Authenticatorile",
+    "reviewBothDocuments": "Enne KaalKey kasutamist vaadake üle mõlemad dokumendid. Need on lisatud rakendusse ja saadaval võrguühenduseta.",
+    "originalMulticolourAuthenticator": "Algne mitmevärviline KaalKey autentimise embleem",
+    "legalPrivacyNotice": "Õigus- ja privaatsusteatis",
+    "legalInformation": "Juriidiline teave",
+    "reviewSPrivacy": "Vaadake üle KaalKey privaatsusteave ja kasutustingimused.",
+    "iReadAgree": "Olen lugenud privaatsuspoliitikat ja kasutustingimusi ning nõustun nendega."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Hoidke kogu QR kood nähtaval. Teie saladus jääb sellesse seadmesse.",
+    "back": "Tagasi",
+    "turnFlashlightOff": "Lülitage taskulamp välja",
+    "turnFlashlight": "Lülitage taskulamp sisse",
+    "flashlight": "Taskulamp sees",
+    "flashlight2": "Taskulamp",
+    "cameraUnavailableOpen": "Kaamera pole saadaval. Avage see leht saidil HTTPS või kohalikus hostis ja lubage kaamerale juurdepääs.",
+    "cameraPreviewUnavailable": "Kaamera eelvaade pole saadaval. Sulgege ja avage skanner uuesti.",
+    "cameraReadyPoint": "Kaamera valmis – suunake see täielikule QR koodile.",
+    "browserCannotProcess": "See brauser ei saa kaamera kaadreid töödelda.",
+    "qrCodeDetected": "Tuvastati kood QR.",
+    "couldnTRead": "Kaamera kaadreid ei õnnestunud lugeda. Kontrollige kaamera õigusi ja laadige see leht uuesti.",
+    "cameraPermissionDenied": "Kaamera luba on keelatud. Lubage brauseri seadetes juurdepääs kaamerale, seejärel avage skanner uuesti.",
+    "noCameraWas": "Sellest seadmest ei leitud ühtegi kaamerat.",
+    "cameraBusyAnother": "Kaamera on hõivatud mõnes teises rakenduses või brauseri vahekaardil.",
+    "startCameraHttps": "Kaamerat ei saanud käivitada. Kasutage HTTPS või localhosti ja kontrollige brauseri õigusi.",
+    "qrScannerCamera": "QR skanneri kaamera eelvaade",
+    "cameraUnavailableCheck": "Kaamera pole saadaval. Kontrollige kaamera luba ja proovige uuesti.",
+    "pointCameraAuthenticator": "Suunake kaamera lisatava teenuse autentimise seadistuskoodile QR.",
+    "backAddAccount": "Tagasi konto lisamiseks",
+    "secureSetup": "TURVALINE SEADISTUS",
+    "enterDetailsManually": "Sisestage üksikasjad selle asemel käsitsi"
+  },
+  "accountForm": {
+    "hideManualEntry": "Peida käsitsi sisestamine",
+    "secretKeySupplied": "Kasutage konfigureeritava teenuse pakutavat salajast võtit. Ärge kunagi sisestage siia oma konto parooli. Sobitage algoritm, numbrite arv ja intervall teenuse seadistusjuhistega.",
+    "updateServiceAccount": "Värskendage teenust, konto nime või salajast võtit.",
+    "secretKeyRead": "Salajane võti, muutmise ajal kirjutuskaitstud",
+    "secretKeyBase32": "Salavõti Base32",
+    "digits": "numbrid",
+    "seconds": "sekundit",
+    "enterDetailsManually": "VÕI SISESTA ANDMED KÄSITSI",
+    "enterDetailsManually2": "Sisestage üksikasjad käsitsi",
+    "serviceAccountName": "Teenus, konto nimi ja salajane võti",
+    "saveChangesSecurely": "Salvestage muudatused turvaliselt",
+    "saveAccountSecurely": "Salvestage konto turvaliselt",
+    "serviceIssuer": "Teenus või väljaandja",
+    "accountName": "Konto nimi",
+    "secretKey": "Salajane võti",
+    "serviceIssuer2": "TEENINDUS / VÄLJASTAJA",
+    "eGGoogle": "nt. Google",
+    "clearServiceIssuer": "Selge teenus või väljaandja",
+    "eGExample": "nt. sina@example.com",
+    "clearAccountName": "Kustuta konto nimi",
+    "secretKeyLocked": "SALAVÕTI (LUKUSTATUD)",
+    "secretKeyBase322": "SALANE VÕTI (BASE32)",
+    "enterSetupKey": "Sisestage oma seadistusvõti",
+    "clearSecretKey": "Tühjenda salajane võti",
+    "otpAlgorithm": "OTP ALGORITM",
+    "otpDigits": "OTP NUMBRID",
+    "refreshIntervalSeconds": "VÄRSKENDAMISE INTERVALL (sekundites)",
+    "otpRefreshInterval": "OTP värskendusintervall sekundites",
+    "closeAccountForm": "Sulge konto vorm",
+    "totpSetupUrl": "TOTP seadistamine URL",
+    "importSetupUrl": "Impordi seadistus URL",
+    "totpSetupUrl2": "TOTP SEADISTAMINE URL",
+    "accountName2": "KONTO NIMI",
+    "addAccount": "Lisa konto"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Autentija QR koodi skannimine",
+    "setupGuidance": "Lihtsaima seadistamise jaoks skannige QR kood või sisestage üksikasjad käsitsi.",
+    "cameraAddAccount": "Kasutage oma kaamerat konto koheseks lisamiseks",
+    "scanQrCode2": "Skannige QR kood",
+    "uploadQrImage": "Laadige üles QR pilt",
+    "chooseQrScreenshot": "Valige menüüst Galerii, Fotod või Failid QR ekraanipilt",
+    "pasteQr": "Kleebi QR pilt / URL",
+    "pasteCopiedQr": "Kleepige kopeeritud QR pilt või autentimise seadistus URL",
+    "uploadQrImage2": "Laadige üles QR pilt"
+  },
+  "accountQr": {
+    "close": "Sule",
+    "accountQrCode": "Konto QR kood",
+    "revealQrCode": "Avalda QR kood",
+    "exportWarning": "Hoiatus: igaüks, kes selle QR koodi skannib, saab selle konto jaoks luua kinnituskoode. Avaldage seda ainult usaldusväärsel ekraanil.",
+    "privacyHint": "Hoidke see QR kood privaatseks. Selle skannimine kopeerib konto autentimise saladuse."
+  },
+  "productInfo": {
+    "backupRestore": "Varundamine ja taastamine",
+    "backupRestoreDescription": "Varundage oma autentimisandmed ja taastage need, kui kolite teise seadmesse.",
+    "privacyDescription": "Hoidke oma kinnituskontod ühes kohas. Seadistuse vastutustundlikuks haldamiseks kasutage rakenduse varundamise, taastamise ja seadme lukustamise valikuid.",
+    "timeBasedCodes": "Ajapõhised koodid",
+    "generateOneTimeCodes": "Kaheastmelise kinnitamise lõpuleviimiseks looge oma kontodele pöörlevad ühekordsed pääsukoodid.",
+    "quickAccountSetup": "Kiire konto seadistamine",
+    "quickSetupDescription": "Konto lisamiseks skannige autentimiskood QR või importige QR pilt.",
+    "accountsOnePlace": "Kontod ühes kohas",
+    "accountsInOnePlaceDescription": "Hoidke oma salvestatud kontosid koos ja leidke õige kirje, kui on aeg sisse logida.",
+    "privateAccountVault": "Privaatne kontohoidla",
+    "privateVaultDescription": "Hallake oma autentimiskirjeid kohapeal ja kasutage rakenduse saadaolevat seadmeluku valikut.",
+    "easyCodeAccess": "Lihtne juurdepääs koodile",
+    "easyCodeAccessDescription": "Kopeerige praegune kood või hallake konto üksikasju puhta ja keskendunud liidese kaudu.",
+    "authenticatorTechsivaram": "AUTENTIKAATOR · TECHSIVARAM",
+    "mobileAuthenticator": "TEIE MOBIILAUTENTIKAATOR",
+    "tagline": "Lihtsam viis kaheastmelise kinnitamise haldamiseks.",
+    "heroDescription": "Fokuseeritud autentimiskogemus ajapõhiste kinnituskoodide jaoks. Hoidke ühilduvad kontokoodid käeulatuses KaalKey jaoks Android.",
+    "timeBasedCodes2": "AJAPÕHISED KOODID",
+    "privateDesign": "PRIVAATNE DISAINIGA",
+    "builtSimpleAuthenticator": "LOODUD LIHTSA AUTENTIKAATORI TÖÖVOOKS",
+    "qrSetupTimed": "QR SEADISTAMINE · AJAstatud KOODID · KONTO HALDUS",
+    "privacyTitle": "Teie kontod. Teie koodid. Sinu kontroll.",
+    "authenticator": "KAALKEY · AUTENTIKAATOR",
+    "brandBanner": "KaalKey kaubamärgi bänner",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Tühista",
+      "storageInvalidTitle": "Salvestusandmed on kehtetud",
+      "storageInvalidBody": "Salvestatud kontoandmeid ei saanud turvaliselt lugeda.",
+      "storageErrorTitle": "Salvestusviga",
+      "storageErrorBody": "Salvestatud kontosid ei saanud laadida.",
+      "missingTitle": "Puudub teave",
+      "missingEditingBody": "Sisestage teenuse nimi ja konto nimi.",
+      "missingBody": "Sisestage teenuse nimi, konto nimi ja salajane võti.",
+      "invalidOtpBody": "Kontrollige Base32 saladust, algoritmi, numbrite arvu ja värskendusperioodi. Saladused peavad sisaldama kehtivaid Base32 märke; numbrid peavad olema {digits} ja punkt peab olema {minPeriod}–{maxPeriod} sekundit.",
+      "duplicateBody": "Selle teenuse ja konto nimega konto on juba salvestatud.",
+      "updatedBody": "Teie kontot värskendati.",
+      "addedBody": "Teie konto lisati turvaliselt.",
+      "invalidOtpTitle": "Kehtetud OTP seaded",
+      "duplicateTitle": "Konto on juba olemas",
+      "savedTitle": "Konto salvestatud",
+      "invalidSecretTitle": "Kehtetu salajane võti",
+      "invalidSecretBody": "Kontrollige, kas sisestasite kehtiva Base32 salasõna.",
+      "removedTitle": "Konto eemaldatud",
+      "removedBody": "Konto ja selle saladus eemaldati sellest seadmest.",
+      "clearedTitle": "Kontod tühjendatud",
+      "clearedBody": "Sellest seadmest eemaldati kõik autentimiskontod ja saladused.",
+      "someSavedAccountsNeedAttentionTitle": "Mõned salvestatud kontod vajavad tähelepanu",
+      "someSavedAccountsNeedAttentionBody": "{count} kehtetuid kontokirjeid ei laaditud. Kehtivad kontod jäävad kättesaadavaks. Enne edasiste muudatuste tegemist kaaluge varukoopia loomist.",
+      "removeConfirmTitle": "Kas eemaldada konto?",
+      "removeConfirmWebTitle": "Kas eemaldada konto?",
+      "removeButton": "Eemalda",
+      "clearButton": "Tühjenda kõik",
+      "clearConfirmTitle": "Kas kustutada kõik kontod?",
+      "saveErrorBody": "Kontosid ei saanud salvestada. Kontrollige brauseri salvestusruumi saadavust ja proovige uuesti.",
+      "notFoundTitle": "Kontot ei leitud",
+      "notFoundBody": "Seda kontot ei leitud. Sulgege redaktor ja proovige uuesti.",
+      "removeConfirmBody": "See eemaldab konto ja selle saladuse sellest seadmest.",
+      "clearConfirmBody": "See eemaldab sellest seadmest jäädavalt kõik autentimiskontod ja nende saladused. Kui teil võib neid kontosid hiljem vaja minna, looge esmalt krüptitud varukoopia.",
+      "clearConfirmUndoBody": "Seda ei saa tagasi võtta."
+    },
+    "biometric": {
+      "cancelButton": "Tühista",
+      "saveErrorTitle": "Seadet ei saanud salvestada",
+      "unlockPrompt": "Avage KaalKey Authenticator",
+      "promptSubtitle": "Kasutage biomeetriat või seadme ekraanilukku",
+      "disableConfirmPrompt": "Kinnitage rakenduse KaalKey väljalülitamiseks",
+      "enablePrompt": "Luba rakenduse lukustus KaalKey jaoks",
+      "deviceLockTitle": "Seadistage oma seadme ekraanilukk",
+      "deviceLockBody": "KaalKey kasutab teie telefoni sisseehitatud autentimist. Määrake oma telefoni turvaseadetes seade PIN, muster või parool ja proovige uuesti. Biomeetria on valikuline.",
+      "unavailableTitle": "Seadme autentimine pole saadaval",
+      "unavailableBody": "Teie telefon ei saanud turvalist autentimist käivitada. Kontrollige, kas seadme ekraanilukk on konfigureeritud, ja proovige uuesti.",
+      "lockedTitle": "Autentimine ajutiselt lukustatud",
+      "lockedBody": "Teie telefon on pärast liiga palju katseid ajutiselt autentimise keelanud. Oodake ja proovige uuesti.",
+      "promptErrorTitle": "Autentimine pole saadaval",
+      "promptErrorBody": "KaalKey ei saanud käivitada telefoni turvalise autentimise viipa. Palun proovi uuesti.",
+      "webLock": "Seadme autentimise lukk pole veebiversioonis veel saadaval. Veebihoidla jääb lukustamata; kasutage oma seadme autentimiseks rakendust Android.",
+      "disabledTitle": "Rakenduse lukk on keelatud",
+      "disabledBody": "KaalKey rakenduse lukk on välja lülitatud.",
+      "disableSaveError": "Rakenduse lukk jääb lubatuks. Palun proovi uuesti.",
+      "enabledTitle": "Rakenduse lukk on lubatud",
+      "enabledBody": "KaalKey küsib avamisel ja selle juurde naasmisel teie telefoni sisseehitatud autentimist.",
+      "enableSaveError": "Rakenduse lukku ei saanud lubada. Palun proovi uuesti."
+    },
+    "qr": {
+      "startingCamera": "Kaamera käivitamine…",
+      "unsupportedTitle": "Toetamata QR kood",
+      "unsupportedBody": "Skannige teenuse pakutavat autentimise seadistuskoodi QR. See peab olema TOTP kood, mitte tavaline sisselogimiskood QR.",
+      "unsupportedDiagnostic": "See QR ei ole TOTP seadistuskood. Suunake autentimise seadistus QR.",
+      "detectedDiagnostic": "QR tuvastati. Analüüsimine…",
+      "analyzing": "Koodi QR analüüsimine…",
+      "duplicateTitle": "Konto on juba lisatud",
+      "duplicateBody": "{issuer}: {account} on juba kaustas KaalKey.",
+      "addedTitle": "Konto lisatud",
+      "addedBody": "{issuer}: {account} lisamine õnnestus.",
+      "saveFailedDiagnostic": "Kontot ei saanud salvestada. Saate uuesti skannida.",
+      "invalidTitle": "Kehtetu QR kood",
+      "invalidBody": "KaalKey ei saanud seda autentimiskoodi QR sõeluda. {detail}. Kasutage teenuse TOTP seadistuskoodi QR (algab tavaliselt {prefix}).",
+      "parseFailedDiagnostic": "QR ei saanud töödelda. Suunake seadistus QR ja proovige uuesti.",
+      "invalidUrlTitle": "Kehtetu TOTP URL",
+      "invalidUrlBody": "Kleepige täielik autentik URL, mis algab tähega {prefix}.",
+      "clipboardEmptyTitle": "Lõikelaud on tühi",
+      "clipboardEmptyBody": "Esmalt kopeerige {prefix} URL, seejärel puudutage Kleebi TOTP URL.",
+      "clipboardErrorTitle": "Lõikepuhvrit ei õnnestunud lugeda",
+      "clipboardErrorBody": "Kopeerige TOTP seadistus URL ja proovige uuesti."
+    },
+    "haptics": {
+      "saveFailedTitle": "Seadet ei saanud salvestada",
+      "saveFailedBody": "Haptilise tagasiside eelistust ei saanud salvestada. Palun proovi uuesti."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Kinnitust ei saanud salvestada",
+      "saveFailedBody": "Palun proovi uuesti. Enne KaalKey kasutamist peate nõustuma juriidilise teatega."
+    },
+    "cameraPermission": {
+      "title": "Vajalik kaamera luba",
+      "body": "Lubage kaamerale juurdepääs autentimise seadistuse QR koodi skannimiseks."
+    },
+    "storage": {
+      "browserUnavailable": "Brauseri salvestusruum pole saadaval.",
+      "browserFilePickerUnavailable": "Brauseri failivalija pole saadaval."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Toetamata fail",
+      "unsupportedFileBody": "Valige QR koodipilt, näiteks PNG või JPEG.",
+      "browserDecoderUnavailable": "Brauseri kujutise dekodeerimine pole saadaval",
+      "imageLoadFailed": "Pilti ei saanud laadida",
+      "unreadableDimensions": "Pildil pole loetavaid mõõtmeid",
+      "noQrCodeFoundTitle": "Koodi QR ei leitud",
+      "noQrCodeFoundBody": "KaalKey ei suutnud sellel pildil olevat QR koodi dekodeerida. Proovige ekraanipilti või kõrgema eraldusvõimega PNG/JPEG.",
+      "couldNotReadImageTitle": "Pilti ei õnnestunud lugeda",
+      "couldNotReadImageBody": "Proovige selget PNG või JPEG pilti, mis sisaldab autentimise seadistuse QR koodi.",
+      "couldNotOpenPickerTitle": "Pildivalijat ei saanud avada",
+      "couldNotOpenPickerBody": "Proovige QR uuesti üles laadida.",
+      "normalizedDecodeFailed": "Normaliseeritud pilti ei saanud dekodeerida",
+      "clipboardImageLoadFailed": "Lõikelaua pilti ei saanud laadida",
+      "imageProcessingUnavailable": "Pilditöötlus pole saadaval",
+      "imageProcessingUnavailableAlt": "Pilditöötlus pole saadaval",
+      "noImageInClipboardTitle": "Lõikepuhvril pole pilti",
+      "noImageInClipboardBody": "Kopeerige QR koodipilt, seejärel puudutage uuesti Kleebi QR pilt.",
+      "clipboardUnavailableTitle": "Lõikelaud pole saadaval",
+      "clipboardUnavailableBody": "Lõikepuhvri tekst ei ole kehtiv autentimise seadistus URL. Kopeerige otpauth:// URL või QR pilt ja proovige uuesti.",
+      "clipboardAccessBody": "KaalKey ei saanud lõikelaualt teksti ega pilti lugeda. Lubage juurdepääs lõikelauale, seejärel kopeerige QR pilt või otpauth:// URL ja puudutage uuesti Kleebi QR Pilt / URL.",
+      "couldNotPasteImageTitle": "Pilti ei saanud kleepida",
+      "couldNotPasteImageBody": "See lõikelaud ei toeta selles seadmes kujutiste kleepimist. Kasutage selle asemel Impordi QR pilti.",
+      "sourceImageDecodeFailure": "Proovige teist QR pilti.",
+      "pastedImportFailureBody": "Proovige teist QR pilti.",
+      "sourceImageReadFailure": "Proovige kopeerida selge QR ekraanipilt.",
+      "importFailedTitle": "QR kujutise importimine ebaõnnestus",
+      "importFailedBody": "KaalKey ei suutnud seda pilti lugeda. Proovige teist QR koodipilti.",
+      "notFoundBody": "Kopeeritud pilt ei sisalda loetavat QR koodi.",
+      "pastedNotFoundBody": "Kleebitud pilt ei sisalda loetavat QR koodi.",
+      "pastedReadFailureBody": "Proovige kopeerida selge PNG või JPEG pilt, mis sisaldab täielikku QR koodi.",
+      "noQrCodeTextBody": "KaalKey dekodeeris valitud pildi, kuid ei leidnud QR koodi. Proovige selget täiseraldusvõimega PNG või JPEG, kus kogu kood on nähtaval."
+    },
+    "totpImport": {
+      "invalidTotpCode": "See QR kood ei ole ajapõhine autentija seadistuskood.",
+      "missingAccountDetails": "Koodil QR puuduvad konto andmed.",
+      "unsupportedAlgorithm": "Kood QR kasutab toetamata algoritmi.",
+      "unsupportedDigits": "See QR kood peab sisaldama 6, 7 või 8 numbrit.",
+      "unsupportedPeriod": "See QR kood kasutab toetamata ajaperioodi.",
+      "invalidAccount": "Koodi QR ei saanud valideerida."
+    },
+    "backup": {
+      "invalidJson": "Varundusfail ei kehti JSON.",
+      "unsupportedFormat": "See ei ole toetatud KaalKey krüptitud varukoopia.",
+      "invalidPasswordOrDamaged": "Varundusparool on vale või varukoopiafail on kahjustatud.",
+      "invalidContents": "Varukoopia sisu on kehtetu või puudulik.",
+      "secureRandomUnavailableDetailed": "Turvaline juhuslik genereerimine pole saadaval. Ehitage uuesti üles ja installige rakendus Android, mis sisaldab expo-crypto, seejärel proovige uuesti.",
+      "invalidAccountDataForBackup": "Üks või mitu kontot on kehtetud. Parandage konto andmed enne varukoopia loomist.",
+      "invalidPasswordOrModified": "Varundusparool on vale või varukoopiafaili on muudetud.",
+      "invalidPasswordOrFileDamaged": "Varuparool on vale või fail on kahjustatud.",
+      "passwordCopiedTitle": "Parool kopeeritud",
+      "enterPasswordTitle": "Sisestage varuparool",
+      "enterPasswordBody": "Sisestage selle varukoopia loomisel kasutatud parool.",
+      "passwordCopiedBody": "Salvestage see kuskile turvalisse kohta, näiteks WhatsApp.",
+      "copyFailedTitle": "Kopeerimine ebaõnnestus",
+      "copyFailedBody": "Valige ja kopeerige parool käsitsi.",
+      "generatingPassword": "Turvalise varuparooli genereerimine…",
+      "encrypting": "Varundamise krüptimine…",
+      "decrypting": "Varukoopia dekrüptimine…",
+      "restoring": "Kontode taastamine…",
+      "backupCreatedTitle": "Varukoopia loodud",
+      "restoreCompleteTitle": "Taastamine on lõpetatud",
+      "mergeConfirmTitle": "Kas ühendada varukontod?",
+      "mergeConfirmButton": "Ühendage kontod",
+      "backupSavedTemporary": "Krüpteeritud varukoopia salvestati ajutiselt aadressile:\n{uri}",
+      "generatePasswordErrorTitle": "Varuparooli ei saanud luua",
+      "secureRandomUnavailable": "Turvaline juhuslik genereerimine pole saadaval.",
+      "passwordUnavailableTitle": "Varuparool pole saadaval",
+      "passwordUnavailableBody": "Sulgege see dialoog ja looge turvalise parooli loomiseks uus varukoopia.",
+      "backupDownloadedBody": "Teie krüptitud varukoopia KaalKey on alla laaditud. Hoidke fail ja parool privaatsena.",
+      "backupFailedTitle": "Varundamine ebaõnnestus",
+      "backupCreateErrorBody": "KaalKey ei saanud varukoopiat luua.",
+      "restoreFailedTitle": "Taastamine ebaõnnestus",
+      "backupReadErrorBody": "Varukoopiat ei saanud lugeda ega salvestada.",
+      "browserDownloadUnsupported": "Teie brauser ei toeta varukoopiafailide allalaadimist.",
+      "localFileUnavailable": "Kohalik faili asukoht pole selles seadmes saadaval.",
+      "saveBackupTitle": "Salvestage oma krüpteeritud KaalKey varukoopia"
+    },
+    "clipboard": {
+      "copiedTitle": "Kood kopeeritud",
+      "copiedBody": "Teie kinnituskood on kopeeritud.",
+      "errorTitle": "Viga",
+      "errorBody": "Kinnituskoodi ei saanud kopeerida."
+    },
+    "activity": {
+      "cameraReady": "Kaamera valmis. Suunake see autentimiskoodile QR.",
+      "readingQrImage": "QR pildi lugemine…",
+      "importingQrImage": "QR kujutise importimine…",
+      "importingAccount": "Autentija konto importimine…",
+      "importingPastedImage": "Kleebitud kujutise QR importimine…"
+    }
+  },
+  "activity": {
+    "working": "Töötab",
+    "wait": "Palun oota…",
+    "donTClose": "Ärge sulgege KaalKey ega suhtle sellega.",
+    "loadingLanguages": "Saadaolevate keelte laadimine…",
+    "loadingTranslation": "Tõlke laadimine…"
+  }
+}

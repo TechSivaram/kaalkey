@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Gagana",
+      "description": "Filifili le gagana o loʻo faʻaaogaina i le KaalKey.",
+      "english": "Igilisi",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "GAGANA",
+      "searchLanguageName": "Su'e gagana (igoa po'o le code)",
+      "searchSupportedLanguages": "Su'e gagana lagolago",
+      "closeLanguageDropdown": "Tapuni gagana pa'u i lalo",
+      "noTranslatedLanguage": "Leai se gagana fa'aliliu na maua.",
+      "serverUrl": "Fa'aliliuga server URL",
+      "serverUrlDescription": "KaalKey la'u maia le lisi o gagana ma fa'aliliuga mai le server lea.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Fa'asaoina le 'au'aunaga fa'aliliu"
+    },
+    "title": "Fa'atonuga o talosaga",
+    "eyebrow": "KAALKEY PILI",
+    "experience": {
+      "section": "ATONGA"
+    },
+    "security": {
+      "section": "SAULOIGA"
+    },
+    "backup": {
+      "section": "TULAFONO & LELEI"
+    },
+    "danger": {
+      "section": "SONE TATAU",
+      "clearAccounts": "Fa'amama uma tala",
+      "clearAccountsDescription": "Aveese tumau tala uma ma mealilo mai lenei masini. Toe fa'afo'i muamua.",
+      "clearAccountsAccessibilityLabel": "Fa'amama uma tala fa'amaoni"
+    },
+    "appearance": {
+      "section": "FAAALIA",
+      "title": "foliga mama",
+      "description": "KaalKey o lo'o fa'aoga nei lana autu mama mama."
+    },
+    "haptics": {
+      "title": "Fa'amatalaga Haptic",
+      "description": "Fa'aaliga filemu mo ta'i ma gaioiga fa'auma."
+    },
+    "deviceLock": {
+      "title": "Loka fa'amaoniga o masini",
+      "description": "E loka lau vault pe a alu ese KaalKey mai le pito i luma.",
+      "requirement": "Manaomia le biometrics o lau telefoni po'o le loka-mata PIN, mamanu, poʻo le faʻaupuga.",
+      "accessibilityLabel": "Loka app fa'amaoni masini"
+    },
+    "privacy": {
+      "title": "Tulafono & fa'alilolilo",
+      "description": "Toe iloilo Tulafono Fa'alilolilo ma Tuutuuga o Fa'aoga.",
+      "storageNote": "O mealilo fa'amaoni e tumau i totonu o le masini malupuipuia. O mea e fiafia i ai e teuina i le lotoifale."
+    }
+  },
+  "accounts": {
+    "edit": "Fa'atonu",
+    "sortAccountName": "Fa'avasega ile igoa ole tala",
+    "loadingSecureVault": "O lo'o fa'atūina le vault saogalemu...",
+    "tapCopy": "TAPU E KOPI",
+    "noAccountsMatch": "E leai ni tala e fetaui ma lau su'esu'ega.",
+    "viewQrCode": "Va'ai QR code mo le fa'amatalaga",
+    "removeAccount": "Aveese tala",
+    "copyVerificationCode": "Kopi le code fa'amaonia",
+    "active": "GALUEGA",
+    "sort": "FAAVAE IA",
+    "account": "Account",
+    "clearSearch": "Fa'amama su'esu'ega",
+    "sortServiceName": "Fa'avasega ile igoa ole tautua",
+    "addFirstAccount": "Fa'aopoopo lau tala muamua",
+    "searchAccounts": "Su'e tala",
+    "searchServiceAccount": "Au'aunaga su'esu'e po'o le teugatupe",
+    "accounts": "O au tala",
+    "add": "+ Faaopoopo",
+    "vaultStartsHere": "O lau vault e amata iinei",
+    "service": "Auaunaga",
+    "emptyHint": "Fa'aopoopo se tala e fa'aaoga ai lona ki lilo e fa'atupu ai lau fa'ailoga muamua."
+  },
+  "common": {
+    "done": "Ua uma",
+    "doneButton": "Ua uma",
+    "closeSettings": "Tapuni tulaga",
+    "separator": "-",
+    "article": "a",
+    "save": "Faasaoina",
+    "delete": "Aveese",
+    "resizeAppBrand": "Toe fa'atele le app ma fa'ailoga fa'ailoga"
+  },
+  "qrImport": {
+    "readPastedImage": "Le mafai ona faitau le ata faapipii"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Fa'amatalaga i lenei fa'amaumauga: {count}. KaalKey o le a teuina au tala o iai ma faʻaopoopo soʻo se tala e leʻi iai. O tala fa'alua o le a misi.",
+    "restoreCompletionBody": "Fa'amatalaga fa'aopoopo: {added}. Fa'ase'e tala fa'alua: {skipped}. Sa teu au tala o iai.",
+    "copyPassword": "Kopi upu fa'aulu",
+    "passwordSafety": "Sefe ese lenei upu faataga (mo se faataitaiga, i le WhatsApp). So'o se tasi e lua uma le",
+    "importAction": "Filifili faila ma faaulufale mai",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "VAULT SA'O",
+    "createBackup": "Fausia fa'amaumauga",
+    "encryptedFile": "Fa'ailoga faila",
+    "restoreBackup": "Toe fa'afo'i fa'amaumauga",
+    "safetyNote": "O fa'amaumauga fa'asao o lo'o i ai mealilo a lou fa'amaoni. KaalKey fa'atupuina se fa'aupuga fa'apitoa mo fa'amaumauga ta'itasi. Faasaoina eseese; KaalKey e le mafai ona toe maua mai.",
+    "generatingSecurePassword": "Fa'atupuina fa'amaufa'ailoga saogalemu...",
+    "importFile": "Fa'aulufale mai faila",
+    "backupPassword": "FA'ATAU FA'AVAE",
+    "account": "tala",
+    "accounts": "tala",
+    "exportDescription": "Fa'ailoga uma {count} na teuina {accountLabel} i se faila faaleoleo. KaalKey fa'atupuina se fa'aupuga fa'apitoa; kopi ma sefe ese mai le faila.",
+    "restoreDescription": "Filifili lau KaalKey faila faila ma upu faataga. O tala fou o le a fa'aopoopo i lau lisi fa'amatalaga o lo'o iai; o tala o lo'o iai o le a tumau e pei ona iai.",
+    "enterBackupPassword": "Ulufale upu faataga faaleoleo",
+    "closeBackup": "Tapuni fa'amaumauga",
+    "copyGeneratedBackup": "Kopi upu faataga faaleoleo ua faia",
+    "backupPassword2": "Fa'amalo upu faataga",
+    "clearBackupPassword": "Fa'amama upu fa'apolopolo",
+    "backupFilePassword": "faila faaleoleo ma upu faataga e mafai ona toe faʻafoʻisia lau faʻamaumauga faʻamaonia.",
+    "encryptShareBackup": "Encrypt ma faasoa faaleoleo"
+  },
+  "home": {
+    "unlockSecurely": "Tatala ma le saogalemu",
+    "disableAppLock": "Ta'e le loka app",
+    "enableAppLock": "Fa'amalo le loka app",
+    "checkingSecureLock": "Siaki au fa'aoga loka mautu. O lo'o natia pea au tulafono.",
+    "waitingVerification": "Fa'atali mo fa'amaoniga...",
+    "secretsStayStored": "E teu pea au mealilo ile masini lea.",
+    "openAppSettings": "Tatala fa'atonuga app",
+    "versionLabel": "VAEGA",
+    "unlockRequirement": "Fa'aoga biometrics o lau telefoni po'o lau-loka PIN, mamanu, po'o le upu fa'aulu e maua ai lau fa'ailoga fa'amaonia e tasi le taimi.",
+    "localVault": "O LOU VAULET LO'O",
+    "codesDeviceControl": "O lau tulafono. Lau masini. O lau pule.",
+    "securingVault": "Puipuia lau vault…",
+    "vaultProtected": "Ua puipuia lou vault",
+    "lock": "LOKA I",
+    "localVault2": "VAULT I LE LOTU",
+    "authenticator": "KAALKEY FAAMAOGA",
+    "tricolourLockEmblem": "KaalKey fa'ailoga loka lanu tolu",
+    "authenticator2": "FA'AUTU"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Afai e te filifili e su'e se code QR, KaalKey fa'aaoga le faatagaga mai meapueata mo lena gaioiga. O le fa'amaoniaina o masini fa'apitoa ma fa'amatalaga fa'apitoa e fa'aogaina ai fa'aoga talafeagai o masini. E mafai ona e pulea fa'atagaga ile fa'atulagaina o lau masini.",
+        "heading": "2. Fa'atagaga ma foliga o le masini"
+      },
+      "backups": {
+        "body": "A e faia se fa'amaumauga, KaalKey e fa'ailogaina le fa'amaumauga e fa'aaoga ai se fa'aupuga e te filifilia. Taofi fa'alilolilo uma le faila ma le fa'aupuga ma teu lelei. So'o se tasi na te mauaina le faila ma lona fa'aupuga e mafai ona toe fa'afo'i lau fa'amaumauga fa'amaonia. KaalKey e le mafai ona toe maua se upu fa'apolopolo ua galo.",
+        "heading": "3. Fa'asao"
+      },
+      "security": {
+        "body": "Fa'afou lau masini, puipui i se loka lau, ma aua ne'i fa'asoa OTP mealilo po'o upu fa'asao. O le aveeseina o le app, fa'amama ana fa'amaumauga, po'o le leiloa o le masini e ono le maua ai fa'amaumauga o lo'o teuina i le lotoifale. Taofi se faaleoleo malupuipuia pe a e manaʻomia le toe faʻaleleia.",
+        "heading": "5. Puipuiga ma le faatumauina"
+      },
+      "information": {
+        "heading": "1. Faamatalaga ma mealilo",
+        "body": "KaalKey ose app fa'amaoni. E ma'ale'ale fa'ailoga fa'amaumauga ma fa'atauga faalilolilo e mana'omia e fa'atupu ai fa'ailoga e tasi le taimi. O le app ua mamanuina e teu ai faʻamaumauga faʻamaumauga i le teuina saogalemu o le masini. So'o se tasi e mafai ona maua se masini e le tatalaina po'o se fa'amaumauga e auina atu i fafo e ono mafai ona maua fa'amatalaga ma'ale'ale."
+      },
+      "sharing": {
+        "heading": "4. Fetufaaiga ma isi vaega",
+        "body": "E mafai ona fa'aogaina e le fa'asologa fa'asao le pepa fa'asoa a lau masini po'o le faila faila e teu ai, fa'aliliu, pe filifili faila. O faiga fa'alilolilo a so'o se isi polokalame po'o au'aunaga e te filifilia o lo'o pulea e lena kamupani. O lenei fa'asilasilaga e le fa'ailoa mai ai o lau masini, faiga fa'aogaina, po'o au'aunaga fefa'asoaa'i filifilia e le mafai ona fa'agasolo fa'amaumauga."
+      },
+      "changes": {
+        "heading": "6. Suiga ma fesootaiga",
+        "body": "O lenei fa'asilasilaga fa'apipi'i e mafai ona toe fa'aleleia i se fa'amatu'u o le app i le lumana'i. Mo fesili fa'alilolilo, fa'afeso'ota'i le fa'asalalauina o talosaga e ala i le alaala lagolago aloa'ia o lo'o tu'uina atu ma le app."
+      },
+      "title": "Faiga Fa'alilolilo"
+    },
+    "terms": {
+      "use": {
+        "body": "E mafai ona e fa'aogaina KaalKey e fa'atupu ai fa'ailoga fa'amaonia mo fa'amatalaga e te fa'atagaina e te mauaina. O oe e nafa ma le usitaia o tulafono talafeagai ma tulafono o auaunaga ia e te faʻaogaina ai tulafono faʻamaonia.",
+        "heading": "1. O lou faaaogaina"
+      },
+      "protectAccounts": {
+        "body": "O oe e nafa ma le faʻamautuina o lau masini, faʻamaonia mealilo, auala toe faʻaleleia, faʻapipiʻi faʻaulufale atu, ma upu faʻapolopolo. Aua le fa'asoa fa'ailoga po'o mealilo i tagata e te le fa'atuatuaina.",
+        "heading": "2. Puipui au tala"
+      },
+      "availability": {
+        "body": "E mafai ona suia foliga i le va o fa'asalalauga. E tatau ona e fa'afou pea le app ma fa'amaonia mai lea taimi i lea taimi pe o lelei lau fa'amaumauga ma le toe fa'aleleia.",
+        "heading": "5. Suiga ma avanoa"
+      },
+      "recovery": {
+        "body": "KaalKey e le mafai ona mautinoa e mafai ona toe maua uma tala, o QR code poʻo faʻatulagaga o le a fetaui, pe o le a faʻaogaina le app e aunoa ma se faʻalavelave poʻo se mea sese. Taofi isi auala toe fa'aleleia e tu'uina atu e le 'au'aunaga talafeagai.",
+        "heading": "3. Leai se fa'amaoniga toe fa'aleleia"
+      },
+      "advice": {
+        "heading": "4. Leai se fautuaga faapolofesa",
+        "body": "O le app o se aoga ma e le tuʻuina atu tulafono, tupe, poʻo le puipuiga o faʻalavelave-tali fautuaga. Afai e fa'aletonu se teugatupe, mulimuli i ta'iala aloa'ia a le 'au'aunaga na a'afia ma le puipuiga."
+      },
+      "liability": {
+        "heading": "6. Noataga ma tulafono talafeagai",
+        "body": "I le tulaga e fa'atagaina e le tulafono fa'atatau, o le app e tu'uina atu e aunoa ma se fa'amaoniga o le fa'alavelave pe leai se mea sese. E leai se mea i nei tuutuuga e aofia ai aia tatau poʻo fofo e le mafai ona faʻatulafonoina. So'o se isi tapula'a po'o tu'utu'uga fa'atulafono e tatau ona toe iloilo e se loia agava'a mo le pulega fa'afa'afa'afa'afa a le tagata lomitusi a'o le'i tatalaina."
+      },
+      "title": "Tulaga o le Fa'aoga"
+    },
+    "version": "Fa'aliliuga",
+    "saving": "Sefe…",
+    "acceptContinue": "Talia & Fa'aauau",
+    "appliesAuthenticator": "Fa'aoga ile KaalKey Authenticator",
+    "reviewBothDocuments": "Fa'amolemole iloilo pepa uma e lua a'o le'i fa'aogaina KaalKey. O lo'o iai i totonu o le app ma avanoa i luga ole laiga.",
+    "originalMulticolourAuthenticator": "Fa'ailoga fa'amaoni lanu eseese KaalKey muamua",
+    "legalPrivacyNotice": "Fa'asilasilaga Fa'aletulafono & Fa'alilolilo",
+    "legalInformation": "Fa'amatalaga faaletulafono",
+    "reviewSPrivacy": "Toe iloilo KaalKey faamatalaga patino ma aiaiga o le faaaogaina.",
+    "iReadAgree": "Ua ou faitau ma ioe i le Privacy Policy ma Tuutuuga o le Faaaogaina."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Taofi le QR code atoa e iloa. E tumau pea lau mealilo ile masini lea.",
+    "back": "Tua",
+    "turnFlashlightOff": "Tape moliuila",
+    "turnFlashlight": "Ki moliuila",
+    "flashlight": "Uila moli",
+    "flashlight2": "moliuila",
+    "cameraUnavailableOpen": "Le avanoa meapueata. Tatala le itulau lenei ile HTTPS po'o le localhost ma fa'ataga le meapueata.",
+    "cameraPreviewUnavailable": "E le o avanoa le mua'i va'aiga meapueata. Tapuni ma toe tatala le masini su'e.",
+    "cameraReadyPoint": "Ua saunia le meapueata — fa'asino i le fa'ailoga atoa QR.",
+    "browserCannotProcess": "E le mafai e lenei su'esu'ega ona fa'agaioia fa'avaa meapueata.",
+    "qrCodeDetected": "QR code na maua.",
+    "couldnTRead": "Le mafai ona faitau fa'avaa meapueata. Siaki fa'atagaga mai meapueata ma toe la'u le itulau lenei.",
+    "cameraPermissionDenied": "Ua teena le faatagaga o meapueata. Fa'ataga mea pu'eata i fa'aoga su'esu'e, ona toe tatala lea o le su'e.",
+    "noCameraWas": "Leai se meapueata na maua i lenei masini.",
+    "cameraBusyAnother": "O lo'o pisi le meapueata i se isi app po'o le itulau su'esu'e.",
+    "startCameraHttps": "Le mafai ona amata meapueata. Fa'aoga le HTTPS po'o le localhost ma siaki fa'atagaga ole su'esu'e.",
+    "qrScannerCamera": "QR va'aiga meapueata",
+    "cameraUnavailableCheck": "Le avanoa meapueata. Siaki le faatagaga mai meapueata ma toe taumafai.",
+    "pointCameraAuthenticator": "Fa'asino lau meapueata ile fa'ailoga fa'amautu QR mai le auaunaga o lo'o e fa'aopoopoina.",
+    "backAddAccount": "Toe fo'i e fa'aopoopo le tala",
+    "secureSetup": "FA'ATUSIGA SELEU",
+    "enterDetailsManually": "Ulufale fa'amatalaga ma le lima"
+  },
+  "accountForm": {
+    "hideManualEntry": "Natia tusi tusi",
+    "secretKeySupplied": "Fa'aoga le ki lilo o lo'o tu'uina mai e le 'au'aunaga o lo'o e fa'atulagaina. Aua lava ne'i fa'aofi lau fa'aupuga fa'amatalaga iinei. Fa'afetaui le algorithm, numera numera, ma le va i fa'atonuga o fa'atonuga.",
+    "updateServiceAccount": "Fa'afou le tautua, igoa fa'amatalaga, po'o le ki lilo.",
+    "secretKeyRead": "Ki lilo, faitau-na'o a'o fa'atonu",
+    "secretKeyBase32": "Ki lilo i totonu Base32",
+    "digits": "numera",
+    "seconds": "sekone",
+    "enterDetailsManually": "PE TUSI FAAMATALAGA I LE MANUAL",
+    "enterDetailsManually2": "Ulufale fa'amatalaga ma le lima",
+    "serviceAccountName": "Auaunaga, igoa fa'amatalaga ma ki lilo",
+    "saveChangesSecurely": "Sefe suiga ma le saogalemu",
+    "saveAccountSecurely": "Faasaoina le teugatupe ma le saogalemu",
+    "serviceIssuer": "Au'aunaga po'o le tu'uina atu",
+    "accountName": "Igoa o le teugatupe",
+    "secretKey": "Ki lilo",
+    "serviceIssuer2": "AUAUNAGA / TUUINA",
+    "eGGoogle": "e.g. Google",
+    "clearServiceIssuer": "Fa'amanino le tautua po'o le tu'uina atu",
+    "eGExample": "e.g. oe@example.com",
+    "clearAccountName": "Fa'amama le igoa ole tala",
+    "secretKeyLocked": "KI SECRET (LOKA)",
+    "secretKeyBase322": "KI SEIL (BASE32)",
+    "enterSetupKey": "Ulufale lau ki seti",
+    "clearSecretKey": "Fa'amama le ki lilo",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP DIGITS",
+    "refreshIntervalSeconds": "FA'AVAE VAEGA (SECONDS)",
+    "otpRefreshInterval": "OTP toe faafou le va i sekone",
+    "closeAccountForm": "Tapuni le pepa faatumu",
+    "totpSetupUrl": "TOTP seti URL",
+    "importSetupUrl": "Fa'aulufale seti URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "IGOA FAI",
+    "addAccount": "Faaopoopo tala"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Su'e fa'amaoni QR fa'ailoga",
+    "setupGuidance": "Va'ai se code QR mo se seti pito sili ona faigofie, pe tusi fa'amatalaga ma le lima.",
+    "cameraAddAccount": "Fa'aoga lau meapueata e fa'aopoopo vave ai se tala",
+    "scanQrCode2": "Su'e QR code",
+    "uploadQrImage": "Tu'u mai QR ata",
+    "chooseQrScreenshot": "Filifili se QR faʻamalama mai le Ata, Ata, poʻo faila",
+    "pasteQr": "Fa'apipi'i QR ata / URL",
+    "pasteCopiedQr": "Fa'apipi'i se ata QR kopi po'o se seti fa'amaoni URL",
+    "uploadQrImage2": "Tu'u mai QR ata"
+  },
+  "accountQr": {
+    "close": "Tapuni",
+    "accountQrCode": "Fa'ailoga QR.",
+    "revealQrCode": "Faaalia QR code",
+    "exportWarning": "Lapata'iga: so'o se tasi e su'eina lenei QR code e mafai ona fa'atupu fa'ailoga fa'amaonia mo lenei tala. Fa'ailoa na'o luga ole lau fa'atuatuaina.",
+    "privacyHint": "Taofi lenei QR code faalilolilo. O le su'esu'eina e kopiina ai le mealilo a le tala fa'amaoni."
+  },
+  "productInfo": {
+    "backupRestore": "Fa'asaoina ma toe fa'afo'isia",
+    "backupRestoreDescription": "Toe fa'afo'i lau fa'amaumauga fa'amaonia ma toe fa'afo'i pe a e si'i atu i se isi masini.",
+    "privacyDescription": "Taofi au tala fa'amaonia i se nofoaga e tasi. Fa'aoga le fa'apolopolo a le app, toe fa'afo'isia, ma le masini-loka filifiliga e fa'atautaia ai lau fa'atonuga.",
+    "timeBasedCodes": "Fa'ailoga taimi",
+    "generateOneTimeCodes": "Fa'atupu fa'ailoga pasi e tasi le taimi mo au fa'amatalaga e fa'amae'a ai fa'amaoniga e lua-laasaga.",
+    "quickAccountSetup": "Fa'atonu fa'amatalaga vave",
+    "quickSetupDescription": "Va'ai se code fa'amaoni QR pe fa'aulufale mai se ata QR e fa'aopoopo ai se tala.",
+    "accountsOnePlace": "Fa'amatalaga i se nofoaga e tasi",
+    "accountsInOnePlaceDescription": "Taofi fa'atasi au tala fa'apolopolo ma su'e le fa'amatalaga sa'o pe a o'o i le taimi e saini ai.",
+    "privateAccountVault": "Teuga tupe tumaoti",
+    "privateVaultDescription": "Pulea lau fa'amaumauga fa'amaoni i le lotoifale ma fa'aoga le avanoa e loka ai masini.",
+    "easyCodeAccess": "Faigofie le mauaina o le code",
+    "easyCodeAccessDescription": "Kopi se fa'ailoga o lo'o iai nei pe fa'atautaia fa'amatalaga fa'amatalaga e ala i se fa'aoga mama, fa'atatau.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · SAUNIA E TECHSIVARAM",
+    "mobileAuthenticator": "LOU MOBILE AUTENTICATOR",
+    "tagline": "O se auala faigofie e pulea ai lau fa'amaoniga e lua-laasaga.",
+    "heroDescription": "Ose fa'amatalaga fa'amaoni e taula'i mo fa'ailoga fa'amaonia e fa'atatau ile taimi. Taofi fa'afeso'ota'i fa'ailoga fa'amaumauga fa'atasi ma le KaalKey mo Android.",
+    "timeBasedCodes2": "TULAFONO E FAI TAIMI",
+    "privateDesign": "FA'AVAE I LE FAIA",
+    "builtSimpleAuthenticator": "FAUSI MO SE FA'AIGA FA'AMANATU FA'AFIO",
+    "qrSetupTimed": "QR FA'ATUNUU · TAIMI TAIMI TAIMI FA'ATAU",
+    "privacyTitle": "O au tala. O lau tulafono. O lau pule.",
+    "authenticator": "KAALKEY · FA'ATUATUA",
+    "brandBanner": "KaalKey fu'a fa'ailoga",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Fa'aleaogaina",
+      "storageInvalidTitle": "E le aoga fa'amatalaga teuina",
+      "storageInvalidBody": "E le mafai ona faitau ma le saogalemu fa'amaumauga o fa'amaumauga.",
+      "storageErrorTitle": "Sese teuina",
+      "storageErrorBody": "Ua le mafai ona utaina tala teu.",
+      "missingTitle": "Ua misi faamatalaga",
+      "missingEditingBody": "Ulufale i le igoa o le auaunaga ma le igoa o le teugatupe.",
+      "missingBody": "Ulufale i le igoa o le auaunaga, igoa o le teugatupe, ma le ki faalilolilo.",
+      "invalidOtpBody": "Siaki le Base32 mealilo, algorithm, numera numera, ma le taimi faʻafouina. O mea lilo e tatau ona iai ni mataitusi aoga Base32; numera e tatau ona {digits} ma le vaitaimi e tatau ona {minPeriod}–{maxPeriod} sekone.",
+      "duplicateBody": "Ua uma ona teu se tala i lenei auaunaga ma le igoa o le teugatupe.",
+      "updatedBody": "Ua faafou lau tala.",
+      "addedBody": "Ua fa'aopoopoina ma le saogalemu lau tala.",
+      "invalidOtpTitle": "Fa'atonu OTP tulaga",
+      "duplicateTitle": "Ua leva ona iai le teugatupe",
+      "savedTitle": "Fa'asaoina tala",
+      "invalidSecretTitle": "Ki faalilolilo le aoga",
+      "invalidSecretBody": "Fa'amolemole siaki pe na e ulufale i se Base32 mea lilo.",
+      "removedTitle": "Ua aveese tala",
+      "removedBody": "O le tala ma lona mea lilo na aveesea mai lenei masini.",
+      "clearedTitle": "Fa'amama tala",
+      "clearedBody": "O tala fa'amaoni uma ma mealilo na aveese mai lenei masini.",
+      "someSavedAccountsNeedAttentionTitle": "O nisi tala fa'asao e mana'omia le fa'alogo",
+      "someSavedAccountsNeedAttentionBody": "{count} fa'amaumauga le aoga e le'i utaina. O lo'o avanoa pea tala aoga. Mafaufau e fai se faaleoleo ae le'i faia nisi suiga.",
+      "removeConfirmTitle": "Aveese tala?",
+      "removeConfirmWebTitle": "Aveese tala?",
+      "removeButton": "Aveese",
+      "clearButton": "Fa'amama uma",
+      "clearConfirmTitle": "Tapē uma tala?",
+      "saveErrorBody": "Ua le mafai ona sefe tala. Siaki le avanoa e teu ai masini ma toe taumafai.",
+      "notFoundTitle": "E le o maua le tala",
+      "notFoundBody": "E lei maua lenei tala. Tapuni le faatonu ma toe taumafai.",
+      "removeConfirmBody": "O lenei mea e aveese ai le tala ma lona mealilo mai lenei masini.",
+      "clearConfirmBody": "O lenei mea e aveesea tumau uma faʻamatalaga faʻamaonia ma a latou mealilo mai lenei masini. Fausia se fa'ailoga fa'ailoga muamua pe afai e te mana'omia nei tala mulimuli ane.",
+      "clearConfirmUndoBody": "E le mafai ona faaleaogaina lenei mea."
+    },
+    "biometric": {
+      "cancelButton": "Fa'aleaogaina",
+      "saveErrorTitle": "Le mafai ona sefe le seti",
+      "unlockPrompt": "Tatala KaalKey Authenticator",
+      "promptSubtitle": "Fa'aoga biometrics po'o le loka lau masini",
+      "disableConfirmPrompt": "Faamautu e tape KaalKey loka app",
+      "enablePrompt": "Fa'aaga le loka app mo KaalKey",
+      "deviceLockTitle": "Seti lau loka lau masini",
+      "deviceLockBody": "KaalKey fa'aoga le fa'amaoniga o lau telefoni. Seti se masini PIN, mamanu, po'o se upu fa'amaufa'ailoga i tulaga saogalemu o lau telefoni, ona toe taumafai lea. Biometrics e filifili.",
+      "unavailableTitle": "E le maua le fa'amaoniga o masini",
+      "unavailableBody": "E le mafai e lau telefoni ona amata fa'amautu fa'amaoni. Siaki ua fa'apipi'i se loka lau masini, ona toe taumafai lea.",
+      "lockedTitle": "O le fa'amaoniga ua loka le tumau",
+      "lockedBody": "O lau telefoni na fa'agata mo sina taimi le fa'amaoni i le tele o taumafaiga. Faatali ma toe taumafai.",
+      "promptErrorTitle": "E le maua le fa'amaoniga",
+      "promptErrorBody": "KaalKey e le mafai ona amataina le fa'amaoniga saogalemu ole telefoni. Fa'amolemole toe taumafai.",
+      "webLock": "E le'o maua le loka fa'amautu o masini i le upegatafa'ilagi. O lo'o tatala pea le upega tafa'ilagi; fa'aoga le Android app mo le fa'amaoniaina o masini.",
+      "disabledTitle": "Ua le atoatoa le loka o le app",
+      "disabledBody": "KaalKey loka app ua tape.",
+      "disableSaveError": "O lo'o fa'aaga pea le loka app. Fa'amolemole toe taumafai.",
+      "enabledTitle": "Loka app ua mafai",
+      "enabledBody": "KaalKey ole a talosagaina le fa'amaoniaina o lau telefoni pe a tatala ma pe ae toe fo'i i ai.",
+      "enableSaveError": "Ua le mafai ona fa'aogaina le loka o le app. Fa'amolemole toe taumafai."
+    },
+    "qr": {
+      "startingCamera": "Amata le meapueata…",
+      "unsupportedTitle": "Le lagolagoina QR code",
+      "unsupportedBody": "Va'ai le seti fa'amaoni QR fa'ailoga o lo'o tu'uina mai e le tautua. E tatau ona avea lea ma code TOTP, ae le o se code login masani QR.",
+      "unsupportedDiagnostic": "O lena QR e le o se TOTP seti code. Taulai i se seti fa'amaoni QR.",
+      "detectedDiagnostic": "QR iloa. Iloiloga…",
+      "analyzing": "Iloiloina QR code...",
+      "duplicateTitle": "Ua uma ona fa'aopoopo le tala",
+      "duplicateBody": "{issuer}: {account} ua uma ona i totonu KaalKey.",
+      "addedTitle": "Fa'aopoopo le tala",
+      "addedBody": "{issuer}: {account} na fa'aopoopoina manuia.",
+      "saveFailedDiagnostic": "Le mafai ona sefe le tala. E mafai ona e toe su'esu'e.",
+      "invalidTitle": "Le aoga QR code",
+      "invalidBody": "KaalKey e le mafai ona fa'avasegaina lenei fa'amaoniga QR code. {detail}. Fa'aoga le TOTP seti QR a le auaunaga (e masani ona amata i le {prefix}).",
+      "parseFailedDiagnostic": "QR e le mafai ona fa'agaioia. Taulai ile seti QR ma toe taumafai.",
+      "invalidUrlTitle": "Le aoga TOTP URL",
+      "invalidUrlBody": "Fa'apipi'i le fa'amaoni atoatoa URL amata i le {prefix}.",
+      "clipboardEmptyTitle": "O lo'o avanoa le laupapa kilipa",
+      "clipboardEmptyBody": "Kopi muamua se {prefix} URL, ona oomi lea o le Pasi TOTP URL.",
+      "clipboardErrorTitle": "Le mafai ona faitau le laupapa kilipa",
+      "clipboardErrorBody": "Kopi le TOTP seti URL ma toe taumafai."
+    },
+    "haptics": {
+      "saveFailedTitle": "Le mafai ona sefe le seti",
+      "saveFailedBody": "E le'i mafai ona sefe le mana'o fa'aalia o le Haptic. Fa'amolemole toe taumafai."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Le mafai ona sefe le fa'ailoa",
+      "saveFailedBody": "Fa'amolemole toe taumafai. E tatau ona e talia le fa'aaliga fa'aletulafono a'o le'i fa'aogaina KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Manaomia le faatagaga o meapueata",
+      "body": "Fa'ataga le meapueata e su'e ai se seti fa'amaoni QR."
+    },
+    "storage": {
+      "browserUnavailable": "E le avanoa le teuina o su'esu'ega.",
+      "browserFilePickerUnavailable": "E le maua le su'ega faila faila."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "faila le lagolagoina",
+      "unsupportedFileBody": "Filifili se QR ata fa'ailoga e pei o le PNG po'o le JPEG.",
+      "browserDecoderUnavailable": "E le'o avanoa le fa'avasegaina o ata ole su'esu'e",
+      "imageLoadFailed": "Ua le mafai ona utaina ata",
+      "unreadableDimensions": "O ata e leai ni fua e mafai ona faitau",
+      "noQrCodeFoundTitle": "Leai se QR code na maua",
+      "noQrCodeFoundBody": "KaalKey e le mafai ona fa'aliliu se fa'ailoga QR i lenei ata. Taumafai se faʻamalama poʻo se maualuga maualuga PNG/JPEG.",
+      "couldNotReadImageTitle": "Le mafai ona faitau ata",
+      "couldNotReadImageBody": "Fa'ata'ita'i se ata manino PNG po'o le JPEG o lo'o iai le fa'ailoga fa'amautu QR.",
+      "couldNotOpenPickerTitle": "Ua le mafai ona tatala le tagata piki ata",
+      "couldNotOpenPickerBody": "Fa'amolemole toe taumafai La'u QR.",
+      "normalizedDecodeFailed": "E le mafai ona fa'avasegaina ata ua fa'avasegaina",
+      "clipboardImageLoadFailed": "Ua le mafai ona utaina ata o le laupapa",
+      "imageProcessingUnavailable": "E le'o avanoa le faiga o ata",
+      "imageProcessingUnavailableAlt": "E le maua le fa'agaioiga ata",
+      "noImageInClipboardTitle": "Leai se ata i le laupapa kilipa",
+      "noImageInClipboardBody": "Kopi se ata fa'ailoga QR, ona toe tap Pasi QR Ata.",
+      "clipboardUnavailableTitle": "Le avanoa le laupapa kilipa",
+      "clipboardUnavailableBody": "O tusitusiga laupapa e le o se seti fa'amaoni aoga URL. Kopi se ata otpauth:// URL poʻo le QR ma toe taumafai.",
+      "clipboardAccessBody": "KaalKey e le mafai ona faitau tusitusiga po o se ata mai le laupapa kilipa. Fa'ataga le avanoa o le laupapa kilipa, ona kopi lea o le ata QR po'o le otpauth:// URL ma oomi le Fa'apipi'i QR Ata / URL.",
+      "couldNotPasteImageTitle": "Le mafai ona faapipii ata",
+      "couldNotPasteImageBody": "E le lagolagoina e lenei laupapa kilipi i luga o lenei masini le faapipiiina o ata. Fa'aaoga ata Fa'aulufale mai QR.",
+      "sourceImageDecodeFailure": "Taumafai se ata ese QR.",
+      "pastedImportFailureBody": "Taumafai se ata ese QR.",
+      "sourceImageReadFailure": "Taumafai e kopi se ata manino QR.",
+      "importFailedTitle": "QR fa'aulufale mai ata ua le manuia",
+      "importFailedBody": "KaalKey sa le mafai ona faitau i lena ata. Fa'amolemole taumafai se isi QR ata fa'ailoga.",
+      "notFoundBody": "O le ata ua kopiina e le o iai se code QR e mafai ona faitau.",
+      "pastedNotFoundBody": "O le ata faapipii e le o iai se code QR e mafai ona faitau.",
+      "pastedReadFailureBody": "Taumafai e kopi se ata manino PNG po'o le JPEG o lo'o iai le fa'ailoga atoa QR.",
+      "noQrCodeTextBody": "KaalKey na suia le ata ua filifilia ae le'i maua se QR code. Fa'ata'ita'i se fa'ai'uga manino, atoatoa PNG po'o le JPEG fa'atasi ai ma le fa'ailoga atoa e iloa."
+    },
+    "totpImport": {
+      "invalidTotpCode": "O lenei QR code e le'o se fa'ailoga fa'amautu fa'amautu taimi.",
+      "missingAccountDetails": "O le code QR o lo'o misi fa'amatalaga tala.",
+      "unsupportedAlgorithm": "O le QR code e fa'aaogaina se algorithm e le'i lagolagoina.",
+      "unsupportedDigits": "O lenei QR code e tatau ona fa'aoga 6, 7, po'o le 8 numera.",
+      "unsupportedPeriod": "O lenei QR code e fa'aogaina ai se vaitaimi e le'i lagolagoina.",
+      "invalidAccount": "E le mafai ona fa'amaonia le code QR."
+    },
+    "backup": {
+      "invalidJson": "E le aoga le faila faila JSON.",
+      "unsupportedFormat": "E le'o se fa'ailoga fa'ailoga KaalKey lagolago.",
+      "invalidPasswordOrDamaged": "E le sa'o le upu faataga faaleoleo pe ua faaleagaina le faila faaleoleo.",
+      "invalidContents": "E le aoga pe le atoatoa mea o lo'o i tua.",
+      "secureRandomUnavailableDetailed": "E le maua se fa'atupu fa'afuase'i. Toe fau ma toe fa'apipi'i le Android app fa'atasi ai ma le expo-crypto, ona toe taumafai lea.",
+      "invalidAccountDataForBackup": "Tasi pe sili atu tala e le aoga. Fa'asa'o fa'amaumauga fa'amaumauga a'o le'i faia se fa'amaumauga.",
+      "invalidPasswordOrModified": "E le sa'o le upu faataga faaleoleo pe ua suia le faila faaleoleo.",
+      "invalidPasswordOrFileDamaged": "E le sa'o le upu fa'apolopolo pe fa'aleaga le faila.",
+      "passwordCopiedTitle": "Ua kopiina upu faataga",
+      "enterPasswordTitle": "Ulufale lau upu faataga faaleoleo",
+      "enterPasswordBody": "Ulufale i le upu faataga na faaaogaina ina ua faia lenei faaleoleo.",
+      "passwordCopiedBody": "Faasaoina i se mea saogalemu, pei o WhatsApp.",
+      "copyFailedTitle": "Ua le mafai ona kopi",
+      "copyFailedBody": "Filifili ma kopi le upu faataga ma le lima.",
+      "generatingPassword": "Fa'atupuina fa'amautu fa'amautu fa'asao...",
+      "encrypting": "Fa'ailogaina fa'amaumauga...",
+      "decrypting": "Fa'asalaina fa'amaumauga...",
+      "restoring": "Toe fa'afo'i fa'amatalaga...",
+      "backupCreatedTitle": "Fa'aola fa'aola",
+      "restoreCompleteTitle": "Toe fa'afo'i mae'a",
+      "mergeConfirmTitle": "Fa'atasi fa'amaumauga fa'amaumauga?",
+      "mergeConfirmButton": "Tuufaatasi tala",
+      "backupSavedTemporary": "Fa'ailoga fa'apolopolo na fa'asaoina mo sina taimi i:\n{uri}",
+      "generatePasswordErrorTitle": "Le mafai ona fa'atupuina fa'aupu fa'apolopolo",
+      "secureRandomUnavailable": "E le maua se fa'atupu fa'afuase'i.",
+      "passwordUnavailableTitle": "Ua le maua le upu faataga faaleoleo",
+      "passwordUnavailableBody": "Tapuni le talanoaga ma fai se faaleoleo fou e fausia ai se upu faataga saogalemu.",
+      "backupDownloadedBody": "O lau fa'ailoga KaalKey ua uma ona la'u mai. Taofi le faila ma le upu faataga faalilolilo.",
+      "backupFailedTitle": "Ua le manuia le faaleoleo",
+      "backupCreateErrorBody": "KaalKey e le mafai ona faia le faaleoleo.",
+      "restoreFailedTitle": "Ua le manuia le toefuataiga",
+      "backupReadErrorBody": "Sa le mafai ona faitau pe sefe le faaleoleo.",
+      "browserDownloadUnsupported": "E le lagolagoina e lau su'esu'e le la'uina o faila faaleoleo.",
+      "localFileUnavailable": "E le maua se nofoaga faila i lenei masini.",
+      "saveBackupTitle": "Sefe lau fa'ailoga KaalKey faaleoleo"
+    },
+    "clipboard": {
+      "copiedTitle": "Fa'ailoga ua kopiina",
+      "copiedBody": "Ua kopi lau fa'ailoga fa'amaonia.",
+      "errorTitle": "Sese",
+      "errorBody": "Le mafai ona kopi le fa'ailoga fa'amaonia."
+    },
+    "activity": {
+      "cameraReady": "Sauni meapueata. Faasino i le fa'amaonia QR code.",
+      "readingQrImage": "Faitau QR ata...",
+      "importingQrImage": "Fa'aulufaleina QR ata...",
+      "importingAccount": "Fa'aulufaleina mai le tala fa'amaoni...",
+      "importingPastedImage": "Fa'aulufaleina mai ata QR fa'apipi'i..."
+    }
+  },
+  "activity": {
+    "working": "Galuega",
+    "wait": "Fa'amolemole fa'atali...",
+    "donTClose": "Faamolemole aua le tapunia pe fegalegaleai ma KaalKey.",
+    "loadingLanguages": "La'uina gagana avanoa...",
+    "loadingTranslation": "Tu'u fa'aliliuga..."
+  }
+}

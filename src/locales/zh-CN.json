@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "语言",
+      "description": "选择KaalKey中使用的语言。",
+      "english": "英语",
+      "telugu": "泰卢固语",
+      "hindi": "印地语",
+      "section": "语言",
+      "searchLanguageName": "搜索语言（名称或代码）",
+      "searchSupportedLanguages": "搜索支持的语言",
+      "closeLanguageDropdown": "关闭语言下拉菜单",
+      "noTranslatedLanguage": "未找到翻译语言。",
+      "serverUrl": "翻译服务器URL",
+      "serverUrlDescription": "KaalKey从此服务器下载语言列表和翻译。",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "保存翻译服务器"
+    },
+    "title": "应用程序设置",
+    "eyebrow": "KAALKEY 偏好",
+    "experience": {
+      "section": "经验"
+    },
+    "security": {
+      "section": "安全性"
+    },
+    "backup": {
+      "section": "备份与恢复"
+    },
+    "danger": {
+      "section": "危险区域",
+      "clearAccounts": "清除所有账户",
+      "clearAccountsDescription": "从此设备中永久删除所有帐户和机密。先备份一下。",
+      "clearAccountsAccessibilityLabel": "清除所有验证者帐户"
+    },
+    "appearance": {
+      "section": "外观",
+      "title": "光亮外观",
+      "description": "KaalKey 目前使用其干净的浅色主题。"
+    },
+    "haptics": {
+      "title": "触觉反馈",
+      "description": "对点击和完成的操作进行温和的反馈。"
+    },
+    "deviceLock": {
+      "title": "设备认证锁",
+      "description": "当 KaalKey 离开前台时，你的保管库会锁定。",
+      "requirement": "需要您手机的生物识别信息或屏幕锁定 PIN、图案或密码。",
+      "accessibilityLabel": "设备认证应用锁"
+    },
+    "privacy": {
+      "title": "法律和隐私",
+      "description": "查看隐私政策和使用条款。",
+      "storageNote": "您的身份验证器机密保留在设备上的安全保管库中。首选项存储在本地。"
+    }
+  },
+  "accounts": {
+    "edit": "编辑",
+    "sortAccountName": "按账户名排序",
+    "loadingSecureVault": "正在加载安全保管库...",
+    "tapCopy": "点击复制",
+    "noAccountsMatch": "没有帐户符合您的搜索。",
+    "viewQrCode": "查看帐户的QR代码",
+    "removeAccount": "删除帐户",
+    "copyVerificationCode": "复制验证码",
+    "active": "活跃",
+    "sort": "排序依据",
+    "account": "账户",
+    "clearSearch": "清除搜索",
+    "sortServiceName": "按服务名称排序",
+    "addFirstAccount": "添加您的第一个帐户",
+    "searchAccounts": "搜索账户",
+    "searchServiceAccount": "搜索服务或帐户",
+    "accounts": "您的账户",
+    "add": "+ 添加",
+    "vaultStartsHere": "你的金库从这里开始",
+    "service": "服务",
+    "emptyHint": "使用其密钥添加帐户以生成您的第一个验证码。"
+  },
+  "common": {
+    "done": "完成",
+    "doneButton": "完成",
+    "closeSettings": "关闭设置",
+    "separator": "-",
+    "article": "一个",
+    "save": "保存",
+    "delete": "删除",
+    "resizeAppBrand": "调整应用程序和品牌面板的大小"
+  },
+  "qrImport": {
+    "readPastedImage": "无法读取粘贴的图像"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "此备份中的帐户：{count}。 KaalKey 将保留您现有的帐户并添加尚未存在的任何帐户。重复的帐户将被跳过。",
+    "restoreCompletionBody": "添加的帐户：{added}。已跳过重复帐户：{skipped}。您现有的帐户将被保留。",
+    "copyPassword": "复制生成的密码",
+    "passwordSafety": "单独保存此密码（例如，在 WhatsApp 中）。任何同时具备这两个条件的人",
+    "importAction": "选择文件并导入",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "安全保险库",
+    "createBackup": "创建备份",
+    "encryptedFile": "加密文件",
+    "restoreBackup": "恢复备份",
+    "safetyNote": "备份包含您的身份验证器机密。 KaalKey 为每个备份生成唯一的密码。单独保存； KaalKey无法恢复它。",
+    "generatingSecurePassword": "正在生成安全密码...",
+    "importFile": "导入文件",
+    "backupPassword": "备份密码",
+    "account": "帐户",
+    "accounts": "账户",
+    "exportDescription": "将所有保存的{accountLabel}{count}加密到备份文件中。 KaalKey生成唯一的密码；复制并与文件分开保存。",
+    "restoreDescription": "选择您的KaalKey备份文件和密码。新帐户将添加到您现有的帐户列表中；现有帐户将保持原样。",
+    "enterBackupPassword": "输入备份密码",
+    "closeBackup": "关闭备份",
+    "copyGeneratedBackup": "复制生成的备份密码",
+    "backupPassword2": "备份密码",
+    "clearBackupPassword": "清除备份密码",
+    "backupFilePassword": "备份文件和密码可以恢复您的验证器帐户。",
+    "encryptShareBackup": "加密和共享备份"
+  },
+  "home": {
+    "unlockSecurely": "安全解锁",
+    "disableAppLock": "禁用应用程序锁定",
+    "enableAppLock": "启用应用程序锁定",
+    "checkingSecureLock": "检查您的安全锁设置。您的代码仍然隐藏。",
+    "waitingVerification": "等待验证...",
+    "secretsStayStored": "您的秘密将保存在此设备上。",
+    "openAppSettings": "打开应用程序设置",
+    "versionLabel": "版本",
+    "unlockRequirement": "使用手机的生物识别或屏幕锁定 PIN、图案或密码来访问您的一次性验证码。",
+    "localVault": "您的本地金库",
+    "codesDeviceControl": "你的代码。你的设备。你的控制。",
+    "securingVault": "保护您的金库……",
+    "vaultProtected": "您的保管库受到保护",
+    "lock": "锁定",
+    "localVault2": "本地金库",
+    "authenticator": "KAALKEY 验证器",
+    "tricolourLockEmblem": "KaalKey三色锁徽",
+    "authenticator2": "验证器"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "如果您选择扫描 QR 代码，KaalKey 将使用相机权限执行该操作。可选的设备身份验证和触觉反馈使用相关设备功能。您可以在设备设置中管理权限。",
+        "heading": "2. 权限和设备功能"
+      },
+      "backups": {
+        "body": "创建备份时，KaalKey 使用您选择的密码加密备份。将文件和密码保密并安全存储。任何获得该文件及其密码的人都可以恢复您的身份验证器帐户。 KaalKey 无法恢复忘记的备份密码。",
+        "heading": "3. 备份"
+      },
+      "security": {
+        "body": "保持您的设备更新，使用屏幕锁定保护它，并且不要共享 OTP 机密或备份密码。删除应用程序、清除其数据或丢失设备可能会导致本地存储的帐户不可用。如果需要恢复，请维护安全备份。",
+        "heading": "5. 安全和保留"
+      },
+      "information": {
+        "heading": "1. 信息和秘密",
+        "body": "KaalKey 是一个身份验证器应用程序。生成一次性代码所需的帐户标签和秘密值是敏感的。该应用程序旨在将帐户记录存储在设备的安全存储中。任何有权访问解锁设备或导出备份的人都可能能够访问敏感信息。"
+      },
+      "sharing": {
+        "heading": "4. 共享和第三方",
+        "body": "备份流程可能会使用设备的共享表或文件选择器来保存、传输或选择文件。您选择的任何第三方应用程序或服务的隐私惯例均受该提供商的管辖。本通知并未全面声明您的设备、操作系统或选择的共享服务从不处理数据。"
+      },
+      "changes": {
+        "heading": "六、变更及联系方式",
+        "body": "此嵌入通知可能会在未来的应用程序版本中进行修改。对于隐私问题，请通过应用程序提供的官方支持渠道联系应用程序发布者。"
+      },
+      "title": "隐私政策"
+    },
+    "terms": {
+      "use": {
+        "body": "您可以使用KaalKey为您有权访问的帐户生成验证码。您有责任遵守适用的法律以及您使用身份验证码的服务的规则。",
+        "heading": "1.您的使用"
+      },
+      "protectAccounts": {
+        "body": "您负责保护您的设备、验证器机密、恢复方法、导出的备份和备份密码。不要与您不信任的人分享代码或秘密。",
+        "heading": "2. 保护您的帐户"
+      },
+      "availability": {
+        "body": "不同版本之间的功能可能会发生变化。您应该保持应用程序更新并定期验证您的备份和恢复安排是否有效。",
+        "heading": "5. 变更和可用性"
+      },
+      "recovery": {
+        "body": "KaalKey 无法保证每个帐户都可以恢复，每个 QR 代码或配置都兼容，或者应用程序运行时不会出现中断或错误。保留相关服务提供的替代恢复方法。",
+        "heading": "3.无恢复保证"
+      },
+      "advice": {
+        "heading": "4. 没有专业建议",
+        "body": "该应用程序是一个实用程序，不提供法律、财务或安全事件响应建议。如果帐户遭到泄露，请遵循受影响服务的官方恢复和安全指南。"
+      },
+      "liability": {
+        "heading": "6. 责任和适用法律",
+        "body": "在适用法律允许的范围内，提供的应用程序不保证不间断或无错误运行。这些条款中的任何内容均不排除无法合法排除的权利或补救措施。任何进一步的限制或适用法律条款应在发布前由出版商所在司法管辖区的合格律师进行审查。"
+      },
+      "title": "使用条款"
+    },
+    "version": "版本",
+    "saving": "正在保存...",
+    "acceptContinue": "接受并继续",
+    "appliesAuthenticator": "适用于KaalKey验证器",
+    "reviewBothDocuments": "请在使用 KaalKey 之前查看这两个文档。它们包含在应用程序中并且可以离线使用。",
+    "originalMulticolourAuthenticator": "原创多色 KaalKey 验证器徽章",
+    "legalPrivacyNotice": "法律和隐私声明",
+    "legalInformation": "法律信息",
+    "reviewSPrivacy": "查看 KaalKey 的隐私信息和使用条款。",
+    "iReadAgree": "我已阅读并同意隐私政策和使用条款。"
+  },
+  "qrScanner": {
+    "keepEntireQr": "保持整个 QR 代码可见。您的秘密保留在此设备上。",
+    "back": "返回",
+    "turnFlashlightOff": "关闭手电筒",
+    "turnFlashlight": "打开手电筒",
+    "flashlight": "手电筒打开",
+    "flashlight2": "手电筒",
+    "cameraUnavailableOpen": "相机不可用。在 HTTPS 或本地主机上打开此页面并允许相机访问。",
+    "cameraPreviewUnavailable": "相机预览不可用。关闭并重新打开扫描仪。",
+    "cameraReadyPoint": "相机准备就绪 — 将其指向完整的 QR 代码。",
+    "browserCannotProcess": "此浏览器无法处理相机帧。",
+    "qrCodeDetected": "检测到 QR 代码。",
+    "couldnTRead": "无法读取相机帧。检查相机权限并重新加载此页面。",
+    "cameraPermissionDenied": "相机权限被拒绝。在浏览器设置中允许相机访问，然后重新打开扫描仪。",
+    "noCameraWas": "在此设备上找不到相机。",
+    "cameraBusyAnother": "相机在另一个应用程序或浏览器选项卡中正忙。",
+    "startCameraHttps": "无法启动相机。使用 HTTPS 或本地主机并检查浏览器权限。",
+    "qrScannerCamera": "QR扫描仪相机预览",
+    "cameraUnavailableCheck": "相机不可用。检查相机权限并重试。",
+    "pointCameraAuthenticator": "将相机对准您要添加的服务中的验证器设置 QR 代码。",
+    "backAddAccount": "返回添加帐户",
+    "secureSetup": "安全设置",
+    "enterDetailsManually": "改为手动输入详细信息"
+  },
+  "accountForm": {
+    "hideManualEntry": "隐藏手动输入",
+    "secretKeySupplied": "使用您正在配置的服务提供的密钥。切勿在此输入您的帐户密码。将算法、位数和间隔与服务的设置说明相匹配。",
+    "updateServiceAccount": "更新服务、帐户名或密钥。",
+    "secretKeyRead": "密钥，编辑时只读",
+    "secretKeyBase32": "Base32 中的密钥",
+    "digits": "数字",
+    "seconds": "秒",
+    "enterDetailsManually": "或手动输入详细信息",
+    "enterDetailsManually2": "手动输入详细信息",
+    "serviceAccountName": "服务、账户名和密钥",
+    "saveChangesSecurely": "安全地保存更改",
+    "saveAccountSecurely": "安全保存帐户",
+    "serviceIssuer": "服务或发行人",
+    "accountName": "账户名称",
+    "secretKey": "秘钥",
+    "serviceIssuer2": "服务/发行人",
+    "eGGoogle": "例如谷歌",
+    "clearServiceIssuer": "明确的服务或发行人",
+    "eGExample": "例如你@example.com",
+    "clearAccountName": "清除账户名",
+    "secretKeyLocked": "秘密钥匙（已锁定）",
+    "secretKeyBase322": "秘密密钥（BASE32）",
+    "enterSetupKey": "输入您的设置密钥",
+    "clearSecretKey": "清除密钥",
+    "otpAlgorithm": "OTP 算法",
+    "otpDigits": "OTP 数字",
+    "refreshIntervalSeconds": "刷新间隔（秒）",
+    "otpRefreshInterval": "OTP 刷新间隔（以秒为单位）",
+    "closeAccountForm": "关闭账户表格",
+    "totpSetupUrl": "TOTP 设置 URL",
+    "importSetupUrl": "导入设置 URL",
+    "totpSetupUrl2": "TOTP 设置 URL",
+    "accountName2": "账户名称",
+    "addAccount": "添加帐户"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "扫描验证码QR码",
+    "setupGuidance": "扫描 QR 代码进行最简单的设置，或手动输入详细信息。",
+    "cameraAddAccount": "使用相机立即添加帐户",
+    "scanQrCode2": "扫描QR码",
+    "uploadQrImage": "上传QR图片",
+    "chooseQrScreenshot": "从图库、照片或文件中选择 QR 屏幕截图",
+    "pasteQr": "粘贴 QR 图像 / URL",
+    "pasteCopiedQr": "粘贴复制的 QR 图像或验证器设置 URL",
+    "uploadQrImage2": "上传QR图片"
+  },
+  "accountQr": {
+    "close": "关闭",
+    "accountQrCode": "账户QR代码",
+    "revealQrCode": "揭示QR代码",
+    "exportWarning": "警告：任何扫描此QR代码的人都可以为此帐户生成验证码。仅在受信任的屏幕上显示它。",
+    "privacyHint": "请将此 QR 代码保密。扫描它会复制帐户的身份验证器秘密。"
+  },
+  "productInfo": {
+    "backupRestore": "备份与恢复",
+    "backupRestoreDescription": "备份您的身份验证器数据，并在您移动到另一台设备时恢复它。",
+    "privacyDescription": "将您的验证帐户保存在一处。使用应用程序的备份、恢复和设备锁定选项来负责任地管理您的设置。",
+    "timeBasedCodes": "基于时间的代码",
+    "generateOneTimeCodes": "为您的帐户生成轮换一次性密码以完成两步验证。",
+    "quickAccountSetup": "快速帐户设置",
+    "quickSetupDescription": "扫描验证器 QR 代码或导入 QR 图片以添加帐户。",
+    "accountsOnePlace": "账户集中在一处",
+    "accountsInOnePlaceDescription": "将您保存的帐户保存在一起，并在需要登录时找到正确的条目。",
+    "privateAccountVault": "私人账户金库",
+    "privateVaultDescription": "在本地管理您的身份验证器条目并使用应用程序的可用设备锁定选项。",
+    "easyCodeAccess": "轻松访问代码",
+    "easyCodeAccessDescription": "通过干净、集中的界面复制当前代码或管理帐户详细信息。",
+    "authenticatorTechsivaram": "身份验证器·由 TECHSIVARAM 提供",
+    "mobileAuthenticator": "您的移动验证器",
+    "tagline": "管理两步验证的更简单方法。",
+    "heroDescription": "针对基于时间的验证码的专注身份验证器体验。使用 Android 的 KaalKey 将兼容的帐户代码放在手边。",
+    "timeBasedCodes2": "基于时间的代码",
+    "privateDesign": "私密设计",
+    "builtSimpleAuthenticator": "专为简单的验证器工作流程而构建",
+    "qrSetupTimed": "QR 设置·定时代码·账户管理",
+    "privacyTitle": "你的账户。你的代码。你的控制。",
+    "authenticator": "KAALKEY · 验证器",
+    "brandBanner": "KaalKey品牌横幅",
+    "logo": "KaalKey标志"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "取消",
+      "storageInvalidTitle": "存储数据无效",
+      "storageInvalidBody": "无法安全读取保存的帐户数据。",
+      "storageErrorTitle": "存储错误",
+      "storageErrorBody": "无法加载已保存的帐户。",
+      "missingTitle": "缺少信息",
+      "missingEditingBody": "输入服务名称和帐户名称。",
+      "missingBody": "输入服务名称、帐户名称和密钥。",
+      "invalidOtpBody": "检查Base32秘密、算法、位数和刷新周期。机密必须包含有效的 Base32 字符；数字必须为 {digits}，周期必须为 {minPeriod}–{maxPeriod} 秒。",
+      "duplicateBody": "已保存具有此服务和帐户名的帐户。",
+      "updatedBody": "您的帐户已更新。",
+      "addedBody": "您的帐户已安全添加。",
+      "invalidOtpTitle": "OTP 设置无效",
+      "duplicateTitle": "帐户已存在",
+      "savedTitle": "帐户已保存",
+      "invalidSecretTitle": "密钥无效",
+      "invalidSecretBody": "请检查您是否输入了有效的 Base32 密码。",
+      "removedTitle": "帐户已删除",
+      "removedBody": "该帐户及其密码已从此设备中删除。",
+      "clearedTitle": "账户清算",
+      "clearedBody": "所有身份验证器帐户和机密均已从此设备中删除。",
+      "someSavedAccountsNeedAttentionTitle": "一些已保存的帐户需要注意",
+      "someSavedAccountsNeedAttentionBody": "{count} 未加载无效帐户记录。有效帐户仍然可用。考虑在进行进一步更改之前创建备份。",
+      "removeConfirmTitle": "删除帐户？",
+      "removeConfirmWebTitle": "删除帐户？",
+      "removeButton": "删除",
+      "clearButton": "全部清除",
+      "clearConfirmTitle": "清除所有帐户？",
+      "saveErrorBody": "帐户无法保存。检查浏览器存储可用性并重试。",
+      "notFoundTitle": "未找到帐户",
+      "notFoundBody": "找不到该帐户。关闭编辑器并重试。",
+      "removeConfirmBody": "这将从该设备中删除该帐户及其密码。",
+      "clearConfirmBody": "这将从该设备中永久删除所有身份验证器帐户及其机密。如果您稍后可能需要这些帐户，请先创建加密备份。",
+      "clearConfirmUndoBody": "此操作无法撤消。"
+    },
+    "biometric": {
+      "cancelButton": "取消",
+      "saveErrorTitle": "无法保存设置",
+      "unlockPrompt": "解锁KaalKey身份验证器",
+      "promptSubtitle": "使用生物识别技术或设备屏幕锁定",
+      "disableConfirmPrompt": "确认关闭KaalKey应用锁",
+      "enablePrompt": "为 KaalKey 启用应用程序锁定",
+      "deviceLockTitle": "设置您的设备屏幕锁定",
+      "deviceLockBody": "KaalKey 使用手机的内置身份验证。在手机的安全设置中设置设备 PIN、图案或密码，然后重试。生物识别技术是可选的。",
+      "unavailableTitle": "设备认证不可用",
+      "unavailableBody": "您的手机无法启动安全身份验证。检查是否配置了设备屏幕锁定，然后重试。",
+      "lockedTitle": "身份验证暂时锁定",
+      "lockedBody": "您的手机在多次尝试后暂时禁用了身份验证。等待并重试。",
+      "promptErrorTitle": "无法验证",
+      "promptErrorBody": "KaalKey无法启动手机的安全验证提示。请再试一次。",
+      "webLock": "网页版暂不支持设备认证锁。网络保险库保持解锁状态；使用 Android 应用程序进行本机设备身份验证。",
+      "disabledTitle": "应用程序锁定已禁用",
+      "disabledBody": "KaalKey应用程序锁定已关闭。",
+      "disableSaveError": "应用程序锁保持启用状态。请再试一次。",
+      "enabledTitle": "已启用应用程序锁定",
+      "enabledBody": "KaalKey 在打开和返回手机时会请求手机的内置身份验证。",
+      "enableSaveError": "无法启用应用程序锁定。请再试一次。"
+    },
+    "qr": {
+      "startingCamera": "启动相机...",
+      "unsupportedTitle": "不支持的 QR 代码",
+      "unsupportedBody": "扫描服务提供的验证器设置 QR 代码。这必须是 TOTP 代码，而不是正常的登录 QR 代码。",
+      "unsupportedDiagnostic": "QR 不是 TOTP 设置代码。针对身份验证器设置 QR。",
+      "detectedDiagnostic": "检测到 QR。正在分析……",
+      "analyzing": "正在分析 QR 代码...",
+      "duplicateTitle": "账户已添加",
+      "duplicateBody": "{issuer}：{account}已在KaalKey中。",
+      "addedTitle": "帐户已添加",
+      "addedBody": "{issuer}：{account}添加成功。",
+      "saveFailedDiagnostic": "无法保存帐户。您可以再次扫描。",
+      "invalidTitle": "QR 代码无效",
+      "invalidBody": "KaalKey 无法解析此验证器 QR 代码。 {detail}。使用服务的 TOTP 设置 QR 代码（通常以 {prefix} 开头）。",
+      "parseFailedDiagnostic": "QR 无法处理。瞄准设置QR并重试。",
+      "invalidUrlTitle": "无效 TOTP URL",
+      "invalidUrlBody": "粘贴以 {prefix} 开头的完整身份验证器 URL。",
+      "clipboardEmptyTitle": "剪贴板为空",
+      "clipboardEmptyBody": "首先复制 {prefix} URL，然后点击粘贴 TOTP URL。",
+      "clipboardErrorTitle": "无法读取剪贴板",
+      "clipboardErrorBody": "复制 TOTP 设置 URL 并重试。"
+    },
+    "haptics": {
+      "saveFailedTitle": "无法保存设置",
+      "saveFailedBody": "无法保存触觉反馈首选项。请再试一次。"
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "无法保存确认信息",
+      "saveFailedBody": "请再试一次。在使用KaalKey之前，您必须接受法律声明。"
+    },
+    "cameraPermission": {
+      "title": "需要相机许可",
+      "body": "允许摄像头访问以扫描验证器设置 QR 代码。"
+    },
+    "storage": {
+      "browserUnavailable": "浏览器存储不可用。",
+      "browserFilePickerUnavailable": "浏览器文件选择器不可用。"
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "不支持的文件",
+      "unsupportedFileBody": "选择 QR 代码图像，例如 PNG 或 JPEG。",
+      "browserDecoderUnavailable": "浏览器图像解码不可用",
+      "imageLoadFailed": "图片无法加载",
+      "unreadableDimensions": "图像没有可读的尺寸",
+      "noQrCodeFoundTitle": "未找到 QR 代码",
+      "noQrCodeFoundBody": "KaalKey 无法解码此图像中的 QR 代码。尝试使用屏幕截图或更高分辨率 PNG/JPEG。",
+      "couldNotReadImageTitle": "无法读取图像",
+      "couldNotReadImageBody": "尝试使用包含验证器设置 QR 代码的清晰 PNG 或 JPEG 图像。",
+      "couldNotOpenPickerTitle": "无法打开图像选择器",
+      "couldNotOpenPickerBody": "请再次尝试上传 QR。",
+      "normalizedDecodeFailed": "标准化图像无法解码",
+      "clipboardImageLoadFailed": "无法加载剪贴板图像",
+      "imageProcessingUnavailable": "图像处理不可用",
+      "imageProcessingUnavailableAlt": "图像处理不可用",
+      "noImageInClipboardTitle": "剪贴板中没有图像",
+      "noImageInClipboardBody": "复制 QR 代码图像，然后再次点击粘贴 QR 图像。",
+      "clipboardUnavailableTitle": "剪贴板不可用",
+      "clipboardUnavailableBody": "剪贴板文本不是有效的验证器设置 URL。复制 otpauth:// URL 或 QR 图像，然后重试。",
+      "clipboardAccessBody": "KaalKey 无法从剪贴板读取文本或图像。允许剪贴板访问，然后复制 QR 图像或 otpauth:// URL 并再次点击粘贴 QR 图像 / URL。",
+      "couldNotPasteImageTitle": "无法粘贴图像",
+      "couldNotPasteImageBody": "此设备上的剪贴板不支持图像粘贴。请改用导入 QR 图像。",
+      "sourceImageDecodeFailure": "尝试不同的 QR 图像。",
+      "pastedImportFailureBody": "尝试不同的 QR 图像。",
+      "sourceImageReadFailure": "尝试复制清晰的 QR 屏幕截图。",
+      "importFailedTitle": "QR图片导入失败",
+      "importFailedBody": "KaalKey 无法读取该图像。请尝试另一个QR代码图像。",
+      "notFoundBody": "复制的图像不包含可读的 QR 代码。",
+      "pastedNotFoundBody": "粘贴的图像不包含可读的 QR 代码。",
+      "pastedReadFailureBody": "尝试复制包含完整 QR 代码的清晰 PNG 或 JPEG 图像。",
+      "noQrCodeTextBody": "KaalKey 解码了所选图像，但未找到 QR 代码。尝试使用清晰、全分辨率的 PNG 或 JPEG 并显示整个代码。"
+    },
+    "totpImport": {
+      "invalidTotpCode": "此 QR 代码不是基于时间的验证器设置代码。",
+      "missingAccountDetails": "QR 代码缺少帐户详细信息。",
+      "unsupportedAlgorithm": "QR 代码使用不受支持的算法。",
+      "unsupportedDigits": "此 QR 代码必须使用 6、7 或 8 位数字。",
+      "unsupportedPeriod": "此 QR 代码使用了不受支持的时间段。",
+      "invalidAccount": "无法验证 QR 代码。"
+    },
+    "backup": {
+      "invalidJson": "备份文件无效 JSON。",
+      "unsupportedFormat": "这不是受支持的 KaalKey 加密备份。",
+      "invalidPasswordOrDamaged": "备份密码不正确或备份文件已损坏。",
+      "invalidContents": "备份内容无效或不完整。",
+      "secureRandomUnavailableDetailed": "安全随机生成不可用。重建并重新安装包含 expo-crypto 的 Android 应用程序，然后重试。",
+      "invalidAccountDataForBackup": "一个或多个帐户无效。创建备份之前修复帐户数据。",
+      "invalidPasswordOrModified": "备份密码不正确或备份文件已被修改。",
+      "invalidPasswordOrFileDamaged": "备份密码不正确或文件已损坏。",
+      "passwordCopiedTitle": "密码已复制",
+      "enterPasswordTitle": "输入您的备份密码",
+      "enterPasswordBody": "输入创建此备份时使用的密码。",
+      "passwordCopiedBody": "将其保存在安全的地方，例如 WhatsApp。",
+      "copyFailedTitle": "复制失败",
+      "copyFailedBody": "手动选择并复制密码。",
+      "generatingPassword": "正在生成安全备份密码...",
+      "encrypting": "加密备份...",
+      "decrypting": "正在解密备份...",
+      "restoring": "正在恢复帐户...",
+      "backupCreatedTitle": "已创建备份",
+      "restoreCompleteTitle": "恢复完成",
+      "mergeConfirmTitle": "合并备份帐户？",
+      "mergeConfirmButton": "合并账户",
+      "backupSavedTemporary": "加密备份暂时保存在：\n{uri}",
+      "generatePasswordErrorTitle": "无法生成备份密码",
+      "secureRandomUnavailable": "安全随机生成不可用。",
+      "passwordUnavailableTitle": "备份密码不可用",
+      "passwordUnavailableBody": "关闭此对话框并创建新的备份以生成安全密码。",
+      "backupDownloadedBody": "您的加密 KaalKey 备份已下载。将文件和密码保密。",
+      "backupFailedTitle": "备份失败",
+      "backupCreateErrorBody": "KaalKey 无法创建备份。",
+      "restoreFailedTitle": "恢复失败",
+      "backupReadErrorBody": "无法读取或保存备份。",
+      "browserDownloadUnsupported": "您的浏览器不支持下载备份文件。",
+      "localFileUnavailable": "该设备上的本地文件位置不可用。",
+      "saveBackupTitle": "保存加密的 KaalKey 备份"
+    },
+    "clipboard": {
+      "copiedTitle": "复制代码",
+      "copiedBody": "您的验证码已被复制。",
+      "errorTitle": "错误",
+      "errorBody": "无法复制验证码。"
+    },
+    "activity": {
+      "cameraReady": "相机准备好了。将其指向验证器 QR 代码。",
+      "readingQrImage": "正在阅读 QR 图像...",
+      "importingQrImage": "正在导入 QR 图像...",
+      "importingAccount": "正在导入验证器帐户...",
+      "importingPastedImage": "正在导入粘贴的 QR 图像..."
+    }
+  },
+  "activity": {
+    "working": "工作",
+    "wait": "请稍等...",
+    "donTClose": "请不要关闭KaalKey或与KaalKey互动。",
+    "loadingLanguages": "正在加载可用语言...",
+    "loadingTranslation": "正在加载翻译..."
+  }
+}

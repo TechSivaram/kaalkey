@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Lus",
+      "description": "Xaiv hom lus siv hauv KaalKey.",
+      "english": "Lus Askiv",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "LANGUAGE",
+      "searchLanguageName": "Nrhiav hom lus (npe lossis chaws)",
+      "searchSupportedLanguages": "Nrhiav cov lus txhawb nqa",
+      "closeLanguageDropdown": "Kaw cov lus dropdown",
+      "noTranslatedLanguage": "Tsis pom cov lus txhais.",
+      "serverUrl": "Txhais neeg rau zaub mov URL",
+      "serverUrlDescription": "KaalKey rub tawm cov npe lus thiab kev txhais lus los ntawm lub server no.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Txuag neeg rau zaub mov"
+    },
+    "title": "App nqis",
+    "eyebrow": "KAALKEY TSEEM CEEB",
+    "experience": {
+      "section": "EXPERIENCE"
+    },
+    "security": {
+      "section": "Kev ruaj ntseg"
+    },
+    "backup": {
+      "section": "Thaub qab & RECOVERY"
+    },
+    "danger": {
+      "section": "DANGER ZONE",
+      "clearAccounts": "Tshem tag nrho cov nyiaj",
+      "clearAccountsDescription": "Tshem tawm txhua tus account thiab zais cia ntawm lub cuab yeej no. Thaub qab ua ntej.",
+      "clearAccountsAccessibilityLabel": "Tshem tawm tag nrho cov nyiaj authenticator"
+    },
+    "appearance": {
+      "section": "TSEEM CEEB",
+      "title": "Lub teeb pom kev zoo",
+      "description": "KaalKey tam sim no siv nws lub teeb huv si."
+    },
+    "haptics": {
+      "title": "Haptic tawm tswv yim",
+      "description": "Cov lus pom zoo rau cov kais dej thiab ua tiav cov haujlwm."
+    },
+    "deviceLock": {
+      "title": "Device authentication xauv",
+      "description": "Koj lub vault xauv thaum KaalKey tawm hauv pem hauv ntej.",
+      "requirement": "Xav kom koj lub xov tooj biometrics lossis npo-lock PIN, qauv, lossis tus password.",
+      "accessibilityLabel": "Ntaus authentication app xauv"
+    },
+    "privacy": {
+      "title": "Txoj cai & ntiag tug",
+      "description": "Tshawb xyuas Txoj Cai Tswjfwm Ntiag Tug thiab Cov Cai Siv.",
+      "storageNote": "Koj cov ntaub ntawv pov thawj tus neeg pov thawj zais cia nyob hauv qhov chaw ruaj ntseg ntawm lub cuab yeej. Cov kev nyiam raug khaws cia hauv zos."
+    }
+  },
+  "accounts": {
+    "edit": "Kho kom raug",
+    "sortAccountName": "Xaiv los ntawm tus account lub npe",
+    "loadingSecureVault": "Loading ruaj ntseg vault...",
+    "tapCopy": "Coj mus rhaub rau luam",
+    "noAccountsMatch": "Tsis muaj ib tus as khauj phim koj qhov kev tshawb nrhiav.",
+    "viewQrCode": "Saib QR code rau tus account",
+    "removeAccount": "Tshem tawm tus account",
+    "copyVerificationCode": "Luam cov lej pov thawj",
+    "active": "ACTIVE",
+    "sort": "SAIB BY",
+    "account": "Tus account",
+    "clearSearch": "Tshawb nrhiav kom meej",
+    "sortServiceName": "Xaiv los ntawm kev pabcuam npe",
+    "addFirstAccount": "Ntxiv koj thawj tus account",
+    "searchAccounts": "Nrhiav nyiaj",
+    "searchServiceAccount": "Nrhiav kev pabcuam lossis tus account",
+    "accounts": "Koj tus account",
+    "add": "+ Ntxiv",
+    "vaultStartsHere": "Koj lub vault pib ntawm no",
+    "service": "Kev pabcuam",
+    "emptyHint": "Ntxiv ib tus as-qhauj siv nws tus yuam sij zais cia los tsim koj tus lej pov thawj thawj zaug."
+  },
+  "common": {
+    "done": "Ua tiav",
+    "doneButton": "Ua tiav",
+    "closeSettings": "Kaw qhov chaw",
+    "separator": "-",
+    "article": "a",
+    "save": "Txuag",
+    "delete": "Rho tawm",
+    "resizeAppBrand": "Resize app thiab hom panels"
+  },
+  "qrImport": {
+    "readPastedImage": "Nyeem tsis tau daim duab pasted"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Cov nyiaj hauv qhov thaub qab no: {count}. KaalKey yuav khaws koj cov nyiaj uas twb muaj lawm thiab ntxiv cov nyiaj uas tsis tau muaj lawm. Duplicate accounts yuav raug hla.",
+    "restoreCompletionBody": "Cov nyiaj ntxiv: {added}. Duplicate accounts hla: {skipped}. Koj cov nyiaj uas twb muaj lawm tau khaws cia.",
+    "copyPassword": "Luam theej generated password",
+    "passwordSafety": "Txuag tus password no cais (piv txwv li, hauv WhatsApp). Leej twg nrog ob lub",
+    "importAction": "Xaiv cov ntaub ntawv thiab import",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "TSEEM CEEB VAULT",
+    "createBackup": "Tsim thaub qab",
+    "encryptedFile": "Cov ntaub ntawv encrypted",
+    "restoreBackup": "Restore thaub qab",
+    "safetyNote": "Cov thaub qab muaj koj cov ntaub ntawv pov thawj zais cia. KaalKey tsim tus password tshwj xeeb rau txhua qhov thaub qab. Txuag nws nyias; KaalKey rov qab tsis tau.",
+    "generatingSecurePassword": "Kev tsim tus password ruaj ntseg…",
+    "importFile": "Ntshuam cov ntaub ntawv",
+    "backupPassword": "Thaub qab PASSWORD",
+    "account": "tus account",
+    "accounts": "nyiaj",
+    "exportDescription": "Encrypt tag nrho {count} cawm {accountLabel} rau hauv cov ntaub ntawv thaub qab. KaalKey tsim tus password tshwj xeeb; luam thiab khaws nws cais ntawm cov ntaub ntawv.",
+    "restoreDescription": "Xaiv koj KaalKey cov ntaub ntawv thaub qab thiab tus password. Cov nyiaj tshiab yuav muab ntxiv rau hauv koj daim ntawv teev npe uas twb muaj lawm; cov nyiaj uas twb muaj lawm yuav nyob li qub.",
+    "enterBackupPassword": "Sau tus password thaub qab",
+    "closeBackup": "Kaw thaub qab",
+    "copyGeneratedBackup": "Luam theej generated backup password",
+    "backupPassword2": "Backup password",
+    "clearBackupPassword": "Clear backup password",
+    "backupFilePassword": "cov ntaub ntawv thaub qab thiab tus password tuaj yeem rov qab tau koj tus lej pov thawj.",
+    "encryptShareBackup": "Encrypt thiab sib qhia thaub qab"
+  },
+  "home": {
+    "unlockSecurely": "Xauv kom ruaj ntseg",
+    "disableAppLock": "Disable app xauv",
+    "enableAppLock": "Qhib app xauv",
+    "checkingSecureLock": "Tshawb xyuas koj qhov chaw xauv ruaj ntseg. Koj cov lej tseem zais.",
+    "waitingVerification": "Tos rau kev txheeb xyuas…",
+    "secretsStayStored": "Koj cov lus zais cia nyob hauv lub cuab yeej no.",
+    "openAppSettings": "Qhib app nqis",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "Siv koj lub xov tooj biometrics lossis npo-lock PIN, qauv, lossis tus password kom nkag mus rau koj cov lej pov thawj ib zaug.",
+    "localVault": "KOJ LUB CHAW UA HAUJ LWM",
+    "codesDeviceControl": "Koj cov lej. Koj ntaus ntawv. Koj tswj.",
+    "securingVault": "Kev ruaj ntseg ntawm koj lub vault…",
+    "vaultProtected": "Koj lub vault muaj kev tiv thaiv",
+    "lock": "LOCK RAU",
+    "localVault2": "LOCAL VAULT",
+    "authenticator": "KAALKEY AUTHENTICATOR",
+    "tricolourLockEmblem": "KaalKey tricolor lock emblem",
+    "authenticator2": "AUTHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Yog tias koj xaiv los luam theej duab QR code, KaalKey siv lub koob yees duab tso cai rau qhov kev txiav txim ntawd. Kev xaiv cov cuab yeej authentication thiab haptic tawm tswv yim siv cov cuab yeej cuam tshuam. Koj tuaj yeem tswj hwm kev tso cai hauv koj lub cuab yeej teeb tsa.",
+        "heading": "2. Kev tso cai thiab cov cuab yeej cuab tam"
+      },
+      "backups": {
+        "body": "Thaum koj tsim ib qho thaub qab, KaalKey encrypts lub thaub qab siv tus password koj xaiv. Khaws cov ntaub ntawv thiab lo lus zais ntiag tug thiab khaws cia kom zoo. Txhua tus neeg uas tau txais cov ntaub ntawv thiab nws lo lus zais tuaj yeem rov qab tau koj tus lej pov thawj. KaalKey rov qab tsis nco qab tus password thaub qab.",
+        "heading": "3. Thaub qab"
+      },
+      "security": {
+        "body": "Khaws koj lub cuab yeej hloov kho tshiab, tiv thaiv nws nrog lub xauv npo, thiab tsis txhob qhia OTP cov lus zais lossis cov password thaub qab. Tshem tawm lub app, tshem tawm nws cov ntaub ntawv, lossis poob lub cuab yeej yuav ua rau cov nyiaj khaws cia hauv zos tsis muaj. Khaws ib tug ruaj ntseg thaub qab yog tias koj xav tau rov qab.",
+        "heading": "5. Kev ruaj ntseg thiab khaws cia"
+      },
+      "information": {
+        "heading": "1. Cov ntaub ntawv thiab zais cia",
+        "body": "KaalKey yog authenticator app. Cov ntawv sau nyiaj thiab cov txiaj ntsig zais cia uas xav tau los tsim cov lej ib zaug yog qhov nkag siab. Lub app yog tsim los khaws cov ntaub ntawv tus account hauv lub cuab yeej kev ruaj ntseg cia. Txhua tus neeg uas muaj kev nkag mus rau lub cuab yeej xauv los yog xa tawm thaub qab tuaj yeem nkag mus rau cov ntaub ntawv rhiab heev."
+      },
+      "sharing": {
+        "heading": "4. Sib koom thiab thib peb tog",
+        "body": "Cov thaub qab ntws tuaj yeem siv koj lub cuab yeej sib qhia cov ntawv lossis cov ntawv xaiv khaws cia, hloov pauv, lossis xaiv cov ntaub ntawv. Cov kev coj ua ntiag tug ntawm ib tus neeg thib peb app lossis kev pabcuam koj xaiv yog tswj hwm los ntawm tus kws kho mob ntawd. Daim ntawv ceeb toom no tsis ua daim pam thov tias koj lub cuab yeej, kev khiav haujlwm, lossis cov kev xaiv sib koom tsis tau ua cov ntaub ntawv."
+      },
+      "changes": {
+        "heading": "6. Hloov thiab tiv tauj",
+        "body": "Daim ntawv ceeb toom embedded no yuav raug kho nyob rau hauv ib tug yav tom ntej app tso tawm. Rau cov lus nug txog kev ceev ntiag tug, hu rau tus tshaj tawm app los ntawm kev txhawb nqa channel uas muab nrog lub app."
+      },
+      "title": "Txoj Cai Tswjfwm Ntiag Tug"
+    },
+    "terms": {
+      "use": {
+        "body": "Koj tuaj yeem siv KaalKey los tsim cov lej pov thawj rau cov nyiaj koj tau tso cai nkag mus. Koj yog lub luag haujlwm rau ua raws li cov cai thiab cov cai ntawm cov kev pabcuam uas koj siv cov lej pov thawj.",
+        "heading": "1. Koj siv"
+      },
+      "protectAccounts": {
+        "body": "Koj yog lub luag haujlwm rau kev ruaj ntseg koj lub cuab yeej, cov ntaub ntawv pov thawj tsis pub leej twg paub, txoj hauv kev rov qab los, xa tawm thaub qab, thiab cov passwords thaub qab. Tsis txhob muab cov lej lossis cov zais zais rau cov neeg koj tsis ntseeg.",
+        "heading": "2. Tiv thaiv koj cov nyiaj"
+      },
+      "availability": {
+        "body": "Cov yam ntxwv yuav hloov ntawm kev tso tawm. Koj yuav tsum ua kom lub app hloov kho thiab tshawb xyuas ib ntus tias koj cov ntaub ntawv thaub qab thiab rov qab ua haujlwm.",
+        "heading": "5. Kev hloov pauv thiab muaj"
+      },
+      "recovery": {
+        "body": "KaalKey tsis tuaj yeem lav tias txhua tus account tuaj yeem rov qab tau, tias txhua QR code lossis configuration yuav sib xws, lossis tias lub app yuav ua haujlwm yam tsis muaj kev cuam tshuam lossis yuam kev. Khaws lwm txoj hauv kev rov qab los ntawm cov kev pabcuam cuam tshuam.",
+        "heading": "3. Tsis muaj kev lav phib xaub rov qab"
+      },
+      "advice": {
+        "heading": "4. Tsis muaj tswv yim tshaj lij",
+        "body": "Lub app yog cov khoom siv hluav taws xob thiab tsis muab cov lus qhia txog kev cai lij choj, nyiaj txiag, lossis kev nyab xeeb teb. Yog tias tus as khauj raug cuam tshuam, ua raws li cov kev pabcuam cuam tshuam txog kev rov qab los thiab cov lus qhia kev nyab xeeb."
+      },
+      "liability": {
+        "heading": "6. Kev lav phib xaub thiab txoj cai siv tau",
+        "body": "Raws li kev tso cai los ntawm txoj cai lij choj, lub app yog muab yam tsis muaj kev lav phib xaub ntawm kev ua haujlwm tsis muaj kev cuam tshuam lossis yuam kev. Tsis muaj ib yam dab tsi hauv cov ntsiab lus no tsis suav nrog cov cai lossis kev kho mob uas tsis tuaj yeem raug cai raug cais tawm. Ib qho kev txwv ntxiv lossis cov cai tswjfwm yuav tsum tau tshuaj xyuas los ntawm tus kws lij choj uas tsim nyog rau tus tshaj tawm txoj cai lij choj ua ntej tso tawm."
+      },
+      "title": "Cov ntsiab lus ntawm kev siv"
+    },
+    "version": "Version",
+    "saving": "Txuag…",
+    "acceptContinue": "Txais & Txuas ntxiv",
+    "appliesAuthenticator": "Siv rau KaalKey Authenticator",
+    "reviewBothDocuments": "Thov tshuaj xyuas ob cov ntaub ntawv ua ntej siv KaalKey. Lawv suav nrog hauv app thiab muaj nyob offline.",
+    "originalMulticolourAuthenticator": "Original multicolour KaalKey authenticator emblem",
+    "legalPrivacyNotice": "Daim Ntawv Ceeb Toom Kev Cai & Tsis Pub Leej Twg Paub",
+    "legalInformation": "Cov ntaub ntawv raug cai",
+    "reviewSPrivacy": "Saib xyuas KaalKey cov ntaub ntawv ntiag tug thiab cov ntsiab lus ntawm kev siv.",
+    "iReadAgree": "Kuv tau nyeem thiab pom zoo rau Txoj Cai Tswjfwm Ntiag Tug thiab Cov Cai Siv."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Khaws tag nrho QR chaws pom. Koj qhov zais cia nyob hauv lub cuab yeej no.",
+    "back": "Rov qab",
+    "turnFlashlightOff": "Tua lub teeb nyem",
+    "turnFlashlight": "Tig lub teeb nyem",
+    "flashlight": "Teeb nyem rau",
+    "flashlight2": "Teeb nyem",
+    "cameraUnavailableOpen": "Lub koob yees duab tsis muaj. Qhib nplooj ntawv no ntawm HTTPS lossis localhost thiab tso cai rau lub koob yees duab nkag.",
+    "cameraPreviewUnavailable": "Lub koob yees duab saib ua ntej tsis muaj. Kaw thiab rov qhib lub scanner.",
+    "cameraReadyPoint": "Lub koob yees duab npaj txhij — taw tes nws ntawm tag nrho QR code.",
+    "browserCannotProcess": "Qhov browser no tsis tuaj yeem ua cov koob yees duab thav duab.",
+    "qrCodeDetected": "QR code ntes tau.",
+    "couldnTRead": "Nyeem tsis tau lub koob yees duab ncej. Tshawb xyuas lub koob yees duab tso cai thiab rov qhib nplooj ntawv no.",
+    "cameraPermissionDenied": "Lub koob yees duab tso cai tsis kam. Tso cai rau lub koob yees duab nkag rau hauv qhov browser nqis, tom qab ntawd rov qhib lub scanner.",
+    "noCameraWas": "Tsis pom lub koob yees duab ntawm lub cuab yeej no.",
+    "cameraBusyAnother": "Lub koob yees duab tsis khoom nyob rau hauv lwm app lossis browser tab.",
+    "startCameraHttps": "Pib lub koob yees duab tsis tau. Siv HTTPS lossis localhost thiab tshawb xyuas qhov browser tso cai.",
+    "qrScannerCamera": "QR scanner lub koob yees duab saib ua ntej",
+    "cameraUnavailableCheck": "Lub koob yees duab tsis muaj. Tshawb xyuas lub koob yees duab tso cai thiab sim dua.",
+    "pointCameraAuthenticator": "taw tes rau koj lub koob yees duab ntawm lub authenticator teeb QR chaws los ntawm cov kev pab cuam koj ntxiv.",
+    "backAddAccount": "Rov qab mus ntxiv tus account",
+    "secureSetup": "TSEEM CEEB",
+    "enterDetailsManually": "Sau cov ntsiab lus manually hloov"
+  },
+  "accountForm": {
+    "hideManualEntry": "Nkaum phau ntawv nkag",
+    "secretKeySupplied": "Siv tus yuam sij zais cia uas muab los ntawm kev pabcuam koj tab tom teeb tsa. Tsis txhob sau koj tus lej password ntawm no. Sib piv cov algorithm, tus lej suav, thiab ncua sij hawm rau cov kev pabcuam teeb tsa cov lus qhia.",
+    "updateServiceAccount": "Hloov kho qhov kev pabcuam, lub npe tus lej, lossis tus yuam sij zais cia.",
+    "secretKeyRead": "Tus yuam sij zais cia, nyeem nkaus xwb thaum kho",
+    "secretKeyBase32": "Secret key nyob rau hauv Base32",
+    "digits": "tus lej",
+    "seconds": "vib nas this",
+    "enterDetailsManually": "LUB SIJ HAWM NTAWM MANUALLY",
+    "enterDetailsManually2": "Sau cov ntsiab lus manually",
+    "serviceAccountName": "Kev pabcuam, lub npe tus lej thiab tus yuam sij zais cia",
+    "saveChangesSecurely": "Txuag cov kev hloov kom ruaj ntseg",
+    "saveAccountSecurely": "Txuag tus account kom ruaj ntseg",
+    "serviceIssuer": "Service los yog issuer",
+    "accountName": "Tus account npe",
+    "secretKey": "Tus yuam sij zais cia",
+    "serviceIssuer2": "SERVICE / ISSUER",
+    "eGGoogle": "e.g. Google",
+    "clearServiceIssuer": "Clear kev pab cuam los yog issuer",
+    "eGExample": "e.g. koj@example.com",
+    "clearAccountName": "Clear lub npe account",
+    "secretKeyLocked": "SECRET KEY (LOCKED)",
+    "secretKeyBase322": "TSEEM CEEB (BASE32)",
+    "enterSetupKey": "Sau koj tus yuam sij teeb tsa",
+    "clearSecretKey": "Clear tus yuam sij",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP DIGITS",
+    "refreshIntervalSeconds": "REFRESH INTERVAL (SECONDS)",
+    "otpRefreshInterval": "OTP refresh interval in vib nas this",
+    "closeAccountForm": "Kaw tus account daim foos",
+    "totpSetupUrl": "TOTP teeb URL",
+    "importSetupUrl": "Ntshuam teeb URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "ACCOUNT NAME",
+    "addAccount": "Ntxiv tus account"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Scan authenticator QR code",
+    "setupGuidance": "Luam theej duab QR code rau kev teeb tsa yooj yim tshaj plaws, lossis sau cov ntsiab lus ntawm tus kheej.",
+    "cameraAddAccount": "Siv koj lub koob yees duab ntxiv ib tus account tam sim",
+    "scanQrCode2": "Scan QR code",
+    "uploadQrImage": "Upload QR duab",
+    "chooseQrScreenshot": "Xaiv ib QR screenshot ntawm Gallery, Duab, lossis Cov Ntaub Ntawv",
+    "pasteQr": "Paste QR duab / URL",
+    "pasteCopiedQr": "Paste a the copyed QR duab lossis authenticator teeb URL",
+    "uploadQrImage2": "Upload QR duab"
+  },
+  "accountQr": {
+    "close": "Kaw",
+    "accountQrCode": "Tus account QR code",
+    "revealQrCode": "Qhia tawm QR code",
+    "exportWarning": "Ceeb toom: tus neeg twg uas luam qhov QR code tuaj yeem tsim cov lej pov thawj rau tus lej no. Tsuas yog qhia nws ntawm ib qho screen ntseeg tau.",
+    "privacyHint": "Khaws qhov no QR code ntiag tug. Kev luam theej duab nws luam theej tus account tus authenticator zais cia."
+  },
+  "productInfo": {
+    "backupRestore": "Thaub qab & restore",
+    "backupRestoreDescription": "Thaub qab koj cov ntaub ntawv authenticator thiab rov qab nws thaum koj tsiv mus rau lwm lub cuab yeej.",
+    "privacyDescription": "Khaws koj cov ntaub ntawv pov thawj hauv ib qho chaw. Siv lub app thaub qab, rov qab, thiab cov kev xaiv xauv lub cuab yeej los tswj koj cov teeb tsa lub luag haujlwm.",
+    "timeBasedCodes": "Cov lej raws sijhawm",
+    "generateOneTimeCodes": "Tsim rotating one-time passcodes rau koj tus account kom tiav ob-kauj ruam pov thawj.",
+    "quickAccountSetup": "Kev teeb tsa tus account ceev",
+    "quickSetupDescription": "Luam theej duab authenticator QR code lossis import ib QR duab ntxiv rau tus account.",
+    "accountsOnePlace": "Cov nyiaj hauv ib qhov chaw",
+    "accountsInOnePlaceDescription": "Khaws koj cov nyiaj khaws tseg ua ke thiab nrhiav txoj cai nkag thaum nws yog lub sijhawm nkag mus.",
+    "privateAccountVault": "Private account vault",
+    "privateVaultDescription": "Tswj koj tus neeg txheeb xyuas cov ntaub ntawv nkag hauv zos thiab siv lub app uas muaj cov khoom siv xauv xaiv.",
+    "easyCodeAccess": "Kev nkag tau yooj yim code",
+    "easyCodeAccessDescription": "Luam tus lej tam sim no lossis tswj hwm cov ntsiab lus ntawm tus account los ntawm kev huv, tsom mus rau interface.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · BY TECHSIVARAM",
+    "mobileAuthenticator": "Koj lub xov tooj AUTHENTICATOR",
+    "tagline": "Ib txoj hauv kev yooj yim dua los tswj koj qhov kev txheeb xyuas ob-kauj ruam.",
+    "heroDescription": "Kev tsom mus rau tus kws paub tseeb kev paub rau cov lej pov thawj raws sijhawm. Khaws cov lej nyiaj sib raug zoo ze ntawm tes nrog KaalKey rau Android.",
+    "timeBasedCodes2": "TIME-BASED CODE",
+    "privateDesign": "PRIVATE LOS NTAWM DESIGN",
+    "builtSimpleAuthenticator": "UA TSAUG NTAU RAU IB TSOOM PHOOJ YWG UAS YUAV UA LI CAS",
+    "qrSetupTimed": "QR SETUP · TIMED CODES · ACCOUNT MANAGEMENT",
+    "privacyTitle": "Koj tus account. Koj cov lej. Koj tswj.",
+    "authenticator": "KAALKEY · AUTHENTICATOR",
+    "brandBanner": "KaalKey brand banner",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Tso tseg",
+      "storageInvalidTitle": "Cov ntaub ntawv khaws cia tsis raug",
+      "storageInvalidBody": "Cov ntaub ntawv khaws tseg hauv tus account tsis tuaj yeem nyeem tau zoo.",
+      "storageErrorTitle": "Cia yuam kev",
+      "storageErrorBody": "Cov nyiaj khaws tseg tsis tuaj yeem thauj khoom.",
+      "missingTitle": "Cov ntaub ntawv ploj lawm",
+      "missingEditingBody": "Sau lub npe kev pab cuam thiab lub npe account.",
+      "missingBody": "Sau lub npe kev pab cuam, lub npe account, thiab tus yuam sij zais cia.",
+      "invalidOtpBody": "Txheeb xyuas Base32 zais cia, algorithm, tus lej suav, thiab lub sijhawm hloov tshiab. Cov lus zais yuav tsum muaj cov cim siv tau Base32; Cov lej yuav tsum yog {digits} thiab lub sijhawm yuav tsum yog {minPeriod}–{maxPeriod} vib nas this.",
+      "duplicateBody": "Ib tus as khauj nrog cov kev pabcuam no thiab lub npe tus account twb tau txais kev cawmdim.",
+      "updatedBody": "Koj tus account tau hloov kho lawm.",
+      "addedBody": "Koj tus as khauj tau ntxiv kom ruaj ntseg.",
+      "invalidOtpTitle": "Invalid OTP nqis",
+      "duplicateTitle": "Tus account twb muaj lawm",
+      "savedTitle": "Txuag nyiaj",
+      "invalidSecretTitle": "Tus yuam sij zais tsis raug",
+      "invalidSecretBody": "Thov xyuas tias koj tau nkag mus rau Base32 zais cia.",
+      "removedTitle": "Account tshem tawm",
+      "removedBody": "Tus account thiab nws qhov zais cia raug tshem tawm ntawm lub cuab yeej no.",
+      "clearedTitle": "Cov nyiaj tau raug tshem tawm",
+      "clearedBody": "Tag nrho cov nyiaj authenticator thiab secrets raug tshem tawm ntawm lub cuab yeej no.",
+      "someSavedAccountsNeedAttentionTitle": "Qee cov nyiaj khaws tseg yuav tsum tau saib xyuas",
+      "someSavedAccountsNeedAttentionBody": "{count} invalid account record(s) twb tsis loaded. Cov nyiaj siv tau tseem muaj. Xav txog kev tsim ib qho thaub qab ua ntej hloov pauv ntxiv.",
+      "removeConfirmTitle": "Tshem tawm tus account?",
+      "removeConfirmWebTitle": "Tshem tawm tus account?",
+      "removeButton": "Tshem tawm",
+      "clearButton": "Clear tag nrho",
+      "clearConfirmTitle": "Clear tag nrho cov account?",
+      "saveErrorBody": "Cov nyiaj tsis tuaj yeem khaws cia. Txheeb xyuas qhov muaj nyob hauv browser thiab sim dua.",
+      "notFoundTitle": "Tsis pom tus account",
+      "notFoundBody": "Nrhiav tsis tau tus account no. Kaw tus editor thiab sim dua.",
+      "removeConfirmBody": "Qhov no tshem tawm tus account thiab nws qhov zais cia ntawm lub cuab yeej no.",
+      "clearConfirmBody": "Qhov no mus tas li tshem tawm tag nrho cov ntawv pov thawj tus as khauj thiab lawv cov lus zais ntawm lub cuab yeej no. Tsim ib qho encrypted thaub qab ua ntej yog tias koj xav tau cov nyiaj no tom qab.",
+      "clearConfirmUndoBody": "Qhov no tsis tuaj yeem thim rov qab."
+    },
+    "biometric": {
+      "cancelButton": "Tso tseg",
+      "saveErrorTitle": "Tuav tsis tau kev teeb tsa",
+      "unlockPrompt": "Xauv KaalKey Authenticator",
+      "promptSubtitle": "Siv biometrics lossis koj lub cuab yeej xauv npo",
+      "disableConfirmPrompt": "Paub meej tias tua KaalKey app xauv",
+      "enablePrompt": "Qhib app xauv rau KaalKey",
+      "deviceLockTitle": "Teeb tsa koj lub vijtsam xauv lub cuab yeej",
+      "deviceLockBody": "KaalKey siv koj lub xov tooj built-in authentication. Teem ib lub cuab yeej PIN, qauv, lossis lo lus zais hauv koj lub xov tooj qhov chaw ruaj ntseg, tom qab ntawd rov sim dua. Biometrics yog xaiv tau.",
+      "unavailableTitle": "Cov cuab yeej authentication tsis muaj",
+      "unavailableBody": "Koj lub xov tooj tsis tuaj yeem pib muaj kev lees paub tseeb. Txheeb xyuas tias lub tshuab xauv lub vijtsam raug teeb tsa, tom qab ntawd sim dua.",
+      "lockedTitle": "Kev lees paub raug kaw ib ntus",
+      "lockedBody": "Koj lub xov tooj tau kaw qhov kev lees paub ib ntus tom qab sim ntau dhau lawm. Tos thiab sim dua.",
+      "promptErrorTitle": "Kev lees paub tsis muaj",
+      "promptErrorBody": "KaalKey tsis tuaj yeem pib lub xov tooj qhov kev lees paub qhov tseeb. Thov rov sim dua.",
+      "webLock": "Cov cuab yeej authentication xauv tsis muaj nyob hauv lub vev xaib tsis tau. Lub web vault tseem xauv; siv Android app rau kev txheeb xyuas cov cuab yeej ib txwm muaj.",
+      "disabledTitle": "App xauv tsis siv neeg",
+      "disabledBody": "KaalKey app xauv tau raug muab tua.",
+      "disableSaveError": "Lub app xauv tseem qhib. Thov rov sim dua.",
+      "enabledTitle": "App xauv tau qhib",
+      "enabledBody": "KaalKey yuav thov koj lub xov tooj built-in authentication thaum qhib thiab thaum koj rov qab mus rau nws.",
+      "enableSaveError": "App xauv tsis tuaj yeem qhib tau. Thov rov sim dua."
+    },
+    "qr": {
+      "startingCamera": "Pib lub koob yees duab…",
+      "unsupportedTitle": "Unsupported QR code",
+      "unsupportedBody": "Luam theej duab lub authenticator teeb QR chaws muab los ntawm qhov kev pab cuam. Qhov no yuav tsum yog TOTP code, tsis yog tus ID nkag mus ib txwm QR code.",
+      "unsupportedDiagnostic": "Tias QR tsis yog TOTP teeb tsa code. Aim ntawm kev teeb tsa tus neeg txheeb xyuas QR.",
+      "detectedDiagnostic": "QR kuaj pom. Kev tshuaj xyuas…",
+      "analyzing": "Analyzing QR code…",
+      "duplicateTitle": "Tus account twb ntxiv lawm",
+      "duplicateBody": "{issuer}: {account} is already in KaalKey.",
+      "addedTitle": "Tus account ntxiv",
+      "addedBody": "{issuer}: {account} tau ntxiv lawm.",
+      "saveFailedDiagnostic": "Khaws tsis tau tus account. Koj tuaj yeem luam theej duab dua.",
+      "invalidTitle": "Invalid QR code",
+      "invalidBody": "KaalKey could not parse this authenticator QR code. {detail}. Siv qhov kev pabcuam TOTP teeb QR code (feem ntau pib nrog {prefix}).",
+      "parseFailedDiagnostic": "QR tsis tuaj yeem ua tiav. Teem lub teeb QR thiab sim dua.",
+      "invalidUrlTitle": "Invalid TOTP URL",
+      "invalidUrlBody": "Paste ib tug ua tiav authenticator URL pib nrog {prefix}.",
+      "clipboardEmptyTitle": "Clipboard yog khoob",
+      "clipboardEmptyBody": "Luam ib {prefix} URL ua ntej, ces coj mus rhaub Paste TOTP URL.",
+      "clipboardErrorTitle": "Nyeem ntawv tsis tau",
+      "clipboardErrorBody": "Luam the TOTP teeb URL thiab sim dua."
+    },
+    "haptics": {
+      "saveFailedTitle": "Tuav tsis tau kev teeb tsa",
+      "saveFailedBody": "Haptic tawm tswv yim nyiam tsis tuaj yeem khaws cia. Thov rov sim dua."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Tsis tuaj yeem khaws kev lees paub",
+      "saveFailedBody": "Thov rov sim dua. Koj yuav tsum lees txais daim ntawv ceeb toom kev cai lij choj ua ntej siv KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Yuav tsum tau tso cai lub koob yees duab",
+      "body": "Tso cai rau lub koob yees duab nkag mus luam theej duab tus neeg txheeb xyuas teeb tsa QR chaws."
+    },
+    "storage": {
+      "browserUnavailable": "Browser cia tsis muaj.",
+      "browserFilePickerUnavailable": "Tus browser file picker tsis muaj."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Cov ntaub ntawv tsis txhawb nqa",
+      "unsupportedFileBody": "Xaiv ib QR code duab xws li PNG lossis JPEG.",
+      "browserDecoderUnavailable": "Browser duab decoding tsis muaj",
+      "imageLoadFailed": "Duab tsis tuaj yeem thauj khoom",
+      "unreadableDimensions": "Cov duab tsis muaj qhov ntev nyeem tau",
+      "noQrCodeFoundTitle": "Tsis pom QR code pom",
+      "noQrCodeFoundBody": "KaalKey tsis tuaj yeem txiav txim siab ib QR code hauv daim duab no. Sim lub screenshot lossis qhov daws teeb meem siab dua PNG/JPEG.",
+      "couldNotReadImageTitle": "Nyeem tsis tau duab",
+      "couldNotReadImageBody": "Sim ib daim duab meej PNG lossis JPEG duab uas muaj cov authenticator teeb QR code.",
+      "couldNotOpenPickerTitle": "Tsis tuaj yeem qhib tus xaiv duab",
+      "couldNotOpenPickerBody": "Thov sim Upload QR dua.",
+      "normalizedDecodeFailed": "Cov duab qub tsis tuaj yeem txiav txim siab",
+      "clipboardImageLoadFailed": "Daim duab clipboard tsis tuaj yeem thauj khoom",
+      "imageProcessingUnavailable": "Kev ua duab tsis muaj",
+      "imageProcessingUnavailableAlt": "Kev ua duab tsis muaj",
+      "noImageInClipboardTitle": "Tsis muaj duab hauv daim ntawv teev cia",
+      "noImageInClipboardBody": "Luam ib QR code duab, ces coj mus rhaub Paste QR Duab dua.",
+      "clipboardUnavailableTitle": "Clipboard tsis muaj",
+      "clipboardUnavailableBody": "Cov ntawv teev lus teev cia tsis yog kev teeb tsa qhov tseeb URL. Luam ib qho otpauth:// URL lossis QR duab thiab sim dua.",
+      "clipboardAccessBody": "KaalKey nyeem tsis tau ntawv lossis ib daim duab los ntawm cov ntawv teev cia. Tso cai rau cov ntawv teev cia, tom qab ntawd luam cov duab QR lossis otpauth:// URL thiab coj mus rhaub Paste QR Duab / URL dua.",
+      "couldNotPasteImageTitle": "Yuav tsis paste duab",
+      "couldNotPasteImageBody": "Cov duab pasting tsis txaus siab los ntawm cov ntawv teev cia ntawm lub cuab yeej no. Siv Import QR duab hloov.",
+      "sourceImageDecodeFailure": "Sim ib daim duab QR txawv.",
+      "pastedImportFailureBody": "Sim ib daim duab QR txawv.",
+      "sourceImageReadFailure": "Sim luam qhov tseeb QR screenshot.",
+      "importFailedTitle": "QR duab import ua tsis tau",
+      "importFailedBody": "KaalKey nyeem tsis tau daim duab ntawd. Thov sim lwm QR code duab.",
+      "notFoundBody": "Daim duab theej tsis muaj QR nyeem tau.",
+      "pastedNotFoundBody": "Daim duab pasted tsis muaj QR code nyeem tau.",
+      "pastedReadFailureBody": "Sim luam qhov tseeb PNG lossis JPEG duab uas muaj tag nrho QR code.",
+      "noQrCodeTextBody": "KaalKey txiav txim siab cov duab xaiv tab sis tsis pom QR code. Sim ua kom pom tseeb, tag nrho daws teeb meem PNG lossis JPEG nrog rau tag nrho cov cai pom."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Qhov no QR code tsis yog lub sij hawm-raws li authenticator teeb code.",
+      "missingAccountDetails": "Tus QR chaws tsis muaj cov ntsiab lus ntawm tus account.",
+      "unsupportedAlgorithm": "Tus QR chaws siv cov txheej txheem tsis txhawb nqa.",
+      "unsupportedDigits": "Qhov no QR code yuav tsum siv 6, 7, lossis 8 tus lej.",
+      "unsupportedPeriod": "Qhov no QR code siv lub sijhawm tsis txhawb nqa.",
+      "invalidAccount": "Tus lej QR tsis tuaj yeem siv tau."
+    },
+    "backup": {
+      "invalidJson": "Cov ntaub ntawv thaub qab tsis siv tau JSON.",
+      "unsupportedFormat": "Qhov no tsis yog kev txhawb nqa KaalKey encrypted thaub qab.",
+      "invalidPasswordOrDamaged": "Backup password tsis raug lossis cov ntaub ntawv thaub qab puas lawm.",
+      "invalidContents": "Cov ntaub ntawv thaub qab tsis raug lossis tsis tiav.",
+      "secureRandomUnavailableDetailed": "Kev ruaj ntseg random tiam tsis muaj. Rov tsim kho thiab rov nruab Android app nrog expo-crypto suav nrog, tom qab ntawd sim dua.",
+      "invalidAccountDataForBackup": "Ib lossis ntau tus account tsis raug. Kho cov ntaub ntawv tus account ua ntej tsim kev thaub qab.",
+      "invalidPasswordOrModified": "Backup password tsis raug lossis cov ntaub ntawv thaub qab tau raug hloov kho.",
+      "invalidPasswordOrFileDamaged": "Backup password tsis raug lossis cov ntaub ntawv puas.",
+      "passwordCopiedTitle": "Luam tus password",
+      "enterPasswordTitle": "Sau koj tus password backup",
+      "enterPasswordBody": "Sau tus password siv thaum qhov thaub qab no tau tsim.",
+      "passwordCopiedBody": "Txuag nws qhov chaw nyab xeeb, xws li WhatsApp.",
+      "copyFailedTitle": "Luam ua tsis tiav",
+      "copyFailedBody": "Xaiv thiab luam tus password manually.",
+      "generatingPassword": "Tsim kom muaj kev ruaj ntseg backup password…",
+      "encrypting": "Encrypting thaub qab…",
+      "decrypting": "Decrypting backup…",
+      "restoring": "Restore account…",
+      "backupCreatedTitle": "Backup tsim",
+      "restoreCompleteTitle": "Rov qab ua tiav",
+      "mergeConfirmTitle": "Merge cov nyiaj thaub qab?",
+      "mergeConfirmButton": "Ua ke nyiaj",
+      "backupSavedTemporary": "Encrypted thaub qab khaws cia ib ntus ntawm:\n{uri}",
+      "generatePasswordErrorTitle": "Tsis tuaj yeem tsim tus password thaub qab",
+      "secureRandomUnavailable": "Kev ruaj ntseg random tiam tsis muaj.",
+      "passwordUnavailableTitle": "Backup password tsis muaj",
+      "passwordUnavailableBody": "Kaw lub dialog no thiab tsim ib tug tshiab thaub qab los tsim ib tug ruaj ntseg lo lus zais.",
+      "backupDownloadedBody": "Koj cov ntaub ntawv encrypted KaalKey tau rub tawm lawm. Khaws cov ntaub ntawv thiab tus password ntiag tug.",
+      "backupFailedTitle": "Backup ua tsis tau",
+      "backupCreateErrorBody": "KaalKey tsis tuaj yeem tsim cov thaub qab.",
+      "restoreFailedTitle": "Restore ua tsis tiav",
+      "backupReadErrorBody": "Cov thaub qab tsis tuaj yeem nyeem lossis khaws cia.",
+      "browserDownloadUnsupported": "Koj tus browser tsis txhawb rub tawm cov ntaub ntawv thaub qab.",
+      "localFileUnavailable": "Ib qhov chaw cov ntaub ntawv hauv zos tsis muaj nyob rau ntawm lub cuab yeej no.",
+      "saveBackupTitle": "Txuag koj cov ntaub ntawv encrypted KaalKey thaub qab"
+    },
+    "clipboard": {
+      "copiedTitle": "Code theej",
+      "copiedBody": "Koj tus lej pov thawj tau theej lawm.",
+      "errorTitle": "yuam kev",
+      "errorBody": "Tsis tuaj yeem luam daim ntawv pov thawj."
+    },
+    "activity": {
+      "cameraReady": "Lub koob yees duab npaj. taw tes rau ntawm tus authenticator QR code.",
+      "readingQrImage": "Nyeem QR duab…",
+      "importingQrImage": "Importing QR duab…",
+      "importingAccount": "Importing authenticator account...",
+      "importingPastedImage": "Importing pasted QR duab…"
+    }
+  },
+  "activity": {
+    "working": "Ua haujlwm",
+    "wait": "Thov tos…",
+    "donTClose": "Thov tsis txhob kaw lossis cuam tshuam nrog KaalKey.",
+    "loadingLanguages": "Loading muaj hom lus…",
+    "loadingTranslation": "Loading translation..."
+  }
+}

@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Basa",
+      "description": "Pilih basa sing digunakake ing KaalKey.",
+      "english": "Inggris",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "BASA",
+      "searchLanguageName": "Basa telusuran (jeneng utawa kode)",
+      "searchSupportedLanguages": "Telusuri basa sing didhukung",
+      "closeLanguageDropdown": "Nutup gulung mudhun basa",
+      "noTranslatedLanguage": "Ora ditemokake basa sing diterjemahake.",
+      "serverUrl": "Server terjemahan URL",
+      "serverUrlDescription": "KaalKey ngundhuh dhaptar basa lan terjemahan saka server iki.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Simpen server terjemahan"
+    },
+    "title": "Setelan app",
+    "eyebrow": "KAALKEY PREFERENSI",
+    "experience": {
+      "section": "NGALAMI"
+    },
+    "security": {
+      "section": "KEAMANAN"
+    },
+    "backup": {
+      "section": "BACKUP & RECOVERY"
+    },
+    "danger": {
+      "section": "ZON BAHAYA",
+      "clearAccounts": "Mbusak kabeh akun",
+      "clearAccountsDescription": "Mbusak saben akun lan rahasia saka piranti iki kanthi permanen. Gawe serep dhisik.",
+      "clearAccountsAccessibilityLabel": "Mbusak kabeh akun authenticator"
+    },
+    "appearance": {
+      "section": "PENAMPILAN",
+      "title": "Penampilan cahya",
+      "description": "KaalKey saiki nggunakake tema cahya sing resik."
+    },
+    "haptics": {
+      "title": "Umpan balik haptik",
+      "description": "Umpan balik sing lembut kanggo nutul lan tumindak sing wis rampung."
+    },
+    "deviceLock": {
+      "title": "Kunci otentikasi piranti",
+      "description": "Kubah sampeyan dikunci nalika KaalKey metu saka latar ngarep.",
+      "requirement": "Butuh biometrik telpon utawa kunci layar PIN, pola, utawa sandhi.",
+      "accessibilityLabel": "Kunci aplikasi otentikasi piranti"
+    },
+    "privacy": {
+      "title": "Legal & privasi",
+      "description": "Deleng Kebijakan Privasi lan Katentuan Pangginaan supados langkung.",
+      "storageNote": "Rahasia authenticator sampeyan tetep ana ing brankas aman ing piranti. Preferensi disimpen sacara lokal."
+    }
+  },
+  "accounts": {
+    "edit": "Sunting",
+    "sortAccountName": "Urut miturut jeneng akun",
+    "loadingSecureVault": "Loading brankas aman...",
+    "tapCopy": "Tutul kanggo nyalin",
+    "noAccountsMatch": "Ora ana akun sing cocog karo panelusuran sampeyan.",
+    "viewQrCode": "Deleng kode QR kanggo akun",
+    "removeAccount": "Mbusak akun",
+    "copyVerificationCode": "Salin kode verifikasi",
+    "active": "AKTIF",
+    "sort": "SORT BY",
+    "account": "Akun",
+    "clearSearch": "Mbusak panelusuran",
+    "sortServiceName": "Urut miturut jeneng layanan",
+    "addFirstAccount": "Tambah akun pisanan sampeyan",
+    "searchAccounts": "Telusuri akun",
+    "searchServiceAccount": "Layanan telusuran utawa akun",
+    "accounts": "Akun sampeyan",
+    "add": "+ Tambah",
+    "vaultStartsHere": "Kubah sampeyan diwiwiti ing kene",
+    "service": "Layanan",
+    "emptyHint": "Tambah akun nggunakake kunci rahasia kanggo ngasilake kode verifikasi pisanan sampeyan."
+  },
+  "common": {
+    "done": "rampung",
+    "doneButton": "rampung",
+    "closeSettings": "Nutup setelan",
+    "separator": "-",
+    "article": "a",
+    "save": "Simpen",
+    "delete": "Mbusak",
+    "resizeAppBrand": "Ganti ukuran panel app lan merek"
+  },
+  "qrImport": {
+    "readPastedImage": "Ora bisa maca gambar sing ditempelake"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Akun ing serep iki: {count}. KaalKey bakal nyimpen akun sing wis ana lan nambah akun sing durung ana. Akun duplikat bakal dilewati.",
+    "restoreCompletionBody": "Akun sing ditambahake: {added}. Akun duplikat dilewati: {skipped}. Akun sampeyan sing wis ana disimpen.",
+    "copyPassword": "Nyalin sandhi sing digawe",
+    "passwordSafety": "Simpen tembung sandhi iki kanthi kapisah (contone, ing WhatsApp). Sapa wae sing duwe loro",
+    "importAction": "Pilih file lan impor",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "KANGGO AMAN",
+    "createBackup": "Nggawe serep",
+    "encryptedFile": "File sing dienkripsi",
+    "restoreBackup": "Mulihake serep",
+    "safetyNote": "Serep ngemot rahasia authenticator sampeyan. KaalKey ngasilake sandhi unik kanggo saben serep. Simpen kanthi kapisah; KaalKey ora bisa mbalekake.",
+    "generatingSecurePassword": "Nggawe tembung sandhi sing aman…",
+    "importFile": "Impor file",
+    "backupPassword": "SANDI serep",
+    "account": "akun",
+    "accounts": "akun",
+    "exportDescription": "Enkripsi kabeh {count} sing disimpen {accountLabel} menyang file serep. KaalKey ngasilake sandhi unik; nyalin lan simpen kanthi kapisah saka file kasebut.",
+    "restoreDescription": "Pilih KaalKey file serep lan sandhi. Akun anyar bakal ditambahake menyang dhaptar akun sing wis ana; akun sing ana bakal tetep dadi.",
+    "enterBackupPassword": "Ketik sandhi serep",
+    "closeBackup": "Nutup serep",
+    "copyGeneratedBackup": "Nyalin sandhi serep sing digawe",
+    "backupPassword2": "Sandi serep",
+    "clearBackupPassword": "Mbusak sandhi serep",
+    "backupFilePassword": "file serep lan sandhi bisa mulihake akun authenticator sampeyan.",
+    "encryptShareBackup": "Enkripsi lan enggo bareng serep"
+  },
+  "home": {
+    "unlockSecurely": "Mbukak kunci kanthi aman",
+    "disableAppLock": "Pateni kunci aplikasi",
+    "enableAppLock": "Aktifake kunci app",
+    "checkingSecureLock": "Priksa setelan kunci aman. Kode sampeyan tetep didhelikake.",
+    "waitingVerification": "Nunggu verifikasi…",
+    "secretsStayStored": "Rahasia sampeyan tetep disimpen ing piranti iki.",
+    "openAppSettings": "Bukak setelan app",
+    "versionLabel": "VERSI",
+    "unlockRequirement": "Gunakake biometrik telpon utawa kunci layar PIN, pola, utawa sandhi kanggo ngakses kode verifikasi siji-wektu.",
+    "localVault": "LOKAL Panjenengan",
+    "codesDeviceControl": "Kode sampeyan. Piranti sampeyan. Kontrol sampeyan.",
+    "securingVault": "Ngamanake brankas sampeyan…",
+    "vaultProtected": "Kubah sampeyan dilindhungi",
+    "lock": "KUNCI ON",
+    "localVault2": "LOKAL LOKAL",
+    "authenticator": "KAALKEY AUTENTIKATOR",
+    "tricolourLockEmblem": "KaalKey lambang kunci triwarna",
+    "authenticator2": "AUTENTIKATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Yen sampeyan milih mindhai kode QR, KaalKey nggunakake ijin kamera kanggo tumindak kasebut. Otentikasi piranti opsional lan umpan balik haptic nggunakake fitur piranti sing cocog. Sampeyan bisa ngatur ijin ing setelan piranti.",
+        "heading": "2. Ijin lan fitur piranti"
+      },
+      "backups": {
+        "body": "Nalika nggawe serep, KaalKey ndhelik serep nggunakake sandhi sing sampeyan pilih. Simpen file lan sandhi kanthi pribadi lan simpen kanthi aman. Sapa wae sing entuk file lan sandhi kasebut bisa mulihake akun authenticator sampeyan. KaalKey ora bisa mbalekake sandhi serep sing lali.",
+        "heading": "3. Serep"
+      },
+      "security": {
+        "body": "Tansah nganyari piranti, nglindhungi nganggo kunci layar, lan aja nuduhake OTP rahasia utawa sandhi serep. Mbusak app, mbusak data, utawa ilang piranti bisa nggawe akun sing disimpen sacara lokal ora kasedhiya. Njaga serep aman yen sampeyan perlu Recovery.",
+        "heading": "5. Keamanan lan penylametan"
+      },
+      "information": {
+        "heading": "1. Informasi lan rahasia",
+        "body": "KaalKey minangka aplikasi authenticator. Label akun lan nilai rahasia sing dibutuhake kanggo ngasilake kode siji-wektu sensitif. Aplikasi iki dirancang kanggo nyimpen cathetan akun ing panyimpenan aman piranti. Sapa wae sing duwe akses menyang piranti sing ora dikunci utawa cadangan sing diekspor bisa ngakses informasi sensitif."
+      },
+      "sharing": {
+        "heading": "4. Nuduhake lan pihak katelu",
+        "body": "Alur serep bisa nggunakake lembar enggo bareng piranti utawa pamilih file kanggo nyimpen, nransfer, utawa milih file. Praktek privasi aplikasi utawa layanan pihak katelu sing sampeyan pilih diatur dening panyedhiya kasebut. Kabar iki ora nyatakake yen piranti, sistem operasi, utawa layanan enggo bareng sing dipilih ora tau ngolah data."
+      },
+      "changes": {
+        "heading": "6. Owah-owahan lan kontak",
+        "body": "Kabar sing ditempelake iki bisa uga direvisi ing rilis aplikasi sing bakal teka. Kanggo pitakonan privasi, hubungi penerbit app liwat saluran dhukungan resmi sing kasedhiya karo app."
+      },
+      "title": "Kebijakan Privasi"
+    },
+    "terms": {
+      "use": {
+        "body": "Sampeyan bisa nggunakake KaalKey kanggo ngasilake kode verifikasi kanggo akun sing sah kanggo ngakses. Sampeyan tanggung jawab kanggo netepi hukum sing ditrapake lan aturan layanan sing sampeyan gunakake kode otentikasi.",
+        "heading": "1. Panjenengan nggunakake"
+      },
+      "protectAccounts": {
+        "body": "Sampeyan tanggung jawab kanggo ngamanake piranti, rahasia authenticator, cara pemulihan, serep sing diekspor, lan sandhi serep. Aja nuduhake kode utawa rahasia karo wong sing ora dipercaya.",
+        "heading": "2. Jaga akun sampeyan"
+      },
+      "availability": {
+        "body": "Fitur bisa diganti ing antarane rilis. Sampeyan kudu nganyari app lan verifikasi periodik manawa pengaturan serep lan pemulihan sampeyan bisa digunakake.",
+        "heading": "5. Owah-owahan lan kasedhiyan"
+      },
+      "recovery": {
+        "body": "KaalKey ora bisa njamin sing saben akun bisa mbalekake, sing saben QR kode utawa konfigurasi bakal kompatibel, utawa app bakal operate tanpa gangguan utawa kesalahan. Tansah cara pemulihan alternatif sing diwenehake dening layanan sing cocog.",
+        "heading": "3. Ora njamin Recovery"
+      },
+      "advice": {
+        "heading": "4. Ora ana saran profesional",
+        "body": "Aplikasi kasebut minangka sarana lan ora menehi saran kanggo nanggapi kedadeyan legal, finansial, utawa keamanan. Yen akun dikompromi, tindakake pandhuan pemulihan lan keamanan resmi layanan sing kena pengaruh."
+      },
+      "liability": {
+        "heading": "6. Tanggung jawab lan hukum sing ditrapake",
+        "body": "Kanggo ombone diijini dening hukum sing ditrapake, app kasedhiya tanpa njamin operasi tanpa gangguan utawa kesalahan-free. Ora ana apa-apa ing istilah kasebut sing ora kalebu hak utawa obat sing ora bisa dikecualekake kanthi sah. Watesan liyane utawa syarat-syarat hukum sing ngatur kudu dideleng dening pengacara sing nduweni kualifikasi kanggo yurisdiksi penerbit sadurunge dirilis."
+      },
+      "title": "Katentuan Pangginaan supados langkung"
+    },
+    "version": "Versi",
+    "saving": "Ngirit…",
+    "acceptContinue": "Nampa & Terusake",
+    "appliesAuthenticator": "Ditrapake kanggo KaalKey Authenticator",
+    "reviewBothDocuments": "Mangga deleng dokumen loro sadurunge nggunakake KaalKey. Padha kalebu ing app lan kasedhiya offline.",
+    "originalMulticolourAuthenticator": "Emblem authenticator warna-warni asli KaalKey.",
+    "legalPrivacyNotice": "Kabar Legal & Privasi",
+    "legalInformation": "Informasi hukum",
+    "reviewSPrivacy": "Deleng informasi privasi lan syarat panggunaan KaalKey.",
+    "iReadAgree": "Aku wis maca lan setuju karo Kebijakan Privasi lan Katentuan Pangginaan supados langkung."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Tansah kabeh kode QR katon. Rahasia sampeyan tetep ana ing piranti iki.",
+    "back": "Mbalik",
+    "turnFlashlightOff": "Pateni senter",
+    "turnFlashlight": "Nguripake senter",
+    "flashlight": "Senter urip",
+    "flashlight2": "senter",
+    "cameraUnavailableOpen": "Kamera ora kasedhiya. Bukak kaca iki ing HTTPS utawa localhost lan ngidini akses kamera.",
+    "cameraPreviewUnavailable": "Pratinjau kamera ora kasedhiya. Nutup lan mbukak maneh scanner.",
+    "cameraReadyPoint": "Kamera siap — arahake ing kode lengkap QR.",
+    "browserCannotProcess": "Browser iki ora bisa ngolah pigura kamera.",
+    "qrCodeDetected": "QR kode dideteksi.",
+    "couldnTRead": "Ora bisa maca pigura kamera. Priksa ijin kamera lan muat ulang kaca iki.",
+    "cameraPermissionDenied": "Ijin kamera ditolak. Idini akses kamera ing setelan browser, banjur bukak maneh scanner.",
+    "noCameraWas": "Ora ana kamera sing ditemokake ing piranti iki.",
+    "cameraBusyAnother": "Kamera sibuk ing app utawa tab browser liyane.",
+    "startCameraHttps": "Ora bisa miwiti kamera. Gunakake HTTPS utawa localhost lan priksa ijin browser.",
+    "qrScannerCamera": "QR pratinjau kamera scanner",
+    "cameraUnavailableCheck": "Kamera ora kasedhiya. Priksa ijin kamera lan coba maneh.",
+    "pointCameraAuthenticator": "Arah kamera menyang kode persiyapan authenticator QR saka layanan sing sampeyan tambahake.",
+    "backAddAccount": "Bali menyang nambah akun",
+    "secureSetup": "SETUP AMAN",
+    "enterDetailsManually": "Ketik rincian kanthi manual"
+  },
+  "accountForm": {
+    "hideManualEntry": "Singidaken entri manual",
+    "secretKeySupplied": "Gunakake tombol rahasia sing diwenehake dening layanan sing sampeyan konfigurasi. Aja ketik sandhi akun ing kene. Cocokake algoritma, count digit, lan interval karo instruksi persiyapan layanan.",
+    "updateServiceAccount": "Nganyari layanan, jeneng akun, utawa kunci rahasia.",
+    "secretKeyRead": "Kunci rahasia, mung diwaca nalika nyunting",
+    "secretKeyBase32": "Kunci rahasia ing Base32",
+    "digits": "digit",
+    "seconds": "detik",
+    "enterDetailsManually": "UTAWA ENTER DETAILS kanthi manual",
+    "enterDetailsManually2": "Ketik rincian kanthi manual",
+    "serviceAccountName": "Layanan, jeneng akun lan kunci rahasia",
+    "saveChangesSecurely": "Simpen owah-owahan kanthi aman",
+    "saveAccountSecurely": "Simpen akun kanthi aman",
+    "serviceIssuer": "Service utawa sing ngetokake sekuritas",
+    "accountName": "Jeneng akun",
+    "secretKey": "Kunci rahasia",
+    "serviceIssuer2": "LAYANAN / ISSUER",
+    "eGGoogle": "contone Google",
+    "clearServiceIssuer": "Layanan sing cetha utawa sing ngetokake sekuritas",
+    "eGExample": "contone sampeyan@conto.com",
+    "clearAccountName": "Mbusak jeneng akun",
+    "secretKeyLocked": "KUNCI RAHASIA (KUNCI)",
+    "secretKeyBase322": "KUNCI RAHASIA (BASE32)",
+    "enterSetupKey": "Ketik tombol persiyapan sampeyan",
+    "clearSecretKey": "Mbusak kunci rahasia",
+    "otpAlgorithm": "OTP ALGORITMA",
+    "otpDigits": "OTP ANGKA",
+    "refreshIntervalSeconds": "REFRESH INTERVAL (DETIK)",
+    "otpRefreshInterval": "OTP interval refresh ing detik",
+    "closeAccountForm": "Tutup formulir akun",
+    "totpSetupUrl": "TOTP persiyapan URL",
+    "importSetupUrl": "Impor persiyapan URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "NAMA AKUN",
+    "addAccount": "Tambah akun"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Scan authenticator QR kode",
+    "setupGuidance": "Pindai kode QR kanggo persiyapan sing paling gampang, utawa ketik rincian kanthi manual.",
+    "cameraAddAccount": "Gunakake kamera kanggo nambah akun kanthi cepet",
+    "scanQrCode2": "Pindai kode QR.",
+    "uploadQrImage": "Unggah QR gambar",
+    "chooseQrScreenshot": "Pilih gambar QR saka Galeri, Foto, utawa File",
+    "pasteQr": "Tempel QR gambar / URL",
+    "pasteCopiedQr": "Tempel gambar QR sing disalin utawa persiyapan authenticator URL",
+    "uploadQrImage2": "Unggah QR gambar"
+  },
+  "accountQr": {
+    "close": "Nutup",
+    "accountQrCode": "Kode akun QR.",
+    "revealQrCode": "Bukak kode QR.",
+    "exportWarning": "Pènget: sapa waé sing mindai kode QR iki bisa ngasilake kode verifikasi kanggo akun iki. Mung mbukak ing layar dipercaya.",
+    "privacyHint": "Tansah kode QR iki pribadi. Pindai iku nyalin rahasia authenticator akun."
+  },
+  "productInfo": {
+    "backupRestore": "Gawe serep & pulihake",
+    "backupRestoreDescription": "Gawe serep data authenticator lan pulihake nalika sampeyan pindhah menyang piranti liyane.",
+    "privacyDescription": "Simpen akun verifikasi ing sak panggonan. Gunakake pilihan serep, pulihake, lan kunci piranti kanggo ngatur persiyapan kanthi tanggung jawab.",
+    "timeBasedCodes": "Kode basis wektu",
+    "generateOneTimeCodes": "Gawe kode sandhi siji-wektu kanggo akun sampeyan kanggo ngrampungake verifikasi rong langkah.",
+    "quickAccountSetup": "Setelan akun cepet",
+    "quickSetupDescription": "Pindai kode QR authenticator utawa ngimpor gambar QR kanggo nambah akun.",
+    "accountsOnePlace": "Akun ing sak panggonan",
+    "accountsInOnePlaceDescription": "Simpen akun sing disimpen lan golek entri sing pas nalika wektune mlebu.",
+    "privateAccountVault": "Kubah akun pribadi",
+    "privateVaultDescription": "Atur entri authenticator sampeyan sacara lokal lan gunakake pilihan kunci piranti app sing kasedhiya.",
+    "easyCodeAccess": "Akses kode sing gampang",
+    "easyCodeAccessDescription": "Salin kode saiki utawa atur rincian akun liwat antarmuka sing resik lan fokus.",
+    "authenticatorTechsivaram": "AUTENTIKATOR · BY TECHSIVARAM",
+    "mobileAuthenticator": "Authenticator MOBILE Panjenengan",
+    "tagline": "Cara sing luwih gampang kanggo ngatur verifikasi rong langkah.",
+    "heroDescription": "Pengalaman authenticator fokus kanggo kode verifikasi adhedhasar wektu. Simpen kode akun sing kompatibel karo KaalKey kanggo Android.",
+    "timeBasedCodes2": "KODE TIME-BASED",
+    "privateDesign": "PRIVATE BY DESIGN",
+    "builtSimpleAuthenticator": "Dibangun kanggo Alur kerja Authenticator SIMPLE",
+    "qrSetupTimed": "QR SETUP · KODE WAKTU · MANAJEMEN AKUN",
+    "privacyTitle": "Akun sampeyan. Kode sampeyan. Kontrol sampeyan.",
+    "authenticator": "KAALKEY · AUTENTIKATOR",
+    "brandBanner": "KaalKey spanduk merek",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Batal",
+      "storageInvalidTitle": "Data panyimpenan ora valid",
+      "storageInvalidBody": "Data akun sing disimpen ora bisa diwaca kanthi aman.",
+      "storageErrorTitle": "Kesalahan panyimpenan",
+      "storageErrorBody": "Akun sing disimpen ora bisa dimuat.",
+      "missingTitle": "Informasi ilang",
+      "missingEditingBody": "Ketik jeneng layanan lan jeneng akun.",
+      "missingBody": "Ketik jeneng layanan, jeneng akun, lan kunci rahasia.",
+      "invalidOtpBody": "Priksa rahasia Base32 rahasia, algoritma, count digit, lan periode refresh. Rahasia kudu ngemot karakter Base32 sing bener; digit kudu {digits} lan periode kudu {minPeriod}–{maxPeriod} detik.",
+      "duplicateBody": "Akun karo layanan iki lan jeneng akun wis disimpen.",
+      "updatedBody": "Akun sampeyan wis dianyari.",
+      "addedBody": "Akun sampeyan ditambahake kanthi aman.",
+      "invalidOtpTitle": "Setelan OTP ora bener",
+      "duplicateTitle": "Akun wis ana",
+      "savedTitle": "Akun disimpen",
+      "invalidSecretTitle": "Kunci rahasia ora valid",
+      "invalidSecretBody": "Mangga priksa manawa sampeyan ngetik rahasia Base32 sing bener.",
+      "removedTitle": "Akun dibusak",
+      "removedBody": "Akun lan rahasia kasebut dibusak saka piranti iki.",
+      "clearedTitle": "Akun dibusak",
+      "clearedBody": "Kabeh akun authenticator lan rahasia dibusak saka piranti iki.",
+      "someSavedAccountsNeedAttentionTitle": "Sawetara akun sing disimpen mbutuhake perhatian",
+      "someSavedAccountsNeedAttentionBody": "{count} cathetan akun ora bener ora dimuat. Akun sing sah tetep kasedhiya. Coba gawe serep sadurunge nggawe pangowahan luwih lanjut.",
+      "removeConfirmTitle": "Mbusak akun?",
+      "removeConfirmWebTitle": "Mbusak akun?",
+      "removeButton": "Mbusak",
+      "clearButton": "Mbusak kabeh",
+      "clearConfirmTitle": "Mbusak kabeh akun?",
+      "saveErrorBody": "Akun ora bisa disimpen. Priksa kasedhiyan panyimpenan browser lan coba maneh.",
+      "notFoundTitle": "Akun ora ditemokake",
+      "notFoundBody": "Akun iki ora bisa ditemokake. Nutup editor lan coba maneh.",
+      "removeConfirmBody": "Iki mbusak akun lan rahasia saka piranti iki.",
+      "clearConfirmBody": "Iki kanthi permanen mbusak kabeh akun authenticator lan rahasia saka piranti iki. Gawe serep sing dienkripsi dhisik yen sampeyan butuh akun kasebut mengko.",
+      "clearConfirmUndoBody": "Iki ora bisa dibatalake."
+    },
+    "biometric": {
+      "cancelButton": "Batal",
+      "saveErrorTitle": "Ora bisa nyimpen setelan",
+      "unlockPrompt": "Mbukak kunci KaalKey Authenticator",
+      "promptSubtitle": "Gunakake biometrik utawa kunci layar piranti",
+      "disableConfirmPrompt": "Konfirmasi kanggo mateni KaalKey kunci aplikasi",
+      "enablePrompt": "Aktifake kunci aplikasi kanggo KaalKey",
+      "deviceLockTitle": "Setel kunci layar piranti",
+      "deviceLockBody": "KaalKey nggunakake otentikasi sing dibangun ing telpon. Setel piranti PIN, pola, utawa sandhi ing setelan keamanan telpon, banjur coba maneh. Biometrik iku opsional.",
+      "unavailableTitle": "Otentikasi piranti ora kasedhiya",
+      "unavailableBody": "Telpon ora bisa miwiti otentikasi aman. Priksa manawa kunci layar piranti wis dikonfigurasi, banjur coba maneh.",
+      "lockedTitle": "Otentikasi sementara dikunci",
+      "lockedBody": "Telpon sampeyan wis mateni otentikasi kanggo sementara sawise nyoba akeh banget. Enteni lan coba maneh.",
+      "promptErrorTitle": "Otentikasi ora kasedhiya",
+      "promptErrorBody": "KaalKey ora bisa miwiti pituduh otentikasi aman telpon. Coba maneh.",
+      "webLock": "Kunci otentikasi piranti durung kasedhiya ing versi web. Kubah web tetep ora dikunci; gunakake aplikasi Android kanggo otentikasi piranti asli.",
+      "disabledTitle": "Kunci app dipatèni",
+      "disabledBody": "KaalKey kunci app wis dipateni.",
+      "disableSaveError": "Kunci app tetep diaktifake. Coba maneh.",
+      "enabledTitle": "Kunci aplikasi diaktifake",
+      "enabledBody": "KaalKey bakal njaluk otentikasi sing dibangun ing telpon nalika dibukak lan nalika bali.",
+      "enableSaveError": "Kunci aplikasi ora bisa diaktifake. Coba maneh."
+    },
+    "qr": {
+      "startingCamera": "Miwiti kamera…",
+      "unsupportedTitle": "Kode QR ora didhukung",
+      "unsupportedBody": "Pindai kode persiyapan authenticator QR sing diwenehake dening layanan kasebut. Iki kudu kode TOTP, dudu kode login normal QR.",
+      "unsupportedDiagnostic": "Sing QR dudu kode persiyapan TOTP. Tujuwan persiyapan authenticator QR.",
+      "detectedDiagnostic": "QR dideteksi. Nganalisis…",
+      "analyzing": "Nganalisis kode QR…",
+      "duplicateTitle": "Akun wis ditambahake",
+      "duplicateBody": "{issuer}: {account} wis ana ing KaalKey.",
+      "addedTitle": "Akun ditambahake",
+      "addedBody": "{issuer}: {account} wis kasil ditambahake.",
+      "saveFailedDiagnostic": "Ora bisa nyimpen akun. Sampeyan bisa mindhai maneh.",
+      "invalidTitle": "Kode QR ora sah",
+      "invalidBody": "KaalKey ora bisa ngurai kode QR authenticator iki. {detail}. Gunakake kode TOTP layanan QR kode (biasane diwiwiti karo {prefix}).",
+      "parseFailedDiagnostic": "QR ora bisa diproses. Arah ing persiyapan QR lan coba maneh.",
+      "invalidUrlTitle": "Ora valid TOTP URL",
+      "invalidUrlBody": "Tempel authenticator lengkap URL diwiwiti karo {prefix}.",
+      "clipboardEmptyTitle": "Papan klip kosong",
+      "clipboardEmptyBody": "Salin {prefix} URL dhisik, banjur tutul Tempel TOTP URL.",
+      "clipboardErrorTitle": "Ora bisa maca clipboard",
+      "clipboardErrorBody": "Nyalin setelan TOTP URL lan coba maneh."
+    },
+    "haptics": {
+      "saveFailedTitle": "Ora bisa nyimpen setelan",
+      "saveFailedBody": "Preferensi umpan balik haptik ora bisa disimpen. Coba maneh."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Ora bisa nyimpen pangakuan",
+      "saveFailedBody": "Coba maneh. Sampeyan kudu nampa kabar legal sadurunge nggunakake KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Ijin kamera dibutuhake",
+      "body": "Idini akses kamera kanggo mindhai kode persiyapan authenticator QR."
+    },
+    "storage": {
+      "browserUnavailable": "Panyimpenan browser ora kasedhiya.",
+      "browserFilePickerUnavailable": "Pamilih file browser ora kasedhiya."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "File ora didhukung",
+      "unsupportedFileBody": "Pilih gambar kode QR kayata PNG utawa JPEG.",
+      "browserDecoderUnavailable": "Dekoding gambar browser ora kasedhiya",
+      "imageLoadFailed": "Gambar ora bisa dimuat",
+      "unreadableDimensions": "Gambar ora duwe ukuran sing bisa diwaca",
+      "noQrCodeFoundTitle": "Ora ditemokake kode QR.",
+      "noQrCodeFoundBody": "KaalKey ora bisa decode kode QR ing gambar iki. Coba potret layar utawa resolusi sing luwih dhuwur PNG/JPEG.",
+      "couldNotReadImageTitle": "Ora bisa maca gambar",
+      "couldNotReadImageBody": "Coba gambar PNG utawa JPEG sing cetha sing ngemot kode persiyapan authenticator QR.",
+      "couldNotOpenPickerTitle": "Ora bisa mbukak pamilih gambar",
+      "couldNotOpenPickerBody": "Coba Unggah QR maneh.",
+      "normalizedDecodeFailed": "Gambar sing dinormalisasi ora bisa didekode",
+      "clipboardImageLoadFailed": "Gambar clipboard ora bisa dimuat",
+      "imageProcessingUnavailable": "Pangolahan gambar ora kasedhiya",
+      "imageProcessingUnavailableAlt": "Pangolahan gambar ora kasedhiya",
+      "noImageInClipboardTitle": "Ora ana gambar ing clipboard",
+      "noImageInClipboardBody": "Salin gambar kode QR, banjur tutul Tempel QR Gambar maneh.",
+      "clipboardUnavailableTitle": "Papan klip ora kasedhiya",
+      "clipboardUnavailableBody": "Teks clipboard dudu persiyapan authenticator sing valid URL. Nyalin gambar otpauth:// URL utawa QR banjur coba maneh.",
+      "clipboardAccessBody": "KaalKey ora bisa maca teks utawa gambar saka clipboard. Idini akses clipboard, banjur salin gambar QR utawa otpauth:// URL banjur tutul Tempel QR Gambar / URL maneh.",
+      "couldNotPasteImageTitle": "Ora bisa nempel gambar",
+      "couldNotPasteImageBody": "Tempel gambar ora didhukung dening clipboard ing piranti iki. Gunakake gambar Import QR tinimbang.",
+      "sourceImageDecodeFailure": "Coba gambar QR sing beda.",
+      "pastedImportFailureBody": "Coba gambar QR sing beda.",
+      "sourceImageReadFailure": "Coba nyalin gambar QR sing cetha.",
+      "importFailedTitle": "QR ngimpor gambar gagal",
+      "importFailedBody": "KaalKey ora bisa maca gambar kasebut. Coba gambar kode QR liyane.",
+      "notFoundBody": "Gambar sing disalin ora ngemot kode QR sing bisa diwaca.",
+      "pastedNotFoundBody": "Gambar sing ditempelake ora ngemot kode QR sing bisa diwaca.",
+      "pastedReadFailureBody": "Coba nyalin gambar PNG utawa JPEG sing cetha sing ngemot kode QR lengkap.",
+      "noQrCodeTextBody": "KaalKey decode gambar sing dipilih nanging ora nemu kode QR. Coba PNG utawa JPEG kanthi resolusi lengkap sing cetha lan kabeh kode katon."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Kode QR iki dudu kode persiyapan authenticator adhedhasar wektu.",
+      "missingAccountDetails": "Kode QR ora ana rincian akun.",
+      "unsupportedAlgorithm": "Kode QR nggunakake algoritma sing ora didhukung.",
+      "unsupportedDigits": "Kode QR iki kudu nganggo 6, 7, utawa 8 digit.",
+      "unsupportedPeriod": "Kode QR iki nggunakake periode wektu sing ora didhukung.",
+      "invalidAccount": "Kode QR ora bisa divalidasi."
+    },
+    "backup": {
+      "invalidJson": "File serep ora bener JSON.",
+      "unsupportedFormat": "Iki dudu serep ndhelik KaalKey sing didhukung.",
+      "invalidPasswordOrDamaged": "Sandi serep salah utawa file serep rusak.",
+      "invalidContents": "Isi serep ora bener utawa ora lengkap.",
+      "secureRandomUnavailableDetailed": "Generasi acak sing aman ora kasedhiya. Gawe maneh lan instal maneh aplikasi Android karo expo-crypto, banjur coba maneh.",
+      "invalidAccountDataForBackup": "Siji utawa luwih akun ora sah. Ndandani data akun sadurunge nggawe serep.",
+      "invalidPasswordOrModified": "Sandi serep salah utawa file serep wis diowahi.",
+      "invalidPasswordOrFileDamaged": "Sandi serep salah utawa file rusak.",
+      "passwordCopiedTitle": "Sandi disalin",
+      "enterPasswordTitle": "Ketik sandhi serep",
+      "enterPasswordBody": "Ketik sandhi sing digunakake nalika gawe serep iki.",
+      "passwordCopiedBody": "Simpen ing ngendi wae sing aman, kayata WhatsApp.",
+      "copyFailedTitle": "Nyalin gagal",
+      "copyFailedBody": "Pilih lan nyalin sandhi kanthi manual.",
+      "generatingPassword": "Nggawe sandhi serep sing aman…",
+      "encrypting": "Enkripsi serep…",
+      "decrypting": "Dekripsi serep…",
+      "restoring": "Mulihake akun…",
+      "backupCreatedTitle": "Gawe serep digawe",
+      "restoreCompleteTitle": "Mulihake rampung",
+      "mergeConfirmTitle": "Gabung akun serep?",
+      "mergeConfirmButton": "Gabung akun",
+      "backupSavedTemporary": "Serep sing dienkripsi disimpen sementara ing:\n{uri}",
+      "generatePasswordErrorTitle": "Ora bisa nggawe sandhi serep",
+      "secureRandomUnavailable": "Generasi acak sing aman ora kasedhiya.",
+      "passwordUnavailableTitle": "Sandi serep ora kasedhiya",
+      "passwordUnavailableBody": "Nutup dialog iki lan gawe serep anyar kanggo ngasilake sandhi sing aman.",
+      "backupDownloadedBody": "Serep KaalKey sing ndhelik wis diundhuh. Tansah file lan sandhi pribadi.",
+      "backupFailedTitle": "Gawe serep gagal",
+      "backupCreateErrorBody": "KaalKey ora bisa nggawe serep.",
+      "restoreFailedTitle": "Mulihake gagal",
+      "backupReadErrorBody": "Serep ora bisa diwaca utawa disimpen.",
+      "browserDownloadUnsupported": "Browser sampeyan ora ndhukung ngundhuh file serep.",
+      "localFileUnavailable": "Lokasi file lokal ora kasedhiya ing piranti iki.",
+      "saveBackupTitle": "Simpen serep KaalKey sing dienkripsi"
+    },
+    "clipboard": {
+      "copiedTitle": "Kode disalin",
+      "copiedBody": "Kode verifikasi sampeyan wis disalin.",
+      "errorTitle": "Kesalahan",
+      "errorBody": "Ora bisa nyalin kode verifikasi."
+    },
+    "activity": {
+      "cameraReady": "Kamera siap. Titik ing kode authenticator QR.",
+      "readingQrImage": "Maca gambar QR…",
+      "importingQrImage": "Ngimpor gambar QR…",
+      "importingAccount": "Ngimpor akun authenticator…",
+      "importingPastedImage": "Ngimpor gambar QR sing ditempelake…"
+    }
+  },
+  "activity": {
+    "working": "nyambut gawe",
+    "wait": "Mangga ngenteni…",
+    "donTClose": "Mangga aja nutup utawa sesambungan karo KaalKey.",
+    "loadingLanguages": "Ngunggah basa sing kasedhiya…",
+    "loadingTranslation": "Memuat terjemahan…"
+  }
+}

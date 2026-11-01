@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Dil",
+      "description": "KaalKey ulanylýan dili saýlaň.",
+      "english": "Iňlis",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "DIL",
+      "searchLanguageName": "Gözleg dili (ady ýa-da kody)",
+      "searchSupportedLanguages": "Goldaw dillerini gözläň",
+      "closeLanguageDropdown": "Diliň aşak düşmegini ýapyň",
+      "noTranslatedLanguage": "Terjime edilen dil tapylmady",
+      "serverUrl": "Terjime serweri URL",
+      "serverUrlDescription": "KaalKey bu serwerden dil sanawyny we terjimelerini göçürip alýar.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Terjime serwerini ýazdyryň"
+    },
+    "title": "Programma sazlamalary",
+    "eyebrow": "KAALKEY SÖZGÜTLER",
+    "experience": {
+      "section": "Tejribe"
+    },
+    "security": {
+      "section": "HOWPSUZlyk"
+    },
+    "backup": {
+      "section": "GELIP BOLMAK"
+    },
+    "danger": {
+      "section": "Howp zolagy",
+      "clearAccounts": "Accountshli hasaplary arassala",
+      "clearAccountsDescription": "Bu enjamdan her hasaby we syry hemişelik aýyryň. Ilki bilen ätiýaçlyk et.",
+      "clearAccountsAccessibilityLabel": "Autenthli tassyklaýjy hasaplary arassalaň"
+    },
+    "appearance": {
+      "section": "GÖRNÜŞ",
+      "title": "Lightagty görnüş",
+      "description": "KaalKey häzirki wagtda arassa yşyk temasyny ulanýar."
+    },
+    "haptics": {
+      "title": "Haptiki seslenme",
+      "description": "Kranlar we tamamlanan hereketler üçin mylaýym seslenme."
+    },
+    "deviceLock": {
+      "title": "Enjamy tanamak gulpy",
+      "description": "KaalKey birinji hatardan çykanda gümmeziňiz gulplanýar.",
+      "requirement": "Telefonyňyzyň biometrikasyny ýa-da ekran gulpuny PIN, nagyş ýa-da paroly talap ediň.",
+      "accessibilityLabel": "Enjamy tanamak programmasynyň gulpy"
+    },
+    "privacy": {
+      "title": "Hukuk we gizlinlik",
+      "description": "Gizlinlik ýörelgelerini we ulanyş şertlerini gözden geçiriň.",
+      "storageNote": "Hakyky tassyklaýjy syrlar enjamyňyzdaky goragda saklanýar. Saýlawlar ýerli derejede saklanýar."
+    }
+  },
+  "accounts": {
+    "edit": "Redaktirläň",
+    "sortAccountName": "Hasabyň ady boýunça tertipläň",
+    "loadingSecureVault": "Howpsuz gümmez ýüklenýär ...",
+    "tapCopy": "Göçürmek üçin basyň",
+    "noAccountsMatch": "Gözlegiňize hiç hili hasap ýok.",
+    "viewQrCode": "Hasap üçin QR koduny görüň",
+    "removeAccount": "Hasaby aýyryň",
+    "copyVerificationCode": "Barlag koduny göçüriň",
+    "active": "HEREKET",
+    "sort": "SORT BY",
+    "account": "Hasap",
+    "clearSearch": "Gözleg arassala",
+    "sortServiceName": "Hyzmatyň ady boýunça tertipläň",
+    "addFirstAccount": "Ilkinji hasabyňyzy goşuň",
+    "searchAccounts": "Hasaplary gözläň",
+    "searchServiceAccount": "Gözleg hyzmaty ýa-da hasaby",
+    "accounts": "Hasaplaryňyz",
+    "add": "+ Goş",
+    "vaultStartsHere": "Kümmetiňiz şu ýerden başlaýar",
+    "service": "Hyzmat",
+    "emptyHint": "Ilkinji tassyklama koduňyzy döretmek üçin gizlin açaryny ulanyp hasap goşuň."
+  },
+  "common": {
+    "done": "Boldy",
+    "doneButton": "Boldy",
+    "closeSettings": "Sazlamalary ýapyň",
+    "separator": "-",
+    "article": "a",
+    "save": "Saklaň",
+    "delete": "Öçür",
+    "resizeAppBrand": "Programmanyň we marka panelleriniň ölçegini üýtgediň"
+  },
+  "qrImport": {
+    "readPastedImage": "Goýlan suraty okap bolmady"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Bu ätiýaçlykdaky hasaplar: {count}. KaalKey bar bolan hasaplaryňyzy saklar we eýýäm ýok hasaplary goşar. Dublikat hasaplar geçiriler.",
+    "restoreCompletionBody": "Hasaplar goşuldy: {added}. Göçürilen hasaplar: {skipped}. Bar bolan hasaplaryňyz saklandy.",
+    "copyPassword": "Döredilen paroly göçüriň",
+    "passwordSafety": "Bu paroly aýratyn saklaň (mysal üçin, WhatsApp). Ikisi bolan islendik adam",
+    "importAction": "Faýl saýlaň we import ediň",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "HOWPSUZ VAULT",
+    "createBackup": "Uptiýaçlyk dörediň",
+    "encryptedFile": "Şifrlenen faýl",
+    "restoreBackup": "Uptiýaçlyk nusgasyny dikelt",
+    "safetyNote": "Uptiýaçlyk nusgalarda tassyklaýjy syrlaryňyz bar. KaalKey her ätiýaçlyk nusgasy üçin özboluşly parol döredýär. Aýry-aýry saklaň; KaalKey dikeldip bilmeýär.",
+    "generatingSecurePassword": "Ygtybarly parol döretmek…",
+    "importFile": "Faýl import ediň",
+    "backupPassword": "GELIP BOLMAK",
+    "account": "hasaby",
+    "accounts": "hasaplary",
+    "exportDescription": "{count} ýatda saklanan {accountLabel} hemmesini ätiýaçlyk faýla şifrläň. KaalKey özboluşly parol döredýär; göçüriň we faýldan aýratyn saklaň.",
+    "restoreDescription": "KaalKey ätiýaçlyk faýlyňyzy we parolyňyzy saýlaň. Bar bolan hasap sanawyňyza täze hasaplar goşular; bar bolan hasaplar bolşy ýaly galar.",
+    "enterBackupPassword": "Uptiýaçlyk paroly giriziň",
+    "closeBackup": "Uptiýaçlyk nusgasyny ýapyň",
+    "copyGeneratedBackup": "Döredilen ätiýaçlyk paroly göçüriň",
+    "backupPassword2": "Parolyň ätiýaçlyk nusgasy",
+    "clearBackupPassword": "Uptiýaçlyk paroly arassalaň",
+    "backupFilePassword": "ätiýaçlyk faýl we parol tassyklaýjy hasaplaryňyzy dikeldip biler.",
+    "encryptShareBackup": "Uptiýaçlyk nusgasyny şifrläň we paýlaşyň"
+  },
+  "home": {
+    "unlockSecurely": "Ygtybarly açyň",
+    "disableAppLock": "Programma gulpuny öçüriň",
+    "enableAppLock": "Programma gulpuny açyň",
+    "checkingSecureLock": "Howpsuz gulp sazlamalaryňyzy barlamak. Kodlaryňyz gizlenýär",
+    "waitingVerification": "Barlamaga garaşýarys…",
+    "secretsStayStored": "Siziň syrlaryňyz bu enjamda saklanýar.",
+    "openAppSettings": "Programma sazlamalaryny açyň",
+    "versionLabel": "WERSI .A",
+    "unlockRequirement": "Bir gezeklik tassyklama kodlaryňyza girmek üçin telefonyňyzyň biometriki ýa-da ekran gulpy PIN, nagyş ýa-da paroly ulanyň.",
+    "localVault": "OCERLI GÖRNÜŞI .IZ",
+    "codesDeviceControl": "Kodlaryňyz Enjamyňyz. Dolandyryşyňyz.",
+    "securingVault": "Kümmetiňizi goramak…",
+    "vaultProtected": "Kümmetiňiz goralandyr",
+    "lock": "GEREK",
+    "localVault2": "OCERLI VAULT",
+    "authenticator": "KAALKEY AWTENTIKATOR",
+    "tricolourLockEmblem": "KaalKey üç reňkli gulp nyşany",
+    "authenticator2": "Awtor"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "QR kody skanirlemegi saýlasaňyz, KaalKey bu hereket üçin kamera rugsadyny ulanýar. Goşmaça enjamy tanamak we gyssagly seslenme degişli enjam aýratynlyklaryny ulanýar. Enjam sazlamalarynda rugsatlary dolandyryp bilersiňiz.",
+        "heading": "2. Rugsatlar we enjam aýratynlyklary"
+      },
+      "backups": {
+        "body": "Uptiýaçlyk döredeniňizde, KaalKey ätiýaçlyk nusgasyny saýlan parolyňyzy ulanyp şifrleýär. Faýly we paroly gizlin saklaň we ygtybarly saklaň. Faýly we parolyny alan her bir adam, tassyklaýjy hasaplaryňyzy dikeldip biler. KaalKey ýatdan çykarylan ätiýaçlyk paroly dikeldip bilmez.",
+        "heading": "3. uptiýaçlyk nusgalar"
+      },
+      "security": {
+        "body": "Enjamyňyzy täzeläň, ekranyň gulpy bilen goraň we OTP syrlaryny ýa-da ätiýaçlyk parollaryny paýlaşmaň. Programmany aýyrmak, maglumatlary arassalamak ýa-da enjamy ýitirmek ýerli saklanylýan hasaplary elýeterli edip bilmez. Dikeltmek zerur bolsa, ygtybarly ätiýaçlyk nusgasyny saklaň.",
+        "heading": "5. Howpsuzlyk we saklamak"
+      },
+      "information": {
+        "heading": "1. Maglumat we syrlar",
+        "body": "KaalKey tassyklaýjy programma. Hasap bellikleri we bir gezeklik kodlary döretmek üçin zerur bolan gizlin bahalar duýgur. Programma, hasap ýazgylaryny enjamyň ygtybarly ammarynda saklamak üçin döredildi. Gulpy açylmadyk enjama ýa-da eksport edilen ätiýaçlyk nusgasyna eýe bolan islendik adam, duýgur maglumatlary alyp biler."
+      },
+      "sharing": {
+        "heading": "4. Paýlaşmak we üçünji taraplar",
+        "body": "Ftiýaçlyk akym faýllary saklamak, geçirmek ýa-da saýlamak üçin enjamyňyzyň paýlaşyk sahypasyny ýa-da faýl saýlaýjysyny ulanyp biler. Islän üçünji tarap programmaňyzyň ýa-da hyzmatyňyzyň gizlinlik amallary şol üpjün ediji tarapyndan dolandyrylýar. Bu bildiriş enjamyňyzyň, operasiýa ulgamyňyzyň ýa-da saýlanan paýlaşma hyzmatlaryňyzyň hiç haçan maglumatlary gaýtadan işlemeýändigi barada aç-açan talap etmeýär."
+      },
+      "changes": {
+        "heading": "6. Üýtgeşmeler we aragatnaşyk",
+        "body": "Bu goýlan bildiriş, geljekdäki programma goýberilişinde täzeden seredilip bilner. Gizlinlik soraglary üçin programma bilen üpjün edilen resmi goldaw kanaly arkaly programma neşirçisine ýüz tutuň."
+      },
+      "title": "Gizlinlik syýasaty"
+    },
+    "terms": {
+      "use": {
+        "body": "Girmek üçin ygtyýarly hasaplaryňyz üçin tassyklama kodlaryny döretmek üçin KaalKey ulanyp bilersiňiz. Hakyky tassyklama kodlaryny ulanýan hyzmatlaryňyzyň düzgünlerini we hyzmatlarynyň düzgünlerini berjaý etmek üçin jogapkärçilik çekýärsiňiz.",
+        "heading": "1. Ulanyşyňyz"
+      },
+      "protectAccounts": {
+        "body": "Enjamyňyzy, tassyklaýjy syrlary, dikeldiş usullaryny, eksport ätiýaçlyk nusgalaryny we ätiýaçlyk parollaryny üpjün etmek üçin jogapkärçilik çekýärsiňiz. Kodlary ýa-da syrlary ynanmaýan adamlar bilen paýlaşmaň.",
+        "heading": "2. Hasaplaryňyzy goraň"
+      },
+      "availability": {
+        "body": "Aýratynlyklar goýberişleriň arasynda üýtgäp biler. Programmany täzeläp durmaly we ätiýaçlyk we dikeldiş işleriňiziň işleýändigini wagtal-wagtal barlamaly.",
+        "heading": "5. Üýtgeşmeler we elýeterlilik"
+      },
+      "recovery": {
+        "body": "[] Degişli hyzmat tarapyndan üpjün edilýän alternatiw dikeldiş usullaryny saklaň.",
+        "heading": "3. Dikeldiş kepilligi ýok"
+      },
+      "advice": {
+        "heading": "4. Hünär maslahaty ýok",
+        "body": "Programma peýdaly bolup, kanuny, maliýe ýa-da howpsuzlyk hadysalaryna jogap bermek maslahatyny bermeýär. Hasap bozulan bolsa, zyýan çeken hyzmatyň resmi dikeldiş we howpsuzlyk görkezmelerine eýeriň."
+      },
+      "liability": {
+        "heading": "6. Jogapkärçilik we ulanylýan kanun",
+        "body": "Ulanylýan kanunlar tarapyndan rugsat edilen derejede, programma üznüksiz ýa-da ýalňyşsyz işlemegiň kepilligi bolmazdan üpjün edilýär. Bu sözlerdäki hiç bir zat kanuny taýdan aýryp bolmaýan hukuklary ýa-da serişdeleri aradan aýyrmaýar. Islendik çäklendirmeler ýa-da dolandyryş-hukuk şertleri neşir edilmezden ozal neşirçiniň ýurisdiksiýasy üçin ökde aklawçy tarapyndan gözden geçirilmelidir."
+      },
+      "title": "Ulanyş şertleri"
+    },
+    "version": "Wersiýa",
+    "saving": "Tygşytlamak…",
+    "acceptContinue": "Kabul et we dowam et",
+    "appliesAuthenticator": "KaalKey Autentifikator üçin ulanylýar",
+    "reviewBothDocuments": "KaalKey ulanmazdan ozal iki resminamany gözden geçirmegiňizi haýyş edýäris. Olar programma girýär we awtonom görnüşde elýeterlidir.",
+    "originalMulticolourAuthenticator": "Asyl köp reňkli KaalKey tassyklaýjy nyşan",
+    "legalPrivacyNotice": "Hukuk we gizlinlik habarnamasy",
+    "legalInformation": "Hukuk maglumatlary",
+    "reviewSPrivacy": "KaalKey gizlinlik maglumatlary we ulanyş şertlerine göz aýlaň.",
+    "iReadAgree": "Gizlinlik ýörelgelerini we ulanyş şertlerini okadym we razy."
+  },
+  "qrScanner": {
+    "keepEntireQr": "QR kody tutuşlygyna görüň. Siziň syryňyz bu enjamda galýar.",
+    "back": "Yzyna",
+    "turnFlashlightOff": "Elçyrany öçüriň",
+    "turnFlashlight": "Elçyrany ýakyň",
+    "flashlight": "Elçyra ýakylýar",
+    "flashlight2": "Elçyra",
+    "cameraUnavailableOpen": "Kamera elýeterli däl Bu sahypany HTTPS ýa-da localhost-da açyň we kamera girmäge rugsat beriň.",
+    "cameraPreviewUnavailable": "Kamera deslapky syn elýeterli däl. Skaneri ýapyň we açyň.",
+    "cameraReadyPoint": "Kamera taýýar - ony QR kody bilen görkeziň.",
+    "browserCannotProcess": "Bu brauzer kamera çarçuwalaryny gaýtadan işläp bilmeýär.",
+    "qrCodeDetected": "QR kody tapyldy.",
+    "couldnTRead": "Kamera çarçuwalaryny okap bolmady Kameranyň rugsatlaryny barlaň we bu sahypany täzeden ýükläň.",
+    "cameraPermissionDenied": "Kamera rugsady ret edildi Brauzer sazlamalarynda kamera girmegine rugsat beriň, soňra skaneri açyň.",
+    "noCameraWas": "Bu enjamda kamera tapylmady.",
+    "cameraBusyAnother": "Kamera başga bir programma ýa-da brauzer goýmasy bilen meşgullanýar.",
+    "startCameraHttps": "Kamerany açyp bolmady HTTPS ýa-da localhost ulanyň we brauzeriň rugsatlaryny barlaň.",
+    "qrScannerCamera": "QR skaner kamerasynyň deslapky syn",
+    "cameraUnavailableCheck": "Kamera elýeterli däl Kameranyň rugsadyny barlaň we gaýtadan synanyşyň.",
+    "pointCameraAuthenticator": "Kameranyňyzy goşýan hyzmatyňyzdan tassyklaýjy gurnama QR kody görkeziň.",
+    "backAddAccount": "Hasap goşmak üçin yzyna dolan",
+    "secureSetup": "HOWPSUZ GURAMAK",
+    "enterDetailsManually": "Munuň ýerine jikme-jiklikleri el bilen giriziň"
+  },
+  "accountForm": {
+    "hideManualEntry": "El bilen ýazgyny gizläň",
+    "secretKeySupplied": "Sazlaýan hyzmatyňyz bilen üpjün edilen gizlin açary ulanyň. Hiç haçan hasabyňyzyň parolyny bu ýere girizmäň. Algoritmi, san sanlaryny we aralygy hyzmatyň gurnama görkezmelerine laýyklaşdyryň.",
+    "updateServiceAccount": "Hyzmaty, hasabyň adyny ýa-da gizlin açary täzeläň.",
+    "secretKeyRead": "Gizlin açar, diňe redaktirlän wagtyňyz okalýar",
+    "secretKeyBase32": "Gizlin açar Base32",
+    "digits": "sanlar",
+    "seconds": "sekunt",
+    "enterDetailsManually": "ORA-DA MAGLUMAT EDIP BOLUN",
+    "enterDetailsManually2": "Jikme-jiklikleri el bilen giriziň",
+    "serviceAccountName": "Hyzmat, hasabyň ady we gizlin açar",
+    "saveChangesSecurely": "Üýtgeşmeleri ygtybarly saklaň",
+    "saveAccountSecurely": "Hasaby ygtybarly saklaň",
+    "serviceIssuer": "Hyzmat ýa-da emitent",
+    "accountName": "Hasabyň ady",
+    "secretKey": "Gizlin açar",
+    "serviceIssuer2": "HYZMAT / MESELE",
+    "eGGoogle": "meselem Google",
+    "clearServiceIssuer": "Hyzmat ýa-da emitent",
+    "eGExample": "meselem you@example.com",
+    "clearAccountName": "Hasabyň adyny arassala",
+    "secretKeyLocked": "Gizlin açar (gulplanan)",
+    "secretKeyBase322": "Gizlin açar (BASE32)",
+    "enterSetupKey": "Gurnama açaryny giriziň",
+    "clearSecretKey": "Gizlin açary arassala",
+    "otpAlgorithm": "OTP ALGORITM",
+    "otpDigits": "OTP Sanlar",
+    "refreshIntervalSeconds": "TERJIME EDIP BOLAN (IKINJI)",
+    "otpRefreshInterval": "OTP sekuntda aralyk täzeläň",
+    "closeAccountForm": "Hasap görnüşini ýapyň",
+    "totpSetupUrl": "TOTP gurmak URL",
+    "importSetupUrl": "Gurnama import URL",
+    "totpSetupUrl2": "TOTP GURAMAK URL",
+    "accountName2": "HASABY N ADY",
+    "addAccount": "Hasap goşuň"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Hakyky tassyklaýjy QR kody skanirläň",
+    "setupGuidance": "Iň aňsat gurnamak üçin QR kody skanirläň ýa-da jikme-jiklikleri el bilen giriziň.",
+    "cameraAddAccount": "Derrew hasap goşmak üçin kamerany ulanyň",
+    "scanQrCode2": "QR kody skanirläň",
+    "uploadQrImage": "QR suraty ýükläň",
+    "chooseQrScreenshot": "Galereýa, Suratlar ýa-da Faýllardan QR skrinshot saýlaň",
+    "pasteQr": "QR suraty / URL goýuň",
+    "pasteCopiedQr": "Göçürilen QR suraty ýa-da tassyklaýjy gurnama URL",
+    "uploadQrImage2": "QR suraty ýükläň"
+  },
+  "accountQr": {
+    "close": ".Akyn",
+    "accountQrCode": "Hasap QR kody",
+    "revealQrCode": "QR koduny açyň",
+    "exportWarning": "Duýduryş: bu QR kody skanirlän her bir adam bu hasap üçin tassyklama kodlaryny döredip biler. Diňe ygtybarly ekranda açyň.",
+    "privacyHint": "Bu QR kody gizlin saklaň. Ony skanirlemek hasabyň tassyklaýjy syryny göçürýär."
+  },
+  "productInfo": {
+    "backupRestore": "Uptiýaçlyk we dikeltmek",
+    "backupRestoreDescription": "Hakyky tassyklaýjy maglumatlaryňyzy ätiýaçlaň we başga enjama geçeniňizde dikeldiň.",
+    "privacyDescription": "Barlag hasaplaryňyzy bir ýerde saklaň. Gurluşyňyzy jogapkärçilikli dolandyrmak üçin programmanyň ätiýaçlyk nusgasyny, dikeldişini we enjam gulplama opsiýalaryny ulanyň.",
+    "timeBasedCodes": "Wagt esasly kodlar",
+    "generateOneTimeCodes": "Iki basgançakly barlagy tamamlamak üçin hasaplaryňyz üçin bir gezeklik aýlaw kodlaryny dörediň.",
+    "quickAccountSetup": "Hasaby çalt gurmak",
+    "quickSetupDescription": "Hakyky tassyklaýjy QR kody skanirläň ýa-da hasap goşmak üçin QR suraty import ediň.",
+    "accountsOnePlace": "Bir ýerde hasaplar",
+    "accountsInOnePlaceDescription": "Saklanan hasaplaryňyzy bilelikde saklaň we girmegiň wagty gelende dogry ýazgyny tapyň.",
+    "privateAccountVault": "Şahsy hasap ammary",
+    "privateVaultDescription": "Hakyky tassyklaýjy ýazgylaryňyzy ýerli dolandyryň we programmanyň elýeterli enjam gulplama opsiýasyny ulanyň.",
+    "easyCodeAccess": "Kod aňsat",
+    "easyCodeAccessDescription": "Häzirki kody göçüriň ýa-da arassa, gönükdirilen interfeýs arkaly hasap maglumatlaryny dolandyryň.",
+    "authenticatorTechsivaram": "AWTENTIKATOR · TEXIVARAM tarapyndan",
+    "mobileAuthenticator": "MOBIL AWTENTIKATORY .YZ",
+    "tagline": "Iki ädimli tassyklamany dolandyrmagyň has ýönekeý usuly.",
+    "heroDescription": "Wagtlaýyn tassyklama kodlary üçin gönükdirilen tassyklaýjy tejribe. Android üçin KaalKey bilen gabat gelýän hasap kodlaryny ýakyn saklaň.",
+    "timeBasedCodes2": "WAGT-KODLAR",
+    "privateDesign": "DIZayn",
+    "builtSimpleAuthenticator": "Simönekeý awtorlyk işi üçin guruň",
+    "qrSetupTimed": "QR GURAMAK · WAGT KODLARY · HASABAT BOLANMASY",
+    "privacyTitle": "Hasaplaryňyz. Kodlaryňyz Dolandyryşyňyz.",
+    "authenticator": "KAALKEY · AWTENTIKATOR",
+    "brandBanner": "KaalKey marka banner",
+    "logo": "KaalKey nyşany"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Elatyr",
+      "storageInvalidTitle": "Saklamak maglumatlary nädogry",
+      "storageInvalidBody": "Saklanan hasap maglumatlary ygtybarly okap bolmaýar.",
+      "storageErrorTitle": "Saklamak ýalňyşlygy",
+      "storageErrorBody": "Saklanan hasaplary ýükläp bolmady",
+      "missingTitle": "Ingitirilen maglumatlar",
+      "missingEditingBody": "Hyzmatyň adyny we hasabynyň adyny giriziň.",
+      "missingBody": "Hyzmatyň adyny, hasabyň adyny we gizlin açaryny giriziň.",
+      "invalidOtpBody": "Base32 syryny, algoritmini, san sanlaryny we täzeleniş möhletini barlaň. Gizlinler dogry Base32 nyşanlary öz içine almalydyr; sanlar {digits} bolmaly we döwür {minPeriod} - {maxPeriod} sekunt bolmaly.",
+      "duplicateBody": "Bu hyzmat we hasap ady bilen hasap eýýäm ýatda saklanýar.",
+      "updatedBody": "Hasabyňyz täzelendi",
+      "addedBody": "Hasabyňyz ygtybarly goşuldy.",
+      "invalidOtpTitle": "Nädogry OTP sazlamalary",
+      "duplicateTitle": "Hasap eýýäm bar",
+      "savedTitle": "Hasap saklandy",
+      "invalidSecretTitle": "Nädogry gizlin açar",
+      "invalidSecretBody": "Dogry Base32 syryny girizendigiňizi haýyş edýäris.",
+      "removedTitle": "Hasap aýryldy",
+      "removedBody": "Hasap we onuň syry bu enjamdan aýryldy.",
+      "clearedTitle": "Hasaplar öçürildi",
+      "clearedBody": "Autenthli tassyklaýjy hasaplar we syrlar bu enjamdan aýryldy.",
+      "someSavedAccountsNeedAttentionTitle": "Käbir ýatda saklanan hasaplar ünsi talap edýär",
+      "someSavedAccountsNeedAttentionBody": "{count} nädogry hasap ýazgylary ýüklenmedi. Dogry hasaplar elýeterli. Goşmaça üýtgeşmeler girizmezden ozal ätiýaçlyk nusgasyny döretmegi göz öňünde tutuň.",
+      "removeConfirmTitle": "Hasaby aýyrýarsyňyzmy?",
+      "removeConfirmWebTitle": "Hasaby aýyrýarsyňyzmy?",
+      "removeButton": "Aýyr",
+      "clearButton": "Hemmesini arassala",
+      "clearConfirmTitle": "Accountshli hasaplary arassalaýarsyňyzmy?",
+      "saveErrorBody": "Hasaplary ýatda saklap bolmady Brauzer saklanyşynyň barlygyny barlaň we gaýtadan synanyşyň.",
+      "notFoundTitle": "Hasap tapylmady",
+      "notFoundBody": "Bu hasap tapylmady Redaktory ýapyň we gaýtadan synanyşyň.",
+      "removeConfirmBody": "Bu enjamdan hasaby we syry aýyrýar.",
+      "clearConfirmBody": "Bu enjamdaky ähli tassyklaýjy hasaplary we olaryň syrlaryny hemişelik aýyrýar. Bu hasaplara soň gerek bolsa, ilki bilen şifrlenen ätiýaçlyk nusgasyny dörediň.",
+      "clearConfirmUndoBody": "Muny yzyna gaýtaryp bolmaz."
+    },
+    "biometric": {
+      "cancelButton": "Elatyr",
+      "saveErrorTitle": "Sazlamany saklap bolmady",
+      "unlockPrompt": "Gulpy açyň KaalKey Autentifikator",
+      "promptSubtitle": "Biometrikany ýa-da enjamyňyzyň ekrany gulpuny ulanyň",
+      "disableConfirmPrompt": "KaalKey programma gulpuny öçürmegi tassyklaň",
+      "enablePrompt": "KaalKey üçin programma gulpuny açyň",
+      "deviceLockTitle": "Enjamyňyzyň ekrany gulpuny düzüň",
+      "deviceLockBody": "KaalKey telefonyňyzyň içindäki tassyklamasyny ulanýar. Telefonyňyzyň howpsuzlyk sazlamalarynda enjam PIN, nagyş ýa-da parol düzüň, gaýtadan synanyşyň. Biometrika hökmany.",
+      "unavailableTitle": "Enjamy tanamak mümkin däl",
+      "unavailableBody": "Telefonyňyz ygtybarly tassyklamany başlap bilmedi. Enjamyň ekrany gulpunyň düzülendigini barlaň we gaýtadan synanyşyň.",
+      "lockedTitle": "Hakyky tanamaklyk wagtlaýyn gulplandy",
+      "lockedBody": "Telefonyňyz gaty köp synanyşykdan soň tassyklamany wagtlaýyn öçürdi. Garaş we gaýtadan synanyş.",
+      "promptErrorTitle": "Hakyky tanamak mümkin däl",
+      "promptErrorBody": "KaalKey telefonyň ygtybarly tanamak islegini başlap bilmedi. Gaýtadan synanyşmagyňyzy haýyş edýäris.",
+      "webLock": "Enjamy tanamak gulpy entek web wersiýasynda ýok. Web gümmezi açylman galýar; deviceerli enjamy tanamak üçin Android programmasyny ulanyň.",
+      "disabledTitle": "Programma gulpy ýapyk",
+      "disabledBody": "KaalKey programma gulpy öçürildi.",
+      "disableSaveError": "Programma gulpy açyklygyna galýar. Gaýtadan synanyşmagyňyzy haýyş edýäris.",
+      "enabledTitle": "Programma gulpy açyk",
+      "enabledBody": "KaalKey açylanda we oňa gaýdyp baranyňyzda telefonyňyzyň içindäki hakykylygyny sorar.",
+      "enableSaveError": "Programma gulpy açylmady. Gaýtadan synanyşmagyňyzy haýyş edýäris."
+    },
+    "qr": {
+      "startingCamera": "Kamerany başlamak…",
+      "unsupportedTitle": "Goldanmaýan QR kody",
+      "unsupportedBody": "Hyzmat tarapyndan üpjün edilýän tassyklaýjy gurnama QR koduny skanirläň. Bu adaty giriş QR kody däl-de, TOTP kody bolmaly.",
+      "unsupportedDiagnostic": "Bu QR TOTP gurmak kody däl. Hakyky tassyklaýjy gurnamagy maksat ediniň QR.",
+      "detectedDiagnostic": "QR tapyldy. Derňew…",
+      "analyzing": "QR kody derňemek…",
+      "duplicateTitle": "Hasap eýýäm goşuldy",
+      "duplicateBody": "{issuer}: {account} eýýäm KaalKey.",
+      "addedTitle": "Hasap goşuldy",
+      "addedBody": "{issuer}: {account} üstünlikli goşuldy.",
+      "saveFailedDiagnostic": "Hasaby ýazdyryp bolmady Againene gözläp bilersiňiz.",
+      "invalidTitle": "Nädogry QR kody",
+      "invalidBody": "KaalKey bu tassyklaýjy QR kody derňäp bilmedi. {detail}. Hyzmatyň TOTP gurmak QR koduny ulanyň (köplenç {prefix} bilen başlaýar).",
+      "parseFailedDiagnostic": "QR gaýtadan işlenip bilinmedi. Gurnama maksat ediniň QR we gaýtadan synanyşyň.",
+      "invalidUrlTitle": "Nädogry TOTP URL",
+      "invalidUrlBody": "{prefix} bilen başlap, doly tassyklaýjyny URL goýuň.",
+      "clipboardEmptyTitle": "Panel boş",
+      "clipboardEmptyBody": "Ilki {prefix} URL göçüriň, soňra Goýuň TOTP URL düwmesine basyň.",
+      "clipboardErrorTitle": "Paneli okap bolmady",
+      "clipboardErrorBody": "TOTP sazlamasyny URL göçüriň we gaýtadan synanyşyň."
+    },
+    "haptics": {
+      "saveFailedTitle": "Sazlamany saklap bolmady",
+      "saveFailedBody": "Gaptic seslenme islegini ýatda saklap bolmady. Gaýtadan synanyşmagyňyzy haýyş edýäris."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Ykrar edip bilmedi",
+      "saveFailedBody": "Gaýtadan synanyşmagyňyzy haýyş edýäris. KaalKey ulanmazdan ozal kanuny habarnamany kabul etmeli."
+    },
+    "cameraPermission": {
+      "title": "Kamera rugsady talap edilýär",
+      "body": "Kameranyň tassyklaýjy gurnama QR koduny skanirlemegine rugsat beriň."
+    },
+    "storage": {
+      "browserUnavailable": "Brauzer ammary elýeterli däl",
+      "browserFilePickerUnavailable": "Brauzer faýly saýlaýjy elýeterli däl."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Goldaw berilmeýän faýl",
+      "unsupportedFileBody": "PNG ýa-da JPEG ýaly QR kod şekilini saýlaň.",
+      "browserDecoderUnavailable": "Brauzer şekilini kodlamak mümkin däl",
+      "imageLoadFailed": "Surat ýükläp bolmady",
+      "unreadableDimensions": "Suratyň okalýan ölçegleri ýok",
+      "noQrCodeFoundTitle": "QR kod tapylmady",
+      "noQrCodeFoundBody": "KaalKey bu suratda QR koduny kodlap bilmedi. Skrinshot ýa-da has ýokary ölçegli synap görüň PNG / JPEG.",
+      "couldNotReadImageTitle": "Suraty okap bolmady",
+      "couldNotReadImageBody": "Hakyky tassyklaýjy gurmak QR koduny öz içine alýan arassa PNG ýa-da JPEG şekili synap görüň.",
+      "couldNotOpenPickerTitle": "Surat saýlaýjyny açyp bolmady",
+      "couldNotOpenPickerBody": "QR ýüklemäge synanyşmagyňyzy haýyş edýäris.",
+      "normalizedDecodeFailed": "Adatylaşdyrylan suraty kodlap bolmaýar",
+      "clipboardImageLoadFailed": "Paneli suraty ýükläp bolmady",
+      "imageProcessingUnavailable": "Suraty gaýtadan işlemek mümkin däl",
+      "imageProcessingUnavailableAlt": "Surat işlemek mümkin däl",
+      "noImageInClipboardTitle": "Buferde surat ýok",
+      "noImageInClipboardBody": "QR kod şekilini göçüriň, soňra QR Suraty goýuň.",
+      "clipboardUnavailableTitle": "Paneli elýeterli däl",
+      "clipboardUnavailableBody": "Paneli tekst dogry tassyklaýjy gurnama däl URL. Otpauth: // URL ýa-da QR suratyny göçüriň we gaýtadan synanyşyň.",
+      "clipboardAccessBody": "KaalKey gysga paneldäki teksti ýa-da suraty okap bilmedi. Paneli açmaga rugsat beriň, soňra QR suratyny ýa-da otpauth: // URL göçüriň we QR Surat / URL düwmesine basyň.",
+      "couldNotPasteImageTitle": "Suraty goýup bolmady",
+      "couldNotPasteImageBody": "Suraty ýelmemek bu enjamdaky bu paneli goldamaýar. Munuň ýerine Import QR şekilini ulanyň.",
+      "sourceImageDecodeFailure": "Başga QR şekili synap görüň.",
+      "pastedImportFailureBody": "Başga QR şekili synap görüň.",
+      "sourceImageReadFailure": "Açyk QR skrinshotyny göçürip görüň.",
+      "importFailedTitle": "QR şekil importy şowsuz boldy",
+      "importFailedBody": "KaalKey şol suraty okap bilmedi. Başga QR kod şekilini synap görmegiňizi haýyş edýäris.",
+      "notFoundBody": "Göçürilen suratda okalýan QR kody ýok.",
+      "pastedNotFoundBody": "Goýlan suratda okalýan QR kody ýok.",
+      "pastedReadFailureBody": "Doly QR koduny öz içine alýan açyk PNG ýa-da JPEG suraty göçürip görüň.",
+      "noQrCodeTextBody": "KaalKey saýlanan suraty kodlady, ýöne QR kod tapmady. Codehli kod görünýän açyk, doly ölçegli PNG ýa-da JPEG synap görüň."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Bu QR kody wagtlaýyn tassyklaýjy gurnama kody däl.",
+      "missingAccountDetails": "QR kody hasabyň jikme-jikliklerini ýitirýär.",
+      "unsupportedAlgorithm": "QR kody goldanmaýan algoritmi ulanýar.",
+      "unsupportedDigits": "Bu QR kody 6, 7 ýa-da 8 san ulanmalydyr.",
+      "unsupportedPeriod": "Bu QR kody goldanylmadyk wagt möhletini ulanýar.",
+      "invalidAccount": "QR kody tassyklap bolmady."
+    },
+    "backup": {
+      "invalidJson": "Uptiýaçlyk faýl dogry däl JSON.",
+      "unsupportedFormat": "Bu goldanýan KaalKey kodlanan ätiýaçlyk däl.",
+      "invalidPasswordOrDamaged": "Backtiýaçlyk parol nädogry ýa-da ätiýaçlyk faýl zaýalanýar.",
+      "invalidContents": "Uptiýaçlyk mazmuny nädogry ýa-da doly däl.",
+      "secureRandomUnavailableDetailed": "Ygtybarly tötänleýin nesil elýeterli däl. Android programmasyny expo-crypto goşup, täzeden guruň we gaýtadan synanyşyň.",
+      "invalidAccountDataForBackup": "Bir ýa-da birnäçe hasap nädogry. Uptiýaçlyk nusgasyny döretmezden ozal hasap maglumatlaryny düzediň.",
+      "invalidPasswordOrModified": "Backtiýaçlyk parol nädogry ýa-da ätiýaçlyk faýl üýtgedildi.",
+      "invalidPasswordOrFileDamaged": "Backtiýaçlyk parol nädogry ýa-da faýl zaýalanýar.",
+      "passwordCopiedTitle": "Parol göçürildi",
+      "enterPasswordTitle": "Uptiýaçlyk parolyňyzy giriziň",
+      "enterPasswordBody": "Bu ätiýaçlyk döredilende ulanylýan paroly giriziň.",
+      "passwordCopiedBody": "WhatsApp ýaly howpsuz ýerde saklaň.",
+      "copyFailedTitle": "Göçürmek şowsuz",
+      "copyFailedBody": "Paroly el bilen saýlaň we göçüriň.",
+      "generatingPassword": "Howpsuz ätiýaçlyk paroly döretmek…",
+      "encrypting": "Uptiýaçlyk şifrlemek…",
+      "decrypting": "Uptiýaçlyk nusgasyny açmak…",
+      "restoring": "Hasaplary dikeltmek…",
+      "backupCreatedTitle": "Uptiýaçlyk döredildi",
+      "restoreCompleteTitle": "Doly dikelt",
+      "mergeConfirmTitle": "Uptiýaçlyk hasaplary birleşdiriň?",
+      "mergeConfirmButton": "Hasaplary birleşdiriň",
+      "backupSavedTemporary": "Şifrlenen ätiýaçlyk wagtlaýyn saklanýar: \n {uri}",
+      "generatePasswordErrorTitle": "Backtiýaçlyk paroly döredip bolmady",
+      "secureRandomUnavailable": "Ygtybarly tötänleýin nesil elýeterli däl.",
+      "passwordUnavailableTitle": "Parolytiýaçlyk parol elýeterli däl",
+      "passwordUnavailableBody": "Bu gepleşik penjiresini ýapyň we ygtybarly parol döretmek üçin täze ätiýaçlyk dörediň.",
+      "backupDownloadedBody": "Şifrlenen KaalKey ätiýaçlyk nusgasy göçürildi. Faýly we paroly gizlin saklaň.",
+      "backupFailedTitle": "Uptiýaçlyk şowsuz",
+      "backupCreateErrorBody": "KaalKey ätiýaçlyk nusgasyny döredip bilmedi.",
+      "restoreFailedTitle": "Dikeltmek şowsuz",
+      "backupReadErrorBody": "Uptiýaçlyk nusgasyny okamak ýa-da saklamak mümkin däldi.",
+      "browserDownloadUnsupported": "Brauzeriňiz ätiýaçlyk faýllary göçürip almagy goldamaýar.",
+      "localFileUnavailable": "Bu enjamda ýerli faýl ýerleşişi elýeterli däl.",
+      "saveBackupTitle": "Şifrlenen KaalKey ätiýaçlyk nusgasyny ýazdyryň"
+    },
+    "clipboard": {
+      "copiedTitle": "Kod göçürildi",
+      "copiedBody": "Barlag koduňyz göçürildi",
+      "errorTitle": "Roralňyşlyk",
+      "errorBody": "Barlag koduny göçürip bolmady"
+    },
+    "activity": {
+      "cameraReady": "Kamera taýýar. Ony tassyklaýjy QR kody bilen görkeziň.",
+      "readingQrImage": "QR suraty okamak…",
+      "importingQrImage": "QR suraty import etmek…",
+      "importingAccount": "Hakyky tassyklaýjy hasaby import etmek…",
+      "importingPastedImage": "Goýlan QR şekili import etmek…"
+    }
+  },
+  "activity": {
+    "working": "Işlemek",
+    "wait": "Haýyş ediň ...",
+    "donTClose": "KaalKey bilen ýapmaň ýa-da täsirleşmäň.",
+    "loadingLanguages": "Elýeterli dilleri ýüklemek…",
+    "loadingTranslation": "Terjime ýüklenýär…"
+  }
+}

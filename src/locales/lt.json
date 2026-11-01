@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Kalba",
+      "description": "Pasirinkite kalbą, naudojamą KaalKey.",
+      "english": "anglų kalba",
+      "telugu": "telugų",
+      "hindi": "hindi",
+      "section": "KALBA",
+      "searchLanguageName": "Paieškos kalba (pavadinimas arba kodas)",
+      "searchSupportedLanguages": "Ieškokite palaikomų kalbų",
+      "closeLanguageDropdown": "Uždaryti kalbos išskleidžiamąjį meniu",
+      "noTranslatedLanguage": "Išversta kalba nerasta.",
+      "serverUrl": "Vertimo serveris URL",
+      "serverUrlDescription": "KaalKey atsisiunčia kalbų sąrašą ir vertimus iš šio serverio.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Išsaugoti vertimo serverį"
+    },
+    "title": "Programos nustatymai",
+    "eyebrow": "KAALKEY NUORODOS",
+    "experience": {
+      "section": "PATIRTIS"
+    },
+    "security": {
+      "section": "SAUGUMAS"
+    },
+    "backup": {
+      "section": "ATSARGINĖ KOPIJA IR ATKŪRIMAS"
+    },
+    "danger": {
+      "section": "PAVOJUS ZONA",
+      "clearAccounts": "Išvalyti visas paskyras",
+      "clearAccountsDescription": "Visam laikui pašalinkite visas paskyras ir paslaptį iš šio įrenginio. Pirmiausia pasikelkite atgal.",
+      "clearAccountsAccessibilityLabel": "Išvalykite visas autentifikavimo paskyras"
+    },
+    "appearance": {
+      "section": "IŠVAIZDA",
+      "title": "Lengva išvaizda",
+      "description": "KaalKey šiuo metu naudoja švarios šviesos temą."
+    },
+    "haptics": {
+      "title": "Haptinis atsiliepimas",
+      "description": "Švelnus atsiliepimas apie bakstelėjimus ir atliktus veiksmus."
+    },
+    "deviceLock": {
+      "title": "Įrenginio autentifikavimo užraktas",
+      "description": "Jūsų saugykla užrakinama, kai KaalKey išeina iš priekinio plano.",
+      "requirement": "Reikalauti telefono biometrinių duomenų arba ekrano užrakto PIN, šablono arba slaptažodžio.",
+      "accessibilityLabel": "Įrenginio autentifikavimo programos užraktas"
+    },
+    "privacy": {
+      "title": "Teisė ir privatumas",
+      "description": "Peržiūrėkite privatumo politiką ir naudojimo sąlygas.",
+      "storageNote": "Jūsų autentifikavimo paslaptys lieka įrenginio saugioje saugykloje. Parinktys saugomos vietoje."
+    }
+  },
+  "accounts": {
+    "edit": "Redaguoti",
+    "sortAccountName": "Rūšiuoti pagal paskyros pavadinimą",
+    "loadingSecureVault": "Įkeliama saugi saugykla...",
+    "tapCopy": "Palieskite, norėdami KOPIJUOTI",
+    "noAccountsMatch": "Nėra paskyrų, atitinkančių jūsų paiešką.",
+    "viewQrCode": "Peržiūrėkite paskyros QR kodą",
+    "removeAccount": "Pašalinti paskyrą",
+    "copyVerificationCode": "Nukopijuokite patvirtinimo kodą",
+    "active": "AKTYVUS",
+    "sort": "RŪŠIUOTI PAGAL",
+    "account": "sąskaita",
+    "clearSearch": "Išvalyti paiešką",
+    "sortServiceName": "Rūšiuoti pagal paslaugos pavadinimą",
+    "addFirstAccount": "Pridėkite savo pirmąją paskyrą",
+    "searchAccounts": "Ieškoti paskyrų",
+    "searchServiceAccount": "Paieškos paslauga arba paskyra",
+    "accounts": "Jūsų sąskaitos",
+    "add": "+ Pridėti",
+    "vaultStartsHere": "Jūsų saugykla prasideda čia",
+    "service": "Aptarnavimas",
+    "emptyHint": "Pridėkite paskyrą naudodami jos slaptąjį raktą, kad sugeneruotumėte pirmąjį patvirtinimo kodą."
+  },
+  "common": {
+    "done": "Atlikta",
+    "doneButton": "Atlikta",
+    "closeSettings": "Uždaryti nustatymus",
+    "separator": "-",
+    "article": "a",
+    "save": "Išsaugoti",
+    "delete": "Ištrinti",
+    "resizeAppBrand": "Pakeiskite programos ir prekės ženklo skydelių dydį"
+  },
+  "qrImport": {
+    "readPastedImage": "Nepavyko perskaityti įklijuoto vaizdo"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Paskyros šioje atsarginėje kopijoje: {count}. KaalKey išsaugos esamas paskyras ir pridės visas paskyras, kurių dar nėra. Pasikartojančios paskyros bus praleistos.",
+    "restoreCompletionBody": "Pridėtos paskyros: {added}. Pasikartojančios paskyros praleistos: {skipped}. Jūsų esamos sąskaitos buvo išsaugotos.",
+    "copyPassword": "Nukopijuokite sugeneruotą slaptažodį",
+    "passwordSafety": "Išsaugokite šį slaptažodį atskirai (pvz., WhatsApp). Kiekvienas, turintis tiek",
+    "importAction": "Pasirinkite failą ir importuokite",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "SAUGUS SKLIUPAS",
+    "createBackup": "Sukurti atsarginę kopiją",
+    "encryptedFile": "Šifruotas failas",
+    "restoreBackup": "Atkurti atsarginę kopiją",
+    "safetyNote": "Atsarginėse kopijose yra jūsų autentifikavimo paslaptys. KaalKey sukuria unikalų slaptažodį kiekvienai atsarginei kopijai. Išsaugokite jį atskirai; KaalKey negali jo atkurti.",
+    "generatingSecurePassword": "Generuojamas saugus slaptažodis…",
+    "importFile": "Importuoti failą",
+    "backupPassword": "ATSARGINĖ SLAPTAŽODŽIO",
+    "account": "sąskaitą",
+    "accounts": "sąskaitas",
+    "exportDescription": "Užšifruokite visą {count}, išsaugotą {accountLabel}, į atsarginės kopijos failą. KaalKey generuoja unikalų slaptažodį; nukopijuokite ir išsaugokite atskirai nuo failo.",
+    "restoreDescription": "Pasirinkite KaalKey atsarginės kopijos failą ir slaptažodį. Naujos paskyros bus įtrauktos į esamą paskyrų sąrašą; esamos paskyros išliks tokios, kokios yra.",
+    "enterBackupPassword": "Įveskite atsarginį slaptažodį",
+    "closeBackup": "Uždaryti atsarginę kopiją",
+    "copyGeneratedBackup": "Nukopijuokite sugeneruotą atsarginį slaptažodį",
+    "backupPassword2": "Atsarginis slaptažodis",
+    "clearBackupPassword": "Išvalykite atsarginį slaptažodį",
+    "backupFilePassword": "atsarginės kopijos failas ir slaptažodis gali atkurti jūsų autentifikavimo paskyras.",
+    "encryptShareBackup": "Šifruokite ir bendrinkite atsarginę kopiją"
+  },
+  "home": {
+    "unlockSecurely": "Saugiai atrakinkite",
+    "disableAppLock": "Išjungti programos užraktą",
+    "enableAppLock": "Įgalinti programos užraktą",
+    "checkingSecureLock": "Tikrinami saugaus užrakto nustatymai. Jūsų kodai lieka paslėpti.",
+    "waitingVerification": "Laukiama patvirtinimo…",
+    "secretsStayStored": "Jūsų paslaptys saugomos šiame įrenginyje.",
+    "openAppSettings": "Atidarykite programos nustatymus",
+    "versionLabel": "VERSIJA",
+    "unlockRequirement": "Norėdami pasiekti vienkartinius patvirtinimo kodus, naudokite telefono biometrinius duomenis arba ekrano užraktą PIN, šabloną arba slaptažodį.",
+    "localVault": "JŪSŲ VIETINIS SKALYVAS",
+    "codesDeviceControl": "Jūsų kodai. Jūsų įrenginys. Jūsų kontrolė.",
+    "securingVault": "Apsaugokite saugyklą…",
+    "vaultProtected": "Jūsų saugykla yra apsaugota",
+    "lock": "UŽRAKTAS",
+    "localVault2": "VIETINIS VAULT",
+    "authenticator": "KAALKEY AUTENTIKATORIUS",
+    "tricolourLockEmblem": "KaalKey trispalvės spynos emblema",
+    "authenticator2": "AUTENTIKATORIAUS"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Jei pasirinksite nuskaityti QR kodą, KaalKey tam veiksmui naudoja fotoaparato leidimą. Pasirenkamas įrenginio autentifikavimas ir jutiklinis grįžtamasis ryšys naudoja atitinkamas įrenginio funkcijas. Leidimus galite tvarkyti įrenginio nustatymuose.",
+        "heading": "2. Leidimai ir įrenginio funkcijos"
+      },
+      "backups": {
+        "body": "Kai kuriate atsarginę kopiją, KaalKey užšifruoja atsarginę kopiją naudodama jūsų pasirinktą slaptažodį. Laikykite failą ir slaptažodį privačius ir saugokite juos saugiai. Kiekvienas, gavęs failą ir jo slaptažodį, gali atkurti jūsų autentifikavimo paskyras. KaalKey negali atkurti pamiršto atsarginio slaptažodžio.",
+        "heading": "3. Atsarginės kopijos"
+      },
+      "security": {
+        "body": "Atnaujinkite įrenginį, apsaugokite jį ekrano užraktu ir nedalykite OTP paslapčių ar atsarginių slaptažodžių. Pašalinus programą, išvalius jos duomenis arba pametus įrenginį, vietoje saugomos paskyros gali būti nepasiekiamos. Jei reikia atkurti, palaikykite saugią atsarginę kopiją.",
+        "heading": "5. Saugumas ir laikymas"
+      },
+      "information": {
+        "heading": "1. Informacija ir paslaptys",
+        "body": "KaalKey yra autentifikavimo programa. Paskyros etiketės ir slaptos reikšmės, reikalingos vienkartiniams kodams generuoti, yra jautrios. Programėlė skirta paskyros įrašams saugoti saugioje įrenginio saugykloje. Kiekvienas, turintis prieigą prie atrakinto įrenginio arba eksportuotos atsarginės kopijos, gali pasiekti neskelbtiną informaciją."
+      },
+      "sharing": {
+        "heading": "4. Bendrinimas ir trečiosios šalys",
+        "body": "Atsarginės kopijos kūrimo procesas gali naudoti įrenginio bendrinimo lapą arba failų rinkiklį failams išsaugoti, perkelti arba pasirinkti. Bet kurios pasirinktos trečiosios šalies programos ar paslaugos privatumo praktiką reglamentuoja tas teikėjas. Šis pranešimas nereiškia, kad jūsų įrenginys, operacinė sistema ar pasirinktos bendrinimo paslaugos niekada neapdoroja duomenų."
+      },
+      "changes": {
+        "heading": "6. Pakeitimai ir kontaktas",
+        "body": "Šis įterptasis pranešimas gali būti peržiūrėtas būsimame programos leidime. Jei turite klausimų dėl privatumo, susisiekite su programos leidėju per oficialų palaikymo kanalą, pateiktą kartu su programa."
+      },
+      "title": "Privatumo politika"
+    },
+    "terms": {
+      "use": {
+        "body": "Galite naudoti KaalKey, kad sugeneruotumėte patvirtinimo kodus paskyroms, prie kurių turite teisę pasiekti. Jūs esate atsakingi už taikomų įstatymų ir paslaugų, kurioms naudojate autentifikavimo kodus, taisyklių laikymąsi.",
+        "heading": "1. Jūsų naudojimas"
+      },
+      "protectAccounts": {
+        "body": "Jūs esate atsakingi už savo įrenginio, autentifikavimo paslapčių, atkūrimo metodų, eksportuotų atsarginių kopijų ir atsarginių slaptažodžių apsaugą. Nesidalinkite kodais ar paslaptimis su žmonėmis, kuriais nepasitikite.",
+        "heading": "2. Apsaugokite savo paskyras"
+      },
+      "availability": {
+        "body": "Funkcijos gali keistis tarp leidimų. Turėtumėte nuolat atnaujinti programą ir periodiškai tikrinti, ar veikia atsarginės kopijos ir atkūrimo priemonės.",
+        "heading": "5. Pakeitimai ir prieinamumas"
+      },
+      "recovery": {
+        "body": "KaalKey negali garantuoti, kad kiekvieną paskyrą bus galima atkurti, kad kiekvienas QR kodas ar konfigūracija bus suderinami arba kad programa veiks be trikdžių ar klaidų. Išsaugokite alternatyvius atitinkamos tarnybos pateiktus atkūrimo būdus.",
+        "heading": "3. Nėra grąžinimo garantijos"
+      },
+      "advice": {
+        "heading": "4. Jokių profesionalių patarimų",
+        "body": "Programa yra pagalbinė priemonė ir neteikia teisinių, finansinių ar saugumo patarimų dėl reagavimo į incidentus. Jei paskyra pažeista, vadovaukitės oficialiomis paveiktos paslaugos atkūrimo ir saugos gairėmis."
+      },
+      "liability": {
+        "heading": "6. Atsakomybė ir taikytina teisė",
+        "body": "Tiek, kiek leidžia taikomi įstatymai, programėlė teikiama be nepertraukiamo ar be klaidų veikimo garantijos. Niekas šiose sąlygose neatmeta teisių ar teisių gynimo priemonių, kurių negalima atmesti teisiškai. Bet kokius papildomus apribojimus ar reglamentuojančias teisės sąlygas prieš išleidžiant turėtų peržiūrėti kvalifikuotas leidėjo jurisdikcijos teisininkas."
+      },
+      "title": "Naudojimo sąlygos"
+    },
+    "version": "Versija",
+    "saving": "Išsaugoma…",
+    "acceptContinue": "Priimti ir tęsti",
+    "appliesAuthenticator": "Taikoma KaalKey Authenticator",
+    "reviewBothDocuments": "Prieš naudodami KaalKey, peržiūrėkite abu dokumentus. Jie yra įtraukti į programą ir pasiekiami neprisijungus.",
+    "originalMulticolourAuthenticator": "Originali daugiaspalvė KaalKey autentifikavimo emblema",
+    "legalPrivacyNotice": "Teisinis ir privatumo pranešimas",
+    "legalInformation": "Teisinė informacija",
+    "reviewSPrivacy": "Peržiūrėkite KaalKey privatumo informaciją ir naudojimo sąlygas.",
+    "iReadAgree": "Perskaičiau ir sutinku su Privatumo politika ir naudojimo sąlygomis."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Laikykite visą QR kodą matomą. Jūsų paslaptis lieka šiame įrenginyje.",
+    "back": "Atgal",
+    "turnFlashlightOff": "Išjunkite žibintuvėlį",
+    "turnFlashlight": "Įjunkite žibintuvėlį",
+    "flashlight": "Žibintuvėlis įjungtas",
+    "flashlight2": "Žibintuvėlis",
+    "cameraUnavailableOpen": "Kamera nepasiekiama. Atidarykite šį puslapį HTTPS arba localhost ir suteikite prieigą prie fotoaparato.",
+    "cameraPreviewUnavailable": "Kameros peržiūra negalima. Uždarykite ir vėl atidarykite skaitytuvą.",
+    "cameraReadyPoint": "Fotoaparatas paruoštas – nukreipkite jį į visą QR kodą.",
+    "browserCannotProcess": "Ši naršyklė negali apdoroti fotoaparato kadrų.",
+    "qrCodeDetected": "Aptiktas kodas QR.",
+    "couldnTRead": "Nepavyko nuskaityti fotoaparato kadrų. Patikrinkite fotoaparato leidimus ir iš naujo įkelkite šį puslapį.",
+    "cameraPermissionDenied": "Fotoaparato leidimas atmestas. Leiskite pasiekti fotoaparatą naršyklės nustatymuose, tada iš naujo atidarykite skaitytuvą.",
+    "noCameraWas": "Šiame įrenginyje fotoaparato nerasta.",
+    "cameraBusyAnother": "Kamera užimta kitoje programoje arba naršyklės skirtuke.",
+    "startCameraHttps": "Nepavyko paleisti fotoaparato. Naudokite HTTPS arba localhost ir patikrinkite naršyklės leidimus.",
+    "qrScannerCamera": "QR skaitytuvo fotoaparato peržiūra",
+    "cameraUnavailableCheck": "Kamera nepasiekiama. Patikrinkite fotoaparato leidimą ir bandykite dar kartą.",
+    "pointCameraAuthenticator": "Nukreipkite fotoaparatą į autentifikavimo nustatymo QR kodą iš paslaugos, kurią pridedate.",
+    "backAddAccount": "Atgal į pridėti paskyrą",
+    "secureSetup": "SAUGI NUSTATYMAI",
+    "enterDetailsManually": "Vietoj to įveskite informaciją rankiniu būdu"
+  },
+  "accountForm": {
+    "hideManualEntry": "Slėpti rankinį įvedimą",
+    "secretKeySupplied": "Naudokite slaptą raktą, kurį teikia konfigūruojama paslauga. Niekada čia neįveskite savo paskyros slaptažodžio. Suderinkite algoritmą, skaitmenų skaičių ir intervalą su paslaugos sąrankos instrukcijomis.",
+    "updateServiceAccount": "Atnaujinkite paslaugą, paskyros pavadinimą arba slaptąjį raktą.",
+    "secretKeyRead": "Slaptas raktas, tik skaitomas redaguojant",
+    "secretKeyBase32": "Slaptas raktas Base32",
+    "digits": "skaitmenys",
+    "seconds": "sekundžių",
+    "enterDetailsManually": "ARBA Įveskite IŠSAMIĄ informaciją RANKIU",
+    "enterDetailsManually2": "Įveskite informaciją rankiniu būdu",
+    "serviceAccountName": "Paslauga, paskyros pavadinimas ir slaptasis raktas",
+    "saveChangesSecurely": "Saugiai išsaugokite pakeitimus",
+    "saveAccountSecurely": "Saugiai išsaugokite paskyrą",
+    "serviceIssuer": "Paslauga arba išdavėjas",
+    "accountName": "Paskyros pavadinimas",
+    "secretKey": "Slaptas raktas",
+    "serviceIssuer2": "PASLAUGOS / EMITENTAS",
+    "eGGoogle": "pvz. Google",
+    "clearServiceIssuer": "Išvalykite paslaugą arba išdavėją",
+    "eGExample": "pvz. tu@example.com",
+    "clearAccountName": "Išvalyti paskyros pavadinimą",
+    "secretKeyLocked": "SLAPTAS RAKTAS (UŽRAKINTAS)",
+    "secretKeyBase322": "SLAPTAS RAKTAS (BASE32)",
+    "enterSetupKey": "Įveskite sąrankos raktą",
+    "clearSecretKey": "Išvalyti slaptąjį raktą",
+    "otpAlgorithm": "OTP ALGORITMAS",
+    "otpDigits": "OTP SKAITMENYS",
+    "refreshIntervalSeconds": "ATNAUJINIMO INTERVALAS (sekundėmis)",
+    "otpRefreshInterval": "OTP atnaujinimo intervalas sekundėmis",
+    "closeAccountForm": "Uždaryti paskyros formą",
+    "totpSetupUrl": "TOTP sąranka URL",
+    "importSetupUrl": "Importuoti sąranką URL",
+    "totpSetupUrl2": "TOTP SĄRANKA URL",
+    "accountName2": "PASKYROS PAVADINIMAS",
+    "addAccount": "Pridėti paskyrą"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Nuskaitykite autentifikavimo kodą QR",
+    "setupGuidance": "Nuskaitykite QR kodą, kad būtų lengviau nustatyti, arba įveskite informaciją rankiniu būdu.",
+    "cameraAddAccount": "Norėdami iš karto pridėti paskyrą, naudokite fotoaparatą",
+    "scanQrCode2": "Nuskaitykite QR kodą",
+    "uploadQrImage": "Įkelkite QR vaizdą",
+    "chooseQrScreenshot": "Pasirinkite QR ekrano kopiją iš galerijos, nuotraukų arba failų",
+    "pasteQr": "Įklijuoti QR vaizdą / URL",
+    "pasteCopiedQr": "Įklijuokite nukopijuotą QR vaizdą arba autentifikavimo priemonės sąranką URL",
+    "uploadQrImage2": "Įkelkite QR vaizdą"
+  },
+  "accountQr": {
+    "close": "Uždaryti",
+    "accountQrCode": "Paskyros QR kodas",
+    "revealQrCode": "Atskleiskite QR kodą",
+    "exportWarning": "Įspėjimas: kiekvienas, nuskaitęs šį QR kodą, gali sugeneruoti šios paskyros patvirtinimo kodus. Atskleiskite jį tik patikimame ekrane.",
+    "privacyHint": "Laikykite šį QR kodą privatų. Nuskaitymas nukopijuoja paskyros autentifikavimo paslaptį."
+  },
+  "productInfo": {
+    "backupRestore": "Atsarginė kopija ir atkūrimas",
+    "backupRestoreDescription": "Sukurkite atsarginę autentifikavimo duomenų kopiją ir atkurkite juos, kai persikeliate į kitą įrenginį.",
+    "privacyDescription": "Patvirtinimo paskyras laikykite vienoje vietoje. Jei norite atsakingai tvarkyti sąranką, naudokite programos atsarginės kopijos kūrimo, atkūrimo ir įrenginio užrakinimo parinktis.",
+    "timeBasedCodes": "Laiku pagrįsti kodai",
+    "generateOneTimeCodes": "Generuokite besisukančius vienkartinius savo paskyrų slaptažodžius, kad užbaigtumėte patvirtinimą dviem veiksmais.",
+    "quickAccountSetup": "Greitas paskyros nustatymas",
+    "quickSetupDescription": "Nuskaitykite autentifikavimo QR kodą arba importuokite QR vaizdą, kad pridėtumėte paskyrą.",
+    "accountsOnePlace": "Sąskaitos vienoje vietoje",
+    "accountsInOnePlaceDescription": "Laikykite išsaugotas paskyras kartu ir raskite tinkamą įrašą, kai ateis laikas prisijungti.",
+    "privateAccountVault": "Privati ​​sąskaitų saugykla",
+    "privateVaultDescription": "Tvarkykite autentifikavimo įrašus vietoje ir naudokite programoje pasiekiamą įrenginio užrakto parinktį.",
+    "easyCodeAccess": "Lengva prieiga prie kodo",
+    "easyCodeAccessDescription": "Nukopijuokite dabartinį kodą arba tvarkykite paskyros informaciją naudodami švarią, tikslią sąsają.",
+    "authenticatorTechsivaram": "AUTENTIKATORIUS · PAGAL TECHSIVARAM",
+    "mobileAuthenticator": "JŪSŲ MOBILIUS AUTENTIKATORIUS",
+    "tagline": "Paprastesnis būdas valdyti patvirtinimą dviem veiksmais.",
+    "heroDescription": "Tikslinga autentifikavimo priemonė, skirta laiku pagrįstiems patvirtinimo kodams. Laikykite suderinamus paskyros kodus po ranka naudodami KaalKey, skirtą Android.",
+    "timeBasedCodes2": "LAIKAS PAGRINDINIAI KODAI",
+    "privateDesign": "PRIVATUS PAGAL DIZAINĄ",
+    "builtSimpleAuthenticator": "SUKURTAS PAPRASTAM AUTENTIKATORIAUS DARBUI",
+    "qrSetupTimed": "QR NUSTATYMAS · LAIKKO KODAI · PASKYROS VALDYMAS",
+    "privacyTitle": "Jūsų sąskaitos. Jūsų kodai. Jūsų kontrolė.",
+    "authenticator": "KAALKEY · AUTENTIKATORIAUS",
+    "brandBanner": "KaalKey prekės ženklo reklamjuostė",
+    "logo": "KaalKey logotipas"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Atšaukti",
+      "storageInvalidTitle": "Netinkami saugyklos duomenys",
+      "storageInvalidBody": "Nepavyko saugiai nuskaityti išsaugotų paskyros duomenų.",
+      "storageErrorTitle": "Saugojimo klaida",
+      "storageErrorBody": "Nepavyko įkelti išsaugotų paskyrų.",
+      "missingTitle": "Trūksta informacijos",
+      "missingEditingBody": "Įveskite paslaugos pavadinimą ir paskyros pavadinimą.",
+      "missingBody": "Įveskite paslaugos pavadinimą, paskyros pavadinimą ir slaptąjį raktą.",
+      "invalidOtpBody": "Patikrinkite Base32 paslaptį, algoritmą, skaitmenų skaičių ir atnaujinimo laikotarpį. Paslaptyse turi būti galiojančių Base32 simbolių; skaitmenys turi būti {digits}, o taškas turi būti {minPeriod}–{maxPeriod} sekundės.",
+      "duplicateBody": "Paskyra su šia paslauga ir paskyros pavadinimu jau išsaugota.",
+      "updatedBody": "Jūsų paskyra buvo atnaujinta.",
+      "addedBody": "Jūsų paskyra saugiai pridėta.",
+      "invalidOtpTitle": "Netinkami OTP nustatymai",
+      "duplicateTitle": "Paskyra jau yra",
+      "savedTitle": "Paskyra išsaugota",
+      "invalidSecretTitle": "Neteisingas slaptas raktas",
+      "invalidSecretBody": "Patikrinkite, ar įvedėte tinkamą Base32 paslaptį.",
+      "removedTitle": "Paskyra pašalinta",
+      "removedBody": "Paskyra ir jos paslaptis buvo pašalinta iš šio įrenginio.",
+      "clearedTitle": "Sąskaitos išvalytos",
+      "clearedBody": "Visos autentifikavimo paskyros ir paslaptys buvo pašalintos iš šio įrenginio.",
+      "someSavedAccountsNeedAttentionTitle": "Kai kurioms išsaugotoms paskyroms reikia skirti dėmesio",
+      "someSavedAccountsNeedAttentionBody": "{count} neteisingas (-i) paskyros įrašas (-ai) nebuvo įkeltas (-i). Galiojančios sąskaitos lieka prieinamos. Prieš atlikdami kitus pakeitimus, apsvarstykite galimybę sukurti atsarginę kopiją.",
+      "removeConfirmTitle": "Pašalinti paskyrą?",
+      "removeConfirmWebTitle": "Pašalinti paskyrą?",
+      "removeButton": "Pašalinti",
+      "clearButton": "Išvalyti viską",
+      "clearConfirmTitle": "Išvalyti visas paskyras?",
+      "saveErrorBody": "Nepavyko išsaugoti paskyrų. Patikrinkite naršyklės saugyklos prieinamumą ir bandykite dar kartą.",
+      "notFoundTitle": "Paskyra nerasta",
+      "notFoundBody": "Šios paskyros nepavyko rasti. Uždarykite redaktorių ir bandykite dar kartą.",
+      "removeConfirmBody": "Taip iš šio įrenginio pašalinama paskyra ir jos paslaptis.",
+      "clearConfirmBody": "Taip iš šio įrenginio visam laikui pašalinamos visos autentifikavimo paskyros ir jų paslaptys. Jei vėliau gali prireikti šių paskyrų, pirmiausia sukurkite šifruotą atsarginę kopiją.",
+      "clearConfirmUndoBody": "To negalima anuliuoti."
+    },
+    "biometric": {
+      "cancelButton": "Atšaukti",
+      "saveErrorTitle": "Nepavyko išsaugoti nustatymo",
+      "unlockPrompt": "Atrakinkite KaalKey autentifikavimo priemonę",
+      "promptSubtitle": "Naudokite biometrinius duomenis arba įrenginio ekrano užraktą",
+      "disableConfirmPrompt": "Patvirtinkite, kad išjungtumėte KaalKey programos užraktą",
+      "enablePrompt": "Įgalinti programos užraktą KaalKey",
+      "deviceLockTitle": "Nustatykite įrenginio ekrano užraktą",
+      "deviceLockBody": "KaalKey naudoja jūsų telefone integruotą autentifikavimą. Telefono saugos nustatymuose nustatykite įrenginį PIN, šabloną arba slaptažodį, tada bandykite dar kartą. Biometriniai duomenys yra neprivalomi.",
+      "unavailableTitle": "Įrenginio autentifikavimas nepasiekiamas",
+      "unavailableBody": "Jūsų telefonui nepavyko pradėti saugaus autentifikavimo. Patikrinkite, ar sukonfigūruotas įrenginio ekrano užraktas, tada bandykite dar kartą.",
+      "lockedTitle": "Autentifikavimas laikinai užrakintas",
+      "lockedBody": "Jūsų telefonas laikinai išjungė autentifikavimą po per daug bandymų. Palaukite ir bandykite dar kartą.",
+      "promptErrorTitle": "Autentifikavimas nepasiekiamas",
+      "promptErrorBody": "KaalKey nepavyko paleisti saugaus telefono autentifikavimo raginimo. Bandykite dar kartą.",
+      "webLock": "Įrenginio autentifikavimo užraktas dar nepasiekiamas žiniatinklio versijoje. Žiniatinklio saugykla lieka atrakinta; naudokite Android programą vietiniam įrenginiui autentifikuoti.",
+      "disabledTitle": "Programos užraktas išjungtas",
+      "disabledBody": "KaalKey programos užraktas išjungtas.",
+      "disableSaveError": "Programos užraktas lieka įjungtas. Bandykite dar kartą.",
+      "enabledTitle": "Programos užraktas įjungtas",
+      "enabledBody": "KaalKey paprašys jūsų telefono įtaisytosios tapatybės patvirtinimo, kai atidaroma ir kai prie jo grįšite.",
+      "enableSaveError": "Nepavyko įjungti programos užrakto. Bandykite dar kartą."
+    },
+    "qr": {
+      "startingCamera": "Paleidžiama kamera…",
+      "unsupportedTitle": "Nepalaikomas QR kodas",
+      "unsupportedBody": "Nuskaitykite paslaugos pateiktą autentifikavimo nustatymo QR kodą. Tai turi būti TOTP kodas, o ne įprastas prisijungimo QR kodas.",
+      "unsupportedDiagnostic": "Tas QR nėra TOTP sąrankos kodas. Nukreipkite į autentifikavimo nustatymo priemonę QR.",
+      "detectedDiagnostic": "QR aptiktas. Analizuojama…",
+      "analyzing": "Analizuojamas QR kodas…",
+      "duplicateTitle": "Paskyra jau pridėta",
+      "duplicateBody": "{issuer}: {account} jau yra KaalKey.",
+      "addedTitle": "Paskyra pridėta",
+      "addedBody": "{issuer}: {account} sėkmingai pridėtas.",
+      "saveFailedDiagnostic": "Nepavyko išsaugoti paskyros. Galite nuskaityti dar kartą.",
+      "invalidTitle": "Neteisingas QR kodas",
+      "invalidBody": "KaalKey nepavyko išanalizuoti šio autentifikavimo QR kodo. {detail}. Naudokite paslaugos TOTP sąrankos QR kodą (dažniausiai prasideda {prefix}).",
+      "parseFailedDiagnostic": "Nepavyko apdoroti QR. Nukreipkite į sąranką QR ir bandykite dar kartą.",
+      "invalidUrlTitle": "Netinkamas TOTP URL",
+      "invalidUrlBody": "Įklijuokite visą autentifikavimo priemonę URL, prasidedančią {prefix}.",
+      "clipboardEmptyTitle": "Iškarpinė tuščia",
+      "clipboardEmptyBody": "Pirmiausia nukopijuokite {prefix} URL, tada bakstelėkite Įklijuoti TOTP URL.",
+      "clipboardErrorTitle": "Nepavyko nuskaityti iškarpinės",
+      "clipboardErrorBody": "Nukopijuokite TOTP sąranką URL ir bandykite dar kartą."
+    },
+    "haptics": {
+      "saveFailedTitle": "Nepavyko išsaugoti nustatymo",
+      "saveFailedBody": "Nepavyko išsaugoti haptinio grįžtamojo ryšio nuostatos. Bandykite dar kartą."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Nepavyko išsaugoti patvirtinimo",
+      "saveFailedBody": "Bandykite dar kartą. Prieš naudodami KaalKey, turite sutikti su teisiniu pranešimu."
+    },
+    "cameraPermission": {
+      "title": "Reikalingas fotoaparato leidimas",
+      "body": "Leiskite fotoaparatui pasiekti autentifikavimo nustatymo QR kodą."
+    },
+    "storage": {
+      "browserUnavailable": "Naršyklės saugykla nepasiekiama.",
+      "browserFilePickerUnavailable": "Naršyklės failų rinkiklis nepasiekiamas."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Nepalaikomas failas",
+      "unsupportedFileBody": "Pasirinkite QR kodo vaizdą, pvz., PNG arba JPEG.",
+      "browserDecoderUnavailable": "Naršyklės vaizdo dekodavimas nepasiekiamas",
+      "imageLoadFailed": "Nepavyko įkelti vaizdo",
+      "unreadableDimensions": "Vaizdas neturi nuskaitomų matmenų",
+      "noQrCodeFoundTitle": "Nerastas joks QR kodas",
+      "noQrCodeFoundBody": "Šiame paveikslėlyje KaalKey nepavyko iššifruoti QR kodo. Išbandykite ekrano kopiją arba didesnės raiškos PNG/JPEG.",
+      "couldNotReadImageTitle": "Nepavyko perskaityti vaizdo",
+      "couldNotReadImageBody": "Išbandykite aiškų PNG arba JPEG vaizdą su autentifikavimo nustatymo QR kodu.",
+      "couldNotOpenPickerTitle": "Nepavyko atidaryti vaizdo rinkiklio",
+      "couldNotOpenPickerBody": "Pabandykite dar kartą įkelti QR.",
+      "normalizedDecodeFailed": "Normalizuoto vaizdo nepavyko iššifruoti",
+      "clipboardImageLoadFailed": "Nepavyko įkelti iškarpinės vaizdo",
+      "imageProcessingUnavailable": "Vaizdo apdorojimas nepasiekiamas",
+      "imageProcessingUnavailableAlt": "Vaizdo apdorojimas nepasiekiamas",
+      "noImageInClipboardTitle": "Iškarpinėje nėra vaizdo",
+      "noImageInClipboardBody": "Nukopijuokite QR kodo vaizdą, tada dar kartą palieskite Įklijuoti QR vaizdą.",
+      "clipboardUnavailableTitle": "Iškarpinė nepasiekiama",
+      "clipboardUnavailableBody": "Iškarpinės tekstas nėra tinkama autentifikavimo priemonė URL. Nukopijuokite otpauth:// URL arba QR vaizdą ir bandykite dar kartą.",
+      "clipboardAccessBody": "KaalKey negalėjo nuskaityti teksto arba vaizdo iš mainų srities. Suteikite prieigą prie iškarpinės, tada nukopijuokite QR vaizdą arba otpauth:// URL ir dar kartą palieskite Įklijuoti QR Vaizdas / URL.",
+      "couldNotPasteImageTitle": "Nepavyko įklijuoti vaizdo",
+      "couldNotPasteImageBody": "Šiame įrenginyje ši iškarpinė nepalaiko vaizdo įklijavimo. Vietoj to naudokite Importuoti QR vaizdą.",
+      "sourceImageDecodeFailure": "Išbandykite kitą QR vaizdą.",
+      "pastedImportFailureBody": "Išbandykite kitą QR vaizdą.",
+      "sourceImageReadFailure": "Pabandykite nukopijuoti aiškią QR ekrano kopiją.",
+      "importFailedTitle": "QR vaizdo importavimas nepavyko",
+      "importFailedBody": "KaalKey negalėjo perskaityti to vaizdo. Išbandykite kitą QR kodo vaizdą.",
+      "notFoundBody": "Nukopijuotame vaizde nėra nuskaitomo QR kodo.",
+      "pastedNotFoundBody": "Įklijuotame vaizde nėra įskaitomo QR kodo.",
+      "pastedReadFailureBody": "Pabandykite nukopijuoti aiškų PNG arba JPEG vaizdą su visu QR kodu.",
+      "noQrCodeTextBody": "KaalKey iššifravo pasirinktą vaizdą, bet nerado QR kodo. Išbandykite aiškų, visos raiškos PNG arba JPEG, kai matomas visas kodas."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Šis QR kodas nėra laiku pagrįstas autentifikavimo priemonės sąrankos kodas.",
+      "missingAccountDetails": "Kode QR trūksta paskyros informacijos.",
+      "unsupportedAlgorithm": "Kode QR naudojamas nepalaikomas algoritmas.",
+      "unsupportedDigits": "Šis QR kodas turi būti sudarytas iš 6, 7 arba 8 skaitmenų.",
+      "unsupportedPeriod": "Šis QR kodas naudoja nepalaikomą laikotarpį.",
+      "invalidAccount": "Nepavyko patvirtinti QR kodo."
+    },
+    "backup": {
+      "invalidJson": "Atsarginės kopijos failas negalioja JSON.",
+      "unsupportedFormat": "Tai nėra palaikoma KaalKey šifruota atsarginė kopija.",
+      "invalidPasswordOrDamaged": "Atsarginės kopijos slaptažodis neteisingas arba atsarginės kopijos failas sugadintas.",
+      "invalidContents": "Atsarginės kopijos turinys neteisingas arba neišsamus.",
+      "secureRandomUnavailableDetailed": "Saugus atsitiktinis generavimas nepasiekiamas. Iš naujo sukurkite ir iš naujo įdiekite programą Android su įtraukta expo-crypto, tada bandykite dar kartą.",
+      "invalidAccountDataForBackup": "Viena ar daugiau paskyrų yra netinkamos. Pataisykite paskyros duomenis prieš kurdami atsarginę kopiją.",
+      "invalidPasswordOrModified": "Atsarginės kopijos slaptažodis neteisingas arba atsarginės kopijos failas buvo pakeistas.",
+      "invalidPasswordOrFileDamaged": "Atsarginės kopijos slaptažodis neteisingas arba failas sugadintas.",
+      "passwordCopiedTitle": "Slaptažodis nukopijuotas",
+      "enterPasswordTitle": "Įveskite atsarginį slaptažodį",
+      "enterPasswordBody": "Įveskite slaptažodį, naudotą kuriant šią atsarginę kopiją.",
+      "passwordCopiedBody": "Išsaugokite jį saugioje vietoje, pvz., WhatsApp.",
+      "copyFailedTitle": "Kopijuoti nepavyko",
+      "copyFailedBody": "Pasirinkite ir nukopijuokite slaptažodį rankiniu būdu.",
+      "generatingPassword": "Generuojamas saugus atsarginis slaptažodis…",
+      "encrypting": "Šifruojama atsarginė kopija…",
+      "decrypting": "Iššifruojama atsarginė kopija…",
+      "restoring": "Atkuriamos paskyros…",
+      "backupCreatedTitle": "Sukurta atsarginė kopija",
+      "restoreCompleteTitle": "Atkūrimas baigtas",
+      "mergeConfirmTitle": "Sujungti atsargines paskyras?",
+      "mergeConfirmButton": "Sujungti paskyras",
+      "backupSavedTemporary": "Šifruota atsarginė kopija laikinai išsaugota adresu:\n{uri}",
+      "generatePasswordErrorTitle": "Nepavyko sugeneruoti atsarginio slaptažodžio",
+      "secureRandomUnavailable": "Saugus atsitiktinis generavimas nepasiekiamas.",
+      "passwordUnavailableTitle": "Atsarginis slaptažodis nepasiekiamas",
+      "passwordUnavailableBody": "Uždarykite šį dialogo langą ir sukurkite naują atsarginę kopiją, kad sugeneruotumėte saugų slaptažodį.",
+      "backupDownloadedBody": "Užšifruota KaalKey atsarginė kopija atsisiųsta. Laikykite failą ir slaptažodį privačius.",
+      "backupFailedTitle": "Nepavyko sukurti atsarginės kopijos",
+      "backupCreateErrorBody": "KaalKey nepavyko sukurti atsarginės kopijos.",
+      "restoreFailedTitle": "Atkurti nepavyko",
+      "backupReadErrorBody": "Nepavyko nuskaityti arba išsaugoti atsarginės kopijos.",
+      "browserDownloadUnsupported": "Jūsų naršyklė nepalaiko atsarginių failų atsisiuntimo.",
+      "localFileUnavailable": "Vietinė failo vieta šiame įrenginyje nepasiekiama.",
+      "saveBackupTitle": "Išsaugokite šifruotą KaalKey atsarginę kopiją"
+    },
+    "clipboard": {
+      "copiedTitle": "Kodas nukopijuotas",
+      "copiedBody": "Jūsų patvirtinimo kodas buvo nukopijuotas.",
+      "errorTitle": "Klaida",
+      "errorBody": "Nepavyko nukopijuoti patvirtinimo kodo."
+    },
+    "activity": {
+      "cameraReady": "Fotoaparatas paruoštas. Nukreipkite jį į autentifikavimo kodą QR.",
+      "readingQrImage": "Skaitomas QR vaizdas…",
+      "importingQrImage": "Importuojamas QR vaizdas…",
+      "importingAccount": "Importuojama autentifikavimo priemonės paskyra…",
+      "importingPastedImage": "Importuojamas įklijuotas QR vaizdas…"
+    }
+  },
+  "activity": {
+    "working": "Darbas",
+    "wait": "Prašome palaukti…",
+    "donTClose": "Neuždarykite ir nebendraukite su KaalKey.",
+    "loadingLanguages": "Įkeliamos galimos kalbos…",
+    "loadingTranslation": "Įkeliamas vertimas…"
+  }
+}

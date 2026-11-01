@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "اللغة",
+      "description": "اختر اللغة المستخدمة في KaalKey.",
+      "english": "الإنجليزية",
+      "telugu": "التيلجو",
+      "hindi": "الهندية",
+      "section": "اللغة",
+      "searchLanguageName": "لغة البحث (الاسم أو الرمز)",
+      "searchSupportedLanguages": "البحث في اللغات المدعومة",
+      "closeLanguageDropdown": "إغلاق القائمة المنسدلة للغة",
+      "noTranslatedLanguage": "لم يتم العثور على لغة مترجمة.",
+      "serverUrl": "خادم الترجمة URL",
+      "serverUrlDescription": "يقوم KaalKey بتنزيل قائمة اللغات والترجمات من هذا الخادم.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "حفظ خادم الترجمة"
+    },
+    "title": "إعدادات التطبيق",
+    "eyebrow": "تفضيلات KAALKEY",
+    "experience": {
+      "section": "الخبرة"
+    },
+    "security": {
+      "section": "الأمن"
+    },
+    "backup": {
+      "section": "النسخ الاحتياطي والاسترداد"
+    },
+    "danger": {
+      "section": "منطقة الخطر",
+      "clearAccounts": "مسح كافة الحسابات",
+      "clearAccountsDescription": "قم بإزالة كل حساب وسر من هذا الجهاز نهائيًا. النسخ الاحتياطي أولا.",
+      "clearAccountsAccessibilityLabel": "مسح كافة حسابات المصادقة"
+    },
+    "appearance": {
+      "section": "المظهر",
+      "title": "مظهر خفيف",
+      "description": "يستخدم KaalKey حاليًا موضوع الضوء النظيف الخاص به."
+    },
+    "haptics": {
+      "title": "ردود الفعل اللمسية",
+      "description": "ردود فعل لطيفة للصنابير والإجراءات المكتملة."
+    },
+    "deviceLock": {
+      "title": "قفل مصادقة الجهاز",
+      "description": "يتم قفل خزنتك عندما يغادر KaalKey المقدمة.",
+      "requirement": "اطلب القياسات الحيوية لهاتفك أو قفل الشاشة PIN أو النمط أو كلمة المرور.",
+      "accessibilityLabel": "قفل تطبيق مصادقة الجهاز"
+    },
+    "privacy": {
+      "title": "القانونية والخصوصية",
+      "description": "قم بمراجعة سياسة الخصوصية وشروط الاستخدام.",
+      "storageNote": "تبقى أسرار المصادقة الخاصة بك في المخزن الآمن الموجود على الجهاز. يتم تخزين التفضيلات محليا."
+    }
+  },
+  "accounts": {
+    "edit": "تحرير",
+    "sortAccountName": "فرز حسب اسم الحساب",
+    "loadingSecureVault": "جارٍ تحميل المخزن الآمن...",
+    "tapCopy": "انقر للنسخ",
+    "noAccountsMatch": "لا توجد حسابات تطابق بحثك.",
+    "viewQrCode": "عرض رمز QR للحساب",
+    "removeAccount": "إزالة الحساب",
+    "copyVerificationCode": "انسخ رمز التحقق",
+    "active": "نشط",
+    "sort": "فرز حسب",
+    "account": "الحساب",
+    "clearSearch": "مسح البحث",
+    "sortServiceName": "الترتيب حسب اسم الخدمة",
+    "addFirstAccount": "أضف حسابك الأول",
+    "searchAccounts": "حسابات البحث",
+    "searchServiceAccount": "خدمة البحث أو الحساب",
+    "accounts": "حساباتك",
+    "add": "+ أضف",
+    "vaultStartsHere": "قبو الخاص بك يبدأ هنا",
+    "service": "الخدمة",
+    "emptyHint": "قم بإضافة حساب باستخدام مفتاحه السري لإنشاء رمز التحقق الأول الخاص بك."
+  },
+  "common": {
+    "done": "تم",
+    "doneButton": "تم",
+    "closeSettings": "إغلاق الإعدادات",
+    "separator": "-",
+    "article": "أ",
+    "save": "حفظ",
+    "delete": "حذف",
+    "resizeAppBrand": "تغيير حجم التطبيق ولوحات العلامة التجارية"
+  },
+  "qrImport": {
+    "readPastedImage": "لا يمكن قراءة الصورة الملصقة"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "الحسابات الموجودة في هذه النسخة الاحتياطية: {count}. سوف يحتفظ KaalKey بحساباتك الحالية ويضيف أي حسابات غير موجودة بالفعل. سيتم تخطي الحسابات المكررة.",
+    "restoreCompletionBody": "الحسابات المضافة: {added}. تم تخطي الحسابات المكررة: {skipped}. تم الاحتفاظ بحساباتك الحالية.",
+    "copyPassword": "انسخ كلمة المرور التي تم إنشاؤها",
+    "passwordSafety": "احفظ كلمة المرور هذه بشكل منفصل (على سبيل المثال، في WhatsApp). أي شخص لديه كل من",
+    "importAction": "اختر الملف والاستيراد",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "قبو آمن",
+    "createBackup": "إنشاء نسخة احتياطية",
+    "encryptedFile": "ملف مشفر",
+    "restoreBackup": "استعادة النسخة الاحتياطية",
+    "safetyNote": "تحتوي النسخ الاحتياطية على أسرار المصادقة الخاصة بك. يقوم KaalKey بإنشاء كلمة مرور فريدة لكل نسخة احتياطية. احفظه بشكل منفصل؛ لا يمكن لـ KaalKey استعادته.",
+    "generatingSecurePassword": "جارٍ إنشاء كلمة مرور آمنة…",
+    "importFile": "استيراد الملف",
+    "backupPassword": "كلمة المرور الاحتياطية",
+    "account": "حساب",
+    "accounts": "الحسابات",
+    "exportDescription": "قم بتشفير جميع {count} المحفوظة {accountLabel} في ملف النسخ الاحتياطي. يقوم KaalKey بإنشاء كلمة مرور فريدة؛ انسخه واحفظه بشكل منفصل عن الملف.",
+    "restoreDescription": "اختر ملف النسخ الاحتياطي KaalKey وكلمة المرور. ستتم إضافة حسابات جديدة إلى قائمة حساباتك الحالية؛ ستبقى الحسابات الحالية كما هي.",
+    "enterBackupPassword": "أدخل كلمة المرور الاحتياطية",
+    "closeBackup": "إغلاق النسخة الاحتياطية",
+    "copyGeneratedBackup": "انسخ كلمة المرور الاحتياطية التي تم إنشاؤها",
+    "backupPassword2": "كلمة المرور الاحتياطية",
+    "clearBackupPassword": "مسح كلمة المرور الاحتياطية",
+    "backupFilePassword": "يمكن لملف النسخ الاحتياطي وكلمة المرور استعادة حسابات المصادقة الخاصة بك.",
+    "encryptShareBackup": "تشفير ومشاركة النسخ الاحتياطي"
+  },
+  "home": {
+    "unlockSecurely": "فتح بشكل آمن",
+    "disableAppLock": "تعطيل قفل التطبيق",
+    "enableAppLock": "تمكين قفل التطبيق",
+    "checkingSecureLock": "التحقق من إعدادات القفل الآمن. تظل رموزك مخفية.",
+    "waitingVerification": "في انتظار التحقق…",
+    "secretsStayStored": "تبقى أسرارك مخزنة على هذا الجهاز.",
+    "openAppSettings": "افتح إعدادات التطبيق",
+    "versionLabel": "الإصدار",
+    "unlockRequirement": "استخدم القياسات الحيوية لهاتفك أو قفل الشاشة PIN أو النمط أو كلمة المرور للوصول إلى رموز التحقق لمرة واحدة.",
+    "localVault": "قبو المحلي الخاص بك",
+    "codesDeviceControl": "الرموز الخاصة بك. جهازك. سيطرتك.",
+    "securingVault": "تأمين خزانتك…",
+    "vaultProtected": "قبو الخاص بك محمي",
+    "lock": "قفل على",
+    "localVault2": "قبو محلي",
+    "authenticator": "أداة مصادقة KAALKEY",
+    "tricolourLockEmblem": "KaalKey شعار القفل ثلاثي الألوان",
+    "authenticator2": "الموثق"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "إذا اخترت مسح رمز QR ضوئيًا، فإن KaalKey يستخدم إذن الكاميرا لهذا الإجراء. تستخدم مصادقة الجهاز الاختيارية والملاحظات اللمسية ميزات الجهاز ذات الصلة. يمكنك إدارة الأذونات في إعدادات جهازك.",
+        "heading": "2. الأذونات وميزات الجهاز"
+      },
+      "backups": {
+        "body": "عندما تقوم بإنشاء نسخة احتياطية، يقوم KaalKey بتشفير النسخة الاحتياطية باستخدام كلمة المرور التي تختارها. حافظ على خصوصية الملف وكلمة المرور وقم بتخزينهما بشكل آمن. قد يتمكن أي شخص يحصل على الملف وكلمة المرور الخاصة به من استعادة حسابات المصادقة الخاصة بك. لا يمكن لـ KaalKey استعادة كلمة المرور الاحتياطية المنسية.",
+        "heading": "3. النسخ الاحتياطية"
+      },
+      "security": {
+        "body": "حافظ على تحديث جهازك، واحميه بقفل الشاشة، ولا تشارك أسرار OTP أو كلمات المرور الاحتياطية. قد تؤدي إزالة التطبيق أو مسح بياناته أو فقدان الجهاز إلى عدم توفر الحسابات المخزنة محليًا. احتفظ بنسخة احتياطية آمنة إذا كنت بحاجة إلى الاسترداد.",
+        "heading": "5. الأمن والاحتفاظ"
+      },
+      "information": {
+        "heading": "1. معلومات وأسرار",
+        "body": "KaalKey هو تطبيق مصادقة. تعتبر تسميات الحساب والقيم السرية اللازمة لإنشاء رموز لمرة واحدة حساسة. تم تصميم التطبيق لتخزين سجلات الحساب في مساحة التخزين الآمنة للجهاز. قد يتمكن أي شخص لديه حق الوصول إلى جهاز غير مقفل أو نسخة احتياطية تم تصديرها من الوصول إلى المعلومات الحساسة."
+      },
+      "sharing": {
+        "heading": "4. المشاركة وأطراف ثالثة",
+        "body": "قد يستخدم تدفق النسخ الاحتياطي ورقة المشاركة بجهازك أو منتقي الملفات لحفظ الملفات أو نقلها أو تحديدها. تخضع ممارسات الخصوصية لأي تطبيق أو خدمة تابعة لجهة خارجية تختارها لهذا المزود. لا يقدم هذا الإشعار ادعاءً شاملاً بأن جهازك أو نظام التشغيل أو خدمات المشاركة التي اخترتها لا تعالج البيانات مطلقًا."
+      },
+      "changes": {
+        "heading": "6. التغييرات والاتصال",
+        "body": "قد تتم مراجعة هذا الإشعار المضمن في إصدار تطبيق مستقبلي. لطرح أسئلة الخصوصية، اتصل بناشر التطبيق من خلال قناة الدعم الرسمية المتوفرة مع التطبيق."
+      },
+      "title": "سياسة الخصوصية"
+    },
+    "terms": {
+      "use": {
+        "body": "يمكنك استخدام KaalKey لإنشاء رموز التحقق للحسابات المصرح لك بالوصول إليها. أنت مسؤول عن الالتزام بالقوانين المعمول بها وقواعد الخدمات التي تستخدم لها رموز المصادقة.",
+        "heading": "1. استخدامك"
+      },
+      "protectAccounts": {
+        "body": "أنت مسؤول عن تأمين جهازك وأسرار المصادقة وطرق الاسترداد والنسخ الاحتياطية المصدرة وكلمات المرور الاحتياطية. لا تشارك الرموز أو الأسرار مع أشخاص لا تثق بهم.",
+        "heading": "2. حماية حساباتك"
+      },
+      "availability": {
+        "body": "قد تتغير الميزات بين الإصدارات. يجب عليك الحفاظ على تحديث التطبيق والتحقق بشكل دوري من عمل ترتيبات النسخ الاحتياطي والاسترداد.",
+        "heading": "5. التغييرات والتوافر"
+      },
+      "recovery": {
+        "body": "لا يمكن أن يضمن KaalKey إمكانية استرداد كل حساب، أو أن كل رمز أو تكوين QR سيكون متوافقًا، أو أن التطبيق سيعمل دون انقطاع أو خطأ. احتفظ بطرق الاسترداد البديلة التي توفرها الخدمة ذات الصلة.",
+        "heading": "3. لا يوجد ضمان الاسترداد"
+      },
+      "advice": {
+        "heading": "4. لا توجد مشورة مهنية",
+        "body": "التطبيق عبارة عن أداة مساعدة ولا يقدم مشورة قانونية أو مالية أو أمنية بشأن الاستجابة للحوادث. إذا تم اختراق الحساب، فاتبع إرشادات الاسترداد والأمان الرسمية للخدمة المتأثرة."
+      },
+      "liability": {
+        "heading": "6. المسؤولية والقانون المعمول به",
+        "body": "إلى الحد الذي يسمح به القانون المعمول به، يتم توفير التطبيق دون ضمان التشغيل دون انقطاع أو خالي من الأخطاء. لا يوجد في هذه الشروط ما يستبعد الحقوق أو سبل الانتصاف التي لا يمكن استبعادها قانونًا. ويجب مراجعة أي قيود أخرى أو شروط القانون الحاكم من قبل محامٍ مؤهل للنطاق القضائي للناشر قبل الإصدار."
+      },
+      "title": "شروط الاستخدام"
+    },
+    "version": "الإصدار",
+    "saving": "جارٍ الحفظ…",
+    "acceptContinue": "قبول ومتابعة",
+    "appliesAuthenticator": "ينطبق على أداة المصادقة KaalKey",
+    "reviewBothDocuments": "يرجى مراجعة كلا الوثيقتين قبل استخدام KaalKey. يتم تضمينها في التطبيق ومتاحة دون اتصال بالإنترنت.",
+    "originalMulticolourAuthenticator": "شعار المصادقة KaalKey الأصلي متعدد الألوان",
+    "legalPrivacyNotice": "الإشعار القانوني والخصوصية",
+    "legalInformation": "المعلومات القانونية",
+    "reviewSPrivacy": "قم بمراجعة معلومات الخصوصية وشروط الاستخدام الخاصة بـ KaalKey.",
+    "iReadAgree": "لقد قرأت ووافقت على سياسة الخصوصية وشروط الاستخدام."
+  },
+  "qrScanner": {
+    "keepEntireQr": "احتفظ برمز QR بأكمله مرئيًا. سرك يبقى على هذا الجهاز.",
+    "back": "العودة",
+    "turnFlashlightOff": "قم بإيقاف تشغيل المصباح",
+    "turnFlashlight": "قم بتشغيل المصباح",
+    "flashlight": "تشغيل المصباح",
+    "flashlight2": "مصباح يدوي",
+    "cameraUnavailableOpen": "الكاميرا غير متوفرة. افتح هذه الصفحة على HTTPS أو المضيف المحلي واسمح بالوصول إلى الكاميرا.",
+    "cameraPreviewUnavailable": "معاينة الكاميرا غير متاحة. أغلق وأعد فتح الماسح الضوئي.",
+    "cameraReadyPoint": "الكاميرا جاهزة - قم بتوجيهها إلى رمز QR الكامل.",
+    "browserCannotProcess": "لا يمكن لهذا المتصفح معالجة إطارات الكاميرا.",
+    "qrCodeDetected": "تم اكتشاف رمز QR.",
+    "couldnTRead": "لا يمكن قراءة إطارات الكاميرا. تحقق من أذونات الكاميرا وأعد تحميل هذه الصفحة.",
+    "cameraPermissionDenied": "تم رفض إذن الكاميرا. اسمح بالوصول إلى الكاميرا في إعدادات المتصفح، ثم أعد فتح الماسح الضوئي.",
+    "noCameraWas": "لم يتم العثور على كاميرا على هذا الجهاز.",
+    "cameraBusyAnother": "الكاميرا مشغولة في تطبيق آخر أو علامة تبويب متصفح أخرى.",
+    "startCameraHttps": "تعذر تشغيل الكاميرا. استخدم HTTPS أو المضيف المحلي وتحقق من أذونات المتصفح.",
+    "qrScannerCamera": "معاينة كاميرا الماسح الضوئي QR",
+    "cameraUnavailableCheck": "الكاميرا غير متوفرة. تحقق من إذن الكاميرا وحاول مرة أخرى.",
+    "pointCameraAuthenticator": "قم بتوجيه الكاميرا إلى رمز إعداد المصادق QR من الخدمة التي تقوم بإضافتها.",
+    "backAddAccount": "العودة لإضافة حساب",
+    "secureSetup": "الإعداد الآمن",
+    "enterDetailsManually": "أدخل التفاصيل يدويًا بدلاً من ذلك"
+  },
+  "accountForm": {
+    "hideManualEntry": "إخفاء الإدخال اليدوي",
+    "secretKeySupplied": "استخدم المفتاح السري الذي توفره الخدمة التي تقوم بتكوينها. لا تدخل كلمة مرور حسابك هنا أبدًا. قم بمطابقة الخوارزمية وعدد الأرقام والفاصل الزمني مع تعليمات إعداد الخدمة.",
+    "updateServiceAccount": "قم بتحديث الخدمة أو اسم الحساب أو المفتاح السري.",
+    "secretKeyRead": "المفتاح السري، للقراءة فقط أثناء التحرير",
+    "secretKeyBase32": "المفتاح السري في Base32",
+    "digits": "أرقام",
+    "seconds": "ثواني",
+    "enterDetailsManually": "أو أدخل التفاصيل يدويًا",
+    "enterDetailsManually2": "أدخل التفاصيل يدويا",
+    "serviceAccountName": "الخدمة واسم الحساب والمفتاح السري",
+    "saveChangesSecurely": "حفظ التغييرات بشكل آمن",
+    "saveAccountSecurely": "حفظ الحساب بشكل آمن",
+    "serviceIssuer": "الخدمة أو المصدر",
+    "accountName": "اسم الحساب",
+    "secretKey": "المفتاح السري",
+    "serviceIssuer2": "الخدمة / المصدر",
+    "eGGoogle": "على سبيل المثال جوجل",
+    "clearServiceIssuer": "مسح الخدمة أو المصدر",
+    "eGExample": "على سبيل المثال you@example.com",
+    "clearAccountName": "مسح اسم الحساب",
+    "secretKeyLocked": "المفتاح السري (مقفل)",
+    "secretKeyBase322": "المفتاح السري (BASE32)",
+    "enterSetupKey": "أدخل مفتاح الإعداد الخاص بك",
+    "clearSecretKey": "مسح المفتاح السري",
+    "otpAlgorithm": "خوارزمية OTP",
+    "otpDigits": "أرقام OTP",
+    "refreshIntervalSeconds": "الفاصل الزمني للتحديث (ثواني)",
+    "otpRefreshInterval": "الفاصل الزمني للتحديث OTP بالثواني",
+    "closeAccountForm": "نموذج إغلاق الحساب",
+    "totpSetupUrl": "إعداد TOTP URL",
+    "importSetupUrl": "إعداد الاستيراد URL",
+    "totpSetupUrl2": "إعداد TOTP URL",
+    "accountName2": "اسم الحساب",
+    "addAccount": "إضافة حساب"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "مسح رمز المصادقة QR",
+    "setupGuidance": "امسح رمز QR ضوئيًا للحصول على أسهل عملية إعداد، أو أدخل التفاصيل يدويًا.",
+    "cameraAddAccount": "استخدم الكاميرا لإضافة حساب على الفور",
+    "scanQrCode2": "مسح رمز QR",
+    "uploadQrImage": "تحميل صورة QR",
+    "chooseQrScreenshot": "اختر لقطة شاشة QR من المعرض أو الصور أو الملفات",
+    "pasteQr": "الصق صورة QR / URL",
+    "pasteCopiedQr": "قم بلصق صورة QR المنسوخة أو إعداد الموثق URL",
+    "uploadQrImage2": "تحميل صورة QR"
+  },
+  "accountQr": {
+    "close": "إغلاق",
+    "accountQrCode": "رمز الحساب QR",
+    "revealQrCode": "كشف كود QR",
+    "exportWarning": "تحذير: يمكن لأي شخص يقوم بمسح رمز QR هذا إنشاء رموز التحقق لهذا الحساب. اكشف عنها فقط على شاشة موثوقة.",
+    "privacyHint": "احتفظ برمز QR خاصًا. يؤدي مسحه ضوئيًا إلى نسخ سر المصادقة الخاص بالحساب."
+  },
+  "productInfo": {
+    "backupRestore": "النسخ الاحتياطي والاستعادة",
+    "backupRestoreDescription": "قم بعمل نسخة احتياطية من بيانات المصادقة الخاصة بك واستعادتها عند الانتقال إلى جهاز آخر.",
+    "privacyDescription": "احتفظ بحسابات التحقق الخاصة بك في مكان واحد. استخدم خيارات النسخ الاحتياطي والاستعادة وقفل الجهاز الخاصة بالتطبيق لإدارة الإعداد الخاص بك بطريقة مسؤولة.",
+    "timeBasedCodes": "الرموز المستندة إلى الوقت",
+    "generateOneTimeCodes": "قم بإنشاء رموز مرور دوارة لمرة واحدة لحساباتك لإكمال عملية التحقق المكونة من خطوتين.",
+    "quickAccountSetup": "إعداد حساب سريع",
+    "quickSetupDescription": "قم بمسح رمز المصادقة QR أو قم باستيراد صورة QR لإضافة حساب.",
+    "accountsOnePlace": "الحسابات في مكان واحد",
+    "accountsInOnePlaceDescription": "احتفظ بحساباتك المحفوظة معًا وابحث عن الإدخال الصحيح عندما يحين وقت تسجيل الدخول.",
+    "privateAccountVault": "قبو الحساب الخاص",
+    "privateVaultDescription": "قم بإدارة إدخالات الموثق محليًا واستخدم خيار قفل الجهاز المتوفر بالتطبيق.",
+    "easyCodeAccess": "سهولة الوصول إلى الكود",
+    "easyCodeAccessDescription": "انسخ الرمز الحالي أو قم بإدارة تفاصيل الحساب من خلال واجهة نظيفة ومركزة.",
+    "authenticatorTechsivaram": "الموثق · بواسطة TECHSIVARAM",
+    "mobileAuthenticator": "أداة مصادقة هاتفك المحمول",
+    "tagline": "طريقة أبسط لإدارة عملية التحقق المكونة من خطوتين.",
+    "heroDescription": "تجربة مصادقة مركزة لرموز التحقق المستندة إلى الوقت. احتفظ برموز الحساب المتوافقة في متناول يدك مع KaalKey لـ Android.",
+    "timeBasedCodes2": "الرموز المستندة إلى الوقت",
+    "privateDesign": "خاص بالتصميم",
+    "builtSimpleAuthenticator": "مُصمم لسير عمل أداة المصادقة البسيطة",
+    "qrSetupTimed": "إعداد QR · الرموز الزمنية · إدارة الحساب",
+    "privacyTitle": "حساباتك. الرموز الخاصة بك. سيطرتك.",
+    "authenticator": "KAALKEY · الموثق",
+    "brandBanner": "لافتة العلامة التجارية KaalKey",
+    "logo": "شعار KaalKey"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "إلغاء",
+      "storageInvalidTitle": "بيانات التخزين غير صالحة",
+      "storageInvalidBody": "لا يمكن قراءة بيانات الحساب المحفوظة بأمان.",
+      "storageErrorTitle": "خطأ في التخزين",
+      "storageErrorBody": "لا يمكن تحميل الحسابات المحفوظة.",
+      "missingTitle": "معلومات مفقودة",
+      "missingEditingBody": "أدخل اسم الخدمة واسم الحساب.",
+      "missingBody": "أدخل اسم الخدمة واسم الحساب والمفتاح السري.",
+      "invalidOtpBody": "تحقق من سر Base32 والخوارزمية وعدد الأرقام وفترة التحديث. يجب أن تحتوي الأسرار على أحرف Base32 صالحة؛ يجب أن تكون الأرقام {digits} ويجب أن تكون الفترة {minPeriod}–{maxPeriod} ثانية.",
+      "duplicateBody": "تم حفظ حساب بهذه الخدمة واسم الحساب بالفعل.",
+      "updatedBody": "تم تحديث حسابك.",
+      "addedBody": "تمت إضافة حسابك بشكل آمن.",
+      "invalidOtpTitle": "إعدادات OTP غير صالحة",
+      "duplicateTitle": "الحساب موجود بالفعل",
+      "savedTitle": "تم حفظ الحساب",
+      "invalidSecretTitle": "المفتاح السري غير صالح",
+      "invalidSecretBody": "يرجى التحقق من أنك قمت بإدخال سر Base32 صالح.",
+      "removedTitle": "تمت إزالة الحساب",
+      "removedBody": "تمت إزالة الحساب وسره من هذا الجهاز.",
+      "clearedTitle": "تم مسح الحسابات",
+      "clearedBody": "تمت إزالة جميع حسابات وأسرار المصادق من هذا الجهاز.",
+      "someSavedAccountsNeedAttentionTitle": "بعض الحسابات المحفوظة تحتاج إلى الاهتمام",
+      "someSavedAccountsNeedAttentionBody": "لم يتم تحميل سجل (سجلات) الحساب غير الصالح {count}. تظل الحسابات الصالحة متاحة. فكر في إنشاء نسخة احتياطية قبل إجراء المزيد من التغييرات.",
+      "removeConfirmTitle": "هل تريد إزالة الحساب؟",
+      "removeConfirmWebTitle": "هل تريد إزالة الحساب؟",
+      "removeButton": "إزالة",
+      "clearButton": "مسح الكل",
+      "clearConfirmTitle": "مسح كافة الحسابات؟",
+      "saveErrorBody": "لا يمكن حفظ الحسابات. تحقق من توفر مساحة تخزين المتصفح وحاول مرة أخرى.",
+      "notFoundTitle": "لم يتم العثور على الحساب",
+      "notFoundBody": "لا يمكن العثور على هذا الحساب. أغلق المحرر وحاول مرة أخرى.",
+      "removeConfirmBody": "يؤدي هذا إلى إزالة الحساب وسره من هذا الجهاز.",
+      "clearConfirmBody": "يؤدي هذا إلى إزالة جميع حسابات المصادق وأسرارها نهائيًا من هذا الجهاز. قم بإنشاء نسخة احتياطية مشفرة أولاً إذا كنت قد تحتاج إلى هذه الحسابات لاحقًا.",
+      "clearConfirmUndoBody": "لا يمكن التراجع عن هذا."
+    },
+    "biometric": {
+      "cancelButton": "إلغاء",
+      "saveErrorTitle": "لا يمكن حفظ الإعداد",
+      "unlockPrompt": "فتح أداة المصادقة KaalKey",
+      "promptSubtitle": "استخدم القياسات الحيوية أو قفل شاشة جهازك",
+      "disableConfirmPrompt": "قم بتأكيد إيقاف تشغيل قفل التطبيق KaalKey",
+      "enablePrompt": "تمكين قفل التطبيق لـ KaalKey",
+      "deviceLockTitle": "قم بإعداد قفل شاشة جهازك",
+      "deviceLockBody": "يستخدم KaalKey المصادقة المدمجة في هاتفك. قم بتعيين PIN للجهاز أو النمط أو كلمة المرور في إعدادات الأمان بهاتفك، ثم حاول مرة أخرى. القياسات الحيوية اختيارية.",
+      "unavailableTitle": "مصادقة الجهاز غير متاحة",
+      "unavailableBody": "تعذر على هاتفك بدء المصادقة الآمنة. تأكد من تكوين قفل شاشة الجهاز، ثم حاول مرة أخرى.",
+      "lockedTitle": "المصادقة مغلقة مؤقتا",
+      "lockedBody": "لقد قام هاتفك بتعطيل المصادقة مؤقتًا بعد عدة محاولات. انتظر وحاول مرة أخرى.",
+      "promptErrorTitle": "المصادقة غير متاحة",
+      "promptErrorBody": "تعذر على KaalKey بدء مطالبة المصادقة الآمنة للهاتف. يرجى المحاولة مرة أخرى.",
+      "webLock": "قفل مصادقة الجهاز غير متوفر في إصدار الويب حتى الآن. ويظل مخزن الويب مفتوحًا؛ استخدم تطبيق Android لمصادقة الجهاز الأصلي.",
+      "disabledTitle": "تم تعطيل قفل التطبيق",
+      "disabledBody": "تم إيقاف قفل التطبيق KaalKey.",
+      "disableSaveError": "يظل قفل التطبيق ممكنًا. يرجى المحاولة مرة أخرى.",
+      "enabledTitle": "تم تمكين قفل التطبيق",
+      "enabledBody": "سيطلب KaalKey المصادقة المدمجة في هاتفك عند فتحه وعند العودة إليه.",
+      "enableSaveError": "لا يمكن تمكين قفل التطبيق. يرجى المحاولة مرة أخرى."
+    },
+    "qr": {
+      "startingCamera": "جارٍ تشغيل الكاميرا…",
+      "unsupportedTitle": "كود QR غير مدعوم",
+      "unsupportedBody": "قم بمسح رمز إعداد المصادق QR الذي توفره الخدمة. يجب أن يكون هذا رمز TOTP، وليس رمز تسجيل الدخول العادي QR.",
+      "unsupportedDiagnostic": "إن QR ليس رمز إعداد TOTP. تهدف إلى إعداد الموثق QR.",
+      "detectedDiagnostic": "تم اكتشاف QR. جارٍ التحليل…",
+      "analyzing": "جارٍ تحليل كود QR...",
+      "duplicateTitle": "تمت إضافة الحساب بالفعل",
+      "duplicateBody": "{issuer}: {account} موجود بالفعل في KaalKey.",
+      "addedTitle": "تمت إضافة الحساب",
+      "addedBody": "{issuer}: تمت إضافة {account} بنجاح.",
+      "saveFailedDiagnostic": "لا يمكن حفظ الحساب. يمكنك المسح مرة أخرى.",
+      "invalidTitle": "رمز QR غير صالح",
+      "invalidBody": "تعذر على KaalKey تحليل رمز المصادق QR. {detail}. استخدم رمز TOTP الخاص بإعداد الخدمة QR (يبدأ عادةً بـ {prefix}).",
+      "parseFailedDiagnostic": "تعذرت معالجة QR. استهدف إعداد QR وحاول مرة أخرى.",
+      "invalidUrlTitle": "TOTP URL غير صالح",
+      "invalidUrlBody": "قم بلصق الموثق الكامل URL بدءًا من {prefix}.",
+      "clipboardEmptyTitle": "الحافظة فارغة",
+      "clipboardEmptyBody": "انسخ {prefix} URL أولاً، ثم اضغط على \"لصق TOTP URL\".",
+      "clipboardErrorTitle": "لا يمكن قراءة الحافظة",
+      "clipboardErrorBody": "انسخ إعداد TOTP URL وحاول مرة أخرى."
+    },
+    "haptics": {
+      "saveFailedTitle": "لا يمكن حفظ الإعداد",
+      "saveFailedBody": "لا يمكن حفظ تفضيلات التعليقات اللمسية. يرجى المحاولة مرة أخرى."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "تعذر حفظ الإقرار",
+      "saveFailedBody": "يرجى المحاولة مرة أخرى. يجب عليك قبول الإشعار القانوني قبل استخدام KaalKey."
+    },
+    "cameraPermission": {
+      "title": "إذن الكاميرا مطلوب",
+      "body": "السماح بالوصول إلى الكاميرا لمسح رمز QR الخاص بإعداد المصادق."
+    },
+    "storage": {
+      "browserUnavailable": "تخزين المتصفح غير متوفر.",
+      "browserFilePickerUnavailable": "منتقي الملفات في المتصفح غير متوفر."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "ملف غير معتمد",
+      "unsupportedFileBody": "اختر صورة رمز QR مثل PNG أو JPEG.",
+      "browserDecoderUnavailable": "فك تشفير صورة المتصفح غير متاح",
+      "imageLoadFailed": "لا يمكن تحميل الصورة",
+      "unreadableDimensions": "الصورة ليس لها أبعاد قابلة للقراءة",
+      "noQrCodeFoundTitle": "لم يتم العثور على رمز QR",
+      "noQrCodeFoundBody": "تعذر على KaalKey فك تشفير كود QR الموجود في هذه الصورة. حاول التقاط لقطة شاشة أو صورة PNG/JPEG بدقة أعلى.",
+      "couldNotReadImageTitle": "لا يمكن قراءة الصورة",
+      "couldNotReadImageBody": "جرب صورة PNG أو JPEG واضحة تحتوي على رمز إعداد الموثق QR.",
+      "couldNotOpenPickerTitle": "لا يمكن فتح منتقي الصور",
+      "couldNotOpenPickerBody": "الرجاء محاولة تحميل QR مرة أخرى.",
+      "normalizedDecodeFailed": "لا يمكن فك ترميز الصورة التي تمت تطبيعها",
+      "clipboardImageLoadFailed": "تعذر تحميل صورة الحافظة",
+      "imageProcessingUnavailable": "معالجة الصور غير متوفرة",
+      "imageProcessingUnavailableAlt": "معالجة الصور غير متاحة",
+      "noImageInClipboardTitle": "لا توجد صورة في الحافظة",
+      "noImageInClipboardBody": "انسخ صورة رمز QR، ثم اضغط على \"لصق صورة QR\" مرة أخرى.",
+      "clipboardUnavailableTitle": "الحافظة غير متاحة",
+      "clipboardUnavailableBody": "نص الحافظة ليس إعدادًا صالحًا للمصادقة URL. انسخ صورة otpauth://URL أو QR وحاول مرة أخرى.",
+      "clipboardAccessBody": "تعذر على KaalKey قراءة النص أو الصورة من الحافظة. اسمح بالوصول إلى الحافظة، ثم انسخ صورة QR أو otpauth:// URL واضغط على لصق صورة QR / URL مرة أخرى.",
+      "couldNotPasteImageTitle": "لا يمكن لصق الصورة",
+      "couldNotPasteImageBody": "لا تدعم هذه الحافظة لصق الصور على هذا الجهاز. استخدم استيراد صورة QR بدلاً من ذلك.",
+      "sourceImageDecodeFailure": "جرب صورة QR مختلفة.",
+      "pastedImportFailureBody": "جرب صورة QR مختلفة.",
+      "sourceImageReadFailure": "حاول نسخ لقطة شاشة واضحة لـ QR.",
+      "importFailedTitle": "فشل استيراد الصورة QR",
+      "importFailedBody": "لم يتمكن KaalKey من قراءة تلك الصورة. الرجاء تجربة صورة رمز QR أخرى.",
+      "notFoundBody": "لا تحتوي الصورة المنسوخة على رمز QR قابل للقراءة.",
+      "pastedNotFoundBody": "لا تحتوي الصورة الملصقة على رمز QR قابل للقراءة.",
+      "pastedReadFailureBody": "حاول نسخ صورة PNG أو JPEG واضحة تحتوي على كود QR الكامل.",
+      "noQrCodeTextBody": "قام KaalKey بفك تشفير الصورة المحددة ولكنه لم يعثر على رمز QR. جرّب PNG أو JPEG الواضح والكامل الدقة مع ظهور الرمز بالكامل."
+    },
+    "totpImport": {
+      "invalidTotpCode": "رمز QR هذا ليس رمز إعداد المصادقة المستند إلى الوقت.",
+      "missingAccountDetails": "يفتقد رمز QR تفاصيل الحساب.",
+      "unsupportedAlgorithm": "يستخدم رمز QR خوارزمية غير مدعومة.",
+      "unsupportedDigits": "يجب أن يتكون رمز QR من 6 أو 7 أو 8 أرقام.",
+      "unsupportedPeriod": "يستخدم رمز QR فترة زمنية غير مدعومة.",
+      "invalidAccount": "تعذر التحقق من صحة رمز QR."
+    },
+    "backup": {
+      "invalidJson": "ملف النسخ الاحتياطي غير صالح JSON.",
+      "unsupportedFormat": "هذه ليست نسخة احتياطية مشفرة KaalKey مدعومة.",
+      "invalidPasswordOrDamaged": "كلمة مرور النسخة الاحتياطية غير صحيحة أو أن ملف النسخة الاحتياطية تالف.",
+      "invalidContents": "محتويات النسخة الاحتياطية غير صالحة أو غير كاملة.",
+      "secureRandomUnavailableDetailed": "الجيل العشوائي الآمن غير متوفر. أعد إنشاء تطبيق Android وأعد تثبيته مع تضمين expo-crypto، ثم حاول مرة أخرى.",
+      "invalidAccountDataForBackup": "حساب واحد أو أكثر غير صالح. قم بإصلاح بيانات الحساب قبل إنشاء نسخة احتياطية.",
+      "invalidPasswordOrModified": "كلمة مرور النسخة الاحتياطية غير صحيحة أو تم تعديل ملف النسخة الاحتياطية.",
+      "invalidPasswordOrFileDamaged": "كلمة المرور الاحتياطية غير صحيحة أو الملف تالف.",
+      "passwordCopiedTitle": "تم نسخ كلمة المرور",
+      "enterPasswordTitle": "أدخل كلمة المرور الاحتياطية الخاصة بك",
+      "enterPasswordBody": "أدخل كلمة المرور المستخدمة عند إنشاء هذه النسخة الاحتياطية.",
+      "passwordCopiedBody": "احفظه في مكان آمن، مثل WhatsApp.",
+      "copyFailedTitle": "فشل النسخ",
+      "copyFailedBody": "حدد وانسخ كلمة المرور يدويًا.",
+      "generatingPassword": "جارٍ إنشاء كلمة مرور احتياطية آمنة...",
+      "encrypting": "جارٍ تشفير النسخة الاحتياطية…",
+      "decrypting": "جارٍ فك تشفير النسخة الاحتياطية...",
+      "restoring": "جارٍ استعادة الحسابات...",
+      "backupCreatedTitle": "تم إنشاء النسخة الاحتياطية",
+      "restoreCompleteTitle": "اكتملت الاستعادة",
+      "mergeConfirmTitle": "دمج الحسابات الاحتياطية؟",
+      "mergeConfirmButton": "دمج الحسابات",
+      "backupSavedTemporary": "تم حفظ النسخة الاحتياطية المشفرة مؤقتًا على: \n{uri}",
+      "generatePasswordErrorTitle": "تعذر إنشاء كلمة مرور احتياطية",
+      "secureRandomUnavailable": "الجيل العشوائي الآمن غير متوفر.",
+      "passwordUnavailableTitle": "كلمة المرور الاحتياطية غير متاحة",
+      "passwordUnavailableBody": "أغلق مربع الحوار هذا وقم بإنشاء نسخة احتياطية جديدة لإنشاء كلمة مرور آمنة.",
+      "backupDownloadedBody": "تم تنزيل النسخة الاحتياطية المشفرة KaalKey. حافظ على خصوصية الملف وكلمة المرور.",
+      "backupFailedTitle": "فشل النسخ الاحتياطي",
+      "backupCreateErrorBody": "تعذر على KaalKey إنشاء النسخة الاحتياطية.",
+      "restoreFailedTitle": "فشلت عملية الاستعادة",
+      "backupReadErrorBody": "لا يمكن قراءة النسخة الاحتياطية أو حفظها.",
+      "browserDownloadUnsupported": "متصفحك لا يدعم تنزيل ملفات النسخ الاحتياطي.",
+      "localFileUnavailable": "موقع الملف المحلي غير متوفر على هذا الجهاز.",
+      "saveBackupTitle": "احفظ نسخة KaalKey الاحتياطية المشفرة"
+    },
+    "clipboard": {
+      "copiedTitle": "تم نسخ الكود",
+      "copiedBody": "لقد تم نسخ رمز التحقق الخاص بك.",
+      "errorTitle": "خطأ",
+      "errorBody": "لا يمكن نسخ رمز التحقق."
+    },
+    "activity": {
+      "cameraReady": "الكاميرا جاهزة. قم بتوجيهه إلى رمز المصادقة QR.",
+      "readingQrImage": "جارٍ قراءة صورة QR...",
+      "importingQrImage": "جارٍ استيراد صورة QR...",
+      "importingAccount": "جارٍ استيراد حساب المصادقة...",
+      "importingPastedImage": "جارٍ استيراد صورة QR الملصقة..."
+    }
+  },
+  "activity": {
+    "working": "العمل",
+    "wait": "من فضلك انتظر...",
+    "donTClose": "من فضلك لا تغلق أو تتفاعل مع KaalKey.",
+    "loadingLanguages": "جارٍ تحميل اللغات المتاحة…",
+    "loadingTranslation": "جارٍ تحميل الترجمة…"
+  }
+}

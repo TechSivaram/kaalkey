@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Pinulongan",
+      "description": "Pilia ang pinulongan nga gigamit sa KaalKey.",
+      "english": "English",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "LANGUAGE",
+      "searchLanguageName": "Pinulongan sa pagpangita (ngalan o code)",
+      "searchSupportedLanguages": "Pangitaa ang gisuportahan nga mga pinulongan",
+      "closeLanguageDropdown": "Isira ang dropdown sa pinulongan",
+      "noTranslatedLanguage": "Walay nakit-an nga gihubad nga pinulongan.",
+      "serverUrl": "Server sa paghubad URL",
+      "serverUrlDescription": "KaalKey nag-download sa lista sa pinulongan ug mga hubad gikan niini nga server.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "I-save ang server sa paghubad"
+    },
+    "title": "Mga setting sa app",
+    "eyebrow": "KAALKEY MGA PREPERENSYA",
+    "experience": {
+      "section": "KASINATIAN"
+    },
+    "security": {
+      "section": "SEGURIDAD"
+    },
+    "backup": {
+      "section": "BACKUP & RECOVERY"
+    },
+    "danger": {
+      "section": "DANGER ZONE",
+      "clearAccounts": "I-clear ang tanan nga mga account",
+      "clearAccountsDescription": "Permanente nga tangtangon ang matag account ug sekreto gikan niini nga device. I-back up una.",
+      "clearAccountsAccessibilityLabel": "I-clear ang tanan nga authenticator account"
+    },
+    "appearance": {
+      "section": "TINGUHA",
+      "title": "Gaan nga panagway",
+      "description": "KaalKey sa pagkakaron naggamit sa iyang limpyo nga kahayag nga tema."
+    },
+    "haptics": {
+      "title": "Haptic nga feedback",
+      "description": "Malumo nga feedback alang sa mga gripo ug nahuman nga mga aksyon."
+    },
+    "deviceLock": {
+      "title": "Lock sa pag-authenticate sa device",
+      "description": "Ma-lock ang imong vault kung mobiya ang KaalKey sa foreground.",
+      "requirement": "Kinahanglan ang biometrics o screen-lock sa imong telepono PIN, pattern, o password.",
+      "accessibilityLabel": "Lock sa app sa pag-authenticate sa device"
+    },
+    "privacy": {
+      "title": "Legal ug pribasiya",
+      "description": "Ribyuha ang Privacy Policy ug Termino sa Paggamit.",
+      "storageNote": "Ang imong mga sekreto sa authenticator magpabilin sa luwas nga vault sa on-device. Ang mga gusto gitipigan sa lokal."
+    }
+  },
+  "accounts": {
+    "edit": "Edit",
+    "sortAccountName": "Pagsunud sa ngalan sa account",
+    "loadingSecureVault": "Nagkarga sa luwas nga vault...",
+    "tapCopy": "TAPI ARON KOPYA",
+    "noAccountsMatch": "Walay mga account nga motakdo sa imong pagpangita.",
+    "viewQrCode": "Tan-awa ang QR code para sa account",
+    "removeAccount": "Kuhaa ang account",
+    "copyVerificationCode": "Kopyaha ang verification code",
+    "active": "AKTIBO",
+    "sort": "SORT BY",
+    "account": "Account",
+    "clearSearch": "Klaro nga pagpangita",
+    "sortServiceName": "Pagsunud sa ngalan sa serbisyo",
+    "addFirstAccount": "Idugang ang imong unang account",
+    "searchAccounts": "Pangitaa ang mga account",
+    "searchServiceAccount": "Pangitag serbisyo o account",
+    "accounts": "Imong mga account",
+    "add": "+ Idugang",
+    "vaultStartsHere": "Ang imong vault magsugod dinhi",
+    "service": "Serbisyo",
+    "emptyHint": "Pagdugang og account gamit ang sekretong yawe niini aron makamugna ang imong unang verification code."
+  },
+  "common": {
+    "done": "Nahuman na",
+    "doneButton": "Nahuman na",
+    "closeSettings": "Isira ang mga setting",
+    "separator": "-",
+    "article": "a",
+    "save": "Tipigi",
+    "delete": "Pagtangtang",
+    "resizeAppBrand": "Usba ang gidak-on sa mga panel sa app ug brand"
+  },
+  "qrImport": {
+    "readPastedImage": "Dili mabasa ang gipapilit nga hulagway"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Mga account niini nga backup: {count}. KaalKey magtipig sa imong kasamtangan nga mga account ug magdugang sa bisan unsang mga account nga wala pa. Ang mga duplicate nga account laktawan.",
+    "restoreCompletionBody": "Mga asoy nga gidugang: {added}. Duplicate nga mga account gilaktawan: {skipped}. Ang imong kasamtangan nga mga account gitipigan.",
+    "copyPassword": "Kopyaha ang nahimo nga password",
+    "passwordSafety": "I-save kini nga password nga gilain (pananglitan, sa WhatsApp). Bisan kinsa nga adunay pareho nga",
+    "importAction": "Pilia ang file ug import",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "SIGURO NGA VAULT",
+    "createBackup": "Paghimo og backup",
+    "encryptedFile": "Na-encrypt nga file",
+    "restoreBackup": "Ibalik ang backup",
+    "safetyNote": "Ang mga backup adunay mga sekreto sa imong authenticator. KaalKey nagmugna og usa ka talagsaon nga password alang sa matag backup. Tipigi kini nga gilain; KaalKey dili makabawi niini.",
+    "generatingSecurePassword": "Paghimo og luwas nga password…",
+    "importFile": "Import nga file",
+    "backupPassword": "BACKUP PASSWORD",
+    "account": "asoy",
+    "accounts": "mga account",
+    "exportDescription": "I-encrypt ang tanang {count} nga gitipigan {accountLabel} ngadto sa backup file. KaalKey nagmugna og talagsaon nga password; kopyaha ug i-save kini nga gilain gikan sa file.",
+    "restoreDescription": "Pilia ang imong KaalKey backup file ug password. Bag-ong mga account idugang sa imong kasamtangan nga listahan sa account; Ang mga kasamtangan nga mga account magpabilin nga ingon niini.",
+    "enterBackupPassword": "Pagsulod sa backup nga password",
+    "closeBackup": "Isira ang backup",
+    "copyGeneratedBackup": "Kopyaha ang nahimo nga backup nga password",
+    "backupPassword2": "I-backup ang password",
+    "clearBackupPassword": "Klaro ang backup nga password",
+    "backupFilePassword": "backup file ug password mahimong ibalik ang imong authenticator accounts.",
+    "encryptShareBackup": "I-encrypt ug ipaambit ang backup"
+  },
+  "home": {
+    "unlockSecurely": "I-unlock nga luwas",
+    "disableAppLock": "I-disable ang lock sa app",
+    "enableAppLock": "I-enable ang app lock",
+    "checkingSecureLock": "Pagsusi sa imong luwas nga lock setting. Ang imong mga code nagpabilin nga tinago.",
+    "waitingVerification": "Naghulat alang sa pag-verify…",
+    "secretsStayStored": "Ang imong mga sekreto magpabilin nga gitipigan niini nga device.",
+    "openAppSettings": "Ablihi ang mga setting sa app",
+    "versionLabel": "BERSIYON",
+    "unlockRequirement": "Gamita ang biometrics o screen-lock sa imong telepono PIN, pattern, o password aron ma-access ang imong usa ka higayon nga verification code.",
+    "localVault": "IMONG LOKAL NGA VAULT",
+    "codesDeviceControl": "Imong mga code. Ang imong device. Ang imong kontrol.",
+    "securingVault": "Pagsiguro sa imong vault…",
+    "vaultProtected": "Gipanalipdan ang imong vault",
+    "lock": "LOCK ON",
+    "localVault2": "LOKAL NGA VAULT",
+    "authenticator": "KAALKEY AUTENTIKATOR",
+    "tricolourLockEmblem": "KaalKey tricolor nga lock nga emblem",
+    "authenticator2": "AUTENTIKATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Kon mopili ka sa pag-scan og QR code, KaalKey mogamit og permiso sa camera alang niana nga aksyon. Ang opsyonal nga pag-authenticate sa device ug haptic feedback naggamit sa mga may kalabutan nga feature sa device. Mahimo nimong madumala ang mga pagtugot sa mga setting sa imong aparato.",
+        "heading": "2. Mga permiso ug mga bahin sa device"
+      },
+      "backups": {
+        "body": "Kung maghimo ka og backup, KaalKey mo-encrypt sa backup gamit ang password nga imong gipili. Hupti nga pribado ang file ug password ug tipigi kini nga luwas. Bisan kinsa nga makakuha sa file ug sa password niini mahimo’g mabalik ang imong mga authenticator account. KaalKey dili makabawi sa nakalimtan nga backup nga password.",
+        "heading": "3. Mga backup"
+      },
+      "security": {
+        "body": "Ipadayon nga updated ang imong device, panalipdan kini gamit ang lock sa screen, ug ayaw ipaambit ang OTP mga sekreto o backup nga password. Ang pagtangtang sa app, pag-clear sa datos niini, o pagkawala sa device mahimong maghimo sa lokal nga gitipigan nga mga account nga dili magamit. Hupti ang luwas nga backup kung kinahanglan nimo ang pagbawi.",
+        "heading": "5. Seguridad ug retensyon"
+      },
+      "information": {
+        "heading": "1. Impormasyon ug mga sekreto",
+        "body": "KaalKey kay usa ka authenticator app. Ang mga label sa account ug ang sekreto nga mga kantidad nga gikinahanglan aron makamugna og usa ka higayon nga mga code sensitibo. Gidisenyo ang app sa pagtipig sa mga rekord sa account sa luwas nga pagtipig sa aparato. Bisan kinsa nga adunay access sa usa ka unlocked device o usa ka exported backup mahimong maka-access sa sensitibo nga impormasyon."
+      },
+      "sharing": {
+        "heading": "4. Pagpakigbahin ug ikatulo nga partido",
+        "body": "Mahimong gamiton sa backup nga dagan ang share sheet sa imong device o tigpili sa file aron sa pagtipig, pagbalhin, o pagpili sa mga file. Ang mga gawi sa pagkapribado sa bisan unsang third-party nga app o serbisyo nga imong gipili gidumala sa kana nga tighatag. Kini nga pahibalo wala maghimo usa ka habol nga pag-angkon nga ang imong aparato, operating system, o gipili nga mga serbisyo sa pagpaambit wala gyud magproseso sa datos."
+      },
+      "changes": {
+        "heading": "6. Mga kausaban ug kontak",
+        "body": "Kini nga naka-embed nga pahibalo mahimong mabag-o sa umaabot nga pagpagawas sa app. Para sa mga pangutana sa privacy, kontaka ang app publisher pinaagi sa opisyal nga support channel nga gihatag uban sa app."
+      },
+      "title": "Patakaran sa Pagkapribado"
+    },
+    "terms": {
+      "use": {
+        "body": "Mahimo nimong gamiton ang KaalKey aron makamugna og mga verification code alang sa mga account nga gitugutan ka nga ma-access. Ikaw ang responsable sa pagsunod sa mga magamit nga mga balaod ug mga lagda sa mga serbisyo diin imong gigamit ang mga code sa pag-authenticate.",
+        "heading": "1. Imong paggamit"
+      },
+      "protectAccounts": {
+        "body": "Responsable ka sa pagsiguro sa imong device, mga sekreto sa authenticator, mga pamaagi sa pagbawi, gi-eksport nga mga backup, ug mga backup nga password. Ayaw ipaambit ang mga code o sekreto sa mga tawo nga wala nimo gisaligan.",
+        "heading": "2. Panalipdi ang imong mga account"
+      },
+      "availability": {
+        "body": "Ang mga bahin mahimong mausab tali sa mga pagpagawas. Kinahanglan nimo nga ipadayon ang pag-update sa app ug matag karon ug unya i-verify nga ang imong mga kahikayan sa pag-backup ug pag-ayo nagtrabaho.",
+        "heading": "5. Mga kausaban ug pagkaanaa"
+      },
+      "recovery": {
+        "body": "Ang KaalKey dili makagarantiya nga ang matag account mahimong mabawi, nga ang matag QR code o configuration mahimong magkatugma, o nga ang app moandar nga walay pagkabalda o sayop. Hupti ang mga alternatibong pamaagi sa pagbawi nga gihatag sa may kalabutan nga serbisyo.",
+        "heading": "3. Walay garantiya sa pagbawi"
+      },
+      "advice": {
+        "heading": "4. Walay propesyonal nga tambag",
+        "body": "Ang app usa ka utility ug wala maghatag legal, pinansyal, o seguridad nga tambag sa pagtubag sa insidente. Kung nakompromiso ang usa ka account, sunda ang opisyal nga pagbawi ug giya sa seguridad sa apektadong serbisyo."
+      },
+      "liability": {
+        "heading": "6. Tulubagon ug magamit nga balaod",
+        "body": "Sa gidak-on nga gitugot sa magamit nga balaod, ang app gihatag nga walay garantiya sa walay hunong o walay sayop nga operasyon. Walay bisan unsa niini nga mga termino nga wala maglakip sa mga katungod o mga remedyo nga dili legal nga iapil. Ang bisan unsang dugang nga mga limitasyon o mga termino sa pagdumala sa balaod kinahanglan nga susihon sa usa ka kwalipikado nga abogado alang sa hurisdiksyon sa magmamantala sa dili pa buhian."
+      },
+      "title": "Mga Termino sa Paggamit"
+    },
+    "version": "Bersyon",
+    "saving": "Nagtipig…",
+    "acceptContinue": "Dawata ug Ipadayon",
+    "appliesAuthenticator": "Magamit sa KaalKey Authenticator",
+    "reviewBothDocuments": "Palihug ribyuha ang duha ka dokumento sa dili pa gamiton ang KaalKey. Nalakip sila sa app ug magamit sa offline.",
+    "originalMulticolourAuthenticator": "Orihinal nga daghang kolor KaalKey authenticator emblem",
+    "legalPrivacyNotice": "Legal ug Privacy Notice",
+    "legalInformation": "Legal nga impormasyon",
+    "reviewSPrivacy": "Ribyuha ang KaalKey impormasyon sa pagkapribado ug mga termino sa paggamit.",
+    "iReadAgree": "Nabasa nako ug miuyon sa Patakaran sa Pagkapribado ug Mga Termino sa Paggamit."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Ipabilin ang tibuok QR code nga makita. Ang imong sekreto magpabilin niini nga device.",
+    "back": "Balik",
+    "turnFlashlightOff": "Palonga ang flashlight",
+    "turnFlashlight": "I-on ang flashlight",
+    "flashlight": "Naka-on ang flashlight",
+    "flashlight2": "flashlight",
+    "cameraUnavailableOpen": "Dili magamit ang camera. Ablihi kini nga panid sa HTTPS o localhost ug tugoti ang pag-access sa camera.",
+    "cameraPreviewUnavailable": "Ang preview sa camera dili magamit. Isira ug ablihi pag-usab ang scanner.",
+    "cameraReadyPoint": "Andam na ang kamera — itudlo kini sa tibuok QR code.",
+    "browserCannotProcess": "Kini nga browser dili makaproseso sa mga frame sa camera.",
+    "qrCodeDetected": "QR code nakita.",
+    "couldnTRead": "Dili makabasa sa mga frame sa camera. Susiha ang permiso sa camera ug i-reload kini nga panid.",
+    "cameraPermissionDenied": "Gidili ang pagtugot sa camera. Tugoti ang pag-access sa camera sa mga setting sa browser, dayon ablihi pag-usab ang scanner.",
+    "noCameraWas": "Walay camera nga nakit-an niini nga device.",
+    "cameraBusyAnother": "Busy ang camera sa laing app o tab sa browser.",
+    "startCameraHttps": "Dili makasugod sa camera. Gamita ang HTTPS o localhost ug susiha ang permiso sa browser.",
+    "qrScannerCamera": "QR preview sa camera sa scanner",
+    "cameraUnavailableCheck": "Dili magamit ang camera. Susiha ang pagtugot sa camera ug sulayi pag-usab.",
+    "pointCameraAuthenticator": "Itudlo ang imong camera sa authenticator setup QR code gikan sa serbisyo nga imong gidugang.",
+    "backAddAccount": "Balik aron makadugang account",
+    "secureSetup": "SECURE SETUP",
+    "enterDetailsManually": "Pagsulod sa mga detalye sa kamut"
+  },
+  "accountForm": {
+    "hideManualEntry": "Tagoa ang manwal nga pagsulod",
+    "secretKeySupplied": "Gamita ang sekreto nga yawe nga gihatag sa serbisyo nga imong gi-configure. Ayaw ibutang ang password sa imong account dinhi. Ipares ang algorithm, ihap sa digit, ug interval sa mga instruksyon sa pag-setup sa serbisyo.",
+    "updateServiceAccount": "I-update ang serbisyo, ngalan sa account, o sekreto nga yawe.",
+    "secretKeyRead": "Sekreto nga yawe, read-only samtang nag-edit",
+    "secretKeyBase32": "Sekreto nga yawe sa Base32",
+    "digits": "mga numero",
+    "seconds": "segundos",
+    "enterDetailsManually": "O MANUAL ANG PAGSULOD SA MGA DETALYE",
+    "enterDetailsManually2": "Pagsulod sa mga detalye sa kamut",
+    "serviceAccountName": "Serbisyo, ngalan sa account ug sekreto nga yawe",
+    "saveChangesSecurely": "I-save ang mga pagbag-o nga luwas",
+    "saveAccountSecurely": "I-save ang account nga luwas",
+    "serviceIssuer": "Serbisyo o tighatag",
+    "accountName": "Ngalan sa account",
+    "secretKey": "Sekreto nga yawe",
+    "serviceIssuer2": "SERBISYO / ISSUER",
+    "eGGoogle": "e.g. Google",
+    "clearServiceIssuer": "Tin-aw nga serbisyo o nag-isyu",
+    "eGExample": "e.g. ikaw@example.com",
+    "clearAccountName": "Klaro ang ngalan sa account",
+    "secretKeyLocked": "SECRET KEY (LOCKED)",
+    "secretKeyBase322": "SEKRETO NGA YAWI (BASE32)",
+    "enterSetupKey": "Pagsulod sa imong setup key",
+    "clearSecretKey": "Klaro ang sekreto nga yawe",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP DIGITS",
+    "refreshIntervalSeconds": "REFRESH INTERVAL (SECONDS)",
+    "otpRefreshInterval": "OTP refresh interval sa mga segundo",
+    "closeAccountForm": "Isira ang porma sa account",
+    "totpSetupUrl": "TOTP setup URL",
+    "importSetupUrl": "Import setup URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "ACCOUNT NGALAN",
+    "addAccount": "Idugang ang account"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "I-scan ang authenticator QR code",
+    "setupGuidance": "I-scan ang QR code para sa pinakasayon nga setup, o manu-mano ang pagsulod sa mga detalye.",
+    "cameraAddAccount": "Gamita ang imong camera aron makadugang dayon og account",
+    "scanQrCode2": "I-scan ang QR code",
+    "uploadQrImage": "I-upload ang QR nga hulagway",
+    "chooseQrScreenshot": "Pagpili og QR screenshot gikan sa Gallery, Photos, o Files",
+    "pasteQr": "Idikit QR hulagway / URL",
+    "pasteCopiedQr": "Idikit ang gikopya nga QR nga imahe o setup sa authenticator URL",
+    "uploadQrImage2": "I-upload ang QR nga hulagway"
+  },
+  "accountQr": {
+    "close": "Duol",
+    "accountQrCode": "Account QR code",
+    "revealQrCode": "Ipadayag ang QR code",
+    "exportWarning": "Pahimangno: bisan kinsa nga mag-scan niini nga QR code mahimong makamugna og verification code alang niini nga account. Ipadayag lang kini sa usa ka kasaligan nga screen.",
+    "privacyHint": "Itago kining QR code nga pribado. Ang pag-scan niini nagkopya sa sekreto sa authenticator sa account."
+  },
+  "productInfo": {
+    "backupRestore": "I-backup ug iuli",
+    "backupRestoreDescription": "I-back up ang imong data sa authenticator ug iuli kini kung mobalhin ka sa laing device.",
+    "privacyDescription": "Ibutang ang imong mga verification account sa usa ka lugar. Gamita ang mga opsyon sa pag-backup, pag-uli, ug pag-lock sa device sa app aron madumala ang imong setup nga responsable.",
+    "timeBasedCodes": "Mga code nga gibase sa oras",
+    "generateOneTimeCodes": "Paghimo og rotating one-time nga mga passcode para sa imong mga account aron makompleto ang duha ka lakang nga pag-verify.",
+    "quickAccountSetup": "Dali nga pag-setup sa account",
+    "quickSetupDescription": "Pag-scan sa usa ka authenticator QR code o pag-import og QR nga hulagway aron makadugang og account.",
+    "accountsOnePlace": "Mga account sa usa ka lugar",
+    "accountsInOnePlaceDescription": "Ipadayon ang imong natipig nga mga account ug pangitaa ang husto nga entry kung oras na sa pag-sign in.",
+    "privateAccountVault": "Pribado nga account vault",
+    "privateVaultDescription": "Pagdumala sa imong authenticator entries sa lokal ug gamita ang magamit nga device-lock nga opsyon sa app.",
+    "easyCodeAccess": "Sayon nga pag-access sa code",
+    "easyCodeAccessDescription": "Kopyaha ang kasamtangan nga code o pagdumala sa mga detalye sa account pinaagi sa usa ka limpyo, naka-focus nga interface.",
+    "authenticatorTechsivaram": "AUTENTICATOR · NI TECHSIVARAM",
+    "mobileAuthenticator": "IMONG MOBILE AUTHENTICATOR",
+    "tagline": "Usa ka mas simple nga paagi sa pagdumala sa imong duha ka lakang nga pag-verify.",
+    "heroDescription": "Usa ka naka-focus nga authenticator nga kasinatian alang sa gibase sa oras nga mga verification code. Ibutang ang mga compatible nga account code duol sa KaalKey para sa Android.",
+    "timeBasedCodes2": "TIME-BASED CODES",
+    "privateDesign": "PRIBADO SA DESIGN",
+    "builtSimpleAuthenticator": "GIHIMO ALANG SA SIMPLE NGA AUTENTICATOR WORKFLOW",
+    "qrSetupTimed": "QR SETUP · TIMED CODES · ACCOUNT MANAGEMENT",
+    "privacyTitle": "Imong mga account. Imong mga code. Ang imong kontrol.",
+    "authenticator": "KAALKEY · AUTENTIKATOR",
+    "brandBanner": "KaalKey bandera sa brand",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Pagkanselar",
+      "storageInvalidTitle": "Dili balido ang datos sa pagtipig",
+      "storageInvalidBody": "Ang data sa gitipigan nga account dili mabasa nga luwas.",
+      "storageErrorTitle": "Sayop sa pagtipig",
+      "storageErrorBody": "Ang gitipigan nga mga account dili makarga.",
+      "missingTitle": "Kulang nga impormasyon",
+      "missingEditingBody": "Pagsulod sa ngalan sa serbisyo ug ngalan sa account.",
+      "missingBody": "Pagsulod sa ngalan sa serbisyo, ngalan sa account, ug sekreto nga yawe.",
+      "invalidOtpBody": "Susiha ang Base32 sekreto, algorithm, ihap sa digit, ug panahon sa pag-refresh. Ang mga sekreto kinahanglang adunay balido nga Base32 nga mga karakter; ang mga digit kinahanglang {digits} ug ang yugto kinahanglang {minPeriod}–{maxPeriod} segundos.",
+      "duplicateBody": "Ang usa ka account nga adunay kini nga serbisyo ug ngalan sa account natipig na.",
+      "updatedBody": "Gi-update ang imong account.",
+      "addedBody": "Ang imong account gidugang nga luwas.",
+      "invalidOtpTitle": "Dili balido nga OTP setting",
+      "duplicateTitle": "Anaa na ang account",
+      "savedTitle": "Gitipigan ang account",
+      "invalidSecretTitle": "Dili balido nga sekreto nga yawe",
+      "invalidSecretBody": "Palihug susiha nga nakasulod ka ug balido nga Base32 sekreto.",
+      "removedTitle": "Gitangtang ang account",
+      "removedBody": "Ang account ug ang sekreto niini gikuha gikan niini nga device.",
+      "clearedTitle": "Gi-clear ang mga account",
+      "clearedBody": "Ang tanan nga authenticator nga mga account ug mga sekreto gikuha gikan niini nga device.",
+      "someSavedAccountsNeedAttentionTitle": "Ang ubang mga na-save nga account nagkinahanglan og pagtagad",
+      "someSavedAccountsNeedAttentionBody": "{count} dili balido nga rekord sa account wala gikarga. Ang mga balido nga mga account nagpabilin nga magamit. Ikonsiderar ang paghimo og backup sa dili pa maghimo og dugang nga mga pagbag-o.",
+      "removeConfirmTitle": "Kuhaa ang account?",
+      "removeConfirmWebTitle": "Kuhaa ang account?",
+      "removeButton": "Kuhaa",
+      "clearButton": "Klaro tanan",
+      "clearConfirmTitle": "I-clear ang tanang account?",
+      "saveErrorBody": "Ang mga account dili ma-save. Susiha ang pagkaanaa sa pagtipig sa browser ug sulayi pag-usab.",
+      "notFoundTitle": "Wala makit-an ang account",
+      "notFoundBody": "Kini nga account dili makit-an. Isira ang editor ug sulayi pag-usab.",
+      "removeConfirmBody": "Gikuha niini ang account ug ang sekreto niini gikan niini nga device.",
+      "clearConfirmBody": "Kini permanente nga nagtangtang sa tanan nga authenticator account ug sa ilang mga sekreto gikan niini nga device. Paghimo usa ka naka-encrypt nga backup una kung kinahanglan nimo kini nga mga account sa ulahi.",
+      "clearConfirmUndoBody": "Kini dili na mabawi."
+    },
+    "biometric": {
+      "cancelButton": "Pagkanselar",
+      "saveErrorTitle": "Dili ma-save ang setting",
+      "unlockPrompt": "Unlock KaalKey Authenticator",
+      "promptSubtitle": "Gamit ug biometrics o lock sa screen sa imong device",
+      "disableConfirmPrompt": "Kumpirma nga i-off ang KaalKey lock sa app",
+      "enablePrompt": "I-enable ang app lock para sa KaalKey",
+      "deviceLockTitle": "I-set up ang lock sa screen sa imong device",
+      "deviceLockBody": "KaalKey naggamit sa built-in nga authentication sa imong telepono. Pagbutang og device PIN, pattern, o password sa mga setting sa seguridad sa imong telepono, unya sulayi pag-usab. Opsyonal ang biometrics.",
+      "unavailableTitle": "Dili magamit ang pag-authenticate sa device",
+      "unavailableBody": "Ang imong telepono dili makasugod sa luwas nga panghimatuud. Susiha nga ang lock sa screen sa device na-configure, unya sulayi pag-usab.",
+      "lockedTitle": "Temporaryo nga gi-lock ang authentication",
+      "lockedBody": "Ang imong telepono temporaryo nga gi-disable ang authentication pagkahuman sa daghang pagsulay. Paghulat ug pagsulay pag-usab.",
+      "promptErrorTitle": "Dili magamit ang panghimatuud",
+      "promptErrorBody": "KaalKey dili makasugod sa luwas nga pag-authentication prompt sa telepono. Palihug sulayi pag-usab.",
+      "webLock": "Ang lock sa pag-authenticate sa device wala pa magamit sa bersyon sa web. Ang web vault nagpabiling abli; gamita ang Android nga app para sa native device authentication.",
+      "disabledTitle": "Gi-disable ang lock sa app",
+      "disabledBody": "KaalKey app lock gipalong.",
+      "disableSaveError": "Ang lock sa app nagpabilin nga gipalihok. Palihug sulayi pag-usab.",
+      "enabledTitle": "Gipaandar ang lock sa app",
+      "enabledBody": "KaalKey mangayo ug built-in nga panghimatuud sa imong telepono kung ablihan ug kung mobalik ka niini.",
+      "enableSaveError": "Ang lock sa app dili ma-enable. Palihug sulayi pag-usab."
+    },
+    "qr": {
+      "startingCamera": "Nagsugod ang camera…",
+      "unsupportedTitle": "Dili suportadong QR code",
+      "unsupportedBody": "I-scan ang authenticator setup QR code nga gihatag sa serbisyo. Kini kinahanglan nga usa ka TOTP code, dili usa ka normal nga login QR code.",
+      "unsupportedDiagnostic": "Kana nga QR dili usa ka TOTP setup code. Tumong sa usa ka authenticator setup QR.",
+      "detectedDiagnostic": "QR nakit-an. Pag-analisar…",
+      "analyzing": "Pag-analisar sa QR code…",
+      "duplicateTitle": "Gidugang na ang account",
+      "duplicateBody": "{issuer}: {account} naa na sa KaalKey.",
+      "addedTitle": "Gidugang ang account",
+      "addedBody": "{issuer}: {account} malampuson nga nadugang.",
+      "saveFailedDiagnostic": "Dili ma-save ang account. Mahimo nimong i-scan pag-usab.",
+      "invalidTitle": "Dili balido nga QR code",
+      "invalidBody": "KaalKey dili maka-parse niini nga authenticator QR code. {detail}. Gamita ang TOTP setup QR code sa serbisyo (kasagaran magsugod sa {prefix}).",
+      "parseFailedDiagnostic": "QR dili maproseso. Tumong sa setup QR ug sulayi pag-usab.",
+      "invalidUrlTitle": "Dili balido TOTP URL",
+      "invalidUrlBody": "Idikit ang usa ka kompleto nga authenticator URL nga nagsugod sa {prefix}.",
+      "clipboardEmptyTitle": "Ang clipboard walay sulod",
+      "clipboardEmptyBody": "Kopyaha una ang {prefix} URL, dayon i-tap ang Idikit TOTP URL.",
+      "clipboardErrorTitle": "Dili makabasa sa clipboard",
+      "clipboardErrorBody": "Kopyaha ang TOTP setup URL ug sulayi pag-usab."
+    },
+    "haptics": {
+      "saveFailedTitle": "Dili ma-save ang setting",
+      "saveFailedBody": "Ang gusto sa haptic feedback dili ma-save. Palihug sulayi pag-usab."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Dili makatipig sa pag-ila",
+      "saveFailedBody": "Palihug sulayi pag-usab. Kinahanglan nimong dawaton ang legal nga pahibalo sa dili pa gamiton ang KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Gikinahanglan ang pagtugot sa camera",
+      "body": "Tugoti ang access sa camera sa pag-scan sa usa ka authenticator setup QR code."
+    },
+    "storage": {
+      "browserUnavailable": "Ang pagtipig sa browser dili magamit.",
+      "browserFilePickerUnavailable": "Ang tigpili sa file sa browser dili magamit."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Dili suportado nga file",
+      "unsupportedFileBody": "Pagpili og QR code image sama sa PNG o JPEG.",
+      "browserDecoderUnavailable": "Dili magamit ang pag-decode sa imahe sa browser",
+      "imageLoadFailed": "Dili makarga ang hulagway",
+      "unreadableDimensions": "Ang hulagway walay mabasa nga mga sukod",
+      "noQrCodeFoundTitle": "Walay QR code nga nakit-an",
+      "noQrCodeFoundBody": "Ang KaalKey dili maka-decode og QR code niini nga hulagway. Sulayi og screenshot o mas taas nga resolusyon PNG/JPEG.",
+      "couldNotReadImageTitle": "Dili mabasa ang hulagway",
+      "couldNotReadImageBody": "Sulayi ang usa ka tin-aw nga PNG o JPEG nga hulagway nga adunay sulod sa authenticator setup QR code.",
+      "couldNotOpenPickerTitle": "Dili maablihan ang tigpili sa imahe",
+      "couldNotOpenPickerBody": "Palihug sulayi pag-usab ang Upload QR.",
+      "normalizedDecodeFailed": "Dili ma-decode ang normalized nga hulagway",
+      "clipboardImageLoadFailed": "Ang hulagway sa clipboard dili makarga",
+      "imageProcessingUnavailable": "Dili magamit ang pagproseso sa imahe",
+      "imageProcessingUnavailableAlt": "Dili magamit ang pagproseso sa imahe",
+      "noImageInClipboardTitle": "Walay hulagway sa clipboard",
+      "noImageInClipboardBody": "Kopyaha ang QR code image, dayon i-tap ang Paste QR Image pag-usab.",
+      "clipboardUnavailableTitle": "Dili magamit ang clipboard",
+      "clipboardUnavailableBody": "Ang teksto sa clipboard dili balido nga setup sa authenticator URL. Kopyaha ang usa ka otpauth:// URL o QR nga hulagway ug sulayi pag-usab.",
+      "clipboardAccessBody": "KaalKey dili makabasa sa teksto o imahe gikan sa clipboard. Tugoti ang pag-access sa clipboard, dayon kopyaha ang QR nga imahe o otpauth:// URL ug i-tap ang Paste QR Image / URL.",
+      "couldNotPasteImageTitle": "Dili ma-paste ang hulagway",
+      "couldNotPasteImageBody": "Ang pag-paste sa imahe wala gisuportahan sa kini nga clipboard sa kini nga aparato. Gamita hinuon ang Import QR larawan.",
+      "sourceImageDecodeFailure": "Sulayi og laing QR nga hulagway.",
+      "pastedImportFailureBody": "Sulayi og laing QR nga hulagway.",
+      "sourceImageReadFailure": "Sulayi ang pagkopya og klaro nga QR screenshot.",
+      "importFailedTitle": "QR napakyas ang pag-import sa imahe",
+      "importFailedBody": "KaalKey dili makabasa sa maong hulagway. Palihug pagsulay ug laing QR code image.",
+      "notFoundBody": "Ang gikopya nga hulagway walay mabasa nga QR code.",
+      "pastedNotFoundBody": "Ang gipapilit nga hulagway walay mabasa nga QR code.",
+      "pastedReadFailureBody": "Sulayi ang pagkopya sa usa ka tin-aw nga PNG o JPEG nga hulagway nga adunay kompleto nga QR code.",
+      "noQrCodeTextBody": "KaalKey nag-decode sa pinili nga hulagway apan wala makakita og QR code. Sulayi ang klaro, bug-os nga resolusyon PNG o JPEG nga makita ang tibuok code."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Kini nga QR code dili usa ka gibase sa panahon nga authenticator setup code.",
+      "missingAccountDetails": "Ang QR code kulang sa mga detalye sa account.",
+      "unsupportedAlgorithm": "Ang QR code naggamit ug dili suportadong algorithm.",
+      "unsupportedDigits": "Kining QR code kinahanglang mogamit ug 6, 7, o 8 ka numero.",
+      "unsupportedPeriod": "Kining QR code naggamit ug dili suportadong yugto sa panahon.",
+      "invalidAccount": "Ang QR code dili ma-validate."
+    },
+    "backup": {
+      "invalidJson": "Ang backup file dili balido JSON.",
+      "unsupportedFormat": "Dili kini suportado nga KaalKey nga gi-encrypt nga backup.",
+      "invalidPasswordOrDamaged": "Ang backup nga password dili husto o ang backup file nadaot.",
+      "invalidContents": "Ang backup nga mga sulod dili balido o dili kompleto.",
+      "secureRandomUnavailableDetailed": "Ang luwas nga random nga henerasyon dili magamit. Pagtukod pag-usab ug pag-instalar sa Android nga app nga gilakip ang expo-crypto, unya sulayi pag-usab.",
+      "invalidAccountDataForBackup": "Ang usa o daghang mga account dili balido. Ayuhon ang datos sa account sa dili pa maghimo og backup.",
+      "invalidPasswordOrModified": "Ang backup nga password dili husto o ang backup file giusab.",
+      "invalidPasswordOrFileDamaged": "Ang backup nga password dili husto o ang file nadaot.",
+      "passwordCopiedTitle": "Gikopya ang password",
+      "enterPasswordTitle": "Pagsulod sa imong backup nga password",
+      "enterPasswordBody": "Pagsulod sa password nga gigamit sa dihang gihimo kini nga backup.",
+      "passwordCopiedBody": "I-save kini sa lugar nga luwas, sama sa WhatsApp.",
+      "copyFailedTitle": "Napakyas ang pagkopya",
+      "copyFailedBody": "Pilia ug kopyaha ang password nga mano-mano.",
+      "generatingPassword": "Naghimo og luwas nga backup nga password…",
+      "encrypting": "Gi-encrypt ang backup…",
+      "decrypting": "Pag-decrypt sa backup…",
+      "restoring": "Gipabalik ang mga account…",
+      "backupCreatedTitle": "Gihimo ang backup",
+      "restoreCompleteTitle": "Iuli kompleto",
+      "mergeConfirmTitle": "Paghiusa sa mga backup nga account?",
+      "mergeConfirmButton": "Paghiusa sa mga account",
+      "backupSavedTemporary": "Ang gi-encrypt nga backup temporaryo nga gitipig sa:\n{uri}",
+      "generatePasswordErrorTitle": "Dili makamugna og backup nga password",
+      "secureRandomUnavailable": "Ang luwas nga random nga henerasyon dili magamit.",
+      "passwordUnavailableTitle": "Dili magamit ang backup nga password",
+      "passwordUnavailableBody": "Isira kini nga dialog ug paghimo og bag-ong backup aron makamugna og luwas nga password.",
+      "backupDownloadedBody": "Ang imong gi-encrypt nga KaalKey backup na-download na. Hupti nga pribado ang file ug password.",
+      "backupFailedTitle": "Napakyas ang pag-backup",
+      "backupCreateErrorBody": "KaalKey dili makahimo sa backup.",
+      "restoreFailedTitle": "Napakyas ang pag-uli",
+      "backupReadErrorBody": "Dili mabasa o ma-save ang backup.",
+      "browserDownloadUnsupported": "Ang imong browser dili mosuporta sa pag-download sa mga backup file.",
+      "localFileUnavailable": "Ang lokal nga lokasyon sa file dili magamit sa kini nga aparato.",
+      "saveBackupTitle": "I-save ang imong gi-encrypt nga KaalKey backup"
+    },
+    "clipboard": {
+      "copiedTitle": "Gikopya ang code",
+      "copiedBody": "Ang imong verification code gikopya.",
+      "errorTitle": "Sayop",
+      "errorBody": "Dili makopya ang verification code."
+    },
+    "activity": {
+      "cameraReady": "Andam na ang camera. Itudlo kini sa authenticator QR code.",
+      "readingQrImage": "Nagbasa QR larawan…",
+      "importingQrImage": "Nag-import og QR nga hulagway…",
+      "importingAccount": "Pag-import sa authenticator account…",
+      "importingPastedImage": "Pag-import sa gipapilit nga QR nga imahe…"
+    }
+  },
+  "activity": {
+    "working": "Nagtrabaho",
+    "wait": "Palihug paghulat…",
+    "donTClose": "Palihug ayaw pagsira o pakig-uban sa KaalKey.",
+    "loadingLanguages": "Nag-load sa magamit nga mga pinulongan…",
+    "loadingTranslation": "Nagkarga sa hubad…"
+  }
+}

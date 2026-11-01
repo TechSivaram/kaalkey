@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Lingvo",
+      "description": "Elektu la lingvon uzatan en KaalKey.",
+      "english": "la angla",
+      "telugu": "la telugua",
+      "hindi": "Hindia",
+      "section": "LINGVO",
+      "searchLanguageName": "Serĉlingvo (nomo aŭ kodo)",
+      "searchSupportedLanguages": "Serĉu subtenatajn lingvojn",
+      "closeLanguageDropdown": "Fermu lingvan falmenuon",
+      "noTranslatedLanguage": "Neniu tradukita lingvo trovita.",
+      "serverUrl": "Tradukservilo URL",
+      "serverUrlDescription": "KaalKey elŝutas la lingvoliston kaj tradukojn de ĉi tiu servilo.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Konservu tradukservilon"
+    },
+    "title": "Agordoj de la aplikaĵo",
+    "eyebrow": "KAALKEY PREFEROJ",
+    "experience": {
+      "section": "SPERTO"
+    },
+    "security": {
+      "section": "SEKURECO"
+    },
+    "backup": {
+      "section": "RESKORPROJ & REAKIRO"
+    },
+    "danger": {
+      "section": "DANGERZONO",
+      "clearAccounts": "Forigi ĉiujn kontojn",
+      "clearAccountsDescription": "Konstante forigu ĉiun konton kaj sekreton de ĉi tiu aparato. Reiru unue.",
+      "clearAccountsAccessibilityLabel": "Forigi ĉiujn aŭtentikilkontojn"
+    },
+    "appearance": {
+      "section": "APERO",
+      "title": "Luma aspekto",
+      "description": "KaalKey nuntempe uzas sian puran luman temon."
+    },
+    "haptics": {
+      "title": "Haptika retrosciigo",
+      "description": "Mildaj rimarkoj pri frapetoj kaj finitaj agoj."
+    },
+    "deviceLock": {
+      "title": "Aparato aŭtentikiga seruro",
+      "description": "Via trezorejo ŝlosas kiam KaalKey forlasas la malfonon.",
+      "requirement": "Postulu la biometrikon aŭ ekranŝlosadon de via telefono PIN, ŝablonon aŭ pasvorton.",
+      "accessibilityLabel": "Aparato aŭtentikiga aplika seruro"
+    },
+    "privacy": {
+      "title": "Laŭleĝa & privateco",
+      "description": "Revizu la Privatecan Politikon kaj Uzkondiĉojn.",
+      "storageNote": "Viaj aŭtentikilsekretoj restas en la sekura trezorejo de la aparato. Preferoj estas konservitaj loke."
+    }
+  },
+  "accounts": {
+    "edit": "Redakti",
+    "sortAccountName": "Ordigi laŭ kontonomo",
+    "loadingSecureVault": "Ŝarĝante sekuran trezorejon...",
+    "tapCopy": "TAPUS POR KOPIO",
+    "noAccountsMatch": "Neniuj kontoj kongruas kun via serĉo.",
+    "viewQrCode": "Rigardu QR-kodon por konto",
+    "removeAccount": "Forigi konton",
+    "copyVerificationCode": "Kopiu konfirmkodo",
+    "active": "AKTIVA",
+    "sort": "ORDU",
+    "account": "Konto",
+    "clearSearch": "Klara serĉo",
+    "sortServiceName": "Ordigu laŭ servonomo",
+    "addFirstAccount": "Aldonu vian unuan konton",
+    "searchAccounts": "Serĉu kontojn",
+    "searchServiceAccount": "Serĉu servon aŭ konton",
+    "accounts": "Viaj kontoj",
+    "add": "+ Aldoni",
+    "vaultStartsHere": "Via trezorejo komenciĝas ĉi tie",
+    "service": "Servo",
+    "emptyHint": "Aldonu konton uzante ĝian sekretan ŝlosilon por generi vian unuan konfirmkodon."
+  },
+  "common": {
+    "done": "Farita",
+    "doneButton": "Farita",
+    "closeSettings": "Fermu agordojn",
+    "separator": "-",
+    "article": "a",
+    "save": "Konservu",
+    "delete": "Forigi",
+    "resizeAppBrand": "Regrandigi aplikaĵon kaj markajn panelojn"
+  },
+  "qrImport": {
+    "readPastedImage": "Ne eblis legi algluitan bildon"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Kontoj en ĉi tiu sekurkopio: {count}. KaalKey konservos viajn ekzistantajn kontojn kaj aldonos iujn ajn kontojn kiuj ne jam ĉeestas. Duoblaj kontoj estos preterlasitaj.",
+    "restoreCompletionBody": "Kontoj aldonitaj: {added}. Duoblaj kontoj preterlasitaj: {skipped}. Viaj ekzistantaj kontoj estis konservitaj.",
+    "copyPassword": "Kopiu generitan pasvorton",
+    "passwordSafety": "Konservu ĉi tiun pasvorton aparte (ekzemple, en WhatsApp). Iu ajn kun ambaŭ la",
+    "importAction": "Elektu dosieron kaj importu",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "SEGURA VOLVO",
+    "createBackup": "Krei sekurkopion",
+    "encryptedFile": "Ĉifrita dosiero",
+    "restoreBackup": "Restarigi sekurkopion",
+    "safetyNote": "Sekurkopioj enhavas viajn aŭtentikilsekretojn. KaalKey generas unikan pasvorton por ĉiu sekurkopio. Konservu ĝin aparte; KaalKey ne povas reakiri ĝin.",
+    "generatingSecurePassword": "Generante sekuran pasvorton...",
+    "importFile": "Importi dosieron",
+    "backupPassword": "RESERVA PASORTO",
+    "account": "konto",
+    "accounts": "kontoj",
+    "exportDescription": "Ĉifri ĉiujn {count} konservitajn {accountLabel} en rezervan dosieron. KaalKey generas unikan pasvorton; kopiu kaj konservu ĝin aparte de la dosiero.",
+    "restoreDescription": "Elektu vian KaalKey rezervan dosieron kaj pasvorton. Novaj kontoj estos aldonitaj al via ekzistanta kontlisto; ekzistantaj kontoj restos kiel ili estas.",
+    "enterBackupPassword": "Enigu rezervan pasvorton",
+    "closeBackup": "Fermu sekurkopion",
+    "copyGeneratedBackup": "Kopiu generitan rezervan pasvorton",
+    "backupPassword2": "Rezerva pasvorto",
+    "clearBackupPassword": "Malplenigi rezervan pasvorton",
+    "backupFilePassword": "rezerva dosiero kaj pasvorto povas restarigi viajn aŭtentikilkontojn.",
+    "encryptShareBackup": "Ĉifri kaj kunhavigi sekurkopion"
+  },
+  "home": {
+    "unlockSecurely": "Malŝlosu sekure",
+    "disableAppLock": "Malebligu aplikan ŝlosilon",
+    "enableAppLock": "Ebligu aplikan ŝlosilon",
+    "checkingSecureLock": "Kontrolante viajn sekurecajn agordojn. Viaj kodoj restas kaŝitaj.",
+    "waitingVerification": "Atendante konfirmon...",
+    "secretsStayStored": "Viaj sekretoj restas konservitaj en ĉi tiu aparato.",
+    "openAppSettings": "Malfermu aplikajn agordojn",
+    "versionLabel": "VERSIONO",
+    "unlockRequirement": "Uzu la biometrikon aŭ ekranŝlosadon de via telefono PIN, ŝablonon aŭ pasvorton por aliri viajn unufojajn konfirmkodojn.",
+    "localVault": "VIA LOKA VOLVO",
+    "codesDeviceControl": "Viaj kodoj. Via aparato. Via kontrolo.",
+    "securingVault": "Sekurigante vian trezorejon...",
+    "vaultProtected": "Via trezorejo estas protektita",
+    "lock": "Ŝlosu",
+    "localVault2": "LOKA VOLVO",
+    "authenticator": "KAALKEY AUTENTIKITO",
+    "tricolourLockEmblem": "KaalKey trikolora seruro emblemo",
+    "authenticator2": "AUTENTIKITO"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Se vi elektas skani QR kodon, KaalKey uzas fotilpermeson por tiu ago. Laŭvola aparato-aŭtentigo kaj haptika sugesto uzas la koncernajn aparatojn. Vi povas administri permesojn en via aparato-agordoj.",
+        "heading": "2. Permesoj kaj aparataj trajtoj"
+      },
+      "backups": {
+        "body": "Kiam vi kreas sekurkopion, KaalKey ĉifras la sekurkopion uzante pasvorton, kiun vi elektas. Konservu kaj la dosieron kaj pasvorton privataj kaj konservu ilin sekure. Ĉiu, kiu akiras la dosieron kaj ĝian pasvorton, eble povos restarigi viajn aŭtentikilkontojn. KaalKey ne povas reakiri forgesitan rezervan pasvorton.",
+        "heading": "3. Rezervoj"
+      },
+      "security": {
+        "body": "Konservu vian aparaton ĝisdatigita, protektu ĝin per ekranŝlosilo, kaj ne konigu OTP sekretojn aŭ rezervajn pasvortojn. Forigi la apon, purigi ĝiajn datumojn aŭ perdi la aparaton povas malhavigi loke konservitajn kontojn. Konservu sekuran sekurkopion se vi bezonas reakiron.",
+        "heading": "5. Sekureco kaj reteno"
+      },
+      "information": {
+        "heading": "1. Informoj kaj sekretoj",
+        "body": "KaalKey estas aŭtentikigilo. Kontaj etikedoj kaj la sekretaj valoroj necesaj por generi unufojajn kodojn estas sentemaj. La programo estas desegnita por stoki kontajn registrojn en la sekura stokado de la aparato. Iu ajn kun aliro al neŝlosita aparato aŭ eksportita sekurkopio eble povas aliri sentemajn informojn."
+      },
+      "sharing": {
+        "heading": "4. Kundivido kaj triaj",
+        "body": "La rezerva fluo povas uzi la kundividan folion aŭ dosierkolektilon de via aparato por konservi, translokigi aŭ elekti dosierojn. La privatecaj praktikoj de iu ajn triaparta programo aŭ servo, kiun vi elektas, estas regataj de tiu provizanto. Ĉi tiu avizo ne asertas, ke via aparato, operaciumo aŭ elektitaj kundividaj servoj neniam prilaboras datumojn."
+      },
+      "changes": {
+        "heading": "6. Ŝanĝoj kaj kontakto",
+        "body": "Ĉi tiu enigita avizo povas esti reviziita en estonta programo-eldono. Por privatecaj demandoj, kontaktu la programeldonejon per la oficiala subtena kanalo provizita kun la aplikaĵo."
+      },
+      "title": "Privateca Politiko"
+    },
+    "terms": {
+      "use": {
+        "body": "Vi povas uzi KaalKey por generi konfirmkodojn por kontoj, kiujn vi rajtas aliri. Vi respondecas pri plenumado de aplikeblaj leĝoj kaj la reguloj de la servoj por kiuj vi uzas aŭtentigajn kodojn.",
+        "heading": "1. Via uzo"
+      },
+      "protectAccounts": {
+        "body": "Vi respondecas pri sekurigado de via aparato, aŭtentikilsekretoj, reakiro-metodoj, eksportitaj sekurkopioj kaj rezervaj pasvortoj. Ne dividu kodojn aŭ sekretojn kun homoj, kiujn vi ne fidas.",
+        "heading": "2. Protektu viajn kontojn"
+      },
+      "availability": {
+        "body": "Trajtoj povas ŝanĝiĝi inter eldonoj. Vi devas konservi la apon ĝisdatigita kaj periode kontroli, ke viaj rezervaj kaj reakiraj aranĝoj funkcias.",
+        "heading": "5. Ŝanĝoj kaj havebleco"
+      },
+      "recovery": {
+        "body": "KaalKey ne povas garantii ke ĉiu konto povas esti reakirita, ke ĉiu QR kodo aŭ agordo estos kongrua, aŭ ke la aplikaĵo funkcios sen interrompo aŭ eraro. Konservu alternativajn reakirajn metodojn provizitajn de la koncerna servo.",
+        "heading": "3. Neniu reakiro garantio"
+      },
+      "advice": {
+        "heading": "4. Neniu profesia konsilo",
+        "body": "La aplikaĵo estas ilo kaj ne provizas jurajn, financajn aŭ sekurecajn respondajn konsilojn. Se konto estas endanĝerigita, sekvu la oficialan reakiron kaj sekurecan gvidadon de la tuŝita servo."
+      },
+      "liability": {
+        "heading": "6. Respondeco kaj aplikebla leĝo",
+        "body": "Laŭ la mezuro permesita de aplikebla leĝo, la aplikaĵo estas provizita sen garantio de seninterrompa aŭ senerara funkciado. Nenio en ĉi tiuj kondiĉoj ekskludas rajtojn aŭ rimedojn, kiuj laŭleĝe ne povas esti ekskluditaj. Ĉiuj pliaj limigoj aŭ regantaj leĝaj terminoj devus esti reviziitaj de kvalifikita advokato por la jurisdikcio de la eldonisto antaŭ liberigo."
+      },
+      "title": "Kondiĉoj de Uzo"
+    },
+    "version": "Versio",
+    "saving": "Konservante…",
+    "acceptContinue": "Akceptu & Daŭrigu",
+    "appliesAuthenticator": "Aplikas al KaalKey Aŭtentikisto",
+    "reviewBothDocuments": "Bonvolu revizii ambaŭ dokumentojn antaŭ ol uzi KaalKey. Ili estas inkluzivitaj en la aplikaĵo kaj disponeblaj eksterrete.",
+    "originalMulticolourAuthenticator": "Originala multkolora KaalKey aŭtentikigilo",
+    "legalPrivacyNotice": "Leĝa & Privateca Avizo",
+    "legalInformation": "Juraj informoj",
+    "reviewSPrivacy": "Revizu la privatecan informon kaj uzkondiĉojn de KaalKey.",
+    "iReadAgree": "Mi legis kaj konsentas pri Privateca Politiko kaj Uzokondiĉoj."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Konservu la tutan QR-kodon videbla. Via sekreto restas en ĉi tiu aparato.",
+    "back": "Reen",
+    "turnFlashlightOff": "Malŝaltu poŝlampon",
+    "turnFlashlight": "Enŝaltu poŝlampon",
+    "flashlight": "Lanterno ŝaltita",
+    "flashlight2": "Lanterno",
+    "cameraUnavailableOpen": "Fotilo nedisponebla. Malfermu ĉi tiun paĝon ĉe HTTPS aŭ loka gastiganto kaj permesu fotilaliron.",
+    "cameraPreviewUnavailable": "Antaŭrigardo de fotilo ne disponeblas. Fermu kaj remalfermu la skanilon.",
+    "cameraReadyPoint": "Fotilo preta — direktu ĝin al la plena QR kodo.",
+    "browserCannotProcess": "Ĉi tiu retumilo ne povas prilabori fotilajn kadrojn.",
+    "qrCodeDetected": "QR kodo detektita.",
+    "couldnTRead": "Ne eblis legi fotilajn kadrojn. Kontrolu fotilajn permesojn kaj reŝargi ĉi tiun paĝon.",
+    "cameraPermissionDenied": "Fotila permeso rifuzita. Permesu fotilan aliron en retumila agordo, poste remalfermu la skanilon.",
+    "noCameraWas": "Neniu fotilo estis trovita sur ĉi tiu aparato.",
+    "cameraBusyAnother": "La fotilo estas okupata en alia aplikaĵo aŭ retumila langeto.",
+    "startCameraHttps": "Ne eblis lanĉi fotilon. Uzu HTTPS aŭ lokagastiganton kaj kontrolu permesojn de retumilo.",
+    "qrScannerCamera": "QR antaŭprezento de skanilo",
+    "cameraUnavailableCheck": "Fotilo nedisponebla. Kontrolu fotilan permeson kaj provu denove.",
+    "pointCameraAuthenticator": "Montru vian fotilon al la agordo de aŭtentikigilo QR kodo de la servo, kiun vi aldonas.",
+    "backAddAccount": "Reen por aldoni konton",
+    "secureSetup": "SEGURA Agordo",
+    "enterDetailsManually": "Enigu detalojn mane anstataŭe"
+  },
+  "accountForm": {
+    "hideManualEntry": "Kaŝi manan eniron",
+    "secretKeySupplied": "Uzu la sekretan ŝlosilon provizitan de la servo, kiun vi agordas. Neniam enigu vian konton pasvorton ĉi tie. Kongruu la algoritmon, ciferkalkulon kaj intervalon al la agordaj instrukcioj de la servo.",
+    "updateServiceAccount": "Ĝisdatigu la servon, kontan nomon aŭ sekretan ŝlosilon.",
+    "secretKeyRead": "Sekreta ŝlosilo, nurlegebla dum redaktado",
+    "secretKeyBase32": "Sekreta ŝlosilo en Base32",
+    "digits": "ciferoj",
+    "seconds": "sekundoj",
+    "enterDetailsManually": "AŬ ENigu DETALON MANE",
+    "enterDetailsManually2": "Enigu detalojn permane",
+    "serviceAccountName": "Servo, kontonomo kaj sekreta ŝlosilo",
+    "saveChangesSecurely": "Konservu ŝanĝojn sekure",
+    "saveAccountSecurely": "Konservu konton sekure",
+    "serviceIssuer": "Servo aŭ emisianto",
+    "accountName": "Nomo de konto",
+    "secretKey": "Sekreta ŝlosilo",
+    "serviceIssuer2": "SERVO/ELISSANTO",
+    "eGGoogle": "ekz. Guglo",
+    "clearServiceIssuer": "Klara servo aŭ emisianto",
+    "eGExample": "ekz. vi@ekzemplo.com",
+    "clearAccountName": "Klara kontonomo",
+    "secretKeyLocked": "SEKRETA Ŝlosilo (Ŝlosita)",
+    "secretKeyBase322": "SEKRETA Ŝlosilo (BASE32)",
+    "enterSetupKey": "Enigu vian agordan ŝlosilon",
+    "clearSecretKey": "Klara sekreta ŝlosilo",
+    "otpAlgorithm": "OTP ALGORITMO",
+    "otpDigits": "OTP CIFER",
+    "refreshIntervalSeconds": "FREŜAJ INTERVALO (SECONDOJ)",
+    "otpRefreshInterval": "OTP refreŝiga intervalo en sekundoj",
+    "closeAccountForm": "Fermu kontan formularon",
+    "totpSetupUrl": "TOTP agordo URL",
+    "importSetupUrl": "Importi agordon URL",
+    "totpSetupUrl2": "TOTP Agordu URL",
+    "accountName2": "KONTONOMO",
+    "addAccount": "Aldonu konton"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Skanu QR-kodon de aŭtentikigilo",
+    "setupGuidance": "Skanu QR kodon por la plej facila agordo, aŭ enigu detalojn permane.",
+    "cameraAddAccount": "Uzu vian fotilon por aldoni konton tuj",
+    "scanQrCode2": "Skanu QR-kodon",
+    "uploadQrImage": "Alŝutu QR bildon",
+    "chooseQrScreenshot": "Elektu QR ekrankopion el Galerio, Fotoj aŭ Dosieroj",
+    "pasteQr": "Algluu QR bildon / URL",
+    "pasteCopiedQr": "Algluu kopiitan QR bildon aŭ aŭtentikigilon URL",
+    "uploadQrImage2": "Alŝutu QR bildon"
+  },
+  "accountQr": {
+    "close": "Fermu",
+    "accountQrCode": "Konto QR kodo",
+    "revealQrCode": "Malkaŝu QR kodon",
+    "exportWarning": "Averto: ĉiu, kiu skanas ĉi tiun QR-kodon, povas generi konfirmkodojn por ĉi tiu konto. Nur malkaŝu ĝin sur fidinda ekrano.",
+    "privacyHint": "Konservu ĉi tiun QR-kodon privata. Skanante ĝin kopias la sekreton de aŭtentikigilo de la konto."
+  },
+  "productInfo": {
+    "backupRestore": "Sekurkopio kaj restarigo",
+    "backupRestoreDescription": "Sekurigu viajn aŭtentikilajn datumojn kaj restarigu ĝin kiam vi translokiĝas al alia aparato.",
+    "privacyDescription": "Konservu viajn konfirmajn kontojn en unu loko. Uzu la sekurkopion, restarigon kaj aparato-ŝlosadon de la aplikaĵo por administri vian agordon respondece.",
+    "timeBasedCodes": "Tempbazitaj kodoj",
+    "generateOneTimeCodes": "Generu rotaciajn unufojajn paskodojn por viaj kontoj por kompletigi dupaŝan konfirmon.",
+    "quickAccountSetup": "Rapida agordo de konto",
+    "quickSetupDescription": "Skanu QR-kodon aŭ importu QR bildon por aldoni konton.",
+    "accountsOnePlace": "Kontoj en unu loko",
+    "accountsInOnePlaceDescription": "Konservu viajn konservitajn kontojn kune kaj trovu la ĝustan eniron kiam estas tempo por ensaluti.",
+    "privateAccountVault": "Privata konto trezorejo",
+    "privateVaultDescription": "Administru viajn aŭtentikilajn enskribojn loke kaj uzu la disponeblan opcion de aparato-ŝlosado de la aplikaĵo.",
+    "easyCodeAccess": "Facila koda aliro",
+    "easyCodeAccessDescription": "Kopiu aktualan kodon aŭ administru kontajn detalojn per pura, fokusita interfaco.",
+    "authenticatorTechsivaram": "AUTENTIKITO · DE TECHSIVARAM",
+    "mobileAuthenticator": "VIA MOVBILA AUTENTIKITO",
+    "tagline": "Pli simpla maniero administri vian dupaŝan konfirmon.",
+    "heroDescription": "Enfokusigita aŭtentikila sperto por tempbazitaj konfirmkodoj. Tenu kongruajn kontkodojn proksime ĉe KaalKey por Android.",
+    "timeBasedCodes2": "TEMP-BAZITAJ KODOJ",
+    "privateDesign": "PRIVATO PER DESIGNO",
+    "builtSimpleAuthenticator": "KONSTRUITA POR SIMPLA AŬTIKILISTA LABORO",
+    "qrSetupTimed": "QR ARROJ · TEMPORITAJ KODOJ · KONTO ADMINISTRO",
+    "privacyTitle": "Viaj kontoj. Viaj kodoj. Via kontrolo.",
+    "authenticator": "KAALKEY · AUTENTIKITO",
+    "brandBanner": "KaalKey marka standardo",
+    "logo": "KaalKey emblemo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Nuligi",
+      "storageInvalidTitle": "Stokaj datumoj nevalidaj",
+      "storageInvalidBody": "Konservitaj kontaj datumoj ne estis sekure legitaj.",
+      "storageErrorTitle": "Stokeraro",
+      "storageErrorBody": "Konservitaj kontoj ne povis esti ŝargitaj.",
+      "missingTitle": "Mankas informoj",
+      "missingEditingBody": "Enigu la servonomon kaj kontan nomon.",
+      "missingBody": "Enigu la servonomon, kontan nomon kaj sekretan ŝlosilon.",
+      "invalidOtpBody": "Kontrolu la Base32 sekreton, algoritmon, cifernombradon kaj refreŝperiodon. Sekretoj devas enhavi validajn Base32 signojn; ciferoj devas esti {digits} kaj la periodo devas esti {minPeriod}–{maxPeriod} sekundoj.",
+      "duplicateBody": "Konto kun ĉi tiu servo kaj kontonomo jam estas konservita.",
+      "updatedBody": "Via konto estis ĝisdatigita.",
+      "addedBody": "Via konto estis aldonita sekure.",
+      "invalidOtpTitle": "Nevalidaj OTP agordoj",
+      "duplicateTitle": "Konto jam ekzistas",
+      "savedTitle": "Konto konservita",
+      "invalidSecretTitle": "Nevalida sekreta ŝlosilo",
+      "invalidSecretBody": "Bonvolu kontroli, ke vi enigis validan Base32 sekreton.",
+      "removedTitle": "Konto forigita",
+      "removedBody": "La konto kaj ĝia sekreto estis forigitaj de ĉi tiu aparato.",
+      "clearedTitle": "Kontoj purigitaj",
+      "clearedBody": "Ĉiuj aŭtentikilkontoj kaj sekretoj estis forigitaj de ĉi tiu aparato.",
+      "someSavedAccountsNeedAttentionTitle": "Iuj konservitaj kontoj bezonas atenton",
+      "someSavedAccountsNeedAttentionBody": "{count} nevalidaj kontoj ne estis ŝargitaj. Validaj kontoj restas disponeblaj. Konsideru krei sekurkopion antaŭ ol fari pliajn ŝanĝojn.",
+      "removeConfirmTitle": "Ĉu forigi konton?",
+      "removeConfirmWebTitle": "Ĉu forigi konton?",
+      "removeButton": "Forigi",
+      "clearButton": "Forigi ĉion",
+      "clearConfirmTitle": "Ĉu forigi ĉiujn kontojn?",
+      "saveErrorBody": "Kontoj ne povis esti konservitaj. Kontrolu la haveblecon de stokado de retumilo kaj provu denove.",
+      "notFoundTitle": "Konto ne trovita",
+      "notFoundBody": "Ĉi tiu konto ne estis trovita. Fermu la redaktilon kaj provu denove.",
+      "removeConfirmBody": "Ĉi tio forigas la konton kaj ĝian sekreton de ĉi tiu aparato.",
+      "clearConfirmBody": "Ĉi tio konstante forigas ĉiujn aŭtentikilkontojn kaj iliajn sekretojn de ĉi tiu aparato. Kreu ĉifritan sekurkopion unue se vi eble bezonos ĉi tiujn kontojn poste.",
+      "clearConfirmUndoBody": "Ĉi tio ne povas esti malfarita."
+    },
+    "biometric": {
+      "cancelButton": "Nuligi",
+      "saveErrorTitle": "Ne eblis konservi agordon",
+      "unlockPrompt": "Malŝlosu KaalKey Aŭtentikigilon",
+      "promptSubtitle": "Uzu biometrikon aŭ ekranan ŝlosilon de via aparato",
+      "disableConfirmPrompt": "Konfirmu malŝalti KaalKey-aplikan ŝlosilon",
+      "enablePrompt": "Ebligu aplikan ŝlosilon por KaalKey",
+      "deviceLockTitle": "Agordu la ekranŝlosadon de via aparato",
+      "deviceLockBody": "KaalKey uzas la enkonstruitan aŭtentikigon de via telefono. Agordu aparaton PIN, ŝablonon aŭ pasvorton en la sekurecaj agordoj de via telefono, kaj provu denove. Biometrio estas laŭvola.",
+      "unavailableTitle": "Aparata aŭtentigo ne disponebla",
+      "unavailableBody": "Via telefono ne povis komenci sekuran aŭtentikigon. Kontrolu, ke aparato ekrana seruro estas agordita, tiam provu denove.",
+      "lockedTitle": "Aŭtentigo provizore ŝlosita",
+      "lockedBody": "Via telefono provizore malŝaltis aŭtentikigon post tro da provoj. Atendu kaj provu denove.",
+      "promptErrorTitle": "Aŭtentigo nedisponebla",
+      "promptErrorBody": "KaalKey ne povis lanĉi la sekuran aŭtentikigpromeson de la telefono. Bonvolu provi denove.",
+      "webLock": "Aparato-aŭtentikigŝlosilo ankoraŭ ne haveblas en la reta versio. La TTT-trezorejo restas neŝlosita; uzu la apon Android por denaska aparato-aŭtentikigo.",
+      "disabledTitle": "Aplika seruro malŝaltita",
+      "disabledBody": "KaalKey aplika seruro estis malŝaltita.",
+      "disableSaveError": "La aplika seruro restas ebligita. Bonvolu provi denove.",
+      "enabledTitle": "Aplika seruro ebligita",
+      "enabledBody": "KaalKey petos la enkonstruitan aŭtentikigon de via telefono kiam malfermite kaj kiam vi revenos al ĝi.",
+      "enableSaveError": "Aplika seruro ne povus esti ebligita. Bonvolu provi denove."
+    },
+    "qr": {
+      "startingCamera": "Komencante fotilon...",
+      "unsupportedTitle": "Nesubtenata QR kodo",
+      "unsupportedBody": "Skanu la agordan aŭtentikilon QR kodon provizitan de la servo. Ĉi tio devas esti TOTP kodo, ne normala ensaluta QR kodo.",
+      "unsupportedDiagnostic": "Tiu QR ne estas TOTP agorda kodo. Celu agordon de aŭtentikigilo QR.",
+      "detectedDiagnostic": "QR detektita. Analizante…",
+      "analyzing": "Analizante QR-kodon...",
+      "duplicateTitle": "Konto jam aldonita",
+      "duplicateBody": "{issuer}: {account} jam estas en KaalKey.",
+      "addedTitle": "Konto aldonita",
+      "addedBody": "{issuer}: {account} estis aldonita sukcese.",
+      "saveFailedDiagnostic": "Ne eblis konservi la konton. Vi povas denove skani.",
+      "invalidTitle": "Nevalida QR kodo",
+      "invalidBody": "KaalKey ne povis analizi ĉi tiun aŭtentikigilon QR kodon. {detail}. Uzu la TOTP-agordan QR-kodon de la servo (kutime komenciĝas per {prefix}).",
+      "parseFailedDiagnostic": "QR ne povis esti procesita. Celu la aranĝon QR kaj provu denove.",
+      "invalidUrlTitle": "Nevalida TOTP URL",
+      "invalidUrlBody": "Algluu kompletan aŭtentikigilon URL komencante per {prefix}.",
+      "clipboardEmptyTitle": "Tondujo estas malplena",
+      "clipboardEmptyBody": "Kopiu {prefix} URL unue, poste frapeti Algluu TOTP URL.",
+      "clipboardErrorTitle": "Ne eblis legi tondujo",
+      "clipboardErrorBody": "Kopiu la TOTP agordo URL kaj provu denove."
+    },
+    "haptics": {
+      "saveFailedTitle": "Ne eblis konservi agordon",
+      "saveFailedBody": "Ne eblis konservi la preferon pri ĥaptika sugesto. Bonvolu provi denove."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Ne eblis konservi agnoskon",
+      "saveFailedBody": "Bonvolu provi denove. Vi devas akcepti la leĝan avizon antaŭ ol uzi KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Fotila permeso necesas",
+      "body": "Permesu fotilan aliron por skani QR-kodon de aŭtentikigilo."
+    },
+    "storage": {
+      "browserUnavailable": "Stokado de retumilo ne disponeblas.",
+      "browserFilePickerUnavailable": "La retumila dosier-elektilo ne estas disponebla."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Nesubtenata dosiero",
+      "unsupportedFileBody": "Elektu QR kodbildon kiel PNG aŭ JPEG.",
+      "browserDecoderUnavailable": "Retumila bildmalkodado ne disponeblas",
+      "imageLoadFailed": "Bildo ne povis esti ŝargita",
+      "unreadableDimensions": "Bildo ne havas legeblajn dimensiojn",
+      "noQrCodeFoundTitle": "Neniu QR kodo trovita",
+      "noQrCodeFoundBody": "KaalKey ne povis malkodi QR kodon en ĉi tiu bildo. Provu ekrankopion aŭ pli altan rezolucion PNG/JPEG.",
+      "couldNotReadImageTitle": "Ne eblis legi bildon",
+      "couldNotReadImageBody": "Provu klaran PNG aŭ JPEG bildon enhavantan la aŭtentikigilon agordan QR kodon.",
+      "couldNotOpenPickerTitle": "Ne eblis malfermi bildoselektilon",
+      "couldNotOpenPickerBody": "Bonvolu provi Alŝuti QR denove.",
+      "normalizedDecodeFailed": "Normaligita bildo ne povis esti malkodita",
+      "clipboardImageLoadFailed": "Bildo de la tondujo ne povis esti ŝargita",
+      "imageProcessingUnavailable": "Bildprilaborado ne disponeblas",
+      "imageProcessingUnavailableAlt": "Bildtraktado ne disponebla",
+      "noImageInClipboardTitle": "Neniu bildo en la tondujo",
+      "noImageInClipboardBody": "Kopiu QR kodbildo, tiam frapeti Algluu QR Bildon denove.",
+      "clipboardUnavailableTitle": "Tondujo nedisponebla",
+      "clipboardUnavailableBody": "Tondujo-teksto ne estas valida agordo de aŭtentikilo URL. Kopiu otpauth:// URL aŭ QR bildon kaj provu denove.",
+      "clipboardAccessBody": "KaalKey ne povis legi tekston aŭ bildon el la tondujo. Permesu aliron al tondujo, tiam kopiu la QR bildon aŭ otpauth:// URL kaj frapetu Algluu QR Bildon / URL denove.",
+      "couldNotPasteImageTitle": "Ne eblis alglui bildon",
+      "couldNotPasteImageBody": "Bildgluado ne estas subtenata de ĉi tiu tondujo sur ĉi tiu aparato. Uzu Importi QR bildon anstataŭe.",
+      "sourceImageDecodeFailure": "Provu alian QR bildon.",
+      "pastedImportFailureBody": "Provu alian QR bildon.",
+      "sourceImageReadFailure": "Provu kopii klaran QR ekrankopio.",
+      "importFailedTitle": "QR-importado de bildoj malsukcesis",
+      "importFailedBody": "KaalKey ne povis legi tiun bildon. Bonvolu provi alian QR-kodbildon.",
+      "notFoundBody": "La kopiita bildo ne enhavas legeblan QR kodon.",
+      "pastedNotFoundBody": "La algluita bildo ne enhavas legeblan QR kodon.",
+      "pastedReadFailureBody": "Provu kopii klaran PNG aŭ JPEG bildon enhavantan la plenan QR kodon.",
+      "noQrCodeTextBody": "KaalKey malkodis la elektitan bildon sed ne trovis QR kodon. Provu klaran, plenrezolucian PNG aŭ JPEG kun la tuta kodo videbla."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Ĉi tiu QR kodo ne estas tempbazita agordokodo de aŭtentikilo.",
+      "missingAccountDetails": "La QR-kodo mankas kontodetaloj.",
+      "unsupportedAlgorithm": "La QR kodo uzas nesubtenan algoritmon.",
+      "unsupportedDigits": "Ĉi tiu QR kodo devas uzi 6, 7 aŭ 8 ciferojn.",
+      "unsupportedPeriod": "Ĉi tiu QR kodo uzas nesubtenan periodon.",
+      "invalidAccount": "La QR kodo ne povis esti validigita."
+    },
+    "backup": {
+      "invalidJson": "La rezerva dosiero ne validas JSON.",
+      "unsupportedFormat": "Ĉi tio ne estas subtenata KaalKey ĉifrita sekurkopio.",
+      "invalidPasswordOrDamaged": "Rezerva pasvorto estas malĝusta aŭ la rezerva dosiero estas difektita.",
+      "invalidContents": "La rezerva enhavo estas nevalida aŭ nekompleta.",
+      "secureRandomUnavailableDetailed": "Sekura hazarda generacio ne estas disponebla. Rekonstruu kaj reinstalu la apon Android kun expo-crypto inkluzivita, tiam provu denove.",
+      "invalidAccountDataForBackup": "Unu aŭ pluraj kontoj estas nevalidaj. Ripari la kontajn datumojn antaŭ ol krei sekurkopion.",
+      "invalidPasswordOrModified": "Rezerva pasvorto estas malĝusta aŭ la rezerva dosiero estis modifita.",
+      "invalidPasswordOrFileDamaged": "Rezerva pasvorto estas malĝusta aŭ la dosiero estas difektita.",
+      "passwordCopiedTitle": "Pasvorto kopiita",
+      "enterPasswordTitle": "Enigu vian rezervan pasvorton",
+      "enterPasswordBody": "Enigu la pasvorton uzatan kiam ĉi tiu sekurkopio estis kreita.",
+      "passwordCopiedBody": "Konservu ĝin ie sekura, kiel WhatsApp.",
+      "copyFailedTitle": "Kopio malsukcesis",
+      "copyFailedBody": "Elektu kaj kopiu la pasvorton permane.",
+      "generatingPassword": "Generante sekuran rezervan pasvorton...",
+      "encrypting": "Ĉifrante sekurkopion...",
+      "decrypting": "Malĉifri sekurkopion...",
+      "restoring": "Restarigante kontojn...",
+      "backupCreatedTitle": "Rezervo kreita",
+      "restoreCompleteTitle": "Restarigi kompleta",
+      "mergeConfirmTitle": "Kunfandi rezervajn kontojn?",
+      "mergeConfirmButton": "Kunfandi kontojn",
+      "backupSavedTemporary": "Ĉifrita sekurkopio konservita provizore ĉe:\n{uri}",
+      "generatePasswordErrorTitle": "Ne eblis generi rezervan pasvorton",
+      "secureRandomUnavailable": "Sekura hazarda generacio ne estas disponebla.",
+      "passwordUnavailableTitle": "Rezerva pasvorto nedisponebla",
+      "passwordUnavailableBody": "Fermu ĉi tiun dialogon kaj kreu novan sekurkopion por generi sekuran pasvorton.",
+      "backupDownloadedBody": "Via ĉifrita KaalKey sekurkopio estas elŝutita. Konservu la dosieron kaj pasvorton privataj.",
+      "backupFailedTitle": "Rezervo malsukcesis",
+      "backupCreateErrorBody": "KaalKey ne povis krei la sekurkopion.",
+      "restoreFailedTitle": "Restarigo malsukcesis",
+      "backupReadErrorBody": "La sekurkopio ne povis esti legita aŭ konservita.",
+      "browserDownloadUnsupported": "Via retumilo ne subtenas elŝuti rezervajn dosierojn.",
+      "localFileUnavailable": "Loka dosierloko ne disponeblas en ĉi tiu aparato.",
+      "saveBackupTitle": "Konservu vian ĉifritan KaalKey sekurkopion"
+    },
+    "clipboard": {
+      "copiedTitle": "Kodo kopiita",
+      "copiedBody": "Via konfirmkodo estas kopiita.",
+      "errorTitle": "Eraro",
+      "errorBody": "Ne eblis kopii la konfirmkodon."
+    },
+    "activity": {
+      "cameraReady": "Fotilo preta. Montru ĝin al la aŭtentikigilo QR kodo.",
+      "readingQrImage": "Legante QR bildon...",
+      "importingQrImage": "Importante QR bildon...",
+      "importingAccount": "Importante aŭtentikilkonton...",
+      "importingPastedImage": "Importa algluita QR bildo..."
+    }
+  },
+  "activity": {
+    "working": "Laborante",
+    "wait": "Bonvolu atendi...",
+    "donTClose": "Bonvolu ne fermi aŭ interagi kun KaalKey.",
+    "loadingLanguages": "Ŝarĝante disponeblajn lingvojn...",
+    "loadingTranslation": "Ŝarĝante tradukon…"
+  }
+}

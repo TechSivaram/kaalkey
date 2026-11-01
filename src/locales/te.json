@@ -10,7 +10,11 @@
       "searchLanguageName": "భాషను వెతకండి (పేరు లేదా కోడ్)",
       "searchSupportedLanguages": "మద్దతు ఉన్న భాషలను వెతకండి",
       "closeLanguageDropdown": "భాషల జాబితాను మూసివేయండి",
-      "noTranslatedLanguage": "భాష కనబడలేదు."
+      "noTranslatedLanguage": "భాష కనబడలేదు.",
+      "serverUrl": "అనువాద సర్వర్ URL",
+      "serverUrlDescription": "KaalKey ఈ సర్వర్ నుండి భాష జాబితా మరియు అనువాదాలను డౌన్‌లోడ్ చేస్తుంది.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "అనువాద సర్వర్‌ని సేవ్ చేయండి"
     },
     "title": "యాప్ సెట్టింగ్‌లు",
     "eyebrow": "కాల్‌కీ ప్రాధాన్యతలు",
@@ -497,6 +501,8 @@
   "activity": {
     "working": "పని జరుగుతోంది",
     "wait": "దయచేసి వేచి ఉండండి…",
-    "donTClose": "దయచేసి KaalKeyని మూసివేయవద్దు లేదా ఉపయోగించవద్దు."
+    "donTClose": "దయచేసి KaalKeyని మూసివేయవద్దు లేదా ఉపయోగించవద్దు.",
+    "loadingLanguages": "అందుబాటులో ఉన్న భాషలను లోడ్ చేస్తోంది...",
+    "loadingTranslation": "అనువాదం లోడ్ అవుతోంది…"
   }
 }

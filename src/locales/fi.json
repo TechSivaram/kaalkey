@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Kieli",
+      "description": "Valitse KaalKey:ssa käytettävä kieli.",
+      "english": "englanti",
+      "telugu": "telugu",
+      "hindi": "hindi",
+      "section": "KIELI",
+      "searchLanguageName": "Hakukieli (nimi tai koodi)",
+      "searchSupportedLanguages": "Etsi tuetut kielet",
+      "closeLanguageDropdown": "Sulje avattava kielivalikko",
+      "noTranslatedLanguage": "Käännettyä kieltä ei löytynyt.",
+      "serverUrl": "Käännöspalvelin URL",
+      "serverUrlDescription": "KaalKey lataa kieliluettelon ja käännökset tältä palvelimelta.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Tallenna käännöspalvelin"
+    },
+    "title": "Sovelluksen asetukset",
+    "eyebrow": "KAALKEY ASETUKSET",
+    "experience": {
+      "section": "KOKEMUS"
+    },
+    "security": {
+      "section": "TURVALLISUUS"
+    },
+    "backup": {
+      "section": "VARMUUSKOPIOINTI JA PALAUTUS"
+    },
+    "danger": {
+      "section": "VAARA-ALUE",
+      "clearAccounts": "Tyhjennä kaikki tilit",
+      "clearAccountsDescription": "Poista pysyvästi kaikki tilit ja salaisuudet tältä laitteelta. Takaisin ensin.",
+      "clearAccountsAccessibilityLabel": "Tyhjennä kaikki todennustilit"
+    },
+    "appearance": {
+      "section": "ULKOPUOLINEN",
+      "title": "Vaalea ulkonäkö",
+      "description": "KaalKey käyttää tällä hetkellä puhdasta valoteemaansa."
+    },
+    "haptics": {
+      "title": "Haptinen palaute",
+      "description": "Lempeä palaute napautuksista ja suoritetuista toiminnoista."
+    },
+    "deviceLock": {
+      "title": "Laitteen todennuslukko",
+      "description": "Holvisi lukittuu, kun KaalKey poistuu etualalta.",
+      "requirement": "Vaadi puhelimesi biometriset tiedot tai näytön lukitus PIN, kuvio tai salasana.",
+      "accessibilityLabel": "Laitteen todennussovelluksen lukitus"
+    },
+    "privacy": {
+      "title": "Laki ja yksityisyys",
+      "description": "Tutustu tietosuojakäytäntöön ja käyttöehtoihin.",
+      "storageNote": "Todentajan salaisuutesi säilyvät laitteen suojatussa holvissa. Asetukset tallennetaan paikallisesti."
+    }
+  },
+  "accounts": {
+    "edit": "Muokkaa",
+    "sortAccountName": "Lajittele tilin nimen mukaan",
+    "loadingSecureVault": "Ladataan suojattua varastoa...",
+    "tapCopy": "KOPIOINTI NAPAUTA",
+    "noAccountsMatch": "Yksikään tili ei vastaa hakuasi.",
+    "viewQrCode": "Katso QR tilin koodi",
+    "removeAccount": "Poista tili",
+    "copyVerificationCode": "Kopioi vahvistuskoodi",
+    "active": "AKTIIVINEN",
+    "sort": "LAJITTELU",
+    "account": "Tili",
+    "clearSearch": "Tyhjennä haku",
+    "sortServiceName": "Lajittele palvelun nimen mukaan",
+    "addFirstAccount": "Lisää ensimmäinen tilisi",
+    "searchAccounts": "Hae tilejä",
+    "searchServiceAccount": "Hae palvelua tai tiliä",
+    "accounts": "Omat tilit",
+    "add": "+ Lisää",
+    "vaultStartsHere": "Varastosi alkaa tästä",
+    "service": "Palvelu",
+    "emptyHint": "Lisää tili käyttämällä sen salaista avainta ensimmäisen vahvistuskoodin luomiseksi."
+  },
+  "common": {
+    "done": "Valmis",
+    "doneButton": "Valmis",
+    "closeSettings": "Sulje asetukset",
+    "separator": "-",
+    "article": "a",
+    "save": "Tallenna",
+    "delete": "Poista",
+    "resizeAppBrand": "Muuta sovellus- ja tuotemerkkipaneelien kokoa"
+  },
+  "qrImport": {
+    "readPastedImage": "Liitettyä kuvaa ei voitu lukea"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Tämän varmuuskopion tilit: {count}. KaalKey säilyttää nykyiset tilisi ja lisää tilit, joita ei vielä ole. Päällekkäiset tilit ohitetaan.",
+    "restoreCompletionBody": "Lisätyt tilit: {added}. Päällekkäiset tilit ohitettiin: {skipped}. Nykyiset tilisi säilytettiin.",
+    "copyPassword": "Kopioi luotu salasana",
+    "passwordSafety": "Tallenna tämä salasana erikseen (esimerkiksi kansioon WhatsApp). Kuka tahansa, jolla on molemmat",
+    "importAction": "Valitse tiedosto ja tuo",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "TURVALLINEN HOLVI",
+    "createBackup": "Luo varmuuskopio",
+    "encryptedFile": "Salattu tiedosto",
+    "restoreBackup": "Palauta varmuuskopio",
+    "safetyNote": "Varmuuskopiot sisältävät todentajan salaisuutesi. KaalKey luo yksilöllisen salasanan jokaiselle varmuuskopiolle. Tallenna se erikseen; KaalKey ei voi palauttaa sitä.",
+    "generatingSecurePassword": "Luodaan suojattua salasanaa…",
+    "importFile": "Tuo tiedosto",
+    "backupPassword": "VARMUUSALASANA",
+    "account": "tilille",
+    "accounts": "tilit",
+    "exportDescription": "Salaa kaikki {count}, jotka on tallennettu {accountLabel} varmuuskopiotiedostoon. KaalKey luo yksilöllisen salasanan; kopioi ja tallenna se erikseen tiedostosta.",
+    "restoreDescription": "Valitse KaalKey varmuuskopiotiedosto ja salasana. Uudet tilit lisätään olemassa olevaan tililuetteloosi; nykyiset tilit pysyvät ennallaan.",
+    "enterBackupPassword": "Anna varmuuskopion salasana",
+    "closeBackup": "Sulje varmuuskopio",
+    "copyGeneratedBackup": "Kopioi luotu varmuuskopion salasana",
+    "backupPassword2": "Varasalasana",
+    "clearBackupPassword": "Tyhjennä varmuuskopion salasana",
+    "backupFilePassword": "varmuuskopiotiedosto ja salasana voivat palauttaa todennustilisi.",
+    "encryptShareBackup": "Salaa ja jaa varmuuskopio"
+  },
+  "home": {
+    "unlockSecurely": "Avaa lukitus turvallisesti",
+    "disableAppLock": "Poista sovellusten lukitus käytöstä",
+    "enableAppLock": "Ota sovellusten lukitus käyttöön",
+    "checkingSecureLock": "Tarkistetaan suojatun lukituksen asetuksia. Koodisi pysyvät piilossa.",
+    "waitingVerification": "Odotetaan vahvistusta…",
+    "secretsStayStored": "Salaisuutesi pysyvät tallessa tälle laitteelle.",
+    "openAppSettings": "Avaa sovelluksen asetukset",
+    "versionLabel": "VERSIO",
+    "unlockRequirement": "Käytä puhelimesi biometrisiä tietoja tai näytön lukitusta PIN, kuviota tai salasanaa päästäksesi käsiksi kertaluonteisiin vahvistuskoodeihisi.",
+    "localVault": "PAIKALLINEN HOLVISI",
+    "codesDeviceControl": "Sinun koodisi. Laitteesi. Sinun hallintasi.",
+    "securingVault": "Turvataan holvisi…",
+    "vaultProtected": "Holvisi on suojattu",
+    "lock": "LUKITUS PÄÄLLE",
+    "localVault2": "PAIKALLINEN VAULT",
+    "authenticator": "KAALKEY AUTHENTICATOR",
+    "tricolourLockEmblem": "KaalKey kolmivärinen lukon tunnus",
+    "authenticator2": "AUTENTIKAATTORI"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Jos päätät skannata QR-koodin, KaalKey käyttää kameran lupaa kyseiseen toimintoon. Valinnainen laitteen todennus ja haptinen palaute käyttävät asianmukaisia ​​laitteen ominaisuuksia. Voit hallita käyttöoikeuksia laitteesi asetuksista.",
+        "heading": "2. Käyttöoikeudet ja laitteen ominaisuudet"
+      },
+      "backups": {
+        "body": "Kun luot varmuuskopion, KaalKey salaa varmuuskopion valitsemallasi salasanalla. Pidä sekä tiedosto että salasana yksityisinä ja säilytä ne turvallisesti. Kuka tahansa, joka hankkii tiedoston ja sen salasanan, saattaa pystyä palauttamaan todennustilisi. KaalKey ei voi palauttaa unohtunutta varmuuskopion salasanaa.",
+        "heading": "3. Varmuuskopiot"
+      },
+      "security": {
+        "body": "Pidä laitteesi ajan tasalla, suojaa se näytön lukituksella äläkä jaa OTP salaisuuksia tai varasalasanoja. Sovelluksen poistaminen, sen tietojen tyhjentäminen tai laitteen katoaminen saattaa tehdä paikallisesti tallennetuista tileistä poissa käytöstä. Säilytä turvallinen varmuuskopio, jos tarvitset palautusta.",
+        "heading": "5. Turvallisuus ja säilyttäminen"
+      },
+      "information": {
+        "heading": "1. Tiedot ja salaisuudet",
+        "body": "KaalKey on todennussovellus. Tilitunnisteet ja kertakoodien luomiseen tarvittavat salaiset arvot ovat arkaluonteisia. Sovellus on suunniteltu tallentamaan tilitietueita laitteen suojattuun tallennustilaan. Kaikki, joilla on pääsy lukitsemattomaan laitteeseen tai vietyyn varmuuskopioon, voivat päästä käsiksi arkaluontoisiin tietoihin."
+      },
+      "sharing": {
+        "heading": "4. Jakaminen ja kolmannet osapuolet",
+        "body": "Varmuuskopiointi voi käyttää laitteesi jakoarkkia tai tiedostovalitsinta tiedostojen tallentamiseen, siirtämiseen tai valitsemiseen. Kaikkien valitsemiesi kolmannen osapuolen sovellusten tai palvelujen tietosuojakäytäntöjä säätelee kyseinen palveluntarjoaja. Tämä ilmoitus ei tarkoita sitä, että laitteesi, käyttöjärjestelmäsi tai valitsemasi jakamispalvelut eivät koskaan käsittele tietoja."
+      },
+      "changes": {
+        "heading": "6. Muutokset ja yhteydenotto",
+        "body": "Tätä upotettua ilmoitusta voidaan muuttaa tulevassa sovellusjulkaisussa. Yksityisyyskysymyksissä ota yhteyttä sovelluksen julkaisijaan sovelluksen mukana toimitetun virallisen tukikanavan kautta."
+      },
+      "title": "Tietosuojakäytäntö"
+    },
+    "terms": {
+      "use": {
+        "body": "Voit käyttää KaalKey vahvistuskoodien luomiseen tileille, joihin sinulla on käyttöoikeus. Olet vastuussa sovellettavien lakien ja palveluiden sääntöjen noudattamisesta, joihin käytät todennuskoodeja.",
+        "heading": "1. Sinun käyttösi"
+      },
+      "protectAccounts": {
+        "body": "Olet vastuussa laitteesi, todentajan salaisuuksien, palautusmenetelmien, vietyjen varmuuskopioiden ja varmuuskopioiden salasanojen suojaamisesta. Älä jaa koodeja tai salaisuuksia ihmisille, joihin et luota.",
+        "heading": "2. Suojaa tilisi"
+      },
+      "availability": {
+        "body": "Ominaisuudet voivat muuttua julkaisujen välillä. Sinun tulee pitää sovellus ajan tasalla ja tarkistaa säännöllisesti, että varmuuskopiointi- ja palautusjärjestelyt toimivat.",
+        "heading": "5. Muutokset ja saatavuus"
+      },
+      "recovery": {
+        "body": "KaalKey ei voi taata, että jokainen tili voidaan palauttaa, että jokainen QR-koodi tai kokoonpano on yhteensopiva tai että sovellus toimii ilman keskeytyksiä tai virheitä. Säilytä asianomaisen palvelun tarjoamat vaihtoehtoiset palautusmenetelmät.",
+        "heading": "3. Ei palautustakuuta"
+      },
+      "advice": {
+        "heading": "4. Ei ammatillisia neuvoja",
+        "body": "Sovellus on apuohjelma, eikä se tarjoa oikeudellisia, taloudellisia tai turvallisuuteen liittyviä neuvoja. Jos tili vaarantuu, noudata asianomaisen palvelun virallisia palautus- ja turvallisuusohjeita."
+      },
+      "liability": {
+        "heading": "6. Vastuu ja sovellettava laki",
+        "body": "Sovellettavan lain sallimissa rajoissa sovellus tarjotaan ilman takuuta keskeytymättömästä tai virheettömästä toiminnasta. Mikään näissä ehdoissa ei sulje pois oikeuksia tai oikeussuojakeinoja, joita ei voida laillisesti sulkea pois. Julkaisijan lainkäyttöalueen pätevän asianajajan tulee tarkistaa mahdolliset lisärajoitukset tai sääntömääräiset ehdot ennen julkaisemista."
+      },
+      "title": "Käyttöehdot"
+    },
+    "version": "Versio",
+    "saving": "Tallennetaan…",
+    "acceptContinue": "Hyväksy ja jatka",
+    "appliesAuthenticator": "Koskee KaalKey Authenticatoria",
+    "reviewBothDocuments": "Tarkista molemmat asiakirjat ennen KaalKey:n käyttöä. Ne sisältyvät sovellukseen ja ovat käytettävissä offline-tilassa.",
+    "originalMulticolourAuthenticator": "Alkuperäinen monivärinen KaalKey autentikaattoritunnus",
+    "legalPrivacyNotice": "Laki- ja tietosuojailmoitus",
+    "legalInformation": "Lakitiedot",
+    "reviewSPrivacy": "Tarkista KaalKey:n tietosuojatiedot ja käyttöehdot.",
+    "iReadAgree": "Olen lukenut ja hyväksyn tietosuojakäytännön ja käyttöehdot."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Pidä koko QR-koodi näkyvissä. Salaisuutesi pysyy tällä laitteella.",
+    "back": "Takaisin",
+    "turnFlashlightOff": "Sammuta taskulamppu",
+    "turnFlashlight": "Kytke taskulamppu päälle",
+    "flashlight": "Taskulamppu päällä",
+    "flashlight2": "Taskulamppu",
+    "cameraUnavailableOpen": "Kamera ei ole käytettävissä. Avaa tämä sivu HTTPS:ssa tai localhostissa ja salli kameran käyttö.",
+    "cameraPreviewUnavailable": "Kameran esikatselu ei ole käytettävissä. Sulje ja avaa skanneri uudelleen.",
+    "cameraReadyPoint": "Kamera valmis – osoita se koko QR-koodiin.",
+    "browserCannotProcess": "Tämä selain ei voi käsitellä kameran kehyksiä.",
+    "qrCodeDetected": "QR koodi havaittu.",
+    "couldnTRead": "Kameran kehyksiä ei voitu lukea. Tarkista kameran käyttöoikeudet ja lataa tämä sivu uudelleen.",
+    "cameraPermissionDenied": "Kameran lupa evätty. Salli kameran käyttö selaimen asetuksista ja avaa skanneri uudelleen.",
+    "noCameraWas": "Tästä laitteesta ei löytynyt kameraa.",
+    "cameraBusyAnother": "Kamera on varattu toisessa sovelluksessa tai selaimen välilehdessä.",
+    "startCameraHttps": "Kameraa ei voitu käynnistää. Käytä HTTPS tai localhost ja tarkista selaimen käyttöoikeudet.",
+    "qrScannerCamera": "QR skannerin kameran esikatselu",
+    "cameraUnavailableCheck": "Kamera ei ole käytettävissä. Tarkista kameran käyttöoikeudet ja yritä uudelleen.",
+    "pointCameraAuthenticator": "Osoita kamerallasi lisäämäsi palvelun todennusasetusten QR koodia kohti.",
+    "backAddAccount": "Takaisin tilin lisäämiseen",
+    "secureSetup": "TURVALLINEN ASETUS",
+    "enterDetailsManually": "Anna tiedot sen sijaan manuaalisesti"
+  },
+  "accountForm": {
+    "hideManualEntry": "Piilota manuaalinen syöttö",
+    "secretKeySupplied": "Käytä määrittämäsi palvelun toimittamaa salaista avainta. Älä koskaan syötä tilisi salasanaa tähän. Yhdistä algoritmi, numeroiden määrä ja aikaväli palvelun asennusohjeiden kanssa.",
+    "updateServiceAccount": "Päivitä palvelu, tilin nimi tai salainen avain.",
+    "secretKeyRead": "Salainen avain, vain luku -tilassa muokkauksen aikana",
+    "secretKeyBase32": "Salainen avain Base32",
+    "digits": "numeroita",
+    "seconds": "sekuntia",
+    "enterDetailsManually": "TAI ANNA TIEDOT MANUAALISESTI",
+    "enterDetailsManually2": "Syötä tiedot manuaalisesti",
+    "serviceAccountName": "Palvelu, tilin nimi ja salainen avain",
+    "saveChangesSecurely": "Tallenna muutokset turvallisesti",
+    "saveAccountSecurely": "Tallenna tili turvallisesti",
+    "serviceIssuer": "Palvelu tai liikkeeseenlaskija",
+    "accountName": "Tilin nimi",
+    "secretKey": "Salainen avain",
+    "serviceIssuer2": "PALVELU / MYÖNTÄJÄ",
+    "eGGoogle": "esim. Google",
+    "clearServiceIssuer": "Selkeä palvelu tai myöntäjä",
+    "eGExample": "esim. sinä@esimerkki.fi",
+    "clearAccountName": "Tyhjennä tilin nimi",
+    "secretKeyLocked": "SALAINEN AVAIN (LUKITTU)",
+    "secretKeyBase322": "SALAINEN AVAIN (BASE32)",
+    "enterSetupKey": "Anna asetusavaimesi",
+    "clearSecretKey": "Tyhjennä salainen avain",
+    "otpAlgorithm": "OTP ALGORITMI",
+    "otpDigits": "OTP NUMEROT",
+    "refreshIntervalSeconds": "PÄIVITYSVÄLI (SEKUNTIA)",
+    "otpRefreshInterval": "OTP päivitysväli sekunneissa",
+    "closeAccountForm": "Sulje tililomake",
+    "totpSetupUrl": "TOTP asennus URL",
+    "importSetupUrl": "Tuo asetukset URL",
+    "totpSetupUrl2": "TOTP ASETUS URL",
+    "accountName2": "TILIN NIMI",
+    "addAccount": "Lisää tili"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Skannaa todennuskoodi QR",
+    "setupGuidance": "Skannaa QR-koodi asennuksen helpottamiseksi tai anna tiedot manuaalisesti.",
+    "cameraAddAccount": "Lisää tili välittömästi kameran avulla",
+    "scanQrCode2": "Skannaa QR-koodi",
+    "uploadQrImage": "Lataa QR-kuva",
+    "chooseQrScreenshot": "Valitse QR kuvakaappaus Galleriasta, Valokuvat tai Tiedostot",
+    "pasteQr": "Liitä QR kuva / URL",
+    "pasteCopiedQr": "Liitä kopioitu QR kuva tai todennusasetukset URL",
+    "uploadQrImage2": "Lataa QR-kuva"
+  },
+  "accountQr": {
+    "close": "Sulje",
+    "accountQrCode": "Tilikoodi QR",
+    "revealQrCode": "Paljasta QR-koodi",
+    "exportWarning": "Varoitus: jokainen tämän QR-koodin skannaava voi luoda vahvistuskoodeja tälle tilille. Paljasta se vain luotettavalla näytöllä.",
+    "privacyHint": "Pidä tämä QR koodi yksityisenä. Sen skannaus kopioi tilin todentajan salaisuuden."
+  },
+  "productInfo": {
+    "backupRestore": "Varmuuskopiointi ja palautus",
+    "backupRestoreDescription": "Varmuuskopioi todennustietosi ja palauta ne, kun siirryt toiseen laitteeseen.",
+    "privacyDescription": "Pidä vahvistustilisi yhdessä paikassa. Käytä sovelluksen varmuuskopiointi-, palautus- ja laitteen lukitusvaihtoehtoja hallitaksesi asetuksiasi vastuullisesti.",
+    "timeBasedCodes": "Aikaperusteiset koodit",
+    "generateOneTimeCodes": "Suorita kaksivaiheinen vahvistus luomalla pyöriviä kertakäyttöisiä pääsykoodeja tileillesi.",
+    "quickAccountSetup": "Nopea tilin luominen",
+    "quickSetupDescription": "Skannaa todennuskoodi QR tai tuo QR-kuva lisätäksesi tilin.",
+    "accountsOnePlace": "Tilit yhdessä paikassa",
+    "accountsInOnePlaceDescription": "Pidä tallennetut tilit yhdessä ja löydä oikea merkintä, kun on aika kirjautua sisään.",
+    "privateAccountVault": "Yksityinen tiliholvi",
+    "privateVaultDescription": "Hallitse todennusmerkintöjäsi paikallisesti ja käytä sovelluksen saatavilla olevaa laitelukkovaihtoehtoa.",
+    "easyCodeAccess": "Helppo pääsy koodiin",
+    "easyCodeAccessDescription": "Kopioi nykyinen koodi tai hallitse tilin tietoja puhtaan, keskitetyn käyttöliittymän kautta.",
+    "authenticatorTechsivaram": "TODENTAJA · TECHSIVARAM",
+    "mobileAuthenticator": "MOBIILITODISTAJASI",
+    "tagline": "Yksinkertaisempi tapa hallita kaksivaiheista vahvistusta.",
+    "heroDescription": "Keskitetty todennuskokemus aikaperusteisille vahvistuskoodeille. Pidä yhteensopivat tilikoodit käden ulottuvilla KaalKey:n Android kanssa.",
+    "timeBasedCodes2": "AIKAPERUSTEET KOODIT",
+    "privateDesign": "YKSITYISKOHTAINEN SUUNNITTELU",
+    "builtSimpleAuthenticator": "RAKENNETTU YKSINKERTAISTA AUTENTIKAATTORIN TYÖVIRTA VARTEN",
+    "qrSetupTimed": "QR ASETUS · AJASTETUT KOODIT · TILINHALLINTA",
+    "privacyTitle": "Omat tilit. Sinun koodisi. Sinun hallintasi.",
+    "authenticator": "KAALKEY · AUTHENTICATOR",
+    "brandBanner": "KaalKey brändibanneri",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Peruuta",
+      "storageInvalidTitle": "Tallennustiedot eivät kelpaa",
+      "storageInvalidBody": "Tallennettuja tilitietoja ei voitu lukea turvallisesti.",
+      "storageErrorTitle": "Tallennusvirhe",
+      "storageErrorBody": "Tallennettuja tilejä ei voitu ladata.",
+      "missingTitle": "Puuttuvat tiedot",
+      "missingEditingBody": "Anna palvelun nimi ja tilin nimi.",
+      "missingBody": "Anna palvelun nimi, tilin nimi ja salainen avain.",
+      "invalidOtpBody": "Tarkista Base32 salaisuus, algoritmi, numeroiden määrä ja päivitysjakso. Salaisuuksien tulee sisältää kelvollisia Base32 merkkejä; numeroiden on oltava {digits} ja pisteen on oltava {minPeriod}–{maxPeriod} sekuntia.",
+      "duplicateBody": "Tili tällä palvelulla ja tilin nimellä on jo tallennettu.",
+      "updatedBody": "Tilisi päivitettiin.",
+      "addedBody": "Tilisi lisättiin turvallisesti.",
+      "invalidOtpTitle": "Virheelliset OTP-asetukset",
+      "duplicateTitle": "Tili on jo olemassa",
+      "savedTitle": "Tili tallennettu",
+      "invalidSecretTitle": "Virheellinen salainen avain",
+      "invalidSecretBody": "Tarkista, että annoit kelvollisen Base32 salaisuuden.",
+      "removedTitle": "Tili poistettu",
+      "removedBody": "Tili ja sen salaisuus poistettiin tältä laitteelta.",
+      "clearedTitle": "Tilit tyhjennetty",
+      "clearedBody": "Kaikki todennustilit ja salaisuudet poistettiin tältä laitteelta.",
+      "someSavedAccountsNeedAttentionTitle": "Jotkut tallennetut tilit vaativat huomiota",
+      "someSavedAccountsNeedAttentionBody": "{count} virheellisiä tilitietueita ei ladattu. Kelvolliset tilit ovat edelleen käytettävissä. Harkitse varmuuskopion luomista ennen lisämuutosten tekemistä.",
+      "removeConfirmTitle": "Poistetaanko tili?",
+      "removeConfirmWebTitle": "Poistetaanko tili?",
+      "removeButton": "Poista",
+      "clearButton": "Tyhjennä kaikki",
+      "clearConfirmTitle": "Tyhjennetäänkö kaikki tilit?",
+      "saveErrorBody": "Tilejä ei voitu tallentaa. Tarkista selaimen tallennustilan saatavuus ja yritä uudelleen.",
+      "notFoundTitle": "Tiliä ei löydy",
+      "notFoundBody": "Tätä tiliä ei löytynyt. Sulje editori ja yritä uudelleen.",
+      "removeConfirmBody": "Tämä poistaa tilin ja sen salaisuuden tältä laitteelta.",
+      "clearConfirmBody": "Tämä poistaa pysyvästi kaikki todennustilit ja niiden salaisuudet tältä laitteelta. Luo ensin salattu varmuuskopio, jos saatat tarvita näitä tilejä myöhemmin.",
+      "clearConfirmUndoBody": "Tätä ei voi kumota."
+    },
+    "biometric": {
+      "cancelButton": "Peruuta",
+      "saveErrorTitle": "Asetusta ei voitu tallentaa",
+      "unlockPrompt": "Avaa KaalKey Authenticator",
+      "promptSubtitle": "Käytä biometrisiä tietoja tai laitteesi näytön lukitusta",
+      "disableConfirmPrompt": "Vahvista poistaaksesi KaalKey sovelluksen lukituksen",
+      "enablePrompt": "Ota sovelluksen lukitus käyttöön KaalKey",
+      "deviceLockTitle": "Aseta laitteesi näytön lukitus",
+      "deviceLockBody": "KaalKey käyttää puhelimesi sisäänrakennettua todennusta. Aseta laite PIN, kuvio tai salasana puhelimen suojausasetuksiin ja yritä sitten uudelleen. Biometriset tiedot ovat valinnaisia.",
+      "unavailableTitle": "Laitteen todennus ei ole käytettävissä",
+      "unavailableBody": "Puhelimesi ei voinut käynnistää suojattua todennusta. Tarkista, että laitteen näytön lukitus on määritetty, ja yritä sitten uudelleen.",
+      "lockedTitle": "Todennus tilapäisesti lukittu",
+      "lockedBody": "Puhelimesi on väliaikaisesti poistanut todennuksen käytöstä liian monen yrityksen jälkeen. Odota ja yritä uudelleen.",
+      "promptErrorTitle": "Todennus ei ole käytettävissä",
+      "promptErrorBody": "KaalKey ei voinut käynnistää puhelimen suojattua todennuskehotetta. Yritä uudelleen.",
+      "webLock": "Laitteen todennuslukko ei ole vielä saatavilla verkkoversiossa. Verkkovarasto pysyy lukitsemattomana; käytä Android-sovellusta alkuperäisen laitteen todentamiseen.",
+      "disabledTitle": "Sovelluksen lukitus poistettu käytöstä",
+      "disabledBody": "KaalKey sovellusten lukitus on poistettu käytöstä.",
+      "disableSaveError": "Sovelluksen lukitus pysyy käytössä. Yritä uudelleen.",
+      "enabledTitle": "Sovelluksen lukitus käytössä",
+      "enabledBody": "KaalKey pyytää puhelimesi sisäänrakennettua todennusta, kun se avataan ja kun palaat siihen.",
+      "enableSaveError": "Sovelluksen lukitusta ei voitu ottaa käyttöön. Yritä uudelleen."
+    },
+    "qr": {
+      "startingCamera": "Käynnistetään kameraa…",
+      "unsupportedTitle": "Ei tuettu QR-koodi",
+      "unsupportedBody": "Skannaa palvelun toimittama todennusasetuskoodi QR. Tämän on oltava TOTP-koodi, ei normaali QR-kirjautumiskoodi.",
+      "unsupportedDiagnostic": "Tämä QR ei ole TOTP-asetuskoodi. Tähtää todentajan asetuksiin QR.",
+      "detectedDiagnostic": "QR havaittu. Analysoidaan…",
+      "analyzing": "Analysoidaan QR-koodia…",
+      "duplicateTitle": "Tili on jo lisätty",
+      "duplicateBody": "{issuer}: {account} on jo tiedostossa KaalKey.",
+      "addedTitle": "Tili lisätty",
+      "addedBody": "{issuer}: {account} lisättiin onnistuneesti.",
+      "saveFailedDiagnostic": "Tiliä ei voitu tallentaa. Voit skannata uudelleen.",
+      "invalidTitle": "Virheellinen QR-koodi",
+      "invalidBody": "KaalKey ei voinut jäsentää tätä todennuskoodia QR. {detail}. Käytä palvelun TOTP asetuskoodia QR (alkaa yleensä {prefix}).",
+      "parseFailedDiagnostic": "QR ei voitu käsitellä. Tähtää asetukseen QR ja yritä uudelleen.",
+      "invalidUrlTitle": "Virheellinen TOTP URL",
+      "invalidUrlBody": "Liitä täydellinen todennus URL alkaen {prefix}.",
+      "clipboardEmptyTitle": "Leikepöytä on tyhjä",
+      "clipboardEmptyBody": "Kopioi ensin {prefix} URL ja napauta sitten Liitä TOTP URL.",
+      "clipboardErrorTitle": "Leikepöydän lukeminen epäonnistui",
+      "clipboardErrorBody": "Kopioi TOTP-asetukset URL ja yritä uudelleen."
+    },
+    "haptics": {
+      "saveFailedTitle": "Asetusta ei voitu tallentaa",
+      "saveFailedBody": "Haptisen palautteen asetusta ei voitu tallentaa. Yritä uudelleen."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Kuittausta ei voitu tallentaa",
+      "saveFailedBody": "Yritä uudelleen. Sinun on hyväksyttävä oikeudellinen huomautus ennen kuin käytät KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Kameran lupa vaaditaan",
+      "body": "Salli kameran pääsy todentajan asetuskoodin skannaamiseen QR."
+    },
+    "storage": {
+      "browserUnavailable": "Selaimen tallennustila ei ole käytettävissä.",
+      "browserFilePickerUnavailable": "Selaimen tiedostovalitsin ei ole käytettävissä."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Tiedostoa ei tueta",
+      "unsupportedFileBody": "Valitse QR-koodikuva, kuten PNG tai JPEG.",
+      "browserDecoderUnavailable": "Selaimen kuvien dekoodaus ei ole käytettävissä",
+      "imageLoadFailed": "Kuvaa ei voitu ladata",
+      "unreadableDimensions": "Kuvalla ei ole luettavia mittoja",
+      "noQrCodeFoundTitle": "QR-koodia ei löytynyt",
+      "noQrCodeFoundBody": "KaalKey ei voinut purkaa tämän kuvan QR-koodia. Kokeile kuvakaappausta tai korkeampaa resoluutiota PNG/JPEG.",
+      "couldNotReadImageTitle": "Kuvaa ei voitu lukea",
+      "couldNotReadImageBody": "Kokeile selkeää PNG- tai JPEG-kuvaa, joka sisältää autentikaattoriasetusten QR-koodin.",
+      "couldNotOpenPickerTitle": "Kuvavalitsinta ei voitu avata",
+      "couldNotOpenPickerBody": "Yritä ladata QR uudelleen.",
+      "normalizedDecodeFailed": "Normalisoitua kuvaa ei voitu purkaa",
+      "clipboardImageLoadFailed": "Leikepöydän kuvaa ei voitu ladata",
+      "imageProcessingUnavailable": "Kuvankäsittely ei ole käytettävissä",
+      "imageProcessingUnavailableAlt": "Kuvankäsittely ei ole käytettävissä",
+      "noImageInClipboardTitle": "Ei kuvaa leikepöydällä",
+      "noImageInClipboardBody": "Kopioi QR-koodikuva ja napauta sitten Liitä QR kuva uudelleen.",
+      "clipboardUnavailableTitle": "Leikepöytä ei ole käytettävissä",
+      "clipboardUnavailableBody": "Leikepöydän teksti ei ole kelvollinen todennusasetus URL. Kopioi otpauth:// URL- tai QR-kuva ja yritä uudelleen.",
+      "clipboardAccessBody": "KaalKey ei voinut lukea tekstiä tai kuvaa leikepöydältä. Salli leikepöydän käyttö, kopioi sitten QR-kuva tai otpauth:// URL ja napauta Liitä QR Kuva / URL uudelleen.",
+      "couldNotPasteImageTitle": "Kuvaa ei voitu liittää",
+      "couldNotPasteImageBody": "Tämä leikepöytä ei tue kuvien liittämistä tällä laitteella. Käytä sen sijaan Tuo QR-kuvaa.",
+      "sourceImageDecodeFailure": "Kokeile toista QR-kuvaa.",
+      "pastedImportFailureBody": "Kokeile toista QR-kuvaa.",
+      "sourceImageReadFailure": "Yritä kopioida selkeä QR-kuvakaappaus.",
+      "importFailedTitle": "QR kuvan tuonti epäonnistui",
+      "importFailedBody": "KaalKey ei voinut lukea kuvaa. Kokeile toista QR-koodikuvaa.",
+      "notFoundBody": "Kopioitu kuva ei sisällä luettavaa QR-koodia.",
+      "pastedNotFoundBody": "Liitetty kuva ei sisällä luettavaa QR-koodia.",
+      "pastedReadFailureBody": "Yritä kopioida selkeä PNG- tai JPEG-kuva, joka sisältää täydellisen QR-koodin.",
+      "noQrCodeTextBody": "KaalKey pursi valitun kuvan, mutta ei löytänyt QR-koodia. Kokeile selkeää, täyden resoluution PNG tai JPEG koko koodia näkyvissä."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Tämä QR-koodi ei ole aikaperusteinen autentikaattorin asetuskoodi.",
+      "missingAccountDetails": "QR-koodista puuttuu tilitiedot.",
+      "unsupportedAlgorithm": "QR-koodi käyttää algoritmia, jota ei tueta.",
+      "unsupportedDigits": "Tässä QR-koodissa on oltava 6, 7 tai 8 numeroa.",
+      "unsupportedPeriod": "Tämä QR-koodi käyttää aikajaksoa, jota ei tueta.",
+      "invalidAccount": "QR-koodia ei voitu vahvistaa."
+    },
+    "backup": {
+      "invalidJson": "Varmuuskopiotiedosto ei kelpaa JSON.",
+      "unsupportedFormat": "Tämä ei ole tuettu KaalKey-salattu varmuuskopio.",
+      "invalidPasswordOrDamaged": "Varmuuskopion salasana on virheellinen tai varmuuskopiotiedosto on vioittunut.",
+      "invalidContents": "Varmuuskopion sisältö on virheellinen tai puutteellinen.",
+      "secureRandomUnavailableDetailed": "Suojattu satunnainen luonti ei ole käytettävissä. Rakenna ja asenna uudelleen Android-sovellus, jossa on expo-crypto, ja yritä sitten uudelleen.",
+      "invalidAccountDataForBackup": "Yksi tai useampi tili on virheellinen. Korjaa tilitiedot ennen varmuuskopion luomista.",
+      "invalidPasswordOrModified": "Varmuuskopion salasana on virheellinen tai varmuuskopiotiedostoa on muokattu.",
+      "invalidPasswordOrFileDamaged": "Varasalasana on virheellinen tai tiedosto on vahingoittunut.",
+      "passwordCopiedTitle": "Salasana kopioitu",
+      "enterPasswordTitle": "Anna varmuuskopion salasana",
+      "enterPasswordBody": "Anna salasana, jota käytit tämän varmuuskopion luomisen yhteydessä.",
+      "passwordCopiedBody": "Tallenna se johonkin turvalliseen paikkaan, kuten WhatsApp.",
+      "copyFailedTitle": "Kopiointi epäonnistui",
+      "copyFailedBody": "Valitse ja kopioi salasana manuaalisesti.",
+      "generatingPassword": "Luodaan suojattua varmuuskopiosalasanaa…",
+      "encrypting": "Salataan varmuuskopiota…",
+      "decrypting": "Puretaan varmuuskopion salausta…",
+      "restoring": "Palautetaan tilejä…",
+      "backupCreatedTitle": "Varmuuskopio luotu",
+      "restoreCompleteTitle": "Palautus valmis",
+      "mergeConfirmTitle": "Yhdistetäänkö varmuuskopiotilit?",
+      "mergeConfirmButton": "Yhdistä tilit",
+      "backupSavedTemporary": "Salattu varmuuskopio tallennettu tilapäisesti osoitteeseen:\n{uri}",
+      "generatePasswordErrorTitle": "Varasalasanaa ei voitu luoda",
+      "secureRandomUnavailable": "Suojattu satunnainen luonti ei ole käytettävissä.",
+      "passwordUnavailableTitle": "Varasalasana ei ole saatavilla",
+      "passwordUnavailableBody": "Sulje tämä valintaikkuna ja luo uusi varmuuskopio suojatun salasanan luomiseksi.",
+      "backupDownloadedBody": "Salattu KaalKey-varmuuskopiosi on ladattu. Pidä tiedosto ja salasana yksityisinä.",
+      "backupFailedTitle": "Varmuuskopiointi epäonnistui",
+      "backupCreateErrorBody": "KaalKey ei voinut luoda varmuuskopiota.",
+      "restoreFailedTitle": "Palautus epäonnistui",
+      "backupReadErrorBody": "Varmuuskopiota ei voitu lukea tai tallentaa.",
+      "browserDownloadUnsupported": "Selaimesi ei tue varmuuskopiotiedostojen lataamista.",
+      "localFileUnavailable": "Paikallinen tiedostosijainti ei ole saatavilla tällä laitteella.",
+      "saveBackupTitle": "Tallenna salattu KaalKey varmuuskopio"
+    },
+    "clipboard": {
+      "copiedTitle": "Koodi kopioitu",
+      "copiedBody": "Vahvistuskoodisi on kopioitu.",
+      "errorTitle": "Virhe",
+      "errorBody": "Vahvistuskoodia ei voitu kopioida."
+    },
+    "activity": {
+      "cameraReady": "Kamera valmiina. Osoita se todennuskoodiin QR.",
+      "readingQrImage": "Luetaan QR kuvaa…",
+      "importingQrImage": "Tuodaan QR kuvaa…",
+      "importingAccount": "Tuodaan todennustiliä…",
+      "importingPastedImage": "Tuodaan liitettyä QR kuvaa…"
+    }
+  },
+  "activity": {
+    "working": "Työskentely",
+    "wait": "Odota…",
+    "donTClose": "Älä sulje KaalKey tai ole vuorovaikutuksessa sen kanssa.",
+    "loadingLanguages": "Ladataan saatavilla olevia kieliä…",
+    "loadingTranslation": "Ladataan käännöstä…"
+  }
+}

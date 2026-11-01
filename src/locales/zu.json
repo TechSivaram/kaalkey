@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Ulimi",
+      "description": "Khetha ulimi olusetshenziswe ku-KaalKey.",
+      "english": "IsiNgisi",
+      "telugu": "Isi-Telugu",
+      "hindi": "IsiHindi",
+      "section": "ULIMI",
+      "searchLanguageName": "Sesha ulimi (igama noma ikhodi)",
+      "searchSupportedLanguages": "Sesha izilimi ezisekelwayo",
+      "closeLanguageDropdown": "Vala ulimi olwehliswayo",
+      "noTranslatedLanguage": "Alukho ulimi oluhumushiwe olutholiwe.",
+      "serverUrl": "Iseva yokuhumusha URL",
+      "serverUrlDescription": "KaalKey ilanda uhlu lolimi nezinguqulo kusukela kule seva.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Londoloza iseva yokuhumusha"
+    },
+    "title": "Izilungiselelo zohlelo lokusebenza",
+    "eyebrow": "KAALKEY OKUSHIWO",
+    "experience": {
+      "section": "EXPERIENCE"
+    },
+    "security": {
+      "section": "UKUPHEPHA"
+    },
+    "backup": {
+      "section": "ISIPELE NOKUBUYISA"
+    },
+    "danger": {
+      "section": "INDAWO EYINGOZI",
+      "clearAccounts": "Sula wonke ama-akhawunti",
+      "clearAccountsDescription": "Susa unomphela yonke i-akhawunti nezimfihlo kule divayisi. Yenza isipele kuqala.",
+      "clearAccountsAccessibilityLabel": "Sula wonke ama-akhawunti okufakazela ubuqiniso"
+    },
+    "appearance": {
+      "section": "UKUBUKA",
+      "title": "Ukubukeka okukhanyayo",
+      "description": "KaalKey okwamanje isebenzisa itimu yayo yokukhanya ehlanzekile."
+    },
+    "haptics": {
+      "title": "Impendulo ye-Haptic",
+      "description": "Impendulo emnene yokuthinta kanye nezenzo eziqediwe."
+    },
+    "deviceLock": {
+      "title": "Ukhiye wokuqinisekisa wedivayisi",
+      "description": "I-vault yakho iyakhiya uma KaalKey ishiya indawo engaphambili.",
+      "requirement": "Idinga i-biometrics yefoni yakho noma ukukhiya isikrini PIN, iphethini, noma iphasiwedi.",
+      "accessibilityLabel": "Ukhiye wohlelo lokusebenza lokuqinisekisa idivayisi"
+    },
+    "privacy": {
+      "title": "Ezomthetho nobumfihlo",
+      "description": "Buyekeza Inqubomgomo Yobumfihlo kanye Nemigomo Yokusebenzisa.",
+      "storageNote": "Izimfihlo zakho zokufakazela ubuqiniso zihlala endaweni evikelekile ekudivayisi. Izintandokazi zigcinwa endaweni."
+    }
+  },
+  "accounts": {
+    "edit": "Hlela",
+    "sortAccountName": "Hlunga ngegama le-akhawunti",
+    "loadingSecureVault": "Ilayisha i-vault evikelekile...",
+    "tapCopy": "THEPHA UKUZE UKOPISHE",
+    "noAccountsMatch": "Awekho ama-akhawunti afana nosesho lwakho.",
+    "viewQrCode": "Buka QR ikhodi ye-akhawunti",
+    "removeAccount": "Susa i-akhawunti",
+    "copyVerificationCode": "Kopisha ikhodi yokuqinisekisa",
+    "active": "OKUSEBENZA",
+    "sort": "HLUNGA NGO",
+    "account": "I-akhawunti",
+    "clearSearch": "Sula ukusesha",
+    "sortServiceName": "Hlunga ngegama lesevisi",
+    "addFirstAccount": "Engeza i-akhawunti yakho yokuqala",
+    "searchAccounts": "Sesha ama-akhawunti",
+    "searchServiceAccount": "Isevisi yokusesha noma i-akhawunti",
+    "accounts": "Ama-akhawunti akho",
+    "add": "+ Engeza",
+    "vaultStartsHere": "I-vault yakho iqala lapha",
+    "service": "Isevisi",
+    "emptyHint": "Engeza i-akhawunti usebenzisa ukhiye wayo oyimfihlo ukuze ukhiqize ikhodi yakho yokuqala yokuqinisekisa."
+  },
+  "common": {
+    "done": "Kwenziwe",
+    "doneButton": "Kwenziwe",
+    "closeSettings": "Vala izilungiselelo",
+    "separator": "-",
+    "article": "a",
+    "save": "Londoloza",
+    "delete": "Susa",
+    "resizeAppBrand": "Shintsha usayizi wohlelo lokusebenza namaphaneli omkhiqizo"
+  },
+  "qrImport": {
+    "readPastedImage": "Ayikwazanga ukufunda isithombe esinamathiselwe"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Ama-akhawunti akulesi sipele: {count}. KaalKey izogcina ama-akhawunti akho akhona futhi yengeze noma imaphi ama-akhawunti angekho vele. Ama-akhawunti ayimpinda azokweqiwa.",
+    "restoreCompletionBody": "Ama-akhawunti angeziwe: {added}. Ama-akhawunti ayimpinda eqiwe: {skipped}. Ama-akhawunti akho akhona agciniwe.",
+    "copyPassword": "Kopisha iphasiwedi ekhiqiziwe",
+    "passwordSafety": "Londoloza le phasiwedi ngokwehlukana (ngokwesibonelo, kokuthi WhatsApp). Noma ubani onakho kokubili",
+    "importAction": "Khetha ifayela bese ungenisa",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "I-VAULT Evikelekile",
+    "createBackup": "Dala ikhophi yasenqolobaneni",
+    "encryptedFile": "Ifayela elibethelwe",
+    "restoreBackup": "Buyisela isipele",
+    "safetyNote": "Izipele ziqukethe izimfihlo zakho zokufakazela ubuqiniso. KaalKey yenza iphasiwedi ehlukile yesipele ngasinye. Yigcine ngokwehlukana; KaalKey akakwazi ukuyithola.",
+    "generatingSecurePassword": "Ikhiqiza iphasiwedi evikelekile...",
+    "importFile": "Ngenisa ifayela",
+    "backupPassword": "YENZA IPHASWEDI",
+    "account": "i-akhawunti",
+    "accounts": "ama-akhawunti",
+    "exportDescription": "Bethela konke {count} kulondolozwe {accountLabel} kufayela eliyisipele. KaalKey ikhiqiza igama eliyimfihlo elihlukile; kopisha futhi uyilondoloze ngokwehlukana nefayela.",
+    "restoreDescription": "Khetha KaalKey ifayela lakho eliyisipele nephasiwedi. Ama-akhawunti amasha azokwengezwa ohlwini lwama-akhawunti akho akhona; ama-akhawunti akhona azohlala njengoba enjalo.",
+    "enterBackupPassword": "Faka iphasiwedi eyisipele",
+    "closeBackup": "Vala ukwenza isipele",
+    "copyGeneratedBackup": "Kopisha iphasiwedi eyisipele ekhiqiziwe",
+    "backupPassword2": "Gcina iphasiwedi",
+    "clearBackupPassword": "Sula iphasiwedi eyisipele",
+    "backupFilePassword": "ifayela eliyisipele nephasiwedi kungabuyisela ama-akhawunti akho okufakazela ubuqiniso.",
+    "encryptShareBackup": "Bethela futhi wabelane ngesipele"
+  },
+  "home": {
+    "unlockSecurely": "Vula ngokuphephile",
+    "disableAppLock": "Khubaza ukukhiya uhlelo lokusebenza",
+    "enableAppLock": "Nika amandla ukukhiya uhlelo lokusebenza",
+    "checkingSecureLock": "Ihlola izilungiselelo zakho zokukhiya ezivikelekile. Amakhodi akho ahlala efihliwe.",
+    "waitingVerification": "Ilinde ukuqinisekiswa...",
+    "secretsStayStored": "Izimfihlo zakho zihlala zigcinwe kule divayisi.",
+    "openAppSettings": "Vula izilungiselelo zohlelo lokusebenza",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "Sebenzisa i-biometrics yefoni yakho noma ukukhiya isikrini PIN, iphethini, noma iphasiwedi ukuze ufinyelele amakhodi akho okuqinisekisa esikhathi esisodwa.",
+    "localVault": "I-VAUL YAKHO YASEKHAYA",
+    "codesDeviceControl": "Amakhodi akho. Idivayisi yakho. Ukulawula kwakho.",
+    "securingVault": "Ivikela i-vault yakho...",
+    "vaultProtected": "I-vault yakho ivikelekile",
+    "lock": "VULA",
+    "localVault2": "I-VAULT YAsendaweni",
+    "authenticator": "KAALKEY UQINISEKISI",
+    "tricolourLockEmblem": "KaalKey uphawu lwelokhi ye-tricolor",
+    "authenticator2": "I-AUTHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Uma ukhetha ukuskena ikhodi QR, KaalKey isebenzisa imvume yekhamera yaleso senzo. Ukufakazela ubuqiniso bedivayisi ongakukhetha kanye nempendulo ye-haptic kusebenzisa izici zedivayisi ezifanele. Ungaphatha izimvume kuzilungiselelo zedivayisi yakho.",
+        "heading": "2. Izimvume nezici zedivayisi"
+      },
+      "backups": {
+        "body": "Uma udala ikhophi yasenqolobaneni, KaalKey ibhala isipele usebenzisa iphasiwedi oyikhethayo. Gcina kokubili ifayela nephasiwedi kuyimfihlo futhi ukugcine ngokuphephile. Noma ubani othola ifayela nephasiwedi yalo angakwazi ukubuyisela ama-akhawunti akho okufakazela ubuqiniso. KaalKey ayikwazi ukuthola igama eliyisipele elikhohliwe.",
+        "heading": "3. Izipele"
+      },
+      "security": {
+        "body": "Gcina idivayisi yakho ibuyekeziwe, ivikele ngokukhiya isikrini, futhi ungabelani OTP izimfihlo noma amaphasiwedi ayisipele. Ukususa uhlelo lokusebenza, ukusula idatha yalo, noma ukulahlekelwa idivayisi kungenza ama-akhawunti agcinwe endaweni angatholakali. Gcina ikhophi yasenqolobaneni evikelekile uma udinga ukutakula.",
+        "heading": "5. Ukuphepha nokugcinwa"
+      },
+      "information": {
+        "heading": "1. Ulwazi nezimfihlo",
+        "body": "KaalKey wuhlelo lokusebenza lokufakazela ubuqiniso. Amalebula e-akhawunti kanye namanani ayimfihlo adingekayo ukuze kwenziwe amakhodi esikhathi esisodwa abucayi. Uhlelo lokusebenza luklanyelwe ukugcina amarekhodi e-akhawunti endaweni yokugcina evikelekile yedivayisi. Noma ubani okwazi ukufinyelela idivayisi evuliwe noma ikhophi yasenqolobaneni ethunyelwe angakwazi ukufinyelela ulwazi olubucayi."
+      },
+      "sharing": {
+        "heading": "4. Ukwabelana kanye nabesithathu",
+        "body": "Ukugeleza kwekhophi yasenqolobaneni kungase kusebenzise ishidi lokwabelana ledivayisi yakho noma isikhethi samafayela ukuze ulondoloze, udlulise, noma ukhethe amafayela. Izinqubo zobumfihlo zanoma yiluphi uhlelo lokusebenza lwenkampani yangaphandle noma isevisi oyikhethayo ibuswa yilowo mhlinzeki. Lesi saziso asenzi isimangalo esigcwele sokuthi idivayisi yakho, isistimu yokusebenza, noma izinsiza zokwabelana ezikhethiwe azikwazi ukucubungula idatha."
+      },
+      "changes": {
+        "heading": "6. Izinguquko kanye nokuxhumana",
+        "body": "Lesi saziso esishumekiwe singabuyekezwa ekukhishweni kohlelo lokusebenza okuzayo. Ngemibuzo yobumfihlo, xhumana nomshicileli wohlelo lokusebenza ngesiteshi esisemthethweni sokwesekwa esinikezwe nohlelo lokusebenza."
+      },
+      "title": "Inqubomgomo Yobumfihlo"
+    },
+    "terms": {
+      "use": {
+        "body": "Ungasebenzisa i-KaalKey ukwenza amakhodi okuqinisekisa ama-akhawunti ogunyazwe ukuwafinyelela. Unesibopho sokuthobela imithetho esebenzayo kanye nemithetho yamasevisi owasebenzisayo amakhodi okuqinisekisa.",
+        "heading": "1. Ukusebenzisa kwakho"
+      },
+      "protectAccounts": {
+        "body": "Unesibopho sokuvikela idivayisi yakho, izimfihlo zokufakazela ubuqiniso, izindlela zokuthola kabusha, izipele ezikhishiwe, namaphasiwedi ayisipele. Ungabelani ngamakhodi noma izimfihlo nabantu ongabathembi.",
+        "heading": "2. Vikela ama-akhawunti akho"
+      },
+      "availability": {
+        "body": "Izici zingashintsha phakathi kokukhishwa. Kufanele ugcine uhlelo lokusebenza lubuyekeziwe futhi ngezikhathi ezithile uqinisekise ukuthi isipele sakho kanye nezinhlelo zokuthola kabusha ziyasebenza.",
+        "heading": "5. Izinguquko nokutholakala"
+      },
+      "recovery": {
+        "body": "KaalKey ayikwazi ukuqinisekisa ukuthi yonke i-akhawunti ingatholwa, ukuthi yonke QR ikhodi noma ukulungiselelwa kuzohambisana, noma ukuthi uhlelo lokusebenza luzosebenza ngaphandle kokuphazamiseka noma iphutha. Gcina ezinye izindlela zokuthola kabusha ezinikezwa isevisi efanele.",
+        "heading": "3. Asikho isiqinisekiso sokuthola kabusha"
+      },
+      "advice": {
+        "heading": "4. Akukho seluleko sochwepheshe",
+        "body": "Uhlelo lokusebenza luwumsebenzi futhi alunikezi iseluleko sezomthetho, sezezimali, noma sezokuphepha. Uma i-akhawunti ifakwa engcupheni, landela isiqondiso esisemthethweni sokuthola nokuvikeleka kwesevisi ethintekile."
+      },
+      "liability": {
+        "heading": "6. Isibopho somthetho kanye nomthetho osebenzayo",
+        "body": "Ngokwezinga elivunyelwe umthetho osebenzayo, uhlelo lokusebenza lunikezwa ngaphandle kwesiqinisekiso sokusebenza okungaphazamiseki noma okungenaphutha. Akukho lutho kule migomo okungafaki amalungelo noma amakhambi angeke akhishwe ngokusemthethweni. Noma yimiphi eminye imikhawulo noma imigomo yomthetho olawulayo kufanele ibuyekezwe ngummeli oqeqeshiwe endaweni yomshicileli ngaphambi kokukhululwa."
+      },
+      "title": "Imigomo Yokusebenzisa"
+    },
+    "version": "Inguqulo",
+    "saving": "Iyalondoloza...",
+    "acceptContinue": "Yamukela futhi uqhubeke",
+    "appliesAuthenticator": "Isebenza kokuthi KaalKey Isiqinisekisi",
+    "reviewBothDocuments": "Sicela ubuyekeze yomibili imibhalo ngaphambi kokusebenzisa KaalKey. Zifakiwe kuhlelo lokusebenza futhi zitholakala ungaxhunyiwe ku-inthanethi.",
+    "originalMulticolourAuthenticator": "I-multicolour yoqobo KaalKey uphawu lokufakazela ubuqiniso",
+    "legalPrivacyNotice": "Isaziso Somthetho Nobumfihlo",
+    "legalInformation": "Ulwazi lwezomthetho",
+    "reviewSPrivacy": "Buyekeza KaalKey imininingwane yobumfihlo kanye nemigomo yokusebenzisa.",
+    "iReadAgree": "Ngifundile futhi ngiyavumelana Nenqubomgomo Yobumfihlo kanye Nemigomo Yokusebenzisa."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Gcina yonke ikhodi QR ibonakala. Imfihlo yakho ihlala kule divayisi.",
+    "back": "Emuva",
+    "turnFlashlightOff": "Vala ithoshi",
+    "turnFlashlight": "Vula ithoshi",
+    "flashlight": "I-flashlight ivuliwe",
+    "flashlight2": "Ithoshi",
+    "cameraUnavailableOpen": "Ikhamera ayitholakali. Vula leli khasi kokuthi HTTPS noma i-localhost bese uvumela ukufinyelela kwekhamera.",
+    "cameraPreviewUnavailable": "Ukubuka kuqala kwekhamera akutholakali. Vala bese uvule kabusha iskena.",
+    "cameraReadyPoint": "Ikhamera isilungile — ikhombise kukhodi egcwele QR.",
+    "browserCannotProcess": "Lesi siphequluli asikwazi ukucubungula amafreyimu ekhamera.",
+    "qrCodeDetected": "QR ikhodi itholiwe.",
+    "couldnTRead": "Ayikwazanga ukufunda ozimele bekhamera. Hlola izimvume zekhamera bese ulayisha kabusha leli khasi.",
+    "cameraPermissionDenied": "Imvume yekhamera inqatshiwe. Vumela ukufinyelela kwekhamera kuzilungiselelo zesiphequluli, bese uvule kabusha iskena.",
+    "noCameraWas": "Ayikho ikhamera etholakele kule divayisi.",
+    "cameraBusyAnother": "Ikhamera imatasa kolunye uhlelo lokusebenza noma ithebhu yesiphequluli.",
+    "startCameraHttps": "Ayikwazanga ukuqalisa ikhamera. Sebenzisa i-HTTPS noma i-localhost futhi uhlole izimvume zesiphequluli.",
+    "qrScannerCamera": "QR ukubuka kuqala kwekhamera yesithwebuli",
+    "cameraUnavailableCheck": "Ikhamera ayitholakali. Hlola imvume yekhamera bese uzama futhi.",
+    "pointCameraAuthenticator": "Khomba ikhamera yakho ekusethweni kwesiqinisekisi QR ikhodi evela kusevisi oyingezayo.",
+    "backAddAccount": "Buyela ukuze wengeze i-akhawunti",
+    "secureSetup": "VIKELA UKUSETHA",
+    "enterDetailsManually": "Faka imininingwane ngokwenza"
+  },
+  "accountForm": {
+    "hideManualEntry": "Fihla okufakiwe ngesandla",
+    "secretKeySupplied": "Sebenzisa ukhiye oyimfihlo onikezwe isevisi oyilungisayo. Ungalokothi ufake iphasiwedi ye-akhawunti yakho lapha. Qondanisa i-algorithm, isibalo samadijithi, nesikhawu nemiyalelo yokusetha yesevisi.",
+    "updateServiceAccount": "Buyekeza isevisi, igama le-akhawunti, noma ukhiye oyimfihlo.",
+    "secretKeyRead": "Ukhiye oyimfihlo, funda kuphela ngenkathi uhlela",
+    "secretKeyBase32": "Ukhiye oyimfihlo kokuthi Base32",
+    "digits": "amadijithi",
+    "seconds": "imizuzwana",
+    "enterDetailsManually": "NOMA FAKA IMINININGWANE MAWU",
+    "enterDetailsManually2": "Faka imininingwane mathupha",
+    "serviceAccountName": "Isevisi, igama le-akhawunti nokhiye oyimfihlo",
+    "saveChangesSecurely": "Londoloza izinguquko ngokuphephile",
+    "saveAccountSecurely": "Londoloza i-akhawunti ngokuphephile",
+    "serviceIssuer": "Isevisi noma umkhiphi",
+    "accountName": "Igama le-akhawunti",
+    "secretKey": "Ukhiye oyimfihlo",
+    "serviceIssuer2": "INKONZO / ISSUER",
+    "eGGoogle": "isib. Google",
+    "clearServiceIssuer": "Sula isevisi noma umkhiphi",
+    "eGExample": "isib. you@example.com",
+    "clearAccountName": "Sula igama le-akhawunti",
+    "secretKeyLocked": "UKHIYE WEMFIHLO (UKIYIWE)",
+    "secretKeyBase322": "UKHIYE WEMFIHLO (BASE32)",
+    "enterSetupKey": "Faka ukhiye wakho wokusetha",
+    "clearSecretKey": "Sula ukhiye oyimfihlo",
+    "otpAlgorithm": "OTP I-ALGORITHM",
+    "otpDigits": "OTP IDIGIDI",
+    "refreshIntervalSeconds": "VUSELELA ISIKHATHI (IMIZUZWANA)",
+    "otpRefreshInterval": "OTP isikhawu sokuvuselela ngemizuzwana",
+    "closeAccountForm": "Vala ifomu le-akhawunti",
+    "totpSetupUrl": "TOTP ukumisa URL",
+    "importSetupUrl": "Ngenisa ukusethwa URL",
+    "totpSetupUrl2": "TOTP UKUSETHA URL",
+    "accountName2": "I-AKHAWUNTI IGAMA",
+    "addAccount": "Engeza i-akhawunti"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Skena isiqinisekisi QR ikhodi",
+    "setupGuidance": "Skena ikhodi QR ukuze uthole ukusetha okulula, noma faka imininingwane mathupha.",
+    "cameraAddAccount": "Sebenzisa ikhamera yakho ukuze ungeze i-akhawunti ngokushesha",
+    "scanQrCode2": "Skena QR ikhodi",
+    "uploadQrImage": "Layisha QR isithombe",
+    "chooseQrScreenshot": "Khetha QR isithombe-skrini kugalari, Izithombe, noma Amafayela",
+    "pasteQr": "Namathisela QR isithombe / URL",
+    "pasteCopiedQr": "Namathisela isithombe esikopishiwe QR isithombe noma ukusethwa kwesiqinisekisi URL",
+    "uploadQrImage2": "Layisha QR isithombe"
+  },
+  "accountQr": {
+    "close": "Vala",
+    "accountQrCode": "Ikhodi ye-akhawunti QR",
+    "revealQrCode": "Yembula QR ikhodi",
+    "exportWarning": "Isexwayiso: noma ubani oskena le khodi QR angakwazi ukukhiqiza amakhodi okuqinisekisa ale akhawunti. Iveze esikrinini esethembekile kuphela.",
+    "privacyHint": "Gcina le khodi QR iyimfihlo. Ukuyiskena kukopisha imfihlo yomgunyazi we-akhawunti."
+  },
+  "productInfo": {
+    "backupRestore": "Gcina futhi ubuyisele",
+    "backupRestoreDescription": "Yenza isipele idatha yakho yomgunyazi futhi uyibuyisele lapho uthuthela kwenye idivayisi.",
+    "privacyDescription": "Gcina ama-akhawunti akho okuqinisekisa endaweni eyodwa. Sebenzisa isipele sohlelo lokusebenza, ukubuyisela, kanye nezinketho zokukhiya idivayisi ukuze uphathe ukusetha kwakho ngokuzibophezela.",
+    "timeBasedCodes": "Amakhodi asekelwe ngesikhathi",
+    "generateOneTimeCodes": "Khiqiza amakhodi okudlula esikhathi esisodwa azungezisayo ukuze ama-akhawunti akho aqedele ukuqinisekiswa okuzinyathelo ezimbili.",
+    "quickAccountSetup": "Ukusethwa kwe-akhawunti okusheshayo",
+    "quickSetupDescription": "Skena isiqinisekisi QR ikhodi noma ngenisa QR isithombe ukuze wengeze i-akhawunti.",
+    "accountsOnePlace": "Ama-akhawunti endaweni eyodwa",
+    "accountsInOnePlaceDescription": "Gcina ama-akhawunti akho alondoloziwe ndawonye futhi uthole okufakwayo okulungile uma sekuyisikhathi sokungena ngemvume.",
+    "privateAccountVault": "I-akhawunti eyimfihlo",
+    "privateVaultDescription": "Phatha okufakiwe kwakho kwesiqinisekisi endaweni futhi usebenzise inketho yohlelo lokusebenza etholakalayo yokukhiya idivayisi.",
+    "easyCodeAccess": "Ukufinyelela ikhodi kalula",
+    "easyCodeAccessDescription": "Kopisha ikhodi yamanje noma uphathe imininingwane ye-akhawunti ngokusebenzisa isixhumi esibonakalayo esihlanzekile, esigxilile.",
+    "authenticatorTechsivaram": "I-AUTHENTICATOR · NGE-TECHSIVARAM",
+    "mobileAuthenticator": "ISIQINISEKISO SAKHO SESIFAZANE",
+    "tagline": "Indlela elula yokuphatha ukuqinisekiswa kwakho okuzinyathelo ezimbili.",
+    "heroDescription": "Umuzwa wokuqinisekisa ogxilile wamakhodi okuqinisekisa asekelwe esikhathini. Gcina amakhodi e-akhawunti ahambisanayo eseduze nokuthi KaalKey we-Android.",
+    "timeBasedCodes2": "AMAKHODI ASUKE NGESIKHATHI",
+    "privateDesign": "IPRIVATE NGOKWEQINA",
+    "builtSimpleAuthenticator": "YAKHELWE UHLELO LOKUSEBENZA LOMQINISEKISI OLULULE",
+    "qrSetupTimed": "QR UKUSETHA · AMAKHODI ASIKHATHI ESIKHATHI · UKUPHATHWA KWE-AKHAWUNTI",
+    "privacyTitle": "Ama-akhawunti akho. Amakhodi akho. Ukulawula kwakho.",
+    "authenticator": "KAALKEY · UQINISEKISI",
+    "brandBanner": "KaalKey isibhengezo somkhiqizo",
+    "logo": "KaalKey uphawu"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Khansela",
+      "storageInvalidTitle": "Idatha yesitoreji ayivumelekile",
+      "storageInvalidBody": "Idatha ye-akhawunti elondoloziwe ayikwazanga ukufundwa ngokuphepha.",
+      "storageErrorTitle": "Iphutha lesitoreji",
+      "storageErrorBody": "Ama-akhawunti alondoloziwe awakwazanga ukulayishwa.",
+      "missingTitle": "Ulwazi olungekho",
+      "missingEditingBody": "Faka igama lesevisi negama le-akhawunti.",
+      "missingBody": "Faka igama lesevisi, igama le-akhawunti, nokhiye oyimfihlo.",
+      "invalidOtpBody": "Hlola Base32 imfihlo, i-algorithm, isibalo samadijithi, nesikhathi sokuvuselela. Izimfihlo kufanele ziqukathe izinhlamvu ezivumelekile Base32; amadijithi kufanele abe ngu-{digits} futhi isikhathi kufanele sibe amasekhondi angu-{minPeriod}–{maxPeriod}.",
+      "duplicateBody": "I-akhawunti enale sevisi kanye negama le-akhawunti sekuvele kulondoloziwe.",
+      "updatedBody": "I-akhawunti yakho ibuyekeziwe.",
+      "addedBody": "I-akhawunti yakho yengezwe ngokuvikelekile.",
+      "invalidOtpTitle": "Izilungiselelo ezingavumelekile OTP",
+      "duplicateTitle": "I-akhawunti isivele ikhona",
+      "savedTitle": "I-akhawunti ilondoloziwe",
+      "invalidSecretTitle": "Ukhiye oyimfihlo ongavumelekile",
+      "invalidSecretBody": "Sicela uhlole ukuthi ufake imfihlo evumelekile Base32.",
+      "removedTitle": "I-akhawunti isusiwe",
+      "removedBody": "I-akhawunti kanye nemfihlo yayo kususiwe kule divayisi.",
+      "clearedTitle": "Ama-akhawunti asuliwe",
+      "clearedBody": "Wonke ama-akhawunti okufakazela ubuqiniso nezimfihlo zisusiwe kule divayisi.",
+      "someSavedAccountsNeedAttentionTitle": "Amanye ama-akhawunti alondoloziwe adinga ukunakwa",
+      "someSavedAccountsNeedAttentionBody": "{count} amarekhodi e-akhawunti angavumelekile awalayishwanga. Ama-akhawunti avumelekile ahlala etholakala. Cabangela ukudala ikhophi yasenqolobaneni ngaphambi kokwenza izinguquko ezengeziwe.",
+      "removeConfirmTitle": "Susa i-akhawunti?",
+      "removeConfirmWebTitle": "Susa i-akhawunti?",
+      "removeButton": "Susa",
+      "clearButton": "Sula konke",
+      "clearConfirmTitle": "Sula wonke ama-akhawunti?",
+      "saveErrorBody": "Ama-akhawunti awakwazanga ukulondolozwa. Hlola ukutholakala kwesitoreji sesiphequluli bese uzama futhi.",
+      "notFoundTitle": "I-akhawunti ayitholakali",
+      "notFoundBody": "Le akhawunti ayitholakalanga. Vala umhleli bese uzama futhi.",
+      "removeConfirmBody": "Lokhu kususa i-akhawunti kanye nemfihlo yayo kule divayisi.",
+      "clearConfirmBody": "Lokhu kususa unomphela wonke ama-akhawunti okufakazela ubuqiniso nezimfihlo zawo kule divayisi. Dala ikhophi yasenqolobaneni ebethelwe kuqala uma ungase udinge lawa ma-akhawunti kamuva.",
+      "clearConfirmUndoBody": "Lokhu akukwazi ukuhlehliswa."
+    },
+    "biometric": {
+      "cancelButton": "Khansela",
+      "saveErrorTitle": "Ayikwazanga ukulondoloza isilungiselelo",
+      "unlockPrompt": "Vula KaalKey Isiqinisekisi",
+      "promptSubtitle": "Sebenzisa i-biometrics noma ukukhiya isikrini sedivayisi yakho",
+      "disableConfirmPrompt": "Qinisekisa ukuze uvale KaalKey ukukhiya uhlelo lokusebenza",
+      "enablePrompt": "Nika amandla isikhiya sohlelo lokusebenza ku-KaalKey",
+      "deviceLockTitle": "Setha ukukhiya isikrini sedivayisi yakho",
+      "deviceLockBody": "KaalKey isebenzisa ukuqinisekiswa okwakhelwe ngaphakathi kwefoni yakho. Setha idivayisi PIN, iphethini, noma iphasiwedi kuzilungiselelo zokuphepha zefoni yakho, bese uyazama futhi. I-Biometrics iyakhethwa.",
+      "unavailableTitle": "Ukuqinisekisa idivayisi akutholakali",
+      "unavailableBody": "Ifoni yakho ayikwazanga ukuqala ukufakazela ubuqiniso okuvikelekile. Hlola ukuthi ukukhiya isikrini kwedivayisi kumisiwe, bese uyazama futhi.",
+      "lockedTitle": "Ukufakazela ubuqiniso kukhiyiwe okwesikhashana",
+      "lockedBody": "Ifoni yakho ikhubaze okwesikhashana ukufakazela ubuqiniso ngemva kwemizamo eminingi kakhulu. Linda bese uzama futhi.",
+      "promptErrorTitle": "Ukuqinisekisa akutholakali",
+      "promptErrorBody": "KaalKey ayikwazanga ukuqalisa ukwaziswa okuphephile kokuqinisekisa kwefoni. Sicela uzame futhi.",
+      "webLock": "Ukhiye wokuqinisekisa wedivayisi awutholakali enguqulweni yewebhu okwamanje. I-vault yewebhu ihlala ivuliwe; sebenzisa uhlelo lokusebenza Android ukuze uthole ubuqiniso bedivayisi yomdabu.",
+      "disabledTitle": "Ukhiye wohlelo lokusebenza ukhutshaziwe",
+      "disabledBody": "KaalKey isikhiya sohlelo lokusebenza sivaliwe.",
+      "disableSaveError": "Ukhiye wohlelo lokusebenza uhlala unikwe amandla. Sicela uzame futhi.",
+      "enabledTitle": "Ukukhiya uhlelo lokusebenza kunikwe amandla",
+      "enabledBody": "KaalKey izocela ukuqinisekiswa kwefoni yakho eyakhelwe ngaphakathi lapho ivuliwe nalapho ubuyela kuyo.",
+      "enableSaveError": "Ukhiye wohlelo lokusebenza awukwazanga ukunikwa amandla. Sicela uzame futhi."
+    },
+    "qr": {
+      "startingCamera": "Iqala ikhamera...",
+      "unsupportedTitle": "Ikhodi QR engasekelwe",
+      "unsupportedBody": "Skena ukusethwa komgunyazi QR ikhodi enikezwe isevisi. Lokhu kufanele kube ikhodi TOTP, hhayi ikhodi yokungena evamile QR.",
+      "unsupportedDiagnostic": "Lokho QR akuyona TOTP ikhodi yokusetha. Khomba ekusethweni kwesiqinisekisi QR.",
+      "detectedDiagnostic": "QR kutholiwe. Iyahlaziya...",
+      "analyzing": "Ihlaziya QR ikhodi...",
+      "duplicateTitle": "I-akhawunti isivele yengeziwe",
+      "duplicateBody": "{issuer}: {account} isivele iku- KaalKey.",
+      "addedTitle": "I-akhawunti yengeziwe",
+      "addedBody": "{issuer}: {account} yengezwe ngempumelelo.",
+      "saveFailedDiagnostic": "Ayikwazanga ukulondoloza i-akhawunti. Ungakwazi ukuskena futhi.",
+      "invalidTitle": "Ikhodi QR engavumelekile",
+      "invalidBody": "KaalKey ayikwazanga ukuncozulula lesi siqinisekisi QR ikhodi. {detail}. Sebenzisa ikhodi yokusetha yesevisi TOTP QR ikhodi (imvamisa iqala ngokuthi {prefix}).",
+      "parseFailedDiagnostic": "QR ayikwazanga ukucutshungulwa. Khomba ekusetheni QR bese uzama futhi.",
+      "invalidUrlTitle": "Okungavumelekile TOTP URL",
+      "invalidUrlBody": "Namathisela ukufakazela ubuqiniso okuphelele URL kuqala ngo-{prefix}.",
+      "clipboardEmptyTitle": "Ibhodi lokunamathisela alinalutho",
+      "clipboardEmptyBody": "Kopisha i-{prefix} URL kuqala, bese ucindezela okuthi Namathisela TOTP URL.",
+      "clipboardErrorTitle": "Ayikwazanga ukufunda ibhodi lokunamathisela",
+      "clipboardErrorBody": "Kopisha ukusetha TOTP URL bese uyazama futhi."
+    },
+    "haptics": {
+      "saveFailedTitle": "Ayikwazanga ukulondoloza isilungiselelo",
+      "saveFailedBody": "Impendulo ye-Haptic ayikwazanga ukulondolozwa. Sicela uzame futhi."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Ayikwazanga ukulondoloza ukuvuma",
+      "saveFailedBody": "Sicela uzame futhi. Kufanele wamukele isaziso somthetho ngaphambi kokusebenzisa KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Kudingeka imvume yekhamera",
+      "body": "Vumela ukufinyelela kwekhamera ukuze iskene ukusethwa komgunyazi QR ikhodi."
+    },
+    "storage": {
+      "browserUnavailable": "Isitoreji sesiphequluli asitholakali.",
+      "browserFilePickerUnavailable": "Isikhi sefayela lesiphequluli asitholakali."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Ifayela elingasekelwe",
+      "unsupportedFileBody": "Khetha QR isithombe sekhodi esifana nokuthi PNG noma JPEG.",
+      "browserDecoderUnavailable": "Ukukhipha amakhodi kwesithombe sesiphequluli akutholakali",
+      "imageLoadFailed": "Isithombe asikwazanga ukulayishwa",
+      "unreadableDimensions": "Isithombe asinabo izilinganiso ezifundekayo",
+      "noQrCodeFoundTitle": "Ayikho ikhodi QR etholiwe",
+      "noQrCodeFoundBody": "KaalKey ayikwazanga ukukhipha ikhodi QR kulesi sithombe. Zama isithombe-skrini noma ukulungiswa okuphezulu PNG/JPEG.",
+      "couldNotReadImageTitle": "Ayikwazanga ukufunda isithombe",
+      "couldNotReadImageBody": "Zama isithombe esicacile PNG noma JPEG esiqukethe ukusethwa kwesiqinisekisi QR ikhodi.",
+      "couldNotOpenPickerTitle": "Ayikwazanga ukuvula isikhi sesithombe",
+      "couldNotOpenPickerBody": "Sicela uzame Ukulayisha QR futhi.",
+      "normalizedDecodeFailed": "Isithombe esijwayelekile asikwazanga ukukhishwa ikhodi",
+      "clipboardImageLoadFailed": "Isithombe sebhodi lokunamathisela asikwazanga ukulayishwa",
+      "imageProcessingUnavailable": "Ukucutshungulwa kwesithombe akutholakali",
+      "imageProcessingUnavailableAlt": "Ukucubungula isithombe akutholakali",
+      "noImageInClipboardTitle": "Asikho isithombe ebhodini lokunamathisela",
+      "noImageInClipboardBody": "Kopisha QR isithombe sekhodi, bese ucindezela Namathisela QR Isithombe futhi.",
+      "clipboardUnavailableTitle": "Ibhodi lokunamathisela alitholakali",
+      "clipboardUnavailableBody": "Umbhalo webhodi lokunamathisela awukona ukusethwa kwesiqinisekisi esivumelekile URL. Kopisha i-otpauth:// URL noma QR isithombe bese uyazama futhi.",
+      "clipboardAccessBody": "KaalKey ayikwazanga ukufunda umbhalo noma isithombe ebhodini lokunamathisela. Vumela ukufinyelela ebhodini lokunamathisela, bese ukopisha QR isithombe noma otpauth:// URL bese uthephe okuthi Namathisela QR Isithombe / URL futhi.",
+      "couldNotPasteImageTitle": "Ayikwazanga ukunamathisela isithombe",
+      "couldNotPasteImageBody": "Ukunamathisela isithombe akusekelwa yileli bhodi lokunamathisela kule divayisi. Sebenzisa ukungenisa QR isithombe esikhundleni salokho.",
+      "sourceImageDecodeFailure": "Zama isithombe esihlukile QR.",
+      "pastedImportFailureBody": "Zama isithombe esihlukile QR.",
+      "sourceImageReadFailure": "Zama ukukopisha isithombe-skrini esicacile QR.",
+      "importFailedTitle": "QR ukungeniswa kwesithombe kwehlulekile",
+      "importFailedBody": "KaalKey akakwazanga ukufunda leso sithombe. Sicela uzame esinye isithombe sekhodi QR.",
+      "notFoundBody": "Isithombe esikopishiwe asiqukethe ikhodi efundekayo QR.",
+      "pastedNotFoundBody": "Isithombe esinamathiselwe asiqukethe ikhodi efundekayo QR.",
+      "pastedReadFailureBody": "Zama ukukopisha isithombe esicacile PNG noma JPEG esiqukethe ikhodi egcwele QR.",
+      "noQrCodeTextBody": "KaalKey ukhiphe amakhodi isithombe esikhethiwe kodwa akazange athole ikhodi QR. Zama ukucaca, ukulungiswa okugcwele PNG noma JPEG ngekhodi yonke ebonakalayo."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Le khodi QR ayiyona ikhodi yokusetha yesiqinisekisi esisekelwe esikhathini.",
+      "missingAccountDetails": "Ikhodi QR ayinayo imininingwane ye-akhawunti.",
+      "unsupportedAlgorithm": "Ikhodi QR isebenzisa i-algorithm engasekelwe.",
+      "unsupportedDigits": "Le khodi QR kufanele isebenzise amadijithi ayi-6, 7, noma ayi-8.",
+      "unsupportedPeriod": "Le khodi QR isebenzisa isikhathi esingasekelwe.",
+      "invalidAccount": "Ikhodi QR ayikwazanga ukuqinisekiswa."
+    },
+    "backup": {
+      "invalidJson": "Ifayela eliyisipele alivumelekile JSON.",
+      "unsupportedFormat": "Lesi akusona isipele esibethelwe KaalKey esisekelwayo.",
+      "invalidPasswordOrDamaged": "Iphasiwedi eyisipele ayilungile noma ifayela eliyisipele lonakele.",
+      "invalidContents": "Okuqukethwe kwekhophi yasenqolobaneni akuvumelekile noma akuphelele.",
+      "secureRandomUnavailableDetailed": "Ukukhiqiza okungahleliwe okuvikelekile akutholakali. Yakha kabusha futhi ufake kabusha i-Android uhlelo lokusebenza nge-expo-crypto efakiwe, bese uyazama futhi.",
+      "invalidAccountDataForBackup": "I-akhawunti eyodwa noma ngaphezulu awavumelekile. Lungisa idatha ye-akhawunti ngaphambi kokudala ikhophi yasenqolobaneni.",
+      "invalidPasswordOrModified": "Iphasiwedi eyisipele ayilungile noma ifayela eliyisipele lishintshiwe.",
+      "invalidPasswordOrFileDamaged": "Iphasiwedi eyisipele ayilungile noma ifayela lonakele.",
+      "passwordCopiedTitle": "Iphasiwedi ikopishiwe",
+      "enterPasswordTitle": "Faka iphasiwedi yakho eyisipele",
+      "enterPasswordBody": "Faka igama eliyimfihlo elisetshenziswe uma lesi sipele sidalwa.",
+      "passwordCopiedBody": "Ilondoloze endaweni ephephile, njengokuthi WhatsApp.",
+      "copyFailedTitle": "Ukukopisha kwehlulekile",
+      "copyFailedBody": "Khetha bese ukopisha iphasiwedi mathupha.",
+      "generatingPassword": "Ikhiqiza iphasiwedi eyisipele evikelekile...",
+      "encrypting": "Ibhala isipele...",
+      "decrypting": "Isusa isipele...",
+      "restoring": "Ibuyisela ama-akhawunti...",
+      "backupCreatedTitle": "Isipele sidaliwe",
+      "restoreCompleteTitle": "Ukubuyisela kuqedile",
+      "mergeConfirmTitle": "Hlanganisa ama-akhawunti ayisipele?",
+      "mergeConfirmButton": "Hlanganisa ama-akhawunti",
+      "backupSavedTemporary": "Isipele esibethelwe silondolozwe okwesikhashana kokuthi:\n{uri}",
+      "generatePasswordErrorTitle": "Ayikwazanga ukukhiqiza iphasiwedi eyisipele",
+      "secureRandomUnavailable": "Ukukhiqiza okungahleliwe okuvikelekile akutholakali.",
+      "passwordUnavailableTitle": "Iphasiwedi eyisipele ayitholakali",
+      "passwordUnavailableBody": "Vala le ngxoxo bese udala ikhophi yasenqolobaneni entsha ukuze ukhiqize iphasiwedi evikelekile.",
+      "backupDownloadedBody": "Isipele sakho esibethelwe KaalKey silandiwe. Gcina ifayela nephasiwedi kuyimfihlo.",
+      "backupFailedTitle": "Ukwenza isipele kuhlulekile",
+      "backupCreateErrorBody": "KaalKey ayikwazanga ukudala ikhophi yasenqolobaneni.",
+      "restoreFailedTitle": "Ukubuyisela kuhlulekile",
+      "backupReadErrorBody": "Isipele asikwazanga ukufundwa noma ukulondolozwa.",
+      "browserDownloadUnsupported": "Isiphequluli sakho asikusekeli ukulanda amafayela ayisipele.",
+      "localFileUnavailable": "Indawo yefayela lendawo ayitholakali kule divayisi.",
+      "saveBackupTitle": "Londoloza isipele sakho esibethelwe KaalKey"
+    },
+    "clipboard": {
+      "copiedTitle": "Ikhodi ikopishiwe",
+      "copiedBody": "Ikhodi yakho yokuqinisekisa ikopishiwe.",
+      "errorTitle": "Iphutha",
+      "errorBody": "Ayikwazanga ukukopisha ikhodi yokuqinisekisa."
+    },
+    "activity": {
+      "cameraReady": "Ikhamera isilungile. Ikhombe kukhodi yokuqinisekisa QR.",
+      "readingQrImage": "Ukufunda QR isithombe...",
+      "importingQrImage": "Ingenisa QR isithombe...",
+      "importingAccount": "Ingenisa i-akhawunti yomgunyazi...",
+      "importingPastedImage": "Ingenisa isithombe esinamathiselwe QR…"
+    }
+  },
+  "activity": {
+    "working": "Iyasebenza",
+    "wait": "Sicela ulinde...",
+    "donTClose": "Sicela ungavali noma uhlanganyele ne-KaalKey.",
+    "loadingLanguages": "Ilayisha izilimi ezitholakalayo...",
+    "loadingTranslation": "Ilayisha ukuhumusha..."
+  }
+}

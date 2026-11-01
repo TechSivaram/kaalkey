@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Chiyankhulo",
+      "description": "Sankhani chinenero chogwiritsidwa ntchito mu KaalKey.",
+      "english": "Chingerezi",
+      "telugu": "Telugu",
+      "hindi": "Chihindi",
+      "section": "CHINENERO",
+      "searchLanguageName": "Sakani chilankhulo (dzina kapena khodi)",
+      "searchSupportedLanguages": "Sakani zilankhulo zothandizidwa",
+      "closeLanguageDropdown": "Tsekani kutsitsa kwachilankhulo",
+      "noTranslatedLanguage": "Palibe chilankhulo chomasuliridwa chomwe chapezeka.",
+      "serverUrl": "Seva yomasulira URL",
+      "serverUrlDescription": "KaalKey tsitsani mndandanda wa zinenero ndi zomasulira kuchokera pa seva iyi.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Sungani seva yomasulira"
+    },
+    "title": "Zokonda pa pulogalamu",
+    "eyebrow": "KAALKEY ZOkonda",
+    "experience": {
+      "section": "ZOCHITIKA"
+    },
+    "security": {
+      "section": "CHITETEZO"
+    },
+    "backup": {
+      "section": "BWINO NDI KUBWERETSA"
+    },
+    "danger": {
+      "section": "ZONE YOopsa",
+      "clearAccounts": "Chotsani maakaunti onse",
+      "clearAccountsDescription": "Chotsani akaunti ndi chinsinsi chilichonse pachidachi kwamuyaya. Bwezerani poyamba.",
+      "clearAccountsAccessibilityLabel": "Chotsani maakaunti onse otsimikizira"
+    },
+    "appearance": {
+      "section": "KUONEKERA",
+      "title": "Kuwala mawonekedwe",
+      "description": "KaalKey pakadali pano imagwiritsa ntchito mutu wake wowunikira."
+    },
+    "haptics": {
+      "title": "Ndemanga za Haptic",
+      "description": "Ndemanga zofatsa pamapopi ndi zochita zomalizidwa."
+    },
+    "deviceLock": {
+      "title": "Chokhoma chotsimikizira chipangizo",
+      "description": "Chipinda chanu chimatseka KaalKey chichoka kutsogolo.",
+      "requirement": "Pamafunika ma biometric a foni yanu kapena loko yotchinga PIN, pateni, kapena mawu achinsinsi.",
+      "accessibilityLabel": "Loko ya pulogalamu yotsimikizira chipangizo"
+    },
+    "privacy": {
+      "title": "Zamalamulo & zachinsinsi",
+      "description": "Unikaninso Zazinsinsi ndi Migwirizano Yogwiritsa Ntchito.",
+      "storageNote": "Zinsinsi zanu zotsimikizira zimakhalabe m'chipinda chotetezedwa pazida. Zokonda zimasungidwa kwanuko."
+    }
+  },
+  "accounts": {
+    "edit": "Sinthani",
+    "sortAccountName": "Sanjani ndi dzina la akaunti",
+    "loadingSecureVault": "Kutsegula chipinda chotetezedwa...",
+    "tapCopy": "ONANI KUTI MUKOPEZE",
+    "noAccountsMatch": "Palibe maakaunti ofanana ndi zomwe mumasaka.",
+    "viewQrCode": "Onani QR khodi ya akaunti",
+    "removeAccount": "Chotsani akaunti",
+    "copyVerificationCode": "Koperani khodi yotsimikizira",
+    "active": "ZOCHITIKA",
+    "sort": "KHALANI NDI",
+    "account": "Akaunti",
+    "clearSearch": "Chotsani kufufuza",
+    "sortServiceName": "Sanjani ndi dzina lautumiki",
+    "addFirstAccount": "Onjezani akaunti yanu yoyamba",
+    "searchAccounts": "Sakani maakaunti",
+    "searchServiceAccount": "Sakani ntchito kapena akaunti",
+    "accounts": "Maakaunti anu",
+    "add": "+ Onjezani",
+    "vaultStartsHere": "Chipinda chanu chiyambira pano",
+    "service": "Utumiki",
+    "emptyHint": "Onjezani akaunti pogwiritsa ntchito kiyi yachinsinsi kuti mupange khodi yanu yoyamba yotsimikizira."
+  },
+  "common": {
+    "done": "Zatheka",
+    "doneButton": "Zatheka",
+    "closeSettings": "Tsekani zokonda",
+    "separator": "-",
+    "article": "a",
+    "save": "Sungani",
+    "delete": "Chotsani",
+    "resizeAppBrand": "Sinthani kukula kwa mapulogalamu ndi mapanelo amtundu"
+  },
+  "qrImport": {
+    "readPastedImage": "Sitinathe kuwerenga chithunzi chonama"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Maakaunti mukusunga uku: {count}. KaalKey idzasunga maakaunti anu omwe alipo ndikuwonjezera maakaunti aliwonse omwe palibe. Maakaunti obwereza adzalumphidwa.",
+    "restoreCompletionBody": "Maakaunti owonjezera: {added}. Maakaunti obwereza adalumpha: {skipped}. Maakaunti anu omwe alipo adasungidwa.",
+    "copyPassword": "Lembani mawu achinsinsi opangidwa",
+    "passwordSafety": "Sungani mawu achinsinsiwa padera (mwachitsanzo, mu WhatsApp). Aliyense amene ali nawo",
+    "importAction": "Sankhani fayilo ndikulowetsa",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "VAULT YOTETEZA",
+    "createBackup": "Pangani zosunga zobwezeretsera",
+    "encryptedFile": "Fayilo yosungidwa",
+    "restoreBackup": "Bwezerani zosunga zobwezeretsera",
+    "safetyNote": "Zosunga zobwezeretsera zili ndi zinsinsi zanu zotsimikizira. KaalKey imapanga mawu achinsinsi osunga zobwezeretsera zilizonse. Zisungeni padera; KaalKey sangathe kuchipeza.",
+    "generatingSecurePassword": "Kupanga mawu achinsinsi otetezedwa…",
+    "importFile": "Lowetsani fayilo",
+    "backupPassword": "BWINO PASSWORD",
+    "account": "akaunti",
+    "accounts": "akaunti",
+    "exportDescription": "Lembani zonse {count} zosungidwa {accountLabel} mu fayilo yosunga zobwezeretsera. KaalKey imapanga mawu achinsinsi apadera; koperani ndikusunga mosiyana ndi fayilo.",
+    "restoreDescription": "Sankhani fayilo yanu ya KaalKey ndi mawu achinsinsi. Maakaunti atsopano adzawonjezedwa pamndandanda wamaakaunti omwe alipo; maakaunti omwe alipo adzakhala momwe alili.",
+    "enterBackupPassword": "Lowetsani mawu achinsinsi osunga zobwezeretsera",
+    "closeBackup": "Tsekani zosunga zobwezeretsera",
+    "copyGeneratedBackup": "Lembani mawu achinsinsi osunga zobwezeretsera",
+    "backupPassword2": "Sungani mawu achinsinsi",
+    "clearBackupPassword": "Chotsani mawu achinsinsi osunga zobwezeretsera",
+    "backupFilePassword": "zosunga zobwezeretsera ndi mawu achinsinsi zimatha kubwezeretsa maakaunti anu otsimikizira.",
+    "encryptShareBackup": "Encrypt ndi kugawana zosunga zobwezeretsera"
+  },
+  "home": {
+    "unlockSecurely": "Tsegulani motetezeka",
+    "disableAppLock": "Letsani loko ya pulogalamu",
+    "enableAppLock": "Yambitsani loko ya pulogalamu",
+    "checkingSecureLock": "Kuyang'ana makonda anu otetezedwa ndi loko. Ma code anu amakhala obisika.",
+    "waitingVerification": "Tikuyembekezera kutsimikizira…",
+    "secretsStayStored": "Zinsinsi zanu zimasungidwa pachidachi.",
+    "openAppSettings": "Tsegulani zoikamo za pulogalamu",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "Gwiritsani ntchito ma biometric a foni yanu kapena loko yotchinga PIN, pateni, kapena mawu achinsinsi kuti mupeze makhodi otsimikizira kamodzi kokha.",
+    "localVault": "NDALAMA YAKO KWAKO",
+    "codesDeviceControl": "Zizindikiro zanu. Chipangizo chanu. Kulamulira kwanu.",
+    "securingVault": "Kuteteza chipinda chanu ...",
+    "vaultProtected": "Chipinda chanu chatetezedwa",
+    "lock": "TSEKANI",
+    "localVault2": "VAULT YA M'MALO",
+    "authenticator": "KAALKEY WOYERA",
+    "tricolourLockEmblem": "KaalKey chizindikiro cha loko ya tricolor",
+    "authenticator2": "AUTHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Ngati mungasankhe kusanthula QR khodi, KaalKey amagwiritsa ntchito chilolezo cha kamera kuchitapo kanthu. Kutsimikizira kwa chipangizo komwe mungafune komanso mayankho a haptic amagwiritsa ntchito zida zoyenera. Mutha kukonza zilolezo pazokonda pachipangizo chanu.",
+        "heading": "2. Zilolezo ndi mawonekedwe a chipangizo"
+      },
+      "backups": {
+        "body": "Mukapanga zosunga zobwezeretsera, KaalKey imasunga zosunga zobwezeretsera pogwiritsa ntchito mawu achinsinsi omwe mwasankha. Sungani zonse fayilo ndi mawu achinsinsi mwachinsinsi ndikuzisunga motetezeka. Aliyense amene apeza fayiloyo ndi mawu achinsinsi ake atha kubwezeretsa maakaunti anu otsimikizira. KaalKey sangathe kubweza mawu achinsinsi okumbukira omwe wayiwala.",
+        "heading": "3. Zosunga zobwezeretsera"
+      },
+      "security": {
+        "body": "Sungani chipangizo chanu kuti chizisinthidwa, chitetezeni ndi loko yotchinga, ndipo musagawire OTP zinsinsi kapena mawu achinsinsi osunga zobwezeretsera. Kuchotsa pulogalamuyi, kuchotsa deta yake, kapena kutaya chipangizochi kungapangitse maakaunti osungidwa kwanuko kusapezeka. Sungani zosunga zobwezeretsera zotetezedwa ngati mukufuna kuchira.",
+        "heading": "5. Chitetezo ndi kusunga"
+      },
+      "information": {
+        "heading": "1. Zambiri ndi zinsinsi",
+        "body": "KaalKey ndi pulogalamu yotsimikizira. Zolemba zamaakaunti ndi zinsinsi zofunika kuti mupange ma code anthawi imodzi ndizovuta. Pulogalamuyi idapangidwa kuti isunge zolemba za akaunti muchitetezo chotetezedwa cha chipangizocho. Aliyense amene ali ndi mwayi wopeza chida chosakiyidwa kapena zosunga zobwezeretsera zomwe zatumizidwa kunja atha kupeza zidziwitso zachinsinsi."
+      },
+      "sharing": {
+        "heading": "4. Kugawana ndi anthu ena",
+        "body": "Kusunga zosunga zobwezeretsera kutha kugwiritsa ntchito shiti kapena chosankha mafayilo cha chipangizo chanu kusunga, kusamutsa, kapena kusankha mafayilo. Zinsinsi za pulogalamu iliyonse yapagulu kapena ntchito zomwe mumasankha zimayendetsedwa ndi omwe amapereka. Chidziwitsochi sichimanena kuti chipangizo chanu, makina ogwiritsira ntchito, kapena ntchito zogawana zomwe mwasankha sizimagwiritsa ntchito deta."
+      },
+      "changes": {
+        "heading": "6. Kusintha ndi kukhudzana",
+        "body": "Chidziwitso chophatikizidwachi chikhoza kukonzedwanso mu pulogalamu yamtsogolo. Pamafunso achinsinsi, funsani wosindikiza pulogalamuyi kudzera pa njira yovomerezeka yoperekedwa ndi pulogalamuyi."
+      },
+      "title": "Mfundo Zazinsinsi"
+    },
+    "terms": {
+      "use": {
+        "body": "Mutha kugwiritsa ntchito KaalKey kupanga makhodi otsimikizira zamaakaunti omwe mwaloledwa kuwapeza. Muli ndi udindo wotsatira malamulo ogwiritsiridwa ntchito ndi malamulo a ntchito zomwe mumagwiritsira ntchito zizindikiro zotsimikizira.",
+        "heading": "1. Kugwiritsa ntchito kwanu"
+      },
+      "protectAccounts": {
+        "body": "Muli ndi udindo woteteza chipangizo chanu, zinsinsi zotsimikizira, njira zochira, zosunga zobwezeretsera kunja, ndi mawu achinsinsi osunga. Osagawana ma code kapena zinsinsi ndi anthu omwe simukuwakhulupirira.",
+        "heading": "2. Tetezani maakaunti anu"
+      },
+      "availability": {
+        "body": "Zinthu zitha kusintha pakati pa zotulutsidwa. Muyenera kusunga pulogalamuyo ndikutsimikizira nthawi ndi nthawi kuti zosunga zobwezeretsera zanu ndi kuchira zikugwira ntchito.",
+        "heading": "5. Kusintha ndi kupezeka"
+      },
+      "recovery": {
+        "body": "KaalKey sangatsimikize kuti akaunti iliyonse ikhoza kubwezedwanso, kuti QR khodi kapena masinthidwe azigwirizana, kapena kuti pulogalamuyi igwira ntchito popanda kusokonezedwa kapena cholakwika. Sungani njira zina zobwezeretsa zoperekedwa ndi ntchito yoyenera.",
+        "heading": "3. Palibe chitsimikizo chobwezeretsa"
+      },
+      "advice": {
+        "heading": "4. Palibe upangiri wa akatswiri",
+        "body": "Pulogalamuyi ndi yothandiza ndipo sipereka upangiri pazochitika zazamalamulo, zachuma, kapena zachitetezo. Ngati akaunti ili pachiwopsezo, tsatirani chitsogozo chachitetezo cha omwe akhudzidwawo komanso chitetezo."
+      },
+      "liability": {
+        "heading": "6. Udindo ndi lamulo logwira ntchito",
+        "body": "Kutengera momwe malamulo ogwiritsidwira ntchito amavomerezera, pulogalamuyi imaperekedwa popanda chitsimikizo kuti ikugwira ntchito mosadodometsedwa kapena yopanda zolakwika. Palibe chilichonse m'mawu awa chopatula ufulu kapena zithandizo zomwe sizingapatsidwe mwalamulo. Zoletsa zina zilizonse kapena mawu olamulira akuyenera kuwunikiridwa ndi loya woyenerera kuti akhale ndi mphamvu yosindikiza asanatulutsidwe."
+      },
+      "title": "Kagwiritsidwe Ntchito"
+    },
+    "version": "Baibulo",
+    "saving": "Kusunga...",
+    "acceptContinue": "Landirani & Pitirizani",
+    "appliesAuthenticator": "Ikugwira ntchito ku KaalKey Wotsimikizira",
+    "reviewBothDocuments": "Chonde onaninso zolemba zonse ziwiri musanagwiritse ntchito KaalKey. Amaphatikizidwa mu pulogalamuyi ndipo amapezeka popanda intaneti.",
+    "originalMulticolourAuthenticator": "Chizindikiro choyambirira cha multicolour KaalKey chotsimikizira",
+    "legalPrivacyNotice": "Chidziwitso chazamalamulo & Zazinsinsi",
+    "legalInformation": "Zambiri zamalamulo",
+    "reviewSPrivacy": "Onaninso KaalKey zambiri zachinsinsi ndi kagwiritsidwe ntchito kake.",
+    "iReadAgree": "Ndawerenga ndikuvomereza Mfundo Zazinsinsi ndi Migwirizano Yogwiritsa Ntchito."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Sungani nambala yonse ya QR ikuwoneka. Chinsinsi chanu chimakhala pachida ichi.",
+    "back": "Kubwerera",
+    "turnFlashlightOff": "Zimitsani tochi",
+    "turnFlashlight": "Yatsani tochi",
+    "flashlight": "Tochi yayatsidwa",
+    "flashlight2": "Tochi",
+    "cameraUnavailableOpen": "Kamera palibe. Tsegulani tsambali pa HTTPS kapena localhost ndi kulola kugwiritsa ntchito kamera.",
+    "cameraPreviewUnavailable": "Kuwoneratu kwa kamera sikukupezeka. Tsekani ndikutsegulanso sikani.",
+    "cameraReadyPoint": "Kamera yakonzeka - ilozeni pa code QR yonse.",
+    "browserCannotProcess": "Msakatuliyu sangathe kukonza mafelemu a kamera.",
+    "qrCodeDetected": "QR kodi yapezeka.",
+    "couldnTRead": "Sitinathe kuwerenga mafelemu a kamera. Onani zilolezo za kamera ndikutsegulanso tsambali.",
+    "cameraPermissionDenied": "Chilolezo cha kamera chatsutsidwa. Lolani kuti kamera ilowe muzokonda pa browser, kenako mutsegulenso sikani.",
+    "noCameraWas": "Palibe kamera yomwe yapezeka pachidachi.",
+    "cameraBusyAnother": "Kamera ili yotanganidwa mu pulogalamu ina kapena tabu ya msakatuli.",
+    "startCameraHttps": "Sizinathe kuyambitsa kamera. Gwiritsani ntchito HTTPS kapena localhost ndikuwona zilolezo za msakatuli.",
+    "qrScannerCamera": "QR chithunzithunzi cha kamera ya scanner",
+    "cameraUnavailableCheck": "Kamera palibe. Onani chilolezo cha kamera ndikuyesanso.",
+    "pointCameraAuthenticator": "Lozani kamera yanu pamakhodi otsimikizira QR kuchokera ku ntchito yomwe mukuwonjezera.",
+    "backAddAccount": "Bwererani kuti muwonjezere akaunti",
+    "secureSetup": "KUSINTHA KWAMBIRI",
+    "enterDetailsManually": "Lowetsani zambiri pamanja m'malo mwake"
+  },
+  "accountForm": {
+    "hideManualEntry": "Bisani zolemba pamanja",
+    "secretKeySupplied": "Gwiritsani ntchito kiyi yachinsinsi yoperekedwa ndi ntchito yomwe mukuikonza. Osalowetsapo mawu achinsinsi a akaunti yanu pano. Fananizani ma aligorivimu, kuchuluka kwa manambala, ndi kagawo kakang'ono ku malangizo oyendetsera ntchito.",
+    "updateServiceAccount": "Sinthani sevisi, dzina la akaunti, kapena kiyi yachinsinsi.",
+    "secretKeyRead": "Chinsinsi chachinsinsi, chowerengera pokha pokonza",
+    "secretKeyBase32": "Chinsinsi chachinsinsi mu Base32",
+    "digits": "manambala",
+    "seconds": "masekondi",
+    "enterDetailsManually": "KAPENA LOWANI ZAMBIRI PABWINO",
+    "enterDetailsManually2": "Lowetsani zambiri pamanja",
+    "serviceAccountName": "Service, dzina la akaunti ndi kiyi yachinsinsi",
+    "saveChangesSecurely": "Sungani zosintha mosamala",
+    "saveAccountSecurely": "Sungani akaunti mosamala",
+    "serviceIssuer": "Service kapena wopereka",
+    "accountName": "Dzina laakaunti",
+    "secretKey": "Chinsinsi chachinsinsi",
+    "serviceIssuer2": "SERVICE / ISSUER",
+    "eGGoogle": "mwachitsanzo Google",
+    "clearServiceIssuer": "Chotsani ntchito kapena wopereka",
+    "eGExample": "mwachitsanzo inu@example.com",
+    "clearAccountName": "Chotsani dzina la akaunti",
+    "secretKeyLocked": "CHINSINSI KHIYI (CHOKHIDWA)",
+    "secretKeyBase322": "CHINSINSI KHIYI (BASE32)",
+    "enterSetupKey": "Lowetsani kiyi yanu yokhazikitsira",
+    "clearSecretKey": "Chotsani chinsinsi chachinsinsi",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP DIGITS",
+    "refreshIntervalSeconds": "NTHAWI YOPHUNZITSIRA (SEKONDI)",
+    "otpRefreshInterval": "OTP nthawi yotsitsimutsa mumasekondi",
+    "closeAccountForm": "Tsekani fomu ya akaunti",
+    "totpSetupUrl": "TOTP kukhazikitsa URL",
+    "importSetupUrl": "Kukhazikitsa URL",
+    "totpSetupUrl2": "TOTP KUKHALA URL",
+    "accountName2": "AKAUNTI DZINA",
+    "addAccount": "Onjezani akaunti"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Jambulani chotsimikizika QR kodi",
+    "setupGuidance": "Jambulani khodi ya QR kuti mukhazikitse kosavuta, kapena lembani zambiri pamanja.",
+    "cameraAddAccount": "Gwiritsani ntchito kamera yanu kuti muwonjezere akaunti nthawi yomweyo",
+    "scanQrCode2": "Jambulani QR kodi",
+    "uploadQrImage": "Kwezani QR chithunzi",
+    "chooseQrScreenshot": "Sankhani QR chithunzithunzi kuchokera mu Gallery, Photos, kapena Files",
+    "pasteQr": "Matani QR chithunzi / URL",
+    "pasteCopiedQr": "Matani chithunzi chojambulidwa QR chithunzi kapena kukhazikitsidwa kotsimikizira URL",
+    "uploadQrImage2": "Kwezani QR chithunzi"
+  },
+  "accountQr": {
+    "close": "Tsekani",
+    "accountQrCode": "Akaunti QR kodi",
+    "revealQrCode": "Vumbulutsani QR kodi",
+    "exportWarning": "Chenjezo: aliyense amene angayang'ane kachidindo iyi QR akhoza kupanga makhodi otsimikizira a akauntiyi. Ingowululani pa zenera lodalirika.",
+    "privacyHint": "Sungani code iyi QR mwachinsinsi. Kusanthula kumakopera chinsinsi chotsimikizira akauntiyo."
+  },
+  "productInfo": {
+    "backupRestore": "Kusunga & kubwezeretsa",
+    "backupRestoreDescription": "Sungani zosunga zobwezeretsera zanu ndikuzibwezeretsa mukasamukira ku chipangizo china.",
+    "privacyDescription": "Sungani maakaunti anu otsimikizira pamalo amodzi. Gwiritsani ntchito zosunga zobwezeretsera za pulogalamuyo, zobwezeretsa, ndi zotsekera pachipangizo kuti mukonzere kukhazikitsidwa kwanu moyenera.",
+    "timeBasedCodes": "Zizindikiro za nthawi",
+    "generateOneTimeCodes": "Pangani ma passcode anthawi imodzi kuti mumalize kutsimikizira masitepe awiri.",
+    "quickAccountSetup": "Kukhazikitsa mwachangu akaunti",
+    "quickSetupDescription": "Jambulani kachidindo QR kapena lowetsani chithunzi cha QR kuti muwonjezere akaunti.",
+    "accountsOnePlace": "Maakaunti pamalo amodzi",
+    "accountsInOnePlaceDescription": "Sungani maakaunti anu osungidwa pamodzi ndikupeza zolowera yoyenera ikafika nthawi yolowa.",
+    "privateAccountVault": "Akaunti yachinsinsi",
+    "privateVaultDescription": "Konzani zolemba zanu zotsimikizira kwanu kwanuko ndikugwiritsa ntchito njira yotsekera yomwe ilipo ya pulogalamuyo.",
+    "easyCodeAccess": "Kupeza ma code mosavuta",
+    "easyCodeAccessDescription": "Lembani kachidindo kameneka kapena sungani zambiri za akaunti yanu pogwiritsa ntchito mawonekedwe oyera, olunjika.",
+    "authenticatorTechsivaram": "WOKHULUPIRIKA · NDI TECHSIVARAM",
+    "mobileAuthenticator": "MOBILE AUTHENTICATOR",
+    "tagline": "Njira yosavuta yosinthira kutsimikizira kwanu kwapawiri.",
+    "heroDescription": "Chidziwitso chokhazikika pamakhodi otsimikizira malinga ndi nthawi. Sungani makhodi aakaunti ogwirizana ali pafupi ndi KaalKey ya Android.",
+    "timeBasedCodes2": "MAKODI OGWIRITSA NTCHITO",
+    "privateDesign": "PRIVATE BY DESIGN",
+    "builtSimpleAuthenticator": "ANAPANGIDWA KUTI MUZIGWIRITSA NTCHITO ZOGWIRITSA NTCHITO",
+    "qrSetupTimed": "QR KUSINTHA · MAKODI WONTHAWIDWA TIMED MANAGEMENT",
+    "privacyTitle": "Maakaunti anu. Zizindikiro zanu. Kulamulira kwanu.",
+    "authenticator": "KAALKEY · WOYERA",
+    "brandBanner": "KaalKey chizindikiro",
+    "logo": "KaalKey chizindikiro"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Letsani",
+      "storageInvalidTitle": "Zosungira ndizolakwika",
+      "storageInvalidBody": "Zomwe zasungidwa muakaunti sizinawerengedwe bwino.",
+      "storageErrorTitle": "Cholakwika posungira",
+      "storageErrorBody": "Maakaunti osungidwa sanathe kukwezedwa.",
+      "missingTitle": "Zosowa",
+      "missingEditingBody": "Lowetsani dzina lautumiki ndi dzina la akaunti.",
+      "missingBody": "Lowetsani dzina lautumiki, dzina la akaunti, ndi kiyi yachinsinsi.",
+      "invalidOtpBody": "Onani Base32 chinsinsi, aligorivimu, kuwerengera manambala, ndi nthawi yotsitsimutsa. Zinsinsi ziyenera kukhala ndi zilembo Base32 zovomerezeka; manambala ayenera kukhala {digits} ndipo nthawi iyenera kukhala {minPeriod}–{maxPeriod} masekondi.",
+      "duplicateBody": "Akaunti yokhala ndi ntchitoyi komanso dzina la akaunti yasungidwa kale.",
+      "updatedBody": "Akaunti yanu idasinthidwa.",
+      "addedBody": "Akaunti yanu idawonjezedwa bwino.",
+      "invalidOtpTitle": "Zokonda OTP zosavomerezeka",
+      "duplicateTitle": "Akaunti ilipo kale",
+      "savedTitle": "Akaunti yasungidwa",
+      "invalidSecretTitle": "Kiyi yachinsinsi yolakwika",
+      "invalidSecretBody": "Chonde onani kuti mwalemba Base32 chinsinsi chovomerezeka.",
+      "removedTitle": "Akaunti yachotsedwa",
+      "removedBody": "Akaunti ndi chinsinsi chake zidachotsedwa pachidachi.",
+      "clearedTitle": "Maakaunti achotsedwa",
+      "clearedBody": "Maakaunti onse otsimikizira ndi zinsinsi zidachotsedwa pachidachi.",
+      "someSavedAccountsNeedAttentionTitle": "Maakaunti ena osungidwa amafunikira chisamaliro",
+      "someSavedAccountsNeedAttentionBody": "{count} mbiri yolakwika ya akaunti sinakwezedwe. Maakaunti ovomerezeka akupezekabe. Lingalirani kupanga zosunga zobwezeretsera musanasinthe zina.",
+      "removeConfirmTitle": "Chotsani akaunti?",
+      "removeConfirmWebTitle": "Chotsani akaunti?",
+      "removeButton": "Chotsani",
+      "clearButton": "Chotsani zonse",
+      "clearConfirmTitle": "Chotsani maakaunti onse?",
+      "saveErrorBody": "Maakaunti sanathe kusungidwa. Yang'anani kupezeka kwa malo osungira msakatuli ndikuyesanso.",
+      "notFoundTitle": "Akaunti sinapezeke",
+      "notFoundBody": "Akauntiyi sinapezeke. Tsekani mkonzi ndikuyesanso.",
+      "removeConfirmBody": "Izi zimachotsa akaunti ndi chinsinsi chake pachidachi.",
+      "clearConfirmBody": "Izi zimachotsa maakaunti onse otsimikizira ndi zinsinsi zake pachidachi. Pangani zosunga zobwezeretsera kaye ngati mungafune maakaunti awa pambuyo pake.",
+      "clearConfirmUndoBody": "Izi sizingasinthidwe."
+    },
+    "biometric": {
+      "cancelButton": "Letsani",
+      "saveErrorTitle": "Sitinathe kusunga zochunira",
+      "unlockPrompt": "Tsegulani KaalKey Wotsimikizira",
+      "promptSubtitle": "Gwiritsani ntchito ma biometric kapena loko yotchingira chipangizo chanu",
+      "disableConfirmPrompt": "Tsimikizirani kuti muzimitse KaalKey loko ya pulogalamu",
+      "enablePrompt": "Yambitsani loko ya pulogalamu ya KaalKey",
+      "deviceLockTitle": "Khazikitsani loko yotchinga pachipangizo chanu",
+      "deviceLockBody": "KaalKey imagwiritsa ntchito kutsimikizira komwe kumapangidwa ndi foni yanu. Khazikitsani chipangizo PIN, pateni, kapena mawu achinsinsi pa zochunira zachitetezo cha foni yanu, kenako yesaninso. Biometrics ndizosankha.",
+      "unavailableTitle": "Chidziwitso cha chipangizo sichikupezeka",
+      "unavailableBody": "Foni yanu sinathe kuyambitsa kutsimikizira kotetezedwa. Onetsetsani kuti loko yotchinga yakhazikitsidwa, kenako yesaninso.",
+      "lockedTitle": "Kutsimikizira kudatsekedwa kwakanthawi",
+      "lockedBody": "Foni yanu yayimitsa kwakanthawi kutsimikizira mutayesa kangapo. Dikirani ndikuyesanso.",
+      "promptErrorTitle": "Kutsimikizira sikukupezeka",
+      "promptErrorBody": "KaalKey sinathe kuyambitsa chidziwitso chotetezedwa cha foni. Chonde yesaninso.",
+      "webLock": "Chokhoma chotsimikizira chipangizocho sichikupezeka mumtundu wa intaneti. Malo ochezera a pa intaneti amakhala osatsegulidwa; gwiritsani ntchito pulogalamu ya Android potsimikizira zida zakomweko.",
+      "disabledTitle": "Kutseka kwa pulogalamu kwayimitsidwa",
+      "disabledBody": "KaalKey loko ya pulogalamu yazimitsidwa.",
+      "disableSaveError": "Kutseka kwa pulogalamu kumakhalabe kuyatsa. Chonde yesaninso.",
+      "enabledTitle": "Kutseka kwa pulogalamu ndikoyatsidwa",
+      "enabledBody": "KaalKey idzapempha kuti foni yanu ikhale yotsimikizika yokhazikika ikatsegulidwa komanso mukabwerera.",
+      "enableSaveError": "Kutseka kwa pulogalamu sikunathe kuyatsidwa. Chonde yesaninso."
+    },
+    "qr": {
+      "startingCamera": "Kuyambitsa kamera…",
+      "unsupportedTitle": "Khodi QR yosachirikizidwa",
+      "unsupportedBody": "Jambulani kachidindo kotsimikizira QR kachidindo koperekedwa ndi sevisi. Ili liyenera kukhala TOTP khodi, osati lolowera mwachizolowezi QR.",
+      "unsupportedDiagnostic": "Kuti QR si code TOTP yokhazikitsira. Yesani kukhazikitsa zotsimikizira QR.",
+      "detectedDiagnostic": "QR wapezeka. Kusanthula…",
+      "analyzing": "Kusanthula QR kodi…",
+      "duplicateTitle": "Akaunti yawonjezedwa kale",
+      "duplicateBody": "{issuer}: {account} ili kale mu KaalKey.",
+      "addedTitle": "Akaunti yawonjezedwa",
+      "addedBody": "{issuer}: {account} idawonjezedwa bwino.",
+      "saveFailedDiagnostic": "Sitinathe kusunga akaunti. Mutha kupanga sikaninso.",
+      "invalidTitle": "kodi QR ndi yosavomerezeka",
+      "invalidBody": "KaalKey sinathe kufotokoza chotsimikizira ichi QR khodi. {detail}. Gwiritsani ntchito code ya TOTP QR (nthawi zambiri imayamba ndi {prefix}).",
+      "parseFailedDiagnostic": "QR sinathe kusinthidwa. Yang'anani pakukhazikitsa QR ndikuyesanso.",
+      "invalidUrlTitle": "Zosavomerezeka TOTP URL",
+      "invalidUrlBody": "Matani chotsimikizira chathunthu URL kuyambira ndi {prefix}.",
+      "clipboardEmptyTitle": "Clipboard ilibe kanthu",
+      "clipboardEmptyBody": "Koperani {prefix} URL kaye, kenako dinani Ikani TOTP URL.",
+      "clipboardErrorTitle": "Sitinathe kuwerenga bolodi",
+      "clipboardErrorBody": "Koperani TOTP kukhazikitsa URL ndikuyesanso."
+    },
+    "haptics": {
+      "saveFailedTitle": "Sitinathe kusunga zochunira",
+      "saveFailedBody": "Zokonda za Haptic sizinasungidwe. Chonde yesaninso."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Sizinathe kusunga kuvomereza",
+      "saveFailedBody": "Chonde yesaninso. Muyenera kulandira chidziwitso chalamulo musanagwiritse ntchito KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Chilolezo cha kamera ndichofunika",
+      "body": "Lolani mwayi wa kamera kuti isanthule khodi yotsimikizira QR."
+    },
+    "storage": {
+      "browserUnavailable": "Malo osungira osatsegula palibe.",
+      "browserFilePickerUnavailable": "Chosankha mafayilo osatsegula sichikupezeka."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Fayilo yosagwirizana",
+      "unsupportedFileBody": "Sankhani QR chithunzi cha code monga PNG kapena JPEG.",
+      "browserDecoderUnavailable": "Kujambula zithunzi za msakatuli sikukupezeka",
+      "imageLoadFailed": "Chithunzi sichinathe kukwezedwa",
+      "unreadableDimensions": "Chithunzi chilibe miyeso yowerengeka",
+      "noQrCodeFoundTitle": "Palibe QR kodi yapezeka",
+      "noQrCodeFoundBody": "KaalKey sinathe kudziwa nambala ya QR pachithunzichi. Yesani chithunzi cha skrini kapena chosankha chapamwamba PNG/JPEG.",
+      "couldNotReadImageTitle": "Sindinathe kuwerenga chithunzi",
+      "couldNotReadImageBody": "Yesani PNG kapena JPEG chithunzi chomwe chili ndi code yotsimikizira QR.",
+      "couldNotOpenPickerTitle": "Sitinathe kutsegula chosankha zithunzi",
+      "couldNotOpenPickerBody": "Chonde yesaninso Kukweza QR kachiwiri.",
+      "normalizedDecodeFailed": "Chithunzi chokhazikika sichinasinthidwe",
+      "clipboardImageLoadFailed": "Chithunzi chojambulidwa sichinathe kukwezedwa",
+      "imageProcessingUnavailable": "Kukonza zithunzi sikukupezeka",
+      "imageProcessingUnavailableAlt": "Kukonza zithunzi sikukupezeka",
+      "noImageInClipboardTitle": "Palibe chithunzi pa clipboard",
+      "noImageInClipboardBody": "Koperani QR chithunzi, kenako dinani Ikani QR Chithunzi kachiwiri.",
+      "clipboardUnavailableTitle": "Clipboard palibe",
+      "clipboardUnavailableBody": "Mawu a Clipboard si njira yovomerezeka yotsimikizira URL. Koperani otpauth:// URL kapena QR chithunzi ndikuyesanso.",
+      "clipboardAccessBody": "KaalKey sanathe kuwerenga mawu kapena chithunzi kuchokera pa bolodi. Lolani mwayi wofikira pa bolodi lojambulidwa, kenako koperani QR chithunzi kapena otpauth:// URL ndikudina Ikani QR Image / URL kachiwiri.",
+      "couldNotPasteImageTitle": "Sitinathe kuyika chithunzi",
+      "couldNotPasteImageBody": "Kuyika zithunzi sikutheka ndi bolodi lokopa pachipangizochi. Gwiritsani ntchito chithunzi cha Import QR m'malo mwake.",
+      "sourceImageDecodeFailure": "Yesani chithunzi china QR.",
+      "pastedImportFailureBody": "Yesani QR chithunzi china.",
+      "sourceImageReadFailure": "Yesani kutengera chithunzi chomveka bwino QR.",
+      "importFailedTitle": "QR kulowetsa chithunzi kwalephera",
+      "importFailedBody": "KaalKey sanathe kuwerenga chithunzichi. Chonde yesani QR chithunzi cha code.",
+      "notFoundBody": "Chithunzi chomwe chakopedwa chilibe code yowerengeka QR.",
+      "pastedNotFoundBody": "Chithunzi chopachikidwa chilibe code yowerengeka QR.",
+      "pastedReadFailureBody": "Yesani kukopera PNG kapena JPEG chithunzi chokhala ndi code QR yomveka.",
+      "noQrCodeTextBody": "KaalKey adasindikiza chithunzi chomwe chasankhidwa koma sanapeze QR khodi. Yesani PNG kapena JPEG ndi khodi yonse yowonekera."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Khodi iyi QR simayimidwe otsimikizira otengera nthawi.",
+      "missingAccountDetails": "Khodi ya QR ilibe zambiri za akaunti.",
+      "unsupportedAlgorithm": "Khodi ya QR imagwiritsa ntchito algorithm yosagwirizana.",
+      "unsupportedDigits": "Khodi iyi QR iyenera kugwiritsa ntchito manambala 6, 7, kapena 8.",
+      "unsupportedPeriod": "Khodi iyi QR imagwiritsa ntchito nthawi yosagwirizana.",
+      "invalidAccount": "Khodi ya QR sinathe kutsimikiziridwa."
+    },
+    "backup": {
+      "invalidJson": "Fayilo yosunga zobwezeretsera siyolondola JSON.",
+      "unsupportedFormat": "Izi sizothandiza KaalKey zosunga zobwezeretsera.",
+      "invalidPasswordOrDamaged": "Kusunga mawu achinsinsi ndikolakwika kapena fayilo yosunga zobwezeretsera yawonongeka.",
+      "invalidContents": "Zomwe zili zosunga zobwezeretsera ndizolakwika kapena sizili bwino.",
+      "secureRandomUnavailableDetailed": "Kupanga mwachisawawa sikukupezeka. Manganinso ndikuyikanso pulogalamu ya Android ndikuphatikiza expo-crypto, ndikuyesanso.",
+      "invalidAccountDataForBackup": "Akaunti imodzi kapena zingapo ndizolakwika. Konzani deta ya akaunti musanapange zosunga zobwezeretsera.",
+      "invalidPasswordOrModified": "Kusunga mawu achinsinsi ndikolakwika kapena fayilo yosunga zobwezeretsera yasinthidwa.",
+      "invalidPasswordOrFileDamaged": "Kusunga mawu achinsinsi ndikolakwika kapena fayilo yawonongeka.",
+      "passwordCopiedTitle": "Mawu achinsinsi akopera",
+      "enterPasswordTitle": "Lowetsani mawu achinsinsi anu osunga zobwezeretsera",
+      "enterPasswordBody": "Lowetsani mawu achinsinsi omwe anagwiritsidwa ntchito pamene zosunga zobwezeretserazi zidapangidwa.",
+      "passwordCopiedBody": "Isungeni kwinakwake kotetezeka, monga WhatsApp.",
+      "copyFailedTitle": "Kukopera kwalephera",
+      "copyFailedBody": "Sankhani ndi kukopera achinsinsi pamanja.",
+      "generatingPassword": "Kupanga mawu achinsinsi osunga zobwezeretsera…",
+      "encrypting": "Ikubisa zosunga zobwezeretsera…",
+      "decrypting": "Ikuchepetsa zosunga zobwezeretsera…",
+      "restoring": "Kubwezeretsa maakaunti…",
+      "backupCreatedTitle": "Zosunga zobwezeretsera zidapangidwa",
+      "restoreCompleteTitle": "Kubwezeretsa kwathunthu",
+      "mergeConfirmTitle": "Gwirizanitsani maakaunti osunga zobwezeretsera?",
+      "mergeConfirmButton": "Phatikizani maakaunti",
+      "backupSavedTemporary": "Zosunga zobisika zasungidwa kwakanthawi pa:\n{uri}",
+      "generatePasswordErrorTitle": "Sitinathe kupanga mawu achinsinsi osunga zobwezeretsera",
+      "secureRandomUnavailable": "Kupanga mwachisawawa sikukupezeka.",
+      "passwordUnavailableTitle": "mawu achinsinsi osungira palibe",
+      "passwordUnavailableBody": "Tsekani zokambiranazi ndikupanga zosunga zobwezeretsera zatsopano kuti mupange mawu achinsinsi otetezedwa.",
+      "backupDownloadedBody": "Kusunga kwanu kosungidwa KaalKey kwatsitsidwa. Sungani fayilo ndi mawu achinsinsi mwachinsinsi.",
+      "backupFailedTitle": "Kusunga zosunga zobwezeretsera kwalephera",
+      "backupCreateErrorBody": "KaalKey sinathe kupanga zosunga zobwezeretsera.",
+      "restoreFailedTitle": "Kubwezeretsa kwalephera",
+      "backupReadErrorBody": "Kusungirako sikunathe kuwerengedwa kapena kusungidwa.",
+      "browserDownloadUnsupported": "Msakatuli wanu salola kutsitsa mafayilo osunga zobwezeretsera.",
+      "localFileUnavailable": "Fayilo yapafupi palibe pa chipangizochi.",
+      "saveBackupTitle": "Sungani zosunga zobwezeretsera zanu KaalKey"
+    },
+    "clipboard": {
+      "copiedTitle": "Khodi yakopedwa",
+      "copiedBody": "Khodi yanu yotsimikizira yakoperedwa.",
+      "errorTitle": "Cholakwika",
+      "errorBody": "Sitinathe kukopera khodi yotsimikizira."
+    },
+    "activity": {
+      "cameraReady": "Kamera yakonzeka. Ilozeni pa code yotsimikizira QR.",
+      "readingQrImage": "Kuwerenga QR chithunzi…",
+      "importingQrImage": "Kuitanitsa QR chithunzi...",
+      "importingAccount": "Mukulowetsa akaunti yotsimikizira…",
+      "importingPastedImage": "Mumalowetsa QR chithunzi…"
+    }
+  },
+  "activity": {
+    "working": "Kugwira ntchito",
+    "wait": "Chonde dikirani…",
+    "donTClose": "Chonde musatseke kapena kuyanjana ndi KaalKey.",
+    "loadingLanguages": "Tikutsegula zilankhulo zomwe zilipo...",
+    "loadingTranslation": "Tikutsegula zomasulira…"
+  }
+}

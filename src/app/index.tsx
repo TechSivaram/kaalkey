@@ -86,7 +86,7 @@ export default function HomeScreen() {
   };
 
   const insets = useSafeAreaInsets();
-  const { language, setLanguage, t } = useAppLanguage();
+  const { language, setLanguage, t, languages, languageLoading, translationLoading, translationServerUrl, setTranslationServerUrl } = useAppLanguage();
   const scannerCameraHeight = useScannerCameraHeight();
   const { now, showBrandSplash } = useHomeLifecycle();
   const {
@@ -382,6 +382,11 @@ export default function HomeScreen() {
             clearAllAccounts={clearAllAccounts}
             language={language}
             setLanguage={setLanguage}
+            languages={languages}
+            languageLoading={languageLoading}
+            translationLoading={translationLoading}
+            translationServerUrl={translationServerUrl}
+            setTranslationServerUrl={setTranslationServerUrl}
           />
         </View>
       </SafeAreaView>

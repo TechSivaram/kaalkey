@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Lang",
+      "description": "Chwazi lang ki itilize nan KaalKey.",
+      "english": "angle",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "LANG",
+      "searchLanguageName": "Chèche lang (non oswa kòd)",
+      "searchSupportedLanguages": "Rechèch lang ki sipòte",
+      "closeLanguageDropdown": "Fèmen dropdown lang",
+      "noTranslatedLanguage": "Yo pa jwenn okenn lang tradui.",
+      "serverUrl": "Sèvè tradiksyon URL",
+      "serverUrlDescription": "KaalKey telechaje lis lang ak tradiksyon sou sèvè sa a.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Sove sèvè tradiksyon an"
+    },
+    "title": "Anviwònman aplikasyon an",
+    "eyebrow": "KAALKEY PREFERANS",
+    "experience": {
+      "section": "Eksperyans"
+    },
+    "security": {
+      "section": "SEKIRITE"
+    },
+    "backup": {
+      "section": "BACKUP & RECOVERY"
+    },
+    "danger": {
+      "section": "ZÒN DANJE",
+      "clearAccounts": "Efase tout kont yo",
+      "clearAccountsDescription": "Pèmanans retire tout kont ak sekrè nan aparèy sa a. Fè bak an premye.",
+      "clearAccountsAccessibilityLabel": "Efase tout kont otantifikatè"
+    },
+    "appearance": {
+      "section": "APARANS",
+      "title": "Limyè aparans",
+      "description": "KaalKey kounye a sèvi ak tèm pwòp limyè li yo."
+    },
+    "haptics": {
+      "title": "Feedback aptik",
+      "description": "Feedback dou pou tiyo ak aksyon ranpli."
+    },
+    "deviceLock": {
+      "title": "Lock otantifikasyon aparèy",
+      "description": "Kòf ou a fèmen lè KaalKey kite premye plan an.",
+      "requirement": "Egzije byometrik telefòn ou oswa ekran-lock PIN, modèl, oswa modpas.",
+      "accessibilityLabel": "Aparèy otantifikasyon aplikasyon fèmen"
+    },
+    "privacy": {
+      "title": "Legal & konfidansyalite",
+      "description": "Revize Règleman sou Konfidansyalite ak Kondisyon Itilizasyon yo.",
+      "storageNote": "Sekrè otantifikatè ou yo rete nan kavo an sekirite sou aparèy la. Preferans yo estoke lokalman."
+    }
+  },
+  "accounts": {
+    "edit": "Edit",
+    "sortAccountName": "Triye pa non kont",
+    "loadingSecureVault": "Chaje vout ki an sekirite...",
+    "tapCopy": "TAP POU KOPYE",
+    "noAccountsMatch": "Pa gen kont ki matche ak rechèch ou an.",
+    "viewQrCode": "Gade QR kòd pou kont",
+    "removeAccount": "Retire kont",
+    "copyVerificationCode": "Kopi kòd verifikasyon",
+    "active": "AKTIF",
+    "sort": "TRIYE",
+    "account": "Kont",
+    "clearSearch": "Klè rechèch",
+    "sortServiceName": "Triye pa non sèvis",
+    "addFirstAccount": "Ajoute premye kont ou",
+    "searchAccounts": "Chèche kont",
+    "searchServiceAccount": "Rechèch sèvis oswa kont",
+    "accounts": "Kont ou yo",
+    "add": "+ Ajoute",
+    "vaultStartsHere": "Vòt ou a kòmanse isit la",
+    "service": "Sèvis",
+    "emptyHint": "Ajoute yon kont lè l sèvi avèk kle sekrè li pou jenere premye kòd verifikasyon ou a."
+  },
+  "common": {
+    "done": "Fè",
+    "doneButton": "Fè",
+    "closeSettings": "Fèmen anviwònman yo",
+    "separator": "-",
+    "article": "a",
+    "save": "Sove",
+    "delete": "Efase",
+    "resizeAppBrand": "Redimansyonman panno app ak mak"
+  },
+  "qrImport": {
+    "readPastedImage": "Pa t 'kapab li imaj kole"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Kont nan backup sa a: {count}. KaalKey pral kenbe kont ou ki egziste deja epi ajoute nenpòt kont ki pa deja prezan. Yo pral sote kont kopi.",
+    "restoreCompletionBody": "Kont ajoute: {added}. Diplika kont sote: {skipped}. Yo te kenbe kont ou yo.",
+    "copyPassword": "Kopi modpas ki pwodui",
+    "passwordSafety": "Sove modpas sa a apa (pa egzanp, nan WhatsApp). Nenpòt moun ki gen tou de la",
+    "importAction": "Chwazi dosye ak enpòte",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "VOLT SEKIR",
+    "createBackup": "Kreye backup",
+    "encryptedFile": "Fichye chiffres",
+    "restoreBackup": "Restore backup",
+    "safetyNote": "Sovgad yo genyen sekrè otantifikatè ou yo. KaalKey jenere yon modpas inik pou chak backup. Sove li separeman; KaalKey pa ka refè li.",
+    "generatingSecurePassword": "Jenere modpas an sekirite...",
+    "importFile": "Enpòte dosye",
+    "backupPassword": "BACKUP MODAS",
+    "account": "kont",
+    "accounts": "kont",
+    "exportDescription": "Ankripte tout {count} ki te sove {accountLabel} nan yon dosye backup. KaalKey jenere yon modpas inik; kopye epi sove li separeman nan dosye a.",
+    "restoreDescription": "Chwazi dosye backup KaalKey ak modpas ou. Nouvo kont yo pral ajoute nan lis kont ou ki deja egziste; kont ki deja egziste yo ap rete jan yo ye.",
+    "enterBackupPassword": "Antre modpas backup",
+    "closeBackup": "Fèmen backup",
+    "copyGeneratedBackup": "Kopi modpas backup pwodwi",
+    "backupPassword2": "Modpas backup",
+    "clearBackupPassword": "Klè modpas backup",
+    "backupFilePassword": "dosye backup ak modpas ka retabli kont otantifikatè ou yo.",
+    "encryptShareBackup": "Ankripte epi pataje backup"
+  },
+  "home": {
+    "unlockSecurely": "Debloke byen",
+    "disableAppLock": "Enfim fèmen aplikasyon an",
+    "enableAppLock": "Pèmèt fèmen aplikasyon an",
+    "checkingSecureLock": "Tcheke anviwònman fèmen an sekirite ou yo. Kòd ou yo rete kache.",
+    "waitingVerification": "Ap tann verifikasyon...",
+    "secretsStayStored": "Sekrè ou yo rete sou aparèy sa a.",
+    "openAppSettings": "Louvri paramèt aplikasyon an",
+    "versionLabel": "VÈSYON",
+    "unlockRequirement": "Sèvi ak byometrik telefòn ou oswa ekran-lock PIN, modèl, oswa modpas pou jwenn aksè nan kòd verifikasyon yon sèl fwa ou yo.",
+    "localVault": "VOLT LOCAL OU",
+    "codesDeviceControl": "Kòd ou yo. Aparèy ou a. Kontwòl ou.",
+    "securingVault": "Sekirize vout ou a...",
+    "vaultProtected": "Se vout ou a pwoteje",
+    "lock": "BLOKE SOU",
+    "localVault2": "VOLT LOCAL",
+    "authenticator": "KAALKEY OTANTIKATÈ",
+    "tricolourLockEmblem": "KaalKey anblèm kadna trikolor",
+    "authenticator2": "OTANKATÈ"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Si w chwazi eskane yon kòd QR, KaalKey itilize pèmisyon kamera pou aksyon sa a. Otantifikasyon aparèy si ou vle ak fidbak aptik itilize karakteristik aparèy ki enpòtan yo. Ou ka jere otorizasyon nan paramèt aparèy ou an.",
+        "heading": "2. Otorizasyon ak karakteristik aparèy"
+      },
+      "backups": {
+        "body": "Lè ou kreye yon backup, KaalKey ankripte backup la lè l sèvi avèk yon modpas ou chwazi. Kenbe tou de fichye a ak modpas prive epi estoke yo an sekirite. Nenpòt moun ki jwenn fichye a ak modpas li ka retabli kont otantifikatè ou yo. KaalKey pa ka refè yon modpas backup bliye.",
+        "heading": "3. sovgad"
+      },
+      "security": {
+        "body": "Kenbe aparèy ou an ajou, pwoteje li ak yon ekran fèmen, epi pa pataje OTP sekrè oswa modpas backup. Retire aplikasyon an, netwaye done li yo, oswa pèdi aparèy la ka fè kont ki estoke lokalman pa disponib. Kenbe yon backup an sekirite si ou bezwen rekiperasyon.",
+        "heading": "5. Sekirite ak retansyon"
+      },
+      "information": {
+        "heading": "1. Enfòmasyon ak sekrè",
+        "body": "KaalKey se yon aplikasyon otantifikasyon. Etikèt kont ak valè sekrè ki nesesè pou jenere kòd yon sèl fwa yo sansib. Aplikasyon an fèt pou estoke dosye kont yo nan depo sekirite aparèy la. Nenpòt moun ki gen aksè a yon aparèy debloke oswa yon sovgad ekspòte ka gen aksè a enfòmasyon sansib."
+      },
+      "sharing": {
+        "heading": "4. Pataje ak twazyèm pati",
+        "body": "Flux backup la ka itilize fèy pataje aparèy ou an oswa seleksyon dosye pou sove, transfere, oswa chwazi fichye yo. Pratik sou enfòmasyon prive nenpòt aplikasyon oswa sèvis twazyèm pati ou chwazi a, se founisè sa a ki gouvène. Avi sa a pa fè yon reklamasyon jeneral ke aparèy ou an, sistèm opere, oswa sèvis pataje ou chwazi pa janm trete done."
+      },
+      "changes": {
+        "heading": "6. Chanjman ak kontak",
+        "body": "Yo ka revize avi entegre sa a nan yon lage app alavni. Pou kesyon sou enfòmasyon prive, kontakte piblikatè aplikasyon an atravè kanal sipò ofisyèl yo bay aplikasyon an."
+      },
+      "title": "Règleman sou enfòmasyon prive"
+    },
+    "terms": {
+      "use": {
+        "body": "Ou ka itilize KaalKey pou jenere kòd verifikasyon pou kont ou gen otorizasyon pou w jwenn aksè. Ou responsab pou respekte lwa ki aplikab yo ak règ sèvis ou sèvi ak kòd otantifikasyon yo.",
+        "heading": "1. Itilizasyon ou"
+      },
+      "protectAccounts": {
+        "body": "Ou responsab pou sekirize aparèy ou an, sekrè otantifikatè, metòd rekiperasyon, sovgad ekspòte, ak modpas backup. Pa pataje kòd oswa sekrè ak moun ou pa fè konfyans.",
+        "heading": "2. Pwoteje kont ou yo"
+      },
+      "availability": {
+        "body": "Karakteristik yo ka chanje ant degaje yo. Ou ta dwe kenbe aplikasyon an mete ajou epi detanzantan verifye si aranjman backup ak rekiperasyon ou yo mache.",
+        "heading": "5. Chanjman ak disponiblite"
+      },
+      "recovery": {
+        "body": "KaalKey pa ka garanti ke chak kont ka refè, ke chak QR kòd oswa konfigirasyon yo pral konpatib, oswa ke aplikasyon an pral opere san entèripsyon oswa erè. Kenbe metòd rekiperasyon altènatif yo bay sèvis ki enpòtan yo.",
+        "heading": "3. Pa gen garanti rekiperasyon"
+      },
+      "advice": {
+        "heading": "4. Pa gen konsèy pwofesyonèl",
+        "body": "Aplikasyon an se yon sèvis piblik epi li pa bay konsèy legal, finansye oswa sekirite pou repons pou ensidan. Si yon kont konpwomèt, swiv konsèy ofisyèl sou rekiperasyon ak sekirite sèvis ki afekte yo."
+      },
+      "liability": {
+        "heading": "6. Responsablite ak lwa aplikab",
+        "body": "Nan limit lalwa aplikab pèmèt, aplikasyon an bay san yo pa garanti operasyon san enteripsyon oswa san erè. Pa gen anyen nan kondisyon sa yo ki ekskli dwa oswa remèd ki legalman pa kapab ekskli. Nenpòt lòt limit oswa kondisyon lwa gouvènan yo ta dwe revize pa yon avoka kalifye pou jiridiksyon Piblikatè a anvan yo lage."
+      },
+      "title": "Kondisyon Itilizasyon"
+    },
+    "version": "Version",
+    "saving": "Sove…",
+    "acceptContinue": "Aksepte & Kontinye",
+    "appliesAuthenticator": "Aplike pou KaalKey Otantifikatè",
+    "reviewBothDocuments": "Tanpri revize tou de dokiman yo anvan w itilize KaalKey. Yo enkli nan app a epi yo disponib offline.",
+    "originalMulticolourAuthenticator": "Anblèm otantifikatè orijinal KaalKey plizyè koulè",
+    "legalPrivacyNotice": "Avi Legal ak Konfidansyalite",
+    "legalInformation": "Enfòmasyon legal",
+    "reviewSPrivacy": "Revize enfòmasyon sou enfòmasyon prive KaalKey ak kondisyon itilizasyon yo.",
+    "iReadAgree": "Mwen te li epi mwen dakò ak Règleman sou enfòmasyon prive ak Kondisyon Itilizasyon."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Kenbe tout kòd QR vizib. Sekrè ou rete sou aparèy sa a.",
+    "back": "Retounen",
+    "turnFlashlightOff": "Etenn flach",
+    "turnFlashlight": "Limen flach",
+    "flashlight": "Flach limen",
+    "flashlight2": "Flach",
+    "cameraUnavailableOpen": "Kamera pa disponib. Louvri paj sa a sou HTTPS oswa localhost epi pèmèt kamera aksè.",
+    "cameraPreviewUnavailable": "Aperçu kamera pa disponib. Fèmen epi relouvri eskanè a.",
+    "cameraReadyPoint": "Kamera pare — montre li sou tout kòd QR.",
+    "browserCannotProcess": "Navigatè sa a pa kapab trete ankadreman kamera.",
+    "qrCodeDetected": "QR kòd detekte.",
+    "couldnTRead": "Pa t 'kapab li ankadreman kamera. Tcheke otorizasyon kamera epi rechaje paj sa a.",
+    "cameraPermissionDenied": "Pèmisyon kamera refize. Pèmèt aksè kamera nan paramèt navigatè a, apresa relouvri eskanè a.",
+    "noCameraWas": "Yo pa jwenn okenn kamera sou aparèy sa a.",
+    "cameraBusyAnother": "Kamera a okipe nan yon lòt aplikasyon oswa yon lòt tab navigatè.",
+    "startCameraHttps": "Pa t 'kapab kòmanse kamera. Sèvi ak HTTPS oswa localhost epi tcheke otorizasyon navigatè yo.",
+    "qrScannerCamera": "QR aperçu kamera eskanè",
+    "cameraUnavailableCheck": "Kamera pa disponib. Tcheke pèmisyon kamera epi eseye ankò.",
+    "pointCameraAuthenticator": "Montre kamera w la sou kòd konfigirasyon otantifikatè QR nan sèvis w ap ajoute a.",
+    "backAddAccount": "Retounen pou ajoute kont",
+    "secureSetup": "SEKIRITE SETUP",
+    "enterDetailsManually": "Antre detay manyèlman pito"
+  },
+  "accountForm": {
+    "hideManualEntry": "Kache antre manyèl",
+    "secretKeySupplied": "Sèvi ak kle sekrè sèvis w ap konfigure a bay la. Pa janm antre modpas kont ou isit la. Koresponn ak algorithm, konte chif, ak entèval ak enstriksyon konfigirasyon sèvis la.",
+    "updateServiceAccount": "Mete ajou sèvis la, non kont, oswa kle sekrè.",
+    "secretKeyRead": "Kle sekrè, lekti sèlman pandan y ap koreksyon",
+    "secretKeyBase32": "Kle sekrè nan Base32",
+    "digits": "chif",
+    "seconds": "segonn",
+    "enterDetailsManually": "OSWA ANTRE DETAY MANYÈLMAN",
+    "enterDetailsManually2": "Antre detay yo manyèlman",
+    "serviceAccountName": "Sèvis, non kont ak kle sekrè",
+    "saveChangesSecurely": "Sove chanjman yo an sekirite",
+    "saveAccountSecurely": "Sove kont an sekirite",
+    "serviceIssuer": "Sèvis oswa emèt",
+    "accountName": "Non kont",
+    "secretKey": "Kle sekrè",
+    "serviceIssuer2": "SÈVIS / EMISÈ",
+    "eGGoogle": "pa egzanp Google",
+    "clearServiceIssuer": "Klè sèvis oswa emeteur",
+    "eGExample": "pa egzanp ou@egzanp.com",
+    "clearAccountName": "Klè non kont lan",
+    "secretKeyLocked": "KLE SEKRÈ (KLE)",
+    "secretKeyBase322": "KLE SEKRÈ (BASE32)",
+    "enterSetupKey": "Antre kle konfigirasyon ou a",
+    "clearSecretKey": "Klè sekrè klè",
+    "otpAlgorithm": "OTP ALGORITM",
+    "otpDigits": "OTP CHIF",
+    "refreshIntervalSeconds": "ENTÈVAL REFRESH (SECOND)",
+    "otpRefreshInterval": "OTP rafrechi entèval an segonn",
+    "closeAccountForm": "Fèmen fòm kont",
+    "totpSetupUrl": "TOTP konfigirasyon URL",
+    "importSetupUrl": "Enpòte konfigirasyon URL",
+    "totpSetupUrl2": "TOTP ENFÒMASYON URL",
+    "accountName2": "NON KONT",
+    "addAccount": "Ajoute kont"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Eskane kòd otantifikatè QR.",
+    "setupGuidance": "Eskane yon kòd QR pou konfigirasyon ki pi fasil la, oswa antre detay manyèlman.",
+    "cameraAddAccount": "Sèvi ak kamera ou pou ajoute yon kont imedyatman",
+    "scanQrCode2": "Eskane kòd QR.",
+    "uploadQrImage": "Telechaje QR imaj",
+    "chooseQrScreenshot": "Chwazi yon ekran QR nan Galeri, Foto, oswa Dosye",
+    "pasteQr": "Kole QR imaj / URL",
+    "pasteCopiedQr": "Kole yon imaj ki kopye QR oswa yon konfigirasyon otantifikatè URL",
+    "uploadQrImage2": "Telechaje QR imaj"
+  },
+  "accountQr": {
+    "close": "Fèmen",
+    "accountQrCode": "Kòd QR kont",
+    "revealQrCode": "Revele QR kòd",
+    "exportWarning": "Avètisman: nenpòt moun ki eskane kòd QR sa a kapab jenere kòd verifikasyon pou kont sa a. Sèlman revele li sou yon ekran ou fè konfyans.",
+    "privacyHint": "Kenbe kòd QR sa a prive. Analiz li kopye sekrè otantifikatè kont la."
+  },
+  "productInfo": {
+    "backupRestore": "Sovgad & restore",
+    "backupRestoreDescription": "Backup done otantifikatè ou a epi restore li lè w ap deplase nan yon lòt aparèy.",
+    "privacyDescription": "Kenbe kont verifikasyon ou yo nan yon sèl kote. Sèvi ak opsyon backup, restorasyon ak aparèy pou fèmen aplikasyon an pou jere konfigirasyon ou yon fason responsab.",
+    "timeBasedCodes": "Kòd ki baze sou tan",
+    "generateOneTimeCodes": "Jenere paskod wotasyon yon sèl fwa pou kont ou yo pou konplete verifikasyon de etap.",
+    "quickAccountSetup": "Konfigirasyon kont rapid",
+    "quickSetupDescription": "Eskane yon kòd otantifikatè QR oswa enpòte yon imaj QR pou ajoute yon kont.",
+    "accountsOnePlace": "Kont nan yon sèl kote",
+    "accountsInOnePlaceDescription": "Kenbe kont ou sove yo ansanm epi jwenn bon antre lè li lè pou w konekte.",
+    "privateAccountVault": "Vout kont prive",
+    "privateVaultDescription": "Jere antre otantifikatè ou lokalman epi sèvi ak opsyon ki disponib pou fèmen aparèy aplikasyon an.",
+    "easyCodeAccess": "Aksè kòd fasil",
+    "easyCodeAccessDescription": "Kopi yon kòd aktyèl oswa jere detay kont atravè yon koòdone pwòp, konsantre.",
+    "authenticatorTechsivaram": "OTENTIKATEUR · PA TECHSIVARAM",
+    "mobileAuthenticator": "OTANSÈ MOBIL OU",
+    "tagline": "Yon fason ki pi senp pou jere verifikasyon de etap ou a.",
+    "heroDescription": "Yon eksperyans otantifikatè konsantre pou kòd verifikasyon ki baze sou tan. Kenbe kòd kont konpatib yo toupre ak KaalKey pou Android.",
+    "timeBasedCodes2": "KÒD KI BAZE TAN",
+    "privateDesign": "PRIVE BY DESIGN",
+    "builtSimpleAuthenticator": "BATI POU YON SENPL TRAVAY OTANTICATÈ",
+    "qrSetupTimed": "QR ENFÒMASYON · KÒD TIME · JESYON KONT",
+    "privacyTitle": "Kont ou yo. Kòd ou yo. Kontwòl ou.",
+    "authenticator": "KAALKEY · OTANSÈ",
+    "brandBanner": "KaalKey mak banyè",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Anile",
+      "storageInvalidTitle": "Done depo yo pa valab",
+      "storageInvalidBody": "Done kont ki te sove yo pa t 'kapab li san danje.",
+      "storageErrorTitle": "Erè depo",
+      "storageErrorBody": "Kont sove yo pa t 'kapab chaje.",
+      "missingTitle": "Manke enfòmasyon",
+      "missingEditingBody": "Antre non sèvis la ak non kont.",
+      "missingBody": "Antre non sèvis la, non kont, ak kle sekrè.",
+      "invalidOtpBody": "Tcheke Base32 sekrè, algorithm, konte chif, ak peryòd rafrechisman. Sekrè yo dwe genyen Base32 karaktè valab; chif yo dwe {digits} epi peryòd la dwe {minPeriod}–{maxPeriod} segonn.",
+      "duplicateBody": "Yon kont ki gen sèvis sa a ak non kont sa a deja sove.",
+      "updatedBody": "Kont ou te mete ajou.",
+      "addedBody": "Yo te ajoute kont ou an sekirite.",
+      "invalidOtpTitle": "Anviwònman OTP yo pa valab",
+      "duplicateTitle": "Kont deja egziste",
+      "savedTitle": "Kont sove",
+      "invalidSecretTitle": "Kle sekrè ki pa valab",
+      "invalidSecretBody": "Tanpri tcheke si ou te antre yon sekrè Base32 ki valab.",
+      "removedTitle": "Kont retire",
+      "removedBody": "Yo te retire kont lan ak sekrè li nan aparèy sa a.",
+      "clearedTitle": "Kont efase",
+      "clearedBody": "Tout kont otantifikatè ak sekrè yo te retire nan aparèy sa a.",
+      "someSavedAccountsNeedAttentionTitle": "Gen kèk kont sove bezwen atansyon",
+      "someSavedAccountsNeedAttentionBody": "{count} dosye kont envalid (yo) pa te chaje. Kont valab rete disponib. Konsidere kreye yon backup anvan ou fè plis chanjman.",
+      "removeConfirmTitle": "Retire kont?",
+      "removeConfirmWebTitle": "Retire kont?",
+      "removeButton": "Retire",
+      "clearButton": "Efase tout",
+      "clearConfirmTitle": "Efase tout kont yo?",
+      "saveErrorBody": "Kont yo pa t 'kapab sove. Tcheke disponiblite depo navigatè a epi eseye ankò.",
+      "notFoundTitle": "Kont pa jwenn",
+      "notFoundBody": "Yo pa ka jwenn kont sa a. Fèmen editè a epi eseye ankò.",
+      "removeConfirmBody": "Sa a retire kont lan ak sekrè li nan aparèy sa a.",
+      "clearConfirmBody": "Sa a pou tout tan retire tout kont otantifikatè ak sekrè yo nan aparèy sa a. Kreye yon sovgad chiffres an premye si ou ka bezwen kont sa yo pita.",
+      "clearConfirmUndoBody": "Sa a pa ka defèt."
+    },
+    "biometric": {
+      "cancelButton": "Anile",
+      "saveErrorTitle": "Pa t 'kapab sove anviwònman",
+      "unlockPrompt": "Debloke KaalKey Otantifikatè",
+      "promptSubtitle": "Sèvi ak byometrik oswa fèmen ekran aparèy ou an",
+      "disableConfirmPrompt": "Konfime pou fèmen aplikasyon KaalKey",
+      "enablePrompt": "Pèmèt bloke aplikasyon pou KaalKey",
+      "deviceLockTitle": "Fikse fèmen ekran aparèy ou an",
+      "deviceLockBody": "KaalKey sèvi ak otantifikasyon entegre telefòn ou a. Mete yon aparèy PIN, yon modèl, oswa yon modpas nan paramèt sekirite telefòn ou a, epi eseye ankò. Byometrik yo opsyonèl.",
+      "unavailableTitle": "Otantifikasyon aparèy pa disponib",
+      "unavailableBody": "Telefòn ou pa t 'kapab kòmanse otantifikasyon an sekirite. Tcheke si yon aparèy fèmen ekran konfigirasyon, epi eseye ankò.",
+      "lockedTitle": "Otantifikasyon tanporèman fèmen",
+      "lockedBody": "Telefòn ou a tanporèman enfim otantifikasyon apre twòp tantativ. Tann epi eseye ankò.",
+      "promptErrorTitle": "Otantifikasyon pa disponib",
+      "promptErrorBody": "KaalKey pa t 'kapab kòmanse èd memwa otantifikasyon an sekirite telefòn nan. Tanpri eseye ankò.",
+      "webLock": "Lock otantifikasyon aparèy la poko disponib nan vèsyon entènèt la. vout entènèt la rete debloke; itilize aplikasyon Android pou otantifikasyon aparèy natif natal.",
+      "disabledTitle": "App lock andikape",
+      "disabledBody": "KaalKey fèmen aplikasyon an te etenn.",
+      "disableSaveError": "Lock app a rete aktive. Tanpri eseye ankò.",
+      "enabledTitle": "App lock pèmèt",
+      "enabledBody": "KaalKey ap mande otantifikasyon entegre telefòn ou lè ou louvri epi lè ou retounen sou li.",
+      "enableSaveError": "App lock pa t 'kapab aktive. Tanpri eseye ankò."
+    },
+    "qr": {
+      "startingCamera": "Kòmanse kamera...",
+      "unsupportedTitle": "Kòd QR ki pa sipòte",
+      "unsupportedBody": "Eskane kòd konfigirasyon otantifikatè QR sèvis la bay. Sa a dwe yon kòd TOTP, pa yon kòd QR pou koneksyon nòmal.",
+      "unsupportedDiagnostic": "QR sa a se pa yon kòd konfigirasyon TOTP. Vize yon konfigirasyon otantifikatè QR.",
+      "detectedDiagnostic": "QR detekte. Analize...",
+      "analyzing": "Analize kòd QR...",
+      "duplicateTitle": "Kont deja ajoute",
+      "duplicateBody": "{issuer}: {account} deja nan KaalKey.",
+      "addedTitle": "Kont te ajoute",
+      "addedBody": "{issuer}: {account} te ajoute avèk siksè.",
+      "saveFailedDiagnostic": "Pa t 'kapab sove kont lan. Ou ka eskane ankò.",
+      "invalidTitle": "Kòd QR ki pa valab",
+      "invalidBody": "KaalKey pa t kapab analize kòd QR otantifikatè sa a. {detail}. Sèvi ak TOTP konfigirasyon sèvis la QR kòd (anjeneral kòmanse ak {prefix}).",
+      "parseFailedDiagnostic": "QR pa t kapab trete. Vize konfigirasyon QR epi eseye ankò.",
+      "invalidUrlTitle": "Pa valab TOTP URL",
+      "invalidUrlBody": "Kole yon otantifikatè konplè URL kòmanse ak {prefix}.",
+      "clipboardEmptyTitle": "Clipboard vid",
+      "clipboardEmptyBody": "Kopi yon {prefix} URL dabò, apre sa tape Kole TOTP URL.",
+      "clipboardErrorTitle": "Pa t 'kapab li clipboard",
+      "clipboardErrorBody": "Kopi konfigirasyon TOTP URL epi eseye ankò."
+    },
+    "haptics": {
+      "saveFailedTitle": "Pa t 'kapab sove anviwònman",
+      "saveFailedBody": "Preferans fidbak aptik pa t 'kapab sove. Tanpri eseye ankò."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Pa t 'kapab sove rekonesans",
+      "saveFailedBody": "Tanpri eseye ankò. Ou dwe aksepte avi legal la anvan w itilize KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Pèmisyon kamera obligatwa",
+      "body": "Pèmèt aksè kamera pou eskane yon kòd konfigirasyon otantifikatè QR."
+    },
+    "storage": {
+      "browserUnavailable": "Depo navigatè a pa disponib.",
+      "browserFilePickerUnavailable": "Seleksyon fichye navigatè a pa disponib."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Fichye ki pa sipòte",
+      "unsupportedFileBody": "Chwazi yon imaj kòd QR tankou PNG oswa JPEG.",
+      "browserDecoderUnavailable": "Dekodaj imaj navigatè a pa disponib",
+      "imageLoadFailed": "Imaj la pa t 'kapab chaje",
+      "unreadableDimensions": "Imaj pa gen okenn dimansyon lizib",
+      "noQrCodeFoundTitle": "Yo pa jwenn okenn kòd QR.",
+      "noQrCodeFoundBody": "KaalKey pa t kapab dekode yon kòd QR nan imaj sa a. Eseye yon ekran oswa yon rezolisyon ki pi wo PNG/JPEG.",
+      "couldNotReadImageTitle": "Pa t 'kapab li imaj",
+      "couldNotReadImageBody": "Eseye yon imaj klè PNG oswa JPEG ki genyen kòd konfigirasyon otantifikatè QR.",
+      "couldNotOpenPickerTitle": "Pa t 'kapab louvri selateur imaj",
+      "couldNotOpenPickerBody": "Tanpri eseye Telechaje QR ankò.",
+      "normalizedDecodeFailed": "Imaj nòmalize pa t 'kapab dekode",
+      "clipboardImageLoadFailed": "Imaj clipboard pa t 'kapab chaje",
+      "imageProcessingUnavailable": "Pwosesis imaj pa disponib",
+      "imageProcessingUnavailableAlt": "Pwosesis imaj pa disponib",
+      "noImageInClipboardTitle": "Pa gen imaj nan clipboard",
+      "noImageInClipboardBody": "Kopi yon imaj kòd QR, epi klike sou Kole QR Imaj ankò.",
+      "clipboardUnavailableTitle": "Clipboard pa disponib",
+      "clipboardUnavailableBody": "Tèks clipboard se pa yon konfigirasyon otantifikatè valab URL. Kopi yon imaj otpauth:// URL oswa QR epi eseye ankò.",
+      "clipboardAccessBody": "KaalKey pa t kapab li tèks oswa yon imaj nan clipboard la. Pèmèt aksè nan clipboard, epi kopye imaj QR oswa otpauth:// URL epi klike sou Kole QR Imaj / URL ankò.",
+      "couldNotPasteImageTitle": "Pa t 'kapab kole imaj",
+      "couldNotPasteImageBody": "Papye sa a pa sipòte kole imaj sou aparèy sa a. Sèvi ak Import QR imaj pito.",
+      "sourceImageDecodeFailure": "Eseye yon lòt imaj QR.",
+      "pastedImportFailureBody": "Eseye yon lòt imaj QR.",
+      "sourceImageReadFailure": "Eseye kopye yon ekran QR ki klè.",
+      "importFailedTitle": "QR enpòte imaj echwe",
+      "importFailedBody": "KaalKey pa t kapab li imaj sa a. Tanpri eseye yon lòt imaj kòd QR.",
+      "notFoundBody": "Imaj kopye a pa genyen yon kòd QR lizib.",
+      "pastedNotFoundBody": "Imaj kole a pa genyen yon kòd QR lizib.",
+      "pastedReadFailureBody": "Eseye kopye yon imaj ki klè PNG oswa JPEG ki genyen tout kòd QR.",
+      "noQrCodeTextBody": "KaalKey dekode imaj yo chwazi a men li pa jwenn yon kòd QR. Eseye yon PNG klè, plen rezolisyon oswa JPEG ak tout kòd la vizib."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Kòd QR sa a se pa yon kòd konfigirasyon otantifikatè ki baze sou tan.",
+      "missingAccountDetails": "QR kòd la manke detay sou kont.",
+      "unsupportedAlgorithm": "Kòd QR la sèvi ak yon algorithm ki pa sipòte.",
+      "unsupportedDigits": "Kòd QR sa a dwe itilize 6, 7, oswa 8 chif.",
+      "unsupportedPeriod": "Kòd QR sa a sèvi ak yon peryòd tan ki pa sipòte.",
+      "invalidAccount": "QR kòd la pa t kapab valide."
+    },
+    "backup": {
+      "invalidJson": "Dosye backup la pa valab JSON.",
+      "unsupportedFormat": "Sa a se pa yon sipò KaalKey kode.",
+      "invalidPasswordOrDamaged": "Modpas backup pa kòrèk oswa dosye backup la domaje.",
+      "invalidContents": "Kontni backup yo pa valab oswa enkonplè.",
+      "secureRandomUnavailableDetailed": "Sekirize jenerasyon o aza pa disponib. Rekonstwi epi re-enstale aplikasyon Android ak expo-crypto enkli, epi eseye ankò.",
+      "invalidAccountDataForBackup": "Youn oswa plizyè kont pa valab. Ranje done kont yo anvan ou kreye yon backup.",
+      "invalidPasswordOrModified": "Modpas sovgad la kòrèk oswa yo te modifye dosye sovgad la.",
+      "invalidPasswordOrFileDamaged": "Modpas backup pa kòrèk oswa fichye a domaje.",
+      "passwordCopiedTitle": "Modpas kopye",
+      "enterPasswordTitle": "Antre modpas backup ou a",
+      "enterPasswordBody": "Antre modpas la te itilize lè backup sa a te kreye.",
+      "passwordCopiedBody": "Sove li yon kote ki an sekirite, tankou WhatsApp.",
+      "copyFailedTitle": "Kopi echwe",
+      "copyFailedBody": "Chwazi epi kopye modpas la manyèlman.",
+      "generatingPassword": "Jenere modpas backup an sekirite...",
+      "encrypting": "Krypte backup...",
+      "decrypting": "Dechifre backup...",
+      "restoring": "Retabli kont yo...",
+      "backupCreatedTitle": "Sovgad kreye",
+      "restoreCompleteTitle": "Restore nèt sou tout pwen",
+      "mergeConfirmTitle": "Rantre kont backup?",
+      "mergeConfirmButton": "Rantre kont yo",
+      "backupSavedTemporary": "Sovgad ankripte sove tanporèman nan:\n{uri}",
+      "generatePasswordErrorTitle": "Pa t 'kapab jenere modpas backup",
+      "secureRandomUnavailable": "Sekirize jenerasyon o aza pa disponib.",
+      "passwordUnavailableTitle": "Modpas sovgad pa disponib",
+      "passwordUnavailableBody": "Fèmen dyalòg sa a epi kreye yon nouvo backup pou jenere yon modpas an sekirite.",
+      "backupDownloadedBody": "Sovgad KaalKey ankripte ou a te telechaje. Kenbe fichye a ak modpas prive.",
+      "backupFailedTitle": "Sovgad echwe",
+      "backupCreateErrorBody": "KaalKey pa t kapab kreye backup la.",
+      "restoreFailedTitle": "Restore echwe",
+      "backupReadErrorBody": "Sovgad la pa t 'kapab li oswa sove.",
+      "browserDownloadUnsupported": "Navigatè w la pa sipòte telechaje dosye backup.",
+      "localFileUnavailable": "Yon kote dosye lokal pa disponib sou aparèy sa a.",
+      "saveBackupTitle": "Sove KaalKey sovgad ankripte w la"
+    },
+    "clipboard": {
+      "copiedTitle": "Kòd kopye",
+      "copiedBody": "Yo kopye kòd verifikasyon w la.",
+      "errorTitle": "Erè",
+      "errorBody": "Pa t 'kapab kopye kòd verifikasyon an."
+    },
+    "activity": {
+      "cameraReady": "Kamera pare. Montre li sou kòd otantifikatè QR.",
+      "readingQrImage": "Lekti QR imaj...",
+      "importingQrImage": "Ap enpòte imaj QR...",
+      "importingAccount": "Enpòte kont otantifikatè...",
+      "importingPastedImage": "Enpòte imaj kole QR..."
+    }
+  },
+  "activity": {
+    "working": "Travay",
+    "wait": "Tanpri tann...",
+    "donTClose": "Tanpri pa fèmen oswa kominike avèk KaalKey.",
+    "loadingLanguages": "Chaje lang ki disponib...",
+    "loadingTranslation": "Chaje tradiksyon..."
+  }
+}

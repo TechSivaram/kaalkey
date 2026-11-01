@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Taal",
+      "description": "Kies de taal brûkt yn KaalKey.",
+      "english": "Ingelsk",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "TAAL",
+      "searchLanguageName": "Syktaal (namme of koade)",
+      "searchSupportedLanguages": "Sykje stipe talen",
+      "closeLanguageDropdown": "Slút taalútklapmenu",
+      "noTranslatedLanguage": "Gjin oersette taal fûn.",
+      "serverUrl": "Oersettsjinner URL",
+      "serverUrlDescription": "KaalKey downloadt de taallist en oersettingen fan dizze tsjinner.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Bewarje oersetting tsjinner"
+    },
+    "title": "App ynstellings",
+    "eyebrow": "KAALKEY Foarkarren",
+    "experience": {
+      "section": "ERVARING"
+    },
+    "security": {
+      "section": "FEILIGHEID"
+    },
+    "backup": {
+      "section": "BACKUP & RECOVERY"
+    },
+    "danger": {
+      "section": "DANGERSONE",
+      "clearAccounts": "Wiskje alle akkounts",
+      "clearAccountsDescription": "Ferwiderje elk akkount en geheim fan dit apparaat permanint. Earst ophelje.",
+      "clearAccountsAccessibilityLabel": "Wiskje alle autentikaasje-akkounts"
+    },
+    "appearance": {
+      "section": "UTSKYN",
+      "title": "Ljocht uterlik",
+      "description": "KaalKey brûkt op it stuit syn skjinne ljocht-tema."
+    },
+    "haptics": {
+      "title": "Haptyske feedback",
+      "description": "Sêfte feedback foar kranen en foltôge aksjes."
+    },
+    "deviceLock": {
+      "title": "Apparaat autentikaasje slot",
+      "description": "Jo ferwulft slûpt as KaalKey de foargrûn ferlit.",
+      "requirement": "Fereaskje de biometrie fan jo tillefoan as skermslot PIN, patroan, as wachtwurd.",
+      "accessibilityLabel": "Apparaatferifikaasje-appslot"
+    },
+    "privacy": {
+      "title": "Juridysk en privacy",
+      "description": "Besjoch it privacybelied en gebrûksbetingsten.",
+      "storageNote": "Jo autentikaasjegeheimen bliuwe yn 'e feilige ferwulf op it apparaat. Foarkarren wurde lokaal opslein."
+    }
+  },
+  "accounts": {
+    "edit": "Bewurkje",
+    "sortAccountName": "Sortearje op akkountnamme",
+    "loadingSecureVault": "Befeilige kelder laden...",
+    "tapCopy": "TIP OM TE KOPIËREN",
+    "noAccountsMatch": "Gjin akkounts oerienkomme mei jo sykopdracht.",
+    "viewQrCode": "Sjoch QR koade foar akkount",
+    "removeAccount": "Ferwiderje akkount",
+    "copyVerificationCode": "Kopiearje ferifikaasjekoade",
+    "active": "AKTYF",
+    "sort": "SORT BY",
+    "account": "Account",
+    "clearSearch": "Wiskje sykjen",
+    "sortServiceName": "Sortearje op tsjinst namme",
+    "addFirstAccount": "Foegje jo earste akkount ta",
+    "searchAccounts": "Sykje akkounts",
+    "searchServiceAccount": "Sykje tsjinst of akkount",
+    "accounts": "Jo akkounts",
+    "add": "+ Add",
+    "vaultStartsHere": "Jo ferwulft begjint hjir",
+    "service": "Service",
+    "emptyHint": "Foegje in akkount ta mei de geheime kaai om jo earste ferifikaasjekoade te generearjen."
+  },
+  "common": {
+    "done": "Dien",
+    "doneButton": "Dien",
+    "closeSettings": "Ynstellings slute",
+    "separator": "-",
+    "article": "a",
+    "save": "Bewarje",
+    "delete": "Wiskje",
+    "resizeAppBrand": "Feroarje de grutte fan app- en merkpanielen"
+  },
+  "qrImport": {
+    "readPastedImage": "Koe plakke ôfbylding net lêze"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Akkounts yn dizze reservekopy: {count}. KaalKey sil jo besteande akkounts hâlde en alle akkounts tafoegje dy't net al oanwêzich binne. Dûbele akkounts sille wurde oerslein.",
+    "restoreCompletionBody": "Accounts tafoege: {added}. Dûbele akkounts oerslein: {skipped}. Jo besteande akkounts waarden bewarre.",
+    "copyPassword": "Kopiearje oanmakke wachtwurd",
+    "passwordSafety": "Bewarje dit wachtwurd apart (bygelyks yn WhatsApp). Elkenien mei sawol de",
+    "importAction": "Kies bestân en ymportearje",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "SECURE VULT",
+    "createBackup": "Meitsje backup",
+    "encryptedFile": "Fersifere triem",
+    "restoreBackup": "Weromsette backup",
+    "safetyNote": "Reservekopyen befetsje jo autentikaasjegeheimen. KaalKey genereart in unyk wachtwurd foar elke reservekopy. Bewarje it apart; KaalKey kin it net weromhelje.",
+    "generatingSecurePassword": "Befeilige wachtwurd generearje...",
+    "importFile": "Ymportearje triem",
+    "backupPassword": "BACKUP WACHTWOORD",
+    "account": "account",
+    "accounts": "akkounts",
+    "exportDescription": "Fersiferje alle {count} bewarre {accountLabel} yn in reservekopy triem. KaalKey genereart in unyk wachtwurd; kopiearje en bewarje it apart fan it bestân.",
+    "restoreDescription": "Kies jo KaalKey reservekopybestân en wachtwurd. Nije akkounts wurde tafoege oan jo besteande akkountlist; besteande akkounts sille bliuwe sa't se binne.",
+    "enterBackupPassword": "Fier reservekopy wachtwurd yn",
+    "closeBackup": "Slút backup",
+    "copyGeneratedBackup": "Kopiearje generearre reservekopy wachtwurd",
+    "backupPassword2": "Reservekopy wachtwurd",
+    "clearBackupPassword": "Wiskje reservekopy wachtwurd",
+    "backupFilePassword": "backupbestân en wachtwurd kinne jo autentikaasjeakkounts weromsette.",
+    "encryptShareBackup": "Fersiferje en diele reservekopy"
+  },
+  "home": {
+    "unlockSecurely": "Untskoattelje feilich",
+    "disableAppLock": "Skeakelje app slot",
+    "enableAppLock": "App-slot ynskeakelje",
+    "checkingSecureLock": "Kontrolearje jo feilich slot ynstellings. Jo koades bliuwe ferburgen.",
+    "waitingVerification": "Wachtsje op ferifikaasje...",
+    "secretsStayStored": "Jo geheimen bliuwe bewarre op dit apparaat.",
+    "openAppSettings": "Iepenje app ynstellings",
+    "versionLabel": "FERZJE",
+    "unlockRequirement": "Brûk de biometrie fan jo tillefoan of skermbeskoatteljen PIN, patroan, as wachtwurd om tagong te krijen ta jo ienmalige ferifikaasjekoades.",
+    "localVault": "YOUR LOKALE VULT",
+    "codesDeviceControl": "Jo koades. Jo apparaat. Jo kontrôle.",
+    "securingVault": "Jo kelder befeiligje ...",
+    "vaultProtected": "Jo ferwulft is beskerme",
+    "lock": "SLOT OP",
+    "localVault2": "LOKALE VULT",
+    "authenticator": "KAALKEY AUTHENTICATOR",
+    "tricolourLockEmblem": "KaalKey tricolor slot embleem",
+    "authenticator2": "AUTHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "As jo kieze om in QR koade te scannen, brûkt KaalKey kamera tastimming foar dy aksje. Opsjonele apparaatferifikaasje en haptyske feedback brûke de relevante apparaatfunksjes. Jo kinne tagongsrjochten beheare yn jo apparaatynstellingen.",
+        "heading": "2. Fergunnings en apparaat funksjes"
+      },
+      "backups": {
+        "body": "As jo in reservekopy meitsje, fersiferet KaalKey de reservekopy mei in wachtwurd dat jo kieze. Hâld sawol it bestân as it wachtwurd privee en bewarje se feilich. Elkenien dy't it bestân en syn wachtwurd krijt, kin jo autentikaasjeakkounts mooglik weromsette. KaalKey kin in fergetten reservekopywachtwurd net weromhelje.",
+        "heading": "3. Reservekopy"
+      },
+      "security": {
+        "body": "Hâld jo apparaat bywurke, beskermje it mei in skermslot, en diel gjin OTP geheimen as reservekopywachtwurden. It fuortsmiten fan de app, it wiskjen fan de gegevens, of it ferliezen fan it apparaat kin meitsje dat lokaal opsleine akkounts net beskikber binne. Hâld in feilige reservekopy as jo herstel nedich binne.",
+        "heading": "5. Feiligens en behâld"
+      },
+      "information": {
+        "heading": "1. Ynformaasje en geheimen",
+        "body": "KaalKey is in autentikaasjeapplikaasje. Akkountetiketten en de geheime wearden dy't nedich binne om ienmalige koades te generearjen binne gefoelich. De app is ûntworpen om akkountrecords op te slaan yn 'e feilige opslach fan it apparaat. Elkenien mei tagong ta in ûntskoattele apparaat of in eksportearre reservekopy kin tagong krije ta gefoelige ynformaasje."
+      },
+      "sharing": {
+        "heading": "4. Diele en tredden",
+        "body": "De reservekopystream kin it dielblêd of triemkiezer fan jo apparaat brûke om bestannen op te slaan, oer te dragen of te selektearjen. De privacypraktiken fan elke app of tsjinst fan tredden dy't jo kieze wurde regele troch dy provider. Dizze meidieling makket gjin algemiene bewearing dat jo apparaat, bestjoeringssysteem, of keazen dielingstsjinsten nea gegevens ferwurkje."
+      },
+      "changes": {
+        "heading": "6. Feroarings en kontakt",
+        "body": "Dizze ynbêde meidieling kin wurde bewurke yn in takomstige app-release. Foar privacyfragen, nim dan kontakt op mei de app-útjouwer fia it offisjele stipekanaal dat by de app is."
+      },
+      "title": "Privacybelied"
+    },
+    "terms": {
+      "use": {
+        "body": "Jo kinne KaalKey brûke om ferifikaasjekoades te generearjen foar akkounts wêrmei jo tagong hawwe ta tagong. Jo binne ferantwurdlik foar it neilibjen fan jildende wetten en de regels fan 'e tsjinsten wêrfoar jo autentikaasjekoades brûke.",
+        "heading": "1. Jo gebrûk"
+      },
+      "protectAccounts": {
+        "body": "Jo binne ferantwurdlik foar it befeiligjen fan jo apparaat, autentikaasjegeheimen, herstelmetoaden, eksportearre backups en backupwachtwurden. Diel gjin koades of geheimen mei minsken dy't jo net fertrouwe.",
+        "heading": "2. Beskermje jo akkounts"
+      },
+      "availability": {
+        "body": "Funksjes kinne feroarje tusken releases. Jo moatte de app bywurke hâlde en periodyk kontrolearje dat jo arranzjeminten foar reservekopy en herstel wurkje.",
+        "heading": "5. Feroarings en beskikberens"
+      },
+      "recovery": {
+        "body": "KaalKey kin net garandearje dat elk akkount kin wurde hersteld, dat elke QR koade of konfiguraasje kompatibel sil wêze, of dat de app sil wurkje sûnder ûnderbrekking of flater. Hâld alternative herstelmethoden levere troch de oanbelangjende tsjinst.",
+        "heading": "3. Gjin herstel garânsje"
+      },
+      "advice": {
+        "heading": "4. Gjin profesjonele advys",
+        "body": "De app is in nutsbedriuw en jout gjin juridysk, finansjeel of advys foar antwurd op ynsidinten foar feiligens. As in akkount kompromittearre is, folgje dan de offisjele herstel- en feiligensbegelieding fan 'e troffen tsjinst."
+      },
+      "liability": {
+        "heading": "6. Oanspraaklikens en jildende wet",
+        "body": "Foar safier tastien troch jildende wet, de app wurdt levere sûnder in garânsje fan ûnûnderbrutsen of flaterfrije wurking. Neat yn dizze betingsten slút rjochten of remedies út dy't net wetlik kinne wurde útsletten. Alle fierdere beheiningen of betingsten fan bestjoerlike wet moatte wurde hifke troch in kwalifisearre advokaat foar de jurisdiksje fan 'e útjouwer foar frijlitting."
+      },
+      "title": "Betingsten fan gebrûk"
+    },
+    "version": "Ferzje",
+    "saving": "Besparret…",
+    "acceptContinue": "Akseptearje & Trochgean",
+    "appliesAuthenticator": "Jildt foar KaalKey Authenticator",
+    "reviewBothDocuments": "Kontrolearje asjebleaft beide dokuminten foardat jo KaalKey brûke. Se binne opnommen yn 'e app en offline beskikber.",
+    "originalMulticolourAuthenticator": "Orizjinele multicolour KaalKey autentikaasje embleem",
+    "legalPrivacyNotice": "Juridyske & Privacy Notice",
+    "legalInformation": "Juridyske ynformaasje",
+    "reviewSPrivacy": "Besjoch de privacyynformaasje en gebrûksbetingsten fan KaalKey.",
+    "iReadAgree": "Ik haw lêzen en akkoard mei it privacybelied en gebrûksbetingsten."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Hâld de hiele QR koade sichtber. Jo geheim bliuwt op dit apparaat.",
+    "back": "Werom",
+    "turnFlashlightOff": "Skeakelje de zaklamp út",
+    "turnFlashlight": "Skeakelje de zaklamp oan",
+    "flashlight": "Zaklamp oan",
+    "flashlight2": "Zaklamp",
+    "cameraUnavailableOpen": "Kamera net beskikber. Iepenje dizze side op HTTPS of localhost en tastean kamera tagong.",
+    "cameraPreviewUnavailable": "Kamerafoarbyld is net beskikber. Slút en iepenje de scanner opnij.",
+    "cameraReadyPoint": "Kamera klear - rjochtsje it op de folsleine QR koade.",
+    "browserCannotProcess": "Dizze browser kin gjin kameraframes ferwurkje.",
+    "qrCodeDetected": "QR koade ûntdutsen.",
+    "couldnTRead": "Koe kameraframes net lêze. Kontrolearje kamera tagongsrjochten en ferfarskje dizze side.",
+    "cameraPermissionDenied": "Kameratastimming wegere. Tastean kamera tagong yn browser ynstellings, dan opnij iepenje de scanner.",
+    "noCameraWas": "Der is gjin kamera fûn op dit apparaat.",
+    "cameraBusyAnother": "De kamera is dwaande yn in oare app of browser-ljepper.",
+    "startCameraHttps": "Koe de kamera net starte. Brûk HTTPS of localhost en kontrolearje blêder tagongsrjochten.",
+    "qrScannerCamera": "QR scanner kamera foarbyld",
+    "cameraUnavailableCheck": "Kamera net beskikber. Kontrolearje kamera tastimming en besykje it nochris.",
+    "pointCameraAuthenticator": "Rjochtsje jo kamera op de autentikaasje-ynstellingskoade QR fan 'e tsjinst dy't jo tafoegje.",
+    "backAddAccount": "Werom om akkount ta te foegjen",
+    "secureSetup": "SECURE SETUP",
+    "enterDetailsManually": "Fier ynstee details manuell yn"
+  },
+  "accountForm": {
+    "hideManualEntry": "Hide hânmjittich ynfier",
+    "secretKeySupplied": "Brûk de geheime kaai levere troch de tsjinst dy't jo konfigurearje. Fier jo akkountwachtwurd hjir nea yn. Kom oerien mei it algoritme, sifertelling en ynterval mei de opsetynstruksjes fan 'e tsjinst.",
+    "updateServiceAccount": "Update de tsjinst, akkountnamme of geheime kaai.",
+    "secretKeyRead": "Geheime kaai, allinich lêzen by it bewurkjen",
+    "secretKeyBase32": "Geheime kaai yn Base32",
+    "digits": "sifers",
+    "seconds": "sekonden",
+    "enterDetailsManually": "OF FOAR DETAILS MANUEL IN",
+    "enterDetailsManually2": "Fier details manuell yn",
+    "serviceAccountName": "Tsjinst, akkountnamme en geheime kaai",
+    "saveChangesSecurely": "Bewarje wizigingen feilich",
+    "saveAccountSecurely": "Bewarje akkount feilich",
+    "serviceIssuer": "Tsjinst of útjouwer",
+    "accountName": "Account namme",
+    "secretKey": "Geheime kaai",
+    "serviceIssuer2": "SERVICE / ISSUER",
+    "eGGoogle": "bgl. Google",
+    "clearServiceIssuer": "Dúdlik tsjinst of útjouwer",
+    "eGExample": "bgl. do@example.com",
+    "clearAccountName": "Wiskje accountnamme",
+    "secretKeyLocked": "GEHEIME KEY (SLOTTE)",
+    "secretKeyBase322": "GEHEIME KEY (BASE32)",
+    "enterSetupKey": "Fier jo opsetkaai yn",
+    "clearSecretKey": "Wiskje geheime kaai",
+    "otpAlgorithm": "OTP ALGORITME",
+    "otpDigits": "OTP SIFFER",
+    "refreshIntervalSeconds": "REFRESH YNTERVAL (SEkonden)",
+    "otpRefreshInterval": "OTP ferfarsk ynterval yn sekonden",
+    "closeAccountForm": "Slút akkount formulier",
+    "totpSetupUrl": "TOTP opset URL",
+    "importSetupUrl": "Ymportearje opset URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "ACCOUNT NAME",
+    "addAccount": "Account tafoegje"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Scan autentikaasje QR koade",
+    "setupGuidance": "Scan in QR koade foar de maklikste opset, of fier details manuell yn.",
+    "cameraAddAccount": "Brûk jo kamera om direkt in akkount ta te foegjen",
+    "scanQrCode2": "Scan QR koade",
+    "uploadQrImage": "Upload QR ôfbylding",
+    "chooseQrScreenshot": "Kies in QR skermôfbylding út Gallery, Photos, of Files",
+    "pasteQr": "Plak QR ôfbylding / URL",
+    "pasteCopiedQr": "Plak in kopiearre QR ôfbylding of autentikaasje opset URL",
+    "uploadQrImage2": "Upload QR ôfbylding"
+  },
+  "accountQr": {
+    "close": "Slút",
+    "accountQrCode": "Account QR koade",
+    "revealQrCode": "Reveal QR koade",
+    "exportWarning": "Warskôging: elkenien dy't dizze QR koade scant kin ferifikaasjekoades generearje foar dit akkount. Bliuw it allinich op in fertroud skerm.",
+    "privacyHint": "Hâld dizze QR koade privee. It scannen kopiearret it autentikaasjegeheim fan it akkount."
+  },
+  "productInfo": {
+    "backupRestore": "Reservekopy & weromsette",
+    "backupRestoreDescription": "Meitsje in reservekopy fan jo autentikaasjegegevens en weromsette se as jo nei in oar apparaat ferpleatse.",
+    "privacyDescription": "Hâld jo ferifikaasjeakkounts op ien plak. Brûk de opsjes foar reservekopy, weromsette en apparaat-beskoattelje fan 'e app om jo opset ferantwurde te behearjen.",
+    "timeBasedCodes": "Tiid-basearre koades",
+    "generateOneTimeCodes": "Generearje rotearjende ienmalige wachtwurden foar jo akkounts om twa-stapsferifikaasje te foltôgjen.",
+    "quickAccountSetup": "Fluch akkount opset",
+    "quickSetupDescription": "Scan in autentikaasjekoade QR of ymportearje in QR-ôfbylding om in akkount ta te foegjen.",
+    "accountsOnePlace": "Accounts op ien plak",
+    "accountsInOnePlaceDescription": "Hâld jo bewarre akkounts byinoar en fyn de juste yngong as it tiid is om oan te melden.",
+    "privateAccountVault": "Privee akkount vault",
+    "privateVaultDescription": "Behear jo autentikaasje-yngongen lokaal en brûk de beskikbere opsje foar apparaatslot fan 'e app.",
+    "easyCodeAccess": "Maklike koade tagong",
+    "easyCodeAccessDescription": "Kopiearje in aktuele koade of beheare accountdetails fia in skjinne, rjochte ynterface.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · BY TECHSIVARAM",
+    "mobileAuthenticator": "YOUR MOBILE AUTHENTICATOR",
+    "tagline": "In ienfâldiger manier om jo twa-stap ferifikaasje te behearjen.",
+    "heroDescription": "In rjochte autentikaasjeûnderfining foar tiid-basearre ferifikaasjekoades. Hâld kompatibele akkount koades tichtby de hân mei KaalKey foar Android.",
+    "timeBasedCodes2": "TIME-BASED CODES",
+    "privateDesign": "PRIVATE BY DESIGN",
+    "builtSimpleAuthenticator": "BOUGED FOAR IN IMPLICHT AUTENTICATOR WORKFLOW",
+    "qrSetupTimed": "QR SETUP · TIMEKODES · ACCOUNT MANAGEMENT",
+    "privacyTitle": "Jo akkounts. Jo koades. Jo kontrôle.",
+    "authenticator": "KAALKEY · AUTHENTICATOR",
+    "brandBanner": "KaalKey merk banner",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Ofbrekke",
+      "storageInvalidTitle": "Opslachgegevens ûnjildich",
+      "storageInvalidBody": "Opsleine akkountgegevens koene net feilich lêzen wurde.",
+      "storageErrorTitle": "Storage flater",
+      "storageErrorBody": "Opsleine akkounts koene net laden wurde.",
+      "missingTitle": "Untbrekkende ynformaasje",
+      "missingEditingBody": "Fier de tsjinstnamme en akkountnamme yn.",
+      "missingBody": "Fier de tsjinstnamme, akkountnamme en geheime kaai yn.",
+      "invalidOtpBody": "Kontrolearje it Base32 geheim, algoritme, sifertelling en ferfarskingsperioade. Geheimen moatte jildige Base32 tekens befetsje; sifers moatte wêze {digits} en de perioade moat wêze {minPeriod}-{maxPeriod} sekonden.",
+      "duplicateBody": "In akkount mei dizze tsjinst en akkountnamme is al bewarre.",
+      "updatedBody": "Jo akkount is bywurke.",
+      "addedBody": "Jo akkount is feilich tafoege.",
+      "invalidOtpTitle": "Unjildige OTP ynstellings",
+      "duplicateTitle": "Account bestiet al",
+      "savedTitle": "Account bewarre",
+      "invalidSecretTitle": "Unjildige geheime kaai",
+      "invalidSecretBody": "Kontrolearje asjebleaft dat jo in jildich Base32 geheim ynfierd hawwe.",
+      "removedTitle": "Account fuortsmiten",
+      "removedBody": "It akkount en it geheim dêrfan binne fan dit apparaat fuortsmiten.",
+      "clearedTitle": "Accounts wiske",
+      "clearedBody": "Alle autentikaasjeakkounts en geheimen binne fan dit apparaat fuortsmiten.",
+      "someSavedAccountsNeedAttentionTitle": "Guon bewarre akkounts hawwe oandacht nedich",
+      "someSavedAccountsNeedAttentionBody": "{count} ûnjildige akkount(en) binne net laden. Jildige akkounts bliuwe beskikber. Tink oan it meitsjen fan in reservekopy foardat jo fierdere wizigingen meitsje.",
+      "removeConfirmTitle": "Account fuortsmite?",
+      "removeConfirmWebTitle": "Account fuortsmite?",
+      "removeButton": "Fuortsmite",
+      "clearButton": "Alles wiskje",
+      "clearConfirmTitle": "Alle akkounts wiskje?",
+      "saveErrorBody": "Accounts koenen net bewarre wurde. Kontrolearje de beskikberens fan browseropslach en besykje it nochris.",
+      "notFoundTitle": "Account net fûn",
+      "notFoundBody": "Dit akkount koe net fûn wurde. Slút de bewurker en besykje it nochris.",
+      "removeConfirmBody": "Dit ferwideret it akkount en it geheim fan dit apparaat.",
+      "clearConfirmBody": "Dit ferwideret permanint alle autentikaasjeakkounts en har geheimen fan dit apparaat. Meitsje earst in fersifere reservekopy as jo dizze akkounts letter nedich hawwe.",
+      "clearConfirmUndoBody": "Dit kin net ûngedien makke wurde."
+    },
+    "biometric": {
+      "cancelButton": "Ofbrekke",
+      "saveErrorTitle": "Koe de ynstelling net bewarje",
+      "unlockPrompt": "Untskoattelje KaalKey Authenticator",
+      "promptSubtitle": "Brûk biometry as jo skermbeskoatteljen fan jo apparaat",
+      "disableConfirmPrompt": "Befêstigje om KaalKey app-slot út te skeakeljen",
+      "enablePrompt": "App-slot ynskeakelje foar KaalKey",
+      "deviceLockTitle": "Stel it skermbeskoatteljen fan jo apparaat yn",
+      "deviceLockBody": "KaalKey brûkt de ynboude autentikaasje fan jo tillefoan. Stel in apparaat PIN, patroan of wachtwurd yn yn de befeiligingsynstellingen fan jo tillefoan, probearje dan nochris. Biometrics binne opsjoneel.",
+      "unavailableTitle": "Apparaatferifikaasje net beskikber",
+      "unavailableBody": "Jo tillefoan koe gjin feilige autentikaasje begjinne. Kontrolearje dat in apparaat skermbeskoatteljen is konfigurearre, en besykje dan nochris.",
+      "lockedTitle": "Ferifikaasje tydlik beskoattele",
+      "lockedBody": "Jo tillefoan hat autentikaasje tydlik útskeakele nei tefolle besykjen. Wachtsje en besykje it nochris.",
+      "promptErrorTitle": "Ferifikaasje net beskikber",
+      "promptErrorBody": "KaalKey koe de feilige autentikaasjeprompt fan 'e tillefoan net starte. Besykje it nochris.",
+      "webLock": "Apparaatferifikaasjeslot is noch net beskikber yn 'e webferzje. De webferwulf bliuwt ûntskoattele; brûk de Android app foar native apparaat autentikaasje.",
+      "disabledTitle": "App lock útskeakele",
+      "disabledBody": "KaalKey app slot is útskeakele.",
+      "disableSaveError": "De app-slot bliuwt ynskeakele. Besykje it nochris.",
+      "enabledTitle": "App-slot ynskeakele",
+      "enabledBody": "KaalKey sil de ynboude autentikaasje fan jo tillefoan oanfreegje as it wurdt iepene en as jo dernei weromkomme.",
+      "enableSaveError": "App-slot koe net ynskeakele wurde. Besykje it nochris."
+    },
+    "qr": {
+      "startingCamera": "Kamera start...",
+      "unsupportedTitle": "Net stipe QR koade",
+      "unsupportedBody": "Scan de autentikaasje-opset QR koade levere troch de tsjinst. Dit moat in TOTP koade wêze, net in normale oanmeldkoade QR.",
+      "unsupportedDiagnostic": "Dat QR is gjin TOTP opsetkoade. Doel op in autentikaasje-opset QR.",
+      "detectedDiagnostic": "QR ûntdutsen. Analysearje…",
+      "analyzing": "Analysearje QR koade ...",
+      "duplicateTitle": "Akkount al tafoege",
+      "duplicateBody": "{issuer}: {account} is al yn KaalKey.",
+      "addedTitle": "Account tafoege",
+      "addedBody": "{issuer}: {account} is mei súkses tafoege.",
+      "saveFailedDiagnostic": "Koe it akkount net bewarje. Jo kinne opnij scannen.",
+      "invalidTitle": "Unjildige QR koade",
+      "invalidBody": "KaalKey koe dizze autentikaasjekoade QR net parse. {detail}. Brûk de tsjinst TOTP opset QR koade (begjint normaal mei {prefix}).",
+      "parseFailedDiagnostic": "QR koe net ferwurke wurde. Rikje op de opset QR en besykje it nochris.",
+      "invalidUrlTitle": "Unjildich TOTP URL",
+      "invalidUrlBody": "Plak in folsleine autentikaasje URL begjinnend mei {prefix}.",
+      "clipboardEmptyTitle": "Klemboerd is leech",
+      "clipboardEmptyBody": "Kopiearje earst in {prefix} URL en tik dan op Paste TOTP URL.",
+      "clipboardErrorTitle": "Koe it klamboerd net lêze",
+      "clipboardErrorBody": "Kopiearje de TOTP opset URL en besykje it nochris."
+    },
+    "haptics": {
+      "saveFailedTitle": "Koe de ynstelling net bewarje",
+      "saveFailedBody": "Haptyske feedbackfoarkar koe net bewarre wurde. Besykje it nochris."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Koe de erkenning net opslaan",
+      "saveFailedBody": "Besykje it nochris. Jo moatte de juridyske meidieling akseptearje foardat jo KaalKey brûke."
+    },
+    "cameraPermission": {
+      "title": "Kameratastimming fereaske",
+      "body": "Tastean kamera tagong te skennen in autentikaasje opset QR koade."
+    },
+    "storage": {
+      "browserUnavailable": "Browser opslach is net beskikber.",
+      "browserFilePickerUnavailable": "De triemkiezer fan 'e browser is net beskikber."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Net-stipe triem",
+      "unsupportedFileBody": "Kies in QR koadeôfbylding lykas PNG of JPEG.",
+      "browserDecoderUnavailable": "Dekodearring fan blêderôfbylding is net beskikber",
+      "imageLoadFailed": "Ofbylding koe net laden wurde",
+      "unreadableDimensions": "Ofbylding hat gjin lêsbere dimensjes",
+      "noQrCodeFoundTitle": "Gjin QR koade fûn",
+      "noQrCodeFoundBody": "KaalKey koe gjin QR koade yn dizze ôfbylding net ûntsiferje. Besykje in skermôfbylding as in hegere resolúsje PNG/JPEG.",
+      "couldNotReadImageTitle": "Koe de ôfbylding net lêze",
+      "couldNotReadImageBody": "Besykje in dúdlike PNG of JPEG ôfbylding mei de autentikaasje-opset QR koade.",
+      "couldNotOpenPickerTitle": "Koe de ôfbyldingskiezer net iepenje",
+      "couldNotOpenPickerBody": "Besykje asjebleaft QR opnij uploade.",
+      "normalizedDecodeFailed": "Normalisearre ôfbylding koe net dekodearre wurde",
+      "clipboardImageLoadFailed": "Klemboerdôfbylding koe net laden wurde",
+      "imageProcessingUnavailable": "Ofbylding ferwurking is net beskikber",
+      "imageProcessingUnavailableAlt": "Ofbylding ferwurking net beskikber",
+      "noImageInClipboardTitle": "Gjin ôfbylding yn klamboerd",
+      "noImageInClipboardBody": "Kopiearje in QR koadeôfbylding, tikje dan op Paste QR ôfbylding wer.",
+      "clipboardUnavailableTitle": "Klemboerd net beskikber",
+      "clipboardUnavailableBody": "Klemboerdtekst is gjin jildige autentikaasje-opset URL. Kopiearje in otpauth:// URL of QR ôfbylding en besykje it nochris.",
+      "clipboardAccessBody": "KaalKey koe gjin tekst of in ôfbylding fan it klamboerd lêze. Tastean tagong ta klamboerd, kopiearje dan de QR-ôfbylding of otpauth:// URL en tik opnij op QR Ofbylding / URL.",
+      "couldNotPasteImageTitle": "Koe de ôfbylding net plakke",
+      "couldNotPasteImageBody": "Ofbylding plakke wurdt net stipe troch dit klamboerd op dit apparaat. Brûk ynstee ymportearje QR ôfbylding.",
+      "sourceImageDecodeFailure": "Besykje in oare QR ôfbylding.",
+      "pastedImportFailureBody": "Besykje in oare QR ôfbylding.",
+      "sourceImageReadFailure": "Besykje in dúdlike QR skermôfbylding te kopiearjen.",
+      "importFailedTitle": "QR ôfbylding ymport mislearre",
+      "importFailedBody": "KaalKey koe dat byld net lêze. Besykje in oare QR koadeôfbylding.",
+      "notFoundBody": "De kopiearre ôfbylding befettet gjin lêsbere QR koade.",
+      "pastedNotFoundBody": "De plakke ôfbylding befettet gjin lêsbere QR koade.",
+      "pastedReadFailureBody": "Besykje in dúdlike PNG of JPEG ôfbylding te kopiearjen mei de folsleine QR koade.",
+      "noQrCodeTextBody": "KaalKey dekodearre de selektearre ôfbylding, mar fûn gjin QR koade. Besykje in dúdlike, folsleine resolúsje PNG of JPEG mei de hiele koade sichtber."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Dizze QR koade is gjin tiid-basearre autentikaasje-ynstellingskoade.",
+      "missingAccountDetails": "De QR koade mist accountdetails.",
+      "unsupportedAlgorithm": "De koade QR brûkt in net-stipe algoritme.",
+      "unsupportedDigits": "Dizze QR koade moat 6, 7 of 8 sifers brûke.",
+      "unsupportedPeriod": "Dizze QR koade brûkt in net-stipe tiidperioade.",
+      "invalidAccount": "De QR koade koe net falidearre wurde."
+    },
+    "backup": {
+      "invalidJson": "De reservekopy triem is net jildich JSON.",
+      "unsupportedFormat": "Dit is gjin stipe KaalKey fersifere reservekopy.",
+      "invalidPasswordOrDamaged": "Reservekopywachtwurd is ferkeard of it reservekopybestân is skansearre.",
+      "invalidContents": "De reservekopy-ynhâld is ûnjildich of net kompleet.",
+      "secureRandomUnavailableDetailed": "Feilige willekeurige generaasje is net beskikber. Ferbouwe en opnij ynstallearje de Android app mei expo-crypto ynbegrepen, besykje dan it nochris.",
+      "invalidAccountDataForBackup": "Ien of mear akkounts binne ûnjildich. Befestigje de akkountgegevens foardat jo in reservekopy meitsje.",
+      "invalidPasswordOrModified": "Reservekopywachtwurd is ferkeard of it reservekopybestân is wizige.",
+      "invalidPasswordOrFileDamaged": "Reservekopywachtwurd is ferkeard of it bestân is skansearre.",
+      "passwordCopiedTitle": "Wachtwurd kopiearre",
+      "enterPasswordTitle": "Fier jo reservekopy wachtwurd yn",
+      "enterPasswordBody": "Fier it wachtwurd yn dat brûkt waard doe't dizze reservekopy makke is.",
+      "passwordCopiedBody": "Bewarje it earne feilich, lykas WhatsApp.",
+      "copyFailedTitle": "Kopiearje mislearre",
+      "copyFailedBody": "Selektearje en kopiearje it wachtwurd manuell.",
+      "generatingPassword": "Befeilige reservekopywachtwurd generearje...",
+      "encrypting": "Reservekopy fersiferje...",
+      "decrypting": "Reservekopy ûntsiferje…",
+      "restoring": "Accounts weromsette...",
+      "backupCreatedTitle": "Reservekopy makke",
+      "restoreCompleteTitle": "Weromsette kompleet",
+      "mergeConfirmTitle": "Reservekopyakkounts fusearje?",
+      "mergeConfirmButton": "Accounts gearfoegje",
+      "backupSavedTemporary": "Fersifere reservekopy tydlik bewarre op:\n{uri}",
+      "generatePasswordErrorTitle": "Koe gjin reservekopywachtwurd generearje",
+      "secureRandomUnavailable": "Feilige willekeurige generaasje is net beskikber.",
+      "passwordUnavailableTitle": "Reservekopy wachtwurd net beskikber",
+      "passwordUnavailableBody": "Slút dit dialoochfinster en meitsje in nije reservekopy om in feilich wachtwurd te generearjen.",
+      "backupDownloadedBody": "Jo fersifere KaalKey reservekopy is ynladen. Hâld it bestân en wachtwurd privee.",
+      "backupFailedTitle": "Reservekopy mislearre",
+      "backupCreateErrorBody": "KaalKey koe de reservekopy net oanmeitsje.",
+      "restoreFailedTitle": "Weromsette mislearre",
+      "backupReadErrorBody": "De reservekopy koe net lêzen of bewarre wurde.",
+      "browserDownloadUnsupported": "Jo browser stipet it ynladen fan reservekopybestannen net.",
+      "localFileUnavailable": "In lokale bestânslokaasje is net beskikber op dit apparaat.",
+      "saveBackupTitle": "Bewarje jo fersifere KaalKey reservekopy"
+    },
+    "clipboard": {
+      "copiedTitle": "Koade kopiearre",
+      "copiedBody": "Jo ferifikaasjekoade is kopiearre.",
+      "errorTitle": "Flater",
+      "errorBody": "Koe de ferifikaasjekoade net kopiearje."
+    },
+    "activity": {
+      "cameraReady": "Kamera klear. Rjochtsje it op de autentikaasjekoade QR.",
+      "readingQrImage": "Lês QR ôfbylding ...",
+      "importingQrImage": "Ymportearje QR ôfbylding...",
+      "importingAccount": "Authenticator-akkount ymportearje…",
+      "importingPastedImage": "Ymportearje fan plakke QR ôfbylding..."
+    }
+  },
+  "activity": {
+    "working": "Working",
+    "wait": "Wachtsje asjebleaft...",
+    "donTClose": "Net slute of ynteraksje mei KaalKey.",
+    "loadingLanguages": "Beskikbere talen laden…",
+    "loadingTranslation": "Oersetting laden..."
+  }
+}

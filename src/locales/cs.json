@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Jazyk",
+      "description": "Vyberte jazyk použitý v KaalKey.",
+      "english": "anglicky",
+      "telugu": "telugština",
+      "hindi": "hindština",
+      "section": "JAZYK",
+      "searchLanguageName": "Jazyk vyhledávání (název nebo kód)",
+      "searchSupportedLanguages": "Vyhledejte podporované jazyky",
+      "closeLanguageDropdown": "Zavřít rozevírací seznam jazyků",
+      "noTranslatedLanguage": "Nebyl nalezen žádný přeložený jazyk.",
+      "serverUrl": "Překladatelský server URL",
+      "serverUrlDescription": "KaalKey stáhne seznam jazyků a překlady z tohoto serveru.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Uložit překladatelský server"
+    },
+    "title": "Nastavení aplikace",
+    "eyebrow": "KAALKEY PŘEDVOLBY",
+    "experience": {
+      "section": "ZKUŠENOSTI"
+    },
+    "security": {
+      "section": "ZABEZPEČENÍ"
+    },
+    "backup": {
+      "section": "ZÁLOHA A OBNOVA"
+    },
+    "danger": {
+      "section": "NEBEZPEČNÁ ZÓNA",
+      "clearAccounts": "Vymazat všechny účty",
+      "clearAccountsDescription": "Trvale odstranit všechny účty a tajné informace z tohoto zařízení. Nejprve zálohujte.",
+      "clearAccountsAccessibilityLabel": "Vymažte všechny ověřovací účty"
+    },
+    "appearance": {
+      "section": "VZHLED",
+      "title": "Světlý vzhled",
+      "description": "KaalKey aktuálně používá své čisté světlo."
+    },
+    "haptics": {
+      "title": "Haptická zpětná vazba",
+      "description": "Jemná zpětná vazba pro klepnutí a dokončené akce."
+    },
+    "deviceLock": {
+      "title": "Zámek ověření zařízení",
+      "description": "Váš trezor se uzamkne, když KaalKey opustí popředí.",
+      "requirement": "Vyžadujte biometrické údaje telefonu nebo zámek obrazovky PIN, gesto nebo heslo.",
+      "accessibilityLabel": "Zámek aplikace pro ověření zařízení"
+    },
+    "privacy": {
+      "title": "Právní otázky a soukromí",
+      "description": "Přečtěte si Zásady ochrany osobních údajů a Podmínky použití.",
+      "storageNote": "Vaše tajemství ověřovače zůstávají v zabezpečeném trezoru na zařízení. Předvolby jsou uloženy lokálně."
+    }
+  },
+  "accounts": {
+    "edit": "Upravit",
+    "sortAccountName": "Seřadit podle názvu účtu",
+    "loadingSecureVault": "Načítání zabezpečeného trezoru...",
+    "tapCopy": "KLEPNUTÍM ZKOPÍRUJETE",
+    "noAccountsMatch": "Vašemu vyhledávání neodpovídají žádné účty.",
+    "viewQrCode": "Zobrazit QR kód účtu",
+    "removeAccount": "Odebrat účet",
+    "copyVerificationCode": "Zkopírujte ověřovací kód",
+    "active": "AKTIVNÍ",
+    "sort": "ŘADIT PODLE",
+    "account": "účet",
+    "clearSearch": "Vymazat vyhledávání",
+    "sortServiceName": "Seřadit podle názvu služby",
+    "addFirstAccount": "Přidejte svůj první účet",
+    "searchAccounts": "Hledat účty",
+    "searchServiceAccount": "Vyhledat službu nebo účet",
+    "accounts": "Vaše účty",
+    "add": "+ Přidat",
+    "vaultStartsHere": "Váš trezor začíná zde",
+    "service": "Servis",
+    "emptyHint": "Přidejte účet pomocí jeho tajného klíče a vygenerujte svůj první ověřovací kód."
+  },
+  "common": {
+    "done": "Hotovo",
+    "doneButton": "Hotovo",
+    "closeSettings": "Zavřete nastavení",
+    "separator": "-",
+    "article": "a",
+    "save": "Uložit",
+    "delete": "Smazat",
+    "resizeAppBrand": "Změňte velikost panelů aplikací a značek"
+  },
+  "qrImport": {
+    "readPastedImage": "Vložený obrázek nelze přečíst"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Účty v této záloze: {count}. KaalKey zachová vaše stávající účty a přidá všechny účty, které ještě neexistují. Duplicitní účty budou přeskočeny.",
+    "restoreCompletionBody": "Přidány účty: {added}. Duplicitní účty byly přeskočeny: {skipped}. Vaše stávající účty byly zachovány.",
+    "copyPassword": "Zkopírujte vygenerované heslo",
+    "passwordSafety": "Toto heslo si uložte samostatně (například v WhatsApp). Každý, kdo má obojí",
+    "importAction": "Vyberte soubor a importujte",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "ZABEZPEČENÝ SCHRÁN",
+    "createBackup": "Vytvořte zálohu",
+    "encryptedFile": "Šifrovaný soubor",
+    "restoreBackup": "Obnovit zálohu",
+    "safetyNote": "Zálohy obsahují vaše tajemství ověřování. KaalKey generuje jedinečné heslo pro každou zálohu. Uložte jej samostatně; KaalKey jej nemůže obnovit.",
+    "generatingSecurePassword": "Generování bezpečného hesla…",
+    "importFile": "Importovat soubor",
+    "backupPassword": "ZÁLOŽNÍ HESLO",
+    "account": "účet",
+    "accounts": "účty",
+    "exportDescription": "Zašifrujte všechny {count} uložené {accountLabel} do záložního souboru. KaalKey vygeneruje jedinečné heslo; zkopírujte a uložte jej odděleně od souboru.",
+    "restoreDescription": "Vyberte záložní soubor KaalKey a heslo. Nové účty budou přidány do vašeho stávajícího seznamu účtů; stávající účty zůstanou tak, jak jsou.",
+    "enterBackupPassword": "Zadejte záložní heslo",
+    "closeBackup": "Zavřete zálohu",
+    "copyGeneratedBackup": "Zkopírujte vygenerované záložní heslo",
+    "backupPassword2": "Záložní heslo",
+    "clearBackupPassword": "Vymazat záložní heslo",
+    "backupFilePassword": "záložní soubor a heslo mohou obnovit vaše ověřovací účty.",
+    "encryptShareBackup": "Šifrujte a sdílejte zálohu"
+  },
+  "home": {
+    "unlockSecurely": "Bezpečně odemkněte",
+    "disableAppLock": "Zakázat zámek aplikace",
+    "enableAppLock": "Povolit zámek aplikace",
+    "checkingSecureLock": "Kontrola nastavení zabezpečeného zámku. Vaše kódy zůstanou skryté.",
+    "waitingVerification": "Čekání na ověření…",
+    "secretsStayStored": "Vaše tajemství zůstanou uložena v tomto zařízení.",
+    "openAppSettings": "Otevřete nastavení aplikace",
+    "versionLabel": "VERZE",
+    "unlockRequirement": "K přístupu ke svým jednorázovým ověřovacím kódům použijte biometrii telefonu nebo zámek obrazovky PIN, gesto nebo heslo.",
+    "localVault": "VAŠE MÍSTNÍ Vault",
+    "codesDeviceControl": "Vaše kódy. Vaše zařízení. Vaše kontrola.",
+    "securingVault": "Zabezpečení vašeho trezoru…",
+    "vaultProtected": "Váš trezor je chráněn",
+    "lock": "ZAMKNOUT",
+    "localVault2": "MÍSTNÍ SKLEP",
+    "authenticator": "KAALKEY AUTHENTICATOR",
+    "tricolourLockEmblem": "KaalKey tříbarevný znak zámku",
+    "authenticator2": "AUTHENTIKATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Pokud se rozhodnete naskenovat kód QR, KaalKey použije pro tuto akci oprávnění fotoaparátu. Volitelné ověřování zařízení a haptická zpětná vazba využívají příslušné funkce zařízení. Oprávnění můžete spravovat v nastavení zařízení.",
+        "heading": "2. Oprávnění a funkce zařízení"
+      },
+      "backups": {
+        "body": "Když vytvoříte zálohu, KaalKey zálohu zašifruje pomocí vámi zvoleného hesla. Udržujte soubor i heslo soukromé a bezpečně je uložte. Každý, kdo získá soubor a jeho heslo, může obnovit vaše účty ověřovače. KaalKey nemůže obnovit zapomenuté heslo zálohy.",
+        "heading": "3. Zálohy"
+      },
+      "security": {
+        "body": "Udržujte své zařízení aktualizované, chraňte jej zámkem obrazovky a nesdílejte OTP tajemství ani záložní hesla. Odstranění aplikace, vymazání jejích dat nebo ztráta zařízení může způsobit, že místně uložené účty nebudou dostupné. Pokud potřebujete obnovu, udržujte bezpečnou zálohu.",
+        "heading": "5. Zabezpečení a uchovávání"
+      },
+      "information": {
+        "heading": "1. Informace a tajemství",
+        "body": "KaalKey je ověřovací aplikace. Štítky účtů a tajné hodnoty potřebné pro generování jednorázových kódů jsou citlivé. Aplikace je navržena tak, aby ukládala záznamy účtů do zabezpečeného úložiště zařízení. Kdokoli s přístupem k odemknutému zařízení nebo exportované záloze může mít přístup k citlivým informacím."
+      },
+      "sharing": {
+        "heading": "4. Sdílení a třetí strany",
+        "body": "Zálohovací proces může k uložení, přenosu nebo výběru souborů použít sdílený list nebo nástroj pro výběr souborů. Postupy ochrany osobních údajů jakékoli aplikace nebo služby třetí strany, kterou si vyberete, se řídí daným poskytovatelem. Toto oznámení nepředstavuje paušální tvrzení, že vaše zařízení, operační systém nebo vybrané služby sdílení nikdy nezpracovávají data."
+      },
+      "changes": {
+        "heading": "6. Změny a kontakt",
+        "body": "Toto vložené upozornění může být revidováno v budoucí verzi aplikace. V případě dotazů na ochranu soukromí kontaktujte vydavatele aplikace prostřednictvím oficiálního kanálu podpory poskytovaného s aplikací."
+      },
+      "title": "Zásady ochrany osobních údajů"
+    },
+    "terms": {
+      "use": {
+        "body": "Můžete použít KaalKey ke generování ověřovacích kódů pro účty, ke kterým máte oprávnění přistupovat. Jste odpovědní za dodržování platných zákonů a pravidel služeb, pro které používáte ověřovací kódy.",
+        "heading": "1. Vaše použití"
+      },
+      "protectAccounts": {
+        "body": "Jste odpovědní za zabezpečení svého zařízení, tajných klíčů ověřování, metod obnovy, exportovaných záloh a záložních hesel. Nesdílejte kódy nebo tajemství s lidmi, kterým nedůvěřujete.",
+        "heading": "2. Chraňte své účty"
+      },
+      "availability": {
+        "body": "Funkce se mohou mezi vydáními změnit. Aplikaci byste měli udržovat aktualizovanou a pravidelně ověřovat, že vaše ujednání o zálohování a obnově fungují.",
+        "heading": "5. Změny a dostupnost"
+      },
+      "recovery": {
+        "body": "KaalKey nemůže zaručit, že každý účet bude možné obnovit, že každý QR kód nebo konfigurace bude kompatibilní, nebo že aplikace bude fungovat bez přerušení nebo chyby. Ponechte si alternativní metody obnovy poskytované příslušnou službou.",
+        "heading": "3. Žádná záruka vrácení"
+      },
+      "advice": {
+        "heading": "4. Žádné odborné poradenství",
+        "body": "Aplikace je nástroj a neposkytuje právní, finanční ani bezpečnostní rady ohledně reakce na incidenty. Pokud dojde k prolomení účtu, postupujte podle oficiálních pokynů k obnovení a zabezpečení dotčené služby."
+      },
+      "liability": {
+        "heading": "6. Odpovědnost a platné právo",
+        "body": "V rozsahu povoleném platnými zákony je aplikace poskytována bez záruky nepřetržitého nebo bezchybného provozu. Nic v těchto podmínkách nevylučuje práva nebo opravné prostředky, které nelze právně vyloučit. Jakákoli další omezení nebo podmínky rozhodného práva by měly být před vydáním přezkoumány kvalifikovaným právníkem pro jurisdikci vydavatele."
+      },
+      "title": "Podmínky použití"
+    },
+    "version": "Verze",
+    "saving": "Ukládání…",
+    "acceptContinue": "Přijmout a pokračovat",
+    "appliesAuthenticator": "Platí pro KaalKey Authenticator",
+    "reviewBothDocuments": "Před použitím KaalKey si prosím oba dokumenty přečtěte. Jsou součástí aplikace a jsou k dispozici offline.",
+    "originalMulticolourAuthenticator": "Originální vícebarevný autentizační znak KaalKey",
+    "legalPrivacyNotice": "Právní upozornění a upozornění na ochranu osobních údajů",
+    "legalInformation": "Právní informace",
+    "reviewSPrivacy": "Přečtěte si informace o ochraně osobních údajů a podmínky použití KaalKey.",
+    "iReadAgree": "Přečetl jsem si Zásady ochrany osobních údajů a Podmínky použití a souhlasím s nimi."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Udržujte celý kód QR viditelný. Vaše tajemství zůstane na tomto zařízení.",
+    "back": "Zpět",
+    "turnFlashlightOff": "Vypněte baterku",
+    "turnFlashlight": "Zapněte baterku",
+    "flashlight": "Svítilna",
+    "flashlight2": "Svítilna",
+    "cameraUnavailableOpen": "Kamera není k dispozici. Otevřete tuto stránku na HTTPS nebo localhost a povolte přístup ke kameře.",
+    "cameraPreviewUnavailable": "Náhled fotoaparátu není k dispozici. Zavřete a znovu otevřete skener.",
+    "cameraReadyPoint": "Kamera připravena – namiřte ji na úplný QR kód.",
+    "browserCannotProcess": "Tento prohlížeč nedokáže zpracovat snímky z fotoaparátu.",
+    "qrCodeDetected": "Byl zjištěn kód QR.",
+    "couldnTRead": "Nelze přečíst snímky z fotoaparátu. Zkontrolujte oprávnění fotoaparátu a znovu načtěte tuto stránku.",
+    "cameraPermissionDenied": "Povolení fotoaparátu odepřeno. Povolte přístup k fotoaparátu v nastavení prohlížeče a poté znovu otevřete skener.",
+    "noCameraWas": "Na tomto zařízení nebyla nalezena žádná kamera.",
+    "cameraBusyAnother": "Fotoaparát je zaneprázdněn v jiné aplikaci nebo kartě prohlížeče.",
+    "startCameraHttps": "Fotoaparát nelze spustit. Použijte HTTPS nebo localhost a zkontrolujte oprávnění prohlížeče.",
+    "qrScannerCamera": "QR náhled kamery skeneru",
+    "cameraUnavailableCheck": "Kamera není k dispozici. Zkontrolujte oprávnění fotoaparátu a zkuste to znovu.",
+    "pointCameraAuthenticator": "Namiřte fotoaparát na kód nastavení ověřovače QR ze služby, kterou přidáváte.",
+    "backAddAccount": "Zpět k přidání účtu",
+    "secureSetup": "ZABEZPEČENÉ NASTAVENÍ",
+    "enterDetailsManually": "Místo toho zadejte podrobnosti ručně"
+  },
+  "accountForm": {
+    "hideManualEntry": "Skrýt ruční zadání",
+    "secretKeySupplied": "Použijte tajný klíč dodaný službou, kterou konfigurujete. Nikdy sem nezadávejte heslo k účtu. Přizpůsobte algoritmus, počet číslic a interval pokynům pro nastavení služby.",
+    "updateServiceAccount": "Aktualizujte službu, název účtu nebo tajný klíč.",
+    "secretKeyRead": "Tajný klíč, při úpravách pouze pro čtení",
+    "secretKeyBase32": "Tajný klíč v Base32",
+    "digits": "číslic",
+    "seconds": "sekund",
+    "enterDetailsManually": "NEBO ZADEJTE PODROBNOSTI RUČNĚ",
+    "enterDetailsManually2": "Zadejte podrobnosti ručně",
+    "serviceAccountName": "Služba, název účtu a tajný klíč",
+    "saveChangesSecurely": "Uložte změny bezpečně",
+    "saveAccountSecurely": "Uložte účet bezpečně",
+    "serviceIssuer": "Služba nebo vydavatel",
+    "accountName": "Název účtu",
+    "secretKey": "Tajný klíč",
+    "serviceIssuer2": "SERVIS / VYDAVATEL",
+    "eGGoogle": "např. Google",
+    "clearServiceIssuer": "Vymazat službu nebo vydavatele",
+    "eGExample": "např. vy@example.com",
+    "clearAccountName": "Vymazat název účtu",
+    "secretKeyLocked": "TAJNÝ KLÍČ (ZAMČENÝ)",
+    "secretKeyBase322": "TAJNÝ KLÍČ (BASE32)",
+    "enterSetupKey": "Zadejte klíč nastavení",
+    "clearSecretKey": "Vymazat tajný klíč",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP ČÍSLICE",
+    "refreshIntervalSeconds": "INTERVAL OBNOVENÍ (SEKUND)",
+    "otpRefreshInterval": "OTP interval obnovení v sekundách",
+    "closeAccountForm": "Zavřít formulář účtu",
+    "totpSetupUrl": "TOTP nastavení URL",
+    "importSetupUrl": "Nastavení importu URL",
+    "totpSetupUrl2": "TOTP NASTAVENÍ URL",
+    "accountName2": "NÁZEV ÚČTU",
+    "addAccount": "Přidat účet"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Naskenujte kód QR ověřovacího zařízení",
+    "setupGuidance": "Naskenujte kód QR pro nejjednodušší nastavení nebo zadejte podrobnosti ručně.",
+    "cameraAddAccount": "Pomocí fotoaparátu můžete okamžitě přidat účet",
+    "scanQrCode2": "Naskenujte QR kód",
+    "uploadQrImage": "Nahrajte obrázek QR",
+    "chooseQrScreenshot": "Vyberte snímek obrazovky QR z Galerie, Fotografie nebo Soubory",
+    "pasteQr": "Vložit QR obrázek / URL",
+    "pasteCopiedQr": "Vložte zkopírovaný QR obrázek nebo nastavení ověřování URL",
+    "uploadQrImage2": "Nahrajte obrázek QR"
+  },
+  "accountQr": {
+    "close": "Zavřít",
+    "accountQrCode": "Kód účtu QR",
+    "revealQrCode": "Odhalte QR kód",
+    "exportWarning": "Upozornění: Kdokoli, kdo naskenuje tento QR kód, může vygenerovat ověřovací kódy pro tento účet. Odhalte to pouze na důvěryhodné obrazovce.",
+    "privacyHint": "Udržujte tento QR kód soukromý. Naskenováním zkopírujete tajný klíč ověřování účtu."
+  },
+  "productInfo": {
+    "backupRestore": "Zálohování a obnovení",
+    "backupRestoreDescription": "Zálohujte svá ověřovací data a obnovte je, když přejdete na jiné zařízení.",
+    "privacyDescription": "Mějte své ověřovací účty na jednom místě. Použijte možnosti zálohování, obnovy a uzamčení zařízení aplikace k zodpovědné správě nastavení.",
+    "timeBasedCodes": "Časové kódy",
+    "generateOneTimeCodes": "Vygenerujte rotující jednorázové přístupové kódy pro své účty a dokončete dvoufázové ověření.",
+    "quickAccountSetup": "Rychlé nastavení účtu",
+    "quickSetupDescription": "Naskenujte ověřovací QR kód nebo importujte obrázek QR a přidejte účet.",
+    "accountsOnePlace": "Účty na jednom místě",
+    "accountsInOnePlaceDescription": "Udržujte své uložené účty pohromadě a najděte správný záznam, až bude čas se přihlásit.",
+    "privateAccountVault": "Trezor soukromého účtu",
+    "privateVaultDescription": "Spravujte své položky ověřovače lokálně a použijte dostupnou možnost uzamčení zařízení v aplikaci.",
+    "easyCodeAccess": "Snadný přístup ke kódu",
+    "easyCodeAccessDescription": "Zkopírujte aktuální kód nebo spravujte podrobnosti o účtu prostřednictvím čistého a zaměřeného rozhraní.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · OD TECHSIVARAM",
+    "mobileAuthenticator": "VÁŠ MOBILNÍ AUTHENTICÁTOR",
+    "tagline": "Jednodušší způsob, jak spravovat dvoufázové ověření.",
+    "heroDescription": "Zaměřené ověřovací prostředí pro ověřovací kódy založené na čase. Mějte po ruce kompatibilní kódy účtů s KaalKey pro Android.",
+    "timeBasedCodes2": "ČASOVÉ KÓDY",
+    "privateDesign": "PRIVÁTNÍ PODLE NÁVRHU",
+    "builtSimpleAuthenticator": "STAVENO PRO JEDNODUCHÝ PRACOVNÍ POSTUP AUTHENTICÁTORU",
+    "qrSetupTimed": "QR NASTAVENÍ · ČASOVANÉ KÓDY · SPRÁVA ÚČTU",
+    "privacyTitle": "Vaše účty. Vaše kódy. Vaše kontrola.",
+    "authenticator": "KAALKEY · AUTHENTICATOR",
+    "brandBanner": "KaalKey banner značky",
+    "logo": "Logo KaalKey"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Zrušit",
+      "storageInvalidTitle": "Data úložiště jsou neplatná",
+      "storageInvalidBody": "Uložená data účtu nelze bezpečně přečíst.",
+      "storageErrorTitle": "Chyba úložiště",
+      "storageErrorBody": "Uložené účty nelze načíst.",
+      "missingTitle": "Chybějící informace",
+      "missingEditingBody": "Zadejte název služby a název účtu.",
+      "missingBody": "Zadejte název služby, název účtu a tajný klíč.",
+      "invalidOtpBody": "Zkontrolujte tajný klíč Base32, algoritmus, počet číslic a periodu obnovení. Tajné položky musí obsahovat platné znaky Base32; číslice musí být {digits} a perioda musí být {minPeriod}–{maxPeriod} sekund.",
+      "duplicateBody": "Účet s touto službou a názvem účtu je již uložen.",
+      "updatedBody": "Váš účet byl aktualizován.",
+      "addedBody": "Váš účet byl bezpečně přidán.",
+      "invalidOtpTitle": "Neplatná nastavení OTP",
+      "duplicateTitle": "Účet již existuje",
+      "savedTitle": "Účet uložen",
+      "invalidSecretTitle": "Neplatný tajný klíč",
+      "invalidSecretBody": "Zkontrolujte prosím, zda jste zadali platný tajný klíč Base32.",
+      "removedTitle": "Účet byl odstraněn",
+      "removedBody": "Účet a jeho tajemství byly z tohoto zařízení odstraněny.",
+      "clearedTitle": "Účty vymazány",
+      "clearedBody": "Všechny ověřovací účty a tajemství byly z tohoto zařízení odstraněny.",
+      "someSavedAccountsNeedAttentionTitle": "Některé uložené účty vyžadují pozornost",
+      "someSavedAccountsNeedAttentionBody": "{count} neplatné záznamy účtu nebyly načteny. Platné účty zůstávají k dispozici. Před provedením dalších změn zvažte vytvoření zálohy.",
+      "removeConfirmTitle": "Odebrat účet?",
+      "removeConfirmWebTitle": "Odebrat účet?",
+      "removeButton": "Odebrat",
+      "clearButton": "Vymazat vše",
+      "clearConfirmTitle": "Vymazat všechny účty?",
+      "saveErrorBody": "Účty se nepodařilo uložit. Zkontrolujte dostupnost úložiště prohlížeče a zkuste to znovu.",
+      "notFoundTitle": "Účet nenalezen",
+      "notFoundBody": "Tento účet nebyl nalezen. Zavřete editor a zkuste to znovu.",
+      "removeConfirmBody": "Tím se z tohoto zařízení odstraní účet a jeho tajemství.",
+      "clearConfirmBody": "Tím se z tohoto zařízení trvale odstraní všechny ověřovací účty a jejich tajemství. Pokud budete tyto účty později potřebovat, vytvořte nejprve šifrovanou zálohu.",
+      "clearConfirmUndoBody": "Toto nelze vrátit zpět."
+    },
+    "biometric": {
+      "cancelButton": "Zrušit",
+      "saveErrorTitle": "Nastavení se nepodařilo uložit",
+      "unlockPrompt": "Odemkněte KaalKey Authenticator",
+      "promptSubtitle": "Použijte biometrické údaje nebo zámek obrazovky zařízení",
+      "disableConfirmPrompt": "Potvrďte pro vypnutí zámku aplikace KaalKey",
+      "enablePrompt": "Povolit zámek aplikace pro KaalKey",
+      "deviceLockTitle": "Nastavte zámek obrazovky zařízení",
+      "deviceLockBody": "KaalKey používá vestavěné ověření vašeho telefonu. Nastavte zařízení PIN, gesto nebo heslo v nastavení zabezpečení telefonu a zkuste to znovu. Biometrie jsou volitelné.",
+      "unavailableTitle": "Ověření zařízení není k dispozici",
+      "unavailableBody": "Váš telefon nemohl spustit zabezpečené ověřování. Zkontrolujte, zda je nakonfigurován zámek obrazovky zařízení, a zkuste to znovu.",
+      "lockedTitle": "Ověřování dočasně uzamčeno",
+      "lockedBody": "Váš telefon dočasně zakázal ověřování po příliš mnoha pokusech. Počkejte a zkuste to znovu.",
+      "promptErrorTitle": "Ověření není k dispozici",
+      "promptErrorBody": "KaalKey nemohl spustit výzvu k bezpečnému ověření telefonu. Zkuste to prosím znovu.",
+      "webLock": "Zámek ověření zařízení zatím není ve webové verzi k dispozici. Webový trezor zůstane odemčený; použijte aplikaci Android pro nativní ověřování zařízení.",
+      "disabledTitle": "Zámek aplikace deaktivován",
+      "disabledBody": "KaalKey zámek aplikace byl vypnut.",
+      "disableSaveError": "Zámek aplikace zůstane aktivní. Zkuste to prosím znovu.",
+      "enabledTitle": "Zámek aplikace povolen",
+      "enabledBody": "KaalKey bude při otevření a po návratu do telefonu vyžadovat vestavěné ověření.",
+      "enableSaveError": "Zámek aplikace nelze aktivovat. Zkuste to prosím znovu."
+    },
+    "qr": {
+      "startingCamera": "Spouštění fotoaparátu…",
+      "unsupportedTitle": "Nepodporovaný kód QR",
+      "unsupportedBody": "Naskenujte QR kód nastavení ověřovacího zařízení dodaný službou. Toto musí být TOTP kód, nikoli běžný přihlašovací QR kód.",
+      "unsupportedDiagnostic": "Tento QR není kód nastavení TOTP. Zaměřte se na nastavení ověřovače QR.",
+      "detectedDiagnostic": "Bylo zjištěno QR. Probíhá analýza…",
+      "analyzing": "Analýza QR kódu…",
+      "duplicateTitle": "Účet již přidán",
+      "duplicateBody": "{issuer}: {account} je již v KaalKey.",
+      "addedTitle": "Účet přidán",
+      "addedBody": "{issuer}: {account} bylo úspěšně přidáno.",
+      "saveFailedDiagnostic": "Účet se nepodařilo uložit. Můžete skenovat znovu.",
+      "invalidTitle": "Neplatný kód QR",
+      "invalidBody": "KaalKey nemohl analyzovat tento kód QR ověřovače. {detail}. Použijte TOTP instalační kód služby QR (obvykle začíná {prefix}).",
+      "parseFailedDiagnostic": "QR nelze zpracovat. Zamiřte na nastavení QR a zkuste to znovu.",
+      "invalidUrlTitle": "Neplatné TOTP URL",
+      "invalidUrlBody": "Vložte úplný autentizátor URL začínající na {prefix}.",
+      "clipboardEmptyTitle": "Schránka je prázdná",
+      "clipboardEmptyBody": "Nejprve zkopírujte {prefix} URL a poté klepněte na Vložit TOTP URL.",
+      "clipboardErrorTitle": "Nelze přečíst schránku",
+      "clipboardErrorBody": "Zkopírujte TOTP nastavení URL a zkuste to znovu."
+    },
+    "haptics": {
+      "saveFailedTitle": "Nastavení se nepodařilo uložit",
+      "saveFailedBody": "Předvolbu hmatové odezvy se nepodařilo uložit. Zkuste to prosím znovu."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Potvrzení se nepodařilo uložit",
+      "saveFailedBody": "Zkuste to prosím znovu. Před použitím KaalKey musíte přijmout právní upozornění."
+    },
+    "cameraPermission": {
+      "title": "Vyžaduje se povolení fotoaparátu",
+      "body": "Povolte přístup k fotoaparátu za účelem naskenování QR kódu nastavení ověřovacího zařízení."
+    },
+    "storage": {
+      "browserUnavailable": "Úložiště prohlížeče není k dispozici.",
+      "browserFilePickerUnavailable": "Nástroj pro výběr souborů prohlížeče je nedostupný."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Nepodporovaný soubor",
+      "unsupportedFileBody": "Vyberte obrázek kódu QR, například PNG nebo JPEG.",
+      "browserDecoderUnavailable": "Dekódování obrázků v prohlížeči není k dispozici",
+      "imageLoadFailed": "Obrázek nelze načíst",
+      "unreadableDimensions": "Obrázek nemá žádné čitelné rozměry",
+      "noQrCodeFoundTitle": "Nebyl nalezen žádný kód QR",
+      "noQrCodeFoundBody": "KaalKey nedokázal dekódovat kód QR v tomto obrázku. Zkuste snímek obrazovky nebo vyšší rozlišení PNG/JPEG.",
+      "couldNotReadImageTitle": "Obrázek nelze přečíst",
+      "couldNotReadImageBody": "Vyzkoušejte čistý obrázek PNG nebo JPEG obsahující kód QR nastavení ověřovacího zařízení.",
+      "couldNotOpenPickerTitle": "Výběr obrázku nelze otevřít",
+      "couldNotOpenPickerBody": "Zkuste prosím nahrát QR znovu.",
+      "normalizedDecodeFailed": "Normalizovaný obrázek nelze dekódovat",
+      "clipboardImageLoadFailed": "Obrázek ze schránky nelze načíst",
+      "imageProcessingUnavailable": "Zpracování obrazu není k dispozici",
+      "imageProcessingUnavailableAlt": "Zpracování obrazu není k dispozici",
+      "noImageInClipboardTitle": "Ve schránce není žádný obrázek",
+      "noImageInClipboardBody": "Zkopírujte obrázek kódu QR a poté znovu klepněte na Vložit obrázek QR.",
+      "clipboardUnavailableTitle": "Schránka není k dispozici",
+      "clipboardUnavailableBody": "Text schránky není platné nastavení ověřovače URL. Zkopírujte obrázek otpauth:// URL nebo QR a zkuste to znovu.",
+      "clipboardAccessBody": "KaalKey nemohl přečíst text nebo obrázek ze schránky. Povolte přístup do schránky, poté zkopírujte obrázek QR nebo otpauth:// URL a znovu klepněte na Vložit QR obrázek / URL.",
+      "couldNotPasteImageTitle": "Nelze vložit obrázek",
+      "couldNotPasteImageBody": "Tato schránka v tomto zařízení nepodporuje vkládání obrázků. Místo toho použijte Importovat obrázek QR.",
+      "sourceImageDecodeFailure": "Zkuste jiný obrázek QR.",
+      "pastedImportFailureBody": "Zkuste jiný obrázek QR.",
+      "sourceImageReadFailure": "Zkuste zkopírovat čistý snímek obrazovky QR.",
+      "importFailedTitle": "Import obrázku QR se nezdařil",
+      "importFailedBody": "KaalKey nemohl tento obrázek přečíst. Zkuste prosím jiný obrázek kódu QR.",
+      "notFoundBody": "Zkopírovaný obrázek neobsahuje čitelný kód QR.",
+      "pastedNotFoundBody": "Vložený obrázek neobsahuje čitelný kód QR.",
+      "pastedReadFailureBody": "Zkuste zkopírovat čistý obrázek PNG nebo JPEG obsahující celý kód QR.",
+      "noQrCodeTextBody": "KaalKey dekódoval vybraný obrázek, ale nenašel kód QR. Vyzkoušejte čisté PNG nebo JPEG v plném rozlišení s viditelným celým kódem."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Tento kód QR není kód pro nastavení ověřovacího zařízení na základě času.",
+      "missingAccountDetails": "V kódu QR chybí podrobnosti o účtu.",
+      "unsupportedAlgorithm": "Kód QR používá nepodporovaný algoritmus.",
+      "unsupportedDigits": "Tento kód QR musí obsahovat 6, 7 nebo 8 číslic.",
+      "unsupportedPeriod": "Tento kód QR používá nepodporované časové období.",
+      "invalidAccount": "Kód QR nelze ověřit."
+    },
+    "backup": {
+      "invalidJson": "Záložní soubor není platný JSON.",
+      "unsupportedFormat": "Toto není podporovaná šifrovaná záloha KaalKey.",
+      "invalidPasswordOrDamaged": "Záložní heslo je nesprávné nebo je záložní soubor poškozen.",
+      "invalidContents": "Obsah zálohy je neplatný nebo neúplný.",
+      "secureRandomUnavailableDetailed": "Zabezpečené náhodné generování není k dispozici. Znovu sestavte a znovu nainstalujte aplikaci Android s expo-crypto a zkuste to znovu.",
+      "invalidAccountDataForBackup": "Jeden nebo více účtů je neplatných. Před vytvořením zálohy opravte data účtu.",
+      "invalidPasswordOrModified": "Záložní heslo je nesprávné nebo byl záložní soubor změněn.",
+      "invalidPasswordOrFileDamaged": "Záložní heslo je nesprávné nebo je soubor poškozen.",
+      "passwordCopiedTitle": "Heslo zkopírováno",
+      "enterPasswordTitle": "Zadejte své záložní heslo",
+      "enterPasswordBody": "Zadejte heslo použité při vytváření této zálohy.",
+      "passwordCopiedBody": "Uložte jej na bezpečném místě, například WhatsApp.",
+      "copyFailedTitle": "Kopírování se nezdařilo",
+      "copyFailedBody": "Vyberte a zkopírujte heslo ručně.",
+      "generatingPassword": "Generování bezpečného záložního hesla…",
+      "encrypting": "Šifrování zálohy…",
+      "decrypting": "Dešifrování zálohy…",
+      "restoring": "Obnovování účtů…",
+      "backupCreatedTitle": "Záloha byla vytvořena",
+      "restoreCompleteTitle": "Obnovení dokončeno",
+      "mergeConfirmTitle": "Sloučit záložní účty?",
+      "mergeConfirmButton": "Sloučit účty",
+      "backupSavedTemporary": "Šifrovaná záloha dočasně uložena na adrese:\n{uri}",
+      "generatePasswordErrorTitle": "Nepodařilo se vygenerovat záložní heslo",
+      "secureRandomUnavailable": "Zabezpečené náhodné generování není k dispozici.",
+      "passwordUnavailableTitle": "Záložní heslo není k dispozici",
+      "passwordUnavailableBody": "Zavřete toto dialogové okno a vytvořte novou zálohu pro vygenerování bezpečného hesla.",
+      "backupDownloadedBody": "Vaše šifrovaná záloha KaalKey byla stažena. Udržujte soubor a heslo soukromé.",
+      "backupFailedTitle": "Zálohování se nezdařilo",
+      "backupCreateErrorBody": "KaalKey nemohl vytvořit zálohu.",
+      "restoreFailedTitle": "Obnovení se nezdařilo",
+      "backupReadErrorBody": "Zálohu nelze přečíst nebo uložit.",
+      "browserDownloadUnsupported": "Váš prohlížeč nepodporuje stahování záložních souborů.",
+      "localFileUnavailable": "Lokální umístění souboru není na tomto zařízení k dispozici.",
+      "saveBackupTitle": "Uložte si šifrovanou zálohu KaalKey"
+    },
+    "clipboard": {
+      "copiedTitle": "Kód zkopírován",
+      "copiedBody": "Váš ověřovací kód byl zkopírován.",
+      "errorTitle": "Chyba",
+      "errorBody": "Ověřovací kód se nepodařilo zkopírovat."
+    },
+    "activity": {
+      "cameraReady": "Fotoaparát připraven. Namiřte jej na ověřovací kód QR.",
+      "readingQrImage": "Čtení QR obrázku…",
+      "importingQrImage": "Import obrázku QR…",
+      "importingAccount": "Import účtu ověřovače…",
+      "importingPastedImage": "Import vloženého QR obrázku…"
+    }
+  },
+  "activity": {
+    "working": "Práce",
+    "wait": "Čekejte prosím…",
+    "donTClose": "Neuzavírejte a neinteragujte s KaalKey.",
+    "loadingLanguages": "Načítání dostupných jazyků…",
+    "loadingTranslation": "Načítání překladu…"
+  }
+}

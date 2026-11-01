@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Valoda",
+      "description": "Izvēlieties KaalKey lietoto valodu.",
+      "english": "angļu valoda",
+      "telugu": "telugu",
+      "hindi": "hindi",
+      "section": "VALODA",
+      "searchLanguageName": "Meklēšanas valoda (nosaukums vai kods)",
+      "searchSupportedLanguages": "Meklējiet atbalstītās valodas",
+      "closeLanguageDropdown": "Aizvērt valodas nolaižamo izvēlni",
+      "noTranslatedLanguage": "Netika atrasta neviena tulkota valoda.",
+      "serverUrl": "Tulkošanas serveris URL",
+      "serverUrlDescription": "KaalKey lejupielādē valodu sarakstu un tulkojumus no šī servera.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Saglabāt tulkošanas serveri"
+    },
+    "title": "Lietotņu iestatījumi",
+    "eyebrow": "KAALKEY PREFERENCES",
+    "experience": {
+      "section": "PIEREDZE"
+    },
+    "security": {
+      "section": "DROŠĪBA"
+    },
+    "backup": {
+      "section": "DUBLĒŠANA UN ATkopšana"
+    },
+    "danger": {
+      "section": "BĪSTAMO ZONA",
+      "clearAccounts": "Notīrīt visus kontus",
+      "clearAccountsDescription": "Neatgriezeniski noņemiet katru kontu un noslēpumu no šīs ierīces. Vispirms dublējieties.",
+      "clearAccountsAccessibilityLabel": "Notīriet visus autentifikācijas kontus"
+    },
+    "appearance": {
+      "section": "IZSKATS",
+      "title": "Viegls izskats",
+      "description": "KaalKey pašlaik izmanto savu tīrās gaismas motīvu."
+    },
+    "haptics": {
+      "title": "Haptiska atgriezeniskā saite",
+      "description": "Maigas atsauksmes par pieskārieniem un pabeigtām darbībām."
+    },
+    "deviceLock": {
+      "title": "Ierīces autentifikācijas bloķēšana",
+      "description": "Jūsu glabātuve tiek bloķēta, kad KaalKey atstāj priekšplānu.",
+      "requirement": "Pieprasīt tālruņa biometriskos datus vai ekrāna bloķēšanu PIN, kombināciju vai paroli.",
+      "accessibilityLabel": "Ierīces autentifikācijas lietotnes bloķēšana"
+    },
+    "privacy": {
+      "title": "Juridiskais un privātums",
+      "description": "Pārskatiet Privātuma politiku un lietošanas noteikumus.",
+      "storageNote": "Jūsu autentifikatora noslēpumi paliek ierīces drošajā glabātuvē. Preferences tiek saglabātas lokāli."
+    }
+  },
+  "accounts": {
+    "edit": "Rediģēt",
+    "sortAccountName": "Kārtot pēc konta nosaukuma",
+    "loadingSecureVault": "Notiek drošās glabātuves ielāde...",
+    "tapCopy": "Pieskarieties, lai KOPĒTU",
+    "noAccountsMatch": "Neviens konts neatbilst jūsu meklēšanas vaicājumam.",
+    "viewQrCode": "Skatiet konta QR kodu",
+    "removeAccount": "Noņemt kontu",
+    "copyVerificationCode": "Kopējiet verifikācijas kodu",
+    "active": "AKTĪVS",
+    "sort": "KĀRTOT PĒC",
+    "account": "Konts",
+    "clearSearch": "Notīrīt meklēšanu",
+    "sortServiceName": "Kārtot pēc pakalpojuma nosaukuma",
+    "addFirstAccount": "Pievienojiet savu pirmo kontu",
+    "searchAccounts": "Meklēt kontus",
+    "searchServiceAccount": "Meklēšanas pakalpojums vai konts",
+    "accounts": "Jūsu konti",
+    "add": "+ Pievienot",
+    "vaultStartsHere": "Jūsu glabātuve sākas šeit",
+    "service": "Serviss",
+    "emptyHint": "Pievienojiet kontu, izmantojot tā slepeno atslēgu, lai ģenerētu savu pirmo verifikācijas kodu."
+  },
+  "common": {
+    "done": "Gatavs",
+    "doneButton": "Gatavs",
+    "closeSettings": "Aizveriet iestatījumus",
+    "separator": "-",
+    "article": "a",
+    "save": "Saglabāt",
+    "delete": "Dzēst",
+    "resizeAppBrand": "Mainiet lietotņu un zīmola paneļu izmērus"
+  },
+  "qrImport": {
+    "readPastedImage": "Nevarēja nolasīt ielīmēto attēlu"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Konti šajā dublējumkopijā: {count}. KaalKey saglabās jūsu esošos kontus un pievienos visus kontus, kas vēl nav pieejami. Dublētie konti tiks izlaisti.",
+    "restoreCompletionBody": "Pievienotie konti: {added}. Izlaisti kontu dublikāti: {skipped}. Jūsu esošie konti tika saglabāti.",
+    "copyPassword": "Kopējiet ģenerēto paroli",
+    "passwordSafety": "Saglabājiet šo paroli atsevišķi (piemēram, WhatsApp). Ikviens, kuram ir gan",
+    "importAction": "Izvēlieties failu un importējiet",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "DROŠA VELVE",
+    "createBackup": "Izveidojiet dublējumu",
+    "encryptedFile": "Šifrēts fails",
+    "restoreBackup": "Atjaunot dublējumu",
+    "safetyNote": "Dublējumkopijās ir jūsu autentifikācijas noslēpumi. KaalKey ģenerē unikālu paroli katram dublējumam. Saglabājiet to atsevišķi; KaalKey to nevar atgūt.",
+    "generatingSecurePassword": "Notiek drošas paroles ģenerēšana…",
+    "importFile": "Importēt failu",
+    "backupPassword": "REZERVES PAROLE",
+    "account": "kontu",
+    "accounts": "konti",
+    "exportDescription": "Šifrējiet visu {count}, kas saglabāts {accountLabel} dublējuma failā. KaalKey ģenerē unikālu paroli; kopējiet un saglabājiet to atsevišķi no faila.",
+    "restoreDescription": "Izvēlieties savu KaalKey dublējuma failu un paroli. Jauni konti tiks pievienoti jūsu esošajam kontu sarakstam; esošie konti paliks tādi, kādi tie ir.",
+    "enterBackupPassword": "Ievadiet rezerves paroli",
+    "closeBackup": "Aizvērt dublējumu",
+    "copyGeneratedBackup": "Kopējiet ģenerēto rezerves paroli",
+    "backupPassword2": "Rezerves parole",
+    "clearBackupPassword": "Notīriet rezerves paroli",
+    "backupFilePassword": "dublējuma fails un parole var atjaunot jūsu autentifikācijas kontus.",
+    "encryptShareBackup": "Šifrējiet un kopīgojiet dublējumu"
+  },
+  "home": {
+    "unlockSecurely": "Droši atbloķējiet",
+    "disableAppLock": "Atspējot lietotņu bloķēšanu",
+    "enableAppLock": "Iespējot lietotņu bloķēšanu",
+    "checkingSecureLock": "Notiek drošās bloķēšanas iestatījumu pārbaude. Jūsu kodi paliek paslēpti.",
+    "waitingVerification": "Gaida verifikāciju…",
+    "secretsStayStored": "Jūsu noslēpumi tiek glabāti šajā ierīcē.",
+    "openAppSettings": "Atveriet lietotnes iestatījumus",
+    "versionLabel": "VERSIJA",
+    "unlockRequirement": "Izmantojiet sava tālruņa biometriskos datus vai ekrāna bloķēšanu PIN, kombināciju vai paroli, lai piekļūtu vienreizējiem verifikācijas kodiem.",
+    "localVault": "JŪSU LOKĀLĀ VELVE",
+    "codesDeviceControl": "Jūsu kodi. Jūsu ierīce. Jūsu kontrole.",
+    "securingVault": "Notiek jūsu glabātuves nodrošināšana…",
+    "vaultProtected": "Jūsu glabātuve ir aizsargāta",
+    "lock": "IESLĒGTS",
+    "localVault2": "LOKĀLĀ VELVE",
+    "authenticator": "KAALKEY AUTENTIKATORS",
+    "tricolourLockEmblem": "KaalKey trīskrāsu slēdzenes emblēma",
+    "authenticator2": "AUTENTIKĀTORS"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Ja izvēlaties skenēt QR kodu, KaalKey šai darbībai izmanto kameras atļauju. Izvēles ierīces autentifikācija un taustes atgriezeniskā saite izmanto attiecīgās ierīces funkcijas. Atļaujas varat pārvaldīt ierīces iestatījumos.",
+        "heading": "2. Atļaujas un ierīces funkcijas"
+      },
+      "backups": {
+        "body": "Kad veidojat dublējumu, KaalKey šifrē dublējumu, izmantojot jūsu izvēlētu paroli. Saglabājiet gan failu, gan paroli privātus un glabājiet tos droši. Ikviens, kurš iegūst failu un tā paroli, var atjaunot jūsu autentifikācijas kontus. KaalKey nevar atgūt aizmirsto rezerves paroli.",
+        "heading": "3. Dublējumkopijas"
+      },
+      "security": {
+        "body": "Atjauniniet savu ierīci, aizsargājiet to ar ekrāna bloķēšanu un neizpaudiet OTP noslēpumus vai rezerves paroles. Noņemot lietotni, notīrot tās datus vai pazaudējot ierīci, lokāli saglabātie konti var kļūt nepieejami. Ja nepieciešama atkopšana, saglabājiet drošu dublējumu.",
+        "heading": "5. Drošība un saglabāšana"
+      },
+      "information": {
+        "heading": "1. Informācija un noslēpumi",
+        "body": "KaalKey ir autentifikācijas programma. Konta etiķetes un slepenās vērtības, kas nepieciešamas vienreizējo kodu ģenerēšanai, ir sensitīvas. Lietotne ir paredzēta konta ierakstu glabāšanai ierīces drošajā krātuvē. Ikviens, kam ir piekļuve atbloķētai ierīcei vai eksportētai dublējumam, var piekļūt sensitīvai informācijai."
+      },
+      "sharing": {
+        "heading": "4. Koplietošana un trešās puses",
+        "body": "Dublēšanas plūsma var izmantot jūsu ierīces kopīgošanas lapu vai failu atlasītāju, lai saglabātu, pārsūtītu vai atlasītu failus. Jebkuras jūsu izvēlētās trešās puses lietotnes vai pakalpojuma konfidencialitātes praksi regulē attiecīgais pakalpojumu sniedzējs. Šis paziņojums neapgalvo, ka jūsu ierīce, operētājsistēma vai izvēlētie koplietošanas pakalpojumi nekad neapstrādā datus."
+      },
+      "changes": {
+        "heading": "6. Izmaiņas un kontakts",
+        "body": "Šis iegultais paziņojums var tikt pārskatīts nākamajā lietotnes laidienā. Ja jums ir jautājumi par konfidencialitāti, sazinieties ar lietotnes izdevēju, izmantojot oficiālo atbalsta kanālu, kas tiek nodrošināts kopā ar lietotni."
+      },
+      "title": "Privātuma politika"
+    },
+    "terms": {
+      "use": {
+        "body": "Varat izmantot KaalKey, lai ģenerētu verifikācijas kodus kontiem, kuriem esat pilnvarots piekļūt. Jūs esat atbildīgs par piemērojamo tiesību aktu un to pakalpojumu noteikumu ievērošanu, kuriem izmantojat autentifikācijas kodus.",
+        "heading": "1. Jūsu lietojums"
+      },
+      "protectAccounts": {
+        "body": "Jūs esat atbildīgs par savas ierīces, autentifikācijas noslēpumu, atkopšanas metožu, eksportēto dublējumu un rezerves paroļu drošību. Nekopīgojiet kodus vai noslēpumus ar cilvēkiem, kuriem neuzticaties.",
+        "heading": "2. Aizsargājiet savus kontus"
+      },
+      "availability": {
+        "body": "Funkcijas var mainīties starp laidieniem. Jums regulāri jāatjaunina lietotne un periodiski jāpārbauda, ​​vai dublēšanas un atkopšanas pasākumi darbojas.",
+        "heading": "5. Izmaiņas un pieejamība"
+      },
+      "recovery": {
+        "body": "KaalKey nevar garantēt, ka var atkopt katru kontu, ka katrs QR kods vai konfigurācija būs saderīga vai ka lietotne darbosies bez traucējumiem vai kļūdām. Saglabājiet alternatīvas atkopšanas metodes, ko nodrošina attiecīgais pakalpojums.",
+        "heading": "3. Nav atgūšanas garantijas"
+      },
+      "advice": {
+        "heading": "4. Nav profesionālu padomu",
+        "body": "Lietotne ir utilīta, un tā nesniedz juridiskas, finansiālas vai drošības konsultācijas saistībā ar incidentiem. Ja konts ir apdraudēts, ievērojiet ietekmētā pakalpojuma oficiālos atkopšanas un drošības norādījumus."
+      },
+      "liability": {
+        "heading": "6. Atbildība un piemērojamie tiesību akti",
+        "body": "Ciktāl to pieļauj piemērojamie tiesību akti, lietotne tiek nodrošināta bez garantijas par nepārtrauktu vai bez kļūdām darbību. Nekas šajos noteikumos neizslēdz tiesības vai tiesiskās aizsardzības līdzekļus, kurus nevar juridiski izslēgt. Jebkuri citi ierobežojumi vai reglamentējošie tiesību akti pirms izlaišanas ir jāpārskata kvalificētam jurisdikcijai izdevēja jurisdikcijā."
+      },
+      "title": "Lietošanas noteikumi"
+    },
+    "version": "Versija",
+    "saving": "Notiek saglabāšana…",
+    "acceptContinue": "Pieņemt un turpināt",
+    "appliesAuthenticator": "Attiecas uz KaalKey Autentifikatoru",
+    "reviewBothDocuments": "Pirms KaalKey izmantošanas, lūdzu, pārskatiet abus dokumentus. Tie ir iekļauti lietotnē un pieejami bezsaistē.",
+    "originalMulticolourAuthenticator": "Oriģinālā daudzkrāsaina KaalKey autentifikācijas emblēma",
+    "legalPrivacyNotice": "Juridiskais un privātuma paziņojums",
+    "legalInformation": "Juridiskā informācija",
+    "reviewSPrivacy": "Pārskatiet KaalKey konfidencialitātes informāciju un lietošanas noteikumus.",
+    "iReadAgree": "Esmu izlasījis un piekrītu Privātuma politikai un lietošanas noteikumiem."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Saglabājiet visu QR kodu redzamu. Jūsu noslēpums paliek šajā ierīcē.",
+    "back": "Atpakaļ",
+    "turnFlashlightOff": "Izslēdziet lukturīti",
+    "turnFlashlight": "Ieslēdziet lukturīti",
+    "flashlight": "Lukturis ieslēgts",
+    "flashlight2": "Lukturis",
+    "cameraUnavailableOpen": "Kamera nav pieejama. Atveriet šo lapu vietnē HTTPS vai localhost un atļaujiet piekļuvi kamerai.",
+    "cameraPreviewUnavailable": "Kameras priekšskatījums nav pieejams. Aizveriet un atkārtoti atveriet skeneri.",
+    "cameraReadyPoint": "Kamera gatava — pavērsiet to uz pilnu QR kodu.",
+    "browserCannotProcess": "Šī pārlūkprogramma nevar apstrādāt kameru kadrus.",
+    "qrCodeDetected": "Atklāts kods QR.",
+    "couldnTRead": "Nevarēja nolasīt kameras kadrus. Pārbaudiet kameras atļaujas un atkārtoti ielādējiet šo lapu.",
+    "cameraPermissionDenied": "Kameras atļauja liegta. Pārlūka iestatījumos atļaujiet piekļuvi kamerai, pēc tam atkārtoti atveriet skeneri.",
+    "noCameraWas": "Šajā ierīcē netika atrasta neviena kamera.",
+    "cameraBusyAnother": "Kamera ir aizņemta citā lietotnē vai pārlūkprogrammas cilnē.",
+    "startCameraHttps": "Nevarēja palaist kameru. Izmantojiet HTTPS vai localhost un pārbaudiet pārlūkprogrammas atļaujas.",
+    "qrScannerCamera": "QR skenera kameras priekšskatījums",
+    "cameraUnavailableCheck": "Kamera nav pieejama. Pārbaudiet kameras atļauju un mēģiniet vēlreiz.",
+    "pointCameraAuthenticator": "Pavērsiet kameru pret autentifikatora iestatīšanas QR kodu no pakalpojuma, kuru pievienojat.",
+    "backAddAccount": "Atgriezties, lai pievienotu kontu",
+    "secureSetup": "DROŠA IESTATĪŠANA",
+    "enterDetailsManually": "Tā vietā ievadiet informāciju manuāli"
+  },
+  "accountForm": {
+    "hideManualEntry": "Slēpt manuālo ievadi",
+    "secretKeySupplied": "Izmantojiet slepeno atslēgu, ko nodrošina pakalpojums, kuru konfigurējat. Nekad neievadiet šeit sava konta paroli. Saskaņojiet algoritmu, ciparu skaitu un intervālu ar pakalpojuma iestatīšanas norādījumiem.",
+    "updateServiceAccount": "Atjauniniet pakalpojumu, konta nosaukumu vai slepeno atslēgu.",
+    "secretKeyRead": "Slepenā atslēga, tikai lasāma rediģēšanas laikā",
+    "secretKeyBase32": "Slepenā atslēga Base32",
+    "digits": "cipariem",
+    "seconds": "sekundes",
+    "enterDetailsManually": "VAI IEVIETOJIET INFORMĀCIJAS MANUĀLI",
+    "enterDetailsManually2": "Ievadiet informāciju manuāli",
+    "serviceAccountName": "Pakalpojums, konta nosaukums un slepenā atslēga",
+    "saveChangesSecurely": "Droši saglabājiet izmaiņas",
+    "saveAccountSecurely": "Droši saglabājiet kontu",
+    "serviceIssuer": "Pakalpojums vai izdevējs",
+    "accountName": "Konta nosaukums",
+    "secretKey": "Slepenā atslēga",
+    "serviceIssuer2": "SERVISS / EMITENTS",
+    "eGGoogle": "piem. Google",
+    "clearServiceIssuer": "Skaidrs pakalpojums vai izdevējs",
+    "eGExample": "piem. tu@example.com",
+    "clearAccountName": "Notīrīt konta nosaukumu",
+    "secretKeyLocked": "SLEPENĀ ATSLĒGA (BLOĢĒTA)",
+    "secretKeyBase322": "SECRET KEY (BASE32)",
+    "enterSetupKey": "Ievadiet iestatīšanas atslēgu",
+    "clearSecretKey": "Notīrīt slepeno atslēgu",
+    "otpAlgorithm": "OTP ALGORITMS",
+    "otpDigits": "OTP CIPARI",
+    "refreshIntervalSeconds": "ATJAUNOŠANAS INTERVĀLS (SEKUDES)",
+    "otpRefreshInterval": "OTP atsvaidzināšanas intervāls sekundēs",
+    "closeAccountForm": "Aizvērt konta veidlapu",
+    "totpSetupUrl": "TOTP iestatīšana URL",
+    "importSetupUrl": "Importēšanas iestatījumi URL",
+    "totpSetupUrl2": "TOTP IESTATĪŠANA URL",
+    "accountName2": "KONTA NOSAUKUMS",
+    "addAccount": "Pievienot kontu"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Skenējiet autentifikācijas QR kodu",
+    "setupGuidance": "Skenējiet QR kodu, lai atvieglotu iestatīšanu, vai ievadiet informāciju manuāli.",
+    "cameraAddAccount": "Izmantojiet kameru, lai nekavējoties pievienotu kontu",
+    "scanQrCode2": "Skenējiet QR kodu",
+    "uploadQrImage": "Augšupielādējiet QR attēlu",
+    "chooseQrScreenshot": "Izvēlieties QR ekrānuzņēmumu sadaļā Galerija, Fotoattēli vai Faili",
+    "pasteQr": "Ielīmēt QR attēlu / URL",
+    "pasteCopiedQr": "Ielīmējiet kopētu QR attēlu vai autentifikatora iestatījumus URL",
+    "uploadQrImage2": "Augšupielādējiet QR attēlu"
+  },
+  "accountQr": {
+    "close": "Aizvērt",
+    "accountQrCode": "Konta QR kods",
+    "revealQrCode": "Atklājiet QR kodu",
+    "exportWarning": "Brīdinājums: ikviens, kurš skenē šo QR kodu, var ģenerēt verifikācijas kodus šim kontam. Atklājiet to tikai uzticamā ekrānā.",
+    "privacyHint": "Saglabājiet šo QR kodu privātu. Skenējot to, tiek kopēts konta autentifikācijas noslēpums."
+  },
+  "productInfo": {
+    "backupRestore": "Dublēšana un atjaunošana",
+    "backupRestoreDescription": "Dublējiet savus autentifikācijas datus un atjaunojiet tos, pārejot uz citu ierīci.",
+    "privacyDescription": "Saglabājiet savus verifikācijas kontus vienuviet. Izmantojiet lietotnes dublēšanas, atjaunošanas un ierīces bloķēšanas opcijas, lai atbildīgi pārvaldītu iestatījumus.",
+    "timeBasedCodes": "Uz laiku balstīti kodi",
+    "generateOneTimeCodes": "Lai pabeigtu divpakāpju verifikāciju, ģenerējiet saviem kontiem rotējošus vienreizējos piekļuves kodus.",
+    "quickAccountSetup": "Ātra konta iestatīšana",
+    "quickSetupDescription": "Lai pievienotu kontu, skenējiet autentifikācijas kodu QR vai importējiet QR attēlu.",
+    "accountsOnePlace": "Konti vienuviet",
+    "accountsInOnePlaceDescription": "Saglabājiet savus saglabātos kontus un atrodiet pareizo ierakstu, kad ir pienācis laiks pierakstīties.",
+    "privateAccountVault": "Privātā konta glabātuve",
+    "privateVaultDescription": "Pārvaldiet savus autentifikatora ierakstus lokāli un izmantojiet lietotnē pieejamo ierīces bloķēšanas opciju.",
+    "easyCodeAccess": "Viegla piekļuve kodam",
+    "easyCodeAccessDescription": "Kopējiet pašreizējo kodu vai pārvaldiet konta informāciju, izmantojot tīru, koncentrētu saskarni.",
+    "authenticatorTechsivaram": "AUTENTIKATORS · TECHSIVARAM",
+    "mobileAuthenticator": "JŪSU MOBILAIS AUTENTIKĀTORS",
+    "tagline": "Vienkāršāks veids, kā pārvaldīt divpakāpju verifikāciju.",
+    "heroDescription": "Koncentrēta autentifikācijas pieredze uz laiku balstītiem verifikācijas kodiem. Glabājiet saderīgos konta kodus, izmantojot KaalKey Android.",
+    "timeBasedCodes2": "LAIKA KODI",
+    "privateDesign": "PRIVĀTS PĒC DIZAINA",
+    "builtSimpleAuthenticator": "IZSTRĀDĀTA VIENKĀRŠAI AUTENTIKATORA DARBA PLŪSMAI",
+    "qrSetupTimed": "QR IESTATĪŠANA · LAIKA KODI · KONTA PĀRVALDĪBA",
+    "privacyTitle": "Jūsu konti. Jūsu kodi. Jūsu kontrole.",
+    "authenticator": "KAALKEY · AUTENTIKATORS",
+    "brandBanner": "KaalKey zīmola reklāmkarogs",
+    "logo": "KaalKey logotips"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Atcelt",
+      "storageInvalidTitle": "Krātuves dati nav derīgi",
+      "storageInvalidBody": "Saglabātos konta datus nevarēja droši nolasīt.",
+      "storageErrorTitle": "Krātuves kļūda",
+      "storageErrorBody": "Saglabātos kontus nevarēja ielādēt.",
+      "missingTitle": "Trūkst informācijas",
+      "missingEditingBody": "Ievadiet pakalpojuma nosaukumu un konta nosaukumu.",
+      "missingBody": "Ievadiet pakalpojuma nosaukumu, konta nosaukumu un slepeno atslēgu.",
+      "invalidOtpBody": "Pārbaudiet Base32 noslēpumu, algoritmu, ciparu skaitu un atsvaidzināšanas periodu. Noslēpumos ir jāsatur derīgas Base32 rakstzīmes; cipariem ir jābūt {digits}, un periodam jābūt {minPeriod}–{maxPeriod} sekundēm.",
+      "duplicateBody": "Konts ar šo pakalpojumu un konta nosaukumu jau ir saglabāts.",
+      "updatedBody": "Jūsu konts tika atjaunināts.",
+      "addedBody": "Jūsu konts tika droši pievienots.",
+      "invalidOtpTitle": "Nederīgi OTP iestatījumi",
+      "duplicateTitle": "Konts jau pastāv",
+      "savedTitle": "Konts saglabāts",
+      "invalidSecretTitle": "Nederīga slepenā atslēga",
+      "invalidSecretBody": "Lūdzu, pārbaudiet, vai esat ievadījis derīgu Base32 noslēpumu.",
+      "removedTitle": "Konts noņemts",
+      "removedBody": "Konts un tā noslēpums tika noņemti no šīs ierīces.",
+      "clearedTitle": "Konti notīrīti",
+      "clearedBody": "No šīs ierīces tika noņemti visi autentifikācijas konti un noslēpumi.",
+      "someSavedAccountsNeedAttentionTitle": "Dažiem saglabātajiem kontiem ir jāpievērš uzmanība",
+      "someSavedAccountsNeedAttentionBody": "{count} netika ielādēti nederīgi konta ieraksti. Derīgi konti paliek pieejami. Pirms turpmāku izmaiņu veikšanas apsveriet iespēju izveidot dublējumu.",
+      "removeConfirmTitle": "Vai noņemt kontu?",
+      "removeConfirmWebTitle": "Vai noņemt kontu?",
+      "removeButton": "Noņemt",
+      "clearButton": "Notīrīt visu",
+      "clearConfirmTitle": "Vai notīrīt visus kontus?",
+      "saveErrorBody": "Kontus nevarēja saglabāt. Pārbaudiet pārlūkprogrammas krātuves pieejamību un mēģiniet vēlreiz.",
+      "notFoundTitle": "Konts nav atrasts",
+      "notFoundBody": "Šo kontu nevarēja atrast. Aizveriet redaktoru un mēģiniet vēlreiz.",
+      "removeConfirmBody": "Tādējādi no šīs ierīces tiks noņemts konts un tā noslēpums.",
+      "clearConfirmBody": "Tādējādi no šīs ierīces tiks neatgriezeniski noņemti visi autentifikācijas konti un to noslēpumi. Vispirms izveidojiet šifrētu dublējumu, ja šie konti var būt nepieciešami vēlāk.",
+      "clearConfirmUndoBody": "Šo darbību nevar atsaukt."
+    },
+    "biometric": {
+      "cancelButton": "Atcelt",
+      "saveErrorTitle": "Nevarēja saglabāt iestatījumu",
+      "unlockPrompt": "Atbloķējiet KaalKey autentifikatoru",
+      "promptSubtitle": "Izmantojiet biometriskos datus vai ierīces ekrāna bloķēšanu",
+      "disableConfirmPrompt": "Apstipriniet, lai izslēgtu KaalKey lietotņu bloķēšanu",
+      "enablePrompt": "Iespējot lietotņu bloķēšanu KaalKey",
+      "deviceLockTitle": "Iestatiet ierīces ekrāna bloķēšanu",
+      "deviceLockBody": "KaalKey izmanto jūsu tālruņa iebūvēto autentifikāciju. Tālruņa drošības iestatījumos iestatiet ierīci PIN, kombināciju vai paroli un pēc tam mēģiniet vēlreiz. Biometrija nav obligāta.",
+      "unavailableTitle": "Ierīces autentifikācija nav pieejama",
+      "unavailableBody": "Jūsu tālrunis nevarēja sākt drošu autentifikāciju. Pārbaudiet, vai ir konfigurēta ierīces ekrāna bloķēšana, un pēc tam mēģiniet vēlreiz.",
+      "lockedTitle": "Autentifikācija īslaicīgi bloķēta",
+      "lockedBody": "Jūsu tālrunis ir īslaicīgi atspējojis autentifikāciju pēc pārāk daudziem mēģinājumiem. Pagaidiet un mēģiniet vēlreiz.",
+      "promptErrorTitle": "Autentifikācija nav pieejama",
+      "promptErrorBody": "KaalKey nevarēja palaist tālruņa drošās autentifikācijas uzvedni. Lūdzu, mēģiniet vēlreiz.",
+      "webLock": "Ierīces autentifikācijas bloķēšana tīmekļa versijā vēl nav pieejama. Tīmekļa glabātuve paliek atbloķēta; izmantojiet lietotni Android vietējās ierīces autentifikācijai.",
+      "disabledTitle": "Lietotņu bloķēšana ir atspējota",
+      "disabledBody": "KaalKey lietotņu bloķēšana ir izslēgta.",
+      "disableSaveError": "Lietotņu bloķēšana paliek iespējota. Lūdzu, mēģiniet vēlreiz.",
+      "enabledTitle": "Lietotņu bloķēšana ir iespējota",
+      "enabledBody": "KaalKey pieprasīs jūsu tālruņa iebūvēto autentifikāciju, kad tas tiks atvērts un kad atgriezīsities pie tā.",
+      "enableSaveError": "Lietotņu bloķēšanu nevarēja iespējot. Lūdzu, mēģiniet vēlreiz."
+    },
+    "qr": {
+      "startingCamera": "Notiek kameras palaišana…",
+      "unsupportedTitle": "Neatbalstīts QR kods",
+      "unsupportedBody": "Skenējiet pakalpojuma nodrošināto autentifikācijas iestatīšanas kodu QR. Tam ir jābūt TOTP kodam, nevis parastam pieteikšanās kodam QR.",
+      "unsupportedDiagnostic": "Šis QR nav TOTP iestatīšanas kods. Mērķējiet uz autentifikatora iestatīšanu QR.",
+      "detectedDiagnostic": "Konstatēts QR. Notiek analīze…",
+      "analyzing": "Notiek QR koda analīze…",
+      "duplicateTitle": "Konts jau ir pievienots",
+      "duplicateBody": "{issuer}: {account} jau ir KaalKey.",
+      "addedTitle": "Konts pievienots",
+      "addedBody": "{issuer}: {account} tika veiksmīgi pievienots.",
+      "saveFailedDiagnostic": "Nevarēja saglabāt kontu. Varat skenēt vēlreiz.",
+      "invalidTitle": "Nederīgs QR kods",
+      "invalidBody": "KaalKey nevarēja parsēt šo autentifikatora QR kodu. {detail}. Izmantojiet pakalpojuma TOTP iestatīšanas QR kodu (parasti sākas ar {prefix}).",
+      "parseFailedDiagnostic": "QR nevarēja apstrādāt. Nomērķējiet uz iestatījumu QR un mēģiniet vēlreiz.",
+      "invalidUrlTitle": "Nederīgs TOTP URL",
+      "invalidUrlBody": "Ielīmējiet pilnu autentifikatoru URL, kas sākas ar {prefix}.",
+      "clipboardEmptyTitle": "Starpliktuve ir tukša",
+      "clipboardEmptyBody": "Vispirms nokopējiet {prefix} URL, pēc tam pieskarieties Ielīmēt TOTP URL.",
+      "clipboardErrorTitle": "Nevarēja nolasīt starpliktuvi",
+      "clipboardErrorBody": "Kopējiet TOTP iestatījumu URL un mēģiniet vēlreiz."
+    },
+    "haptics": {
+      "saveFailedTitle": "Nevarēja saglabāt iestatījumu",
+      "saveFailedBody": "Haptiskās atsauksmes preferenci nevarēja saglabāt. Lūdzu, mēģiniet vēlreiz."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Nevarēja saglabāt apstiprinājumu",
+      "saveFailedBody": "Lūdzu, mēģiniet vēlreiz. Pirms KaalKey lietošanas jums ir jāpiekrīt juridiskajam paziņojumam."
+    },
+    "cameraPermission": {
+      "title": "Nepieciešama kameras atļauja",
+      "body": "Atļaujiet kamerai piekļuvi, lai skenētu autentifikatora iestatīšanas QR kodu."
+    },
+    "storage": {
+      "browserUnavailable": "Pārlūka krātuve nav pieejama.",
+      "browserFilePickerUnavailable": "Pārlūka failu atlasītājs nav pieejams."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Neatbalstīts fails",
+      "unsupportedFileBody": "Izvēlieties QR koda attēlu, piemēram, PNG vai JPEG.",
+      "browserDecoderUnavailable": "Pārlūka attēla dekodēšana nav pieejama",
+      "imageLoadFailed": "Attēlu nevarēja ielādēt",
+      "unreadableDimensions": "Attēlam nav lasāmu izmēru",
+      "noQrCodeFoundTitle": "Nav atrasts kods QR",
+      "noQrCodeFoundBody": "KaalKey nevarēja atšifrēt QR kodu šajā attēlā. Izmēģiniet ekrānuzņēmumu vai augstākas izšķirtspējas PNG/JPEG.",
+      "couldNotReadImageTitle": "Nevarēja nolasīt attēlu",
+      "couldNotReadImageBody": "Izmēģiniet skaidru PNG vai JPEG attēlu, kurā ir autentifikatora iestatīšanas QR kods.",
+      "couldNotOpenPickerTitle": "Nevarēja atvērt attēlu atlasītāju",
+      "couldNotOpenPickerBody": "Lūdzu, mēģiniet vēlreiz augšupielādēt QR.",
+      "normalizedDecodeFailed": "Normalizētu attēlu nevarēja atšifrēt",
+      "clipboardImageLoadFailed": "Nevarēja ielādēt starpliktuves attēlu",
+      "imageProcessingUnavailable": "Attēlu apstrāde nav pieejama",
+      "imageProcessingUnavailableAlt": "Attēlu apstrāde nav pieejama",
+      "noImageInClipboardTitle": "Starpliktuvē nav attēla",
+      "noImageInClipboardBody": "Kopējiet QR koda attēlu, pēc tam vēlreiz pieskarieties pie Ielīmēt QR attēlu.",
+      "clipboardUnavailableTitle": "Starpliktuve nav pieejama",
+      "clipboardUnavailableBody": "Starpliktuvē teksts nav derīgs autentifikācijas iestatījums URL. Kopējiet otpauth:// URL vai QR attēlu un mēģiniet vēlreiz.",
+      "clipboardAccessBody": "KaalKey nevarēja nolasīt tekstu vai attēlu no starpliktuves. Atļaujiet piekļuvi starpliktuvei, pēc tam kopējiet QR attēlu vai otpauth:// URL un vēlreiz pieskarieties Ielīmēt QR Attēls / URL.",
+      "couldNotPasteImageTitle": "Nevarēja ielīmēt attēlu",
+      "couldNotPasteImageBody": "Šajā starpliktuvē šajā ierīcē netiek atbalstīta attēlu ielīmēšana. Tā vietā izmantojiet Importēt QR attēlu.",
+      "sourceImageDecodeFailure": "Izmēģiniet citu QR attēlu.",
+      "pastedImportFailureBody": "Izmēģiniet citu QR attēlu.",
+      "sourceImageReadFailure": "Mēģiniet kopēt skaidru QR ekrānuzņēmumu.",
+      "importFailedTitle": "QR attēla importēšana neizdevās",
+      "importFailedBody": "KaalKey nevarēja nolasīt šo attēlu. Lūdzu, izmēģiniet citu QR koda attēlu.",
+      "notFoundBody": "Kopētajā attēlā nav lasāma QR koda.",
+      "pastedNotFoundBody": "Ielīmētajā attēlā nav lasāma QR koda.",
+      "pastedReadFailureBody": "Mēģiniet kopēt skaidru PNG vai JPEG attēlu ar pilnu QR kodu.",
+      "noQrCodeTextBody": "KaalKey atkodēja atlasīto attēlu, bet neatrada QR kodu. Izmēģiniet skaidru, pilnu izšķirtspēju PNG vai JPEG ar redzamu visu kodu."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Šis QR kods nav uz laiku balstīts autentifikatora iestatīšanas kods.",
+      "missingAccountDetails": "Kodā QR trūkst konta informācijas.",
+      "unsupportedAlgorithm": "Kodā QR tiek izmantots neatbalstīts algoritms.",
+      "unsupportedDigits": "Šim QR kodam ir jābūt 6, 7 vai 8 cipariem.",
+      "unsupportedPeriod": "Šis QR kods izmanto neatbalstītu laika periodu.",
+      "invalidAccount": "Kodu QR nevarēja apstiprināt."
+    },
+    "backup": {
+      "invalidJson": "Dublējuma fails nav derīgs JSON.",
+      "unsupportedFormat": "Tas nav atbalstīts KaalKey šifrēts dublējums.",
+      "invalidPasswordOrDamaged": "Dublējuma parole ir nepareiza vai dublējuma fails ir bojāts.",
+      "invalidContents": "Dublējuma saturs ir nederīgs vai nepilnīgs.",
+      "secureRandomUnavailableDetailed": "Droša nejauša ģenerēšana nav pieejama. Pārbūvējiet un atkārtoti instalējiet lietotni Android, iekļaujot tajā expo-crypto, un pēc tam mēģiniet vēlreiz.",
+      "invalidAccountDataForBackup": "Viens vai vairāki konti nav derīgi. Labojiet konta datus pirms dublējuma izveides.",
+      "invalidPasswordOrModified": "Dublējuma parole ir nepareiza vai dublējuma fails ir modificēts.",
+      "invalidPasswordOrFileDamaged": "Dublējuma parole ir nepareiza vai fails ir bojāts.",
+      "passwordCopiedTitle": "Parole nokopēta",
+      "enterPasswordTitle": "Ievadiet savu rezerves paroli",
+      "enterPasswordBody": "Ievadiet paroli, kas tika izmantota šīs dublējuma izveides laikā.",
+      "passwordCopiedBody": "Saglabājiet to drošā vietā, piemēram, WhatsApp.",
+      "copyFailedTitle": "Kopēšana neizdevās",
+      "copyFailedBody": "Izvēlieties un manuāli kopējiet paroli.",
+      "generatingPassword": "Notiek drošas rezerves paroles ģenerēšana…",
+      "encrypting": "Notiek dublējuma šifrēšana…",
+      "decrypting": "Notiek dublējuma atšifrēšana…",
+      "restoring": "Notiek kontu atjaunošana…",
+      "backupCreatedTitle": "Dublējums ir izveidots",
+      "restoreCompleteTitle": "Atjaunošana pabeigta",
+      "mergeConfirmTitle": "Vai apvienot rezerves kontus?",
+      "mergeConfirmButton": "Apvienot kontus",
+      "backupSavedTemporary": "Šifrēta dublēšana īslaicīgi saglabāta: \n{uri}",
+      "generatePasswordErrorTitle": "Nevarēja ģenerēt rezerves paroli",
+      "secureRandomUnavailable": "Droša nejauša ģenerēšana nav pieejama.",
+      "passwordUnavailableTitle": "Rezerves parole nav pieejama",
+      "passwordUnavailableBody": "Aizveriet šo dialoglodziņu un izveidojiet jaunu dublējumu, lai ģenerētu drošu paroli.",
+      "backupDownloadedBody": "Jūsu šifrētā KaalKey dublējums ir lejupielādēts. Saglabājiet failu un paroli privātu.",
+      "backupFailedTitle": "Dublēšana neizdevās",
+      "backupCreateErrorBody": "KaalKey nevarēja izveidot dublējumu.",
+      "restoreFailedTitle": "Atjaunot neizdevās",
+      "backupReadErrorBody": "Dublējumu nevarēja nolasīt vai saglabāt.",
+      "browserDownloadUnsupported": "Jūsu pārlūkprogramma neatbalsta dublējuma failu lejupielādi.",
+      "localFileUnavailable": "Vietējā faila atrašanās vieta šajā ierīcē nav pieejama.",
+      "saveBackupTitle": "Saglabājiet savu šifrēto KaalKey dublējumu"
+    },
+    "clipboard": {
+      "copiedTitle": "Kods nokopēts",
+      "copiedBody": "Jūsu verifikācijas kods ir nokopēts.",
+      "errorTitle": "Kļūda",
+      "errorBody": "Nevarēja nokopēt verifikācijas kodu."
+    },
+    "activity": {
+      "cameraReady": "Kamera gatava. Novietojiet to uz autentifikācijas kodu QR.",
+      "readingQrImage": "Notiek QR attēla lasīšana…",
+      "importingQrImage": "Notiek QR attēla importēšana…",
+      "importingAccount": "Notiek autentifikatora konta importēšana…",
+      "importingPastedImage": "Notiek ielīmēta QR attēla importēšana…"
+    }
+  },
+  "activity": {
+    "working": "Darbojas",
+    "wait": "Lūdzu, uzgaidiet…",
+    "donTClose": "Lūdzu, neaizveriet KaalKey un nesadarbojieties ar to.",
+    "loadingLanguages": "Notiek pieejamo valodu ielāde…",
+    "loadingTranslation": "Notiek tulkojuma ielāde…"
+  }
+}

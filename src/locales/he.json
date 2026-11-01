@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "שפה",
+      "description": "בחר את השפה שבה נעשה שימוש ב-KaalKey.",
+      "english": "אנגלית",
+      "telugu": "טלוגו",
+      "hindi": "הינדי",
+      "section": "שפה",
+      "searchLanguageName": "שפת חיפוש (שם או קוד)",
+      "searchSupportedLanguages": "חפש שפות נתמכות",
+      "closeLanguageDropdown": "סגור את תפריט השפה הנפתח",
+      "noTranslatedLanguage": "לא נמצאה שפה מתורגמת.",
+      "serverUrl": "שרת תרגום URL",
+      "serverUrlDescription": "KaalKey מוריד את רשימת השפות והתרגומים מהשרת הזה.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "שמור שרת תרגום"
+    },
+    "title": "הגדרות האפליקציה",
+    "eyebrow": "KAALKEY העדפות",
+    "experience": {
+      "section": "ניסיון"
+    },
+    "security": {
+      "section": "אבטחה"
+    },
+    "backup": {
+      "section": "גיבוי ושחזור"
+    },
+    "danger": {
+      "section": "אזור סכנה",
+      "clearAccounts": "נקה את כל החשבונות",
+      "clearAccountsDescription": "הסר לצמיתות כל חשבון וסוד מהמכשיר הזה. גבה קודם.",
+      "clearAccountsAccessibilityLabel": "נקה את כל חשבונות המאמת"
+    },
+    "appearance": {
+      "section": "מראה",
+      "title": "מראה קליל",
+      "description": "KaalKey משתמש כרגע בערכת האור הנקי שלו."
+    },
+    "haptics": {
+      "title": "משוב הפטי",
+      "description": "משוב עדין עבור הקשות ופעולות שהושלמו."
+    },
+    "deviceLock": {
+      "title": "נעילת אימות מכשיר",
+      "description": "הכספת שלך ננעלת כאשר KaalKey עוזב את החזית.",
+      "requirement": "דרוש את הביומטריה של הטלפון שלך או את נעילת המסך PIN, דפוס או סיסמה.",
+      "accessibilityLabel": "נעילת אפליקציית אימות מכשיר"
+    },
+    "privacy": {
+      "title": "משפטי ופרטיות",
+      "description": "עיין במדיניות הפרטיות ובתנאי השימוש.",
+      "storageNote": "סודות המאמת שלך נשארים בכספת המאובטחת במכשיר. ההעדפות נשמרות באופן מקומי."
+    }
+  },
+  "accounts": {
+    "edit": "ערוך",
+    "sortAccountName": "מיין לפי שם חשבון",
+    "loadingSecureVault": "טוען כספת מאובטחת...",
+    "tapCopy": "הקש כדי להעתיק",
+    "noAccountsMatch": "אין חשבונות שתואמים לחיפוש שלך.",
+    "viewQrCode": "הצג QR קוד לחשבון",
+    "removeAccount": "הסר חשבון",
+    "copyVerificationCode": "העתק את קוד האימות",
+    "active": "פעיל",
+    "sort": "מיון לפי",
+    "account": "חשבון",
+    "clearSearch": "נקה חיפוש",
+    "sortServiceName": "מיין לפי שם השירות",
+    "addFirstAccount": "הוסף את החשבון הראשון שלך",
+    "searchAccounts": "חפש חשבונות",
+    "searchServiceAccount": "שירות חיפוש או חשבון",
+    "accounts": "החשבונות שלך",
+    "add": "+ הוסף",
+    "vaultStartsHere": "הכספת שלך מתחילה כאן",
+    "service": "שירות",
+    "emptyHint": "הוסף חשבון באמצעות המפתח הסודי שלו כדי ליצור את קוד האימות הראשון שלך."
+  },
+  "common": {
+    "done": "בוצע",
+    "doneButton": "בוצע",
+    "closeSettings": "סגור הגדרות",
+    "separator": "-",
+    "article": "א",
+    "save": "שמור",
+    "delete": "מחק",
+    "resizeAppBrand": "שנה את גודל לוחות האפליקציה והמותג"
+  },
+  "qrImport": {
+    "readPastedImage": "לא ניתן היה לקרוא את התמונה שהודבקה"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "חשבונות בגיבוי זה: {count}. KaalKey ישמור את החשבונות הקיימים שלך ויוסיף חשבונות שאינם קיימים כבר. חשבונות כפולים ידלגו.",
+    "restoreCompletionBody": "חשבונות שנוספו: {added}. דילוג על חשבונות כפולים: {skipped}. החשבונות הקיימים שלך נשמרו.",
+    "copyPassword": "העתק את הסיסמה שנוצרה",
+    "passwordSafety": "שמור סיסמה זו בנפרד (לדוגמה, ב-WhatsApp). כל אחד עם שניהם",
+    "importAction": "בחר קובץ וייבא",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "כספת מאובטחת",
+    "createBackup": "צור גיבוי",
+    "encryptedFile": "קובץ מוצפן",
+    "restoreBackup": "שחזר גיבוי",
+    "safetyNote": "הגיבויים מכילים את סודות המאמת שלך. KaalKey מייצר סיסמה ייחודית לכל גיבוי. שמור אותו בנפרד; KaalKey לא יכול לשחזר אותו.",
+    "generatingSecurePassword": "מייצר סיסמה מאובטחת...",
+    "importFile": "ייבוא קובץ",
+    "backupPassword": "סיסמת גיבוי",
+    "account": "חשבון",
+    "accounts": "חשבונות",
+    "exportDescription": "הצפין את כל {count} שנשמר {accountLabel} לקובץ גיבוי. KaalKey מייצר סיסמה ייחודית; העתק ושמור אותו בנפרד מהקובץ.",
+    "restoreDescription": "בחר את קובץ הגיבוי והסיסמה KaalKey שלך. חשבונות חדשים יתווספו לרשימת החשבונות הקיימים שלך; החשבונות הקיימים יישארו כפי שהם.",
+    "enterBackupPassword": "הזן סיסמת גיבוי",
+    "closeBackup": "גיבוי סגור",
+    "copyGeneratedBackup": "העתק את סיסמת הגיבוי שנוצרה",
+    "backupPassword2": "סיסמת גיבוי",
+    "clearBackupPassword": "נקה סיסמת גיבוי",
+    "backupFilePassword": "קובץ גיבוי וסיסמה יכולים לשחזר את חשבונות המאמת שלך.",
+    "encryptShareBackup": "הצפנה ושתף גיבוי"
+  },
+  "home": {
+    "unlockSecurely": "פתח את הנעילה בצורה מאובטחת",
+    "disableAppLock": "השבת את נעילת האפליקציה",
+    "enableAppLock": "הפעל נעילת אפליקציה",
+    "checkingSecureLock": "בודק את הגדרות הנעילה המאובטחת שלך. הקודים שלך נשארים מוסתרים.",
+    "waitingVerification": "ממתין לאימות...",
+    "secretsStayStored": "הסודות שלך נשארים מאוחסנים במכשיר הזה.",
+    "openAppSettings": "פתח את הגדרות האפליקציה",
+    "versionLabel": "גרסה",
+    "unlockRequirement": "השתמש בביומטריה או בנעילת המסך PIN, בדפוס או בסיסמה של הטלפון שלך כדי לגשת לקודי האימות החד-פעמיים שלך.",
+    "localVault": "הכספת המקומית שלך",
+    "codesDeviceControl": "הקודים שלך. המכשיר שלך. השליטה שלך.",
+    "securingVault": "מאבטח את הכספת שלך...",
+    "vaultProtected": "הכספת שלך מוגנת",
+    "lock": "נעל",
+    "localVault2": "כספת מקומית",
+    "authenticator": "KAALKEY מאמת",
+    "tricolourLockEmblem": "KaalKey סמל מנעול תלת-צבעוני",
+    "authenticator2": "מאמת"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "אם תבחר לסרוק קוד QR, KaalKey ישתמש בהרשאת מצלמה עבור הפעולה הזו. אימות מכשיר אופציונלי ומשוב הפטי משתמשים בתכונות המכשיר הרלוונטיות. אתה יכול לנהל הרשאות בהגדרות המכשיר שלך.",
+        "heading": "2. הרשאות ותכונות המכשיר"
+      },
+      "backups": {
+        "body": "כאשר אתה יוצר גיבוי, KaalKey מצפין את הגיבוי באמצעות סיסמה שתבחר. שמור גם על הקובץ וגם הסיסמה פרטיים ואחסן אותם בצורה מאובטחת. כל מי שישיג את הקובץ ואת הסיסמה שלו עשוי לשחזר את חשבונות המאמת שלך. KaalKey אינו יכול לשחזר סיסמת גיבוי שנשכחה.",
+        "heading": "3. גיבויים"
+      },
+      "security": {
+        "body": "שמור את המכשיר שלך מעודכן, הגן עליו עם נעילת מסך, ואל תשתף סודות OTP או סיסמאות גיבוי. הסרת האפליקציה, ניקוי הנתונים שלה או איבוד המכשיר עלולים להפוך חשבונות המאוחסנים מקומית ללא זמינים. שמור על גיבוי מאובטח אם אתה זקוק לשחזור.",
+        "heading": "5. אבטחה ושימור"
+      },
+      "information": {
+        "heading": "1. מידע וסודות",
+        "body": "KaalKey היא אפליקציית אימות. תוויות החשבון והערכים הסודיים הדרושים ליצירת קודים חד-פעמיים הם רגישים. האפליקציה נועדה לאחסן רשומות חשבון באחסון המאובטח של המכשיר. כל מי שיש לו גישה למכשיר לא נעול או לגיבוי מיוצא עשוי להיות מסוגל לגשת למידע רגיש."
+      },
+      "sharing": {
+        "heading": "4. שיתוף וצדדים שלישיים",
+        "body": "זרימת הגיבוי עשויה להשתמש בגיליון השיתוף של המכשיר או בבורר הקבצים כדי לשמור, להעביר או לבחור קבצים. נוהלי הפרטיות של כל אפליקציה או שירות של צד שלישי שתבחר נשלטים על ידי אותו ספק. הודעה זו אינה מעלה טענה גורפת שהמכשיר, מערכת ההפעלה או שירותי השיתוף שבחרת לעולם אינם מעבדים נתונים."
+      },
+      "changes": {
+        "heading": "6. שינויים ויצירת קשר",
+        "body": "הודעה משובצת זו עשויה להיות מתוקנת במהדורת אפליקציה עתידית. לשאלות פרטיות, צור קשר עם מפרסם האפליקציה דרך ערוץ התמיכה הרשמי שסופק עם האפליקציה."
+      },
+      "title": "מדיניות פרטיות"
+    },
+    "terms": {
+      "use": {
+        "body": "אתה יכול להשתמש ב-KaalKey כדי ליצור קודי אימות עבור חשבונות שאתה מורשה לגשת אליהם. אתה אחראי לציית לחוקים החלים ולכללי השירותים שעבורם אתה משתמש בקודי אימות.",
+        "heading": "1. השימוש שלך"
+      },
+      "protectAccounts": {
+        "body": "אתה אחראי לאבטחת המכשיר שלך, סודות המאמת, שיטות שחזור, גיבויים מיוצאים וסיסמאות גיבוי. אל תשתף קודים או סודות עם אנשים שאתה לא סומך עליהם.",
+        "heading": "2. הגן על החשבונות שלך"
+      },
+      "availability": {
+        "body": "תכונות עשויות להשתנות בין מהדורות. עליך לעדכן את האפליקציה ולוודא מעת לעת שהסדרי הגיבוי והשחזור שלך עובדים.",
+        "heading": "5. שינויים וזמינות"
+      },
+      "recovery": {
+        "body": "KaalKey אינו יכול להבטיח שניתן לשחזר כל חשבון, שכל קוד או תצורה QR יהיו תואמים, או שהאפליקציה תפעל ללא הפרעות או שגיאות. שמור על שיטות שחזור חלופיות המסופקות על ידי השירות הרלוונטי.",
+        "heading": "3. אין ערבות הבראה"
+      },
+      "advice": {
+        "heading": "4. אין ייעוץ מקצועי",
+        "body": "האפליקציה היא כלי שירות ואינה מספקת ייעוץ משפטי, פיננסי או אבטחה לתגובה לאירועים. אם חשבון נפגע, עקוב אחר הנחיות השחזור והאבטחה הרשמיות של השירות המושפע."
+      },
+      "liability": {
+        "heading": "6. אחריות והדין החל",
+        "body": "במידה שהחוק החל, האפליקציה מסופקת ללא ערבות לפעולה רציפה או נטולת שגיאות. שום דבר בתנאים אלה אינו מוציא מכלל זכויות או סעדים שלא ניתן לשלול באופן חוקי. כל מגבלה נוספת או תנאי חוק חלים צריכים להיבדק על ידי עורך דין מוסמך לתחום השיפוט של המפרסם לפני השחרור."
+      },
+      "title": "תנאי שימוש"
+    },
+    "version": "גרסה",
+    "saving": "שומר...",
+    "acceptContinue": "קבל והמשך",
+    "appliesAuthenticator": "חל על KaalKey מאמת",
+    "reviewBothDocuments": "אנא עיין בשני המסמכים לפני השימוש ב-KaalKey. הם כלולים באפליקציה וזמינים במצב לא מקוון.",
+    "originalMulticolourAuthenticator": "סמל מאמת מקורי רב-צבעוני KaalKey",
+    "legalPrivacyNotice": "הודעת משפטית ופרטיות",
+    "legalInformation": "מידע משפטי",
+    "reviewSPrivacy": "עיין במידע הפרטיות ובתנאי השימוש של KaalKey.",
+    "iReadAgree": "קראתי ואני מסכים למדיניות הפרטיות ולתנאי השימוש."
+  },
+  "qrScanner": {
+    "keepEntireQr": "שמור את כל הקוד QR גלוי. הסוד שלך נשאר במכשיר הזה.",
+    "back": "חזרה",
+    "turnFlashlightOff": "כבה את הפנס",
+    "turnFlashlight": "הדלק את הפנס",
+    "flashlight": "פנס דולק",
+    "flashlight2": "פנס",
+    "cameraUnavailableOpen": "המצלמה לא זמינה. פתח את הדף הזה ב-HTTPS או ב-localhost ואפשר גישה למצלמה.",
+    "cameraPreviewUnavailable": "תצוגה מקדימה של המצלמה אינה זמינה. סגור ופתח מחדש את הסורק.",
+    "cameraReadyPoint": "Camera ready — point it at the full QR code.",
+    "browserCannotProcess": "דפדפן זה אינו יכול לעבד מסגרות מצלמה.",
+    "qrCodeDetected": "זוהה קוד QR.",
+    "couldnTRead": "לא ניתן היה לקרוא מסגרות של מצלמה. בדוק את הרשאות המצלמה וטען מחדש את הדף הזה.",
+    "cameraPermissionDenied": "הרשאת המצלמה נדחתה. Allow camera access in browser settings, then reopen the scanner.",
+    "noCameraWas": "לא נמצאה מצלמה במכשיר זה.",
+    "cameraBusyAnother": "The camera is busy in another app or browser tab.",
+    "startCameraHttps": "לא ניתן להפעיל את המצלמה. Use HTTPS or localhost and check browser permissions.",
+    "qrScannerCamera": "QR תצוגה מקדימה של מצלמת הסורק",
+    "cameraUnavailableCheck": "המצלמה לא זמינה. בדוק את הרשאת המצלמה ונסה שוב.",
+    "pointCameraAuthenticator": "Point your camera at the authenticator setup QR code from the service you are adding.",
+    "backAddAccount": "חזרה להוספת חשבון",
+    "secureSetup": "הגדרה מאובטחת",
+    "enterDetailsManually": "במקום זאת, הזן פרטים באופן ידני"
+  },
+  "accountForm": {
+    "hideManualEntry": "הסתר כניסה ידנית",
+    "secretKeySupplied": "Use the secret key supplied by the service you are configuring. לעולם אל תזין את סיסמת החשבון שלך כאן. Match the algorithm, digit count, and interval to the service’s setup instructions.",
+    "updateServiceAccount": "עדכן את השירות, שם החשבון או המפתח הסודי.",
+    "secretKeyRead": "מפתח סודי, לקריאה בלבד בזמן העריכה",
+    "secretKeyBase32": "מפתח סודי ב-Base32",
+    "digits": "ספרות",
+    "seconds": "שניות",
+    "enterDetailsManually": "או הזן פרטים באופן ידני",
+    "enterDetailsManually2": "הזן פרטים באופן ידני",
+    "serviceAccountName": "שירות, שם חשבון ומפתח סודי",
+    "saveChangesSecurely": "שמור שינויים בצורה מאובטחת",
+    "saveAccountSecurely": "שמור חשבון בצורה מאובטחת",
+    "serviceIssuer": "שירות או מנפיק",
+    "accountName": "שם חשבון",
+    "secretKey": "מפתח סודי",
+    "serviceIssuer2": "שירות / מנפיק",
+    "eGGoogle": "למשל גוגל",
+    "clearServiceIssuer": "נקה שירות או מנפיק",
+    "eGExample": "למשל you@example.com",
+    "clearAccountName": "נקה את שם החשבון",
+    "secretKeyLocked": "מפתח סודי (נעול)",
+    "secretKeyBase322": "מפתח סודי (BASE32)",
+    "enterSetupKey": "הזן את מפתח ההגדרה שלך",
+    "clearSecretKey": "נקה מפתח סודי",
+    "otpAlgorithm": "OTP אלגוריתם",
+    "otpDigits": "OTP ספרות",
+    "refreshIntervalSeconds": "מרווח רענון (שניות)",
+    "otpRefreshInterval": "OTP מרווח רענון בשניות",
+    "closeAccountForm": "טופס סגירת חשבון",
+    "totpSetupUrl": "TOTP הגדרה URL",
+    "importSetupUrl": "ייבוא הגדרות URL",
+    "totpSetupUrl2": "TOTP הגדרות URL",
+    "accountName2": "שם החשבון",
+    "addAccount": "הוסף חשבון"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "קוד מאמת סריקה QR",
+    "setupGuidance": "סרוק קוד QR לקבלת ההגדרה הקלה ביותר, או הזן פרטים באופן ידני.",
+    "cameraAddAccount": "השתמש במצלמה שלך כדי להוסיף חשבון באופן מיידי",
+    "scanQrCode2": "סרוק את קוד QR",
+    "uploadQrImage": "העלה תמונה QR",
+    "chooseQrScreenshot": "בחר צילום מסך QR מגלריה, תמונות או קבצים",
+    "pasteQr": "הדבק תמונה QR / URL",
+    "pasteCopiedQr": "הדבק תמונה QR מועתקת או הגדרת מאמת URL",
+    "uploadQrImage2": "העלה תמונה QR"
+  },
+  "accountQr": {
+    "close": "סגור",
+    "accountQrCode": "קוד החשבון QR",
+    "revealQrCode": "חשוף את הקוד QR",
+    "exportWarning": "אזהרה: כל מי שסורק את הקוד QR הזה יכול ליצור קודי אימות עבור חשבון זה. חשפו אותו רק על מסך מהימן.",
+    "privacyHint": "שמור על קוד QR פרטי. סריקה שלו מעתיקה את סוד המאמת של החשבון."
+  },
+  "productInfo": {
+    "backupRestore": "גיבוי ושחזור",
+    "backupRestoreDescription": "גבה את נתוני המאמת שלך ושחזר אותם כאשר אתה עובר למכשיר אחר.",
+    "privacyDescription": "שמור את חשבונות האימות שלך במקום אחד. השתמש באפשרויות הגיבוי, השחזור ונעילת המכשיר של האפליקציה כדי לנהל את ההגדרה שלך בצורה אחראית.",
+    "timeBasedCodes": "קודים מבוססי זמן",
+    "generateOneTimeCodes": "צור קודי סיסמה חד-פעמיים מסתובבים עבור החשבונות שלך כדי להשלים אימות דו-שלבי.",
+    "quickAccountSetup": "הגדרת חשבון מהירה",
+    "quickSetupDescription": "סרוק קוד מאמת QR או ייבא תמונה QR כדי להוסיף חשבון.",
+    "accountsOnePlace": "חשבונות במקום אחד",
+    "accountsInOnePlaceDescription": "שמור את החשבונות השמורים שלך יחד ומצא את הערך הנכון כשיגיע הזמן להיכנס.",
+    "privateAccountVault": "כספת חשבון פרטי",
+    "privateVaultDescription": "נהל את ערכי המאמת שלך באופן מקומי והשתמש באפשרות של נעילת המכשיר הזמינה של האפליקציה.",
+    "easyCodeAccess": "גישה נוחה לקוד",
+    "easyCodeAccessDescription": "העתק קוד עדכני או נהל את פרטי החשבון באמצעות ממשק נקי וממוקד.",
+    "authenticatorTechsivaram": "Authenticator · מאת TECHSIVARAM",
+    "mobileAuthenticator": "המאמת הנייד שלך",
+    "tagline": "דרך פשוטה יותר לנהל את האימות הדו-שלבי שלך.",
+    "heroDescription": "חוויית אימות ממוקדת עבור קודי אימות מבוססי זמן. שמור קודי חשבון תואמים בהישג יד עם KaalKey עבור Android.",
+    "timeBasedCodes2": "קודים מבוססי זמן",
+    "privateDesign": "פרטי לפי עיצוב",
+    "builtSimpleAuthenticator": "נבנה עבור זרימת עבודה פשוטה של Authenticator",
+    "qrSetupTimed": "QR הגדרה · קודים מתוזמנים · ניהול חשבון",
+    "privacyTitle": "החשבונות שלך. הקודים שלך. השליטה שלך.",
+    "authenticator": "KAALKEY · מאמת",
+    "brandBanner": "KaalKey באנר של המותג",
+    "logo": "לוגו KaalKey"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "בטל",
+      "storageInvalidTitle": "נתוני אחסון לא חוקיים",
+      "storageInvalidBody": "לא ניתן היה לקרוא את נתוני החשבון השמורים בבטחה.",
+      "storageErrorTitle": "שגיאת אחסון",
+      "storageErrorBody": "לא ניתן היה לטעון חשבונות שמורים.",
+      "missingTitle": "חסר מידע",
+      "missingEditingBody": "הזן את שם השירות ואת שם החשבון.",
+      "missingBody": "הזן את שם השירות, שם החשבון והמפתח הסודי.",
+      "invalidOtpBody": "בדוק את הסוד Base32, האלגוריתם, ספירת הספרות ותקופת הרענון. סודות חייבים להכיל Base32 תווים חוקיים; הספרות חייבות להיות {digits} והתקופה חייבת להיות {minPeriod}–{maxPeriod} שניות.",
+      "duplicateBody": "חשבון עם שירות זה ושם חשבון זה כבר נשמר.",
+      "updatedBody": "החשבון שלך עודכן.",
+      "addedBody": "החשבון שלך נוסף בצורה מאובטחת.",
+      "invalidOtpTitle": "הגדרות OTP לא חוקיות",
+      "duplicateTitle": "החשבון כבר קיים",
+      "savedTitle": "החשבון נשמר",
+      "invalidSecretTitle": "מפתח סודי לא חוקי",
+      "invalidSecretBody": "אנא בדוק שהזנת סוד Base32 חוקי.",
+      "removedTitle": "החשבון הוסר",
+      "removedBody": "החשבון והסוד שלו הוסרו מהמכשיר הזה.",
+      "clearedTitle": "חשבונות נוקו",
+      "clearedBody": "כל החשבונות והסודות של המאמת הוסרו מהמכשיר הזה.",
+      "someSavedAccountsNeedAttentionTitle": "חלק מהחשבונות השמורים זקוקים לתשומת לב",
+      "someSavedAccountsNeedAttentionBody": "{count} רשומות חשבון לא חוקיות לא נטענו. חשבונות תקפים נשארים זמינים. שקול ליצור גיבוי לפני ביצוע שינויים נוספים.",
+      "removeConfirmTitle": "להסיר חשבון?",
+      "removeConfirmWebTitle": "להסיר חשבון?",
+      "removeButton": "הסר",
+      "clearButton": "נקה הכל",
+      "clearConfirmTitle": "לנקות את כל החשבונות?",
+      "saveErrorBody": "לא ניתן היה לשמור חשבונות. בדוק את זמינות האחסון בדפדפן ונסה שוב.",
+      "notFoundTitle": "החשבון לא נמצא",
+      "notFoundBody": "חשבון זה לא נמצא. סגור את העורך ונסה שוב.",
+      "removeConfirmBody": "זה מסיר את החשבון ואת הסוד שלו מהמכשיר הזה.",
+      "clearConfirmBody": "פעולה זו מסירה לצמיתות את כל חשבונות המאמת ואת הסודות שלהם מהמכשיר הזה. צור גיבוי מוצפן תחילה אם ייתכן שתזדקק לחשבונות אלה מאוחר יותר.",
+      "clearConfirmUndoBody": "לא ניתן לבטל זאת."
+    },
+    "biometric": {
+      "cancelButton": "בטל",
+      "saveErrorTitle": "לא ניתן לשמור את ההגדרה",
+      "unlockPrompt": "בטל את הנעילה של KaalKey מאמת",
+      "promptSubtitle": "השתמש ביומטריה או נעילת מסך המכשיר שלך",
+      "disableConfirmPrompt": "אשר כדי לכבות את נעילת האפליקציה KaalKey",
+      "enablePrompt": "אפשר נעילת אפליקציה עבור KaalKey",
+      "deviceLockTitle": "הגדר את נעילת מסך המכשיר שלך",
+      "deviceLockBody": "KaalKey משתמש באימות המובנה של הטלפון שלך. הגדר מכשיר PIN, דפוס או סיסמה בהגדרות האבטחה של הטלפון שלך, ולאחר מכן נסה שוב. ביומטריה היא אופציונלית.",
+      "unavailableTitle": "אימות מכשיר אינו זמין",
+      "unavailableBody": "הטלפון שלך לא הצליח להתחיל אימות מאובטח. בדוק שהגדרת נעילת מסך של המכשיר ולאחר מכן נסה שוב.",
+      "lockedTitle": "האימות ננעל זמנית",
+      "lockedBody": "הטלפון שלך השבית זמנית את האימות לאחר ניסיונות רבים מדי. המתן ונסה שוב.",
+      "promptErrorTitle": "האימות אינו זמין",
+      "promptErrorBody": "KaalKey לא הצליח להפעיל את בקשת האימות המאובטח של הטלפון. אנא נסה שוב.",
+      "webLock": "נעילת אימות מכשיר אינה זמינה עדיין בגרסת האינטרנט. כספת האינטרנט נשארת פתוחה; השתמש באפליקציה Android לאימות מכשיר מקורי.",
+      "disabledTitle": "נעילת האפליקציה מושבתת",
+      "disabledBody": "נעילת האפליקציה KaalKey כבויה.",
+      "disableSaveError": "נעילת האפליקציה נשארת מופעלת. אנא נסה שוב.",
+      "enabledTitle": "נעילת האפליקציה מופעלת",
+      "enabledBody": "KaalKey יבקש את האימות המובנה של הטלפון שלך בעת פתיחתו וכאשר תחזור אליו.",
+      "enableSaveError": "לא ניתן היה להפעיל את נעילת האפליקציה. אנא נסה שוב."
+    },
+    "qr": {
+      "startingCamera": "מפעיל את המצלמה...",
+      "unsupportedTitle": "קוד QR לא נתמך",
+      "unsupportedBody": "סרוק את קוד הגדרת המאמת QR שסופק על ידי השירות. זה חייב להיות קוד TOTP, לא קוד כניסה רגיל QR.",
+      "unsupportedDiagnostic": "ש-QR אינו קוד הגדרה של TOTP. כוון להגדרת מאמת QR.",
+      "detectedDiagnostic": "זוהה QR. מנתח...",
+      "analyzing": "מנתח קוד QR...",
+      "duplicateTitle": "החשבון כבר נוסף",
+      "duplicateBody": "{issuer}: {account} כבר נמצא ב-KaalKey.",
+      "addedTitle": "חשבון נוסף",
+      "addedBody": "{issuer}: {account} נוסף בהצלחה.",
+      "saveFailedDiagnostic": "לא ניתן לשמור את החשבון. אתה יכול לסרוק שוב.",
+      "invalidTitle": "קוד QR לא חוקי",
+      "invalidBody": "KaalKey לא הצליח לנתח את קוד המאמת הזה QR. {detail}. השתמש בקוד ההתקנה TOTP של השירות QR (בדרך כלל מתחיל ב-{prefix}).",
+      "parseFailedDiagnostic": "QR לא ניתן לעבד. כוון אל ההגדרה QR ונסה שוב.",
+      "invalidUrlTitle": "לא חוקי TOTP URL",
+      "invalidUrlBody": "הדבק מאמת שלם URL שמתחיל ב-{prefix}.",
+      "clipboardEmptyTitle": "הלוח ריק",
+      "clipboardEmptyBody": "העתק תחילה {prefix} URL ולאחר מכן הקש על הדבק TOTP URL.",
+      "clipboardErrorTitle": "לא ניתן היה לקרוא את הלוח",
+      "clipboardErrorBody": "העתק את ההגדרה TOTP URL ונסה שוב."
+    },
+    "haptics": {
+      "saveFailedTitle": "לא ניתן לשמור את ההגדרה",
+      "saveFailedBody": "לא ניתן היה לשמור את העדפת המשוב ההפטי. אנא נסה שוב."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "לא ניתן היה לשמור את האישור",
+      "saveFailedBody": "אנא נסה שוב. עליך לאשר את ההודעה המשפטית לפני השימוש ב-KaalKey."
+    },
+    "cameraPermission": {
+      "title": "נדרשת הרשאת מצלמה",
+      "body": "אפשר גישה למצלמה כדי לסרוק קוד הגדרת מאמת QR."
+    },
+    "storage": {
+      "browserUnavailable": "אחסון הדפדפן אינו זמין.",
+      "browserFilePickerUnavailable": "בוחר הקבצים של הדפדפן אינו זמין."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "קובץ לא נתמך",
+      "unsupportedFileBody": "בחר תמונת קוד QR כגון PNG או JPEG.",
+      "browserDecoderUnavailable": "פענוח תמונות הדפדפן אינו זמין",
+      "imageLoadFailed": "לא ניתן היה לטעון את התמונה",
+      "unreadableDimensions": "לתמונה אין מידות קריאות",
+      "noQrCodeFoundTitle": "לא נמצא קוד QR",
+      "noQrCodeFoundBody": "KaalKey לא הצליח לפענח קוד QR בתמונה זו. נסה צילום מסך או ברזולוציה גבוהה יותר PNG/JPEG.",
+      "couldNotReadImageTitle": "לא ניתן היה לקרוא את התמונה",
+      "couldNotReadImageBody": "נסה תמונה ברורה PNG או JPEG המכילה את קוד הגדרת המאמת QR.",
+      "couldNotOpenPickerTitle": "לא ניתן היה לפתוח את בורר התמונות",
+      "couldNotOpenPickerBody": "אנא נסה להעלות את QR שוב.",
+      "normalizedDecodeFailed": "לא ניתן היה לפענח תמונה מנורמלת",
+      "clipboardImageLoadFailed": "לא ניתן היה לטעון את תמונת הלוח",
+      "imageProcessingUnavailable": "עיבוד תמונה אינו זמין",
+      "imageProcessingUnavailableAlt": "עיבוד תמונה אינו זמין",
+      "noImageInClipboardTitle": "אין תמונה בלוח",
+      "noImageInClipboardBody": "העתק תמונת קוד QR ולאחר מכן הקש שוב על הדבק QR תמונה.",
+      "clipboardUnavailableTitle": "הלוח אינו זמין",
+      "clipboardUnavailableBody": "טקסט הלוח אינו הגדרת מאמת חוקית URL. העתק תמונה otpauth:// URL או QR ונסה שוב.",
+      "clipboardAccessBody": "KaalKey לא הצליח לקרוא טקסט או תמונה מהלוח. אפשר גישה ללוח, ואז העתק את התמונה QR או otpauth:// URL והקש שוב על הדבק QR תמונה / URL.",
+      "couldNotPasteImageTitle": "לא ניתן היה להדביק תמונה",
+      "couldNotPasteImageBody": "הדבקת תמונות אינה נתמכת על ידי לוח זה במכשיר זה. השתמש במקום זאת בתמונה ייבוא ​​QR.",
+      "sourceImageDecodeFailure": "נסה תמונה אחרת QR.",
+      "pastedImportFailureBody": "נסה תמונה אחרת QR.",
+      "sourceImageReadFailure": "נסה להעתיק צילום מסך ברור QR.",
+      "importFailedTitle": "ייבוא תמונה QR נכשל",
+      "importFailedBody": "KaalKey לא הצליח לקרוא את התמונה. אנא נסה תמונת קוד אחרת QR.",
+      "notFoundBody": "התמונה המועתקת אינה מכילה קוד QR קריא.",
+      "pastedNotFoundBody": "התמונה המודבקת אינה מכילה קוד QR קריא.",
+      "pastedReadFailureBody": "נסה להעתיק תמונה ברורה של PNG או JPEG המכילה את הקוד המלא QR.",
+      "noQrCodeTextBody": "KaalKey פיענח את התמונה שנבחרה אך לא מצא קוד QR. נסה PNG ברורה ברזולוציה מלאה או JPEG עם כל הקוד גלוי."
+    },
+    "totpImport": {
+      "invalidTotpCode": "קוד QR זה אינו קוד הגדרת מאמת מבוסס זמן.",
+      "missingAccountDetails": "בקוד QR חסרים פרטי חשבון.",
+      "unsupportedAlgorithm": "הקוד QR משתמש באלגוריתם שאינו נתמך.",
+      "unsupportedDigits": "הקוד QR הזה חייב להשתמש ב-6, 7 או 8 ספרות.",
+      "unsupportedPeriod": "קוד QR זה משתמש בפרק זמן לא נתמך.",
+      "invalidAccount": "לא ניתן לאמת את הקוד QR."
+    },
+    "backup": {
+      "invalidJson": "קובץ הגיבוי אינו חוקי JSON.",
+      "unsupportedFormat": "זה אינו גיבוי מוצפן KaalKey נתמך.",
+      "invalidPasswordOrDamaged": "סיסמת הגיבוי שגויה או שקובץ הגיבוי פגום.",
+      "invalidContents": "תוכן הגיבוי לא חוקי או לא שלם.",
+      "secureRandomUnavailableDetailed": "יצירה אקראית מאובטחת אינה זמינה. בנה מחדש והתקן מחדש את האפליקציה Android עם expo-crypto כלולה, ולאחר מכן נסה שוב.",
+      "invalidAccountDataForBackup": "חשבון אחד או יותר אינם חוקיים. תקן את נתוני החשבון לפני יצירת גיבוי.",
+      "invalidPasswordOrModified": "סיסמת הגיבוי שגויה או שקובץ הגיבוי שונה.",
+      "invalidPasswordOrFileDamaged": "סיסמת הגיבוי שגויה או שהקובץ פגום.",
+      "passwordCopiedTitle": "הסיסמה הועתקה",
+      "enterPasswordTitle": "הזן את סיסמת הגיבוי שלך",
+      "enterPasswordBody": "הזן את הסיסמה ששימשה כשגיבוי זה נוצר.",
+      "passwordCopiedBody": "שמור אותו במקום בטוח, כגון WhatsApp.",
+      "copyFailedTitle": "ההעתקה נכשלה",
+      "copyFailedBody": "בחר והעתק את הסיסמה באופן ידני.",
+      "generatingPassword": "יוצר סיסמת גיבוי מאובטח...",
+      "encrypting": "מצפין גיבוי...",
+      "decrypting": "מפענח גיבוי...",
+      "restoring": "משחזר חשבונות...",
+      "backupCreatedTitle": "נוצר גיבוי",
+      "restoreCompleteTitle": "השחזור הושלם",
+      "mergeConfirmTitle": "למזג חשבונות גיבוי?",
+      "mergeConfirmButton": "מיזוג חשבונות",
+      "backupSavedTemporary": "גיבוי מוצפן נשמר באופן זמני בכתובת:\n{uri}",
+      "generatePasswordErrorTitle": "לא ניתן ליצור סיסמת גיבוי",
+      "secureRandomUnavailable": "יצירה אקראית מאובטחת אינה זמינה.",
+      "passwordUnavailableTitle": "סיסמת גיבוי אינה זמינה",
+      "passwordUnavailableBody": "סגור דו-שיח זה וצור גיבוי חדש ליצירת סיסמה מאובטחת.",
+      "backupDownloadedBody": "הורד הגיבוי המוצפן שלך KaalKey. שמור את הקובץ והסיסמה פרטיים.",
+      "backupFailedTitle": "הגיבוי נכשל",
+      "backupCreateErrorBody": "KaalKey לא הצליח ליצור את הגיבוי.",
+      "restoreFailedTitle": "השחזור נכשל",
+      "backupReadErrorBody": "לא ניתן היה לקרוא או לשמור את הגיבוי.",
+      "browserDownloadUnsupported": "הדפדפן שלך אינו תומך בהורדת קבצי גיבוי.",
+      "localFileUnavailable": "מיקום קובץ מקומי אינו זמין במכשיר זה.",
+      "saveBackupTitle": "שמור את הגיבוי המוצפן שלך KaalKey"
+    },
+    "clipboard": {
+      "copiedTitle": "הקוד הועתק",
+      "copiedBody": "קוד האימות שלך הועתק.",
+      "errorTitle": "שגיאה",
+      "errorBody": "לא ניתן היה להעתיק את קוד האימות."
+    },
+    "activity": {
+      "cameraReady": "המצלמה מוכנה. הפנה אותו אל קוד המאמת QR.",
+      "readingQrImage": "קורא תמונה QR...",
+      "importingQrImage": "מייבא תמונה QR...",
+      "importingAccount": "מייבא חשבון מאמת...",
+      "importingPastedImage": "מייבא תמונה מודבקת QR..."
+    }
+  },
+  "activity": {
+    "working": "עובד",
+    "wait": "אנא המתן...",
+    "donTClose": "נא לא לסגור או ליצור אינטראקציה עם KaalKey.",
+    "loadingLanguages": "טוען שפות זמינות...",
+    "loadingTranslation": "טוען תרגום..."
+  }
+}

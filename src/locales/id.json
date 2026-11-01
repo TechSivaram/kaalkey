@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Bahasa",
+      "description": "Pilih bahasa yang digunakan di KaalKey.",
+      "english": "bahasa Inggris",
+      "telugu": "Telugu",
+      "hindi": "bahasa Hindi",
+      "section": "BAHASA",
+      "searchLanguageName": "Bahasa pencarian (nama atau kode)",
+      "searchSupportedLanguages": "Cari bahasa yang didukung",
+      "closeLanguageDropdown": "Tutup tarik-turun bahasa",
+      "noTranslatedLanguage": "Tidak ditemukan bahasa terjemahan.",
+      "serverUrl": "Server terjemahan URL",
+      "serverUrlDescription": "KaalKey mengunduh daftar bahasa dan terjemahan dari server ini.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Simpan server terjemahan"
+    },
+    "title": "Pengaturan aplikasi",
+    "eyebrow": "KAALKEY PREFERENSI",
+    "experience": {
+      "section": "PENGALAMAN"
+    },
+    "security": {
+      "section": "KEAMANAN"
+    },
+    "backup": {
+      "section": "CADANGAN & PEMULIHAN"
+    },
+    "danger": {
+      "section": "ZONA BERBAHAYA",
+      "clearAccounts": "Hapus semua akun",
+      "clearAccountsDescription": "Hapus secara permanen setiap akun dan rahasia dari perangkat ini. Cadangkan dulu.",
+      "clearAccountsAccessibilityLabel": "Hapus semua akun pengautentikasi"
+    },
+    "appearance": {
+      "section": "PENAMPILAN",
+      "title": "Penampilan ringan",
+      "description": "KaalKey saat ini menggunakan tema cahaya bersih."
+    },
+    "haptics": {
+      "title": "Umpan balik haptik",
+      "description": "Masukan lembut untuk ketukan dan tindakan yang telah selesai."
+    },
+    "deviceLock": {
+      "title": "Kunci otentikasi perangkat",
+      "description": "Vault Anda terkunci ketika KaalKey meninggalkan latar depan.",
+      "requirement": "Memerlukan biometrik atau kunci layar ponsel Anda PIN, pola, atau kata sandi.",
+      "accessibilityLabel": "Kunci aplikasi otentikasi perangkat"
+    },
+    "privacy": {
+      "title": "Hukum & privasi",
+      "description": "Tinjau Kebijakan Privasi dan Ketentuan Penggunaan.",
+      "storageNote": "Rahasia pengautentikasi Anda tetap tersimpan di brankas aman di perangkat. Preferensi disimpan secara lokal."
+    }
+  },
+  "accounts": {
+    "edit": "Sunting",
+    "sortAccountName": "Urutkan berdasarkan nama akun",
+    "loadingSecureVault": "Memuat brankas aman...",
+    "tapCopy": "KETUK UNTUK MENYALIN",
+    "noAccountsMatch": "Tidak ada akun yang cocok dengan pencarian Anda.",
+    "viewQrCode": "Lihat kode QR untuk akun",
+    "removeAccount": "Hapus akun",
+    "copyVerificationCode": "Salin kode verifikasi",
+    "active": "AKTIF",
+    "sort": "urutkan berdasarkan",
+    "account": "Akun",
+    "clearSearch": "Hapus pencarian",
+    "sortServiceName": "Urutkan berdasarkan nama layanan",
+    "addFirstAccount": "Tambahkan akun pertama Anda",
+    "searchAccounts": "Cari akun",
+    "searchServiceAccount": "Layanan pencarian atau akun",
+    "accounts": "Akun Anda",
+    "add": "+ Tambahkan",
+    "vaultStartsHere": "Gudang Anda dimulai di sini",
+    "service": "Layanan",
+    "emptyHint": "Tambahkan akun menggunakan kunci rahasianya untuk menghasilkan kode verifikasi pertama Anda."
+  },
+  "common": {
+    "done": "Selesai",
+    "doneButton": "Selesai",
+    "closeSettings": "Tutup pengaturan",
+    "separator": "-",
+    "article": "sebuah",
+    "save": "Simpan",
+    "delete": "Hapus",
+    "resizeAppBrand": "Ubah ukuran panel aplikasi dan merek"
+  },
+  "qrImport": {
+    "readPastedImage": "Tidak dapat membaca gambar yang ditempel"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Akun dalam cadangan ini: {count}. KaalKey akan mempertahankan akun Anda yang sudah ada dan menambahkan akun apa pun yang belum ada. Akun duplikat akan dilewati.",
+    "restoreCompletionBody": "Akun ditambahkan: {added}. Akun duplikat dilewati: {skipped}. Akun Anda yang ada tetap dipertahankan.",
+    "copyPassword": "Salin kata sandi yang dihasilkan",
+    "passwordSafety": "Simpan kata sandi ini secara terpisah (misalnya, di WhatsApp). Siapa pun yang memiliki keduanya",
+    "importAction": "Pilih file dan impor",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "Kubah Aman",
+    "createBackup": "Buat cadangan",
+    "encryptedFile": "File terenkripsi",
+    "restoreBackup": "Pulihkan cadangan",
+    "safetyNote": "Cadangan berisi rahasia pengautentikasi Anda. KaalKey menghasilkan kata sandi unik untuk setiap cadangan. Simpan secara terpisah; KaalKey tidak dapat memulihkannya.",
+    "generatingSecurePassword": "Menghasilkan kata sandi yang aman…",
+    "importFile": "Impor berkas",
+    "backupPassword": "KATA SANDI CADANGAN",
+    "account": "akun",
+    "accounts": "akun",
+    "exportDescription": "Enkripsi semua {count} yang disimpan {accountLabel} ke dalam file cadangan. KaalKey menghasilkan kata sandi unik; salin dan simpan secara terpisah dari file.",
+    "restoreDescription": "Pilih file cadangan dan kata sandi KaalKey Anda. Akun baru akan ditambahkan ke daftar akun Anda yang sudah ada; akun yang ada akan tetap seperti semula.",
+    "enterBackupPassword": "Masukkan kata sandi cadangan",
+    "closeBackup": "Tutup cadangan",
+    "copyGeneratedBackup": "Salin kata sandi cadangan yang dihasilkan",
+    "backupPassword2": "Kata sandi cadangan",
+    "clearBackupPassword": "Hapus kata sandi cadangan",
+    "backupFilePassword": "file cadangan dan kata sandi dapat memulihkan akun autentikator Anda.",
+    "encryptShareBackup": "Enkripsi dan bagikan cadangan"
+  },
+  "home": {
+    "unlockSecurely": "Buka kunci dengan aman",
+    "disableAppLock": "Nonaktifkan kunci aplikasi",
+    "enableAppLock": "Aktifkan kunci aplikasi",
+    "checkingSecureLock": "Memeriksa pengaturan kunci aman Anda. Kode Anda tetap tersembunyi.",
+    "waitingVerification": "Menunggu verifikasi…",
+    "secretsStayStored": "Rahasia Anda tetap tersimpan di perangkat ini.",
+    "openAppSettings": "Buka pengaturan aplikasi",
+    "versionLabel": "VERSI",
+    "unlockRequirement": "Gunakan biometrik atau kunci layar ponsel Anda PIN, pola, atau kata sandi untuk mengakses kode verifikasi satu kali Anda.",
+    "localVault": "VAULT LOKAL ANDA",
+    "codesDeviceControl": "Kode Anda. Perangkat Anda. Kendali Anda.",
+    "securingVault": "Mengamankan brankas Anda…",
+    "vaultProtected": "Gudang Anda terlindungi",
+    "lock": "KUNCI",
+    "localVault2": "VAULT LOKAL",
+    "authenticator": "KAALKEY PENULIS",
+    "tricolourLockEmblem": "KaalKey lambang kunci tiga warna",
+    "authenticator2": "OTENTIKATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Jika Anda memilih untuk memindai kode QR, KaalKey menggunakan izin kamera untuk tindakan tersebut. Otentikasi perangkat opsional dan umpan balik haptik menggunakan fitur perangkat yang relevan. Anda dapat mengelola izin di pengaturan perangkat Anda.",
+        "heading": "2. Izin dan fitur perangkat"
+      },
+      "backups": {
+        "body": "Saat Anda membuat cadangan, KaalKey mengenkripsi cadangan menggunakan kata sandi yang Anda pilih. Jaga kerahasiaan file dan kata sandi dan simpan dengan aman. Siapa pun yang mendapatkan file dan kata sandinya mungkin dapat memulihkan akun pengautentikasi Anda. KaalKey tidak dapat memulihkan kata sandi cadangan yang terlupa.",
+        "heading": "3. Cadangan"
+      },
+      "security": {
+        "body": "Selalu perbarui perangkat Anda, lindungi dengan kunci layar, dan jangan bagikan rahasia OTP atau kata sandi cadangan. Menghapus aplikasi, menghapus datanya, atau kehilangan perangkat dapat membuat akun yang disimpan secara lokal tidak tersedia. Pertahankan cadangan yang aman jika Anda memerlukan pemulihan.",
+        "heading": "5. Keamanan dan retensi"
+      },
+      "information": {
+        "heading": "1. Informasi dan rahasia",
+        "body": "KaalKey adalah aplikasi pengautentikasi. Label akun dan nilai rahasia yang diperlukan untuk menghasilkan kode satu kali bersifat sensitif. Aplikasi ini dirancang untuk menyimpan catatan akun di penyimpanan aman perangkat. Siapa pun yang memiliki akses ke perangkat yang tidak terkunci atau cadangan yang diekspor mungkin dapat mengakses informasi sensitif."
+      },
+      "sharing": {
+        "heading": "4. Berbagi dan pihak ketiga",
+        "body": "Alur pencadangan mungkin menggunakan lembar berbagi atau pemilih file perangkat Anda untuk menyimpan, mentransfer, atau memilih file. Praktik privasi aplikasi atau layanan pihak ketiga mana pun yang Anda pilih diatur oleh penyedia tersebut. Pemberitahuan ini tidak membuat klaim menyeluruh bahwa perangkat, sistem operasi, atau layanan berbagi pilihan Anda tidak pernah memproses data."
+      },
+      "changes": {
+        "heading": "6. Perubahan dan kontak",
+        "body": "Pemberitahuan yang disematkan ini mungkin direvisi dalam rilis aplikasi mendatang. Untuk pertanyaan privasi, hubungi penerbit aplikasi melalui saluran dukungan resmi yang disediakan bersama aplikasi."
+      },
+      "title": "Kebijakan Privasi"
+    },
+    "terms": {
+      "use": {
+        "body": "Anda dapat menggunakan KaalKey untuk membuat kode verifikasi untuk akun yang boleh Anda akses. Anda bertanggung jawab untuk mematuhi undang-undang yang berlaku dan aturan layanan yang Anda gunakan kode autentikasinya.",
+        "heading": "1. Penggunaan Anda"
+      },
+      "protectAccounts": {
+        "body": "Anda bertanggung jawab untuk mengamankan perangkat Anda, rahasia pengautentikasi, metode pemulihan, cadangan yang diekspor, dan kata sandi cadangan. Jangan berbagi kode atau rahasia dengan orang yang tidak Anda percayai.",
+        "heading": "2. Lindungi akun Anda"
+      },
+      "availability": {
+        "body": "Fitur dapat berubah antar rilis. Anda harus selalu memperbarui aplikasi dan memverifikasi secara berkala bahwa pengaturan pencadangan dan pemulihan Anda berfungsi.",
+        "heading": "5. Perubahan dan ketersediaan"
+      },
+      "recovery": {
+        "body": "KaalKey tidak dapat menjamin bahwa setiap akun dapat dipulihkan, bahwa setiap kode atau konfigurasi QR akan kompatibel, atau bahwa aplikasi akan beroperasi tanpa gangguan atau kesalahan. Simpan metode pemulihan alternatif yang disediakan oleh layanan terkait.",
+        "heading": "3. Tidak ada jaminan pemulihan"
+      },
+      "advice": {
+        "heading": "4. Tidak ada nasihat profesional",
+        "body": "Aplikasi ini adalah sebuah utilitas dan tidak memberikan saran respons insiden hukum, keuangan, atau keamanan. Jika akun disusupi, ikuti panduan pemulihan dan keamanan resmi dari layanan yang terpengaruh."
+      },
+      "liability": {
+        "heading": "6. Tanggung jawab dan hukum yang berlaku",
+        "body": "Sejauh diizinkan oleh undang-undang yang berlaku, aplikasi disediakan tanpa jaminan pengoperasian tanpa gangguan atau bebas kesalahan. Tidak ada ketentuan dalam ketentuan ini yang mengecualikan hak atau upaya hukum yang tidak dapat dikecualikan secara hukum. Pembatasan lebih lanjut atau ketentuan hukum yang berlaku harus ditinjau oleh pengacara yang berkualifikasi di wilayah hukum penerbit sebelum diterbitkan."
+      },
+      "title": "Ketentuan Penggunaan"
+    },
+    "version": "Versi",
+    "saving": "Menyimpan…",
+    "acceptContinue": "Terima & Lanjutkan",
+    "appliesAuthenticator": "Berlaku untuk KaalKey Otentikator",
+    "reviewBothDocuments": "Harap tinjau kedua dokumen sebelum menggunakan KaalKey. Mereka disertakan dalam aplikasi dan tersedia secara offline.",
+    "originalMulticolourAuthenticator": "Lambang pengautentikasi warnawarni asli KaalKey",
+    "legalPrivacyNotice": "Pemberitahuan Hukum & Privasi",
+    "legalInformation": "Informasi hukum",
+    "reviewSPrivacy": "Tinjau informasi privasi dan ketentuan penggunaan KaalKey.",
+    "iReadAgree": "Saya telah membaca dan menyetujui Kebijakan Privasi dan Ketentuan Penggunaan."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Jaga agar seluruh kode QR tetap terlihat. Rahasia Anda tetap ada di perangkat ini.",
+    "back": "Kembali",
+    "turnFlashlightOff": "Matikan senter",
+    "turnFlashlight": "Nyalakan senter",
+    "flashlight": "Senter menyala",
+    "flashlight2": "Senter",
+    "cameraUnavailableOpen": "Kamera tidak tersedia. Buka halaman ini di HTTPS atau localhost dan izinkan akses kamera.",
+    "cameraPreviewUnavailable": "Pratinjau kamera tidak tersedia. Tutup dan buka kembali pemindai.",
+    "cameraReadyPoint": "Kamera sudah siap — arahkan ke kode QR lengkap.",
+    "browserCannotProcess": "Browser ini tidak dapat memproses frame kamera.",
+    "qrCodeDetected": "QR kode terdeteksi.",
+    "couldnTRead": "Tidak dapat membaca bingkai kamera. Periksa izin kamera dan muat ulang halaman ini.",
+    "cameraPermissionDenied": "Izin kamera ditolak. Izinkan akses kamera di pengaturan browser, lalu buka kembali pemindai.",
+    "noCameraWas": "Tidak ada kamera yang ditemukan di perangkat ini.",
+    "cameraBusyAnother": "Kamera sedang sibuk di aplikasi atau tab browser lain.",
+    "startCameraHttps": "Tidak dapat memulai kamera. Gunakan HTTPS atau localhost dan periksa izin browser.",
+    "qrScannerCamera": "QR pratinjau kamera pemindai",
+    "cameraUnavailableCheck": "Kamera tidak tersedia. Periksa izin kamera dan coba lagi.",
+    "pointCameraAuthenticator": "Arahkan kamera Anda ke kode pengaturan autentikator QR dari layanan yang Anda tambahkan.",
+    "backAddAccount": "Kembali untuk menambahkan akun",
+    "secureSetup": "PENYIAPAN AMAN",
+    "enterDetailsManually": "Masukkan detail secara manual"
+  },
+  "accountForm": {
+    "hideManualEntry": "Sembunyikan entri manual",
+    "secretKeySupplied": "Gunakan kunci rahasia yang disediakan oleh layanan yang Anda konfigurasi. Jangan pernah memasukkan kata sandi akun Anda di sini. Cocokkan algoritma, jumlah digit, dan interval dengan instruksi pengaturan layanan.",
+    "updateServiceAccount": "Perbarui layanan, nama akun, atau kunci rahasia.",
+    "secretKeyRead": "Kunci rahasia, hanya baca saat mengedit",
+    "secretKeyBase32": "Kunci rahasia di Base32",
+    "digits": "angka",
+    "seconds": "detik",
+    "enterDetailsManually": "ATAU MASUKKAN DETAIL SECARA MANUAL",
+    "enterDetailsManually2": "Masukkan detail secara manual",
+    "serviceAccountName": "Layanan, nama akun, dan kunci rahasia",
+    "saveChangesSecurely": "Simpan perubahan dengan aman",
+    "saveAccountSecurely": "Simpan akun dengan aman",
+    "serviceIssuer": "Layanan atau penerbit",
+    "accountName": "Nama akun",
+    "secretKey": "Kunci rahasia",
+    "serviceIssuer2": "LAYANAN / PENERBIT",
+    "eGGoogle": "misalnya Google",
+    "clearServiceIssuer": "Hapus layanan atau penerbit",
+    "eGExample": "misalnya kamu@example.com",
+    "clearAccountName": "Hapus nama akun",
+    "secretKeyLocked": "KUNCI RAHASIA (TERKUNCI)",
+    "secretKeyBase322": "KUNCI RAHASIA (BASE32)",
+    "enterSetupKey": "Masukkan kunci pengaturan Anda",
+    "clearSecretKey": "Hapus kunci rahasia",
+    "otpAlgorithm": "OTP ALGORITMA",
+    "otpDigits": "OTP DIGIT",
+    "refreshIntervalSeconds": "INTERVAL PENYEGARKAN (DETIK)",
+    "otpRefreshInterval": "OTP interval penyegaran dalam hitungan detik",
+    "closeAccountForm": "Tutup formulir akun",
+    "totpSetupUrl": "TOTP pengaturan URL",
+    "importSetupUrl": "Impor penyiapan URL",
+    "totpSetupUrl2": "TOTP PENYIAPAN URL",
+    "accountName2": "NAMA AKUN",
+    "addAccount": "Tambahkan akun"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Pindai kode autentikator QR.",
+    "setupGuidance": "Pindai kode QR untuk pengaturan termudah, atau masukkan detail secara manual.",
+    "cameraAddAccount": "Gunakan kamera Anda untuk menambahkan akun secara instan",
+    "scanQrCode2": "Pindai kode QR.",
+    "uploadQrImage": "Unggah gambar QR",
+    "chooseQrScreenshot": "Pilih tangkapan layar QR dari Galeri, Foto, atau File",
+    "pasteQr": "Tempel gambar QR / URL",
+    "pasteCopiedQr": "Tempelkan gambar QR yang disalin atau pengaturan autentikator URL",
+    "uploadQrImage2": "Unggah gambar QR."
+  },
+  "accountQr": {
+    "close": "Tutup",
+    "accountQrCode": "Kode akun QR",
+    "revealQrCode": "Tampilkan kode QR.",
+    "exportWarning": "Peringatan: siapa pun yang memindai kode QR ini dapat membuat kode verifikasi untuk akun ini. Hanya ungkapkan di layar tepercaya.",
+    "privacyHint": "Jaga kerahasiaan kode QR ini. Memindainya akan menyalin rahasia pengautentikasi akun."
+  },
+  "productInfo": {
+    "backupRestore": "Cadangkan & pulihkan",
+    "backupRestoreDescription": "Cadangkan data autentikator Anda dan pulihkan saat Anda berpindah ke perangkat lain.",
+    "privacyDescription": "Simpan akun verifikasi Anda di satu tempat. Gunakan opsi pencadangan, pemulihan, dan penguncian perangkat aplikasi untuk mengelola penyiapan Anda secara bertanggung jawab.",
+    "timeBasedCodes": "Kode berbasis waktu",
+    "generateOneTimeCodes": "Hasilkan kode sandi satu kali yang bergilir untuk akun Anda guna menyelesaikan verifikasi dua langkah.",
+    "quickAccountSetup": "Penyiapan akun cepat",
+    "quickSetupDescription": "Pindai kode pengautentikasi QR atau impor gambar QR untuk menambahkan akun.",
+    "accountsOnePlace": "Akun di satu tempat",
+    "accountsInOnePlaceDescription": "Satukan akun simpanan Anda dan temukan entri yang tepat saat tiba waktunya untuk masuk.",
+    "privateAccountVault": "Gudang akun pribadi",
+    "privateVaultDescription": "Kelola entri autentikator Anda secara lokal dan gunakan opsi kunci perangkat yang tersedia di aplikasi.",
+    "easyCodeAccess": "Akses kode yang mudah",
+    "easyCodeAccessDescription": "Salin kode saat ini atau kelola detail akun melalui antarmuka yang bersih dan fokus.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · OLEH TECHSIVARAM",
+    "mobileAuthenticator": "AUTHENTICATOR SELULER ANDA",
+    "tagline": "Cara yang lebih sederhana untuk mengelola verifikasi dua langkah Anda.",
+    "heroDescription": "Pengalaman pengautentikasi yang terfokus untuk kode verifikasi berbasis waktu. Simpan kode akun yang kompatibel dengan KaalKey untuk Android.",
+    "timeBasedCodes2": "KODE BERBASIS WAKTU",
+    "privateDesign": "PRIBADI DENGAN DESAIN",
+    "builtSimpleAuthenticator": "DIBANGUN UNTUK ALUR KERJA AUTHENTICATOR SEDERHANA",
+    "qrSetupTimed": "QR PENYIAPAN · KODE WAKTU · MANAJEMEN AKUN",
+    "privacyTitle": "Akun Anda. Kode Anda. Kendali Anda.",
+    "authenticator": "KAALKEY · OTENTIKATOR",
+    "brandBanner": "KaalKey spanduk merek",
+    "logo": "logo KaalKey."
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Batalkan",
+      "storageInvalidTitle": "Data penyimpanan tidak valid",
+      "storageInvalidBody": "Data akun yang disimpan tidak dapat dibaca dengan aman.",
+      "storageErrorTitle": "Kesalahan penyimpanan",
+      "storageErrorBody": "Akun yang disimpan tidak dapat dimuat.",
+      "missingTitle": "Informasi yang hilang",
+      "missingEditingBody": "Masukkan nama layanan dan nama akun.",
+      "missingBody": "Masukkan nama layanan, nama akun, dan kunci rahasia.",
+      "invalidOtpBody": "Periksa rahasia Base32, algoritma, jumlah digit, dan periode penyegaran. Rahasia harus berisi karakter Base32 yang valid; digitnya harus {digits} dan periodenya harus {minPeriod}–{maxPeriod} detik.",
+      "duplicateBody": "Akun dengan layanan dan nama akun ini sudah disimpan.",
+      "updatedBody": "Akun Anda telah diperbarui.",
+      "addedBody": "Akun Anda telah ditambahkan dengan aman.",
+      "invalidOtpTitle": "Pengaturan OTP tidak valid",
+      "duplicateTitle": "Akun sudah ada",
+      "savedTitle": "Akun disimpan",
+      "invalidSecretTitle": "Kunci rahasia tidak valid",
+      "invalidSecretBody": "Harap periksa apakah Anda memasukkan rahasia Base32 yang valid.",
+      "removedTitle": "Akun dihapus",
+      "removedBody": "Akun dan rahasianya telah dihapus dari perangkat ini.",
+      "clearedTitle": "Akun dibersihkan",
+      "clearedBody": "Semua akun pengautentikasi dan rahasia telah dihapus dari perangkat ini.",
+      "someSavedAccountsNeedAttentionTitle": "Beberapa akun tersimpan memerlukan perhatian",
+      "someSavedAccountsNeedAttentionBody": "{count} catatan akun yang tidak valid tidak dimuat. Akun yang valid tetap tersedia. Pertimbangkan untuk membuat cadangan sebelum melakukan perubahan lebih lanjut.",
+      "removeConfirmTitle": "Hapus akun?",
+      "removeConfirmWebTitle": "Hapus akun?",
+      "removeButton": "Hapus",
+      "clearButton": "Hapus semuanya",
+      "clearConfirmTitle": "Hapus semua akun?",
+      "saveErrorBody": "Akun tidak dapat disimpan. Periksa ketersediaan penyimpanan browser dan coba lagi.",
+      "notFoundTitle": "Akun tidak ditemukan",
+      "notFoundBody": "Akun ini tidak dapat ditemukan. Tutup editor dan coba lagi.",
+      "removeConfirmBody": "Tindakan ini akan menghapus akun dan rahasianya dari perangkat ini.",
+      "clearConfirmBody": "Tindakan ini akan menghapus secara permanen semua akun pengautentikasi dan rahasianya dari perangkat ini. Buat cadangan terenkripsi terlebih dahulu jika Anda mungkin memerlukan akun ini nanti.",
+      "clearConfirmUndoBody": "Hal ini tidak dapat dibatalkan."
+    },
+    "biometric": {
+      "cancelButton": "Batalkan",
+      "saveErrorTitle": "Tidak dapat menyimpan setelan",
+      "unlockPrompt": "Buka kunci KaalKey Otentikator",
+      "promptSubtitle": "Gunakan biometrik atau kunci layar perangkat Anda",
+      "disableConfirmPrompt": "Konfirmasikan untuk mematikan kunci aplikasi KaalKey.",
+      "enablePrompt": "Aktifkan kunci aplikasi untuk KaalKey",
+      "deviceLockTitle": "Siapkan kunci layar perangkat Anda",
+      "deviceLockBody": "KaalKey menggunakan autentikasi bawaan ponsel Anda. Tetapkan perangkat PIN, pola, atau kata sandi di pengaturan keamanan ponsel Anda, lalu coba lagi. Biometrik adalah opsional.",
+      "unavailableTitle": "Otentikasi perangkat tidak tersedia",
+      "unavailableBody": "Ponsel Anda tidak dapat memulai autentikasi aman. Periksa apakah kunci layar perangkat telah dikonfigurasi, lalu coba lagi.",
+      "lockedTitle": "Otentikasi terkunci sementara",
+      "lockedBody": "Ponsel Anda untuk sementara menonaktifkan autentikasi setelah terlalu banyak upaya. Tunggu dan coba lagi.",
+      "promptErrorTitle": "Otentikasi tidak tersedia",
+      "promptErrorBody": "KaalKey tidak dapat memulai perintah autentikasi aman ponsel. Silakan coba lagi.",
+      "webLock": "Kunci autentikasi perangkat belum tersedia di versi web. Gudang web tetap tidak terkunci; gunakan aplikasi Android untuk autentikasi perangkat asli.",
+      "disabledTitle": "Kunci aplikasi dinonaktifkan",
+      "disabledBody": "KaalKey kunci aplikasi telah dimatikan.",
+      "disableSaveError": "Kunci aplikasi tetap aktif. Silakan coba lagi.",
+      "enabledTitle": "Kunci aplikasi diaktifkan",
+      "enabledBody": "KaalKey akan meminta autentikasi bawaan ponsel Anda saat dibuka dan saat Anda kembali ke sana.",
+      "enableSaveError": "Kunci aplikasi tidak dapat diaktifkan. Silakan coba lagi."
+    },
+    "qr": {
+      "startingCamera": "Memulai kamera…",
+      "unsupportedTitle": "Kode QR tidak didukung",
+      "unsupportedBody": "Pindai kode pengaturan autentikator QR yang disediakan oleh layanan. Ini harus berupa kode TOTP, bukan kode login biasa QR.",
+      "unsupportedDiagnostic": "QR itu bukan kode pengaturan TOTP. Arahkan ke pengaturan pengautentikasi QR.",
+      "detectedDiagnostic": "QR terdeteksi. Menganalisis…",
+      "analyzing": "Menganalisis kode QR…",
+      "duplicateTitle": "Akun sudah ditambahkan",
+      "duplicateBody": "{issuer}: {account} sudah ada di KaalKey.",
+      "addedTitle": "Akun ditambahkan",
+      "addedBody": "{issuer}: {account} berhasil ditambahkan.",
+      "saveFailedDiagnostic": "Tidak dapat menyimpan akun. Anda dapat memindai lagi.",
+      "invalidTitle": "Kode QR tidak valid",
+      "invalidBody": "KaalKey tidak dapat menguraikan kode pengautentikasi ini QR . {detail}. Gunakan kode pengaturan QR layanan TOTP (biasanya dimulai dengan {prefix}).",
+      "parseFailedDiagnostic": "QR tidak dapat diproses. Arahkan ke pengaturan QR dan coba lagi.",
+      "invalidUrlTitle": "Tidak valid TOTP URL",
+      "invalidUrlBody": "Tempelkan autentikator lengkap URL yang diawali dengan {prefix}.",
+      "clipboardEmptyTitle": "Papan klip kosong",
+      "clipboardEmptyBody": "Salin {prefix} URL terlebih dahulu, lalu ketuk Tempel TOTP URL.",
+      "clipboardErrorTitle": "Tidak dapat membaca papan klip",
+      "clipboardErrorBody": "Salin pengaturan TOTP URL dan coba lagi."
+    },
+    "haptics": {
+      "saveFailedTitle": "Tidak dapat menyimpan setelan",
+      "saveFailedBody": "Preferensi umpan balik haptik tidak dapat disimpan. Silakan coba lagi."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Tidak dapat menyimpan pengakuan",
+      "saveFailedBody": "Silakan coba lagi. Anda harus menerima pemberitahuan hukum sebelum menggunakan KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Izin kamera diperlukan",
+      "body": "Izinkan akses kamera untuk memindai kode pengaturan autentikator QR."
+    },
+    "storage": {
+      "browserUnavailable": "Penyimpanan browser tidak tersedia.",
+      "browserFilePickerUnavailable": "Pemilih file browser tidak tersedia."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Berkas tidak didukung",
+      "unsupportedFileBody": "Pilih gambar kode QR seperti PNG atau JPEG.",
+      "browserDecoderUnavailable": "Penguraian kode gambar browser tidak tersedia",
+      "imageLoadFailed": "Gambar tidak dapat dimuat",
+      "unreadableDimensions": "Gambar tidak memiliki dimensi yang dapat dibaca",
+      "noQrCodeFoundTitle": "Tidak ditemukan kode QR",
+      "noQrCodeFoundBody": "KaalKey tidak dapat memecahkan kode QR pada gambar ini. Coba tangkapan layar atau resolusi lebih tinggi PNG/JPEG.",
+      "couldNotReadImageTitle": "Tidak dapat membaca gambar",
+      "couldNotReadImageBody": "Coba gambar jelas PNG atau JPEG yang berisi kode QR pengaturan autentikator.",
+      "couldNotOpenPickerTitle": "Tidak dapat membuka pemilih gambar",
+      "couldNotOpenPickerBody": "Silakan coba Unggah QR lagi.",
+      "normalizedDecodeFailed": "Gambar yang dinormalisasi tidak dapat didekodekan",
+      "clipboardImageLoadFailed": "Gambar papan klip tidak dapat dimuat",
+      "imageProcessingUnavailable": "Pemrosesan gambar tidak tersedia",
+      "imageProcessingUnavailableAlt": "Pemrosesan gambar tidak tersedia",
+      "noImageInClipboardTitle": "Tidak ada gambar di papan klip",
+      "noImageInClipboardBody": "Salin gambar kode QR, lalu ketuk Tempel gambar QR lagi.",
+      "clipboardUnavailableTitle": "Papan klip tidak tersedia",
+      "clipboardUnavailableBody": "Teks papan klip bukan pengaturan pengautentikasi yang valid URL. Salin gambar otpauth:// URL atau QR dan coba lagi.",
+      "clipboardAccessBody": "KaalKey tidak dapat membaca teks atau gambar dari clipboard. Izinkan akses clipboard, lalu salin gambar QR atau otpauth:// URL dan ketuk Tempel QR Gambar / URL lagi.",
+      "couldNotPasteImageTitle": "Tidak dapat menempelkan gambar",
+      "couldNotPasteImageBody": "Penempelan gambar tidak didukung oleh papan klip pada perangkat ini. Gunakan Impor gambar QR sebagai gantinya.",
+      "sourceImageDecodeFailure": "Coba gambar QR yang lain.",
+      "pastedImportFailureBody": "Coba gambar QR yang lain.",
+      "sourceImageReadFailure": "Coba salin tangkapan layar QR yang jelas.",
+      "importFailedTitle": "QR impor gambar gagal",
+      "importFailedBody": "KaalKey tidak dapat membaca gambar itu. Silakan coba gambar kode QR lainnya.",
+      "notFoundBody": "Gambar yang disalin tidak berisi kode QR yang dapat dibaca.",
+      "pastedNotFoundBody": "Gambar yang ditempel tidak berisi kode QR yang dapat dibaca.",
+      "pastedReadFailureBody": "Coba salin gambar jelas PNG atau JPEG yang berisi kode QR lengkap.",
+      "noQrCodeTextBody": "KaalKey mendekode gambar yang dipilih tetapi tidak menemukan kode QR. Coba PNG atau JPEG dengan resolusi penuh dan jelas dengan seluruh kode terlihat."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Kode QR ini bukan kode pengaturan autentikator berbasis waktu.",
+      "missingAccountDetails": "Kode QR tidak memiliki detail akun.",
+      "unsupportedAlgorithm": "Kode QR menggunakan algoritma yang tidak didukung.",
+      "unsupportedDigits": "Kode QR ini harus menggunakan 6, 7, atau 8 digit.",
+      "unsupportedPeriod": "Kode QR ini menggunakan jangka waktu yang tidak didukung.",
+      "invalidAccount": "Kode QR tidak dapat divalidasi."
+    },
+    "backup": {
+      "invalidJson": "File cadangan tidak valid JSON.",
+      "unsupportedFormat": "Ini bukan cadangan terenkripsi KaalKey yang didukung.",
+      "invalidPasswordOrDamaged": "Kata sandi cadangan salah atau file cadangan rusak.",
+      "invalidContents": "Konten cadangan tidak valid atau tidak lengkap.",
+      "secureRandomUnavailableDetailed": "Pembuatan acak yang aman tidak tersedia. Bangun kembali dan instal ulang aplikasi Android dengan expo-crypto disertakan, lalu coba lagi.",
+      "invalidAccountDataForBackup": "Satu atau lebih akun tidak valid. Perbaiki data akun sebelum membuat cadangan.",
+      "invalidPasswordOrModified": "Kata sandi cadangan salah atau file cadangan telah diubah.",
+      "invalidPasswordOrFileDamaged": "Kata sandi cadangan salah atau file rusak.",
+      "passwordCopiedTitle": "Kata sandi disalin",
+      "enterPasswordTitle": "Masukkan kata sandi cadangan Anda",
+      "enterPasswordBody": "Masukkan kata sandi yang digunakan saat cadangan ini dibuat.",
+      "passwordCopiedBody": "Simpan di tempat yang aman, misalnya WhatsApp.",
+      "copyFailedTitle": "Penyalinan gagal",
+      "copyFailedBody": "Pilih dan salin kata sandi secara manual.",
+      "generatingPassword": "Membuat kata sandi cadangan yang aman…",
+      "encrypting": "Mengenkripsi cadangan…",
+      "decrypting": "Mendekripsi cadangan…",
+      "restoring": "Memulihkan akun…",
+      "backupCreatedTitle": "Cadangan dibuat",
+      "restoreCompleteTitle": "Pemulihan selesai",
+      "mergeConfirmTitle": "Gabungkan akun cadangan?",
+      "mergeConfirmButton": "Gabungkan akun",
+      "backupSavedTemporary": "Cadangan terenkripsi disimpan sementara di:\n{uri}",
+      "generatePasswordErrorTitle": "Tidak dapat membuat kata sandi cadangan",
+      "secureRandomUnavailable": "Pembuatan acak yang aman tidak tersedia.",
+      "passwordUnavailableTitle": "Kata sandi cadangan tidak tersedia",
+      "passwordUnavailableBody": "Tutup dialog ini dan buat cadangan baru untuk menghasilkan kata sandi yang aman.",
+      "backupDownloadedBody": "Cadangan terenkripsi KaalKey Anda telah diunduh. Jaga kerahasiaan file dan kata sandi.",
+      "backupFailedTitle": "Pencadangan gagal",
+      "backupCreateErrorBody": "KaalKey tidak dapat membuat cadangan.",
+      "restoreFailedTitle": "Pemulihan gagal",
+      "backupReadErrorBody": "Cadangan tidak dapat dibaca atau disimpan.",
+      "browserDownloadUnsupported": "Browser Anda tidak mendukung pengunduhan file cadangan.",
+      "localFileUnavailable": "Lokasi file lokal tidak tersedia di perangkat ini.",
+      "saveBackupTitle": "Simpan cadangan terenkripsi KaalKey Anda"
+    },
+    "clipboard": {
+      "copiedTitle": "Kode disalin",
+      "copiedBody": "Kode verifikasi Anda telah disalin.",
+      "errorTitle": "Kesalahan",
+      "errorBody": "Tidak dapat menyalin kode verifikasi."
+    },
+    "activity": {
+      "cameraReady": "Kamera siap. Arahkan ke kode pengautentikasi QR.",
+      "readingQrImage": "Membaca gambar QR…",
+      "importingQrImage": "Mengimpor gambar QR…",
+      "importingAccount": "Mengimpor akun pengautentikasi…",
+      "importingPastedImage": "Mengimpor gambar QR yang ditempel…"
+    }
+  },
+  "activity": {
+    "working": "Bekerja",
+    "wait": "Harap tunggu…",
+    "donTClose": "Mohon jangan menutup atau berinteraksi dengan KaalKey.",
+    "loadingLanguages": "Memuat bahasa yang tersedia…",
+    "loadingTranslation": "Memuat terjemahan…"
+  }
+}

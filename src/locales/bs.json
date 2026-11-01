@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Jezik",
+      "description": "Odaberite jezik koji se koristi u KaalKey.",
+      "english": "engleski",
+      "telugu": "telugu",
+      "hindi": "Hindi",
+      "section": "JEZIK",
+      "searchLanguageName": "Jezik pretraživanja (ime ili kod)",
+      "searchSupportedLanguages": "Pretražite podržane jezike",
+      "closeLanguageDropdown": "Zatvorite padajući meni jezika",
+      "noTranslatedLanguage": "Nije pronađen preveden jezik.",
+      "serverUrl": "Server za prevođenje URL",
+      "serverUrlDescription": "KaalKey preuzima listu jezika i prevode sa ovog servera.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Sačuvaj server za prevođenje"
+    },
+    "title": "Postavke aplikacije",
+    "eyebrow": "KAALKEY PREFERENCE",
+    "experience": {
+      "section": "ISKUSTVO"
+    },
+    "security": {
+      "section": "SIGURNOST"
+    },
+    "backup": {
+      "section": "BACKUP & RECOVERY"
+    },
+    "danger": {
+      "section": "OPASNA ZONA",
+      "clearAccounts": "Obrišite sve račune",
+      "clearAccountsDescription": "Trajno uklonite svaki račun i tajnu s ovog uređaja. Prvo napravite sigurnosnu kopiju.",
+      "clearAccountsAccessibilityLabel": "Obrišite sve naloge autentifikatora"
+    },
+    "appearance": {
+      "section": "IZGLED",
+      "title": "Lagani izgled",
+      "description": "KaalKey trenutno koristi svoju temu čistog svjetla."
+    },
+    "haptics": {
+      "title": "Haptic feedback",
+      "description": "Nježne povratne informacije za dodire i dovršene radnje."
+    },
+    "deviceLock": {
+      "title": "Zaključavanje autentifikacije uređaja",
+      "description": "Vaš trezor se zaključava kada KaalKey napusti prvi plan.",
+      "requirement": "Zahtijevajte biometriju vašeg telefona ili zaključavanje ekrana PIN, uzorak ili lozinku.",
+      "accessibilityLabel": "Zaključavanje aplikacije za autentifikaciju uređaja"
+    },
+    "privacy": {
+      "title": "Pravo i privatnost",
+      "description": "Pregledajte Politiku privatnosti i Uslove korištenja.",
+      "storageNote": "Vaše tajne autentifikatora ostaju u sigurnom trezoru na uređaju. Preference se pohranjuju lokalno."
+    }
+  },
+  "accounts": {
+    "edit": "Uredi",
+    "sortAccountName": "Sortiraj prema nazivu računa",
+    "loadingSecureVault": "Učitavanje sigurnog trezora...",
+    "tapCopy": "TAPSNITE ZA KOPIRANJE",
+    "noAccountsMatch": "Nijedan račun ne odgovara vašem pretraživanju.",
+    "viewQrCode": "Pogledajte QR kod za račun",
+    "removeAccount": "Ukloni račun",
+    "copyVerificationCode": "Kopirajte verifikacioni kod",
+    "active": "AKTIVNO",
+    "sort": "SORT BY",
+    "account": "Račun",
+    "clearSearch": "Obriši pretragu",
+    "sortServiceName": "Sortiraj prema nazivu usluge",
+    "addFirstAccount": "Dodajte svoj prvi nalog",
+    "searchAccounts": "Pretražite račune",
+    "searchServiceAccount": "Pretražite uslugu ili račun",
+    "accounts": "Vaši računi",
+    "add": "+ Dodaj",
+    "vaultStartsHere": "Vaš trezor počinje ovdje",
+    "service": "Servis",
+    "emptyHint": "Dodajte račun koristeći tajni ključ da biste generirali svoj prvi verifikacioni kod."
+  },
+  "common": {
+    "done": "Gotovo",
+    "doneButton": "Gotovo",
+    "closeSettings": "Zatvorite postavke",
+    "separator": "-",
+    "article": "a",
+    "save": "Sačuvaj",
+    "delete": "Izbriši",
+    "resizeAppBrand": "Promjena veličine panela aplikacija i brendova"
+  },
+  "qrImport": {
+    "readPastedImage": "Nije moguće pročitati zalijepljenu sliku"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Računi u ovoj sigurnosnoj kopiji: {count}. KaalKey će zadržati vaše postojeće račune i dodati sve račune koji već nisu prisutni. Duplikati naloga će biti preskočeni.",
+    "restoreCompletionBody": "Dodani računi: {added}. Duplikati su preskočeni: {skipped}. Vaši postojeći računi su sačuvani.",
+    "copyPassword": "Kopirajte generiranu lozinku",
+    "passwordSafety": "Sačuvajte ovu lozinku zasebno (na primjer, u WhatsApp). Svako sa oba",
+    "importAction": "Odaberite datoteku i uvezite",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "SECURE VAULT",
+    "createBackup": "Napravite rezervnu kopiju",
+    "encryptedFile": "Šifrovani fajl",
+    "restoreBackup": "Vrati rezervnu kopiju",
+    "safetyNote": "Sigurnosne kopije sadrže vaše tajne autentifikatora. KaalKey generira jedinstvenu lozinku za svaku sigurnosnu kopiju. Sačuvajte ga odvojeno; KaalKey ga ne može oporaviti.",
+    "generatingSecurePassword": "Generisanje sigurne lozinke…",
+    "importFile": "Uvezi datoteku",
+    "backupPassword": "BACKUP PASSWORD",
+    "account": "račun",
+    "accounts": "račune",
+    "exportDescription": "Šifrirajte sve {count} sačuvane {accountLabel} u rezervnu datoteku. KaalKey generiše jedinstvenu lozinku; kopirajte i sačuvajte odvojeno od datoteke.",
+    "restoreDescription": "Odaberite svoju KaalKey datoteku sigurnosne kopije i lozinku. Novi računi će biti dodati na vašu postojeću listu naloga; postojeći računi će ostati takvi kakvi jesu.",
+    "enterBackupPassword": "Unesite lozinku za rezervnu kopiju",
+    "closeBackup": "Zatvori sigurnosnu kopiju",
+    "copyGeneratedBackup": "Kopirajte generiranu lozinku za sigurnosnu kopiju",
+    "backupPassword2": "Lozinka za rezervnu kopiju",
+    "clearBackupPassword": "Obriši lozinku za rezervnu kopiju",
+    "backupFilePassword": "rezervna datoteka i lozinka mogu vratiti vaše naloge autentifikatora.",
+    "encryptShareBackup": "Šifrirajte i dijelite sigurnosnu kopiju"
+  },
+  "home": {
+    "unlockSecurely": "Otključajte sigurno",
+    "disableAppLock": "Onemogućite zaključavanje aplikacije",
+    "enableAppLock": "Omogući zaključavanje aplikacije",
+    "checkingSecureLock": "Provjera postavki sigurnog zaključavanja. Vaši kodovi ostaju skriveni.",
+    "waitingVerification": "Čeka se verifikacija…",
+    "secretsStayStored": "Vaše tajne ostaju pohranjene na ovom uređaju.",
+    "openAppSettings": "Otvorite postavke aplikacije",
+    "versionLabel": "VERZIJA",
+    "unlockRequirement": "Koristite biometriju svog telefona ili zaključavanje ekrana PIN, uzorak ili lozinku da pristupite svojim jednokratnim verifikacionim kodovima.",
+    "localVault": "VAŠ LOKALNI TREZOR",
+    "codesDeviceControl": "Vaši kodovi. Vaš uređaj. Vaša kontrola.",
+    "securingVault": "Osiguravanje vašeg trezora…",
+    "vaultProtected": "Vaš trezor je zaštićen",
+    "lock": "LOCK ON",
+    "localVault2": "LOCAL VAULT",
+    "authenticator": "KAALKEY AUTHENTICATOR",
+    "tricolourLockEmblem": "KaalKey trobojni amblem brave",
+    "authenticator2": "AUTHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Ako odaberete da skenirate QR kod, KaalKey koristi dozvolu kamere za tu radnju. Opciona autentifikacija uređaja i haptička povratna informacija koriste relevantne funkcije uređaja. Dozvolama možete upravljati u postavkama uređaja.",
+        "heading": "2. Dozvole i karakteristike uređaja"
+      },
+      "backups": {
+        "body": "Kada kreirate rezervnu kopiju, KaalKey šifrira rezervnu kopiju koristeći lozinku koju odaberete. Čuvajte i datoteku i lozinku privatnim i pohranite ih na siguran način. Svako ko dobije datoteku i njenu lozinku možda će moći da vrati vaše naloge autentifikatora. KaalKey ne može povratiti zaboravljenu lozinku za sigurnosnu kopiju.",
+        "heading": "3. Sigurnosne kopije"
+      },
+      "security": {
+        "body": "Održavajte svoj uređaj ažuriranim, zaštitite ga zaključavanjem ekrana i nemojte dijeliti OTP tajne ili rezervne lozinke. Uklanjanje aplikacije, brisanje njenih podataka ili gubitak uređaja može učiniti da lokalno pohranjeni računi budu nedostupni. Održavajte sigurnu sigurnosnu kopiju ako vam je potreban oporavak.",
+        "heading": "5. Sigurnost i zadržavanje"
+      },
+      "information": {
+        "heading": "1. Informacije i tajne",
+        "body": "KaalKey je aplikacija za autentifikaciju. Oznake računa i tajne vrijednosti potrebne za generiranje jednokratnih kodova su osjetljive. Aplikacija je dizajnirana za pohranjivanje zapisa računa u sigurnom pohranu uređaja. Svako ko ima pristup otključanom uređaju ili izvezenoj sigurnosnoj kopiji može imati pristup osjetljivim informacijama."
+      },
+      "sharing": {
+        "heading": "4. Dijeljenje i treće strane",
+        "body": "Tok sigurnosne kopije može koristiti dijeljeni list vašeg uređaja ili birač datoteka za spremanje, prijenos ili odabir datoteka. Praksom privatnosti bilo koje aplikacije ili usluge treće strane koju odaberete reguliše taj provajder. Ovo obavještenje ne daje opštu tvrdnju da vaš uređaj, operativni sistem ili odabrani servisi za dijeljenje nikada ne obrađuju podatke."
+      },
+      "changes": {
+        "heading": "6. Promjene i kontakt",
+        "body": "Ovo ugrađeno obavještenje može biti revidirano u budućem izdanju aplikacije. Za pitanja o privatnosti, kontaktirajte izdavača aplikacije putem službenog kanala podrške koji se nalazi uz aplikaciju."
+      },
+      "title": "Politika privatnosti"
+    },
+    "terms": {
+      "use": {
+        "body": "KaalKey možete koristiti za generiranje verifikacionih kodova za račune kojima ste ovlašteni pristupiti. Odgovorni ste za poštivanje važećih zakona i pravila usluga za koje koristite kodove za autentifikaciju.",
+        "heading": "1. Vaša upotreba"
+      },
+      "protectAccounts": {
+        "body": "Vi ste odgovorni za osiguranje vašeg uređaja, tajni za autentifikaciju, metode oporavka, izvezene sigurnosne kopije i sigurnosne lozinke. Nemojte dijeliti kodove ili tajne s ljudima kojima nemate povjerenja.",
+        "heading": "2. Zaštitite svoje račune"
+      },
+      "availability": {
+        "body": "Funkcije se mogu mijenjati između izdanja. Trebali biste stalno ažurirati aplikaciju i povremeno provjeravati da li vaši aranžmani za sigurnosno kopiranje i oporavak rade.",
+        "heading": "5. Promjene i dostupnost"
+      },
+      "recovery": {
+        "body": "KaalKey ne može jamčiti da se svaki račun može oporaviti, da će svaki QR kod ili konfiguracija biti kompatibilan ili da će aplikacija raditi bez prekida ili greške. Zadržite alternativne metode oporavka koje vam daje odgovarajuća služba.",
+        "heading": "3. Nema garancije povrata"
+      },
+      "advice": {
+        "heading": "4. Bez stručnog savjeta",
+        "body": "Aplikacija je uslužni program i ne pruža pravne, finansijske ili sigurnosne savjete za odgovor na incidente. Ako je račun ugrožen, slijedite službene upute za oporavak i sigurnost pogođene usluge."
+      },
+      "liability": {
+        "heading": "6. Odgovornost i važeći zakon",
+        "body": "U mjeri u kojoj je to dozvoljeno važećim zakonom, aplikacija se pruža bez garancije za neprekidan rad ili bez grešaka. Ništa u ovim uslovima ne isključuje prava ili pravne lijekove koji se zakonski ne mogu isključiti. Sva dalja ograničenja ili odredbe važećeg zakona bi trebao biti pregledan od strane kvalifikovanog pravnika za nadležnost izdavača prije objavljivanja."
+      },
+      "title": "Uslovi korišćenja"
+    },
+    "version": "Verzija",
+    "saving": "Spremanje…",
+    "acceptContinue": "Prihvati i nastavi",
+    "appliesAuthenticator": "Odnosi se na KaalKey Authenticator",
+    "reviewBothDocuments": "Molimo pregledajte oba dokumenta prije korištenja KaalKey. Uključeni su u aplikaciju i dostupni van mreže.",
+    "originalMulticolourAuthenticator": "Originalni višebojni KaalKey amblem autentifikatora",
+    "legalPrivacyNotice": "Pravna obavijest o privatnosti",
+    "legalInformation": "Pravne informacije",
+    "reviewSPrivacy": "Pregledajte informacije o privatnosti i uslove korištenja KaalKey.",
+    "iReadAgree": "Pročitao sam i slažem se sa Politikom privatnosti i Uslovima korištenja."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Neka cijeli QR kod bude vidljiv. Vaša tajna ostaje na ovom uređaju.",
+    "back": "Nazad",
+    "turnFlashlightOff": "Isključite baterijsku lampu",
+    "turnFlashlight": "Uključite baterijsku lampu",
+    "flashlight": "Lampica uključena",
+    "flashlight2": "Lampa",
+    "cameraUnavailableOpen": "Kamera nije dostupna. Otvorite ovu stranicu na HTTPS ili lokalnom hostu i dozvolite pristup kameri.",
+    "cameraPreviewUnavailable": "Pregled kamere nije dostupan. Zatvorite i ponovo otvorite skener.",
+    "cameraReadyPoint": "Kamera spremna — usmjerite je na puni QR kod.",
+    "browserCannotProcess": "Ovaj pretraživač ne može obraditi okvire kamere.",
+    "qrCodeDetected": "Otkriven QR kod.",
+    "couldnTRead": "Nije moguće pročitati okvire kamere. Provjerite dozvole kamere i ponovo učitajte ovu stranicu.",
+    "cameraPermissionDenied": "Dozvola za kameru je odbijena. Dozvolite pristup kameri u postavkama pretraživača, a zatim ponovo otvorite skener.",
+    "noCameraWas": "Na ovom uređaju nije pronađena kamera.",
+    "cameraBusyAnother": "Kamera je zauzeta u drugoj aplikaciji ili kartici preglednika.",
+    "startCameraHttps": "Nije moguće pokrenuti kameru. Koristite HTTPS ili localhost i provjerite dozvole preglednika.",
+    "qrScannerCamera": "Pregled kamere skenera QR",
+    "cameraUnavailableCheck": "Kamera nije dostupna. Provjerite dozvolu kamere i pokušajte ponovo.",
+    "pointCameraAuthenticator": "Usmjerite kameru na QR kod za podešavanje autentifikatora iz usluge koju dodajete.",
+    "backAddAccount": "Nazad na dodavanje računa",
+    "secureSetup": "SECURE SETUP",
+    "enterDetailsManually": "Umjesto toga ručno unesite detalje"
+  },
+  "accountForm": {
+    "hideManualEntry": "Sakrij ručni unos",
+    "secretKeySupplied": "Koristite tajni ključ koji ste dobili od usluge koju konfigurirate. Ovdje nikada nemojte unositi lozinku za svoj račun. Uskladite algoritam, broj cifara i interval s uputama za postavljanje usluge.",
+    "updateServiceAccount": "Ažurirajte uslugu, naziv naloga ili tajni ključ.",
+    "secretKeyRead": "Tajni ključ, samo za čitanje tokom uređivanja",
+    "secretKeyBase32": "Tajni ključ u Base32",
+    "digits": "cifre",
+    "seconds": "sekundi",
+    "enterDetailsManually": "ILI RUČNO UNESI DETALJE",
+    "enterDetailsManually2": "Unesite detalje ručno",
+    "serviceAccountName": "Usluga, naziv naloga i tajni ključ",
+    "saveChangesSecurely": "Sigurno sačuvajte promjene",
+    "saveAccountSecurely": "Sačuvajte nalog bezbedno",
+    "serviceIssuer": "Servis ili izdavač",
+    "accountName": "Naziv računa",
+    "secretKey": "Tajni ključ",
+    "serviceIssuer2": "SERVIS / IZDAVAC",
+    "eGGoogle": "npr. Google",
+    "clearServiceIssuer": "Jasna usluga ili izdavač",
+    "eGExample": "npr. vi@example.com",
+    "clearAccountName": "Obriši naziv računa",
+    "secretKeyLocked": "TAJNI KLJUČ (ZAKLJUČAN)",
+    "secretKeyBase322": "TAJNI KLJUČ (BASE32)",
+    "enterSetupKey": "Unesite ključ za podešavanje",
+    "clearSecretKey": "Obriši tajni ključ",
+    "otpAlgorithm": "OTP ALGORITAM",
+    "otpDigits": "OTP DIGITS",
+    "refreshIntervalSeconds": "INTERVAL OSVEŽAVANJA (SEKUNDE)",
+    "otpRefreshInterval": "OTP interval osvježavanja u sekundama",
+    "closeAccountForm": "Zatvorite obrazac računa",
+    "totpSetupUrl": "TOTP postavljanje URL",
+    "importSetupUrl": "Podešavanje uvoza URL",
+    "totpSetupUrl2": "TOTP POSTAVKA URL",
+    "accountName2": "NAZIV NALOGA",
+    "addAccount": "Dodaj račun"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Skenirajte QR kod autentifikatora",
+    "setupGuidance": "Skenirajte QR kod za najjednostavnije podešavanje ili ručno unesite detalje.",
+    "cameraAddAccount": "Koristite kameru da odmah dodate nalog",
+    "scanQrCode2": "Skenirajte QR kod",
+    "uploadQrImage": "Otpremite sliku QR",
+    "chooseQrScreenshot": "Odaberite snimak ekrana QR iz Galerije, Fotografije ili Datoteke",
+    "pasteQr": "Zalijepite sliku QR / URL",
+    "pasteCopiedQr": "Zalijepite kopiranu sliku QR ili postavke autentifikatora URL",
+    "uploadQrImage2": "Otpremite sliku QR"
+  },
+  "accountQr": {
+    "close": "Zatvori",
+    "accountQrCode": "QR kod računa",
+    "revealQrCode": "Otkrijte QR kod",
+    "exportWarning": "Upozorenje: svako ko skenira ovaj QR kod može generirati verifikacione kodove za ovaj račun. Otkrijte ga samo na pouzdanom ekranu.",
+    "privacyHint": "Čuvajte ovaj QR kod privatnim. Skeniranjem se kopira tajna autentifikatora računa."
+  },
+  "productInfo": {
+    "backupRestore": "Sigurnosno kopiranje i vraćanje",
+    "backupRestoreDescription": "Napravite sigurnosnu kopiju vaših podataka autentifikatora i vratite ih kada pređete na drugi uređaj.",
+    "privacyDescription": "Držite svoje verifikacione račune na jednom mjestu. Koristite opcije sigurnosnog kopiranja, vraćanja i zaključavanja uređaja u aplikaciji da odgovorno upravljate svojim postavljanjem.",
+    "timeBasedCodes": "Kodovi zasnovani na vremenu",
+    "generateOneTimeCodes": "Generirajte rotirajuće jednokratne lozinke za svoje račune kako biste dovršili verifikaciju u dva koraka.",
+    "quickAccountSetup": "Brzo podešavanje naloga",
+    "quickSetupDescription": "Skenirajte kod autentifikatora QR ili uvezite sliku QR da biste dodali nalog.",
+    "accountsOnePlace": "Računi na jednom mestu",
+    "accountsInOnePlaceDescription": "Čuvajte svoje sačuvane račune zajedno i pronađite pravi unos kada dođe vrijeme za prijavu.",
+    "privateAccountVault": "Privatni trezor računa",
+    "privateVaultDescription": "Upravljajte svojim unosima autentifikatora lokalno i koristite dostupnu opciju zaključavanja uređaja u aplikaciji.",
+    "easyCodeAccess": "Jednostavan pristup kodu",
+    "easyCodeAccessDescription": "Kopirajte trenutni kod ili upravljajte detaljima računa putem čistog, fokusiranog sučelja.",
+    "authenticatorTechsivaram": "AUTHENTIKATOR · OD TECHSIVARAM-a",
+    "mobileAuthenticator": "VAŠ MOBILNI AUTHENTIKATOR",
+    "tagline": "Jednostavniji način upravljanja verifikacijom u dva koraka.",
+    "heroDescription": "Fokusirano iskustvo autentifikatora za verifikacione kodove zasnovane na vremenu. Držite kompatibilne kodove računa pri ruci sa KaalKey za Android.",
+    "timeBasedCodes2": "VREMENSKI KODOVI",
+    "privateDesign": "PRIVATNO PO DIZAJNU",
+    "builtSimpleAuthenticator": "IZRAĐEN ZA JEDNOSTAVAN TOK RADA AUTHENTIKATORA",
+    "qrSetupTimed": "QR POSTAVKA · VREMENSKI KODOVI · UPRAVLJANJE NALOGOM",
+    "privacyTitle": "Vaši računi. Vaši kodovi. Vaša kontrola.",
+    "authenticator": "KAALKEY · AUTHENTIKATOR",
+    "brandBanner": "KaalKey baner brenda",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Otkaži",
+      "storageInvalidTitle": "Podaci o pohrani su nevažeći",
+      "storageInvalidBody": "Sačuvani podaci o računu nisu mogli biti sigurno pročitani.",
+      "storageErrorTitle": "Greška pohrane",
+      "storageErrorBody": "Nije moguće učitati sačuvane račune.",
+      "missingTitle": "Nedostaju informacije",
+      "missingEditingBody": "Unesite naziv usluge i naziv naloga.",
+      "missingBody": "Unesite naziv usluge, naziv naloga i tajni ključ.",
+      "invalidOtpBody": "Provjerite Base32 tajnu, algoritam, broj cifara i period osvježavanja. Tajne moraju sadržavati važeće znakove Base32; cifre moraju biti {digits}, a period mora biti {minPeriod}–{maxPeriod} sekundi.",
+      "duplicateBody": "Nalog sa ovom uslugom i imenom naloga je već sačuvan.",
+      "updatedBody": "Vaš račun je ažuriran.",
+      "addedBody": "Vaš račun je sigurno dodan.",
+      "invalidOtpTitle": "Nevažeće postavke OTP",
+      "duplicateTitle": "Račun već postoji",
+      "savedTitle": "Račun je sačuvan",
+      "invalidSecretTitle": "Nevažeći tajni ključ",
+      "invalidSecretBody": "Provjerite jeste li unijeli važeću tajnu Base32.",
+      "removedTitle": "Račun je uklonjen",
+      "removedBody": "Račun i njegova tajna su uklonjeni s ovog uređaja.",
+      "clearedTitle": "Računi su izbrisani",
+      "clearedBody": "Svi nalozi i tajne autentifikatora su uklonjeni sa ovog uređaja.",
+      "someSavedAccountsNeedAttentionTitle": "Neki sačuvani računi zahtijevaju pažnju",
+      "someSavedAccountsNeedAttentionBody": "{count} nevažeći zapis(i) naloga nisu učitani. Važeći računi ostaju dostupni. Razmislite o kreiranju sigurnosne kopije prije daljnjih promjena.",
+      "removeConfirmTitle": "Ukloniti račun?",
+      "removeConfirmWebTitle": "Ukloniti račun?",
+      "removeButton": "Ukloni",
+      "clearButton": "Obriši sve",
+      "clearConfirmTitle": "Obrisati sve račune?",
+      "saveErrorBody": "Računi se ne mogu sačuvati. Provjerite dostupnost pohrane u pretraživaču i pokušajte ponovo.",
+      "notFoundTitle": "Račun nije pronađen",
+      "notFoundBody": "Ovaj račun nije pronađen. Zatvorite uređivač i pokušajte ponovo.",
+      "removeConfirmBody": "Ovo uklanja račun i njegovu tajnu s ovog uređaja.",
+      "clearConfirmBody": "Ovo trajno uklanja sve naloge za autentifikaciju i njihove tajne sa ovog uređaja. Prvo napravite šifriranu sigurnosnu kopiju ako vam ovi računi zatrebaju kasnije.",
+      "clearConfirmUndoBody": "Ovo se ne može poništiti."
+    },
+    "biometric": {
+      "cancelButton": "Otkaži",
+      "saveErrorTitle": "Nije moguće sačuvati postavku",
+      "unlockPrompt": "Otključajte KaalKey Authenticator",
+      "promptSubtitle": "Koristite biometriju ili zaključavanje ekrana uređaja",
+      "disableConfirmPrompt": "Potvrdite da isključite KaalKey zaključavanje aplikacije",
+      "enablePrompt": "Omogući zaključavanje aplikacije za KaalKey",
+      "deviceLockTitle": "Postavite zaključavanje ekrana vašeg uređaja",
+      "deviceLockBody": "KaalKey koristi ugrađenu autentifikaciju vašeg telefona. Postavite uređaj PIN, obrazac ili lozinku u sigurnosnim postavkama vašeg telefona, a zatim pokušajte ponovo. Biometrija je opciona.",
+      "unavailableTitle": "Provjera autentičnosti uređaja nije dostupna",
+      "unavailableBody": "Vaš telefon nije mogao pokrenuti sigurnu autentifikaciju. Provjerite je li konfigurirano zaključavanje ekrana uređaja, a zatim pokušajte ponovo.",
+      "lockedTitle": "Autentifikacija je privremeno zaključana",
+      "lockedBody": "Vaš telefon je privremeno onemogućio autentifikaciju nakon previše pokušaja. Pričekajte i pokušajte ponovo.",
+      "promptErrorTitle": "Autentifikacija nije dostupna",
+      "promptErrorBody": "KaalKey nije mogao pokrenuti prompt za sigurnu autentifikaciju telefona. Molimo pokušajte ponovo.",
+      "webLock": "Zaključavanje autentifikacije uređaja još nije dostupno u web verziji. Web trezor ostaje otključan; koristite aplikaciju Android za izvornu autentifikaciju uređaja.",
+      "disabledTitle": "Zaključavanje aplikacije je onemogućeno",
+      "disabledBody": "KaalKey zaključavanje aplikacije je isključeno.",
+      "disableSaveError": "Zaključavanje aplikacije ostaje uključeno. Molimo pokušajte ponovo.",
+      "enabledTitle": "Zaključavanje aplikacije je omogućeno",
+      "enabledBody": "KaalKey će zatražiti ugrađenu autentifikaciju vašeg telefona kada se otvori i kada se vratite na njega.",
+      "enableSaveError": "Zaključavanje aplikacije nije moguće omogućiti. Molimo pokušajte ponovo."
+    },
+    "qr": {
+      "startingCamera": "Pokretanje kamere…",
+      "unsupportedTitle": "Nepodržani QR kod",
+      "unsupportedBody": "Skenirajte QR kod za podešavanje autentifikatora koji je dostavila usluga. Ovo mora biti TOTP kod, a ne normalan QR kod za prijavu.",
+      "unsupportedDiagnostic": "Taj QR nije TOTP kod za postavljanje. Ciljajte na podešavanje autentifikatora QR.",
+      "detectedDiagnostic": "Otkriven je QR. Analiziranje…",
+      "analyzing": "Analiza QR koda…",
+      "duplicateTitle": "Račun je već dodan",
+      "duplicateBody": "{issuer}: {account} je već u KaalKey.",
+      "addedTitle": "Račun je dodan",
+      "addedBody": "{issuer}: {account} je uspješno dodan.",
+      "saveFailedDiagnostic": "Nije moguće sačuvati račun. Možete ponovo skenirati.",
+      "invalidTitle": "Nevažeći QR kod",
+      "invalidBody": "KaalKey nije mogao raščlaniti ovaj QR kod autentifikatora. {detail}. Koristite TOTP kod za podešavanje usluge QR (obično počinje sa {prefix}).",
+      "parseFailedDiagnostic": "QR nije moguće obraditi. Ciljajte na podešavanje QR i pokušajte ponovo.",
+      "invalidUrlTitle": "Nevažeći TOTP URL",
+      "invalidUrlBody": "Zalijepite kompletan autentifikator URL počevši s {prefix}.",
+      "clipboardEmptyTitle": "Međuspremnik je prazan",
+      "clipboardEmptyBody": "Prvo kopirajte {prefix} URL, a zatim dodirnite Zalijepi TOTP URL.",
+      "clipboardErrorTitle": "Nije moguće pročitati međuspremnik",
+      "clipboardErrorBody": "Kopirajte TOTP postavku URL i pokušajte ponovo."
+    },
+    "haptics": {
+      "saveFailedTitle": "Nije moguće sačuvati postavku",
+      "saveFailedBody": "Preferencija za povratne informacije haptičke ne može se sačuvati. Molimo pokušajte ponovo."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Nije moguće sačuvati potvrdu",
+      "saveFailedBody": "Molimo pokušajte ponovo. Morate prihvatiti pravno obavještenje prije korištenja KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Potrebna je dozvola za kameru",
+      "body": "Dozvolite pristup kameri za skeniranje QR koda za podešavanje autentifikatora."
+    },
+    "storage": {
+      "browserUnavailable": "Pohrana pretraživača nije dostupna.",
+      "browserFilePickerUnavailable": "Birač datoteka pretraživača nije dostupan."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Nepodržani fajl",
+      "unsupportedFileBody": "Odaberite sliku koda QR kao što je PNG ili JPEG.",
+      "browserDecoderUnavailable": "Dekodiranje slike pretraživača nije dostupno",
+      "imageLoadFailed": "Slika se ne može učitati",
+      "unreadableDimensions": "Slika nema čitljive dimenzije",
+      "noQrCodeFoundTitle": "Nije pronađen QR kod",
+      "noQrCodeFoundBody": "KaalKey nije mogao dekodirati QR kod na ovoj slici. Isprobajte snimak ekrana ili PNG/JPEG veće rezolucije.",
+      "couldNotReadImageTitle": "Nije moguće pročitati sliku",
+      "couldNotReadImageBody": "Isprobajte jasnu PNG ili JPEG sliku koja sadrži QR kod za podešavanje autentifikatora.",
+      "couldNotOpenPickerTitle": "Nije moguće otvoriti birač slika",
+      "couldNotOpenPickerBody": "Molimo pokušajte ponovo Upload QR.",
+      "normalizedDecodeFailed": "Normalizirana slika nije mogla biti dekodirana",
+      "clipboardImageLoadFailed": "Nije moguće učitati sliku međuspremnika",
+      "imageProcessingUnavailable": "Obrada slike nije dostupna",
+      "imageProcessingUnavailableAlt": "Obrada slike nije dostupna",
+      "noImageInClipboardTitle": "Nema slike u međuspremniku",
+      "noImageInClipboardBody": "Kopirajte sliku koda QR, a zatim ponovo dodirnite Zalijepi sliku QR.",
+      "clipboardUnavailableTitle": "Međuspremnik nije dostupan",
+      "clipboardUnavailableBody": "Tekst međuspremnika nije valjana postavka autentifikatora URL. Kopirajte otpauth:// URL ili QR sliku i pokušajte ponovo.",
+      "clipboardAccessBody": "KaalKey nije mogao pročitati tekst ili sliku iz međuspremnika. Dozvolite pristup međuspremniku, zatim kopirajte sliku QR ili otpauth:// URL i ponovo dodirnite Zalijepi sliku QR / URL.",
+      "couldNotPasteImageTitle": "Nije moguće zalijepiti sliku",
+      "couldNotPasteImageBody": "Ovaj međuspremnik na ovom uređaju ne podržava lijepljenje slika. Umjesto toga koristite sliku Import QR.",
+      "sourceImageDecodeFailure": "Pokušajte s drugom slikom QR.",
+      "pastedImportFailureBody": "Pokušajte s drugom slikom QR.",
+      "sourceImageReadFailure": "Pokušajte kopirati jasan snimak ekrana QR.",
+      "importFailedTitle": "Uvoz slike QR nije uspio",
+      "importFailedBody": "KaalKey nije mogao pročitati tu sliku. Molimo pokušajte drugu sliku koda QR.",
+      "notFoundBody": "Kopirana slika ne sadrži čitljiv QR kod.",
+      "pastedNotFoundBody": "Zalijepljena slika ne sadrži čitljiv QR kod.",
+      "pastedReadFailureBody": "Pokušajte kopirati jasnu PNG ili JPEG sliku koja sadrži puni QR kod.",
+      "noQrCodeTextBody": "KaalKey je dekodirao odabranu sliku, ali nije pronašao QR kod. Pokušajte s jasnim PNG ili JPEG u punoj rezoluciji s vidljivim cijelim kodom."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Ovaj QR kod nije vremenski baziran kod za postavljanje autentifikatora.",
+      "missingAccountDetails": "QR kodu nedostaju detalji računa.",
+      "unsupportedAlgorithm": "QR kod koristi nepodržani algoritam.",
+      "unsupportedDigits": "Ovaj QR kod mora imati 6, 7 ili 8 cifara.",
+      "unsupportedPeriod": "Ovaj QR kod koristi nepodržani vremenski period.",
+      "invalidAccount": "QR kod nije mogao biti potvrđen."
+    },
+    "backup": {
+      "invalidJson": "Datoteka sigurnosne kopije nije važeća JSON.",
+      "unsupportedFormat": "Ovo nije podržana KaalKey šifrirana sigurnosna kopija.",
+      "invalidPasswordOrDamaged": "Lozinka sigurnosne kopije je netačna ili je datoteka sigurnosne kopije oštećena.",
+      "invalidContents": "Sadržaj sigurnosne kopije je nevažeći ili nepotpun.",
+      "secureRandomUnavailableDetailed": "Sigurno nasumično generiranje nije dostupno. Ponovo izgradite i ponovo instalirajte aplikaciju Android s uključenim expo-crypto, a zatim pokušajte ponovo.",
+      "invalidAccountDataForBackup": "Jedan ili više računa su nevažeći. Popravite podatke računa prije kreiranja sigurnosne kopije.",
+      "invalidPasswordOrModified": "Lozinka sigurnosne kopije je netačna ili je datoteka sigurnosne kopije izmijenjena.",
+      "invalidPasswordOrFileDamaged": "Lozinka za rezervnu kopiju je netačna ili je datoteka oštećena.",
+      "passwordCopiedTitle": "Lozinka je kopirana",
+      "enterPasswordTitle": "Unesite lozinku za rezervnu kopiju",
+      "enterPasswordBody": "Unesite lozinku korištenu prilikom kreiranja ove sigurnosne kopije.",
+      "passwordCopiedBody": "Sačuvajte ga negdje na sigurnom, kao što je WhatsApp.",
+      "copyFailedTitle": "Kopiranje nije uspjelo",
+      "copyFailedBody": "Odaberite i kopirajte lozinku ručno.",
+      "generatingPassword": "Generiranje sigurne sigurnosne lozinke…",
+      "encrypting": "Šifriranje sigurnosne kopije…",
+      "decrypting": "Dešifriranje sigurnosne kopije…",
+      "restoring": "Vraćanje računa…",
+      "backupCreatedTitle": "Sigurnosna kopija kreirana",
+      "restoreCompleteTitle": "Vraćanje je završeno",
+      "mergeConfirmTitle": "Spojiti rezervne račune?",
+      "mergeConfirmButton": "Spojite račune",
+      "backupSavedTemporary": "Šifrovana sigurnosna kopija privremeno sačuvana na: \n{uri}",
+      "generatePasswordErrorTitle": "Nije moguće generirati lozinku za sigurnosnu kopiju",
+      "secureRandomUnavailable": "Sigurno nasumično generiranje nije dostupno.",
+      "passwordUnavailableTitle": "Lozinka za rezervnu kopiju nije dostupna",
+      "passwordUnavailableBody": "Zatvorite ovaj dijalog i kreirajte novu sigurnosnu kopiju da biste generirali sigurnu lozinku.",
+      "backupDownloadedBody": "Vaša šifrirana sigurnosna kopija KaalKey je preuzeta. Držite datoteku i lozinku privatnim.",
+      "backupFailedTitle": "Sigurnosna kopija nije uspjela",
+      "backupCreateErrorBody": "KaalKey nije mogao kreirati sigurnosnu kopiju.",
+      "restoreFailedTitle": "Vraćanje nije uspjelo",
+      "backupReadErrorBody": "Sigurnosna kopija se nije mogla pročitati ili sačuvati.",
+      "browserDownloadUnsupported": "Vaš pretraživač ne podržava preuzimanje datoteka rezervnih kopija.",
+      "localFileUnavailable": "Lokalna lokacija datoteke nije dostupna na ovom uređaju.",
+      "saveBackupTitle": "Sačuvajte svoju šifrovanu rezervnu kopiju KaalKey"
+    },
+    "clipboard": {
+      "copiedTitle": "Kôd je kopiran",
+      "copiedBody": "Vaš verifikacioni kod je kopiran.",
+      "errorTitle": "Greška",
+      "errorBody": "Nije moguće kopirati verifikacioni kod."
+    },
+    "activity": {
+      "cameraReady": "Kamera spremna. Usmjerite ga na kod autentifikatora QR.",
+      "readingQrImage": "Čitanje QR slike…",
+      "importingQrImage": "Uvoz slike QR…",
+      "importingAccount": "Uvoz računa autentifikatora…",
+      "importingPastedImage": "Uvoz zalijepljene slike QR…"
+    }
+  },
+  "activity": {
+    "working": "Radni",
+    "wait": "Molimo pričekajte…",
+    "donTClose": "Molimo nemojte zatvarati ili komunicirati s KaalKey.",
+    "loadingLanguages": "Učitavanje dostupnih jezika…",
+    "loadingTranslation": "Učitavanje prijevoda…"
+  }
+}

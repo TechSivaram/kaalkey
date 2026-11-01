@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Ede",
+      "description": "Yan ede ti a lo ni KaalKey.",
+      "english": "English",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "EDE",
+      "searchLanguageName": "Wa ede (orukọ tabi koodu)",
+      "searchSupportedLanguages": "Wa awọn ede ti o ni atilẹyin",
+      "closeLanguageDropdown": "Pa ede silẹ",
+      "noTranslatedLanguage": "Ko si ede ti a tumọ.",
+      "serverUrl": "Olupin itumọ URL",
+      "serverUrlDescription": "KaalKey ṣe igbasilẹ atokọ ede ati awọn itumọ lati ọdọ olupin yii.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Fi olupin translation pamọ"
+    },
+    "title": "Awọn eto app",
+    "eyebrow": "KAALKEY Awọn ààyò",
+    "experience": {
+      "section": "Iriri"
+    },
+    "security": {
+      "section": "AABO"
+    },
+    "backup": {
+      "section": "Afẹyinti & Imularada"
+    },
+    "danger": {
+      "section": "EWU AGBEGBE",
+      "clearAccounts": "Pa gbogbo awọn akọọlẹ kuro",
+      "clearAccountsDescription": "Yọọ gbogbo akọọlẹ ati aṣiri kuro patapata lati ẹrọ yii. Ṣe afẹyinti akọkọ.",
+      "clearAccountsAccessibilityLabel": "Ko gbogbo awọn akọọlẹ olujeri kuro"
+    },
+    "appearance": {
+      "section": "Irisi",
+      "title": "Imọlẹ irisi",
+      "description": "KaalKey Lọwọlọwọ nlo akori ina mimọ rẹ."
+    },
+    "haptics": {
+      "title": "Awọn esi Haptic",
+      "description": "Awọn esi onirẹlẹ fun awọn titẹ ati awọn iṣẹ ti o pari."
+    },
+    "deviceLock": {
+      "title": "Titiipa ijẹrisi ẹrọ",
+      "description": "Awọn titiipa ifinkan rẹ nigbati KaalKey lọ kuro ni iwaju.",
+      "requirement": "Beere awọn ohun-ini ohun elo foonu rẹ tabi titiipa iboju PIN, apẹrẹ, tabi ọrọ igbaniwọle.",
+      "accessibilityLabel": "Titiipa ohun elo ìfàṣẹsí ẹrọ"
+    },
+    "privacy": {
+      "title": "Ofin & asiri",
+      "description": "Ṣe ayẹwo Ilana Aṣiri ati Awọn ofin Lilo.",
+      "storageNote": "Awọn aṣiri olujeri rẹ duro si ile ifipamọ aabo ẹrọ. Awọn ayanfẹ ti wa ni ipamọ ni agbegbe."
+    }
+  },
+  "accounts": {
+    "edit": "Ṣatunkọ",
+    "sortAccountName": "Too nipa orukọ iroyin",
+    "loadingSecureVault": "Nkojọpọ ifinkan to ni aabo...",
+    "tapCopy": "Fọwọ ba lati daakọ",
+    "noAccountsMatch": "Ko si akọọlẹ kan ti o baamu wiwa rẹ.",
+    "viewQrCode": "Wo QR koodu fun akọọlẹ",
+    "removeAccount": "Yọ akọọlẹ kuro",
+    "copyVerificationCode": "Da koodu ijerisi",
+    "active": "OSISE",
+    "sort": "TO NIPA",
+    "account": "Iroyin",
+    "clearSearch": "Ko wiwa kuro",
+    "sortServiceName": "Too nipa orukọ iṣẹ",
+    "addFirstAccount": "Fi akọọlẹ akọkọ rẹ kun",
+    "searchAccounts": "Wa awọn akọọlẹ",
+    "searchServiceAccount": "Wa iṣẹ tabi iroyin",
+    "accounts": "Awọn akọọlẹ rẹ",
+    "add": "+ Fi kun",
+    "vaultStartsHere": "Ile ifinkan rẹ bẹrẹ nibi",
+    "service": "Iṣẹ",
+    "emptyHint": "Ṣafikun akọọlẹ kan nipa lilo bọtini aṣiri rẹ lati ṣe ipilẹṣẹ koodu ijẹrisi akọkọ rẹ."
+  },
+  "common": {
+    "done": "Ti ṣe",
+    "doneButton": "Ti ṣe",
+    "closeSettings": "Pa eto",
+    "separator": "-",
+    "article": "a",
+    "save": "Fipamọ",
+    "delete": "Paarẹ",
+    "resizeAppBrand": "Ṣe atunṣe app ati awọn panẹli iyasọtọ"
+  },
+  "qrImport": {
+    "readPastedImage": "Ko le ka aworan ti a fi silẹ"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Awọn akọọlẹ ninu afẹyinti yii: {count}. KaalKey yoo tọju awọn akọọlẹ ti o wa tẹlẹ ati ṣafikun eyikeyi awọn akọọlẹ ti ko si tẹlẹ. Awọn akọọlẹ ẹda-ẹda yoo fo.",
+    "restoreCompletionBody": "Awọn iroyin kun: {added} . Àdáwòkọ àpamọ ti fo: {skipped}. Awọn akọọlẹ ti o wa tẹlẹ wa ni ipamọ.",
+    "copyPassword": "Daakọ ti ipilẹṣẹ ọrọigbaniwọle",
+    "passwordSafety": "Fi ọrọ igbaniwọle pamọ lọtọ (fun apẹẹrẹ, ni WhatsApp). Ẹnikẹni pẹlu awọn mejeeji",
+    "importAction": "Yan faili ati gbe wọle",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "IFỌRỌWỌRỌ",
+    "createBackup": "Ṣẹda afẹyinti",
+    "encryptedFile": "Fáìlì ìpàrokò",
+    "restoreBackup": "Mu afẹyinti pada",
+    "safetyNote": "Awọn ifẹhinti ni awọn aṣiri ijẹrisi rẹ ninu. KaalKey ṣe agbekalẹ ọrọ igbaniwọle alailẹgbẹ fun afẹyinti kọọkan. Fipamọ lọtọ; KaalKey ko le gba pada.",
+    "generatingSecurePassword": "Ṣiṣẹda ọrọ igbaniwọle to ni aabo…",
+    "importFile": "Gbe wọle faili",
+    "backupPassword": "Ọrọigbaniwọle Afẹyinti",
+    "account": "iroyin",
+    "accounts": "awọn iroyin",
+    "exportDescription": "Encrypt gbogbo {count} ti o fipamọ {accountLabel} sinu faili afẹyinti. KaalKey ṣe ipilẹṣẹ ọrọ igbaniwọle alailẹgbẹ; daakọ ati fipamọ lọtọ lati faili naa.",
+    "restoreDescription": "Yan faili afẹyinti ati ọrọ igbaniwọle rẹ KaalKey. Awọn akọọlẹ tuntun yoo ṣafikun si atokọ akọọlẹ ti o wa tẹlẹ; awọn akọọlẹ ti o wa tẹlẹ yoo duro bi wọn ṣe jẹ.",
+    "enterBackupPassword": "Tẹ ọrọ igbaniwọle afẹyinti sii",
+    "closeBackup": "Pa afẹyinti",
+    "copyGeneratedBackup": "Daakọ ipilẹṣẹ afẹyinti ọrọigbaniwọle",
+    "backupPassword2": "Afẹyinti ọrọigbaniwọle",
+    "clearBackupPassword": "Ko ọrọ igbaniwọle afẹyinti kuro",
+    "backupFilePassword": "faili afẹyinti ati ọrọ igbaniwọle le mu pada awọn akọọlẹ ijẹrisi rẹ pada.",
+    "encryptShareBackup": "Encrypt ati pin afẹyinti"
+  },
+  "home": {
+    "unlockSecurely": "Ṣii silẹ ni aabo",
+    "disableAppLock": "Mu titiipa app ṣiṣẹ",
+    "enableAppLock": "Jeki app titiipa",
+    "checkingSecureLock": "Ṣiṣayẹwo awọn eto titiipa aabo rẹ. Awọn koodu rẹ wa ni ipamọ.",
+    "waitingVerification": "Nduro fun ijẹrisi…",
+    "secretsStayStored": "Awọn aṣiri rẹ wa ni ipamọ lori ẹrọ yii.",
+    "openAppSettings": "Ṣii awọn eto app",
+    "versionLabel": "ẸYA",
+    "unlockRequirement": "Lo awọn biometrics foonu rẹ tabi titiipa iboju PIN, apẹrẹ, tabi ọrọ igbaniwọle lati wọle si awọn koodu ijẹrisi akoko kan.",
+    "localVault": "Ile ifinkan agbegbe rẹ",
+    "codesDeviceControl": "Awọn koodu rẹ. Ẹrọ rẹ. Iṣakoso rẹ.",
+    "securingVault": "Ṣe aabo ile ifipamọ rẹ…",
+    "vaultProtected": "Ile ifinkan re wa ni aabo",
+    "lock": "Titiipa",
+    "localVault2": "IDAGBASOKE IBILE",
+    "authenticator": "KAALKEY OLOFIN",
+    "tricolourLockEmblem": "KaalKey tricolor titiipa emblem",
+    "authenticator2": "AUTHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Ti o ba yan lati ṣayẹwo koodu QR kan, KaalKey nlo igbanilaaye kamẹra fun iṣẹ yẹn. Ijeri ẹrọ yiyan ati esi haptic lo awọn ẹya ẹrọ ti o yẹ. O le ṣakoso awọn igbanilaaye ninu awọn eto ẹrọ rẹ.",
+        "heading": "2. Awọn igbanilaaye ati awọn ẹya ẹrọ"
+      },
+      "backups": {
+        "body": "Nigbati o ba ṣẹda afẹyinti, KaalKey ṣe ifipamọ afẹyinti nipa lilo ọrọ igbaniwọle ti o yan. Tọju mejeeji faili ati ọrọ igbaniwọle ni ikọkọ ki o tọju wọn ni aabo. Ẹnikẹni ti o ba gba faili naa ati ọrọ igbaniwọle rẹ le ni anfani lati mu pada awọn akọọlẹ ijẹrisi rẹ pada. KaalKey ko le gba ọrọ igbaniwọle afẹyinti ti o gbagbe pada.",
+        "heading": "3. Awọn afẹyinti"
+      },
+      "security": {
+        "body": "Jeki ẹrọ rẹ di imudojuiwọn, daabobo rẹ pẹlu titiipa iboju, ma ṣe pin OTP awọn aṣiri tabi awọn ọrọ igbaniwọle afẹyinti. Yiyọ app kuro, imukuro data rẹ, tabi sisọnu ẹrọ naa le jẹ ki awọn akọọlẹ ti o fipamọ ni agbegbe ko si. Ṣetọju afẹyinti to ni aabo ti o ba nilo imularada.",
+        "heading": "5. Aabo ati idaduro"
+      },
+      "information": {
+        "heading": "1. Alaye ati asiri",
+        "body": "KaalKey jẹ ohun elo olujeri. Awọn aami akọọlẹ ati awọn iye aṣiri ti o nilo lati ṣe ipilẹṣẹ awọn koodu igba-ọkan jẹ ifarabalẹ. Ohun elo naa jẹ apẹrẹ lati tọju awọn igbasilẹ akọọlẹ ni ibi ipamọ aabo ti ẹrọ naa. Ẹnikẹni ti o ba ni iwọle si ẹrọ ṣiṣi silẹ tabi afẹyinti ti a ṣe okeere le ni anfani lati wọle si alaye ifura."
+      },
+      "sharing": {
+        "heading": "4. Pipin ati awọn ẹgbẹ kẹta",
+        "body": "Sisan afẹyinti le lo iwe ipin ẹrọ rẹ tabi oluyan faili lati fipamọ, gbe lọ, tabi yan awọn faili. Awọn iṣe aṣiri ti eyikeyi ohun elo ẹnikẹta tabi iṣẹ ti o yan ni iṣakoso nipasẹ olupese yẹn. Akiyesi yii ko ṣe ẹtọ ibora pe ẹrọ rẹ, ẹrọ ṣiṣe, tabi awọn iṣẹ pinpin ti a yan ko ṣe ilana data rara."
+      },
+      "changes": {
+        "heading": "6. Ayipada ati olubasọrọ",
+        "body": "Akiyesi ifibọ yii le jẹ tunwo ni itusilẹ ohun elo iwaju. Fun awọn ibeere ikọkọ, kan si olutẹjade app nipasẹ ikanni atilẹyin osise ti a pese pẹlu ohun elo naa."
+      },
+      "title": "Asiri Afihan"
+    },
+    "terms": {
+      "use": {
+        "body": "O le lo KaalKey lati ṣe agbekalẹ awọn koodu ijẹrisi fun awọn akọọlẹ ti o fun ni aṣẹ lati wọle si. O ni iduro fun ibamu pẹlu awọn ofin to wulo ati awọn ofin ti awọn iṣẹ ti o lo awọn koodu ijẹrisi.",
+        "heading": "1. Lilo rẹ"
+      },
+      "protectAccounts": {
+        "body": "O ni iduro fun fifipamọ ẹrọ rẹ, awọn aṣiri ododo, awọn ọna imularada, awọn afẹyinti okeere, ati awọn ọrọ igbaniwọle afẹyinti. Maṣe pin awọn koodu tabi awọn aṣiri pẹlu awọn eniyan ti o ko gbẹkẹle.",
+        "heading": "2. Dabobo awọn akọọlẹ rẹ"
+      },
+      "availability": {
+        "body": "Awọn ẹya le yipada laarin awọn idasilẹ. O yẹ ki o jẹ imudojuiwọn app ki o rii daju lorekore pe afẹyinti ati awọn eto imularada ṣiṣẹ.",
+        "heading": "5. Ayipada ati wiwa"
+      },
+      "recovery": {
+        "body": "KaalKey ko le ṣe iṣeduro pe gbogbo akọọlẹ le gba pada, pe gbogbo QR koodu tabi iṣeto ni yoo ni ibamu, tabi pe app naa yoo ṣiṣẹ laisi idilọwọ tabi aṣiṣe. Jeki awọn ọna imularada yiyan ti a pese nipasẹ iṣẹ ti o yẹ.",
+        "heading": "3. Ko si gbigba lopolopo"
+      },
+      "advice": {
+        "heading": "4. Ko si imọran ọjọgbọn",
+        "body": "Ìfilọlẹ naa jẹ ohun elo ati pe ko pese ofin, owo, tabi imọran idahun isẹlẹ aabo. Ti akọọlẹ kan ba ni ipalara, tẹle imularada osise ti iṣẹ ti o kan ati itọsọna aabo."
+      },
+      "liability": {
+        "heading": "6. Layabiliti ati iwulo ofin",
+        "body": "Si iye ti a gba laaye nipasẹ ofin to wulo, app naa ti pese laisi iṣeduro ti iṣẹ ṣiṣe ti ko ni idilọwọ tabi aṣiṣe. Ko si ohunkan ninu awọn ofin wọnyi ti o yọkuro awọn ẹtọ tabi awọn atunṣe ti ko le yọkuro labẹ ofin. Eyikeyi awọn idiwọn siwaju tabi awọn ofin ofin yẹ ki o ṣe atunyẹwo nipasẹ agbẹjọro ti o peye fun ẹjọ olutẹjade ṣaaju idasilẹ."
+      },
+      "title": "Awọn ofin lilo"
+    },
+    "version": "Ẹya",
+    "saving": "Nfipamọ…",
+    "acceptContinue": "Gba & Tẹsiwaju",
+    "appliesAuthenticator": "Kan si KaalKey Ajẹrisi",
+    "reviewBothDocuments": "Jọwọ ṣe ayẹwo awọn iwe mejeeji ṣaaju lilo KaalKey. Wọn ti wa ninu app ati ki o wa offline.",
+    "originalMulticolourAuthenticator": "Atilẹba multicolour KaalKey afọwọsi emblem",
+    "legalPrivacyNotice": "Ofin & Akiyesi Asiri",
+    "legalInformation": "Alaye ofin",
+    "reviewSPrivacy": "Ṣe atunyẹwo KaalKey alaye ikọkọ ati awọn ofin lilo.",
+    "iReadAgree": "Mo ti ka ati gba si Ilana Aṣiri ati Awọn ofin lilo."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Jeki gbogbo QR koodu han. Aṣiri rẹ duro lori ẹrọ yii.",
+    "back": "Pada",
+    "turnFlashlightOff": "Pa a filaṣi",
+    "turnFlashlight": "Tan flashlight",
+    "flashlight": "Ina filaṣi titan",
+    "flashlight2": "Ina filaṣi",
+    "cameraUnavailableOpen": "Kamẹra ko si. Ṣii oju-iwe yii lori HTTPS tabi localhost ki o jẹ ki kamẹra wọle si.",
+    "cameraPreviewUnavailable": "Awotẹlẹ kamẹra ko si. Pa ati tun ṣi ẹrọ iwoye naa.",
+    "cameraReadyPoint": "Kamẹra ti ṣetan — tọka si ni kikun QR koodu.",
+    "browserCannotProcess": "Ẹrọ aṣawakiri yii ko le ṣe ilana awọn fireemu kamẹra.",
+    "qrCodeDetected": "QR koodu ri.",
+    "couldnTRead": "Ko le ka awọn fireemu kamẹra. Ṣayẹwo awọn igbanilaaye kamẹra ki o tun gbee si oju-iwe yii.",
+    "cameraPermissionDenied": "Ti kọ igbanilaaye kamẹra. Gba wiwọle kamẹra laaye ni awọn eto ẹrọ aṣawakiri, lẹhinna tun ṣiṣayẹwo naa.",
+    "noCameraWas": "Ko si kamẹra ti a rii lori ẹrọ yii.",
+    "cameraBusyAnother": "Kamẹra nšišẹ lọwọ ni ohun elo miiran tabi taabu ẹrọ aṣawakiri.",
+    "startCameraHttps": "Ko le bẹrẹ kamẹra. Lo HTTPS tabi localhost ki o ṣayẹwo awọn igbanilaaye aṣawakiri.",
+    "qrScannerCamera": "QR awotẹlẹ kamẹra scanner",
+    "cameraUnavailableCheck": "Kamẹra ko si. Ṣayẹwo igbanilaaye kamẹra ki o tun gbiyanju lẹẹkansi.",
+    "pointCameraAuthenticator": "Tọka kamẹra rẹ si koodu iṣeto QR lati iṣẹ ti o n ṣafikun.",
+    "backAddAccount": "Pada lati fi iroyin kun",
+    "secureSetup": "ASOTO to ni aabo",
+    "enterDetailsManually": "Tẹ awọn alaye sii pẹlu ọwọ dipo"
+  },
+  "accountForm": {
+    "hideManualEntry": "Tọju titẹsi afọwọṣe",
+    "secretKeySupplied": "Lo bọtini ikoko ti o pese nipasẹ iṣẹ ti o n ṣatunṣe. Maṣe tẹ ọrọ igbaniwọle akọọlẹ rẹ sii nibi. Baramu algorithm, kika oni-nọmba, ati aarin si awọn ilana iṣeto iṣẹ naa.",
+    "updateServiceAccount": "Ṣe imudojuiwọn iṣẹ naa, orukọ akọọlẹ, tabi bọtini ikoko.",
+    "secretKeyRead": "Bọtini ikoko, kika-nikan lakoko ṣiṣatunṣe",
+    "secretKeyBase32": "Bọtini asiri ni Base32",
+    "digits": "awọn nọmba",
+    "seconds": "iṣẹju-aaya",
+    "enterDetailsManually": "TABI Tẹ awọn alaye sii pẹlu ọwọ",
+    "enterDetailsManually2": "Tẹ alaye sii pẹlu ọwọ",
+    "serviceAccountName": "Iṣẹ, orukọ akọọlẹ ati bọtini ikoko",
+    "saveChangesSecurely": "Fipamọ awọn ayipada ni aabo",
+    "saveAccountSecurely": "Fi iroyin pamọ ni aabo",
+    "serviceIssuer": "Iṣẹ tabi olufunni",
+    "accountName": "Orukọ akọọlẹ",
+    "secretKey": "Bọtini ikoko",
+    "serviceIssuer2": "IṣẸ / Olufunni",
+    "eGGoogle": "f.eks. Google",
+    "clearServiceIssuer": "Ko iṣẹ kuro tabi olufunni",
+    "eGExample": "f.eks. ìwọ@example.com",
+    "clearAccountName": "Ko orukọ akọọlẹ kuro",
+    "secretKeyLocked": "KOKO ASIRI (Titiipa)",
+    "secretKeyBase322": "KOKO ASIRI (BASE32)",
+    "enterSetupKey": "Tẹ bọtini iṣeto rẹ sii",
+    "clearSecretKey": "Ko bọtini ikoko kuro",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP DIGITS",
+    "refreshIntervalSeconds": "TÚN ALAKÚN (ÌṢEÁYÌN)",
+    "otpRefreshInterval": "OTP isọdọtun aarin ni iṣẹju-aaya",
+    "closeAccountForm": "Pa iwe apamọ",
+    "totpSetupUrl": "TOTP iṣeto URL",
+    "importSetupUrl": "Iṣeto agbewọle URL",
+    "totpSetupUrl2": "TOTP Eto URL",
+    "accountName2": "ORUKO iroyin",
+    "addAccount": "Fi iroyin kun"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Ṣiṣayẹwo ẹri QR koodu",
+    "setupGuidance": "Ṣayẹwo koodu QR kan fun iṣeto ti o rọrun julọ, tabi tẹ awọn alaye sii pẹlu ọwọ.",
+    "cameraAddAccount": "Lo kamẹra rẹ lati ṣafikun akọọlẹ kan lesekese",
+    "scanQrCode2": "Ṣayẹwo QR koodu",
+    "uploadQrImage": "Po si QR aworan",
+    "chooseQrScreenshot": "Yan sikirinifoto QR lati Ile-iṣọ, Awọn fọto, tabi Awọn faili",
+    "pasteQr": "Lẹẹmọ QR aworan / URL",
+    "pasteCopiedQr": "Lẹẹmọ aworan ti a daakọ QR tabi iṣeto ti o jẹri URL",
+    "uploadQrImage2": "Po si QR aworan"
+  },
+  "accountQr": {
+    "close": "Sunmọ",
+    "accountQrCode": "Account QR koodu",
+    "revealQrCode": "ifihan QR koodu",
+    "exportWarning": "Ikilọ: ẹnikẹni ti o ba ṣayẹwo koodu QR yii le ṣe agbekalẹ awọn koodu ijẹrisi fun akọọlẹ yii. Fi han nikan lori iboju ti o gbẹkẹle.",
+    "privacyHint": "Jeki koodu QR yii jẹ ikọkọ. Ṣiṣayẹwo rẹ ṣe ẹda aṣiri ijẹrisi akọọlẹ naa."
+  },
+  "productInfo": {
+    "backupRestore": "Afẹyinti & mu pada",
+    "backupRestoreDescription": "Ṣe afẹyinti data ijẹrisi rẹ ki o mu pada nigbati o ba lọ si ẹrọ miiran.",
+    "privacyDescription": "Tọju awọn akọọlẹ ijẹrisi rẹ si aaye kan. Lo afẹyinti app, imupadabọ, ati awọn aṣayan titiipa ẹrọ lati ṣakoso iṣeto rẹ ni ọwọ.",
+    "timeBasedCodes": "Awọn koodu orisun akoko",
+    "generateOneTimeCodes": "Ṣe ina awọn koodu iwọle igba-ọkan yiyipo fun awọn akọọlẹ rẹ lati pari ijẹrisi-igbesẹ meji.",
+    "quickAccountSetup": "Eto iroyin kiakia",
+    "quickSetupDescription": "Ṣe ọlọjẹ koodu QR kan tabi gbe aworan QR kan wọle lati ṣafikun akọọlẹ kan.",
+    "accountsOnePlace": "Awọn iroyin ni ibi kan",
+    "accountsInOnePlaceDescription": "Tọju awọn akọọlẹ ti o fipamọ papọ ki o wa titẹ sii ti o tọ nigbati o to akoko lati wọle.",
+    "privateAccountVault": "Ifipamọ iroyin ikọkọ",
+    "privateVaultDescription": "Ṣakoso awọn titẹ sii ijẹrisi rẹ ni agbegbe ati lo aṣayan titiipa ohun elo ti o wa.",
+    "easyCodeAccess": "Rọrun wiwọle koodu",
+    "easyCodeAccessDescription": "Daakọ koodu lọwọlọwọ tabi ṣakoso awọn alaye akọọlẹ nipasẹ mimọ, wiwo idojukọ.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · BY TECHSIVARAM",
+    "mobileAuthenticator": "ONÍṢẸ̀RẸ̀ ALAGBEKA RẸ",
+    "tagline": "Ọna ti o rọrun lati ṣakoso ijẹrisi-igbesẹ meji rẹ.",
+    "heroDescription": "Iriri ijẹrisi ti o ni idojukọ fun awọn koodu ijẹrisi orisun akoko. Jeki awọn koodu akọọlẹ ibaramu sunmọ ni ọwọ pẹlu KaalKey fun Android.",
+    "timeBasedCodes2": "TIME-orisun awọn koodu",
+    "privateDesign": "Ikọkọ BY Apẹrẹ",
+    "builtSimpleAuthenticator": "IKỌ FUN IṢẸ IṢẸ IWỌRỌ RỌRỌ",
+    "qrSetupTimed": "QR Iṣeto · Awọn koodu akoko · Ṣakoso awọn iroyin",
+    "privacyTitle": "Awọn akọọlẹ rẹ. Awọn koodu rẹ. Iṣakoso rẹ.",
+    "authenticator": "KAALKEY · AUTHENTICATOR",
+    "brandBanner": "KaalKey ami asia",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Fagilee",
+      "storageInvalidTitle": "Data ipamọ ko wulo",
+      "storageInvalidBody": "Awọn data akọọlẹ ti a fipamọ ko le ka lailewu.",
+      "storageErrorTitle": "Aṣiṣe ipamọ",
+      "storageErrorBody": "Awọn akọọlẹ ti a fipamọ ko le ṣe kojọpọ.",
+      "missingTitle": "Alaye ti o padanu",
+      "missingEditingBody": "Tẹ orukọ iṣẹ ati orukọ akọọlẹ sii.",
+      "missingBody": "Tẹ orukọ iṣẹ sii, orukọ akọọlẹ, ati bọtini ikoko.",
+      "invalidOtpBody": "Ṣayẹwo Base32 aṣiri, algorithm, kika oni-nọmba, ati akoko isọdọtun. Awọn aṣiri gbọdọ ni awọn ohun kikọ to wulo Base32; awọn nọmba gbọdọ jẹ {digits} ati pe akoko naa gbọdọ jẹ {minPeriod} - {maxPeriod} awọn aaya.",
+      "duplicateBody": "Iwe akọọlẹ kan pẹlu iṣẹ yii ati orukọ akọọlẹ ti wa ni ipamọ tẹlẹ.",
+      "updatedBody": "Iwe akọọlẹ rẹ ti ni imudojuiwọn.",
+      "addedBody": "A ṣafikun akọọlẹ rẹ ni aabo.",
+      "invalidOtpTitle": "Awọn eto OTP ti ko tọ",
+      "duplicateTitle": "Akọọlẹ ti wa tẹlẹ",
+      "savedTitle": "Ti fipamọ iroyin",
+      "invalidSecretTitle": "Bọtini aṣiri ti ko tọ",
+      "invalidSecretBody": "Jọwọ ṣayẹwo pe o ti tẹ aṣiri to wulo Base32 wọle.",
+      "removedTitle": "Apamọ kuro",
+      "removedBody": "Iwe akọọlẹ naa ati aṣiri rẹ ni a yọkuro lati inu ẹrọ yii.",
+      "clearedTitle": "Awọn iroyin nu",
+      "clearedBody": "Gbogbo awọn akọọlẹ ijẹrisi ati awọn aṣiri ni a yọkuro lati inu ẹrọ yii.",
+      "someSavedAccountsNeedAttentionTitle": "Diẹ ninu awọn iroyin ti o fipamọ nilo akiyesi",
+      "someSavedAccountsNeedAttentionBody": "{count} awọn igbasilẹ(s) iroyin ti ko tọ ko kojọpọ. Awọn akọọlẹ to wulo wa. Gbiyanju ṣiṣẹda afẹyinti ṣaaju ṣiṣe awọn ayipada siwaju.",
+      "removeConfirmTitle": "Yọ akọọlẹ kuro bi?",
+      "removeConfirmWebTitle": "Yọ akọọlẹ kuro bi?",
+      "removeButton": "Yọ kuro",
+      "clearButton": "Ko gbogbo rẹ kuro",
+      "clearConfirmTitle": "Ko gbogbo awọn akọọlẹ kuro?",
+      "saveErrorBody": "Awọn akọọlẹ ko le wa ni fipamọ. Ṣayẹwo wiwa ibi ipamọ ẹrọ aṣawakiri ati gbiyanju lẹẹkansi.",
+      "notFoundTitle": "A ko ri akoto",
+      "notFoundBody": "A ko le ri akọọlẹ yii. Pa olootu naa ki o tun gbiyanju lẹẹkansi.",
+      "removeConfirmBody": "Eyi yọ akọọlẹ naa kuro ati aṣiri rẹ lati ẹrọ yii.",
+      "clearConfirmBody": "Eyi yọkuro gbogbo awọn akọọlẹ ijẹrisi ati awọn aṣiri wọn patapata lati ẹrọ yii. Ṣẹda afẹyinti ti paroko ni akọkọ ti o ba nilo awọn akọọlẹ wọnyi nigbamii.",
+      "clearConfirmUndoBody": "Eyi ko le ṣe atunṣe."
+    },
+    "biometric": {
+      "cancelButton": "Fagilee",
+      "saveErrorTitle": "Ko le fi eto pamọ",
+      "unlockPrompt": "Ṣii silẹ KaalKey Oludaniloju",
+      "promptSubtitle": "Lo biometrics tabi titiipa iboju ẹrọ rẹ",
+      "disableConfirmPrompt": "Jẹrisi lati paa KaalKey app titiipa",
+      "enablePrompt": "Mu titiipa app ṣiṣẹ fun KaalKey",
+      "deviceLockTitle": "Ṣeto titiipa iboju ẹrọ rẹ",
+      "deviceLockBody": "KaalKey nlo ifitonileti ti a ṣe sinu foonu rẹ. Ṣeto ẹrọ PIN, apẹrẹ, tabi ọrọ igbaniwọle ninu awọn eto aabo foonu rẹ, lẹhinna gbiyanju lẹẹkansi. Biometrics jẹ iyan.",
+      "unavailableTitle": "Ijeri ẹrọ ko si",
+      "unavailableBody": "Foonu rẹ ko le bẹrẹ ijẹrisi to ni aabo. Ṣayẹwo pe titiipa iboju ẹrọ kan ti tunto, lẹhinna gbiyanju lẹẹkansi.",
+      "lockedTitle": "Ijeri ni titiipa fun igba diẹ",
+      "lockedBody": "Foonu rẹ ti pa ijẹrisi fun igba diẹ lẹhin awọn igbiyanju pupọ. Duro ki o tun gbiyanju lẹẹkansi.",
+      "promptErrorTitle": "Ijeri ko si",
+      "promptErrorBody": "KaalKey ko le bẹrẹ itọsi ifitonileti aabo foonu naa. Jọwọ gbiyanju lẹẹkansi.",
+      "webLock": "Titiipa ijẹrisi ẹrọ ko si ninu ẹya wẹẹbu sibẹsibẹ. Ile ifinkan wẹẹbu wa ni ṣiṣi silẹ; lo Android app fun ìfàṣẹsí ẹrọ abinibi.",
+      "disabledTitle": "Titii ohun elo alaabo",
+      "disabledBody": "KaalKey Titii ohun elo ti wa ni pipa.",
+      "disableSaveError": "Titiipa app naa ṣi ṣiṣẹ. Jọwọ gbiyanju lẹẹkansi.",
+      "enabledTitle": "Titii ohun elo ṣiṣẹ",
+      "enabledBody": "KaalKey yoo beere ijẹrisi ti a ṣe sinu foonu rẹ nigbati o ṣii ati nigbati o ba pada si ọdọ rẹ.",
+      "enableSaveError": "Titii ohun elo ko le muu ṣiṣẹ. Jọwọ gbiyanju lẹẹkansi."
+    },
+    "qr": {
+      "startingCamera": "Bibẹrẹ kamẹra…",
+      "unsupportedTitle": "Ti ko ni atilẹyin QR koodu",
+      "unsupportedBody": "Ṣiṣayẹwo koodu oluṣeto QR ti o pese nipasẹ iṣẹ naa. Eyi gbọdọ jẹ koodu TOTP, kii ṣe iwọle deede QR.",
+      "unsupportedDiagnostic": "Iyẹn QR kii ṣe TOTP koodu iṣeto. Ṣe ifọkansi si iṣeto ti o jẹri QR.",
+      "detectedDiagnostic": "QR ri. Ṣiṣayẹwo…",
+      "analyzing": "Ṣiṣayẹwo koodu QR…",
+      "duplicateTitle": "Ti ṣafikun akọọlẹ tẹlẹ",
+      "duplicateBody": "{issuer}: {account} ti wa tẹlẹ ninu KaalKey.",
+      "addedTitle": "Account kun",
+      "addedBody": "{issuer}: {account} ni a fi kun ni aṣeyọri.",
+      "saveFailedDiagnostic": "Ko le fi akọọlẹ pamọ. O le ṣayẹwo lẹẹkansi.",
+      "invalidTitle": "koodu QR ti ko tọ",
+      "invalidBody": "KaalKey ko le ṣe itupalẹ koodu QR yii. {detail}. Lo eto TOTP koodu QR (nigbagbogbo bẹrẹ pẹlu {prefix}).",
+      "parseFailedDiagnostic": "QR ko le ṣe ilana. Ṣe ifọkansi ni iṣeto QR ki o tun gbiyanju lẹẹkansi.",
+      "invalidUrlTitle": "Aitọ TOTP URL",
+      "invalidUrlBody": "Lẹẹmọ olujeri pipe URL bẹrẹ pẹlu {prefix}.",
+      "clipboardEmptyTitle": "Agekuru ti ṣofo",
+      "clipboardEmptyBody": "Daakọ {prefix} URL kan kọkọ, lẹhinna tẹ Lẹẹ TOTP URL ni kia kia.",
+      "clipboardErrorTitle": "Ko le ka agekuru agekuru",
+      "clipboardErrorBody": "Daakọ TOTP iṣeto URL ki o tun gbiyanju lẹẹkansi."
+    },
+    "haptics": {
+      "saveFailedTitle": "Ko le fi eto pamọ",
+      "saveFailedBody": "Ayanfẹ esi Haptic ko le wa ni fipamọ. Jọwọ gbiyanju lẹẹkansi."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Ko le fipamọ ifitonileti",
+      "saveFailedBody": "Jọwọ gbiyanju lẹẹkansi. O gbọdọ gba akiyesi ofin ṣaaju lilo KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Ti beere fun igbanilaaye kamẹra",
+      "body": "Gba wiwọle kamẹra laaye lati ṣayẹwo koodu iṣeto QR kan."
+    },
+    "storage": {
+      "browserUnavailable": "Ibi ipamọ ẹrọ aṣawakiri ko si.",
+      "browserFilePickerUnavailable": "Olumu faili aṣawakiri ko si."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Faili ti ko ni atilẹyin",
+      "unsupportedFileBody": "Yan aworan koodu QR kan gẹgẹbi PNG tabi JPEG.",
+      "browserDecoderUnavailable": "Yiyipada aworan aṣawakiri ko si",
+      "imageLoadFailed": "Aworan ko le kojọpọ",
+      "unreadableDimensions": "Aworan ko ni awọn iwọn kika",
+      "noQrCodeFoundTitle": "Ko si koodu QR ti a rii",
+      "noQrCodeFoundBody": "KaalKey ko le ṣe iyipada koodu QR kan ninu aworan yii. Gbiyanju aworan sikirinifoto tabi ipinnu ti o ga julọ PNG/JPEG.",
+      "couldNotReadImageTitle": "Ko le ka aworan",
+      "couldNotReadImageBody": "Gbiyanju aworan PNG tabi JPEG ti o ni koodu oluṣeto QR ninu ninu.",
+      "couldNotOpenPickerTitle": "Ko le ṣi oluyan aworan",
+      "couldNotOpenPickerBody": "Jọwọ gbiyanju Igbesoke QR lẹẹkansi.",
+      "normalizedDecodeFailed": "Aworan deede ko le ṣe iyipada",
+      "clipboardImageLoadFailed": "Aworan agekuru ko le ṣe kojọpọ",
+      "imageProcessingUnavailable": "Sise aworan ko si",
+      "imageProcessingUnavailableAlt": "Sise aworan ko si",
+      "noImageInClipboardTitle": "Ko si aworan ninu agekuru agekuru",
+      "noImageInClipboardBody": "Da aworan koodu QR kan, lẹhinna tẹ Lẹẹmọ QR Aworan lẹẹkansi.",
+      "clipboardUnavailableTitle": "Agekuru ko si",
+      "clipboardUnavailableBody": "Ọrọ agekuru agekuru kii ṣe iṣeto ti o wulo URL. Da aworan otpauth::// URL tabi QR ki o tun gbiyanju lẹẹkansi.",
+      "clipboardAccessBody": "KaalKey ko le ka ọrọ tabi aworan kan lati inu agekuru naa. Gba laaye lati wọle si agekuru agekuru, lẹhinna daakọ aworan QR tabi otpauth:// URL ki o tẹ Lẹẹmọ QR Aworan / URL lẹẹkansi ni kia kia.",
+      "couldNotPasteImageTitle": "Ko le lẹẹmọ aworan",
+      "couldNotPasteImageBody": "Pipa aworan ko ni atilẹyin nipasẹ agekuru agekuru lori ẹrọ yii. Lo akowọle QR aworan dipo.",
+      "sourceImageDecodeFailure": "Gbiyanju aworan ti o yatọ QR.",
+      "pastedImportFailureBody": "Gbiyanju aworan ti o yatọ QR.",
+      "sourceImageReadFailure": "Gbiyanju didakọ sikirinifoto ti o han gbangba QR.",
+      "importFailedTitle": "QR agbewọle aworan kuna",
+      "importFailedBody": "KaalKey ko le ka aworan yẹn. Jọwọ gbiyanju miiran QR aworan koodu.",
+      "notFoundBody": "Aworan ti a daakọ ko ni koodu QR kan ninu.",
+      "pastedNotFoundBody": "Aworan ti a fiweranṣẹ ko ni koodu QR kan ninu.",
+      "pastedReadFailureBody": "Gbiyanju didakọ aworan PNG tabi JPEG ti o ni kikun koodu QR ninu.",
+      "noQrCodeTextBody": "KaalKey ṣe iyipada aworan ti o yan ṣugbọn ko ri koodu QR kan. Gbiyanju o daju, ipinnu kikun PNG tabi JPEG pẹlu gbogbo koodu ti o han."
+    },
+    "totpImport": {
+      "invalidTotpCode": "koodu QR yii kii ṣe koodu iṣeto ti o da lori akoko.",
+      "missingAccountDetails": "Awọn koodu QR ti nsọnu awọn alaye akọọlẹ.",
+      "unsupportedAlgorithm": "Awọn koodu QR nlo algorithm ti ko ṣe atilẹyin.",
+      "unsupportedDigits": "koodu QR yii gbọdọ lo awọn nọmba 6, 7, tabi 8.",
+      "unsupportedPeriod": "koodu QR yii nlo akoko akoko ti ko ṣe atilẹyin.",
+      "invalidAccount": "Awọn koodu QR ko le ṣe ifọwọsi."
+    },
+    "backup": {
+      "invalidJson": "Faili afẹyinti ko wulo JSON.",
+      "unsupportedFormat": "Eyi kii ṣe atilẹyin KaalKey ti paroko.",
+      "invalidPasswordOrDamaged": "Ọrọ igbaniwọle afẹyinti ko tọ tabi faili afẹyinti ti bajẹ.",
+      "invalidContents": "Awọn akoonu afẹyinti ko wulo tabi ko pe.",
+      "secureRandomUnavailableDetailed": "Iran ti o ni aabo ko si. Tunṣe ati tun fi sori ẹrọ Android app pẹlu expo-crypto pẹlu, lẹhinna gbiyanju lẹẹkansi.",
+      "invalidAccountDataForBackup": "Ọkan tabi diẹ ẹ sii awọn iroyin ko wulo. Ṣe atunṣe data akọọlẹ ṣaaju ṣiṣẹda afẹyinti.",
+      "invalidPasswordOrModified": "Ọrọigbaniwọle Afẹyinti ko tọ tabi faili afẹyinti ti jẹ atunṣe.",
+      "invalidPasswordOrFileDamaged": "Ọrọigbaniwọle afẹyinti ko tọ tabi faili ti bajẹ.",
+      "passwordCopiedTitle": "Dakọ ọrọ igbaniwọle",
+      "enterPasswordTitle": "Tẹ ọrọ igbaniwọle afẹyinti rẹ sii",
+      "enterPasswordBody": "Tẹ ọrọ igbaniwọle sii nigbati o ṣẹda afẹyinti yii.",
+      "passwordCopiedBody": "Fipamọ si ibikan ailewu, gẹgẹbi WhatsApp.",
+      "copyFailedTitle": "Daakọ kuna",
+      "copyFailedBody": "Yan ati daakọ ọrọ igbaniwọle pẹlu ọwọ.",
+      "generatingPassword": "Ṣiṣẹda ọrọ igbaniwọle afẹyinti to ni aabo…",
+      "encrypting": "fifipamọ afẹyinti…",
+      "decrypting": "N ṣe atunṣe afẹyinti…",
+      "restoring": "Nmu awọn akọọlẹ pada…",
+      "backupCreatedTitle": "Afẹyinti ṣẹda",
+      "restoreCompleteTitle": "Pada sipo pari",
+      "mergeConfirmTitle": "Dapọ awọn akọọlẹ afẹyinti bi?",
+      "mergeConfirmButton": "Dapọ awọn iroyin",
+      "backupSavedTemporary": "Afẹyinti fifipamọ pamọ fun igba diẹ ni:\n{uri}",
+      "generatePasswordErrorTitle": "Ko le ṣe ipilẹṣẹ ọrọ igbaniwọle afẹyinti",
+      "secureRandomUnavailable": "Iran ti o ni aabo ko si.",
+      "passwordUnavailableTitle": "Ọrọigbaniwọle afẹyinti ko si",
+      "passwordUnavailableBody": "Pa ajọṣọrọsọ yii ki o ṣẹda afẹyinti tuntun lati ṣe agbekalẹ ọrọ igbaniwọle to ni aabo.",
+      "backupDownloadedBody": "A ti ṣe igbasilẹ afẹyinti rẹ ti paroko KaalKey. Jeki faili ati ọrọ igbaniwọle ni ikọkọ.",
+      "backupFailedTitle": "Afẹyinti kuna",
+      "backupCreateErrorBody": "KaalKey ko le ṣẹda afẹyinti.",
+      "restoreFailedTitle": "Imupadabọ kuna",
+      "backupReadErrorBody": "Afẹyinti ko le ka tabi fipamọ.",
+      "browserDownloadUnsupported": "Aṣàwákiri rẹ ko ṣe atilẹyin gbigbasile awọn faili afẹyinti.",
+      "localFileUnavailable": "Ipo faili agbegbe ko si lori ẹrọ yii.",
+      "saveBackupTitle": "Ṣafipamọ ifọrọpamọ KaalKey afẹyinti rẹ"
+    },
+    "clipboard": {
+      "copiedTitle": "Daakọ koodu",
+      "copiedBody": "Koodu ijẹrisi rẹ ti jẹ daakọ.",
+      "errorTitle": "Asise",
+      "errorBody": "Ko le daakọ koodu ijẹrisi naa."
+    },
+    "activity": {
+      "cameraReady": "Kamẹra setan. Tọkasi rẹ si koodu ti o jẹri QR.",
+      "readingQrImage": "Kika QR aworan…",
+      "importingQrImage": "Ṣe agbewọle aworan QR…",
+      "importingAccount": "N ṣe agbewọle akọọlẹ ijẹrisi…",
+      "importingPastedImage": "Aworan ti a kojọ QR wọle…"
+    }
+  },
+  "activity": {
+    "working": "Ṣiṣẹ",
+    "wait": "Jọwọ duro…",
+    "donTClose": "Jọwọ maṣe tii tabi ṣe ajọṣepọ pẹlu KaalKey.",
+    "loadingLanguages": "Nkojọpọ awọn ede to wa…",
+    "loadingTranslation": "Nkojọpọ itumọ…"
+  }
+}

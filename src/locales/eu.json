@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Hizkuntza",
+      "description": "Aukeratu KaalKey-en erabilitako hizkuntza.",
+      "english": "ingelesa",
+      "telugu": "Telugu",
+      "hindi": "Hindia",
+      "section": "HIZKUNTZA",
+      "searchLanguageName": "Bilatu hizkuntza (izena edo kodea)",
+      "searchSupportedLanguages": "Bilatu onartzen diren hizkuntzak",
+      "closeLanguageDropdown": "Itxi hizkuntza goitibehitza",
+      "noTranslatedLanguage": "Ez da hizkuntza itzulirik aurkitu.",
+      "serverUrl": "Itzulpen zerbitzaria URL",
+      "serverUrlDescription": "KaalKey zerbitzari honetatik hizkuntzen zerrenda eta itzulpenak deskargatzen ditu.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Gorde itzulpen zerbitzaria"
+    },
+    "title": "Aplikazioaren ezarpenak",
+    "eyebrow": "KAALKEY PREFERENTZIAK",
+    "experience": {
+      "section": "ESPERIENTZIA"
+    },
+    "security": {
+      "section": "SEGURTASUNA"
+    },
+    "backup": {
+      "section": "BACKUP ETA BERRESKURATZEA"
+    },
+    "danger": {
+      "section": "ARRISKU GUNEA",
+      "clearAccounts": "Garbitu kontu guztiak",
+      "clearAccountsDescription": "Kendu betiko kontu eta sekretu guztiak gailu honetatik. Egin babeskopia lehenik.",
+      "clearAccountsAccessibilityLabel": "Garbitu autentifikatzaile-kontu guztiak"
+    },
+    "appearance": {
+      "section": "ITXURA",
+      "title": "Itxura argia",
+      "description": "KaalKey-k bere argi garbiaren gaia erabiltzen du."
+    },
+    "haptics": {
+      "title": "Feedback haptikoa",
+      "description": "Iritzi leuna ukitu eta burututako ekintzei."
+    },
+    "deviceLock": {
+      "title": "Gailuaren autentifikazio-blokeoa",
+      "description": "Zure ganga blokeatzen da KaalKey lehen planotik ateratzen denean.",
+      "requirement": "Eskatu telefonoaren biometria edo pantaila blokeatzeko PIN, eredua edo pasahitza.",
+      "accessibilityLabel": "Gailuaren autentifikazio-aplikazioaren blokeoa"
+    },
+    "privacy": {
+      "title": "Legea eta pribatutasuna",
+      "description": "Berrikusi Pribatutasun-politika eta Erabilera-baldintzak.",
+      "storageNote": "Zure autentifikatzailearen sekretuak gailuko ganga seguruan geratzen dira. Hobespenak lokalean gordetzen dira."
+    }
+  },
+  "accounts": {
+    "edit": "Editatu",
+    "sortAccountName": "Ordenatu kontuaren izenaren arabera",
+    "loadingSecureVault": "Ganga segurua kargatzen...",
+    "tapCopy": "UKITU KOPIATZEKO",
+    "noAccountsMatch": "Ez dago zure bilaketarekin bat datorren konturik.",
+    "viewQrCode": "Ikusi konturako QR kodea",
+    "removeAccount": "Kendu kontua",
+    "copyVerificationCode": "Kopiatu egiaztapen-kodea",
+    "active": "AKTIBOA",
+    "sort": "ORDENATU",
+    "account": "Kontua",
+    "clearSearch": "Garbitu bilaketa",
+    "sortServiceName": "Ordenatu zerbitzuaren izenaren arabera",
+    "addFirstAccount": "Gehitu zure lehen kontua",
+    "searchAccounts": "Bilatu kontuak",
+    "searchServiceAccount": "Bilatu zerbitzua edo kontua",
+    "accounts": "Zure kontuak",
+    "add": "+ Gehitu",
+    "vaultStartsHere": "Zure ganga hemen hasten da",
+    "service": "Zerbitzua",
+    "emptyHint": "Gehitu kontu bat bere gako sekretua erabiliz zure lehen egiaztapen-kodea sortzeko."
+  },
+  "common": {
+    "done": "Eginda",
+    "doneButton": "Eginda",
+    "closeSettings": "Itxi ezarpenak",
+    "separator": "-",
+    "article": "a",
+    "save": "Gorde",
+    "delete": "Ezabatu",
+    "resizeAppBrand": "Aldatu aplikazioaren eta markaren panelen tamaina"
+  },
+  "qrImport": {
+    "readPastedImage": "Ezin izan da itsatsitako irudia irakurri"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Babeskopia honetako kontuak: {count}. KaalKey-k lehendik dituzun kontuak mantenduko ditu eta dagoeneko ez dauden kontuak gehituko ditu. Bikoiztutako kontuak saltatu egingo dira.",
+    "restoreCompletionBody": "Gehitutako kontuak: {added}. Bikoiztutako kontuak saltatu dira: {skipped}. Lehendik dituzun kontuak mantendu dira.",
+    "copyPassword": "Kopiatu sortutako pasahitza",
+    "passwordSafety": "Gorde pasahitz hau bereizita (adibidez, WhatsApp-en). Biak dituen edonor",
+    "importAction": "Aukeratu fitxategia eta inportatu",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "GANGA SEGURUA",
+    "createBackup": "Sortu babeskopia",
+    "encryptedFile": "Enkriptatutako fitxategia",
+    "restoreBackup": "Berrezarri babeskopia",
+    "safetyNote": "Babeskopiek zure autentifikatzailearen sekretuak dituzte. KaalKey-k pasahitz bakarra sortzen du babeskopia bakoitzeko. Gorde bereizita; KaalKey ezin da berreskuratu.",
+    "generatingSecurePassword": "Pasahitz segurua sortzen…",
+    "importFile": "Inportatu fitxategia",
+    "backupPassword": "PASAHITZA BAKOITZA",
+    "account": "kontua",
+    "accounts": "kontuak",
+    "exportDescription": "Enkriptatu {count} gordetako {accountLabel} guztiak babeskopia fitxategi batean. KaalKey pasahitz bakarra sortzen du; kopiatu eta gorde fitxategitik bereizita.",
+    "restoreDescription": "Aukeratu zure KaalKey babeskopia fitxategia eta pasahitza. Kontu berriak lehendik duzun kontu zerrendara gehituko dira; dauden kontuak dauden bezala geratuko dira.",
+    "enterBackupPassword": "Sartu babeskopia pasahitza",
+    "closeBackup": "Itxi babeskopia",
+    "copyGeneratedBackup": "Kopiatu sortutako babeskopia pasahitza",
+    "backupPassword2": "Backup pasahitza",
+    "clearBackupPassword": "Garbitu babeskopia pasahitza",
+    "backupFilePassword": "babeskopia-fitxategiak eta pasahitzak zure autentifikatzaile-kontuak leheneratu ditzake.",
+    "encryptShareBackup": "Zifratu eta partekatu babeskopia"
+  },
+  "home": {
+    "unlockSecurely": "Desblokeatu modu seguruan",
+    "disableAppLock": "Desgaitu aplikazioaren blokeoa",
+    "enableAppLock": "Gaitu aplikazioen blokeoa",
+    "checkingSecureLock": "Zure blokeo seguruaren ezarpenak egiaztatzen. Zure kodeak ezkutuan geratzen dira.",
+    "waitingVerification": "Egiaztapenaren zain...",
+    "secretsStayStored": "Zure sekretuak gordeta geratzen dira gailu honetan.",
+    "openAppSettings": "Ireki aplikazioaren ezarpenak",
+    "versionLabel": "BERTSIOA",
+    "unlockRequirement": "Erabili zure telefonoaren biometria edo pantaila blokeatzeko PIN, eredua edo pasahitza zure behin-behineko egiaztapen-kodeak atzitzeko.",
+    "localVault": "ZURE TOKIKO GANGA",
+    "codesDeviceControl": "Zure kodeak. Zure gailua. Zure kontrola.",
+    "securingVault": "Zure ganga ziurtatzen...",
+    "vaultProtected": "Zure ganga babestuta dago",
+    "lock": "BLOKATU",
+    "localVault2": "TOKIKO GANGA",
+    "authenticator": "KAALKEY Autentikatzailea",
+    "tricolourLockEmblem": "KaalKey sarrailaren ikurra hiru kolorekoa",
+    "authenticator2": "Autentikatzailea"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "QR kodea eskaneatzea aukeratzen baduzu, KaalKey-k kameraren baimena erabiltzen du ekintza horretarako. Gailuaren autentifikazio aukerak eta feedback haptikoak gailuaren eginbide egokiak erabiltzen dituzte. Baimenak kudea ditzakezu zure gailuaren ezarpenetan.",
+        "heading": "2. Baimenak eta gailuaren eginbideak"
+      },
+      "backups": {
+        "body": "Babeskopia bat sortzen duzunean, KaalKey-k babeskopia enkriptatzen du zuk aukeratutako pasahitza erabiliz. Mantendu fitxategia eta pasahitza pribatuak eta gorde itzazu modu seguruan. Baliteke fitxategia eta pasahitza eskuratzen dituen edonork zure autentifikatzaile-kontuak leheneratu ahal izatea. KaalKey ezin da ahaztutako babeskopiko pasahitza berreskuratu.",
+        "heading": "3. Backups"
+      },
+      "security": {
+        "body": "Mantendu gailua eguneratuta, babes ezazu pantailaren blokeo batekin eta ez partekatu OTP sekretuak edo babeskopiko pasahitzak. Aplikazioa kentzeak, haren datuak garbitzeak edo gailua galtzeak lokalean gordetako kontuak erabilgarri ez egotea eragin dezake. Mantendu babeskopia segurua berreskuratu behar baduzu.",
+        "heading": "5. Segurtasuna eta atxikipena"
+      },
+      "information": {
+        "heading": "1. Informazioa eta sekretuak",
+        "body": "KaalKey autentifikazio-aplikazio bat da. Kontuaren etiketak eta behin-behineko kodeak sortzeko behar diren balio sekretuak sentikorrak dira. Aplikazioa kontuen erregistroak gailuaren biltegiratze seguruan gordetzeko diseinatuta dago. Desblokeatutako gailu batera edo esportatutako babeskopia batera sarbidea duen edonork informazio sentikorra atzitu ahal izango du."
+      },
+      "sharing": {
+        "heading": "4. Partekatzea eta hirugarrenak",
+        "body": "Babeskopia-fluxuak zure gailuaren partekatzeko orria edo fitxategi-hautatzailea erabil dezake fitxategiak gordetzeko, transferitzeko edo hautatzeko. Aukeratzen dituzun hirugarrenen aplikazio edo zerbitzuen pribatutasun-praktikak hornitzaile horrek arautzen ditu. Ohar honek ez du adierazten zure gailuak, sistema eragileak edo aukeratutako partekatze-zerbitzuek inoiz datuak prozesatzen dituztenik."
+      },
+      "changes": {
+        "heading": "6. Aldaketak eta kontaktua",
+        "body": "Kapsulatutako ohar hau etorkizuneko aplikazioen bertsio batean berrikusi daiteke. Pribatutasun-galderetarako, jarri harremanetan aplikazioaren argitaratzailearekin aplikazioarekin batera emandako laguntza-kanal ofizialaren bidez."
+      },
+      "title": "Pribatutasun politika"
+    },
+    "terms": {
+      "use": {
+        "body": "KaalKey erabil dezakezu atzitzeko baimena duzun kontuetarako egiaztapen-kodeak sortzeko. Indarrean dauden legeak eta autentifikazio-kodeak erabiltzen dituzun zerbitzuen arauak betetzeaz arduratzen zara.",
+        "heading": "1. Zure erabilera"
+      },
+      "protectAccounts": {
+        "body": "Zure gailua, autentifikatzaileen sekretuak, berreskuratzeko metodoak, esportatutako babeskopiak eta babeskopien pasahitzak babesteaz arduratzen zara. Ez partekatu koderik edo sekreturik konfiantzarik ez duzun jendearekin.",
+        "heading": "2. Babestu zure kontuak"
+      },
+      "availability": {
+        "body": "Eginbideak bertsioen artean alda daitezke. Aplikazioa eguneratuta mantendu behar duzu eta aldian-aldian egiaztatu zure babeskopiak eta berreskuratzeko antolamenduak funtzionatzen duela.",
+        "heading": "5. Aldaketak eta erabilgarritasuna"
+      },
+      "recovery": {
+        "body": "KaalKey-k ezin du bermatu kontu guztiak berreskura daitezkeenik, QR kode edo konfigurazio guztiak bateragarriak izango direnik edo aplikazioak etenik edo errorerik gabe funtzionatuko duenik. Mantendu dagokion zerbitzuak emandako berreskuratzeko metodo alternatiboak.",
+        "heading": "3. Berreskuratze-bermerik ez"
+      },
+      "advice": {
+        "heading": "4. Ez dago aholkularitza profesionalik",
+        "body": "Aplikazioa erabilgarritasun bat da eta ez du lege-, finantza- edo segurtasun-aholkurik ematen gertakariei erantzuteko. Kontu bat arriskuan jartzen bada, jarraitu kaltetutako zerbitzuaren berreskurapen eta segurtasun jarraibide ofizialei."
+      },
+      "liability": {
+        "heading": "6. Erantzukizuna eta aplikagarria den legedia",
+        "body": "Indarrean dagoen legeak onartzen duen neurrian, aplikazioa etenik gabeko edo akatsik gabeko funtzionamenduaren bermerik gabe eskaintzen da. Baldintza hauetan ezerk ez ditu baztertzen legez baztertu ezin diren eskubide edo erremedioak. Beste edozein muga edo arau-lege-baldintza abokatu kualifikatu batek berrikusi beharko du argitaletxearen jurisdikziorako."
+      },
+      "title": "Erabilera-baldintzak"
+    },
+    "version": "Bertsioa",
+    "saving": "Gordetzen…",
+    "acceptContinue": "Onartu eta Jarraitu",
+    "appliesAuthenticator": "KaalKey Authenticator-i aplikatzen da",
+    "reviewBothDocuments": "Mesedez, berrikusi bi dokumentuak KaalKey erabili aurretik. Aplikazioan sartuta daude eta lineaz kanpo eskuragarri daude.",
+    "originalMulticolourAuthenticator": "Jatorrizko kolore anitzeko KaalKey autentifikatzailearen ikurra",
+    "legalPrivacyNotice": "Lege eta Pribatutasun Oharra",
+    "legalInformation": "Informazio juridikoa",
+    "reviewSPrivacy": "Berrikusi KaalKey-ren pribatutasun-informazioa eta erabilera-baldintzak.",
+    "iReadAgree": "Irakurri ditut eta onartzen ditut Pribatutasun Politika eta Erabilera Baldintzak."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Mantendu QR kode osoa ikusgai. Zure sekretua gailu honetan geratzen da.",
+    "back": "Itzuli",
+    "turnFlashlightOff": "Itzali linterna",
+    "turnFlashlight": "Piztu linterna",
+    "flashlight": "Linterna piztuta",
+    "flashlight2": "Linterna",
+    "cameraUnavailableOpen": "Kamera ez dago erabilgarri. Ireki orri hau HTTPS edo localhost-en eta baimendu kamerarako sarbidea.",
+    "cameraPreviewUnavailable": "Kameraren aurrebista ez dago erabilgarri. Itxi eta berriro ireki eskanerra.",
+    "cameraReadyPoint": "Kamera prest: zuzendu QR kode osoa.",
+    "browserCannotProcess": "Arakatzaile honek ezin du kameraren fotograma prozesatu.",
+    "qrCodeDetected": "QR kodea detektatu da.",
+    "couldnTRead": "Ezin izan dira kameraren fotogramak irakurri. Egiaztatu kameraren baimenak eta kargatu orri hau berriro.",
+    "cameraPermissionDenied": "Kameraren baimena ukatu da. Eman kamera sarbidea arakatzailearen ezarpenetan, eta ireki berriro eskanerra.",
+    "noCameraWas": "Ez da kamerarik aurkitu gailu honetan.",
+    "cameraBusyAnother": "Kamera okupatuta dago beste aplikazio edo arakatzailearen fitxa batean.",
+    "startCameraHttps": "Ezin izan da kamera abiarazi. Erabili HTTPS edo localhost eta egiaztatu arakatzailearen baimenak.",
+    "qrScannerCamera": "QR eskaner-kameraren aurrebista",
+    "cameraUnavailableCheck": "Kamera ez dago erabilgarri. Egiaztatu kameraren baimena eta saiatu berriro.",
+    "pointCameraAuthenticator": "Zuzen ezazu kamera gehitzen ari zaren zerbitzuko autentifikatzailearen konfigurazio QR kodeara.",
+    "backAddAccount": "Itzuli kontua gehitzeko",
+    "secureSetup": "CONFIGURAZIO SEGURUA",
+    "enterDetailsManually": "Idatzi xehetasunak eskuz"
+  },
+  "accountForm": {
+    "hideManualEntry": "Ezkutatu eskuzko sarrera",
+    "secretKeySupplied": "Erabili konfiguratzen ari zaren zerbitzuak emandako gako sekretua. Ez sartu inoiz zure kontuaren pasahitza hemen. Lotu algoritmoa, digitu kopurua eta tartea zerbitzuaren konfigurazio-argibideekin.",
+    "updateServiceAccount": "Eguneratu zerbitzua, kontuaren izena edo gako sekretua.",
+    "secretKeyRead": "Gako sekretua, editatzerakoan irakurtzeko soilik",
+    "secretKeyBase32": "Gako sekretua Base32-n",
+    "digits": "zifrak",
+    "seconds": "segundoak",
+    "enterDetailsManually": "EDO SARTU XEHETASUNAK ESKUZ",
+    "enterDetailsManually2": "Sartu xehetasunak eskuz",
+    "serviceAccountName": "Zerbitzua, kontuaren izena eta gako sekretua",
+    "saveChangesSecurely": "Gorde aldaketak modu seguruan",
+    "saveAccountSecurely": "Gorde kontua modu seguruan",
+    "serviceIssuer": "Zerbitzua edo jaulkitzailea",
+    "accountName": "Kontuaren izena",
+    "secretKey": "Giltza sekretua",
+    "serviceIssuer2": "ZERBITZUA / EMAILTZAILEA",
+    "eGGoogle": "adib. Google",
+    "clearServiceIssuer": "Garbitu zerbitzua edo jaulkitzailea",
+    "eGExample": "adib. zu@adibidea.com",
+    "clearAccountName": "Garbitu kontuaren izena",
+    "secretKeyLocked": "SEKRETUA GILTZA (BLOKEATUA)",
+    "secretKeyBase322": "SEKRETUA GAKOA (BASE32)",
+    "enterSetupKey": "Sartu zure konfigurazio-gakoa",
+    "clearSecretKey": "Garbitu gako sekretua",
+    "otpAlgorithm": "OTP ALGORITMOA",
+    "otpDigits": "OTP DIGITUAK",
+    "refreshIntervalSeconds": "FRESKATZEKO TARTEA (SEGUNDU)",
+    "otpRefreshInterval": "OTP freskatzeko tartea segundotan",
+    "closeAccountForm": "Itxi kontuaren inprimakia",
+    "totpSetupUrl": "TOTP konfigurazioa URL",
+    "importSetupUrl": "Inportatu konfigurazioa URL",
+    "totpSetupUrl2": "TOTP CONFIGURACIÓN URL",
+    "accountName2": "KONTUAREN IZENA",
+    "addAccount": "Gehitu kontua"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Eskaneatu autentifikatzailearen QR kodea",
+    "setupGuidance": "Eskaneatu QR kode bat konfigurazio errazena lortzeko edo sartu xehetasunak eskuz.",
+    "cameraAddAccount": "Erabili kamera kontu bat berehala gehitzeko",
+    "scanQrCode2": "Eskaneatu QR kodea",
+    "uploadQrImage": "Kargatu QR irudia",
+    "chooseQrScreenshot": "Aukeratu QR pantaila-argazkia Galeria, Argazkiak edo Fitxategietatik",
+    "pasteQr": "Itsatsi QR irudia / URL",
+    "pasteCopiedQr": "Itsatsi kopiatutako QR irudia edo autentifikatzailearen konfigurazioa URL",
+    "uploadQrImage2": "Kargatu QR irudia"
+  },
+  "accountQr": {
+    "close": "Itxi",
+    "accountQrCode": "Kontuaren QR kodea",
+    "revealQrCode": "Erakutsi QR kodea",
+    "exportWarning": "Abisua: QR kode hau eskaneatzen duen edonork sor ditzake kontu honen egiaztapen-kodeak. Pantaila fidagarri batean bakarrik erakutsi.",
+    "privacyHint": "Mantendu QR kode hau pribatua. Eskaneatzean kontuaren autentifikatzailearen sekretua kopiatzen da."
+  },
+  "productInfo": {
+    "backupRestore": "Babeskopia egin eta leheneratu",
+    "backupRestoreDescription": "Egin babeskopiak zure autentifikatzailearen datuen eta leheneratu beste gailu batera mugitzen zarenean.",
+    "privacyDescription": "Gorde egiaztapen-kontuak leku bakarrean. Erabili aplikazioaren babeskopia, leheneratu eta gailua blokeatzeko aukerak zure konfigurazioa arduraz kudeatzeko.",
+    "timeBasedCodes": "Denboran oinarritutako kodeak",
+    "generateOneTimeCodes": "Sortu txandakako pasakodeak zure kontuetarako bi urratseko egiaztapena osatzeko.",
+    "quickAccountSetup": "Kontuaren konfigurazio azkarra",
+    "quickSetupDescription": "Eskaneatu QR kode autentifikatzaile bat edo inportatu QR irudi bat kontu bat gehitzeko.",
+    "accountsOnePlace": "Kontuak leku bakarrean",
+    "accountsInOnePlaceDescription": "Mantendu gordetako kontuak elkarrekin eta aurkitu sarrera egokia saioa hasteko garaia denean.",
+    "privateAccountVault": "Kontu pribatuko ganga",
+    "privateVaultDescription": "Kudeatu zure autentifikatzailearen sarrerak lokalean eta erabili aplikazioaren gailua blokeatzeko aukera eskuragarri.",
+    "easyCodeAccess": "Sarbide erraza kodea",
+    "easyCodeAccessDescription": "Kopiatu uneko kodea edo kudeatu kontuaren xehetasunak interfaze garbi eta bideratu baten bidez.",
+    "authenticatorTechsivaram": "AUTENTIFIKATZAILEA · TECHSIVARAM EGINTZA",
+    "mobileAuthenticator": "ZURE MUGIKOR AGINTETZAILEA",
+    "tagline": "Bi urratseko egiaztapena kudeatzeko modu errazagoa.",
+    "heroDescription": "Denboran oinarritutako egiaztapen-kodeentzako autentifikazio-esperientzia bideratua. Eskura eduki bateragarriak diren kontu-kodeak KaalKey-rekin Android-rekin.",
+    "timeBasedCodes2": "DENBORA OINARRITUTAKO KODEAK",
+    "privateDesign": "PRIBATUA DISEINUAREN ARABERA",
+    "builtSimpleAuthenticator": "Autentikatzaileen lan-fluxu baterako ERAIKITA",
+    "qrSetupTimed": "QR CONFIGURACIÓN · KODE KRONOMETRATUAK · KONTUAREN KUDEAKETA",
+    "privacyTitle": "Zure kontuak. Zure kodeak. Zure kontrola.",
+    "authenticator": "KAALKEY · Autentikatzailea",
+    "brandBanner": "KaalKey markako pankarta",
+    "logo": "KaalKey logotipoa"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Utzi",
+      "storageInvalidTitle": "Biltegiratzeko datuak baliogabeak",
+      "storageInvalidBody": "Ezin izan dira gordetako kontuko datuak segurtasunez irakurri.",
+      "storageErrorTitle": "Biltegiratzeko errorea",
+      "storageErrorBody": "Ezin izan dira gordetako kontuak kargatu.",
+      "missingTitle": "Informazioa falta da",
+      "missingEditingBody": "Sartu zerbitzuaren izena eta kontuaren izena.",
+      "missingBody": "Sartu zerbitzuaren izena, kontuaren izena eta gako sekretua.",
+      "invalidOtpBody": "Egiaztatu Base32 sekretua, algoritmoa, digitu kopurua eta freskatze epea. Sekretuek baliozko Base32 karaktereak izan behar dituzte; digituek {digits} izan behar dute eta puntuak {minPeriod}–{maxPeriod} segundoak izan behar dira.",
+      "duplicateBody": "Zerbitzu honekin eta kontu-izena duen kontu bat gordeta dago jada.",
+      "updatedBody": "Zure kontua eguneratu da.",
+      "addedBody": "Zure kontua modu seguruan gehitu da.",
+      "invalidOtpTitle": "OTP ezarpen baliogabeak",
+      "duplicateTitle": "Kontua badago jada",
+      "savedTitle": "Kontua gorde da",
+      "invalidSecretTitle": "Gako sekretua baliogabea",
+      "invalidSecretBody": "Mesedez, egiaztatu baliozko Base32 sekretu bat sartu duzula.",
+      "removedTitle": "Kontua kendu da",
+      "removedBody": "Kontua eta haren sekretua kendu dira gailu honetatik.",
+      "clearedTitle": "Kontuak garbitu dira",
+      "clearedBody": "Gailu honetatik autentifikatzaileen kontu eta sekretu guztiak kendu dira.",
+      "someSavedAccountsNeedAttentionTitle": "Gordetako kontu batzuek arreta behar dute",
+      "someSavedAccountsNeedAttentionBody": "{count} kontu-erregistro baliogabeak ez dira kargatu. Baliozko kontuek eskuragarri jarraitzen dute. Aldaketa gehiago egin aurretik, kontuan hartu babeskopia bat sortzea.",
+      "removeConfirmTitle": "Kontua kendu?",
+      "removeConfirmWebTitle": "Kontua kendu?",
+      "removeButton": "Kendu",
+      "clearButton": "Garbitu dena",
+      "clearConfirmTitle": "Kontu guztiak garbitu?",
+      "saveErrorBody": "Ezin izan dira gorde kontuak. Egiaztatu arakatzailearen biltegiratzeko erabilgarritasuna eta saiatu berriro.",
+      "notFoundTitle": "Ez da kontua aurkitu",
+      "notFoundBody": "Ezin izan da kontu hau aurkitu. Itxi editorea eta saiatu berriro.",
+      "removeConfirmBody": "Honek kontua eta bere sekretua kentzen ditu gailu honetatik.",
+      "clearConfirmBody": "Honek behin betiko kentzen ditu autentifikatzaileen kontu guztiak eta haien sekretuak gailu honetatik. Sortu enkriptatutako babeskopia bat lehenik gero kontu hauek behar badituzu.",
+      "clearConfirmUndoBody": "Hau ezin da desegin."
+    },
+    "biometric": {
+      "cancelButton": "Utzi",
+      "saveErrorTitle": "Ezin izan da ezarpena gorde",
+      "unlockPrompt": "Desblokeatu KaalKey autentifikatzailea",
+      "promptSubtitle": "Erabili biometria edo gailuaren pantailaren blokeoa",
+      "disableConfirmPrompt": "Berretsi KaalKey aplikazioaren blokeoa desaktibatzen duzula",
+      "enablePrompt": "Gaitu KaalKey aplikazioaren blokeoa",
+      "deviceLockTitle": "Konfiguratu gailuaren pantailaren blokeoa",
+      "deviceLockBody": "KaalKey zure telefonoaren autentifikazio integratua erabiltzen du. Ezarri gailu bat PIN, eredua edo pasahitza telefonoaren segurtasun-ezarpenetan, eta saiatu berriro. Biometria aukerakoa da.",
+      "unavailableTitle": "Gailuaren autentifikazioa ez dago erabilgarri",
+      "unavailableBody": "Zure telefonoak ezin izan du autentifikazio segurua hasi. Egiaztatu gailuaren pantailaren blokeoa konfiguratuta dagoela, eta saiatu berriro.",
+      "lockedTitle": "Autentifikazioa aldi baterako blokeatuta dago",
+      "lockedBody": "Telefonoak autentifikazioa aldi baterako desgaitu du saiakera gehiegi egin ondoren. Itxaron eta saiatu berriro.",
+      "promptErrorTitle": "Autentifikazioa ez dago erabilgarri",
+      "promptErrorBody": "KaalKey ezin izan da telefonoaren autentifikazio segurua abiarazi. Mesedez, saiatu berriro.",
+      "webLock": "Gailuaren autentifikazio-blokeoa ez dago eskuragarri web bertsioan oraindik. Web gangak desblokeatuta jarraitzen du; erabili Android aplikazioa jatorrizko gailuen autentifikaziorako.",
+      "disabledTitle": "Aplikazioen blokeoa desgaituta dago",
+      "disabledBody": "KaalKey aplikazioaren blokeoa desaktibatu da.",
+      "disableSaveError": "Aplikazioaren blokeoak gaituta jarraitzen du. Mesedez, saiatu berriro.",
+      "enabledTitle": "Aplikazioen blokeoa gaituta dago",
+      "enabledBody": "KaalKey-k zure telefonoaren autentifikazio integratua eskatuko du irekitzean eta bertara itzultzen zarenean.",
+      "enableSaveError": "Ezin izan da gaitu aplikazioen blokeoa. Mesedez, saiatu berriro."
+    },
+    "qr": {
+      "startingCamera": "Kamera abiarazten…",
+      "unsupportedTitle": "Onartzen ez den QR kodea",
+      "unsupportedBody": "Eskaneatu zerbitzuak emandako autentifikatzailearen konfigurazio QR kodea. Honek TOTP kodea izan behar du, ez saioa hasteko QR kodea.",
+      "unsupportedDiagnostic": "QR hori ez da TOTP konfigurazio-kode bat. Helburua QR autentifikatzaileen konfigurazioa.",
+      "detectedDiagnostic": "QR detektatu da. Aztertzen…",
+      "analyzing": "QR kodea aztertzen…",
+      "duplicateTitle": "Kontua dagoeneko gehitu da",
+      "duplicateBody": "{issuer}: {account} KaalKey-n dago jada.",
+      "addedTitle": "Kontua gehitu da",
+      "addedBody": "{issuer}: {account} behar bezala gehitu da.",
+      "saveFailedDiagnostic": "Ezin izan da kontua gorde. Berriro eskaneatu dezakezu.",
+      "invalidTitle": "QR kode baliogabea",
+      "invalidBody": "KaalKey ezin izan da QR kode autentifikatzaile hau analizatu. {detail}. Erabili zerbitzuaren TOTP konfigurazio QR kodea (normalean {prefix}rekin hasten da).",
+      "parseFailedDiagnostic": "Ezin izan da QR prozesatu. Helburua QR konfigurazioa eta saiatu berriro.",
+      "invalidUrlTitle": "TOTP URL baliogabea",
+      "invalidUrlBody": "Itsatsi URL autentifikatzaile osoa {prefix}rekin hasita.",
+      "clipboardEmptyTitle": "Arbela hutsik dago",
+      "clipboardEmptyBody": "Kopiatu {prefix} URL bat lehenik, eta, ondoren, sakatu Itsatsi TOTP URL.",
+      "clipboardErrorTitle": "Ezin izan da arbela irakurri",
+      "clipboardErrorBody": "Kopiatu TOTP URL konfigurazioa eta saiatu berriro."
+    },
+    "haptics": {
+      "saveFailedTitle": "Ezin izan da ezarpena gorde",
+      "saveFailedBody": "Ezin izan da gorde iradokizun haptikoaren hobespena. Mesedez, saiatu berriro."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Ezin izan da aitorpena gorde",
+      "saveFailedBody": "Mesedez, saiatu berriro. KaalKey erabili aurretik, legezko oharra onartu behar duzu."
+    },
+    "cameraPermission": {
+      "title": "Kameraren baimena behar da",
+      "body": "Baimendu kamera sarbidea autentifikatzailearen konfigurazio QR kodea eskaneatzeko."
+    },
+    "storage": {
+      "browserUnavailable": "Arakatzailearen biltegiratzea ez dago erabilgarri.",
+      "browserFilePickerUnavailable": "Arakatzailearen fitxategi-hautatzailea ez dago erabilgarri."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Onartu gabeko fitxategia",
+      "unsupportedFileBody": "Aukeratu QR kode-irudi bat, hala nola PNG edo JPEG.",
+      "browserDecoderUnavailable": "Arakatzailearen irudiak deskodetzea ez dago erabilgarri",
+      "imageLoadFailed": "Ezin izan da irudia kargatu",
+      "unreadableDimensions": "Irudiak ez du dimentsio irakurgarririk",
+      "noQrCodeFoundTitle": "Ez da QR koderik aurkitu",
+      "noQrCodeFoundBody": "KaalKey ezin izan da QR koderik deskodetu irudi honetan. Saiatu pantaila-argazkia edo bereizmen handiagoko PNG/JPEG batekin.",
+      "couldNotReadImageTitle": "Ezin izan da irudia irakurri",
+      "couldNotReadImageBody": "Saiatu PNG edo JPEG irudi argi bat autentifikatzailearen konfigurazio QR kodea duen.",
+      "couldNotOpenPickerTitle": "Ezin izan da ireki irudi-hautatzailea",
+      "couldNotOpenPickerBody": "Mesedez, saiatu berriro Kargatu QR.",
+      "normalizedDecodeFailed": "Ezin izan da deskodetu irudi normalizatua",
+      "clipboardImageLoadFailed": "Ezin izan da arbeleko irudia kargatu",
+      "imageProcessingUnavailable": "Irudiak prozesatzea ez dago erabilgarri",
+      "imageProcessingUnavailableAlt": "Irudien prozesamendua ez dago erabilgarri",
+      "noImageInClipboardTitle": "Ez dago irudirik arbelean",
+      "noImageInClipboardBody": "Kopiatu QR kode-irudia eta, ondoren, sakatu Itsatsi QR irudia berriro.",
+      "clipboardUnavailableTitle": "Arbela ez dago erabilgarri",
+      "clipboardUnavailableBody": "Arbeleko testua ez da URL autentifikatzailearen konfigurazio baliozkoa. Kopiatu otpauth:// URL edo QR irudi bat eta saiatu berriro.",
+      "clipboardAccessBody": "KaalKey-k ezin izan du arbeleko testurik edo irudirik irakurri. Eman arbelerako sarbidea, ondoren kopiatu QR irudia edo otpauth:// URL eta sakatu Itsatsi QR irudia / URL berriro.",
+      "couldNotPasteImageTitle": "Ezin izan da irudia itsatsi",
+      "couldNotPasteImageBody": "Arbel honek ez du onartzen gailu honetan irudiak itsatsi. Erabili Inportatu QR irudia ordez.",
+      "sourceImageDecodeFailure": "Probatu beste QR irudi bat.",
+      "pastedImportFailureBody": "Probatu beste QR irudi bat.",
+      "sourceImageReadFailure": "Saiatu QR pantaila-argazki argia kopiatzen.",
+      "importFailedTitle": "QR irudiaren inportazioa huts egin du",
+      "importFailedBody": "KaalKey ezin izan du irudi hori irakurri. Mesedez, saiatu beste QR kode-irudi bat.",
+      "notFoundBody": "Kopiatutako irudiak ez du QR kode irakurgarririk.",
+      "pastedNotFoundBody": "Itsatsitako irudiak ez du QR kode irakurgarririk.",
+      "pastedReadFailureBody": "Saiatu PNG edo JPEG kode osoa duen PNG irudi argia kopiatzen.",
+      "noQrCodeTextBody": "KaalKey-k hautatutako irudia deskodetu du, baina ez du QR koderik aurkitu. Saiatu bereizmen osoko PNG edo JPEG bat kode osoa ikusgai dagoela."
+    },
+    "totpImport": {
+      "invalidTotpCode": "QR kode hau ez da denboran oinarritutako autentifikazio-kode bat.",
+      "missingAccountDetails": "QR kodeari kontuaren xehetasunak falta zaizkio.",
+      "unsupportedAlgorithm": "QR kodeak onartzen ez den algoritmo bat erabiltzen du.",
+      "unsupportedDigits": "QR kode honek 6, 7 edo 8 digitu erabili behar ditu.",
+      "unsupportedPeriod": "QR kode honek onartzen ez den denbora-tarte bat erabiltzen du.",
+      "invalidAccount": "Ezin izan da QR kodea balioztatu."
+    },
+    "backup": {
+      "invalidJson": "Babeskopia fitxategiak ez du balio JSON.",
+      "unsupportedFormat": "Hau ez da KaalKey enkriptatutako babeskopia onartzen.",
+      "invalidPasswordOrDamaged": "Backup pasahitza okerra da edo babeskopia fitxategia hondatuta dago.",
+      "invalidContents": "Babeskopiako edukiak baliogabeak edo osatu gabeak dira.",
+      "secureRandomUnavailableDetailed": "Ausazko sorkuntza segurua ez dago erabilgarri. Berreraiki eta berriro instalatu Android aplikazioa expo-crypto barne duela, eta saiatu berriro.",
+      "invalidAccountDataForBackup": "Kontu bat edo gehiago baliogabeak dira. Konpondu kontuko datuak babeskopia sortu aurretik.",
+      "invalidPasswordOrModified": "Backup pasahitza okerra da edo babeskopia fitxategia aldatu egin da.",
+      "invalidPasswordOrFileDamaged": "Backup pasahitza okerra da edo fitxategia hondatuta dago.",
+      "passwordCopiedTitle": "Pasahitza kopiatu da",
+      "enterPasswordTitle": "Sartu zure babeskopiko pasahitza",
+      "enterPasswordBody": "Sartu babeskopia hau sortu zenean erabilitako pasahitza.",
+      "passwordCopiedBody": "Gorde leku seguru batean, adibidez, WhatsApp.",
+      "copyFailedTitle": "Ezin izan da kopiatu",
+      "copyFailedBody": "Hautatu eta kopiatu pasahitza eskuz.",
+      "generatingPassword": "Babeskopiako pasahitz segurua sortzen…",
+      "encrypting": "Babeskopia enkriptatzen…",
+      "decrypting": "Babeskopia deszifratzen…",
+      "restoring": "Kontuak leheneratzen…",
+      "backupCreatedTitle": "Sortu da babeskopia",
+      "restoreCompleteTitle": "Berreskuratu osatuta",
+      "mergeConfirmTitle": "Babeskopia-kontuak bateratu?",
+      "mergeConfirmButton": "Kontuak bateratu",
+      "backupSavedTemporary": "Enkriptatutako babeskopia aldi baterako gorde da: \n{uri}",
+      "generatePasswordErrorTitle": "Ezin izan da kopiako pasahitza sortu",
+      "secureRandomUnavailable": "Ausazko sorkuntza segurua ez dago erabilgarri.",
+      "passwordUnavailableTitle": "Babeskopia pasahitza ez dago erabilgarri",
+      "passwordUnavailableBody": "Itxi elkarrizketa-koadro hau eta sortu babeskopia berri bat pasahitz seguru bat sortzeko.",
+      "backupDownloadedBody": "Zure KaalKey enkriptatutako babeskopia deskargatu da. Mantendu fitxategia eta pasahitza pribatuak.",
+      "backupFailedTitle": "Babeskopia egiteak huts egin du",
+      "backupCreateErrorBody": "KaalKey ezin izan da babeskopia sortu.",
+      "restoreFailedTitle": "Berreskuratu huts egin du",
+      "backupReadErrorBody": "Ezin izan da babeskopia irakurri edo gorde.",
+      "browserDownloadUnsupported": "Zure arakatzaileak ez du onartzen babeskopia fitxategiak deskargatzea.",
+      "localFileUnavailable": "Fitxategi lokalen kokapena ez dago erabilgarri gailu honetan.",
+      "saveBackupTitle": "Gorde enkriptatutako KaalKey babeskopia"
+    },
+    "clipboard": {
+      "copiedTitle": "Kodea kopiatu da",
+      "copiedBody": "Zure egiaztapen-kodea kopiatu da.",
+      "errorTitle": "Errorea",
+      "errorBody": "Ezin izan da kopiatu egiaztapen-kodea."
+    },
+    "activity": {
+      "cameraReady": "Kamera prest. Seinalatu autentifikatzailearen QR kodean.",
+      "readingQrImage": "QR irudia irakurtzen…",
+      "importingQrImage": "QR irudia inportatzen…",
+      "importingAccount": "Autentifikatzailearen kontua inportatzen…",
+      "importingPastedImage": "Itsatsitako QR irudia inportatzen…"
+    }
+  },
+  "activity": {
+    "working": "Lanean",
+    "wait": "Mesedez, itxaron...",
+    "donTClose": "Mesedez, ez itxi edo ez interaktu KaalKey-rekin.",
+    "loadingLanguages": "Eskuragarri dauden hizkuntzak kargatzen…",
+    "loadingTranslation": "Itzulpena kargatzen…"
+  }
+}

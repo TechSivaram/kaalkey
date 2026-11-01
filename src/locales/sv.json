@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Språk",
+      "description": "Välj det språk som används i KaalKey.",
+      "english": "engelska",
+      "telugu": "Telugu",
+      "hindi": "hindi",
+      "section": "SPRÅK",
+      "searchLanguageName": "Sökspråk (namn eller kod)",
+      "searchSupportedLanguages": "Sök efter språk som stöds",
+      "closeLanguageDropdown": "Stäng rullgardinsmenyn för språk",
+      "noTranslatedLanguage": "Inget översatt språk hittades.",
+      "serverUrl": "Översättningsserver URL",
+      "serverUrlDescription": "KaalKey laddar ner språklistan och översättningarna från denna server.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Spara översättningsserver"
+    },
+    "title": "Appinställningar",
+    "eyebrow": "KAALKEY PREFERENSER",
+    "experience": {
+      "section": "ERFARENHET"
+    },
+    "security": {
+      "section": "SÄKERHET"
+    },
+    "backup": {
+      "section": "SÄKERHETSKOPIERING & ÅTERSTÄLLNING"
+    },
+    "danger": {
+      "section": "RISKZON",
+      "clearAccounts": "Rensa alla konton",
+      "clearAccountsDescription": "Ta bort alla konton och hemligheter permanent från den här enheten. Säkerhetskopiera först.",
+      "clearAccountsAccessibilityLabel": "Rensa alla autentiseringskonton"
+    },
+    "appearance": {
+      "section": "UTSEENDE",
+      "title": "Lätt utseende",
+      "description": "KaalKey använder för närvarande sitt rena ljus-tema."
+    },
+    "haptics": {
+      "title": "Haptisk feedback",
+      "description": "Skonsam feedback för tryckningar och genomförda åtgärder."
+    },
+    "deviceLock": {
+      "title": "Lås för enhetsautentisering",
+      "description": "Ditt valv låser sig när KaalKey lämnar förgrunden.",
+      "requirement": "Kräv din telefons biometri eller skärmlås PIN, mönster eller lösenord.",
+      "accessibilityLabel": "Applås för enhetsautentisering"
+    },
+    "privacy": {
+      "title": "Juridik & integritet",
+      "description": "Läs integritetspolicyn och användarvillkoren.",
+      "storageNote": "Dina autentiseringshemligheter stannar i det säkra valvet på enheten. Preferenser lagras lokalt."
+    }
+  },
+  "accounts": {
+    "edit": "Redigera",
+    "sortAccountName": "Sortera efter kontonamn",
+    "loadingSecureVault": "Laddar säkert valv...",
+    "tapCopy": "TRYCK FÖR ATT KOPIERA",
+    "noAccountsMatch": "Inga konton matchar din sökning.",
+    "viewQrCode": "Visa QR kod för konto",
+    "removeAccount": "Ta bort konto",
+    "copyVerificationCode": "Kopiera verifieringskoden",
+    "active": "AKTIV",
+    "sort": "SORTERA EFTER",
+    "account": "konto",
+    "clearSearch": "Rensa sökning",
+    "sortServiceName": "Sortera efter tjänstens namn",
+    "addFirstAccount": "Lägg till ditt första konto",
+    "searchAccounts": "Sök konton",
+    "searchServiceAccount": "Söktjänst eller konto",
+    "accounts": "Dina konton",
+    "add": "+ Lägg till",
+    "vaultStartsHere": "Ditt valv börjar här",
+    "service": "Service",
+    "emptyHint": "Lägg till ett konto med dess hemliga nyckel för att generera din första verifieringskod."
+  },
+  "common": {
+    "done": "Klart",
+    "doneButton": "Klart",
+    "closeSettings": "Stäng inställningarna",
+    "separator": "-",
+    "article": "a",
+    "save": "Spara",
+    "delete": "Ta bort",
+    "resizeAppBrand": "Ändra storlek på app- och varumärkespaneler"
+  },
+  "qrImport": {
+    "readPastedImage": "Kunde inte läsa inklistrad bild"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Konton i denna säkerhetskopia: {count}. KaalKey kommer att behålla dina befintliga konton och lägga till alla konton som inte redan finns. Dubblettkonton hoppas över.",
+    "restoreCompletionBody": "Tillagda konton: {added}. Dubblettkonton som hoppades över: {skipped}. Dina befintliga konton behölls.",
+    "copyPassword": "Kopiera skapat lösenord",
+    "passwordSafety": "Spara detta lösenord separat (till exempel i WhatsApp). Vem som helst med både",
+    "importAction": "Välj fil och importera",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "SÄKERT VALV",
+    "createBackup": "Skapa backup",
+    "encryptedFile": "Krypterad fil",
+    "restoreBackup": "Återställ säkerhetskopia",
+    "safetyNote": "Säkerhetskopieringar innehåller dina autentiseringshemligheter. KaalKey genererar ett unikt lösenord för varje säkerhetskopia. Spara det separat; KaalKey kan inte återställa det.",
+    "generatingSecurePassword": "Skapar säkert lösenord...",
+    "importFile": "Importera fil",
+    "backupPassword": "BACKUP LÖSENORD",
+    "account": "konto",
+    "accounts": "konton",
+    "exportDescription": "Kryptera alla {count} sparade {accountLabel} till en säkerhetskopia. KaalKey genererar ett unikt lösenord; kopiera och spara den separat från filen.",
+    "restoreDescription": "Välj din KaalKey säkerhetskopia och lösenord. Nya konton kommer att läggas till din befintliga kontolista; befintliga konton förblir som de är.",
+    "enterBackupPassword": "Ange säkerhetskopieringslösenord",
+    "closeBackup": "Stäng säkerhetskopiering",
+    "copyGeneratedBackup": "Kopiera genererat säkerhetskopialösenord",
+    "backupPassword2": "Säkerhetskopieringslösenord",
+    "clearBackupPassword": "Rensa säkerhetskopieringslösenord",
+    "backupFilePassword": "säkerhetskopieringsfil och lösenord kan återställa dina autentiseringskonton.",
+    "encryptShareBackup": "Kryptera och dela säkerhetskopiering"
+  },
+  "home": {
+    "unlockSecurely": "Lås upp säkert",
+    "disableAppLock": "Inaktivera applås",
+    "enableAppLock": "Aktivera applås",
+    "checkingSecureLock": "Kontrollerar dina säkra låsinställningar. Dina koder förblir dolda.",
+    "waitingVerification": "Väntar på verifiering...",
+    "secretsStayStored": "Dina hemligheter förblir lagrade på den här enheten.",
+    "openAppSettings": "Öppna appinställningar",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "Använd telefonens biometri eller skärmlås PIN, mönster eller lösenord för att komma åt dina engångsverifieringskoder.",
+    "localVault": "DITT LOKALA VALV",
+    "codesDeviceControl": "Dina koder. Din enhet. Din kontroll.",
+    "securingVault": "Säkrar ditt valv...",
+    "vaultProtected": "Ditt valv är skyddat",
+    "lock": "LÅS PÅ",
+    "localVault2": "LOKALT VALV",
+    "authenticator": "KAALKEY AUTENTIKER",
+    "tricolourLockEmblem": "KaalKey trefärgat låsemblem",
+    "authenticator2": "AUTENTIKERARE"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Om du väljer att skanna en QR-kod, använder KaalKey kameratillstånd för den åtgärden. Valfri enhetsautentisering och haptisk feedback använder relevanta enhetsfunktioner. Du kan hantera behörigheter i dina enhetsinställningar.",
+        "heading": "2. Behörigheter och enhetsfunktioner"
+      },
+      "backups": {
+        "body": "När du skapar en säkerhetskopia, krypterar KaalKey säkerhetskopian med ett lösenord du väljer. Håll både filen och lösenordet privata och förvara dem säkert. Alla som får filen och dess lösenord kanske kan återställa dina autentiseringskonton. KaalKey kan inte återställa ett glömt säkerhetskopieringslösenord.",
+        "heading": "3. Säkerhetskopieringar"
+      },
+      "security": {
+        "body": "Håll din enhet uppdaterad, skydda den med ett skärmlås och dela inte OTP hemligheter eller säkerhetskopior. Att ta bort appen, rensa dess data eller förlora enheten kan göra lokalt lagrade konton otillgängliga. Upprätthåll en säker säkerhetskopia om du behöver återställning.",
+        "heading": "5. Säkerhet och retention"
+      },
+      "information": {
+        "heading": "1. Information och hemligheter",
+        "body": "KaalKey är en autentiseringsapp. Kontoetiketter och de hemliga värden som behövs för att generera engångskoder är känsliga. Appen är utformad för att lagra kontouppgifter i enhetens säkra lagring. Alla som har tillgång till en olåst enhet eller en exporterad säkerhetskopia kan ha tillgång till känslig information."
+      },
+      "sharing": {
+        "heading": "4. Delning och tredje part",
+        "body": "Säkerhetskopieringsflödet kan använda enhetens delningsark eller filväljare för att spara, överföra eller välja filer. Sekretesspraxiserna för alla appar eller tjänster från tredje part som du väljer styrs av den leverantören. Det här meddelandet gör inte ett allmänt påstående om att din enhet, operativsystem eller valda delningstjänster aldrig behandlar data."
+      },
+      "changes": {
+        "heading": "6. Ändringar och kontakt",
+        "body": "Detta inbäddade meddelande kan komma att revideras i en framtida appversion. För sekretessfrågor, kontakta apputgivaren via den officiella supportkanalen som medföljer appen."
+      },
+      "title": "Sekretesspolicy"
+    },
+    "terms": {
+      "use": {
+        "body": "Du kan använda KaalKey för att generera verifieringskoder för konton som du har behörighet att komma åt. Du ansvarar för att följa tillämpliga lagar och reglerna för de tjänster som du använder autentiseringskoder för.",
+        "heading": "1. Din användning"
+      },
+      "protectAccounts": {
+        "body": "Du ansvarar för att säkra din enhet, autentiseringshemligheter, återställningsmetoder, exporterade säkerhetskopior och säkerhetskopieringslösenord. Dela inte koder eller hemligheter med personer du inte litar på.",
+        "heading": "2. Skydda dina konton"
+      },
+      "availability": {
+        "body": "Funktioner kan ändras mellan utgåvor. Du bör hålla appen uppdaterad och regelbundet verifiera att dina säkerhets- och återställningsarrangemang fungerar.",
+        "heading": "5. Förändringar och tillgänglighet"
+      },
+      "recovery": {
+        "body": "KaalKey kan inte garantera att alla konton kan återställas, att varje QR kod eller konfiguration kommer att vara kompatibel eller att appen fungerar utan avbrott eller fel. Behåll alternativa återställningsmetoder som tillhandahålls av relevant tjänst.",
+        "heading": "3. Ingen återvinningsgaranti"
+      },
+      "advice": {
+        "heading": "4. Inga professionella råd",
+        "body": "Appen är ett verktyg och ger inte juridiska, ekonomiska eller säkerhetsråd om incidentrespons. Om ett konto har äventyrats, följ den berörda tjänstens officiella återställnings- och säkerhetsriktlinjer."
+      },
+      "liability": {
+        "heading": "6. Ansvar och tillämplig lag",
+        "body": "I den utsträckning det är tillåtet enligt gällande lag tillhandahålls appen utan garanti för oavbruten eller felfri drift. Ingenting i dessa villkor utesluter rättigheter eller rättsmedel som inte kan uteslutas lagligt. Eventuella ytterligare begränsningar eller tillämpliga villkor bör granskas av en kvalificerad advokat för utgivarens jurisdiktion innan de släpps."
+      },
+      "title": "Användarvillkor"
+    },
+    "version": "Version",
+    "saving": "Sparar...",
+    "acceptContinue": "Acceptera och fortsätt",
+    "appliesAuthenticator": "Gäller för KaalKey Authenticator",
+    "reviewBothDocuments": "Vänligen granska båda dokumenten innan du använder KaalKey. De ingår i appen och är tillgängliga offline.",
+    "originalMulticolourAuthenticator": "Original flerfärgs KaalKey autentiseringsemblem",
+    "legalPrivacyNotice": "Juridisk och sekretessmeddelande",
+    "legalInformation": "Juridisk information",
+    "reviewSPrivacy": "Läs KaalKeys sekretessinformation och användarvillkor.",
+    "iReadAgree": "Jag har läst och godkänner integritetspolicyn och användarvillkoren."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Håll hela QR-koden synlig. Din hemlighet finns kvar på den här enheten.",
+    "back": "Tillbaka",
+    "turnFlashlightOff": "Stäng av ficklampan",
+    "turnFlashlight": "Slå på ficklampan",
+    "flashlight": "Ficklampa på",
+    "flashlight2": "Ficklampa",
+    "cameraUnavailableOpen": "Kameran är inte tillgänglig. Öppna den här sidan på HTTPS eller localhost och tillåt kameraåtkomst.",
+    "cameraPreviewUnavailable": "Kameraförhandsgranskning är inte tillgänglig. Stäng och öppna skannern igen.",
+    "cameraReadyPoint": "Kameran är klar — rikta den mot hela QR-koden.",
+    "browserCannotProcess": "Den här webbläsaren kan inte bearbeta kameraramar.",
+    "qrCodeDetected": "QR kod upptäckt.",
+    "couldnTRead": "Kunde inte läsa kameraramar. Kontrollera kamerabehörigheter och ladda om den här sidan.",
+    "cameraPermissionDenied": "Kameratillstånd nekad. Tillåt kameraåtkomst i webbläsarinställningarna och öppna sedan skannern igen.",
+    "noCameraWas": "Ingen kamera hittades på den här enheten.",
+    "cameraBusyAnother": "Kameran är upptagen i en annan app eller webbläsarflik.",
+    "startCameraHttps": "Kunde inte starta kameran. Använd HTTPS eller localhost och kontrollera webbläsarbehörigheter.",
+    "qrScannerCamera": "QR förhandsvisning av skannerkamera",
+    "cameraUnavailableCheck": "Kameran är inte tillgänglig. Kontrollera kamerabehörighet och försök igen.",
+    "pointCameraAuthenticator": "Rikta kameran mot autentiseringskoden QR från tjänsten du lägger till.",
+    "backAddAccount": "Tillbaka för att lägga till konto",
+    "secureSetup": "SÄKER INSTÄLLNING",
+    "enterDetailsManually": "Ange detaljer manuellt istället"
+  },
+  "accountForm": {
+    "hideManualEntry": "Dölj manuell inmatning",
+    "secretKeySupplied": "Använd den hemliga nyckeln som tillhandahålls av tjänsten du konfigurerar. Ange aldrig ditt kontolösenord här. Matcha algoritmen, siffran och intervallet med tjänstens installationsinstruktioner.",
+    "updateServiceAccount": "Uppdatera tjänsten, kontonamnet eller hemliga nyckeln.",
+    "secretKeyRead": "Hemlig nyckel, skrivskyddad under redigering",
+    "secretKeyBase32": "Hemlig nyckel i Base32",
+    "digits": "siffror",
+    "seconds": "sekunder",
+    "enterDetailsManually": "ELLER SKRIV IN DETALJER MANUELLT",
+    "enterDetailsManually2": "Ange detaljer manuellt",
+    "serviceAccountName": "Tjänst, kontonamn och hemlig nyckel",
+    "saveChangesSecurely": "Spara ändringar säkert",
+    "saveAccountSecurely": "Spara konto säkert",
+    "serviceIssuer": "Tjänst eller utfärdare",
+    "accountName": "Kontonamn",
+    "secretKey": "Hemlig nyckel",
+    "serviceIssuer2": "SERVICE / UTFÄRDARE",
+    "eGGoogle": "t.ex. Google",
+    "clearServiceIssuer": "Rensa tjänst eller utfärdare",
+    "eGExample": "t.ex. du@exempel.com",
+    "clearAccountName": "Rensa kontonamn",
+    "secretKeyLocked": "HEMLIG NYCKEL (LÅST)",
+    "secretKeyBase322": "HEMLIG NYCKEL (BASE32)",
+    "enterSetupKey": "Ange din inställningsnyckel",
+    "clearSecretKey": "Rensa hemlig nyckel",
+    "otpAlgorithm": "OTP ALGORITM",
+    "otpDigits": "OTP SIFFROR",
+    "refreshIntervalSeconds": "UPPDATERINGSINTERVALL (sekunder)",
+    "otpRefreshInterval": "OTP uppdateringsintervall i sekunder",
+    "closeAccountForm": "Stäng kontoformulär",
+    "totpSetupUrl": "TOTP inställningar URL",
+    "importSetupUrl": "Importinställningar URL",
+    "totpSetupUrl2": "TOTP INSTÄLLNING URL",
+    "accountName2": "KONTONAMN",
+    "addAccount": "Lägg till konto"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Skanna autentiseringskod QR",
+    "setupGuidance": "Skanna en QR-kod för den enklaste installationen, eller ange detaljer manuellt.",
+    "cameraAddAccount": "Använd din kamera för att lägga till ett konto direkt",
+    "scanQrCode2": "Skanna QR koden",
+    "uploadQrImage": "Ladda upp QR bild",
+    "chooseQrScreenshot": "Välj en QR skärmdump från Galleri, Foton eller Filer",
+    "pasteQr": "Klistra in QR bild / URL",
+    "pasteCopiedQr": "Klistra in en kopierad QR bild eller autentiseringsinställning URL",
+    "uploadQrImage2": "Ladda upp QR bild"
+  },
+  "accountQr": {
+    "close": "Stäng",
+    "accountQrCode": "Konto QR kod",
+    "revealQrCode": "Avslöja QR-koden",
+    "exportWarning": "Varning: alla som skannar denna QR-kod kan generera verifieringskoder för detta konto. Avslöja det bara på en betrodd skärm.",
+    "privacyHint": "Håll denna QR-kod privat. Genom att skanna det kopieras kontots autentiseringshemlighet."
+  },
+  "productInfo": {
+    "backupRestore": "Säkerhetskopiera och återställa",
+    "backupRestoreDescription": "Säkerhetskopiera din autentiseringsdata och återställ den när du flyttar till en annan enhet.",
+    "privacyDescription": "Förvara dina verifieringskonton på ett ställe. Använd appens alternativ för säkerhetskopiering, återställning och enhetslås för att hantera din konfiguration på ett ansvarsfullt sätt.",
+    "timeBasedCodes": "Tidsbaserade koder",
+    "generateOneTimeCodes": "Generera roterande engångslösenkoder för dina konton för att slutföra tvåstegsverifiering.",
+    "quickAccountSetup": "Snabb kontoinställning",
+    "quickSetupDescription": "Skanna en autentiseringskod QR eller importera en QR-bild för att lägga till ett konto.",
+    "accountsOnePlace": "Konton på ett ställe",
+    "accountsInOnePlaceDescription": "Håll ihop dina sparade konton och hitta rätt post när det är dags att logga in.",
+    "privateAccountVault": "Privat kontovalv",
+    "privateVaultDescription": "Hantera dina autentiseringsposter lokalt och använd appens tillgängliga enhetslåsningsalternativ.",
+    "easyCodeAccess": "Enkel kodåtkomst",
+    "easyCodeAccessDescription": "Kopiera en aktuell kod eller hantera kontodetaljer genom ett rent, fokuserat gränssnitt.",
+    "authenticatorTechsivaram": "AUTENTICATOR · AV TECHSIVARAM",
+    "mobileAuthenticator": "DIN MOBILA AUTENTIKARE",
+    "tagline": "Ett enklare sätt att hantera din tvåstegsverifiering.",
+    "heroDescription": "En fokuserad autentiseringsupplevelse för tidsbaserade verifieringskoder. Håll kompatibla kontokoder nära till hands med KaalKey för Android.",
+    "timeBasedCodes2": "TIDSBASERADE KODER",
+    "privateDesign": "PRIVAT AV DESIGN",
+    "builtSimpleAuthenticator": "BYGGT FÖR ETT ENKELT ARBETSFLÖDE FÖR Authenticator",
+    "qrSetupTimed": "QR INSTÄLLNING · TIDKODER · KONTOHANTERING",
+    "privacyTitle": "Dina konton. Dina koder. Din kontroll.",
+    "authenticator": "KAALKEY · AUTENTICATOR",
+    "brandBanner": "KaalKey varumärkesbanner",
+    "logo": "KaalKey logotyp"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Avbryt",
+      "storageInvalidTitle": "Lagringsdata ogiltig",
+      "storageInvalidBody": "Sparade kontodata kunde inte läsas säkert.",
+      "storageErrorTitle": "Lagringsfel",
+      "storageErrorBody": "Sparade konton kunde inte läsas in.",
+      "missingTitle": "Saknar information",
+      "missingEditingBody": "Ange tjänstens namn och kontonamn.",
+      "missingBody": "Ange tjänstens namn, kontonamn och hemliga nyckel.",
+      "invalidOtpBody": "Kontrollera Base32 hemlighet, algoritm, siffror och uppdateringsperiod. Hemligheter måste innehålla giltiga Base32 tecken; siffror måste vara {digits} och perioden måste vara {minPeriod}–{maxPeriod} sekunder.",
+      "duplicateBody": "Ett konto med denna tjänst och kontonamn är redan sparat.",
+      "updatedBody": "Ditt konto har uppdaterats.",
+      "addedBody": "Ditt konto har lagts till på ett säkert sätt.",
+      "invalidOtpTitle": "Ogiltiga OTP-inställningar",
+      "duplicateTitle": "Kontot finns redan",
+      "savedTitle": "Kontot har sparats",
+      "invalidSecretTitle": "Ogiltig hemlig nyckel",
+      "invalidSecretBody": "Kontrollera att du har angett en giltig Base32 hemlighet.",
+      "removedTitle": "Kontot har tagits bort",
+      "removedBody": "Kontot och dess hemlighet togs bort från den här enheten.",
+      "clearedTitle": "Konton rensade",
+      "clearedBody": "Alla autentiseringskonton och hemligheter togs bort från den här enheten.",
+      "someSavedAccountsNeedAttentionTitle": "Vissa sparade konton behöver uppmärksamhet",
+      "someSavedAccountsNeedAttentionBody": "{count} ogiltiga kontoposter laddades inte. Giltiga konton förblir tillgängliga. Överväg att skapa en säkerhetskopia innan du gör ytterligare ändringar.",
+      "removeConfirmTitle": "Vill du ta bort kontot?",
+      "removeConfirmWebTitle": "Vill du ta bort kontot?",
+      "removeButton": "Ta bort",
+      "clearButton": "Rensa alla",
+      "clearConfirmTitle": "Rensa alla konton?",
+      "saveErrorBody": "Konton kunde inte sparas. Kontrollera webbläsarens lagringsutrymme och försök igen.",
+      "notFoundTitle": "Kontot hittades inte",
+      "notFoundBody": "Detta konto kunde inte hittas. Stäng redigeraren och försök igen.",
+      "removeConfirmBody": "Detta tar bort kontot och dess hemlighet från den här enheten.",
+      "clearConfirmBody": "Detta tar permanent bort alla autentiseringskonton och deras hemligheter från den här enheten. Skapa en krypterad säkerhetskopia först om du kan behöva dessa konton senare.",
+      "clearConfirmUndoBody": "Detta kan inte ångras."
+    },
+    "biometric": {
+      "cancelButton": "Avbryt",
+      "saveErrorTitle": "Det gick inte att spara inställningen",
+      "unlockPrompt": "Lås upp KaalKey Authenticator",
+      "promptSubtitle": "Använd biometri eller enhetens skärmlås",
+      "disableConfirmPrompt": "Bekräfta för att stänga av KaalKey applås",
+      "enablePrompt": "Aktivera applås för KaalKey",
+      "deviceLockTitle": "Konfigurera enhetens skärmlås",
+      "deviceLockBody": "KaalKey använder telefonens inbyggda autentisering. Ställ in en enhet PIN, mönster eller lösenord i telefonens säkerhetsinställningar och försök sedan igen. Biometri är valfritt.",
+      "unavailableTitle": "Enhetsautentisering är inte tillgänglig",
+      "unavailableBody": "Din telefon kunde inte starta säker autentisering. Kontrollera att ett enhetsskärmlås är konfigurerat och försök sedan igen.",
+      "lockedTitle": "Autentisering tillfälligt låst",
+      "lockedBody": "Din telefon har tillfälligt inaktiverat autentisering efter för många försök. Vänta och försök igen.",
+      "promptErrorTitle": "Autentisering är inte tillgänglig",
+      "promptErrorBody": "KaalKey kunde inte starta telefonens säkra autentiseringsprompt. Försök igen.",
+      "webLock": "Enhetsautentiseringslås är inte tillgängligt i webbversionen ännu. Webvalvet förblir olåst; använd appen Android för inbyggd enhetsautentisering.",
+      "disabledTitle": "Applås inaktiverat",
+      "disabledBody": "KaalKey applås har stängts av.",
+      "disableSaveError": "Applåset förblir aktiverat. Försök igen.",
+      "enabledTitle": "Applås aktiverat",
+      "enabledBody": "KaalKey kommer att begära din telefons inbyggda autentisering när den öppnas och när du återvänder till den.",
+      "enableSaveError": "Applås kunde inte aktiveras. Försök igen."
+    },
+    "qr": {
+      "startingCamera": "Startar kamera...",
+      "unsupportedTitle": "Koden QR som inte stöds",
+      "unsupportedBody": "Skanna koden för autentiseringsinställningar QR som tillhandahålls av tjänsten. Detta måste vara en TOTP-kod, inte en normal inloggningskod QR.",
+      "unsupportedDiagnostic": "Att QR inte är en TOTP inställningskod. Sikta på en autentiseringsinställning QR.",
+      "detectedDiagnostic": "QR upptäckt. Analyserar...",
+      "analyzing": "Analyserar QR-koden...",
+      "duplicateTitle": "Kontot har redan lagts till",
+      "duplicateBody": "{issuer}: {account} finns redan i KaalKey.",
+      "addedTitle": "Konto lagt till",
+      "addedBody": "{issuer}: {account} lades till framgångsrikt.",
+      "saveFailedDiagnostic": "Kunde inte spara kontot. Du kan skanna igen.",
+      "invalidTitle": "Ogiltig QR-kod",
+      "invalidBody": "KaalKey kunde inte analysera denna autentiseringskod QR. {detail}. Använd tjänstens TOTP inställningskod QR (börjar vanligtvis med {prefix}).",
+      "parseFailedDiagnostic": "QR kunde inte behandlas. Sikta på inställningen QR och försök igen.",
+      "invalidUrlTitle": "Ogiltig TOTP URL",
+      "invalidUrlBody": "Klistra in en komplett autentisering URL som börjar med {prefix}.",
+      "clipboardEmptyTitle": "Urklipp är tomt",
+      "clipboardEmptyBody": "Kopiera först en {prefix} URL och tryck sedan på Klistra in TOTP URL.",
+      "clipboardErrorTitle": "Kunde inte läsa urklipp",
+      "clipboardErrorBody": "Kopiera TOTP-inställningen URL och försök igen."
+    },
+    "haptics": {
+      "saveFailedTitle": "Det gick inte att spara inställningen",
+      "saveFailedBody": "Haptisk feedback-inställning kunde inte sparas. Försök igen."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Det gick inte att spara bekräftelsen",
+      "saveFailedBody": "Försök igen. Du måste acceptera det juridiska meddelandet innan du använder KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Kameratillstånd krävs",
+      "body": "Tillåt kameraåtkomst för att skanna en autentiseringskod QR."
+    },
+    "storage": {
+      "browserUnavailable": "Webbläsarlagring är inte tillgänglig.",
+      "browserFilePickerUnavailable": "Webbläsarens filväljare är inte tillgänglig."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Filen stöds inte",
+      "unsupportedFileBody": "Välj en QR kodbild som PNG eller JPEG.",
+      "browserDecoderUnavailable": "Avkodning av webbläsares bild är inte tillgänglig",
+      "imageLoadFailed": "Bilden kunde inte laddas",
+      "unreadableDimensions": "Bilden har inga läsbara mått",
+      "noQrCodeFoundTitle": "Ingen QR kod hittades",
+      "noQrCodeFoundBody": "KaalKey kunde inte avkoda en QR-kod i den här bilden. Prova en skärmdump eller en högre upplösning PNG/JPEG.",
+      "couldNotReadImageTitle": "Kunde inte läsa bilden",
+      "couldNotReadImageBody": "Prova en tydlig PNG eller JPEG bild som innehåller autentiseringskoden QR.",
+      "couldNotOpenPickerTitle": "Det gick inte att öppna bildväljaren",
+      "couldNotOpenPickerBody": "Försök ladda upp QR igen.",
+      "normalizedDecodeFailed": "Normaliserad bild kunde inte avkodas",
+      "clipboardImageLoadFailed": "Urklippsbilden kunde inte laddas",
+      "imageProcessingUnavailable": "Bildbehandling är inte tillgänglig",
+      "imageProcessingUnavailableAlt": "Bildbehandling är inte tillgänglig",
+      "noImageInClipboardTitle": "Ingen bild i urklipp",
+      "noImageInClipboardBody": "Kopiera en QR kodbild och tryck sedan på Klistra in QR bild igen.",
+      "clipboardUnavailableTitle": "Urklipp är inte tillgängligt",
+      "clipboardUnavailableBody": "Urklippstext är inte en giltig autentiseringsinställning URL. Kopiera en otpauth:// URL eller QR-bild och försök igen.",
+      "clipboardAccessBody": "KaalKey kunde inte läsa text eller en bild från urklipp. Tillåt åtkomst till urklipp, kopiera sedan QR-bilden eller otpauth:// URL och tryck på Klistra in QR bild / URL igen.",
+      "couldNotPasteImageTitle": "Det gick inte att klistra in bilden",
+      "couldNotPasteImageBody": "Inklistring av bilder stöds inte av detta urklipp på den här enheten. Använd Importera QR bild istället.",
+      "sourceImageDecodeFailure": "Prova en annan QR bild.",
+      "pastedImportFailureBody": "Prova en annan QR bild.",
+      "sourceImageReadFailure": "Försök att kopiera en tydlig QR skärmdump.",
+      "importFailedTitle": "QR bildimport misslyckades",
+      "importFailedBody": "KaalKey kunde inte läsa den bilden. Försök med en annan QR kodbild.",
+      "notFoundBody": "Den kopierade bilden innehåller ingen läsbar QR-kod.",
+      "pastedNotFoundBody": "Den inklistrade bilden innehåller ingen läsbar QR-kod.",
+      "pastedReadFailureBody": "Försök att kopiera en tydlig PNG eller JPEG bild som innehåller hela QR-koden.",
+      "noQrCodeTextBody": "KaalKey avkodade den valda bilden men hittade ingen QR-kod. Prova en tydlig, full upplösning PNG eller JPEG med hela koden synlig."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Denna QR-kod är inte en tidsbaserad autentiseringskod.",
+      "missingAccountDetails": "QR-koden saknar kontouppgifter.",
+      "unsupportedAlgorithm": "Koden QR använder en algoritm som inte stöds.",
+      "unsupportedDigits": "Denna QR-kod måste ha 6, 7 eller 8 siffror.",
+      "unsupportedPeriod": "Denna QR-kod använder en tidsperiod som inte stöds.",
+      "invalidAccount": "QR-koden kunde inte valideras."
+    },
+    "backup": {
+      "invalidJson": "Säkerhetskopieringsfilen är inte giltig JSON.",
+      "unsupportedFormat": "Detta är inte en KaalKey krypterad säkerhetskopia som stöds.",
+      "invalidPasswordOrDamaged": "Säkerhetskopieringslösenordet är felaktigt eller så är säkerhetskopian skadad.",
+      "invalidContents": "Säkerhetskopieringsinnehållet är ogiltigt eller ofullständigt.",
+      "secureRandomUnavailableDetailed": "Säker slumpmässig generering är inte tillgänglig. Bygg om och installera om appen Android med expo-crypto inkluderad och försök sedan igen.",
+      "invalidAccountDataForBackup": "Ett eller flera konton är ogiltiga. Fixa kontodata innan du skapar en säkerhetskopia.",
+      "invalidPasswordOrModified": "Säkerhetskopieringslösenordet är felaktigt eller så har säkerhetskopieringsfilen ändrats.",
+      "invalidPasswordOrFileDamaged": "Säkerhetskopieringslösenordet är felaktigt eller filen är skadad.",
+      "passwordCopiedTitle": "Lösenordet har kopierats",
+      "enterPasswordTitle": "Ange ditt säkerhetskopieringslösenord",
+      "enterPasswordBody": "Ange lösenordet som användes när denna säkerhetskopia skapades.",
+      "passwordCopiedBody": "Spara den på ett säkert ställe, till exempel WhatsApp.",
+      "copyFailedTitle": "Kopieringen misslyckades",
+      "copyFailedBody": "Välj och kopiera lösenordet manuellt.",
+      "generatingPassword": "Skapar säkert säkerhetskopieringslösenord...",
+      "encrypting": "Krypterar säkerhetskopiering...",
+      "decrypting": "Dekrypterar säkerhetskopiering...",
+      "restoring": "Återställer konton...",
+      "backupCreatedTitle": "Säkerhetskopiering skapad",
+      "restoreCompleteTitle": "Återställningen är klar",
+      "mergeConfirmTitle": "Slå ihop säkerhetskopierade konton?",
+      "mergeConfirmButton": "Slå samman konton",
+      "backupSavedTemporary": "Krypterad säkerhetskopia sparad tillfälligt på:\n{uri}",
+      "generatePasswordErrorTitle": "Det gick inte att skapa säkerhetskopieringslösenord",
+      "secureRandomUnavailable": "Säker slumpmässig generering är inte tillgänglig.",
+      "passwordUnavailableTitle": "Säkerhetskopieringslösenordet är inte tillgängligt",
+      "passwordUnavailableBody": "Stäng den här dialogrutan och skapa en ny säkerhetskopia för att skapa ett säkert lösenord.",
+      "backupDownloadedBody": "Din krypterade KaalKey säkerhetskopia har laddats ner. Håll filen och lösenordet privata.",
+      "backupFailedTitle": "Säkerhetskopieringen misslyckades",
+      "backupCreateErrorBody": "KaalKey kunde inte skapa säkerhetskopian.",
+      "restoreFailedTitle": "Återställningen misslyckades",
+      "backupReadErrorBody": "Säkerhetskopieringen kunde inte läsas eller sparas.",
+      "browserDownloadUnsupported": "Din webbläsare stöder inte nedladdning av säkerhetskopior.",
+      "localFileUnavailable": "En lokal filplats är inte tillgänglig på den här enheten.",
+      "saveBackupTitle": "Spara din krypterade KaalKey säkerhetskopia"
+    },
+    "clipboard": {
+      "copiedTitle": "Koden kopierad",
+      "copiedBody": "Din verifieringskod har kopierats.",
+      "errorTitle": "Fel",
+      "errorBody": "Det gick inte att kopiera verifieringskoden."
+    },
+    "activity": {
+      "cameraReady": "Kameran är klar. Rikta den mot autentiseringskoden QR.",
+      "readingQrImage": "Läser QR bild...",
+      "importingQrImage": "Importerar QR bild...",
+      "importingAccount": "Importerar autentiseringskonto...",
+      "importingPastedImage": "Importerar inklistrad QR bild..."
+    }
+  },
+  "activity": {
+    "working": "Arbetar",
+    "wait": "Vänligen vänta...",
+    "donTClose": "Stäng inte eller interagera inte med KaalKey.",
+    "loadingLanguages": "Laddar tillgängliga språk...",
+    "loadingTranslation": "Laddar översättning..."
+  }
+}

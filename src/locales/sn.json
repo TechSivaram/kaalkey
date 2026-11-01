@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Mutauro",
+      "description": "Sarudza mutauro unoshandiswa mu KaalKey.",
+      "english": "English",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "MUTAURO",
+      "searchLanguageName": "Tsvaga mutauro (zita kana kodhi)",
+      "searchSupportedLanguages": "Tsvaga mitauro inotsigirwa",
+      "closeLanguageDropdown": "Vhara kudonhedza mutauro",
+      "noTranslatedLanguage": "Hapana mutauro wakaturikirwa wawanikwa.",
+      "serverUrl": "Sevha yekushandura URL",
+      "serverUrlDescription": "KaalKey dhaunirodha rondedzero yemitauro neshanduro kubva pane ino.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Sevha sevha yeshanduro"
+    },
+    "title": "Zvirongwa zveApp",
+    "eyebrow": "KAALKEY ZVINODA",
+    "experience": {
+      "section": "ZVAKAITIKA"
+    },
+    "security": {
+      "section": "KUCHENGETEKA"
+    },
+    "backup": {
+      "section": "negadziriro yeparutivi & KUDZORERA"
+    },
+    "danger": {
+      "section": "DANGER ZONE",
+      "clearAccounts": "Bvisa maakaundi ese",
+      "clearAccountsDescription": "Bvisa zvachose account nechakavanzika kubva pamudziyo uyu. Chengetedza tanga.",
+      "clearAccountsAccessibilityLabel": "Bvisa maakaundi ese echokwadi"
+    },
+    "appearance": {
+      "section": "KUONEKWA",
+      "title": "Chitarisiko chakareruka",
+      "description": "KaalKey parizvino inoshandisa dingindira rechiedza chakachena."
+    },
+    "haptics": {
+      "title": "Haptic mhinduro",
+      "description": "Mhinduro nyoro yematepi uye zviito zvakapedzwa."
+    },
+    "deviceLock": {
+      "title": "Device authentication lock",
+      "description": "Vault yako inokiya kana KaalKey ichibva kumberi.",
+      "requirement": "Inoda biometric yefoni yako kana kukiya skrini PIN, patani, kana password.",
+      "accessibilityLabel": "Device authentication app lock"
+    },
+    "privacy": {
+      "title": "Zvemutemo & zvakavanzika",
+      "description": "Ongorora iyo Yakavanzika Policy uye Mitemo Yekushandisa.",
+      "storageNote": "Zvakavanzika zvako zveuthenticator zvinogara mu-on-device yakachengeteka vault. Zvaanofarira zvinochengetwa munzvimbo."
+    }
+  },
+  "accounts": {
+    "edit": "Edit",
+    "sortAccountName": "Ronga nezita reakaundi",
+    "loadingSecureVault": "Kurodha vault yakachengeteka...",
+    "tapCopy": "TINA KUTI UKOPE",
+    "noAccountsMatch": "Hapana maakaundi anoenderana netsvakiridzo yako.",
+    "viewQrCode": "Ona QR kodhi yeakaundi",
+    "removeAccount": "Bvisa account",
+    "copyVerificationCode": "Kopa kodhi yekusimbisa",
+    "active": "ACTIVE",
+    "sort": "RONGA NE",
+    "account": "Account",
+    "clearSearch": "Bvisa kutsvaga",
+    "sortServiceName": "Ronga nezita rebasa",
+    "addFirstAccount": "Wedzera account yako yekutanga",
+    "searchAccounts": "Tsvaga maakaundi",
+    "searchServiceAccount": "Sevhisi yekutsvaga kana account",
+    "accounts": "Maakaundi ako",
+    "add": "+ Wedzera",
+    "vaultStartsHere": "Vault yako inotangira pano",
+    "service": "Service",
+    "emptyHint": "Wedzera account uchishandisa kiyi yakavanzika kugadzira yako yekutanga kodhi kodhi."
+  },
+  "common": {
+    "done": "Ndapedza",
+    "doneButton": "Ndapedza",
+    "closeSettings": "Vhara zvigadziriso",
+    "separator": "-",
+    "article": "a",
+    "save": "Sevha",
+    "delete": "Delete",
+    "resizeAppBrand": "Resize app uye brand mapaneru"
+  },
+  "qrImport": {
+    "readPastedImage": "Hatina kukwanisa kuverenga mufananidzo wakanamirwa"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Maakaundi mune iyi backup: {count}. KaalKey achachengeta maakaundi ako aripo uye nekuwedzera chero akaundi asipo. Maakaundi akadzokororwa acharambwa.",
+    "restoreCompletionBody": "Maakaundi akawedzerwa: {added}. Maakaundi akapetwa akadarikwa: {skipped}. Maakaundi ako aripo akachengetwa.",
+    "copyPassword": "Kopa password yakagadzirwa",
+    "passwordSafety": "Sevha password iyi zvakasiyana (semuenzaniso, muWhatsApp). Chero ani ane zvese",
+    "importAction": "Sarudza faira uye pinza",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "SECURE VAULT",
+    "createBackup": "Gadzira backup",
+    "encryptedFile": "Encrypted file",
+    "restoreBackup": "Dzorera backup",
+    "safetyNote": "Backups ine zvakavanzika zvako zveuthenticator. KaalKey inogadzira password yakasarudzika kune yega yega. Zviponese zvakasiyana; KaalKey haikwanise kuidzorera.",
+    "generatingSecurePassword": "Kugadzira password yakachengeteka…",
+    "importFile": "Import faira",
+    "backupPassword": "BACKUP PASSWORD",
+    "account": "account",
+    "accounts": "accounts",
+    "exportDescription": "Nyora zvese {count} zvakachengetwa {accountLabel} mufaira rekuchengetedza. KaalKey inogadzira password yakasiyana; kopira uye chengetedza zvakasiyana kubva pafaira.",
+    "restoreDescription": "Sarudza yako KaalKey faira rekuchengetedza uye password. Maakaundi matsva achawedzerwa kune yako iripo account runyorwa; maakaundi aripo acharamba sezvaari.",
+    "enterBackupPassword": "Isa password yekuchengetedza",
+    "closeBackup": "Vhara backup",
+    "copyGeneratedBackup": "Kopa password inogadzirwa",
+    "backupPassword2": "Chengetedza password",
+    "clearBackupPassword": "Bvisa password password",
+    "backupFilePassword": "backup faira nepassword zvinogona kudzoreredza ako authenticator account.",
+    "encryptShareBackup": "Encrypt uye ugovane backup"
+  },
+  "home": {
+    "unlockSecurely": "Kiinura zvakachengeteka",
+    "disableAppLock": "Dzima kukiya kweapp",
+    "enableAppLock": "Vhura kukiya kweapp",
+    "checkingSecureLock": "Kutarisa zvigadziro zvako zvekuvhara zvakachengeteka. Makodhi ako anoramba akavanzwa.",
+    "waitingVerification": "Takamirira kuongororwa…",
+    "secretsStayStored": "Zvakavanzika zvako zvinogara zvakachengetwa pamudziyo uyu.",
+    "openAppSettings": "Vhura zvirongwa zveapp",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "Shandisa biometric yefoni yako kana chidzitiro-kukiya PIN, patani, kana password kuti uwane makodhi ekuongorora ako kamwe chete.",
+    "localVault": "VAULTI YAKO YEMUNO",
+    "codesDeviceControl": "Makodhi ako. Chishandiso chako. Kudzora kwako.",
+    "securingVault": "Kuchengetedza vault yako…",
+    "vaultProtected": "Vault yako yakachengetedzwa",
+    "lock": "KIYA ON",
+    "localVault2": "VAULT YEMUNO",
+    "authenticator": "KAALKEY AUTHENTICATOR",
+    "tricolourLockEmblem": "KaalKey tricolor lock chiratidzo",
+    "authenticator2": "AUTHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Kana ukasarudza kuongorora QR kodhi, KaalKey inoshandisa mvumo yekamera kuita izvozvo. Sarudzo yekusimbisa mudziyo uye haptic mhinduro shandisa zvinoenderana nemudziyo maficha. Iwe unogona kutonga zvibvumirano mumaseting emudziyo wako.",
+        "heading": "2. Mvumo uye zvishandiso zvemidziyo"
+      },
+      "backups": {
+        "body": "Kana ukagadzira backup, KaalKey inovharidzira iyo backup uchishandisa password yaunosarudza. Chengetedza zvese faira nepassword zvakavanzika uye zvichengetedze zvakachengeteka. Chero ani anowana faira uye password yaro anogona kukwanisa kudzoreredza maakaundi ako echokwadi. KaalKey haikwanise kudzoreredza password yakanganwa.",
+        "heading": "3. Backups"
+      },
+      "security": {
+        "body": "Chengetedza mudziyo wako uchivandudzwa, chengetedza nekuvhara skrini, uye usagovane OTP zvakavanzika kana mapassword ekuchengetedza. Kubvisa app, kubvisa data rayo, kana kurasikirwa nemudziyo kunogona kuita kuti maakaunti akachengetwa munharaunda asawanikwe. Chengetedza backup yakachengeteka kana iwe uchida kupora.",
+        "heading": "5. Chengetedzo nekuchengetedza"
+      },
+      "information": {
+        "heading": "1. Ruzivo nezvakavanzika",
+        "body": "KaalKey iapp yechokwadi. Maakaundi mareketi uye zvakavanzika zvakakosha kuti ugadzire makodhi enguva-imwe zvinonzwisisika. Iyo app yakagadzirirwa kuchengetedza marekodhi eakaundi munzvimbo yakachengeteka yemuchina. Chero ani anogona kuwana mudziyo usina kukiiwa kana backup yatumirwa anogona kukwanisa kuwana ruzivo rwakadzama."
+      },
+      "sharing": {
+        "heading": "4. Kugovera uye vechitatu mapato",
+        "body": "Kuyerera kwekuchengetedza kunogona kushandisa shizha remuchina wako kana chinhonga faira kuchengetedza, kutamisa, kana kusarudza mafaera. Maitiro ekuvanzika echero yechitatu-bato app kana sevhisi yaunosarudza inotongwa nemupi iyeye. Ichi chiziviso hachiite chirevo chegumbeze chekuti mudziyo wako, sisitimu yekushandisa, kana masevhisi akasarudzwa ekugovana haambogadzirise data."
+      },
+      "changes": {
+        "heading": "6. Shanduko uye kuonana",
+        "body": "Ichi chiziviso chakamisikidzwa chinogona kuvandudzwa mune ramangwana rekuburitswa kweapp. Pamibvunzo yekuvanzika, bata mushambadziri weapp kuburikidza nechiteshi chepamutemo chekutsigira chakapihwa neapp."
+      },
+      "title": "Privacy Policy"
+    },
+    "terms": {
+      "use": {
+        "body": "Unogona kushandisa KaalKey kugadzira macode ekusimbisa maakaundi awakatenderwa kuwana. Iwe une basa rekutevedzera mitemo inoshanda uye mitemo yemasevhisi aunoshandisa makodhi echokwadi.",
+        "heading": "1. Kushandisa kwako"
+      },
+      "protectAccounts": {
+        "body": "Iwe une basa rekuchengetedza mudziyo wako, zvakavanzika zveuthenticator, nzira dzekudzoreredza, ma backups ekunze, uye mapassword ekuchengetedza. Usagovane macode kana zvakavanzika nevanhu vausingavimbi navo.",
+        "heading": "2. Chengetedza maakaundi ako"
+      },
+      "availability": {
+        "body": "Zvimiro zvinogona kuchinja pakati pekuburitswa. Iwe unofanirwa kuchengetedza iyo app yakagadziridzwa uye nguva nenguva kuona kuti yako backup uye kudzoreredza gadziriro inoshanda.",
+        "heading": "5. Kuchinja uye kuwanikwa"
+      },
+      "recovery": {
+        "body": "KaalKey haigone kuvimbisa kuti account yese inogona kudzoserwa, kuti QR kodhi yega yega kana zvigadziriso zvichaenderana, kana kuti app ichashanda pasina kuvhiringwa kana kukanganisa. Chengetedza dzimwe nzira dzekudzorera dzakapiwa nebasa rakakodzera.",
+        "heading": "3. Hapana vimbiso yekudzorera"
+      },
+      "advice": {
+        "heading": "4. Hapana mazano enyanzvi",
+        "body": "Iyo app ndeyekushandisa uye haipe mutemo, mari, kana kuchengetedza chiitiko-mhinduro. Kana account ikakanganiswa, tevera iyo yakakanganisika sevhisi kudzoreredza uye kuchengetedza gwara."
+      },
+      "liability": {
+        "heading": "6. Mutoro uye mutemo unoshanda",
+        "body": "Kusvika pazvinobvumidzwa nemutemo unoshanda, app inopihwa pasina vimbiso yekusavhiringidzwa kana kukanganisa-isina kushanda. Hapana chinhu mumashoko aya chinosiya kodzero kana mishonga isingagone kubviswa zviri pamutemo. Chero zvimwe zvipimo kana mitemo yekutonga-mutemo inofanira kuongororwa negweta rinokwanisa kune simba remuparidzi asati asunungurwa."
+      },
+      "title": "Mitemo Yekushandisa"
+    },
+    "version": "Version",
+    "saving": "Kuchengeta...",
+    "acceptContinue": "Gamuchira & Ramba",
+    "appliesAuthenticator": "Inoshanda kune KaalKey Authenticator",
+    "reviewBothDocuments": "Ndokumbira utarise zvinyorwa zvese usati washandisa KaalKey. Iwo anosanganisirwa muapp uye anowanikwa kunze kwenyika.",
+    "originalMulticolourAuthenticator": "Original multicolour KaalKey authenticator emblem",
+    "legalPrivacyNotice": "Legal & Privacy Notice",
+    "legalInformation": "Mashoko emutemo",
+    "reviewSPrivacy": "Wongorora KaalKey ruzivo rwekuvanzika uye mazwi ekushandisa.",
+    "iReadAgree": "Ndakaverenga uye ndinobvumirana neChakavanzika Policy uye Mitemo Yekushandisa."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Chengetedza yose QR kodhi ichioneka. Chakavanzika chako chinoramba chiri pamudziyo uyu.",
+    "back": "Back",
+    "turnFlashlightOff": "Dzima tochi",
+    "turnFlashlight": "Batidza tochi",
+    "flashlight": "Tochi yakabatidzwa",
+    "flashlight2": "Tochi",
+    "cameraUnavailableOpen": "Kamera haisipo. Vhura peji rino pa HTTPS kana localhost uye bvumidza kupinda nekamera.",
+    "cameraPreviewUnavailable": "Kuongorora kwekamera hakusipo. Vhara uye vhurazve scanner.",
+    "cameraReadyPoint": "Kamera yakagadzirira — inongedza kuzere QR kodhi.",
+    "browserCannotProcess": "Iri bhurawuza harigone kugadzirisa mafuremu ekhamera.",
+    "qrCodeDetected": "QR kodhi yaonekwa.",
+    "couldnTRead": "Hatina kukwanisa kuverenga mafuremu ekhamera. Tarisa mvumo yekamera uye wodhazve peji rino.",
+    "cameraPermissionDenied": "Mvumo yekamera yarambwa. Bvumira kamera kupinda muzvirongwa zvebrowser, wozovhurazve scanner.",
+    "noCameraWas": "Hapana kamera yawanikwa pamudziyo uyu.",
+    "cameraBusyAnother": "Iyo kamera yakabatikana mune imwe app kana browser tab.",
+    "startCameraHttps": "Kamera yatadza kutanga. Shandisa HTTPS kana localhost uye tarisa mvumo yebrowser.",
+    "qrScannerCamera": "QR tarisisa yekamera ye scanner",
+    "cameraUnavailableCheck": "Kamera haisipo. Tarisa mvumo yekamera woedza zvakare.",
+    "pointCameraAuthenticator": "Nongedza kamera yako paseta yeathenticator QR kodhi kubva kusevhisi yauri kuwedzera.",
+    "backAddAccount": "Dzokera kuwedzera account",
+    "secureSetup": "SECURE SETUP",
+    "enterDetailsManually": "Isa ruzivo iwe pachako"
+  },
+  "accountForm": {
+    "hideManualEntry": "Viga zvinyorwa zvemanyorero",
+    "secretKeySupplied": "Shandisa kiyi yakavanzika inopihwa nesevhisi yauri kugadzirisa. Usafe wakaisa password yeakaundi yako pano. Matanidza algorithm, manhamba, uye kupindirana kune iyo sevhisi mirairo yekuseta.",
+    "updateServiceAccount": "Gadzirisa sevhisi, zita reakaundi, kana kiyi yakavanzika.",
+    "secretKeyRead": "Chakavanzika kiyi, yekuverenga-chete paunenge uchigadzirisa",
+    "secretKeyBase32": "Kiyi yakavanzika mu Base32",
+    "digits": "madijiti",
+    "seconds": "seconds",
+    "enterDetailsManually": "KANA KUPINDA ZVAKAWANDA MAUNO",
+    "enterDetailsManually2": "Isa ruzivo iwe pachako",
+    "serviceAccountName": "Sevhisi, zita reakaundi uye kiyi yakavanzika",
+    "saveChangesSecurely": "Chengetedza shanduko zvakachengeteka",
+    "saveAccountSecurely": "Sevha account zvakachengeteka",
+    "serviceIssuer": "Sevhisi kana mupi",
+    "accountName": "Zita reakaundi",
+    "secretKey": "Chakavanzika kiyi",
+    "serviceIssuer2": "SERVICE / ISSUER",
+    "eGGoogle": "e.g. Google",
+    "clearServiceIssuer": "Bvisa sevhisi kana mupi",
+    "eGExample": "e.g. iwe@example.com",
+    "clearAccountName": "Bvisa zita reakaundi",
+    "secretKeyLocked": "SECRET KEY (KAKAKIYA)",
+    "secretKeyBase322": "KII YESECRET (BASE32)",
+    "enterSetupKey": "Isa kiyi yako yekuseta",
+    "clearSecretKey": "Bvisa kiyi yakavanzika",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP DIGITS",
+    "refreshIntervalSeconds": "REFRESH INTERVAL (SECONDS)",
+    "otpRefreshInterval": "OTP nguva yekuzorodza mumasekonzi",
+    "closeAccountForm": "Vhara fomu reakaundi",
+    "totpSetupUrl": "TOTP setup URL",
+    "importSetupUrl": "Kupinza zvigadziriso URL",
+    "totpSetupUrl2": "TOTP KUGADZIRA URL",
+    "accountName2": "AKAUNTI ZITA",
+    "addAccount": "Wedzera account"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Scan authenticator QR kodhi",
+    "setupGuidance": "Skena QR kodhi kuti uwane iri nyore kuseta, kana isa ruzivo nemaoko.",
+    "cameraAddAccount": "Shandisa kamera yako kuwedzera account ipapo ipapo",
+    "scanQrCode2": "Scan QR kodhi",
+    "uploadQrImage": "Isa QR mufananidzo",
+    "chooseQrScreenshot": "Sarudza mufananidzo QR kubva muGarari, Mapikicha, kana Mafaira",
+    "pasteQr": "Nama QR mufananidzo / URL",
+    "pasteCopiedQr": "Nama mufananidzo wakakopwa QR mufananidzo kana setup yechokwadi URL",
+    "uploadQrImage2": "Isa QR mufananidzo"
+  },
+  "accountQr": {
+    "close": "Close",
+    "accountQrCode": "Akaundi QR kodhi",
+    "revealQrCode": "Zarura QR kodhi",
+    "exportWarning": "Yambiro: ani nani anoongorora iyi QR kodhi anogona kuburitsa macode ekusimbisa eakaundi ino. Zviratidze chete pahwindo rakavimbika.",
+    "privacyHint": "Chengetedza iyi QR kodhi yakavanzika. Kuitarisa kunokopa chakavanzika cheaiti account."
+  },
+  "productInfo": {
+    "backupRestore": "Backup & dzosera",
+    "backupRestoreDescription": "Chengetedza yako authenticator data uye idzorere kana iwe uchienda kune imwe mudziyo.",
+    "privacyDescription": "Chengetedza maakaundi ako ekusimbisa munzvimbo imwechete. Shandisa iyo backup yeapp, dzosera, uye mudziyo-kiyi sarudzo kubata yako setup zvine hungwaru.",
+    "timeBasedCodes": "Nguva-yakavakirwa makodhi",
+    "generateOneTimeCodes": "Gadzira mapasscode enguva imwe chete emaakaundi ako kuti apedze nhanho mbiri dzekuongorora.",
+    "quickAccountSetup": "Kurumidza kuseta account",
+    "quickSetupDescription": "Skena kodhi yechokwadi QR kodhi kana unza mufananidzo QR kuti uwedzere account.",
+    "accountsOnePlace": "Accounts munzvimbo imwe",
+    "accountsInOnePlaceDescription": "Chengetedza maakaundi ako akachengetwa pamwe chete uye tsvaga yekupinda kwayo kana yave nguva yekusaina.",
+    "privateAccountVault": "Yakavanzika account vault",
+    "privateVaultDescription": "Tonga manyorerwo ako echokwadi munharaunda uye shandisa iyo app inowanikwa mudziyo-kiya sarudzo.",
+    "easyCodeAccess": "Easy kodhi kuwana",
+    "easyCodeAccessDescription": "Kopa kodhi yazvino kana maneja account account kuburikidza neakachena, yakatarisana interface.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · BY TECHSIVARAM",
+    "mobileAuthenticator": "YAKO MOBILE ATHENTICATOR",
+    "tagline": "Nzira iri nyore yekugadzirisa yako nhanho-mbiri yekusimbisa.",
+    "heroDescription": "Chiitiko cheuthenticator chakanangana nenguva-based verification codes. Chengeta macode eakaundi anowirirana ari pedyo neKaalKey ye Android.",
+    "timeBasedCodes2": "NGUVA-BASED CODES",
+    "privateDesign": "PRIVATE BY DESIGN",
+    "builtSimpleAuthenticator": "AKAvakwa KUTI ZVINHU ZVINHU ZVINHU ZVINHU ZVINHU ZVINHU ZVINHU ZVINHU ZVINHU ZVINHU ZVAKAITIKA",
+    "qrSetupTimed": "QR KUGADZIRA · TIMED CODES · ACCOUNT MANAGEMENT",
+    "privacyTitle": "Maakaundi ako. Makodhi ako. Kudzora kwako.",
+    "authenticator": "KAALKEY · AUTHENTICATOR",
+    "brandBanner": "KaalKey brand banner",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Cancel",
+      "storageInvalidTitle": "Data yekuchengetera haisiyo",
+      "storageInvalidBody": "Data yeakaundi yakachengetwa yatadza kuverengwa zvisina njodzi.",
+      "storageErrorTitle": "Kukanganisa kwekuchengeta",
+      "storageErrorBody": "Maakaundi akachengetwa haana kukwanisa kurodha.",
+      "missingTitle": "Ruzivo rusipo",
+      "missingEditingBody": "Isa zita rebasa uye zita reakaundi.",
+      "missingBody": "Isa zita rebasa, zita reakaundi, uye kiyi yakavanzika.",
+      "invalidOtpBody": "Tarisa Base32 chakavanzika, algorithm, manhamba kuverenga, uye nguva yekuvandudza. Zvakavanzika zvinofanirwa kunge zvine mavara Base32 manhamba anofanira kuva {digits} uye nguva inofanira kuva {minPeriod}–{maxPeriod} masekonzi.",
+      "duplicateBody": "Akaundi ine sevhisi iyi uye zita reakaundi yakatochengetwa.",
+      "updatedBody": "Akaunti yako yakagadziridzwa.",
+      "addedBody": "Akaunti yako yakawedzerwa zvakachengeteka.",
+      "invalidOtpTitle": "Zvirongwa zvisirizvo OTP",
+      "duplicateTitle": "Account yatovako",
+      "savedTitle": "Akaunti yachengetwa",
+      "invalidSecretTitle": "kiyi yakavanzika haisiriyo",
+      "invalidSecretBody": "Ndokumbira utarise kuti wakaisa chakavanzika Base32 chakavanzika.",
+      "removedTitle": "Akaunti yakabviswa",
+      "removedBody": "Iyo account nezvakavanzika zvayo zvakabviswa mumudziyo uyu.",
+      "clearedTitle": "Maakaundi abviswa",
+      "clearedBody": "Maakaundi ese echokwadi nezvakavanzika zvakabviswa pamudziyo uyu.",
+      "someSavedAccountsNeedAttentionTitle": "Mamwe maakaundi akachengetwa anoda kutariswa",
+      "someSavedAccountsNeedAttentionBody": "{count} marekodhi eakaundi asina kurongeka haana kuiswa. Maakaundi anoshanda achiripo. Funga kugadzira backup usati waita dzimwe shanduko.",
+      "removeConfirmTitle": "Bvisa account?",
+      "removeConfirmWebTitle": "Bvisa account?",
+      "removeButton": "Bvisa",
+      "clearButton": "Bvisa zvese",
+      "clearConfirmTitle": "Bvisa maakaundi ese?",
+      "saveErrorBody": "Maakaundi haana kuchengetwa. Tarisa uone kuwanikwa kwebrowser kuchengetedza uye edza zvakare.",
+      "notFoundTitle": "Akaunti haina kuwanikwa",
+      "notFoundBody": "Akaundi iyi haina kuwanikwa. Vhara mupepeti woedza zvakare.",
+      "removeConfirmBody": "Izvi zvinobvisa account nechakavanzika chayo pamudziyo uyu.",
+      "clearConfirmBody": "Izvi zvinobvisa zvachose akauthenticator accounts nezvakavanzika zvawo kubva pamudziyo uyu. Gadzira yakavharidzirwa backup kutanga kana ungangoda aya maakaundi gare gare.",
+      "clearConfirmUndoBody": "Izvi hazvigone kugadziriswa."
+    },
+    "biometric": {
+      "cancelButton": "Cancel",
+      "saveErrorTitle": "Hatina kukwanisa kuseta",
+      "unlockPrompt": "Vhura KaalKey Authenticator",
+      "promptSubtitle": "Shandisa biometrics kana mudziyo wako kukiya skrini",
+      "disableConfirmPrompt": "Simbisa kudzima KaalKey kiyi yeapp",
+      "enablePrompt": "Gonesa kiyi yeapp ye KaalKey",
+      "deviceLockTitle": "Gadzirisa kiyi yemuchina wako",
+      "deviceLockBody": "KaalKey inoshandisa yakavakirwa-mukati nharembozha yako. Seta mudziyo PIN, patani, kana password mumasetin'i ekuchengetedza foni yako, woedza zvakare. Biometrics ndeyekusarudza.",
+      "unavailableTitle": "Huchokwadi hwemudziyo haupo",
+      "unavailableBody": "Nharembozha yako yatadza kutanga kuita chokwadi chakachengeteka. Tarisa kuti kiyi yemuchina yakagadziridzwa, woedza zvakare.",
+      "lockedTitle": "Huchokwadi hwavharwa kwenguva pfupi",
+      "lockedBody": "Foni yako yadzima kwekanguva mushure mekuedza kwakawanda. Mirira uye edza zvakare.",
+      "promptErrorTitle": "Kusimbisa hakusi kuwanikwa",
+      "promptErrorBody": "KaalKey yatadza kutanga nharembozha yakachengeteka yekuzivisa chokwadi. Ndapota edza zvakare.",
+      "webLock": "Kiyi yehuchokwadi yemudziyo haisati yave kuwanikwa muwebhu vhezheni. Iyo yewebhu vault inoramba yakavhurwa; shandisa Android app yechokwadi chemidziyo yemuno.",
+      "disabledTitle": "App lock yadzimwa",
+      "disabledBody": "KaalKey app kiyi yakadzimwa.",
+      "disableSaveError": "Iyo kiyi yeapp inoramba yakabatidzwa. Ndapota edza zvakare.",
+      "enabledTitle": "App lock yabatidzwa",
+      "enabledBody": "KaalKey ichakumbira kuti nharembozha yako iite chokwadi kana yavhurwa uye paunodzokera kwairi.",
+      "enableSaveError": "App lock yatadza kugoneswa. Ndapota edza zvakare."
+    },
+    "qr": {
+      "startingCamera": "Kutanga kamera...",
+      "unsupportedTitle": "Haisi kutsigirwa QR kodhi",
+      "unsupportedBody": "Skena seta yeathenticator QR kodhi inounzwa nesevhisi. Iyi inofanira kunge iri TOTP kodhi, kwete kodhi yakajairika QR kodhi.",
+      "unsupportedDiagnostic": "Iyo QR haisi TOTP setup code. Vangisa pakuseta kweuthenticator QR.",
+      "detectedDiagnostic": "QR yaonekwa. Kuongorora…",
+      "analyzing": "Kuongorora QR kodhi…",
+      "duplicateTitle": "Account yatowedzerwa",
+      "duplicateBody": "{issuer}: {account} yatova muKaalKey.",
+      "addedTitle": "Account yakawedzerwa",
+      "addedBody": "{issuer}: {account} yakawedzerwa zvinobudirira.",
+      "saveFailedDiagnostic": "Hatina kukwanisa kuchengetedza account. Unogona kuongorora zvakare.",
+      "invalidTitle": "Kodhi haisiyo QR",
+      "invalidBody": "KaalKey haina kukwanisa kufambisa kodhi iyi yechokwadi QR kodhi. {detail}. Shandisa TOTP kuseta QR kodhi (kazhinji inotanga na{prefix}).",
+      "parseFailedDiagnostic": "QR yatadza kugadziriswa. Vangisa pakuseta QR woedza zvakare.",
+      "invalidUrlTitle": "Hazvishande TOTP URL",
+      "invalidUrlBody": "Namata chibatiso chakazara URL uchitanga na{prefix}.",
+      "clipboardEmptyTitle": "Clipboard haina chinhu",
+      "clipboardEmptyBody": "Kopa {prefix} URL kutanga, wobva wadzvanya Namira TOTP URL.",
+      "clipboardErrorTitle": "Hatina kukwanisa kuverenga clipboard",
+      "clipboardErrorBody": "Kopa TOTP setup URL woedza zvakare."
+    },
+    "haptics": {
+      "saveFailedTitle": "Hatina kukwanisa kuseta",
+      "saveFailedBody": "Haptic mhinduro haina kukwanisa kuchengetwa. Ndapota edza zvakare."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Hatina kukwanisa kuchengetedza chibvumirano",
+      "saveFailedBody": "Ndapota edza zvakare. Unofanira kugamuchira chiziviso chepamutemo usati washandisa KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Mvumo yekamera inodiwa",
+      "body": "Bvumira kamera kuti itarise seta yeathenticator QR kodhi."
+    },
+    "storage": {
+      "browserUnavailable": "Bhurauza yekuchengetedza haisipo.",
+      "browserFilePickerUnavailable": "Chinhonga faira chebrowser hachipo."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Faera risingatsigirwi",
+      "unsupportedFileBody": "Sarudza QR mufananidzo wekodhi se PNG kana JPEG.",
+      "browserDecoderUnavailable": "Browser image decoding haisipo",
+      "imageLoadFailed": "Mufananidzo hauna kurodha",
+      "unreadableDimensions": "Mufananidzo hauna zviyero zvinoverengeka",
+      "noQrCodeFoundTitle": "Kwete QR kodhi yawanikwa",
+      "noQrCodeFoundBody": "KaalKey tatadza kududzira QR kodhi pamufananidzo uyu. Edza mufananidzo wescreen kana wepamusoro-resolution PNG/JPEG.",
+      "couldNotReadImageTitle": "Hatina kukwanisa kuverenga mufananidzo",
+      "couldNotReadImageBody": "Edza mufananidzo wakajeka PNG kana JPEG mufananidzo une kodhi yeathenticator QR kodhi.",
+      "couldNotOpenPickerTitle": "Hatina kukwanisa kuvhura chinhongi chemufananidzo",
+      "couldNotOpenPickerBody": "Ndapota edza Upload QR zvakare.",
+      "normalizedDecodeFailed": "Mufananidzo wenguva dzose hauna kukwanisa kunyorwa",
+      "clipboardImageLoadFailed": "Clipboard mufananidzo watadza kurodha",
+      "imageProcessingUnavailable": "Magadzirirwo emifananidzo haasi kuwanikwa",
+      "imageProcessingUnavailableAlt": "Kugadziriswa kwemifananidzo hakusi kuwanikwa",
+      "noImageInClipboardTitle": "Hapana mufananidzo mu clipboard",
+      "noImageInClipboardBody": "Kopa QR mufananidzo wekodhi, wobva wabaya Namira QR Mufananidzo zvakare.",
+      "clipboardUnavailableTitle": "Clipboard haisi kuwanikwa",
+      "clipboardUnavailableBody": "Clipboard mavara haasi echokwadi setup URL. Kopa otpauth:// URL kana QR mufananidzo woedza zvakare.",
+      "clipboardAccessBody": "KaalKey haina kukwanisa kuverenga mavara kana mufananidzo kubva paclipboard. Bvumira kupinda kwe clipboard, wokopa QR mufananidzo kana otpauth:// URL wobaya Namira QR Mufananidzo / URL zvakare.",
+      "couldNotPasteImageTitle": "Tatadza kunamira mufananidzo",
+      "couldNotPasteImageBody": "Kumisa mufananidzo hakushandiswi neklipboard iyi pamudziyo uyu. Shandisai Import QR mufananidzo pane kudaro.",
+      "sourceImageDecodeFailure": "Edza mumwe mufananidzo QR.",
+      "pastedImportFailureBody": "Edza mumwe mufananidzo QR.",
+      "sourceImageReadFailure": "Edza kukopa mufananidzo wakajeka QR.",
+      "importFailedTitle": "QR kupinza mufananidzo kwakundikana",
+      "importFailedBody": "KaalKey haana kukwanisa kuverenga mufananidzo iwoyo. Ndapota edza mumwe QR mufananidzo wekodhi.",
+      "notFoundBody": "Mufananidzo wakakopwa hauna kodhi inoverengwa QR.",
+      "pastedNotFoundBody": "Mufananidzo wakanamirwa hauna kodhi inoverengwa QR.",
+      "pastedReadFailureBody": "Edza kukopa PNG kana JPEG mufananidzo une yakazara QR kodhi.",
+      "noQrCodeTextBody": "KaalKey decoded mufananidzo wakasarudzwa asi haana kuwana QR kodhi. Edza kujekesa, kuzere-resolution PNG kana JPEG nekodhi yese inooneka."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Iyi QR kodhi haisi nguva-yakavakirwa authenticator setup code.",
+      "missingAccountDetails": "Iyo QR kodhi haina ruzivo rweakaundi.",
+      "unsupportedAlgorithm": "Kodhi yeQR inoshandisa algorithm isingatsigirwi.",
+      "unsupportedDigits": "Iyi QR kodhi inofanira kushandisa 6, 7, kana manhamba masere.",
+      "unsupportedPeriod": "Iyi QR kodhi inoshandisa nguva isina kutsigirwa.",
+      "invalidAccount": "Iyo QR kodhi haina kubvumidzwa."
+    },
+    "backup": {
+      "invalidJson": "Iro faira rekuchengetedza harishande JSON.",
+      "unsupportedFormat": "Iyi haitsigirwe KaalKey yakavharidzirwa kuchengetedza.",
+      "invalidPasswordOrDamaged": "Backup password haina kururama kana faira rekuchengetedza rakanganiswa.",
+      "invalidContents": "Zvinyorwa zvekuchengetedza hazvisizvo kana kuti hazvina kukwana.",
+      "secureRandomUnavailableDetailed": "Kuchengetedzwa zvisina tsarukano chizvarwa hachipo. Vakazve uye gadza zvakare Android app ine expo-crypto yakabatanidzwa, woedza zvakare.",
+      "invalidAccountDataForBackup": "Akaundi imwe kana anopfuura haashande. Gadzirisa data reakaundi usati wagadzira backup.",
+      "invalidPasswordOrModified": "Backup password haina kururama kana faira rekuchengetedza rakagadziridzwa.",
+      "invalidPasswordOrFileDamaged": "Backup password haina kururama kana kuti faira rakanganiswa.",
+      "passwordCopiedTitle": "Password yakopwa",
+      "enterPasswordTitle": "Isa password yako yekuchengetedza",
+      "enterPasswordBody": "Isa password yakashandiswa pakagadzirwa backup iyi.",
+      "passwordCopiedBody": "Chengetedza kune imwe nzvimbo yakachengeteka, senge WhatsApp.",
+      "copyFailedTitle": "Kopi yakundikana",
+      "copyFailedBody": "Sarudza uye kopira password iwe pachako.",
+      "generatingPassword": "Kugadzira password yekuchengetedza yakachengeteka…",
+      "encrypting": "Kuvharidzira kuchengetedza…",
+      "decrypting": "Kubvisa bhavhadheki…",
+      "restoring": "Kudzoreredza maakaundi…",
+      "backupCreatedTitle": "Backup yakagadzirwa",
+      "restoreCompleteTitle": "Kudzoreredza kwapera",
+      "mergeConfirmTitle": "Unganidza maakaundi ekuchengetedza?",
+      "mergeConfirmButton": "Batanidza maakaundi",
+      "backupSavedTemporary": "Backup yakavharidzirwa yachengetwa kwenguva pfupi pa:\n{uri}",
+      "generatePasswordErrorTitle": "Hatina kukwanisa kugadzira password yekuchengetedza",
+      "secureRandomUnavailable": "Kuchengetedzwa zvisina tsarukano chizvarwa hachipo.",
+      "passwordUnavailableTitle": "Backup password haipo",
+      "passwordUnavailableBody": "Vhara iyi nhaurirano uye gadzira imwe backup yekuburitsa password yakachengeteka.",
+      "backupDownloadedBody": "Yako yakavharidzirwa KaalKey backup yatorwa. Chengetedza faira nepassword zvakavanzika.",
+      "backupFailedTitle": "Backup yakundikana",
+      "backupCreateErrorBody": "KaalKey haina kukwanisa kugadzira backup.",
+      "restoreFailedTitle": "Kudzoreredza kwakundikana",
+      "backupReadErrorBody": "Backup yatadza kuverengwa kana kuchengetwa.",
+      "browserDownloadUnsupported": "Browser yako haitsigire kudhaunirodha mafaira ekuchengetedza.",
+      "localFileUnavailable": "Nzvimbo yefaira remuno haisi kuwanikwa pamudziyo uyu.",
+      "saveBackupTitle": "Sevha yako yakavharidzirwa KaalKey backup"
+    },
+    "clipboard": {
+      "copiedTitle": "Kodhi yakopwa",
+      "copiedBody": "Kodhi yako yekuongorora yakopwa.",
+      "errorTitle": "Error",
+      "errorBody": "Hatina kukwanisa kukopa kodhi yekuongorora."
+    },
+    "activity": {
+      "cameraReady": "Kamera yakagadzirira. Nongedza pachokusimbisa QR kodhi.",
+      "readingQrImage": "Kuverenga QR mufananidzo...",
+      "importingQrImage": "Kuunza kunze QR mufananidzo...",
+      "importingAccount": "Tirikuunza akauthenticator account...",
+      "importingPastedImage": "Kuunza kunze kunamirwa QR mufananidzo..."
+    }
+  },
+  "activity": {
+    "working": "Kushanda",
+    "wait": "Mirai henyu...",
+    "donTClose": "Ndapota usavhara kana kufambidzana ne KaalKey.",
+    "loadingLanguages": "Tirikurodha mitauro iripo...",
+    "loadingTranslation": "Tinoisa shanduro…"
+  }
+}

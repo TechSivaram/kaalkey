@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Fiteny",
+      "description": "Fidio ny fiteny ampiasaina amin'ny KaalKey.",
+      "english": "anglisy",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "TENY",
+      "searchLanguageName": "Fiteny fikarohana (anarana na kaody)",
+      "searchSupportedLanguages": "Fikarohana fiteny tohanana",
+      "closeLanguageDropdown": "Akatona ny fidina midina",
+      "noTranslatedLanguage": "Tsy hita ny fiteny nadika.",
+      "serverUrl": "Mpizara fandikan-teny URL",
+      "serverUrlDescription": "KaalKey dia misintona ny lisitry ny fiteny sy ny dikanteny avy amin'ity mpizara ity.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Tehirizo ny mpizara fandikan-teny"
+    },
+    "title": "Fikirana fampiharana",
+    "eyebrow": "KAALKEY PREFERENSIANA",
+    "experience": {
+      "section": "EXPERIENCE"
+    },
+    "security": {
+      "section": "FIAROVANA"
+    },
+    "backup": {
+      "section": "FAMPIANARANA & FAHAFARANA"
+    },
+    "danger": {
+      "section": "ZONE LOZA",
+      "clearAccounts": "Fafao ny kaonty rehetra",
+      "clearAccountsDescription": "Esory tsy tapaka ny kaonty sy tsiambaratelo rehetra amin'ity fitaovana ity. Avereno aloha.",
+      "clearAccountsAccessibilityLabel": "Fafao ny kaonty authenticator rehetra"
+    },
+    "appearance": {
+      "section": "FISEHOANA",
+      "title": "Maivana endrika",
+      "description": "KaalKey dia mampiasa ny lohaheviny mazava madio amin'izao fotoana izao."
+    },
+    "haptics": {
+      "title": "Haptic feedback",
+      "description": "Fanehoan-kevitra malefaka momba ny paompy sy ny hetsika vita."
+    },
+    "deviceLock": {
+      "title": "Hidin'ny fanamarinana fitaovana",
+      "description": "Mihidy ny vaulto rehefa miala eo anoloana KaalKey.",
+      "requirement": "Angataho ny biometrika na hidin'ny efijery PIN, lamina, na tenimiafina amin'ny findainao.",
+      "accessibilityLabel": "Hidin'ny fampiharana fanamarinana fitaovana"
+    },
+    "privacy": {
+      "title": "Ara-dalàna & fiainana manokana",
+      "description": "Avereno jerena ny politikan'ny tsiambaratelo sy ny fepetra fampiasana.",
+      "storageNote": "Ny tsiambaratelon'ny authenticator anao dia mijanona ao amin'ny vault azo antoka amin'ny fitaovana. Voatahiry eo an-toerana ny safidy."
+    }
+  },
+  "accounts": {
+    "edit": "Ahitsio",
+    "sortAccountName": "Alaharo araka ny anaran'ny kaonty",
+    "loadingSecureVault": "Mametraka vata azo antoka...",
+    "tapCopy": "TAP HANAO COPY",
+    "noAccountsMatch": "Tsy misy kaonty mifanaraka amin'ny fikarohanao.",
+    "viewQrCode": "Jereo ny kaody QR momba ny kaonty",
+    "removeAccount": "Esory ny kaonty",
+    "copyVerificationCode": "Adikao ny kaody fanamarinana",
+    "active": "MIASA",
+    "sort": "SORT BY",
+    "account": "Kaonty",
+    "clearSearch": "Fafao ny fikarohana",
+    "sortServiceName": "Alaharo araka ny anaran'ny serivisy",
+    "addFirstAccount": "Ampio ny kaontinao voalohany",
+    "searchAccounts": "Mikaroka kaonty",
+    "searchServiceAccount": "Fikarohana na kaonty",
+    "accounts": "Ny kaontinao",
+    "add": "+ Manampy",
+    "vaultStartsHere": "Manomboka eto ny vaulto",
+    "service": "Service",
+    "emptyHint": "Manampia kaonty mampiasa ny fanalahidiny miafina mba hamoronana kaody fanamarinana voalohany anao."
+  },
+  "common": {
+    "done": "vita",
+    "doneButton": "vita",
+    "closeSettings": "Akatona ny fika",
+    "separator": "-",
+    "article": "a",
+    "save": "Vonjeo",
+    "delete": "Fafao",
+    "resizeAppBrand": "Hanova ny haben'ny app sy ny takelaka marika"
+  },
+  "qrImport": {
+    "readPastedImage": "Tsy afaka namaky sary apetaka"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Kaonty ao amin'ity backup ity: {count}. KaalKey dia hitazona ny kaontinao efa misy ary hanampy izay kaonty mbola tsy misy. Kaonty dika mitovy dia hatsipy.",
+    "restoreCompletionBody": "Kaonty nampiana: {added}. Kaonty dika mitovy: {skipped}. Notazonina ny kaontinao efa misy.",
+    "copyPassword": "Adikao ny tenimiafina noforonina",
+    "passwordSafety": "Tehirizo misaraka ity tenimiafina ity (ohatra, ao amin'ny WhatsApp). Na iza na iza manana ny roa",
+    "importAction": "Mifidiana rakitra ary manafatra",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "VAULT azo antoka",
+    "createBackup": "Mamorona backup",
+    "encryptedFile": "rakitra voarakitra",
+    "restoreBackup": "Avereno ny backup",
+    "safetyNote": "Ny backup dia misy tsiambaratelon'ny authenticator anao. KaalKey dia mamorona tenimiafina tokana ho an'ny backup tsirairay. Tehirizo misaraka; KaalKey dia tsy afaka mamerina izany.",
+    "generatingSecurePassword": "Mamorona tenimiafina azo antoka…",
+    "importFile": "Manafatra rakitra",
+    "backupPassword": "PASSWORD BACKUP",
+    "account": "kaonty",
+    "accounts": "kaonty",
+    "exportDescription": "Ampidiro ao anaty rakitra backup ny {count} rehetra voatahiry {accountLabel}. KaalKey dia mamorona tenimiafina tokana; kopia ary tehirizo misaraka amin'ny rakitra.",
+    "restoreDescription": "Fidio ny rakitra backup sy ny tenimiafinao KaalKey. Kaonty vaovao dia hanampy amin'ny lisitry ny kaontinao efa misy; ny kaonty efa misy dia hijanona amin'ny maha izy azy.",
+    "enterBackupPassword": "Ampidiro ny tenimiafina backup",
+    "closeBackup": "Akatona ny backup",
+    "copyGeneratedBackup": "Adikao ny tenimiafina backup noforonina",
+    "backupPassword2": "Tenimiafina backup",
+    "clearBackupPassword": "Fadio ny tenimiafina backup",
+    "backupFilePassword": "Ny rakitra backup sy ny tenimiafina dia afaka mamerina ny kaonty authenticator anao.",
+    "encryptShareBackup": "Encrypt ary mizara backup"
+  },
+  "home": {
+    "unlockSecurely": "Sokafy soa aman-tsara",
+    "disableAppLock": "Atsaharo ny hidin'ny fampiharana",
+    "enableAppLock": "Alefaso ny hidin'ny fampiharana",
+    "checkingSecureLock": "Manamarina ny firafitry ny hidin-trano azo antoka. Mijanona ho miafina ny kaodinao.",
+    "waitingVerification": "Miandry fanamarinana…",
+    "secretsStayStored": "Mijanona ao amin'ity fitaovana ity ny tsiambaratelonao.",
+    "openAppSettings": "Sokafy ny firafitry ny fampiharana",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "Ampiasao ny biometrika na ny hidin'ny efijery PIN, ny lamina, na ny tenimiafinao amin'ny findainao mba hidirana amin'ny kaody fanamarinana indray mandeha.",
+    "localVault": "NY VAULT ANAO",
+    "codesDeviceControl": "Ny kaodinao. Ny fitaovanao. Ny fifehezanao.",
+    "securingVault": "Miaro ny vaulto…",
+    "vaultProtected": "Voaaro ny vaulto",
+    "lock": "MIHIDY",
+    "localVault2": "VAULT eo an-toerana",
+    "authenticator": "KAALKEY Authenticator",
+    "tricolourLockEmblem": "KaalKey marika hidin-trano telo loko",
+    "authenticator2": "AUTHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Raha misafidy ny hijery kaody QR ianao, dia mampiasa alalana fakan-tsary ny KaalKey amin'izany hetsika izany. Ny fanamarinan'ny fitaovana azo atao sy ny valin-kafatra haptic dia mampiasa ireo endri-javatra mifandraika amin'izany. Azonao atao ny mitantana ny fahazoan-dàlana amin'ny kiran'ny fitaovanao.",
+        "heading": "2. Fanomezana alalana sy endri-javatra fitaovana"
+      },
+      "backups": {
+        "body": "Rehefa mamorona backup ianao, KaalKey dia manisy encryption ny backup mampiasa tenimiafina nofidinao. Ataovy mitokana ny rakitra sy ny tenimiafina ary tehirizo tsara. Na iza na iza mahazo ny rakitra sy ny tenimiafinao dia mety ho afaka mamerina ny kaonty authenticator anao. KaalKey dia tsy afaka mamerina ny tenimiafina backup adino.",
+        "heading": "3. Backups"
+      },
+      "security": {
+        "body": "Tohizo hatrany ny fanavaozana ny fitaovanao, arovy amin'ny hidin'ny efijery izany, ary aza mizara tsiambaratelo OTP na tenimiafina backup. Mety hahatonga ny kaonty voatahiry ao an-toerana tsy ho hita ny fanesorana ny fampiharana, ny fanadiovana ny angonany, na ny fahaverezan'ilay fitaovana. Mitazona backup azo antoka raha mila fanarenana ianao.",
+        "heading": "5. Fiarovana sy fihazonana"
+      },
+      "information": {
+        "heading": "1. Fampahalalana sy tsiambaratelo",
+        "body": "KaalKey dia fampiharana authenticator. Saro-pady ny etikety kaonty sy ny soatoavina miafina ilaina hamokarana kaody indray mandeha. Ny fampiharana dia natao hitahiry ny firaketana kaonty ao amin'ny fitahirizana azo antoka an'ilay fitaovana. Na iza na iza manana fahafahana miditra amin'ny fitaovana tsy voahidy na ny backup aondrana dia mety afaka miditra amin'ny fampahalalana saro-pady."
+      },
+      "sharing": {
+        "heading": "4. Fizarana sy antoko fahatelo",
+        "body": "Ny fikorianan'ny backup dia mety hampiasa ny taratasin'ny fitaovan'ny fitaovanao na ny mpanangona rakitra mba hitahiry, hamindra, na hifidianana rakitra. Ny fomba fanao manokana amin'ny fampiharana na serivisy an'ny antoko fahatelo nofidinao dia fehezin'io mpamatsy io. Ity fampandrenesana ity dia tsy manao filazana an-kolaka fa ny fitaovanao, ny rafitra fiasanao, na ny serivisy fifampizarana voafantina dia tsy manodina angona mihitsy."
+      },
+      "changes": {
+        "heading": "6. Fiovana sy fifandraisana",
+        "body": "Ity fampandrenesana tafiditra ity dia azo havaozina amin'ny famoahana fampiharana ho avy. Raha mila fanontaniana momba ny fiainana manokana, mifandraisa amin'ny mpamoaka fampiharana amin'ny alàlan'ny fantsona fanohanana ofisialy omena miaraka amin'ny fampiharana."
+      },
+      "title": "Politika manokana"
+    },
+    "terms": {
+      "use": {
+        "body": "Azonao atao ny mampiasa KaalKey hamorona kaody fanamarinana ho an'ny kaonty nomena alalana hidiranao. Ianao no tompon'andraikitra amin'ny fanarahana ny lalàna manan-kery sy ny fitsipiky ny serivisy izay ampiasanao ny kaody fanamarinana.",
+        "heading": "1. Ny fampiasanao"
+      },
+      "protectAccounts": {
+        "body": "Ianao no tompon'andraikitra amin'ny fiarovana ny fitaovanao, ny tsiambaratelon'ny authenticator, ny fomba fanarenana, ny backup naondrana ary ny tenimiafina backup. Aza mizara kaody na tsiambaratelo amin'ny olona tsy atokisanao.",
+        "heading": "2. Arovy ny kaontinao"
+      },
+      "availability": {
+        "body": "Mety hiova ny endri-javatra eo anelanelan'ny famoahana. Tokony havaozina foana ny fampiharana ary hanamarina tsindraindray fa mandeha ny fandaharana backup sy fanarenana.",
+        "heading": "5. Fiovana sy fahafahana"
+      },
+      "recovery": {
+        "body": "KaalKey dia tsy afaka manome antoka fa azo averina daholo ny kaonty rehetra, fa ny kaody QR rehetra dia hifanaraka, na ny fampiharana dia handeha tsy misy fahatapahana na diso. Tazony ny fomba fanarenana hafa omen'ny serivisy mifandraika amin'izany.",
+        "heading": "3. Tsy misy antoka fanarenana"
+      },
+      "advice": {
+        "heading": "4. Tsy misy toro-hevitra matihanina",
+        "body": "Ny fampiharana dia fitaovana iray ary tsy manome toro-hevitra momba ny olana ara-dalàna, ara-bola na fiarovana. Raha misy kaonty voahitsakitsaka, araho ny torolalana momba ny fanarenana sy fiarovana ofisialy an'ny serivisy voakasika."
+      },
+      "liability": {
+        "heading": "6. Adidy sy lalàna manan-kery",
+        "body": "Araka ny ankatoavin'ny lalàna manan-kery, ny fampiharana dia omena tsy misy antoka fa miasa tsy tapaka na tsy misy hadisoana. Tsy misy na inona na inona amin'ireo fepetra ireo manilika ny zo na ny fanafody izay tsy azo esorina ara-dalàna. Izay fetra fanampiny na fepetra mifehy ny lalàna dia tokony hojeren'ny mpisolovava iray mahafeno fepetra ho an'ny fari-piadidian'ny mpanonta alohan'ny hamoahana azy."
+      },
+      "title": "Fepetra fampiasana"
+    },
+    "version": "Version",
+    "saving": "Mitahiry…",
+    "acceptContinue": "Ekeo & Tohizo",
+    "appliesAuthenticator": "Mihatra amin'ny KaalKey Authenticator",
+    "reviewBothDocuments": "Avereno jerena azafady ireo antontan-taratasy roa alohan'ny hampiasana KaalKey. Izy ireo dia tafiditra ao amin'ny fampiharana ary azo alaina ivelan'ny aterineto.",
+    "originalMulticolourAuthenticator": "Emblem authenticator maroloko KaalKey tany am-boalohany",
+    "legalPrivacyNotice": "Fampandrenesana momba ny lalàna & tsiambaratelo",
+    "legalInformation": "Fampahalalana ara-dalàna",
+    "reviewSPrivacy": "Avereno jerena ny fampahalalana momba ny fiainana manokana sy ny fepetra fampiasana KaalKey.",
+    "iReadAgree": "Namaky sy manaiky ny Politika momba ny fiainana manokana sy ny fepetra fampiasana aho."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Ataovy hita maso ny kaody QR. Mijanona amin'ity fitaovana ity ny tsiambaratelonao.",
+    "back": "Miverina",
+    "turnFlashlightOff": "Vonoy ny jiro",
+    "turnFlashlight": "Alefaso ny jiro",
+    "flashlight": "Mirehitra ny jiro",
+    "flashlight2": "Flashlight",
+    "cameraUnavailableOpen": "Tsy misy fakan-tsary. Sokafy ity pejy ity amin'ny HTTPS na localhost ary avelao ny fidirana amin'ny fakantsary.",
+    "cameraPreviewUnavailable": "Tsy misy ny fijerena fakantsary. Akatona ary sokafy indray ny scanner.",
+    "cameraReadyPoint": "Efa vonona ny fakan-tsary — tondroy amin'ny kaody feno QR.",
+    "browserCannotProcess": "Ity navigateur ity dia tsy afaka manodina ny fakan-tsary.",
+    "qrCodeDetected": "QR kaody hita.",
+    "couldnTRead": "Tsy afaka namaky ny fakan-tsary. Jereo ny fahazoan-dàlana amin'ny fakantsary ary avereno avereno ity pejy ity.",
+    "cameraPermissionDenied": "Nolavina ny fahazoan-dàlana fakan-tsary. Avelao ny fakan-tsary miditra amin'ny firafitry ny mpitety, dia sokafy indray ny scanner.",
+    "noCameraWas": "Tsy nisy fakan-tsary hita tamin'ity fitaovana ity.",
+    "cameraBusyAnother": "Ny fakan-tsary dia sahirana amin'ny rindranasa hafa na tabilao navigateur.",
+    "startCameraHttps": "Tsy afaka nanomboka fakantsary. Ampiasao HTTPS na localhost ary jereo ny fahazoan-dàlana amin'ny navigateur.",
+    "qrScannerCamera": "QR fijerena fakan-tsary scanner",
+    "cameraUnavailableCheck": "Tsy misy fakan-tsary. Hamarino ny fahazoan-dàlana fakan-tsary ary andramo indray.",
+    "pointCameraAuthenticator": "Tondroy ny fakantsarinao amin'ny kaody fananganana authenticator QR avy amin'ny serivisy ampianao.",
+    "backAddAccount": "Miverina manampy kaonty",
+    "secureSetup": "SECURE SETUP",
+    "enterDetailsManually": "Ampidiro amin'ny tanana ny antsipiriany"
+  },
+  "accountForm": {
+    "hideManualEntry": "Afeno ny fidirana amin'ny tanana",
+    "secretKeySupplied": "Ampiasao ny fanalahidy miafina omen'ny serivisy amboarinao. Aza ampidiro eto mihitsy ny tenimiafinao. Ampifanaraho amin'ny toromarika fanamboarana ny serivisy ny algorithm, ny isa isa ary ny elanelana.",
+    "updateServiceAccount": "Havaozy ny serivisy, ny anaran'ny kaonty, na ny fanalahidy miafina.",
+    "secretKeyRead": "Key miafina, vakiana ihany rehefa manitsy",
+    "secretKeyBase32": "lakile miafina ao Base32",
+    "digits": "isa",
+    "seconds": "segondra",
+    "enterDetailsManually": "NA Ampidiro amin'ny tanana ny antsipirian-javatra",
+    "enterDetailsManually2": "Ampidiro tanana ny antsipiriany",
+    "serviceAccountName": "Serivisy, anarana kaonty ary fanalahidy miafina",
+    "saveChangesSecurely": "Tehirizo ny fanovana azo antoka",
+    "saveAccountSecurely": "Tehirizo tsara ny kaonty",
+    "serviceIssuer": "Serivisy na mpamatsy",
+    "accountName": "Anaran'ny kaonty",
+    "secretKey": "Key miafina",
+    "serviceIssuer2": "SERVICE / MPANOMETRA",
+    "eGGoogle": "oh. Google",
+    "clearServiceIssuer": "Serivisy mazava na mpamatsy",
+    "eGExample": "oh. you@example.com",
+    "clearAccountName": "Fadio ny anaran'ny kaonty",
+    "secretKeyLocked": "KEY SECRET (Nihidy)",
+    "secretKeyBase322": "KEY SECRET (BASE32)",
+    "enterSetupKey": "Ampidiro ny fanalahidinao",
+    "clearSecretKey": "Fafao ny fanalahidy miafina",
+    "otpAlgorithm": "OTP ALGORITMA",
+    "otpDigits": "OTP DIGITS",
+    "refreshIntervalSeconds": "FANAVAOZANA AN-SEO (SECONDS)",
+    "otpRefreshInterval": "OTP elanelam-potoana fanavaozana ao anatin'ny segondra",
+    "closeAccountForm": "Akatona ny kaonty kaonty",
+    "totpSetupUrl": "TOTP fanamboarana URL",
+    "importSetupUrl": "Manafatra fanafarana URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "ANARAN'NY kaonty",
+    "addAccount": "Ampio kaonty"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Kaody authenticator QR.",
+    "setupGuidance": "Tsindrio ny kaody QR ho an'ny fanamboarana mora indrindra, na ampidiro amin'ny tanana ny antsipiriany.",
+    "cameraAddAccount": "Ampiasao ny fakantsarinao mba hanampiana kaonty avy hatrany",
+    "scanQrCode2": "Scan code QR.",
+    "uploadQrImage": "Mampiakara sary QR.",
+    "chooseQrScreenshot": "Misafidiana pikantsary QR avy amin'ny Gallery, Photos, na Files",
+    "pasteQr": "Apetaho QR sary / URL",
+    "pasteCopiedQr": "Apetaho ny sary nadika QR na setup authenticator URL",
+    "uploadQrImage2": "Mampiakara sary QR."
+  },
+  "accountQr": {
+    "close": "Akatona",
+    "accountQrCode": "Kaody QR.",
+    "revealQrCode": "Asehoy ny kaody QR.",
+    "exportWarning": "Fampitandremana: izay rehetra mijery ity kaody QR ity dia afaka mamorona kaody fanamarinana ho an'ity kaonty ity. Asehoy fotsiny amin'ny efijery azo itokisana.",
+    "privacyHint": "Ataovy manokana ity kaody QR ity. Mandika ny tsiambaratelon'ny mpanamarina ny kaonty ny scan azy."
+  },
+  "productInfo": {
+    "backupRestore": "Backup & mamerina",
+    "backupRestoreDescription": "Atero ny angona authenticator anao ary avereno rehefa mifindra amin'ny fitaovana hafa ianao.",
+    "privacyDescription": "Tehirizo amin'ny toerana iray ny kaontinao fanamarinana. Ampiasao ny safidy backup, famerenana, ary fanakatonana fitaovana hitantana ny fanamboaranao amin'ny andraikitra.",
+    "timeBasedCodes": "Kaody mifototra amin'ny fotoana",
+    "generateOneTimeCodes": "Mamorona kaody fanindriana mandeha indray mandeha ho an'ny kaontinao mba hamitana ny fanamarinana dingana roa.",
+    "quickAccountSetup": "Fametrahana kaonty haingana",
+    "quickSetupDescription": "Tsindrio ny kaody authenticator QR na manafatra sary QR mba hanampiana kaonty.",
+    "accountsOnePlace": "Kaonty amin'ny toerana iray",
+    "accountsInOnePlaceDescription": "Tehirizo miaraka ny kaontinao voatahiry ary tadiavo ny fidirana mety rehefa tonga ny fotoana hidirana.",
+    "privateAccountVault": "Vault kaonty manokana",
+    "privateVaultDescription": "Tantano eo an-toerana ny fidirana authenticator anao ary ampiasao ny safidy hidin'ny fitaovana misy an'ilay app.",
+    "easyCodeAccess": "Fidirana kaody mora",
+    "easyCodeAccessDescription": "Adikao ny kaody ankehitriny na tantano ny antsipirian'ny kaonty amin'ny alàlan'ny interface tsara sy mifantoka.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · BY TECHSIVARAM",
+    "mobileAuthenticator": "NY MOBILE Authenticateur",
+    "tagline": "Fomba tsotra kokoa hitantanana ny fanamarinanao dingana roa.",
+    "heroDescription": "Traikefa authenticator mifantoka amin'ny kaody fanamarinana mifototra amin'ny fotoana. Ataovy akaiky ny kaody kaonty mifanaraka amin'ny KaalKey ho an'ny Android.",
+    "timeBasedCodes2": "KAODY MIARAKA amin'ny fotoana",
+    "privateDesign": "PRIVATE BY DESIGN",
+    "builtSimpleAuthenticator": "NAMORONA HO AN'NY ASA AUTENTIKA Tsotra",
+    "qrSetupTimed": "QR SETUP · KAODY FOTOANA · FITANTANANA KAO.",
+    "privacyTitle": "Ny kaontinao. Ny kaodinao. Ny fifehezanao.",
+    "authenticator": "KAALKEY · Authenticator",
+    "brandBanner": "KaalKey sora-baventy marika",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Manafoana",
+      "storageInvalidTitle": "Tsy mety ny angona fitahirizana",
+      "storageInvalidBody": "Tsy azo novakiana soa aman-tsara ny angon'ny kaonty voatahiry.",
+      "storageErrorTitle": "Fahadisoana fitahirizana",
+      "storageErrorBody": "Kaonty voatahiry dia tsy azo nampidirina.",
+      "missingTitle": "Fampahalalana tsy ampy",
+      "missingEditingBody": "Ampidiro ny anaran'ny serivisy sy ny anaran'ny kaonty.",
+      "missingBody": "Ampidiro ny anaran'ny serivisy, ny anaran'ny kaonty ary ny fanalahidy miafina.",
+      "invalidOtpBody": "Hamarino ny tsiambaratelo Base32, algorithm, isa isa ary vanim-potoana fanavaozana. Tsy maintsy misy tarehintsoratra Base32 manankery ny tsiambaratelo; Ny isa dia tsy maintsy {digits} ary ny fe-potoana dia tsy maintsy {minPeriod}–{maxPeriod} segondra.",
+      "duplicateBody": "Efa voatahiry ny kaonty misy an'io serivisy io sy ny anaran'ny kaonty.",
+      "updatedBody": "Nohavaozina ny kaontinao.",
+      "addedBody": "Nampiana soa aman-tsara ny kaontinao.",
+      "invalidOtpTitle": "Fikirana OTP tsy mety",
+      "duplicateTitle": "Kaonty efa misy",
+      "savedTitle": "Kaonty voatahiry",
+      "invalidSecretTitle": "Fanalahidy miafina tsy mety",
+      "invalidSecretBody": "Azafady, jereo fa nampiditra tsiambaratelo Base32 manan-kery ianao.",
+      "removedTitle": "Nesorina ny kaonty",
+      "removedBody": "Nesorina tao amin'ity fitaovana ity ny kaonty sy ny tsiambaratelony.",
+      "clearedTitle": "Voafafa ny kaonty",
+      "clearedBody": "Nesorina tao amin'ity fitaovana ity ny kaonty authenticator sy ny tsiambaratelo rehetra.",
+      "someSavedAccountsNeedAttentionTitle": "Mila fitandremana ny kaonty voatahiry sasany",
+      "someSavedAccountsNeedAttentionBody": "{count} firaketana kaonty tsy mety dia tsy voapetraka. Mbola misy ny kaonty manankery. Eritrereto ny hamorona backup alohan'ny hanaovana fanovana fanampiny.",
+      "removeConfirmTitle": "Esory ny kaonty?",
+      "removeConfirmWebTitle": "Esory ny kaonty?",
+      "removeButton": "Esory",
+      "clearButton": "Fafao daholo",
+      "clearConfirmTitle": "Fafao ny kaonty rehetra?",
+      "saveErrorBody": "Tsy voatahiry ny kaonty. Jereo ny fisian'ny fitahirizana navigateur ary andramo indray.",
+      "notFoundTitle": "Kaonty tsy hita",
+      "notFoundBody": "Tsy hita ity kaonty ity. Akatona ny mpanonta ary andramo indray.",
+      "removeConfirmBody": "Izany dia manala ny kaonty sy ny tsiambaratelony amin'ity fitaovana ity.",
+      "clearConfirmBody": "Esory tanteraka amin'ity fitaovana ity ny kaonty authenticator rehetra sy ny tsiambaratelony. Mamorona backup miafina aloha raha toa ka mila ireto kaonty ireto ianao any aoriana.",
+      "clearConfirmUndoBody": "Tsy azo averina izany."
+    },
+    "biometric": {
+      "cancelButton": "Manafoana",
+      "saveErrorTitle": "Tsy afaka mitahiry ny kira",
+      "unlockPrompt": "Mamaha KaalKey Authenticator",
+      "promptSubtitle": "Mampiasà biometrika na hidin'ny efijerin'ny fitaovanao",
+      "disableConfirmPrompt": "Hamafiso fa hamono KaalKey hidin'ny fampiharana",
+      "enablePrompt": "Alefaso ny hidin'ny fampiharana ho an'ny KaalKey",
+      "deviceLockTitle": "Amboary ny hidin'ny efijerinao",
+      "deviceLockBody": "KaalKey dia mampiasa ny fanamarinan'ny telefaona anananao. Mametraha fitaovana PIN, lamina, na tenimiafina ao amin'ny firafitry ny fiarovana ny findainao, dia andramo indray. Ny biometrika dia azo atao.",
+      "unavailableTitle": "Tsy misy ny fanamarinana ny fitaovana",
+      "unavailableBody": "Tsy afaka nanomboka fanamarinana azo antoka ny findainao. Hamarino fa voafefy ny hidin'ny efijery fitaovana, dia andramo indray.",
+      "lockedTitle": "Voahidy vonjimaika ny fanamarinana",
+      "lockedBody": "Nofoanan'ny findainao vonjimaika ny fanamarinana taorian'ny fanandramana be loatra. Andraso ary andramo indray.",
+      "promptErrorTitle": "Tsy misy ny fanamarinana",
+      "promptErrorBody": "KaalKey dia tsy afaka nanomboka ny fampandrenesana fanamarinana azo antoka an'ny telefaona. Andramo indray azafady.",
+      "webLock": "Mbola tsy misy amin'ny dikan-tranonkala ny hidin'ny fanamarinana fitaovana. Mijanona tsy voahidy ny vault; ampiasao ny rindranasa Android ho fanamarinana ny fitaovana teratany.",
+      "disabledTitle": "Tsy nety ny hidin'ny fampiharana",
+      "disabledBody": "KaalKey dia nesorina ny hidin'ny fampiharana.",
+      "disableSaveError": "Mbola mandeha ny hidin'ny fampiharana. Andramo indray azafady.",
+      "enabledTitle": "Nalefa ny hidin'ny fampiharana",
+      "enabledBody": "KaalKey dia hangataka ny fanamarinan'ny telefaona anananao rehefa misokatra sy rehefa miverina aminy ianao.",
+      "enableSaveError": "Tsy afaka ny hidin'ny fampiharana. Andramo indray azafady."
+    },
+    "qr": {
+      "startingCamera": "Manomboka fakan-tsary…",
+      "unsupportedTitle": "Kaody QR tsy tohana",
+      "unsupportedBody": "Andramo ny kaody fananganana authenticator QR nomen'ny serivisy. Tsy maintsy kaody TOTP ity fa tsy kaody fidirana mahazatra QR.",
+      "unsupportedDiagnostic": "Izany QR dia tsy kaody fanamboarana TOTP. Tanjona amin'ny fanamboarana authenticator QR.",
+      "detectedDiagnostic": "QR hita. Famakafakana…",
+      "analyzing": "Mamakafaka QR kaody…",
+      "duplicateTitle": "Kaonty efa nampiana",
+      "duplicateBody": "{issuer}: {account} dia efa ao amin'ny KaalKey.",
+      "addedTitle": "Nampiana kaonty",
+      "addedBody": "{issuer}: {account} dia nampiana soa aman-tsara.",
+      "saveFailedDiagnostic": "Tsy afaka nitahiry ny kaonty. Afaka scan indray ianao.",
+      "invalidTitle": "Kaody QR tsy mety",
+      "invalidBody": "KaalKey dia tsy afaka namaky ity kaody QR authenticator ity. {detail}. Ampiasao ny kaody TOTP QR an'ny serivisy (matetika manomboka amin'ny {prefix}).",
+      "parseFailedDiagnostic": "QR tsy azo nokarakaraina. Kendreo ny fanamboarana QR ary andramo indray.",
+      "invalidUrlTitle": "Tsy mety TOTP URL",
+      "invalidUrlBody": "Apetaho ny authenticator feno URL manomboka amin'ny {prefix}.",
+      "clipboardEmptyTitle": "Foana ny takelaka",
+      "clipboardEmptyBody": "Adikao aloha ny {prefix} URL, ary tsindrio Apetaho TOTP URL.",
+      "clipboardErrorTitle": "Tsy afaka namaky solaitrabe",
+      "clipboardErrorBody": "Adikao ny fanamboarana TOTP URL ary andramo indray."
+    },
+    "haptics": {
+      "saveFailedTitle": "Tsy afaka mitahiry ny kira",
+      "saveFailedBody": "Tsy azo tehirizina ny safidin'ny valin-kafatra haptika. Andramo indray azafady."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Tsy afaka nitahiry fanekena",
+      "saveFailedBody": "Andramo indray azafady. Tsy maintsy manaiky ny filazana ara-dalàna ianao alohan'ny hampiasana KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Mila alalana fakan-tsary",
+      "body": "Avelao ny fakan-tsary hijerena kaody fananganana QR authenticator."
+    },
+    "storage": {
+      "browserUnavailable": "Tsy misy fitahirizana navigateur.",
+      "browserFilePickerUnavailable": "Tsy misy ny mpanangona rakitra mpitety."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "rakitra tsy tohana",
+      "unsupportedFileBody": "Misafidiana sary kaody QR toy ny PNG na JPEG.",
+      "browserDecoderUnavailable": "Tsy misy famandrihana sary amin'ny navigateur",
+      "imageLoadFailed": "Tsy azo nalaina ny sary",
+      "unreadableDimensions": "Tsy misy refy azo vakina ny sary",
+      "noQrCodeFoundTitle": "Tsy misy kaody QR hita",
+      "noQrCodeFoundBody": "KaalKey dia tsy afaka mamadika kaody QR amin'ity sary ity. Andramo pikantsary na famaha PNG/JPEG.",
+      "couldNotReadImageTitle": "Tsy afaka namaky sary",
+      "couldNotReadImageBody": "Andramo sary mazava PNG na JPEG misy ny kaody fananganana authenticator QR.",
+      "couldNotOpenPickerTitle": "Tsy afaka nanokatra mpaka sary",
+      "couldNotOpenPickerBody": "Andramo indray ny Upload QR.",
+      "normalizedDecodeFailed": "Tsy azo novakiana ny sary voarindra",
+      "clipboardImageLoadFailed": "Tsy azo nampidirina ny sarin'ny clipboard",
+      "imageProcessingUnavailable": "Tsy misy ny fanodinana sary",
+      "imageProcessingUnavailableAlt": "Tsy misy ny fanodinana sary",
+      "noImageInClipboardTitle": "Tsy misy sary ao anaty takelaka",
+      "noImageInClipboardBody": "Adikao ny sary kaody QR, ary tsindrio Apetaho indray ny QR sary.",
+      "clipboardUnavailableTitle": "Clipboard tsy misy",
+      "clipboardUnavailableBody": "Ny lahatsoratry ny clipboard dia tsy setup authenticator manan-kery URL. Adikao ny sary otpauth:// URL na QR ary andramo indray.",
+      "clipboardAccessBody": "KaalKey dia tsy afaka namaky lahatsoratra na sary avy amin'ny solaitrabe. Avelao hiditra amin'ny solaitrabe, dia kopia ny sary QR na otpauth:// URL ary tsindrio Apetaho indray ny QR sary / URL.",
+      "couldNotPasteImageTitle": "Tsy afaka mametaka sary",
+      "couldNotPasteImageBody": "Ny fametahana sary dia tsy tohanan'ity solaitrabe ity amin'ity fitaovana ity. Ampiasao kosa ny sary Import QR.",
+      "sourceImageDecodeFailure": "Manandrama sary QR hafa.",
+      "pastedImportFailureBody": "Manandrama sary QR hafa.",
+      "sourceImageReadFailure": "Andramo maka sary QR mazava tsara.",
+      "importFailedTitle": "QR tsy nahomby ny fanafarana sary",
+      "importFailedBody": "KaalKey dia tsy afaka namaky io sary io. Manandrama sary kaody QR hafa azafady.",
+      "notFoundBody": "Tsy misy kaody QR azo vakina ilay sary nadika.",
+      "pastedNotFoundBody": "Ny sary apetaka dia tsy misy kaody QR azo vakina.",
+      "pastedReadFailureBody": "Andramo ny maka sary PNG na JPEG mazava misy ny kaody QR feno.",
+      "noQrCodeTextBody": "KaalKey dia namadika ny sary voafantina saingy tsy nahita kaody QR. Andramo PNG na JPEG mazava tsara sy feno ary hita ny kaody manontolo."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Ity kaody QR ity dia tsy kaody fanamboarana authenticator mifototra amin'ny fotoana.",
+      "missingAccountDetails": "Ny kaody QR dia tsy misy antsipirihan'ny kaonty.",
+      "unsupportedAlgorithm": "Ny kaody QR dia mampiasa algorithm tsy tohanana.",
+      "unsupportedDigits": "Ity kaody QR ity dia tsy maintsy mampiasa isa 6, 7, na 8.",
+      "unsupportedPeriod": "Ity kaody QR ity dia mampiasa fe-potoana tsy tohanana.",
+      "invalidAccount": "Tsy azo nohamarinina ny kaody QR."
+    },
+    "backup": {
+      "invalidJson": "Ny rakitra backup dia tsy manan-kery JSON.",
+      "unsupportedFormat": "Ity dia tsy tohana KaalKey voatahiry.",
+      "invalidPasswordOrDamaged": "Diso ny tenimiafina backup na simba ny rakitra backup.",
+      "invalidContents": "Ny atiny backup dia tsy mety na tsy feno.",
+      "secureRandomUnavailableDetailed": "Tsy misy ny famokarana kisendrasendra azo antoka. Avereno amboary sy avereno apetraka ny fampiharana Android miaraka amin'ny expo-crypto, dia andramo indray.",
+      "invalidAccountDataForBackup": "Kaonty iray na maromaro no tsy mety. Amboary ny angon'ny kaonty alohan'ny hamoronana backup.",
+      "invalidPasswordOrModified": "Diso ny tenimiafina backup na novaina ny rakitra backup.",
+      "invalidPasswordOrFileDamaged": "Diso ny tenimiafina backup na simba ny rakitra.",
+      "passwordCopiedTitle": "Voadika ny tenimiafina",
+      "enterPasswordTitle": "Ampidiro ny tenimiafinao backup",
+      "enterPasswordBody": "Ampidiro ny tenimiafina ampiasaina rehefa noforonina ity backup ity.",
+      "passwordCopiedBody": "Tehirizo any amin'ny toerana azo antoka, toy ny WhatsApp.",
+      "copyFailedTitle": "Tsy nahomby ny kopia",
+      "copyFailedBody": "Safidio ary adika amin'ny tanana ny tenimiafina.",
+      "generatingPassword": "Mamorona tenimiafina backup azo antoka…",
+      "encrypting": "Manaova encryption backup…",
+      "decrypting": "Mamadika ny backup…",
+      "restoring": "Mamerina ny kaonty…",
+      "backupCreatedTitle": "Noforonina ny backup",
+      "restoreCompleteTitle": "Vita ny famerenana",
+      "mergeConfirmTitle": "Manambatra kaonty backup?",
+      "mergeConfirmButton": "Manambatra kaonty",
+      "backupSavedTemporary": "Voatahiry vetivety ao amin'ny:\n{uri}",
+      "generatePasswordErrorTitle": "Tsy afaka namorona tenimiafina backup",
+      "secureRandomUnavailable": "Tsy misy ny famokarana kisendrasendra azo antoka.",
+      "passwordUnavailableTitle": "Tsy misy ny tenimiafina backup",
+      "passwordUnavailableBody": "Akatona ity fifanakalozan-kevitra ity ary mamorona backup vaovao hamoronana tenimiafina azo antoka.",
+      "backupDownloadedBody": "Nalaina ny backup KaalKey voarakotra. Ataovy manokana ny rakitra sy ny tenimiafina.",
+      "backupFailedTitle": "Tsy nahomby ny backup",
+      "backupCreateErrorBody": "KaalKey dia tsy afaka namorona ny backup.",
+      "restoreFailedTitle": "Tsy nahomby ny famerenana",
+      "backupReadErrorBody": "Tsy azo novakiana na notehirizina ny backup.",
+      "browserDownloadUnsupported": "Tsy manohana ny fampidinana rakitra backup ny mpitety anao.",
+      "localFileUnavailable": "Tsy misy toerana misy rakitra eo an-toerana amin'ity fitaovana ity.",
+      "saveBackupTitle": "Tehirizo ny backup KaalKey voarakotra"
+    },
+    "clipboard": {
+      "copiedTitle": "Kaody voadika",
+      "copiedBody": "Voadika ny kaody fanamarinanao.",
+      "errorTitle": "Error",
+      "errorBody": "Tsy afaka nandika ny kaody fanamarinana."
+    },
+    "activity": {
+      "cameraReady": "Camera vonona. Tondroy amin'ny kaody authenticator QR.",
+      "readingQrImage": "Mamaky sary QR…",
+      "importingQrImage": "Manafatra sary QR…",
+      "importingAccount": "Manafatra kaonty authenticator…",
+      "importingPastedImage": "Manafatra sary apetaka QR…"
+    }
+  },
+  "activity": {
+    "working": "Miasa",
+    "wait": "Andraso azafady…",
+    "donTClose": "Aza manakatona na mifandray amin'ny KaalKey.",
+    "loadingLanguages": "Mampiditra fiteny misy…",
+    "loadingTranslation": "Mametraka dikanteny…"
+  }
+}

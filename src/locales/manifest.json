@@ -1,0 +1,658 @@
+{
+  "languages": {
+    "af": {
+      "name": "Afrikaans",
+      "nativeName": "Afrikaans",
+      "searchTerms": "Afrikaans Afrikaans",
+      "file": "af.json"
+    },
+    "sq": {
+      "name": "Albanian",
+      "nativeName": "Shqip",
+      "searchTerms": "Albanian Shqip",
+      "file": "sq.json"
+    },
+    "am": {
+      "name": "Amharic",
+      "nativeName": "አማርኛ",
+      "searchTerms": "Amharic አማርኛ",
+      "file": "am.json"
+    },
+    "ar": {
+      "name": "Arabic",
+      "nativeName": "العربية",
+      "searchTerms": "Arabic العربية",
+      "file": "ar.json"
+    },
+    "hy": {
+      "name": "Armenian",
+      "nativeName": "Հայերեն",
+      "searchTerms": "Armenian Հայերեն",
+      "file": "hy.json"
+    },
+    "az": {
+      "name": "Azerbaijani",
+      "nativeName": "Azərbaycanca",
+      "searchTerms": "Azerbaijani Azərbaycanca",
+      "file": "az.json"
+    },
+    "eu": {
+      "name": "Basque",
+      "nativeName": "Euskara",
+      "searchTerms": "Basque Euskara",
+      "file": "eu.json"
+    },
+    "be": {
+      "name": "Belarusian",
+      "nativeName": "Беларуская",
+      "searchTerms": "Belarusian Беларуская",
+      "file": "be.json"
+    },
+    "bn": {
+      "name": "Bengali",
+      "nativeName": "বাংলা",
+      "searchTerms": "Bengali বাংলা",
+      "file": "bn.json"
+    },
+    "bs": {
+      "name": "Bosnian",
+      "nativeName": "Bosanski",
+      "searchTerms": "Bosnian Bosanski",
+      "file": "bs.json"
+    },
+    "bg": {
+      "name": "Bulgarian",
+      "nativeName": "Български",
+      "searchTerms": "Bulgarian Български",
+      "file": "bg.json"
+    },
+    "my": {
+      "name": "Burmese",
+      "nativeName": "မြန်မာ",
+      "searchTerms": "Burmese မြန်မာ",
+      "file": "my.json"
+    },
+    "ca": {
+      "name": "Catalan",
+      "nativeName": "Català",
+      "searchTerms": "Catalan Català",
+      "file": "ca.json"
+    },
+    "ceb": {
+      "name": "Cebuano",
+      "nativeName": "Cebuano",
+      "searchTerms": "Cebuano Cebuano",
+      "file": "ceb.json"
+    },
+    "zh-CN": {
+      "name": "Chinese (Simplified)",
+      "nativeName": "简体中文",
+      "searchTerms": "Chinese (Simplified) 简体中文",
+      "file": "zh-CN.json"
+    },
+    "zh-TW": {
+      "name": "Chinese (Traditional)",
+      "nativeName": "繁體中文",
+      "searchTerms": "Chinese (Traditional) 繁體中文",
+      "file": "zh-TW.json"
+    },
+    "co": {
+      "name": "Corsican",
+      "nativeName": "Corsu",
+      "searchTerms": "Corsican Corsu",
+      "file": "co.json"
+    },
+    "hr": {
+      "name": "Croatian",
+      "nativeName": "Hrvatski",
+      "searchTerms": "Croatian Hrvatski",
+      "file": "hr.json"
+    },
+    "cs": {
+      "name": "Czech",
+      "nativeName": "Čeština",
+      "searchTerms": "Czech Čeština",
+      "file": "cs.json"
+    },
+    "da": {
+      "name": "Danish",
+      "nativeName": "Dansk",
+      "searchTerms": "Danish Dansk",
+      "file": "da.json"
+    },
+    "nl": {
+      "name": "Dutch",
+      "nativeName": "Nederlands",
+      "searchTerms": "Dutch Nederlands",
+      "file": "nl.json"
+    },
+    "en": {
+      "name": "English",
+      "nativeName": "English",
+      "searchTerms": "English English",
+      "file": "en.json"
+    },
+    "eo": {
+      "name": "Esperanto",
+      "nativeName": "Esperanto",
+      "searchTerms": "Esperanto Esperanto",
+      "file": "eo.json"
+    },
+    "et": {
+      "name": "Estonian",
+      "nativeName": "Eesti",
+      "searchTerms": "Estonian Eesti",
+      "file": "et.json"
+    },
+    "fil": {
+      "name": "Filipino",
+      "nativeName": "Filipino",
+      "searchTerms": "Filipino Filipino",
+      "file": "fil.json"
+    },
+    "fi": {
+      "name": "Finnish",
+      "nativeName": "Suomi",
+      "searchTerms": "Finnish Suomi",
+      "file": "fi.json"
+    },
+    "fr": {
+      "name": "French",
+      "nativeName": "Français",
+      "searchTerms": "French Français",
+      "file": "fr.json"
+    },
+    "fy": {
+      "name": "Frisian",
+      "nativeName": "Frysk",
+      "searchTerms": "Frisian Frysk",
+      "file": "fy.json"
+    },
+    "gl": {
+      "name": "Galician",
+      "nativeName": "Galego",
+      "searchTerms": "Galician Galego",
+      "file": "gl.json"
+    },
+    "ka": {
+      "name": "Georgian",
+      "nativeName": "ქართული",
+      "searchTerms": "Georgian ქართული",
+      "file": "ka.json"
+    },
+    "de": {
+      "name": "German",
+      "nativeName": "Deutsch",
+      "searchTerms": "German Deutsch",
+      "file": "de.json"
+    },
+    "el": {
+      "name": "Greek",
+      "nativeName": "Ελληνικά",
+      "searchTerms": "Greek Ελληνικά",
+      "file": "el.json"
+    },
+    "gu": {
+      "name": "Gujarati",
+      "nativeName": "ગુજરાતી",
+      "searchTerms": "Gujarati ગુજરાતી",
+      "file": "gu.json"
+    },
+    "ht": {
+      "name": "Haitian Creole",
+      "nativeName": "Kreyòl Ayisyen",
+      "searchTerms": "Haitian Creole Kreyòl Ayisyen",
+      "file": "ht.json"
+    },
+    "ha": {
+      "name": "Hausa",
+      "nativeName": "Hausa",
+      "searchTerms": "Hausa Hausa",
+      "file": "ha.json"
+    },
+    "haw": {
+      "name": "Hawaiian",
+      "nativeName": "ʻŌlelo Hawaiʻi",
+      "searchTerms": "Hawaiian ʻŌlelo Hawaiʻi",
+      "file": "haw.json"
+    },
+    "he": {
+      "name": "Hebrew",
+      "nativeName": "עברית",
+      "searchTerms": "Hebrew עברית",
+      "file": "he.json"
+    },
+    "hi": {
+      "name": "Hindi",
+      "nativeName": "हिन्दी",
+      "searchTerms": "Hindi हिन्दी",
+      "file": "hi.json"
+    },
+    "hmn": {
+      "name": "Hmong",
+      "nativeName": "Hmoob",
+      "searchTerms": "Hmong Hmoob",
+      "file": "hmn.json"
+    },
+    "hu": {
+      "name": "Hungarian",
+      "nativeName": "Magyar",
+      "searchTerms": "Hungarian Magyar",
+      "file": "hu.json"
+    },
+    "is": {
+      "name": "Icelandic",
+      "nativeName": "Íslenska",
+      "searchTerms": "Icelandic Íslenska",
+      "file": "is.json"
+    },
+    "ig": {
+      "name": "Igbo",
+      "nativeName": "Igbo",
+      "searchTerms": "Igbo Igbo",
+      "file": "ig.json"
+    },
+    "id": {
+      "name": "Indonesian",
+      "nativeName": "Bahasa Indonesia",
+      "searchTerms": "Indonesian Bahasa Indonesia",
+      "file": "id.json"
+    },
+    "ga": {
+      "name": "Irish",
+      "nativeName": "Gaeilge",
+      "searchTerms": "Irish Gaeilge",
+      "file": "ga.json"
+    },
+    "it": {
+      "name": "Italian",
+      "nativeName": "Italiano",
+      "searchTerms": "Italian Italiano",
+      "file": "it.json"
+    },
+    "ja": {
+      "name": "Japanese",
+      "nativeName": "日本語",
+      "searchTerms": "Japanese 日本語",
+      "file": "ja.json"
+    },
+    "jv": {
+      "name": "Javanese",
+      "nativeName": "Basa Jawa",
+      "searchTerms": "Javanese Basa Jawa",
+      "file": "jv.json"
+    },
+    "kn": {
+      "name": "Kannada",
+      "nativeName": "ಕನ್ನಡ",
+      "searchTerms": "Kannada ಕನ್ನಡ",
+      "file": "kn.json"
+    },
+    "kk": {
+      "name": "Kazakh",
+      "nativeName": "Қазақша",
+      "searchTerms": "Kazakh Қазақша",
+      "file": "kk.json"
+    },
+    "km": {
+      "name": "Khmer",
+      "nativeName": "ខ្មែរ",
+      "searchTerms": "Khmer ខ្មែរ",
+      "file": "km.json"
+    },
+    "rw": {
+      "name": "Kinyarwanda",
+      "nativeName": "Kinyarwanda",
+      "searchTerms": "Kinyarwanda Kinyarwanda",
+      "file": "rw.json"
+    },
+    "ko": {
+      "name": "Korean",
+      "nativeName": "한국어",
+      "searchTerms": "Korean 한국어",
+      "file": "ko.json"
+    },
+    "ku": {
+      "name": "Kurdish",
+      "nativeName": "Kurdî",
+      "searchTerms": "Kurdish Kurdî",
+      "file": "ku.json"
+    },
+    "ky": {
+      "name": "Kyrgyz",
+      "nativeName": "Кыргызча",
+      "searchTerms": "Kyrgyz Кыргызча",
+      "file": "ky.json"
+    },
+    "lo": {
+      "name": "Lao",
+      "nativeName": "ລາວ",
+      "searchTerms": "Lao ລາວ",
+      "file": "lo.json"
+    },
+    "la": {
+      "name": "Latin",
+      "nativeName": "Latina",
+      "searchTerms": "Latin Latina",
+      "file": "la.json"
+    },
+    "lv": {
+      "name": "Latvian",
+      "nativeName": "Latviešu",
+      "searchTerms": "Latvian Latviešu",
+      "file": "lv.json"
+    },
+    "lt": {
+      "name": "Lithuanian",
+      "nativeName": "Lietuvių",
+      "searchTerms": "Lithuanian Lietuvių",
+      "file": "lt.json"
+    },
+    "lb": {
+      "name": "Luxembourgish",
+      "nativeName": "Lëtzebuergesch",
+      "searchTerms": "Luxembourgish Lëtzebuergesch",
+      "file": "lb.json"
+    },
+    "mk": {
+      "name": "Macedonian",
+      "nativeName": "Македонски",
+      "searchTerms": "Macedonian Македонски",
+      "file": "mk.json"
+    },
+    "mg": {
+      "name": "Malagasy",
+      "nativeName": "Malagasy",
+      "searchTerms": "Malagasy Malagasy",
+      "file": "mg.json"
+    },
+    "ms": {
+      "name": "Malay",
+      "nativeName": "Bahasa Melayu",
+      "searchTerms": "Malay Bahasa Melayu",
+      "file": "ms.json"
+    },
+    "ml": {
+      "name": "Malayalam",
+      "nativeName": "മലയാളം",
+      "searchTerms": "Malayalam മലയാളം",
+      "file": "ml.json"
+    },
+    "mt": {
+      "name": "Maltese",
+      "nativeName": "Malti",
+      "searchTerms": "Maltese Malti",
+      "file": "mt.json"
+    },
+    "mi": {
+      "name": "Maori",
+      "nativeName": "Māori",
+      "searchTerms": "Maori Māori",
+      "file": "mi.json"
+    },
+    "mr": {
+      "name": "Marathi",
+      "nativeName": "मराठी",
+      "searchTerms": "Marathi मराठी",
+      "file": "mr.json"
+    },
+    "mn": {
+      "name": "Mongolian",
+      "nativeName": "Монгол",
+      "searchTerms": "Mongolian Монгол",
+      "file": "mn.json"
+    },
+    "ne": {
+      "name": "Nepali",
+      "nativeName": "नेपाली",
+      "searchTerms": "Nepali नेपाली",
+      "file": "ne.json"
+    },
+    "no": {
+      "name": "Norwegian",
+      "nativeName": "Norsk",
+      "searchTerms": "Norwegian Norsk",
+      "file": "no.json"
+    },
+    "ny": {
+      "name": "Nyanja",
+      "nativeName": "Chichewa",
+      "searchTerms": "Nyanja Chichewa",
+      "file": "ny.json"
+    },
+    "or": {
+      "name": "Odia",
+      "nativeName": "ଓଡ଼ିଆ",
+      "searchTerms": "Odia ଓଡ଼ିଆ",
+      "file": "or.json"
+    },
+    "ps": {
+      "name": "Pashto",
+      "nativeName": "پښتو",
+      "searchTerms": "Pashto پښتو",
+      "file": "ps.json"
+    },
+    "fa": {
+      "name": "Persian",
+      "nativeName": "فارسی",
+      "searchTerms": "Persian فارسی",
+      "file": "fa.json"
+    },
+    "pl": {
+      "name": "Polish",
+      "nativeName": "Polski",
+      "searchTerms": "Polish Polski",
+      "file": "pl.json"
+    },
+    "pt": {
+      "name": "Portuguese",
+      "nativeName": "Português",
+      "searchTerms": "Portuguese Português",
+      "file": "pt.json"
+    },
+    "pa": {
+      "name": "Punjabi",
+      "nativeName": "ਪੰਜਾਬੀ",
+      "searchTerms": "Punjabi ਪੰਜਾਬੀ",
+      "file": "pa.json"
+    },
+    "ro": {
+      "name": "Romanian",
+      "nativeName": "Română",
+      "searchTerms": "Romanian Română",
+      "file": "ro.json"
+    },
+    "ru": {
+      "name": "Russian",
+      "nativeName": "Русский",
+      "searchTerms": "Russian Русский",
+      "file": "ru.json"
+    },
+    "sm": {
+      "name": "Samoan",
+      "nativeName": "Gagana Samoa",
+      "searchTerms": "Samoan Gagana Samoa",
+      "file": "sm.json"
+    },
+    "gd": {
+      "name": "Scottish Gaelic",
+      "nativeName": "Gàidhlig",
+      "searchTerms": "Scottish Gaelic Gàidhlig",
+      "file": "gd.json"
+    },
+    "sr": {
+      "name": "Serbian",
+      "nativeName": "Српски",
+      "searchTerms": "Serbian Српски",
+      "file": "sr.json"
+    },
+    "st": {
+      "name": "Sesotho",
+      "nativeName": "Sesotho",
+      "searchTerms": "Sesotho Sesotho",
+      "file": "st.json"
+    },
+    "sn": {
+      "name": "Shona",
+      "nativeName": "Shona",
+      "searchTerms": "Shona Shona",
+      "file": "sn.json"
+    },
+    "sd": {
+      "name": "Sindhi",
+      "nativeName": "سنڌي",
+      "searchTerms": "Sindhi سنڌي",
+      "file": "sd.json"
+    },
+    "si": {
+      "name": "Sinhala",
+      "nativeName": "සිංහල",
+      "searchTerms": "Sinhala සිංහල",
+      "file": "si.json"
+    },
+    "sk": {
+      "name": "Slovak",
+      "nativeName": "Slovenčina",
+      "searchTerms": "Slovak Slovenčina",
+      "file": "sk.json"
+    },
+    "sl": {
+      "name": "Slovenian",
+      "nativeName": "Slovenščina",
+      "searchTerms": "Slovenian Slovenščina",
+      "file": "sl.json"
+    },
+    "so": {
+      "name": "Somali",
+      "nativeName": "Soomaali",
+      "searchTerms": "Somali Soomaali",
+      "file": "so.json"
+    },
+    "es": {
+      "name": "Spanish",
+      "nativeName": "Español",
+      "searchTerms": "Spanish Español",
+      "file": "es.json"
+    },
+    "su": {
+      "name": "Sundanese",
+      "nativeName": "Basa Sunda",
+      "searchTerms": "Sundanese Basa Sunda",
+      "file": "su.json"
+    },
+    "sw": {
+      "name": "Swahili",
+      "nativeName": "Kiswahili",
+      "searchTerms": "Swahili Kiswahili",
+      "file": "sw.json"
+    },
+    "sv": {
+      "name": "Swedish",
+      "nativeName": "Svenska",
+      "searchTerms": "Swedish Svenska",
+      "file": "sv.json"
+    },
+    "tg": {
+      "name": "Tajik",
+      "nativeName": "Тоҷикӣ",
+      "searchTerms": "Tajik Тоҷикӣ",
+      "file": "tg.json"
+    },
+    "ta": {
+      "name": "Tamil",
+      "nativeName": "தமிழ்",
+      "searchTerms": "Tamil தமிழ்",
+      "file": "ta.json"
+    },
+    "tt": {
+      "name": "Tatar",
+      "nativeName": "Татарча",
+      "searchTerms": "Tatar Татарча",
+      "file": "tt.json"
+    },
+    "te": {
+      "name": "Telugu",
+      "nativeName": "తెలుగు",
+      "searchTerms": "Telugu తెలుగు",
+      "file": "te.json"
+    },
+    "th": {
+      "name": "Thai",
+      "nativeName": "ไทย",
+      "searchTerms": "Thai ไทย",
+      "file": "th.json"
+    },
+    "tr": {
+      "name": "Turkish",
+      "nativeName": "Türkçe",
+      "searchTerms": "Turkish Türkçe",
+      "file": "tr.json"
+    },
+    "tk": {
+      "name": "Turkmen",
+      "nativeName": "Türkmençe",
+      "searchTerms": "Turkmen Türkmençe",
+      "file": "tk.json"
+    },
+    "uk": {
+      "name": "Ukrainian",
+      "nativeName": "Українська",
+      "searchTerms": "Ukrainian Українська",
+      "file": "uk.json"
+    },
+    "ur": {
+      "name": "Urdu",
+      "nativeName": "اردو",
+      "searchTerms": "Urdu اردو",
+      "file": "ur.json"
+    },
+    "ug": {
+      "name": "Uyghur",
+      "nativeName": "ئۇيغۇرچە",
+      "searchTerms": "Uyghur ئۇيغۇرچە",
+      "file": "ug.json"
+    },
+    "uz": {
+      "name": "Uzbek",
+      "nativeName": "Oʻzbekcha",
+      "searchTerms": "Uzbek Oʻzbekcha",
+      "file": "uz.json"
+    },
+    "vi": {
+      "name": "Vietnamese",
+      "nativeName": "Tiếng Việt",
+      "searchTerms": "Vietnamese Tiếng Việt",
+      "file": "vi.json"
+    },
+    "cy": {
+      "name": "Welsh",
+      "nativeName": "Cymraeg",
+      "searchTerms": "Welsh Cymraeg",
+      "file": "cy.json"
+    },
+    "xh": {
+      "name": "Xhosa",
+      "nativeName": "isiXhosa",
+      "searchTerms": "Xhosa isiXhosa",
+      "file": "xh.json"
+    },
+    "yi": {
+      "name": "Yiddish",
+      "nativeName": "ייִדיש",
+      "searchTerms": "Yiddish ייִדיש",
+      "file": "yi.json"
+    },
+    "yo": {
+      "name": "Yoruba",
+      "nativeName": "Yorùbá",
+      "searchTerms": "Yoruba Yorùbá",
+      "file": "yo.json"
+    },
+    "zu": {
+      "name": "Zulu",
+      "nativeName": "isiZulu",
+      "searchTerms": "Zulu isiZulu",
+      "file": "zu.json"
+    }
+  }
+}

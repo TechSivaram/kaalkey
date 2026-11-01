@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Lugha",
+      "description": "Chagua lugha iliyotumika katika KaalKey.",
+      "english": "Kiingereza",
+      "telugu": "Kitelugu",
+      "hindi": "Kihindi",
+      "section": "LUGHA",
+      "searchLanguageName": "Lugha ya utafutaji (jina au msimbo)",
+      "searchSupportedLanguages": "Tafuta lugha zinazotumika",
+      "closeLanguageDropdown": "Funga menyu kunjuzi ya lugha",
+      "noTranslatedLanguage": "Hakuna lugha iliyotafsiriwa iliyopatikana.",
+      "serverUrl": "Seva ya tafsiri URL",
+      "serverUrlDescription": "KaalKey hupakua orodha ya lugha na tafsiri kutoka kwa seva hii.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Hifadhi seva ya tafsiri"
+    },
+    "title": "Mipangilio ya programu",
+    "eyebrow": "KAALKEY UPENDELEO",
+    "experience": {
+      "section": "UZOEFU"
+    },
+    "security": {
+      "section": "USALAMA"
+    },
+    "backup": {
+      "section": "HUDUMA NA KUPONA"
+    },
+    "danger": {
+      "section": "ENEO LA HATARI",
+      "clearAccounts": "Futa akaunti zote",
+      "clearAccountsDescription": "Ondoa kabisa kila akaunti na siri kwenye kifaa hiki. Hifadhi nakala rudufu kwanza.",
+      "clearAccountsAccessibilityLabel": "Futa akaunti zote za uthibitishaji"
+    },
+    "appearance": {
+      "section": "MUONEKANO",
+      "title": "Muonekano mwepesi",
+      "description": "KaalKey kwa sasa inatumia mandhari yake safi ya mwanga."
+    },
+    "haptics": {
+      "title": "Maoni ya Haptic",
+      "description": "Maoni ya upole kwa kugonga na vitendo vilivyokamilika."
+    },
+    "deviceLock": {
+      "title": "Kufuli ya uthibitishaji wa kifaa",
+      "description": "Kuba yako hujifunga KaalKey inapoondoka kwenye mandhari ya mbele.",
+      "requirement": "Inahitaji bayometriki ya simu yako au mbinu ya kufunga skrini PIN, mchoro au nenosiri.",
+      "accessibilityLabel": "Kufunga programu ya uthibitishaji wa kifaa"
+    },
+    "privacy": {
+      "title": "Kisheria na faragha",
+      "description": "Kagua Sera ya Faragha na Sheria na Masharti.",
+      "storageNote": "Siri za uthibitishaji wako hukaa katika hifadhi salama ya kifaa. Mapendeleo yanahifadhiwa ndani."
+    }
+  },
+  "accounts": {
+    "edit": "Hariri",
+    "sortAccountName": "Panga kwa jina la akaunti",
+    "loadingSecureVault": "Inapakia chumba salama...",
+    "tapCopy": "GONGA ILI KUNAKILI",
+    "noAccountsMatch": "Hakuna akaunti zinazolingana na utafutaji wako.",
+    "viewQrCode": "Tazama QR msimbo wa akaunti",
+    "removeAccount": "Ondoa akaunti",
+    "copyVerificationCode": "Nakili nambari ya kuthibitisha",
+    "active": "INAENDELEA",
+    "sort": "PANGA KWA",
+    "account": "Akaunti",
+    "clearSearch": "Futa utafutaji",
+    "sortServiceName": "Panga kwa jina la huduma",
+    "addFirstAccount": "Ongeza akaunti yako ya kwanza",
+    "searchAccounts": "Tafuta akaunti",
+    "searchServiceAccount": "Tafuta huduma au akaunti",
+    "accounts": "Akaunti zako",
+    "add": "+ Ongeza",
+    "vaultStartsHere": "Vault yako inaanzia hapa",
+    "service": "Huduma",
+    "emptyHint": "Ongeza akaunti kwa kutumia ufunguo wake wa siri ili kuzalisha nambari yako ya kuthibitisha ya kwanza."
+  },
+  "common": {
+    "done": "Imekamilika",
+    "doneButton": "Imekamilika",
+    "closeSettings": "Funga mipangilio",
+    "separator": "-",
+    "article": "a",
+    "save": "Hifadhi",
+    "delete": "Futa",
+    "resizeAppBrand": "Badilisha ukubwa wa vidirisha vya programu na chapa"
+  },
+  "qrImport": {
+    "readPastedImage": "Haikuweza kusoma picha iliyobandikwa"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Akaunti katika nakala hii: {count}. KaalKey itahifadhi akaunti zako zilizopo na kuongeza akaunti zozote ambazo tayari hazipo. Akaunti zilizorudiwa zitarukwa.",
+    "restoreCompletionBody": "Akaunti zimeongezwa: {added}. Akaunti zilizorudiwa zimerukwa: {skipped}. Akaunti zako zilizopo zilihifadhiwa.",
+    "copyPassword": "Nakili nenosiri lililoundwa",
+    "passwordSafety": "Hifadhi nenosiri hili tofauti (kwa mfano, katika WhatsApp). Yeyote aliye na zote mbili",
+    "importAction": "Chagua faili na uingize",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "SALAMA VAULT",
+    "createBackup": "Unda nakala rudufu",
+    "encryptedFile": "Faili iliyosimbwa kwa njia fiche",
+    "restoreBackup": "Rejesha nakala rudufu",
+    "safetyNote": "Hifadhi rudufu zina siri zako za uthibitishaji. KaalKey hutengeneza nenosiri la kipekee kwa kila chelezo. Ihifadhi kando; KaalKey haiwezi kuirejesha.",
+    "generatingSecurePassword": "Inazalisha nenosiri salama...",
+    "importFile": "Ingiza faili",
+    "backupPassword": "HUDUMA NENOSIRI",
+    "account": "akaunti",
+    "accounts": "hesabu",
+    "exportDescription": "Simba zote {count} zimehifadhiwa {accountLabel} kwenye faili mbadala. KaalKey hutengeneza nenosiri la kipekee; nakala na uihifadhi kando na faili.",
+    "restoreDescription": "Chagua faili yako mbadala ya KaalKey na nenosiri. Akaunti mpya zitaongezwa kwenye orodha iliyopo ya akaunti; akaunti zilizopo zitabaki kama zilivyo.",
+    "enterBackupPassword": "Weka nenosiri mbadala",
+    "closeBackup": "Funga nakala rudufu",
+    "copyGeneratedBackup": "Nakili nenosiri la chelezo lililozalishwa",
+    "backupPassword2": "Hifadhi nakala ya nenosiri",
+    "clearBackupPassword": "Futa nenosiri la chelezo",
+    "backupFilePassword": "faili chelezo na nenosiri vinaweza kurejesha akaunti zako za kithibitishaji.",
+    "encryptShareBackup": "Simba na ushiriki nakala rudufu"
+  },
+  "home": {
+    "unlockSecurely": "Fungua kwa usalama",
+    "disableAppLock": "Lemaza kufuli ya programu",
+    "enableAppLock": "Washa kufuli ya programu",
+    "checkingSecureLock": "Inakagua mipangilio yako ya kufuli salama. Misimbo yako itasalia kufichwa.",
+    "waitingVerification": "Inasubiri uthibitisho...",
+    "secretsStayStored": "Siri zako hubaki zimehifadhiwa kwenye kifaa hiki.",
+    "openAppSettings": "Fungua mipangilio ya programu",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "Tumia bayometriki au mbinu ya kufunga skrini ya simu yako PIN, mchoro au nenosiri ili kufikia misimbo yako ya uthibitishaji ya mara moja.",
+    "localVault": "VAUL YA MTAA WAKO",
+    "codesDeviceControl": "Nambari zako. Kifaa chako. Udhibiti wako.",
+    "securingVault": "Inalinda vault yako...",
+    "vaultProtected": "Vault yako inalindwa",
+    "lock": "FUNGA",
+    "localVault2": "VAULT YA MTAA",
+    "authenticator": "KAALKEY ATHENTICATOR",
+    "tricolourLockEmblem": "KaalKey nembo ya kufuli ya rangi tatu",
+    "authenticator2": "ATHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Ukichagua kuchanganua msimbo wa QR, KaalKey hutumia ruhusa ya kamera kwa kitendo hicho. Uthibitishaji wa hiari wa kifaa na maoni ya haptic hutumia vipengele vinavyohusika vya kifaa. Unaweza kudhibiti ruhusa katika mipangilio ya kifaa chako.",
+        "heading": "2. Ruhusa na vipengele vya kifaa"
+      },
+      "backups": {
+        "body": "Unapounda nakala rudufu, KaalKey husimba nakala rudufu kwa kutumia nenosiri ulilochagua. Weka faili na nenosiri kwa faragha na uzihifadhi kwa usalama. Yeyote anayepata faili na nenosiri lake anaweza kurejesha akaunti zako za uthibitishaji. KaalKey haiwezi kurejesha nenosiri la chelezo lililosahaulika.",
+        "heading": "3. Hifadhi rudufu"
+      },
+      "security": {
+        "body": "Sasisha kifaa chako, kilinde kwa kufunga skrini, na usishiriki OTP siri au manenosiri mbadala. Kuondoa programu, kufuta data yake, au kupoteza kifaa kunaweza kufanya akaunti zilizohifadhiwa ndani zisipatikane. Dumisha nakala salama ikiwa unahitaji urejeshaji.",
+        "heading": "5. Usalama na uhifadhi"
+      },
+      "information": {
+        "heading": "1. Taarifa na siri",
+        "body": "KaalKey ni programu ya uthibitishaji. Lebo za akaunti na thamani za siri zinazohitajika ili kutengeneza misimbo ya mara moja ni nyeti. Programu imeundwa kuhifadhi rekodi za akaunti katika hifadhi salama ya kifaa. Mtu yeyote aliye na ufikiaji wa kifaa ambacho hakijafunguliwa au chelezo iliyohamishwa anaweza kufikia maelezo nyeti."
+      },
+      "sharing": {
+        "heading": "4. Kushiriki na watu wa tatu",
+        "body": "Mchakato wa kuhifadhi nakala unaweza kutumia laha ya kushiriki au kiteua faili cha kifaa chako kuhifadhi, kuhamisha au kuchagua faili. Mbinu za faragha za programu au huduma yoyote ya mtu mwingine unazochagua zinasimamiwa na mtoa huduma huyo. Notisi hii haitoi madai ya jumla kwamba kifaa chako, mfumo wa uendeshaji, au huduma ulizochagua za kushiriki hazichakata data kamwe."
+      },
+      "changes": {
+        "heading": "6. Mabadiliko na mawasiliano",
+        "body": "Notisi hii iliyopachikwa inaweza kurekebishwa katika toleo la programu la siku zijazo. Kwa maswali ya faragha, wasiliana na mchapishaji wa programu kupitia kituo rasmi cha usaidizi kilichotolewa na programu."
+      },
+      "title": "Sera ya Faragha"
+    },
+    "terms": {
+      "use": {
+        "body": "Unaweza kutumia KaalKey kutengeneza misimbo ya uthibitishaji kwa akaunti ambazo umeidhinishwa kufikia. Unawajibu wa kutii sheria zinazotumika na kanuni za huduma unazotumia misimbo ya uthibitishaji.",
+        "heading": "1. Matumizi yako"
+      },
+      "protectAccounts": {
+        "body": "Una jukumu la kulinda kifaa chako, siri za uthibitishaji, mbinu za urejeshaji, nakala rudufu zilizohamishwa na manenosiri mbadala. Usishiriki misimbo au siri na watu usiowaamini.",
+        "heading": "2. Linda akaunti zako"
+      },
+      "availability": {
+        "body": "Vipengele vinaweza kubadilika kati ya matoleo. Unapaswa kusasisha programu na uthibitishe mara kwa mara kuwa mipangilio yako ya kuhifadhi nakala na urejeshaji inafanya kazi.",
+        "heading": "5. Mabadiliko na upatikanaji"
+      },
+      "recovery": {
+        "body": "KaalKey haiwezi kuthibitisha kwamba kila akaunti inaweza kurejeshwa, kwamba kila QR msimbo au usanidi utaoana, au kwamba programu itafanya kazi bila kukatizwa au hitilafu. Weka mbinu mbadala za uokoaji zinazotolewa na huduma husika.",
+        "heading": "3. Hakuna dhamana ya kurejesha"
+      },
+      "advice": {
+        "heading": "4. Hakuna ushauri wa kitaalamu",
+        "body": "Programu ni shirika na haitoi ushauri wa kisheria, kifedha au wa usalama wa kujibu matukio. Ikiwa akaunti imeingiliwa, fuata mwongozo rasmi wa urejeshaji na usalama wa huduma iliyoathiriwa."
+      },
+      "liability": {
+        "heading": "6. Dhima na sheria inayotumika",
+        "body": "Kwa kiwango kinachoruhusiwa na sheria inayotumika, programu hutolewa bila hakikisho ya utendakazi usiokatizwa au usio na hitilafu. Hakuna chochote katika masharti haya ambacho hakijumuishi haki au suluhu ambazo haziwezi kutengwa kisheria. Vizuizi vyovyote zaidi au masharti ya sheria inayoongoza yanapaswa kukaguliwa na wakili aliyehitimu kwa mamlaka ya mchapishaji kabla ya kuachiliwa."
+      },
+      "title": "Masharti ya Matumizi"
+    },
+    "version": "Toleo",
+    "saving": "Inahifadhi...",
+    "acceptContinue": "Kubali na Uendelee",
+    "appliesAuthenticator": "Hutumika kwa KaalKey Kithibitishaji",
+    "reviewBothDocuments": "Tafadhali kagua hati zote mbili kabla ya kutumia KaalKey. Zimejumuishwa kwenye programu na zinapatikana nje ya mtandao.",
+    "originalMulticolourAuthenticator": "Nembo ya uthibitishaji wa rangi nyingi KaalKey asili",
+    "legalPrivacyNotice": "Notisi ya Kisheria na Faragha",
+    "legalInformation": "Taarifa za kisheria",
+    "reviewSPrivacy": "Kagua KaalKey maelezo ya faragha na sheria na masharti.",
+    "iReadAgree": "Nimesoma na kukubaliana na Sera ya Faragha na Sheria na Masharti."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Weka msimbo wote QR uonekane. Siri yako itasalia kwenye kifaa hiki.",
+    "back": "Nyuma",
+    "turnFlashlightOff": "Zima tochi",
+    "turnFlashlight": "Washa tochi",
+    "flashlight": "Tochi imewashwa",
+    "flashlight2": "Tochi",
+    "cameraUnavailableOpen": "Kamera haipatikani. Fungua ukurasa huu kwenye HTTPS au mpangishaji wa ndani na uruhusu ufikiaji wa kamera.",
+    "cameraPreviewUnavailable": "Onyesho la kukagua kamera halipatikani. Funga na ufungue tena kichanganuzi.",
+    "cameraReadyPoint": "Kamera iko tayari — ielekeze kwenye msimbo kamili wa QR.",
+    "browserCannotProcess": "Kivinjari hiki hakiwezi kuchakata fremu za kamera.",
+    "qrCodeDetected": "QR msimbo umetambuliwa.",
+    "couldnTRead": "Haikuweza kusoma fremu za kamera. Angalia ruhusa za kamera na upakie upya ukurasa huu.",
+    "cameraPermissionDenied": "Ruhusa ya kamera imekataliwa. Ruhusu ufikiaji wa kamera katika mipangilio ya kivinjari, kisha ufungue tena kichanganuzi.",
+    "noCameraWas": "Hakuna kamera iliyopatikana kwenye kifaa hiki.",
+    "cameraBusyAnother": "Kamera ina shughuli nyingi katika programu nyingine au kichupo cha kivinjari.",
+    "startCameraHttps": "Haikuweza kuanzisha kamera. Tumia HTTPS au mwenyeji wa ndani na uangalie ruhusa za kivinjari.",
+    "qrScannerCamera": "QR onyesho la kukagua kamera ya skana",
+    "cameraUnavailableCheck": "Kamera haipatikani. Angalia ruhusa ya kamera na ujaribu tena.",
+    "pointCameraAuthenticator": "Elekeza kamera yako kwenye usanidi wa kithibitishaji QR kutoka kwa huduma unayoongeza.",
+    "backAddAccount": "Rudi ili kuongeza akaunti",
+    "secureSetup": "SALAMA KUWEKA",
+    "enterDetailsManually": "Weka maelezo wewe mwenyewe badala yake"
+  },
+  "accountForm": {
+    "hideManualEntry": "Ficha ingizo la mwongozo",
+    "secretKeySupplied": "Tumia ufunguo wa siri unaotolewa na huduma unayosanidi. Usiwahi kuingia nenosiri la akaunti yako hapa. Linganisha algoriti, hesabu ya tarakimu na muda na maagizo ya usanidi wa huduma.",
+    "updateServiceAccount": "Sasisha huduma, jina la akaunti, au ufunguo wa siri.",
+    "secretKeyRead": "Ufunguo wa siri, wa kusoma tu wakati wa kuhariri",
+    "secretKeyBase32": "Ufunguo wa siri katika Base32",
+    "digits": "tarakimu",
+    "seconds": "sekunde",
+    "enterDetailsManually": "AU WEKA MAELEZO KWA MKONO",
+    "enterDetailsManually2": "Ingiza maelezo wewe mwenyewe",
+    "serviceAccountName": "Huduma, jina la akaunti na ufunguo wa siri",
+    "saveChangesSecurely": "Hifadhi mabadiliko kwa usalama",
+    "saveAccountSecurely": "Hifadhi akaunti kwa usalama",
+    "serviceIssuer": "Huduma au mtoaji",
+    "accountName": "Jina la akaunti",
+    "secretKey": "Ufunguo wa siri",
+    "serviceIssuer2": "HUDUMA / MTOAJI",
+    "eGGoogle": "k.m. Google",
+    "clearServiceIssuer": "Futa huduma au mtoaji",
+    "eGExample": "k.m. wewe@mfano.com",
+    "clearAccountName": "Futa jina la akaunti",
+    "secretKeyLocked": "UFUNGUO WA SIRI (UMEFUNGWA)",
+    "secretKeyBase322": "UFUNGUO WA SIRI (BASE32)",
+    "enterSetupKey": "Ingiza ufunguo wako wa kusanidi",
+    "clearSecretKey": "Futa ufunguo wa siri",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP DIGITS",
+    "refreshIntervalSeconds": "UPYA MUDA (SEKUNDE)",
+    "otpRefreshInterval": "OTP muda wa kuonyesha upya katika sekunde",
+    "closeAccountForm": "Funga fomu ya akaunti",
+    "totpSetupUrl": "TOTP kuanzisha URL",
+    "importSetupUrl": "Mipangilio ya kuagiza URL",
+    "totpSetupUrl2": "TOTP KUWEKA URL",
+    "accountName2": "AKAUNTI JINA",
+    "addAccount": "Ongeza akaunti"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Changanua msimbo wa kithibitishaji QR",
+    "setupGuidance": "Changanua msimbo wa QR ili upate usanidi rahisi zaidi, au uweke maelezo wewe mwenyewe.",
+    "cameraAddAccount": "Tumia kamera yako kuongeza akaunti papo hapo",
+    "scanQrCode2": "Changanua QR msimbo",
+    "uploadQrImage": "Pakia QR picha",
+    "chooseQrScreenshot": "Chagua QR picha ya skrini kutoka kwenye Matunzio, Picha au Faili",
+    "pasteQr": "Bandika QR picha / URL",
+    "pasteCopiedQr": "Bandika picha iliyonakiliwa QR au usanidi wa kithibitishaji URL",
+    "uploadQrImage2": "Pakia QR picha"
+  },
+  "accountQr": {
+    "close": "Funga",
+    "accountQrCode": "Akaunti QR msimbo",
+    "revealQrCode": "Onyesha QR msimbo",
+    "exportWarning": "Onyo: mtu yeyote anayechanganua msimbo huu QR anaweza kutoa misimbo ya uthibitishaji ya akaunti hii. Ifichue kwenye skrini inayoaminika pekee.",
+    "privacyHint": "Weka msimbo huu QR kuwa wa faragha. Kuichanganua kunakili siri ya kithibitishaji cha akaunti."
+  },
+  "productInfo": {
+    "backupRestore": "Hifadhi nakala na kurejesha",
+    "backupRestoreDescription": "Hifadhi nakala ya data yako ya uthibitishaji na uirejeshe unapohamia kifaa kingine.",
+    "privacyDescription": "Weka akaunti zako za uthibitishaji mahali pamoja. Tumia chaguo za kuhifadhi nakala, kurejesha na kufunga kifaa ili kudhibiti usanidi wako kwa kuwajibika.",
+    "timeBasedCodes": "Nambari za wakati",
+    "generateOneTimeCodes": "Tengeneza misimbo ya siri ya mara moja kwa akaunti yako ili kukamilisha uthibitishaji wa hatua mbili.",
+    "quickAccountSetup": "Usanidi wa haraka wa akaunti",
+    "quickSetupDescription": "Changanua msimbo wa kithibitishaji QR au leta picha ya QR ili kuongeza akaunti.",
+    "accountsOnePlace": "Hesabu katika sehemu moja",
+    "accountsInOnePlaceDescription": "Weka akaunti zako zilizohifadhiwa pamoja na utafute ingizo linalofaa wakati wa kuingia.",
+    "privateAccountVault": "Hifadhi ya akaunti ya kibinafsi",
+    "privateVaultDescription": "Dhibiti maingizo yako ya uthibitishaji ndani ya nchi na utumie chaguo linalopatikana la programu ya kufunga kifaa.",
+    "easyCodeAccess": "Ufikiaji rahisi wa nambari",
+    "easyCodeAccessDescription": "Nakili msimbo wa sasa au udhibiti maelezo ya akaunti kupitia kiolesura safi, kilicholenga.",
+    "authenticatorTechsivaram": "ATHENTICATOR · KWA TECHSIVARAM",
+    "mobileAuthenticator": "KITHIBITISHO CHAKO CHA SIMU",
+    "tagline": "Njia rahisi ya kudhibiti uthibitishaji wako wa hatua mbili.",
+    "heroDescription": "Uzoefu mahususi wa uthibitishaji wa misimbo ya uthibitishaji kulingana na wakati. Weka misimbo ya akaunti inayooana karibu na KaalKey ya Android.",
+    "timeBasedCodes2": "MSIMBO WA WAKATI",
+    "privateDesign": "BINAFSI KWA DESIGN",
+    "builtSimpleAuthenticator": "IMEJENGWA KWA AJILI YA MTIRIRIKO RAHISI WA WATHIBITISHAJI",
+    "qrSetupTimed": "QR WEKA MSIMBO ULIOPATIWA NA MKOMBOZI · USIMAMIZI WA AKAUNTI",
+    "privacyTitle": "Akaunti zako. Nambari zako. Udhibiti wako.",
+    "authenticator": "KAALKEY THIBITISHO",
+    "brandBanner": "KaalKey bango la chapa",
+    "logo": "KaalKey nembo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Ghairi",
+      "storageInvalidTitle": "Data ya hifadhi ni batili",
+      "storageInvalidBody": "Data ya akaunti iliyohifadhiwa haikuweza kusomeka kwa usalama.",
+      "storageErrorTitle": "Hitilafu ya hifadhi",
+      "storageErrorBody": "Akaunti zilizohifadhiwa hazikuweza kupakiwa.",
+      "missingTitle": "Taarifa zinazokosekana",
+      "missingEditingBody": "Ingiza jina la huduma na jina la akaunti.",
+      "missingBody": "Ingiza jina la huduma, jina la akaunti, na ufunguo wa siri.",
+      "invalidOtpBody": "Angalia Base32 siri, algoriti, hesabu ya tarakimu, na kipindi cha kuonyesha upya. Siri lazima ziwe na vibambo halali Base32; tarakimu lazima ziwe {digits} na kipindi lazima kiwe {minPeriod}–{maxPeriod} sekunde.",
+      "duplicateBody": "Akaunti iliyo na huduma hii na jina la akaunti tayari imehifadhiwa.",
+      "updatedBody": "Akaunti yako imesasishwa.",
+      "addedBody": "Akaunti yako iliongezwa kwa usalama.",
+      "invalidOtpTitle": "Mipangilio batili OTP",
+      "duplicateTitle": "Akaunti tayari ipo",
+      "savedTitle": "Akaunti imehifadhiwa",
+      "invalidSecretTitle": "Ufunguo wa siri si sahihi",
+      "invalidSecretBody": "Tafadhali hakikisha kwamba umeweka siri Base32 halali.",
+      "removedTitle": "Akaunti imeondolewa",
+      "removedBody": "Akaunti na siri yake ziliondolewa kwenye kifaa hiki.",
+      "clearedTitle": "Akaunti zimefutwa",
+      "clearedBody": "Akaunti na siri zote za uthibitishaji ziliondolewa kwenye kifaa hiki.",
+      "someSavedAccountsNeedAttentionTitle": "Baadhi ya akaunti zilizohifadhiwa zinahitaji kuzingatiwa",
+      "someSavedAccountsNeedAttentionBody": "{count} rekodi za akaunti zisizo sahihi hazikupakiwa. Akaunti halali zinaendelea kupatikana. Fikiria kuunda nakala kabla ya kufanya mabadiliko zaidi.",
+      "removeConfirmTitle": "Ungependa kuondoa akaunti?",
+      "removeConfirmWebTitle": "Ungependa kuondoa akaunti?",
+      "removeButton": "Ondoa",
+      "clearButton": "Futa zote",
+      "clearConfirmTitle": "Ungependa kufuta akaunti zote?",
+      "saveErrorBody": "Akaunti hazikuweza kuhifadhiwa. Angalia upatikanaji wa hifadhi ya kivinjari na ujaribu tena.",
+      "notFoundTitle": "Akaunti haijapatikana",
+      "notFoundBody": "Akaunti hii haikupatikana. Funga kihariri na ujaribu tena.",
+      "removeConfirmBody": "Hii huondoa akaunti na siri yake kutoka kwa kifaa hiki.",
+      "clearConfirmBody": "Hatua hii huondoa kabisa akaunti zote za uthibitishaji na siri zake kwenye kifaa hiki. Unda nakala rudufu iliyosimbwa kwa njia fiche kwanza ikiwa unaweza kuhitaji akaunti hizi baadaye.",
+      "clearConfirmUndoBody": "Hili haliwezi kutenduliwa."
+    },
+    "biometric": {
+      "cancelButton": "Ghairi",
+      "saveErrorTitle": "Haikuweza kuhifadhi mpangilio",
+      "unlockPrompt": "Fungua KaalKey Kithibitishaji",
+      "promptSubtitle": "Tumia bayometriki au kufunga skrini ya kifaa chako",
+      "disableConfirmPrompt": "Thibitisha ili kuzima KaalKey kufuli ya programu",
+      "enablePrompt": "Washa kufuli ya programu kwa ajili ya KaalKey",
+      "deviceLockTitle": "Sanidi mbinu ya kufunga skrini ya kifaa chako",
+      "deviceLockBody": "KaalKey hutumia uthibitishaji uliojengewa ndani wa simu yako. Weka kifaa PIN, mchoro, au nenosiri katika mipangilio ya usalama ya simu yako, kisha ujaribu tena. Biometriska ni hiari.",
+      "unavailableTitle": "Uthibitishaji wa kifaa haupatikani",
+      "unavailableBody": "Simu yako haikuweza kuanzisha uthibitishaji salama. Hakikisha kuwa mbinu ya kufunga skrini ya kifaa imesanidiwa, kisha ujaribu tena.",
+      "lockedTitle": "Uthibitishaji umefungwa kwa muda",
+      "lockedBody": "Simu yako imezima uthibitishaji kwa muda baada ya majaribio mengi sana. Subiri na ujaribu tena.",
+      "promptErrorTitle": "Uthibitishaji haupatikani",
+      "promptErrorBody": "KaalKey haikuweza kuanzisha kidokezo salama cha uthibitishaji wa simu. Tafadhali jaribu tena.",
+      "webLock": "Kufuli ya uthibitishaji wa kifaa bado haipatikani katika toleo la wavuti. Vault ya wavuti inabaki kufunguliwa; tumia programu ya Android kwa uthibitishaji wa kifaa asili.",
+      "disabledTitle": "Kufunga programu imezimwa",
+      "disabledBody": "KaalKey kufuli ya programu imezimwa.",
+      "disableSaveError": "Kufunga programu bado kumewashwa. Tafadhali jaribu tena.",
+      "enabledTitle": "Kufunga programu kumewashwa",
+      "enabledBody": "KaalKey itaomba uthibitishaji uliojengewa ndani ya simu yako wakati itafunguliwa na utakapoirudia.",
+      "enableSaveError": "Kufunga programu haikuweza kuwashwa. Tafadhali jaribu tena."
+    },
+    "qr": {
+      "startingCamera": "Inaanzisha kamera...",
+      "unsupportedTitle": "Msimbo QR hautumiki",
+      "unsupportedBody": "Changanua usanidi wa kithibitishaji QR msimbo unaotolewa na huduma. Hii lazima iwe TOTP msimbo, si msimbo wa kawaida wa kuingia QR.",
+      "unsupportedDiagnostic": "Hiyo QR si msimbo wa usanidi TOTP. Lenga usanidi wa uthibitishaji QR.",
+      "detectedDiagnostic": "QR imetambuliwa. Inachanganua...",
+      "analyzing": "Inachanganua QR msimbo...",
+      "duplicateTitle": "Akaunti tayari imeongezwa",
+      "duplicateBody": "{issuer}: {account} tayari iko KaalKey.",
+      "addedTitle": "Akaunti imeongezwa",
+      "addedBody": "{issuer}: {account} iliongezwa kwa mafanikio.",
+      "saveFailedDiagnostic": "Haikuweza kuhifadhi akaunti. Unaweza kuchanganua tena.",
+      "invalidTitle": "Msimbo batili QR",
+      "invalidBody": "KaalKey haikuweza kuchanganua kithibitishaji hiki QR msimbo. {detail}. Tumia msimbo wa TOTP wa kusanidi QR (kawaida huanza na {prefix}).",
+      "parseFailedDiagnostic": "QR haikuweza kuchakatwa. Lenga kusanidi QR na ujaribu tena.",
+      "invalidUrlTitle": "Batili TOTP URL",
+      "invalidUrlBody": "Bandika kithibitishaji kamili URL ukianza na {prefix}.",
+      "clipboardEmptyTitle": "Ubao wa kunakili ni tupu",
+      "clipboardEmptyBody": "Nakili {prefix} URL kwanza, kisha uguse Bandika TOTP URL.",
+      "clipboardErrorTitle": "Haikuweza kusoma ubao wa kunakili",
+      "clipboardErrorBody": "Nakili TOTP usanidi URL na ujaribu tena."
+    },
+    "haptics": {
+      "saveFailedTitle": "Haikuweza kuhifadhi mpangilio",
+      "saveFailedBody": "Upendeleo wa maoni ya haptic haukuweza kuhifadhiwa. Tafadhali jaribu tena."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Haikuweza kuhifadhi uthibitisho",
+      "saveFailedBody": "Tafadhali jaribu tena. Lazima ukubali notisi ya kisheria kabla ya kutumia KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Ruhusa ya kamera inahitajika",
+      "body": "Ruhusu ufikiaji wa kamera kuchanganua usanidi wa kithibitishaji QR."
+    },
+    "storage": {
+      "browserUnavailable": "Hifadhi ya kivinjari haipatikani.",
+      "browserFilePickerUnavailable": "Kiteua faili cha kivinjari hakipatikani."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Faili isiyotumika",
+      "unsupportedFileBody": "Chagua QR picha ya msimbo kama vile PNG au JPEG.",
+      "browserDecoderUnavailable": "Usimbuaji wa picha ya kivinjari haupatikani",
+      "imageLoadFailed": "Picha haikuweza kupakiwa",
+      "unreadableDimensions": "Picha haina vipimo vinavyosomeka",
+      "noQrCodeFoundTitle": "Hakuna msimbo QR uliopatikana",
+      "noQrCodeFoundBody": "KaalKey haikuweza kusimbua QR msimbo katika picha hii. Jaribu picha ya skrini au azimio la juu zaidi PNG/JPEG.",
+      "couldNotReadImageTitle": "Haikuweza kusoma picha",
+      "couldNotReadImageBody": "Jaribu picha iliyo wazi PNG au JPEG iliyo na usanidi wa kithibitishaji QR.",
+      "couldNotOpenPickerTitle": "Haikuweza kufungua kiteua picha",
+      "couldNotOpenPickerBody": "Tafadhali jaribu Kupakia QR tena.",
+      "normalizedDecodeFailed": "Picha ya kawaida haikuweza kusimbuwa",
+      "clipboardImageLoadFailed": "Picha ya Ubao wa kunakili haikuweza kupakiwa",
+      "imageProcessingUnavailable": "Uchakataji wa picha haupatikani",
+      "imageProcessingUnavailableAlt": "Uchakataji wa picha haupatikani",
+      "noImageInClipboardTitle": "Hakuna picha kwenye ubao wa kunakili",
+      "noImageInClipboardBody": "Nakili QR picha ya msimbo, kisha ugonge Bandika QR Picha tena.",
+      "clipboardUnavailableTitle": "Ubao wa kunakili haupatikani",
+      "clipboardUnavailableBody": "Maandishi ya Ubao wa kunakili si usanidi halali wa kithibitishaji URL. Nakili otpauth:// URL au QR picha na ujaribu tena.",
+      "clipboardAccessBody": "KaalKey haikuweza kusoma maandishi au picha kutoka kwenye ubao wa kunakili. Ruhusu ufikiaji wa ubao wa kunakili, kisha unakili picha ya QR au otpauth:// URL na ugonge Bandika QR Picha / URL tena.",
+      "couldNotPasteImageTitle": "Haikuweza kubandika picha",
+      "couldNotPasteImageBody": "Ubandikaji wa picha hauhimiliwi na ubao huu wa kunakili kwenye kifaa hiki. Tumia picha ya Leta QR badala yake.",
+      "sourceImageDecodeFailure": "Jaribu picha tofauti QR.",
+      "pastedImportFailureBody": "Jaribu picha tofauti QR.",
+      "sourceImageReadFailure": "Jaribu kunakili picha ya skrini iliyo wazi QR.",
+      "importFailedTitle": "QR kuletwa kwa picha kumeshindwa",
+      "importFailedBody": "KaalKey hakuweza kusoma picha hiyo. Tafadhali jaribu picha nyingine ya msimbo QR.",
+      "notFoundBody": "Picha iliyonakiliwa haina msimbo unaosomeka QR.",
+      "pastedNotFoundBody": "Picha iliyobandikwa haina msimbo unaosomeka QR.",
+      "pastedReadFailureBody": "Jaribu kunakili PNG au picha JPEG iliyo na msimbo kamili QR.",
+      "noQrCodeTextBody": "KaalKey alisimbua picha iliyochaguliwa lakini hakupata msimbo QR. Jaribu azimio wazi, kamili PNG au JPEG huku msimbo mzima ukionekana."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Msimbo huu wa QR si msimbo wa usanidi wa kithibitishaji kulingana na wakati.",
+      "missingAccountDetails": "Msimbo wa QR hauna maelezo ya akaunti.",
+      "unsupportedAlgorithm": "Msimbo wa QR hutumia kanuni isiyotumika.",
+      "unsupportedDigits": "Msimbo huu QR lazima utumie tarakimu 6, 7, au 8.",
+      "unsupportedPeriod": "Msimbo huu QR hutumia muda usiotumika.",
+      "invalidAccount": "Msimbo wa QR haukuweza kuthibitishwa."
+    },
+    "backup": {
+      "invalidJson": "Faili mbadala si halali JSON.",
+      "unsupportedFormat": "Hii haitumiki KaalKey nakala rudufu iliyosimbwa.",
+      "invalidPasswordOrDamaged": "Nenosiri la kuhifadhi nakala si sahihi au faili ya chelezo imeharibiwa.",
+      "invalidContents": "Yaliyomo chelezo ni batili au haijakamilika.",
+      "secureRandomUnavailableDetailed": "Kizazi salama bila mpangilio hakipatikani. Unda upya na usakinishe upya programu ya Android pamoja na expo-crypto, kisha ujaribu tena.",
+      "invalidAccountDataForBackup": "Akaunti moja au zaidi ni batili. Rekebisha data ya akaunti kabla ya kuunda nakala rudufu.",
+      "invalidPasswordOrModified": "Nenosiri la kuhifadhi nakala si sahihi au faili ya chelezo imerekebishwa.",
+      "invalidPasswordOrFileDamaged": "Nenosiri mbadala si sahihi au faili imeharibika.",
+      "passwordCopiedTitle": "Nenosiri limenakiliwa",
+      "enterPasswordTitle": "Weka nenosiri lako la kuhifadhi nakala",
+      "enterPasswordBody": "Weka nenosiri lililotumiwa wakati nakala hii iliundwa.",
+      "passwordCopiedBody": "Ihifadhi mahali salama, kama vile WhatsApp.",
+      "copyFailedTitle": "Imeshindwa kunakili",
+      "copyFailedBody": "Chagua na unakili nenosiri kwa mikono.",
+      "generatingPassword": "Inazalisha nenosiri salama la kuhifadhi...",
+      "encrypting": "Inasimba nakala rudufu...",
+      "decrypting": "Inaondoa nakala rudufu...",
+      "restoring": "Inarejesha akaunti...",
+      "backupCreatedTitle": "Hifadhi rudufu imeundwa",
+      "restoreCompleteTitle": "Kurejesha kumekamilika",
+      "mergeConfirmTitle": "Je, ungependa kuunganisha akaunti mbadala?",
+      "mergeConfirmButton": "Unganisha akaunti",
+      "backupSavedTemporary": "Nakala iliyosimbwa kwa njia fiche imehifadhiwa kwa muda katika:\n{uri}",
+      "generatePasswordErrorTitle": "Haikuweza kuzalisha nenosiri mbadala",
+      "secureRandomUnavailable": "Kizazi salama bila mpangilio hakipatikani.",
+      "passwordUnavailableTitle": "Nenosiri mbadala halipatikani",
+      "passwordUnavailableBody": "Funga kidirisha hiki na uunde nakala mpya ili kutoa nenosiri salama.",
+      "backupDownloadedBody": "Nakala yako ya KaalKey iliyosimbwa kwa njia fiche imepakuliwa. Weka faili na nenosiri kwa faragha.",
+      "backupFailedTitle": "Imeshindwa kuhifadhi nakala",
+      "backupCreateErrorBody": "KaalKey haikuweza kuunda nakala rudufu.",
+      "restoreFailedTitle": "Kurejesha kumeshindwa",
+      "backupReadErrorBody": "Hifadhi rudufu haikuweza kusomwa au kuhifadhiwa.",
+      "browserDownloadUnsupported": "Kivinjari chako hakiauni upakuaji wa faili mbadala.",
+      "localFileUnavailable": "Eneo la faili la karibu halipatikani kwenye kifaa hiki.",
+      "saveBackupTitle": "Hifadhi nakala rudufu yako KaalKey iliyosimbwa kwa njia fiche"
+    },
+    "clipboard": {
+      "copiedTitle": "Msimbo umenakiliwa",
+      "copiedBody": "Nambari yako ya uthibitishaji imenakiliwa.",
+      "errorTitle": "Hitilafu",
+      "errorBody": "Haikuweza kunakili msimbo wa uthibitishaji."
+    },
+    "activity": {
+      "cameraReady": "Kamera iko tayari. Ielekeze kwenye kithibitishaji QR msimbo.",
+      "readingQrImage": "Inasoma QR picha...",
+      "importingQrImage": "Inaleta QR picha...",
+      "importingAccount": "Inaleta akaunti ya kithibitishaji...",
+      "importingPastedImage": "Inaleta picha QR iliyobandikwa..."
+    }
+  },
+  "activity": {
+    "working": "Kufanya kazi",
+    "wait": "Tafadhali subiri...",
+    "donTClose": "Tafadhali usifunge au kuingiliana na KaalKey.",
+    "loadingLanguages": "Inapakia lugha zinazopatikana...",
+    "loadingTranslation": "Inapakia tafsiri..."
+  }
+}

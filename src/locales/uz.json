@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Til",
+      "description": "KaalKey da ishlatiladigan tilni tanlang.",
+      "english": "Ingliz",
+      "telugu": "Telugu",
+      "hindi": "hind",
+      "section": "TILI",
+      "searchLanguageName": "Qidiruv tili (ism yoki kod)",
+      "searchSupportedLanguages": "Qo'llab-quvvatlanadigan tillarni qidiring",
+      "closeLanguageDropdown": "Til ochiladigan menyusini yoping",
+      "noTranslatedLanguage": "Tarjima qilingan til topilmadi.",
+      "serverUrl": "Tarjima serveri URL",
+      "serverUrlDescription": "KaalKey ushbu serverdan tillar roʻyxati va tarjimalarni yuklab oladi.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Tarjima serverini saqlang"
+    },
+    "title": "Ilova sozlamalari",
+    "eyebrow": "KAALKEY ISHLAB CHIQISHLAR",
+    "experience": {
+      "section": "TAJRIBASI"
+    },
+    "security": {
+      "section": "XAVFSIZLIK"
+    },
+    "backup": {
+      "section": "ZAXIRA VA QAYTA QIYTALASH"
+    },
+    "danger": {
+      "section": "XAVFLI ZONA",
+      "clearAccounts": "Barcha hisoblarni tozalang",
+      "clearAccountsDescription": "Ushbu qurilmadan barcha hisob va sirlarni butunlay oʻchirib tashlang. Avval zaxira nusxasini yarating.",
+      "clearAccountsAccessibilityLabel": "Barcha autentifikatsiya hisoblarini tozalang"
+    },
+    "appearance": {
+      "section": "KO'RISH",
+      "title": "Yengil ko'rinish",
+      "description": "KaalKey hozirda toza yorug'lik mavzusidan foydalanmoqda."
+    },
+    "haptics": {
+      "title": "Haptik mulohazalar",
+      "description": "Bosish va bajarilgan harakatlar uchun yumshoq fikr-mulohaza."
+    },
+    "deviceLock": {
+      "title": "Qurilmani autentifikatsiya qilish bloki",
+      "description": "Sizning kassangiz KaalKey oldingi maydonni tark etganda qulflanadi.",
+      "requirement": "Telefoningizning biometrik maʼlumotlari yoki ekran qulfi PIN, naqsh yoki parolni talab qiling.",
+      "accessibilityLabel": "Qurilmani autentifikatsiya qilish ilovasi qulfi"
+    },
+    "privacy": {
+      "title": "Huquqiy va maxfiylik",
+      "description": "Maxfiylik siyosati va foydalanish shartlarini ko'rib chiqing.",
+      "storageNote": "Autentifikatsiya sirlari qurilmaning xavfsiz omborida saqlanadi. Afzalliklar mahalliy sifatida saqlanadi."
+    }
+  },
+  "accounts": {
+    "edit": "Tahrirlash",
+    "sortAccountName": "Hisob nomi bo'yicha saralash",
+    "loadingSecureVault": "Xavfsiz kassa yuklanmoqda...",
+    "tapCopy": "NUSXA QILISH UCHUN BOSING",
+    "noAccountsMatch": "Qidiruvingizga mos hisob topilmadi.",
+    "viewQrCode": "Hisob uchun QR kodini ko'ring",
+    "removeAccount": "Hisobni o'chirish",
+    "copyVerificationCode": "Tasdiqlash kodini nusxalash",
+    "active": "FAOL",
+    "sort": "SARTALASH",
+    "account": "Hisob",
+    "clearSearch": "Qidiruvni tozalash",
+    "sortServiceName": "Xizmat nomi bo'yicha tartiblang",
+    "addFirstAccount": "Birinchi hisobingizni qo'shing",
+    "searchAccounts": "Hisoblarni qidirish",
+    "searchServiceAccount": "Xizmat yoki hisobni qidiring",
+    "accounts": "Sizning hisoblaringiz",
+    "add": "+ Qo'shish",
+    "vaultStartsHere": "Sizning omboringiz shu erda boshlanadi",
+    "service": "Xizmat",
+    "emptyHint": "Birinchi tasdiqlash kodingizni yaratish uchun uning maxfiy kalitidan foydalanib hisob qo'shing."
+  },
+  "common": {
+    "done": "Bajarildi",
+    "doneButton": "Bajarildi",
+    "closeSettings": "Sozlamalarni yoping",
+    "separator": "-",
+    "article": "a",
+    "save": "Saqlash",
+    "delete": "Oʻchirish",
+    "resizeAppBrand": "Ilova va brend panellarining oʻlchamini oʻzgartirish"
+  },
+  "qrImport": {
+    "readPastedImage": "Joylashtirilgan rasmni o‘qib bo‘lmadi"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Ushbu zaxiradagi hisoblar: {count}. KaalKey mavjud hisoblaringizni saqlaydi va mavjud boʻlmagan hisoblarni qoʻshadi. Takroriy hisoblar o'tkazib yuboriladi.",
+    "restoreCompletionBody": "Qo'shilgan hisoblar: {added}. Ikki nusxadagi hisoblar oʻtkazib yuborildi: {skipped}. Mavjud hisoblaringiz saqlanib qoldi.",
+    "copyPassword": "Yaratilgan parolni nusxalash",
+    "passwordSafety": "Ushbu parolni alohida saqlang (masalan, WhatsApp da). Ikkalasiga ega bo'lgan har qanday kishi",
+    "importAction": "Faylni tanlang va import qiling",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "XAVFSIZ QONZ",
+    "createBackup": "Zaxira nusxasini yarating",
+    "encryptedFile": "Shifrlangan fayl",
+    "restoreBackup": "Zaxira nusxasini tiklash",
+    "safetyNote": "Zaxira nusxalarida autentifikatsiya sirlari mavjud. KaalKey har bir zaxira uchun noyob parol yaratadi. Uni alohida saqlang; KaalKey uni tiklay olmaydi.",
+    "generatingSecurePassword": "Xavfsiz parol yaratilmoqda…",
+    "importFile": "Faylni import qilish",
+    "backupPassword": "ZAXIRA PAROL",
+    "account": "hisob",
+    "accounts": "hisoblar",
+    "exportDescription": "Barcha saqlangan {count} {accountLabel}ni zaxira faylga shifrlash. KaalKey noyob parolni yaratadi; fayldan alohida nusxa ko'chiring va saqlang.",
+    "restoreDescription": "KaalKey zaxira fayli va parolni tanlang. Mavjud hisoblar ro'yxatiga yangi hisoblar qo'shiladi; mavjud hisoblar avvalgidek qoladi.",
+    "enterBackupPassword": "Zaxira parolini kiriting",
+    "closeBackup": "Zaxira nusxasini yoping",
+    "copyGeneratedBackup": "Yaratilgan zahira parolini nusxalash",
+    "backupPassword2": "Zaxira parol",
+    "clearBackupPassword": "Zaxira parolini tozalang",
+    "backupFilePassword": "zaxira fayli va parol sizning autentifikator hisoblaringizni tiklashi mumkin.",
+    "encryptShareBackup": "Zaxira nusxasini shifrlash va almashish"
+  },
+  "home": {
+    "unlockSecurely": "Qulfni xavfsiz oching",
+    "disableAppLock": "Ilova qulfini o'chirib qo'ying",
+    "enableAppLock": "Ilova blokirovkasini yoqing",
+    "checkingSecureLock": "Xavfsiz qulf sozlamalari tekshirilmoqda. Kodlaringiz yashirin qoladi.",
+    "waitingVerification": "Tasdiqlash kutilmoqda…",
+    "secretsStayStored": "Sizning sirlaringiz ushbu qurilmada saqlanadi.",
+    "openAppSettings": "Ilova sozlamalarini oching",
+    "versionLabel": "VERSIYA",
+    "unlockRequirement": "Bir martalik tasdiqlash kodlariga kirish uchun telefoningiz biometrikasi yoki ekran qulfi PIN, naqsh yoki paroldan foydalaning.",
+    "localVault": "SIZNING MAHALLIY QONZINGIZ",
+    "codesDeviceControl": "Sizning kodlaringiz. Sizning qurilmangiz. Sizning nazoratingiz.",
+    "securingVault": "Kassangiz himoyalanmoqda…",
+    "vaultProtected": "Sizning omboringiz himoyalangan",
+    "lock": "LOCK ON",
+    "localVault2": "MAXALIY XONA",
+    "authenticator": "KAALKEY AUTENTNIKATOR",
+    "tricolourLockEmblem": "KaalKey uch rangli qulf emblemasi",
+    "authenticator2": "AUTHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Agar QR kodini skanerlashni tanlasangiz, KaalKey ushbu amal uchun kamera ruxsatidan foydalanadi. Ixtiyoriy qurilma autentifikatsiyasi va haptik fikr-mulohaza tegishli qurilma xususiyatlaridan foydalanadi. Siz ruxsatlarni qurilmangiz sozlamalarida boshqarishingiz mumkin.",
+        "heading": "2. Ruxsatlar va qurilma xususiyatlari"
+      },
+      "backups": {
+        "body": "Zaxira nusxasini yaratganingizda, KaalKey siz tanlagan parol yordamida zaxirani shifrlaydi. Fayl va parolni shaxsiy saqlang va ularni xavfsiz saqlang. Fayl va uning parolini olgan har bir kishi autentifikator hisoblaringizni tiklashi mumkin. KaalKey unutilgan zahira parolini tiklay olmaydi.",
+        "heading": "3. Zaxira nusxalari"
+      },
+      "security": {
+        "body": "Qurilmangizni yangilab turing, uni ekran qulfi bilan himoyalang va OTP sirlari yoki zaxira parollarini baham koʻrmang. Ilovani olib tashlash, uning ma'lumotlarini tozalash yoki qurilmani yo'qotish mahalliy saqlangan hisoblarni ishlamasligi mumkin. Qayta tiklash kerak bo'lsa, xavfsiz zaxira nusxasini saqlang.",
+        "heading": "5. Xavfsizlik va saqlash"
+      },
+      "information": {
+        "heading": "1. Axborot va sirlar",
+        "body": "KaalKey autentifikatsiya qiluvchi ilovadir. Hisob yorliqlari va bir martalik kodlarni yaratish uchun zarur bo'lgan maxfiy qiymatlar sezgir. Ilova hisob qaydnomalarini qurilmaning xavfsiz xotirasida saqlash uchun mo'ljallangan. Qulfdan chiqarilgan qurilmaga yoki eksport qilingan zahiraga kirish huquqiga ega boʻlgan har bir kishi maxfiy maʼlumotlarga kirishi mumkin."
+      },
+      "sharing": {
+        "heading": "4. Almashish va uchinchi shaxslar",
+        "body": "Zaxiralash oqimi fayllarni saqlash, uzatish yoki tanlash uchun qurilmangizning almashish varaqasi yoki fayl tanlash vositasidan foydalanishi mumkin. Siz tanlagan har qanday uchinchi tomon ilovasi yoki xizmatining maxfiylik amaliyoti ushbu provayder tomonidan boshqariladi. Bu bildirishnoma qurilmangiz, operatsion tizimingiz yoki tanlangan almashish xizmatlari hech qachon maʼlumotlarni qayta ishlamaydi, degan umumiy daʼvo qilmaydi."
+      },
+      "changes": {
+        "heading": "6. O'zgarishlar va aloqa",
+        "body": "Ushbu o'rnatilgan bildirishnoma kelajakdagi ilova nashrida qayta ko'rib chiqilishi mumkin. Maxfiylikka oid savollar uchun ilova bilan birga taqdim etilgan rasmiy qoʻllab-quvvatlash kanali orqali ilova nashriyoti bilan bogʻlaning."
+      },
+      "title": "Maxfiylik siyosati"
+    },
+    "terms": {
+      "use": {
+        "body": "Siz kirishga ruxsat berilgan hisoblar uchun tasdiqlash kodlarini yaratish uchun KaalKey dan foydalanishingiz mumkin. Siz amaldagi qonunlar va autentifikatsiya kodlaridan foydalanadigan xizmatlar qoidalariga rioya qilish uchun javobgarsiz.",
+        "heading": "1. Foydalanishingiz"
+      },
+      "protectAccounts": {
+        "body": "Siz qurilmangizni, autentifikatsiya sirlarini, tiklash usullarini, eksport qilingan zaxira nusxalarini va zahira parollarini himoya qilish uchun javobgarsiz. Kodlar yoki sirlarni o'zingiz ishonmaydigan odamlar bilan baham ko'rmang.",
+        "heading": "2. Hisob qaydnomalaringizni himoya qiling"
+      },
+      "availability": {
+        "body": "Xususiyatlar nashrlar orasida o'zgarishi mumkin. Ilovani yangilab turishingiz va vaqti-vaqti bilan zaxira va tiklash tartiblaringiz ishlayotganligini tekshirishingiz kerak.",
+        "heading": "5. O'zgarishlar va mavjudligi"
+      },
+      "recovery": {
+        "body": "KaalKey har bir hisobni tiklash mumkinligiga, har bir QR kod yoki konfiguratsiya mos kelishiga yoki ilova uzilishlarsiz yoki xatoliksiz ishlashiga kafolat bera olmaydi. Tegishli xizmat tomonidan taqdim etilgan muqobil tiklash usullarini saqlang.",
+        "heading": "3. Qayta tiklash kafolati yo'q"
+      },
+      "advice": {
+        "heading": "4. Professional maslahat yo'q",
+        "body": "Ilova yordamchi dastur bo'lib, huquqiy, moliyaviy yoki xavfsizlik bo'yicha hodisalarga javob berish bo'yicha maslahat bermaydi. Agar hisob buzilgan bo'lsa, zararlangan xizmatning rasmiy tiklash va xavfsizlik ko'rsatmalariga amal qiling."
+      },
+      "liability": {
+        "heading": "6. Javobgarlik va amaldagi qonunchilik",
+        "body": "Amaldagi qonunchilik ruxsat etilgan darajada, ilova uzluksiz yoki xatosiz ishlash kafolatisiz taqdim etiladi. Ushbu shartlardagi hech narsa qonuniy ravishda chiqarib tashlanmaydigan huquqlar yoki himoya vositalarini istisno qilmaydi. Har qanday boshqa cheklovlar yoki qonunchilik shartlari nashrdan oldin noshirning yurisdiktsiyasi bo'yicha malakali advokat tomonidan ko'rib chiqilishi kerak."
+      },
+      "title": "Foydalanish shartlari"
+    },
+    "version": "Versiya",
+    "saving": "Saqlanmoqda…",
+    "acceptContinue": "Qabul qiling va davom eting",
+    "appliesAuthenticator": "KaalKey Authenticator uchun amal qiladi",
+    "reviewBothDocuments": "KaalKey dan foydalanishdan oldin ikkala hujjatni ham koʻrib chiqing. Ular ilovaga kiritilgan va oflayn rejimda mavjud.",
+    "originalMulticolourAuthenticator": "Asl koʻp rangli KaalKey autentifikatsiya emblemasi",
+    "legalPrivacyNotice": "Huquqiy va maxfiylik eslatmasi",
+    "legalInformation": "Yuridik ma'lumotlar",
+    "reviewSPrivacy": "KaalKeyning maxfiylik maʼlumotlari va foydalanish shartlarini koʻrib chiqing.",
+    "iReadAgree": "Men Maxfiylik siyosati va Foydalanish shartlarini o'qib chiqdim va rozilik bildiraman."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Butun QR kodini ko'rinadigan holda saqlang. Sizning siringiz ushbu qurilmada qoladi.",
+    "back": "Orqaga",
+    "turnFlashlightOff": "Chiroqni o'chiring",
+    "turnFlashlight": "Chiroqni yoqing",
+    "flashlight": "Chiroq yoqilgan",
+    "flashlight2": "Chiroq",
+    "cameraUnavailableOpen": "Kamera mavjud emas. Bu sahifani HTTPS yoki localhost-da oching va kameraga kirishga ruxsat bering.",
+    "cameraPreviewUnavailable": "Kamerani oldindan ko‘rish imkonsiz. Skanerni yoping va qayta oching.",
+    "cameraReadyPoint": "Kamera tayyor — uni toʻliq QR kodiga yoʻnaltiring.",
+    "browserCannotProcess": "Bu brauzer kamera ramkalarini qayta ishlay olmaydi.",
+    "qrCodeDetected": "QR kod aniqlandi.",
+    "couldnTRead": "Kamera ramkalarini o‘qib bo‘lmadi. Kamera ruxsatlarini tekshiring va bu sahifani qayta yuklang.",
+    "cameraPermissionDenied": "Kamera ruxsati rad etildi. Brauzer sozlamalarida kameraga kirishga ruxsat bering, keyin skanerni qayta oching.",
+    "noCameraWas": "Bu qurilmada hech qanday kamera topilmadi.",
+    "cameraBusyAnother": "Kamera boshqa ilova yoki brauzer oynasida band.",
+    "startCameraHttps": "Kamerani ishga tushirib bo‘lmadi. HTTPS yoki localhost-dan foydalaning va brauzer ruxsatlarini tekshiring.",
+    "qrScannerCamera": "QR skaner kamerasini oldindan koʻrish",
+    "cameraUnavailableCheck": "Kamera mavjud emas. Kamera ruxsatini tekshiring va qaytadan urining.",
+    "pointCameraAuthenticator": "Kamerangizni siz qo‘shayotgan xizmatdan autentifikatsiyani sozlash QR kodiga qarating.",
+    "backAddAccount": "Hisob qo'shishga qayting",
+    "secureSetup": "XAVFSIZ SOZLASH",
+    "enterDetailsManually": "Buning o'rniga tafsilotlarni qo'lda kiriting"
+  },
+  "accountForm": {
+    "hideManualEntry": "Qo'lda kiritishni yashirish",
+    "secretKeySupplied": "Siz sozlayotgan xizmat tomonidan taqdim etilgan maxfiy kalitdan foydalaning. Hech qachon bu erda hisob parolingizni kiritmang. Algoritm, raqamlar soni va intervalni xizmatni sozlash ko'rsatmalariga moslang.",
+    "updateServiceAccount": "Xizmatni, hisob nomini yoki maxfiy kalitni yangilang.",
+    "secretKeyRead": "Maxfiy kalit, tahrirlash paytida faqat o'qish uchun",
+    "secretKeyBase32": "Yashirin kalit Base32",
+    "digits": "raqamlar",
+    "seconds": "soniya",
+    "enterDetailsManually": "YOKI MALUMOTLARNI QO‘L YO‘LDA KIRISH",
+    "enterDetailsManually2": "Tafsilotlarni qo'lda kiriting",
+    "serviceAccountName": "Xizmat, hisob nomi va maxfiy kalit",
+    "saveChangesSecurely": "O'zgarishlarni xavfsiz saqlang",
+    "saveAccountSecurely": "Hisobni xavfsiz saqlang",
+    "serviceIssuer": "Xizmat yoki emitent",
+    "accountName": "Hisob nomi",
+    "secretKey": "Yashirin kalit",
+    "serviceIssuer2": "XIZMAT / Emitent",
+    "eGGoogle": "masalan. Google",
+    "clearServiceIssuer": "Toza xizmat yoki emitent",
+    "eGExample": "masalan. you@example.com",
+    "clearAccountName": "Hisob nomini tozalash",
+    "secretKeyLocked": "maxfiy kalit (qulflangan)",
+    "secretKeyBase322": "maxfiy kalit (BASE32)",
+    "enterSetupKey": "Sozlash kalitingizni kiriting",
+    "clearSecretKey": "Yashirin kalitni o'chirish",
+    "otpAlgorithm": "OTP ALGORITM",
+    "otpDigits": "OTP RAQAMLAR",
+    "refreshIntervalSeconds": "YANGILASH INTERVALI (SEUNDLAR)",
+    "otpRefreshInterval": "OTP yangilash oralig'i soniyalarda",
+    "closeAccountForm": "Hisob shaklini yoping",
+    "totpSetupUrl": "TOTP sozlash URL",
+    "importSetupUrl": "Import sozlamalari URL",
+    "totpSetupUrl2": "TOTP SOZLASH URL",
+    "accountName2": "HISOB NOMI",
+    "addAccount": "Hisob qo'shish"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Autentifikatsiya QR kodini skanerlang",
+    "setupGuidance": "Eng oson sozlash uchun QR kodini skanerlang yoki tafsilotlarni qoʻlda kiriting.",
+    "cameraAddAccount": "Bir zumda hisob qo'shish uchun kameradan foydalaning",
+    "scanQrCode2": "QR kodini skanerlang",
+    "uploadQrImage": "QR rasmni yuklang",
+    "chooseQrScreenshot": "Galereya, Rasmlar yoki Fayllardan QR skrinshotni tanlang",
+    "pasteQr": "QR tasvirni joylashtirish / URL",
+    "pasteCopiedQr": "Nusxalangan QR rasm yoki autentifikatsiya sozlamalarini URL joylashtiring",
+    "uploadQrImage2": "QR rasmni yuklang"
+  },
+  "accountQr": {
+    "close": "Yopish",
+    "accountQrCode": "Hisob QR kodi",
+    "revealQrCode": "QR kodini ochish",
+    "exportWarning": "Ogohlantirish: ushbu QR kodini skanerlagan har bir kishi ushbu hisob uchun tasdiqlash kodlarini yaratishi mumkin. Uni faqat ishonchli ekranda oching.",
+    "privacyHint": "Ushbu QR kodini maxfiy saqlang. Uni skanerlash hisobning autentifikatsiya sirini nusxalaydi."
+  },
+  "productInfo": {
+    "backupRestore": "Zaxiralash va tiklash",
+    "backupRestoreDescription": "Autentifikatsiya ma'lumotlarining zaxira nusxasini yarating va boshqa qurilmaga o'tganingizda ularni qayta tiklang.",
+    "privacyDescription": "Tasdiqlash hisoblaringizni bitta joyda saqlang. Oʻrnatishni masʼuliyat bilan boshqarish uchun ilovaning zaxira nusxasini yaratish, tiklash va qurilmani blokirovka qilish opsiyalaridan foydalaning.",
+    "timeBasedCodes": "Vaqtga asoslangan kodlar",
+    "generateOneTimeCodes": "Ikki bosqichli tekshiruvni yakunlash uchun hisoblaringiz uchun aylanadigan bir martalik parollarni yarating.",
+    "quickAccountSetup": "Hisob qaydnomasini tezkor sozlash",
+    "quickSetupDescription": "Hisob qaydnomasini qo‘shish uchun autentifikatsiya QR kodini skanerlang yoki QR rasmini import qiling.",
+    "accountsOnePlace": "Hisoblar bir joyda",
+    "accountsInOnePlaceDescription": "Saqlangan hisoblaringizni birga saqlang va tizimga kirish vaqti kelganda kerakli yozuvni toping.",
+    "privateAccountVault": "Shaxsiy hisob ombori",
+    "privateVaultDescription": "Autentifikator qaydlaringizni mahalliy sifatida boshqaring va ilovaning mavjud qurilmani blokirovka qilish opsiyasidan foydalaning.",
+    "easyCodeAccess": "Kodga oson kirish",
+    "easyCodeAccessDescription": "Joriy koddan nusxa oling yoki hisob ma'lumotlarini toza, yo'naltirilgan interfeys orqali boshqaring.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · TECHSIVARAM tomonidan",
+    "mobileAuthenticator": "SIZNING MOBIL AUTENTİKATÖRINGIZ",
+    "tagline": "Ikki bosqichli tekshiruvni boshqarishning oddiy usuli.",
+    "heroDescription": "Vaqtga asoslangan tasdiqlash kodlari uchun yo'naltirilgan autentifikatsiya tajribasi. Android uchun KaalKey bilan mos keladigan hisob kodlarini yaqin joyda saqlang.",
+    "timeBasedCodes2": "VAQTGA ASOSLANGAN KODLAR",
+    "privateDesign": "DIZAYN BO'YICHA XUSUSIY",
+    "builtSimpleAuthenticator": "ODDIY AUTENTIKATTOR ISHI UCHUN QURULANGAN",
+    "qrSetupTimed": "QR SOZLASH · VAQTLI KODLAR · HISOBNI BOSHQARISH",
+    "privacyTitle": "Sizning hisoblaringiz. Sizning kodlaringiz. Sizning nazoratingiz.",
+    "authenticator": "KAALKEY · AUTHENTICATOR",
+    "brandBanner": "KaalKey brend banneri",
+    "logo": "KaalKey logotipi"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Bekor qilish",
+      "storageInvalidTitle": "Saqlash maʼlumotlari yaroqsiz",
+      "storageInvalidBody": "Saqlangan hisob maʼlumotlarini xavfsiz oʻqib boʻlmadi.",
+      "storageErrorTitle": "Saqlash xatosi",
+      "storageErrorBody": "Saqlangan hisoblarni yuklab boʻlmadi.",
+      "missingTitle": "Yo'qolgan ma'lumot",
+      "missingEditingBody": "Xizmat nomi va hisob nomini kiriting.",
+      "missingBody": "Xizmat nomini, hisob nomini va maxfiy kalitni kiriting.",
+      "invalidOtpBody": "Base32 sirini, algoritmini, raqamlar sonini va yangilash davrini tekshiring. Sirlar haqiqiy Base32 belgilarni o'z ichiga olishi kerak; raqamlar {digits} va davr {minPeriod}–{maxPeriod} soniya boʻlishi kerak.",
+      "duplicateBody": "Ushbu xizmat va hisob nomi bilan hisob allaqachon saqlangan.",
+      "updatedBody": "Hisobingiz yangilandi.",
+      "addedBody": "Hisobingiz xavfsiz tarzda qo'shildi.",
+      "invalidOtpTitle": "Yaroqsiz OTP sozlamalari",
+      "duplicateTitle": "Hisob allaqachon mavjud",
+      "savedTitle": "Hisob saqlandi",
+      "invalidSecretTitle": "Yaroqsiz maxfiy kalit",
+      "invalidSecretBody": "Yaroqli Base32 sirni kiritganingizni tekshiring.",
+      "removedTitle": "Hisob olib tashlandi",
+      "removedBody": "Hisob va uning siri ushbu qurilmadan olib tashlandi.",
+      "clearedTitle": "Hisoblar tozalandi",
+      "clearedBody": "Barcha autentifikatsiya hisoblari va sirlari ushbu qurilmadan olib tashlandi.",
+      "someSavedAccountsNeedAttentionTitle": "Ba'zi saqlangan hisoblar e'tiborga muhtoj",
+      "someSavedAccountsNeedAttentionBody": "{count} noto‘g‘ri hisob qaydnomalari yuklanmadi. Yaroqli hisoblar mavjud bo'lib qoladi. Keyingi o'zgarishlarni amalga oshirishdan oldin zaxira nusxasini yaratish haqida o'ylab ko'ring.",
+      "removeConfirmTitle": "Hisob olib tashlansinmi?",
+      "removeConfirmWebTitle": "Hisob olib tashlansinmi?",
+      "removeButton": "O'chirish",
+      "clearButton": "Hammasini tozalang",
+      "clearConfirmTitle": "Barcha hisoblar tozalansinmi?",
+      "saveErrorBody": "Hisoblarni saqlab bo‘lmadi. Brauzer xotirasi mavjudligini tekshiring va qayta urinib ko'ring.",
+      "notFoundTitle": "Hisob topilmadi",
+      "notFoundBody": "Bu hisob topilmadi. Tahrirlovchini yoping va qayta urinib ko'ring.",
+      "removeConfirmBody": "Bu qurilmadan hisob va uning sirini olib tashlaydi.",
+      "clearConfirmBody": "Bu qurilmadan barcha autentifikatsiya hisoblari va ularning sirlarini butunlay oʻchirib tashlaydi. Agar sizga keyinroq bu hisoblar kerak boʻlsa, avval shifrlangan zaxira nusxasini yarating.",
+      "clearConfirmUndoBody": "Buni ortga qaytarib bo‘lmaydi."
+    },
+    "biometric": {
+      "cancelButton": "Bekor qilish",
+      "saveErrorTitle": "Sozlamani saqlab bo‘lmadi",
+      "unlockPrompt": "Qulfni ochish KaalKey Authenticator",
+      "promptSubtitle": "Biometrik yoki qurilmangiz ekran qulfidan foydalaning",
+      "disableConfirmPrompt": "KaalKey ilova qulfini oʻchirishni tasdiqlang",
+      "enablePrompt": "KaalKey uchun ilova qulfini yoqish",
+      "deviceLockTitle": "Qurilmangiz ekran qulfini sozlang",
+      "deviceLockBody": "KaalKey telefoningizning oʻrnatilgan autentifikatsiyasidan foydalanadi. Telefoningiz xavfsizlik sozlamalarida qurilma PIN, naqsh yoki parolni oʻrnating, soʻng qaytadan urinib koʻring. Biometrik ma'lumotlar ixtiyoriy.",
+      "unavailableTitle": "Qurilma autentifikatsiyasi mavjud emas",
+      "unavailableBody": "Telefoningiz xavfsiz autentifikatsiyani boshlay olmadi. Qurilma ekrani qulfi sozlanganligini tekshiring va qaytadan urining.",
+      "lockedTitle": "Autentifikatsiya vaqtincha bloklangan",
+      "lockedBody": "Juda ko‘p urinishlardan keyin telefoningiz autentifikatsiyani vaqtincha o‘chirib qo‘ydi. Kutib turing va qayta urinib ko'ring.",
+      "promptErrorTitle": "Autentifikatsiya mavjud emas",
+      "promptErrorBody": "KaalKey telefonning xavfsiz autentifikatsiya soʻrovini ishga tushirib boʻlmadi. Iltimos, qayta urinib koʻring.",
+      "webLock": "Qurilmaning autentifikatsiya blokirovkasi hali veb-versiyasida mavjud emas. Veb kassa qulflanmagan qoladi; mahalliy qurilma autentifikatsiyasi uchun Android ilovasidan foydalaning.",
+      "disabledTitle": "Ilova qulfi o‘chirilgan",
+      "disabledBody": "KaalKey ilova qulfi oʻchirildi.",
+      "disableSaveError": "Ilova qulfi yoqilgan qoladi. Iltimos, qayta urinib koʻring.",
+      "enabledTitle": "Ilova qulfi yoqilgan",
+      "enabledBody": "KaalKey ochilganda va unga qaytganingizda telefoningiz oʻrnatilgan autentifikatsiyasini soʻraydi.",
+      "enableSaveError": "Ilova qulfini yoqib bo‘lmadi. Iltimos, qayta urinib koʻring."
+    },
+    "qr": {
+      "startingCamera": "Kamera boshlanmoqda…",
+      "unsupportedTitle": "Qoʻllab-quvvatlanmaydigan QR kod",
+      "unsupportedBody": "Xizmat tomonidan taqdim etilgan autentifikatsiyani sozlash QR kodini skanerlang. Bu oddiy kirish kodi QR emas, balki TOTP kodi boʻlishi kerak.",
+      "unsupportedDiagnostic": "Bu QR TOTP sozlash kodi emas. Autentifikatorni sozlashni maqsad qiling QR.",
+      "detectedDiagnostic": "QR aniqlandi. Tahlil qilinmoqda…",
+      "analyzing": "QR kod tahlil qilinmoqda…",
+      "duplicateTitle": "Hisob allaqachon qo'shilgan",
+      "duplicateBody": "{issuer}: {account} allaqachon KaalKey ichida.",
+      "addedTitle": "Hisob qo'shildi",
+      "addedBody": "{issuer}: {account} muvaffaqiyatli qoʻshildi.",
+      "saveFailedDiagnostic": "Hisobni saqlab bo‘lmadi. Siz yana skanerlashingiz mumkin.",
+      "invalidTitle": "Yaroqsiz QR kod",
+      "invalidBody": "KaalKey bu autentifikatsiya QR kodini tahlil qila olmadi. {detail}. Xizmatning TOTP sozlash QR kodidan foydalaning (odatda {prefix} bilan boshlanadi).",
+      "parseFailedDiagnostic": "QR qayta ishlanmadi. Oʻrnatishga QR qarating va qaytadan urinib koʻring.",
+      "invalidUrlTitle": "Yaroqsiz TOTP URL",
+      "invalidUrlBody": "{prefix} bilan boshlangan toʻliq autentifikatsiyani URL joylashtiring.",
+      "clipboardEmptyTitle": "Bufer bo‘sh",
+      "clipboardEmptyBody": "Avval {prefix} URL dan nusxa oling, soʻng Qoʻyish TOTP URL-ga teging.",
+      "clipboardErrorTitle": "Buferni o‘qib bo‘lmadi",
+      "clipboardErrorBody": "TOTP sozlamalaridan URL nusxa oling va qayta urinib koʻring."
+    },
+    "haptics": {
+      "saveFailedTitle": "Sozlamani saqlab bo‘lmadi",
+      "saveFailedBody": "Haptik fikr-mulohaza sozlamalarini saqlab bo‘lmadi. Iltimos, qayta urinib koʻring."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Tasdiqni saqlab bo‘lmadi",
+      "saveFailedBody": "Iltimos, qayta urinib koʻring. KaalKey dan foydalanishdan oldin qonuniy bildirishnomani qabul qilishingiz kerak."
+    },
+    "cameraPermission": {
+      "title": "Kamera ruxsati talab qilinadi",
+      "body": "Autentifikatsiyani sozlash QR kodini skanerlash uchun kameraga ruxsat bering."
+    },
+    "storage": {
+      "browserUnavailable": "Brauzer xotirasi mavjud emas.",
+      "browserFilePickerUnavailable": "Brauzer fayl tanlagichi mavjud emas."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Qo'llab-quvvatlanmaydigan fayl",
+      "unsupportedFileBody": "PNG yoki JPEG kabi QR kodli tasvirni tanlang.",
+      "browserDecoderUnavailable": "Brauzer tasvirini dekodlash ishlamaydi",
+      "imageLoadFailed": "Rasmni yuklab bo‘lmadi",
+      "unreadableDimensions": "Rasmning o'qilishi mumkin bo'lgan o'lchamlari yo'q",
+      "noQrCodeFoundTitle": "QR kodi topilmadi",
+      "noQrCodeFoundBody": "KaalKey bu rasmdagi QR kodini dekodlay olmadi. Skrinshot yoki yuqoriroq aniqlikdagi PNG/JPEG suratini koʻring.",
+      "couldNotReadImageTitle": "Rasmni oʻqib boʻlmadi",
+      "couldNotReadImageBody": "Autentifikatsiyani sozlash QR kodini oʻz ichiga olgan aniq PNG yoki JPEG tasvirni sinab koʻring.",
+      "couldNotOpenPickerTitle": "Rasm tanlagichni ochib boʻlmadi",
+      "couldNotOpenPickerBody": "Iltimos, QR yuklashni qaytadan urinib koʻring.",
+      "normalizedDecodeFailed": "Normallashtirilgan tasvirni dekodlab boʻlmadi",
+      "clipboardImageLoadFailed": "Bufer rasmini yuklab bo‘lmadi",
+      "imageProcessingUnavailable": "Rasmga ishlov berish imkonsiz",
+      "imageProcessingUnavailableAlt": "Rasmga ishlov berish imkonsiz",
+      "noImageInClipboardTitle": "Buferda rasm yo'q",
+      "noImageInClipboardBody": "QR kodli rasmdan nusxa oling, soʻngra QR Rasmni qoʻyish tugmasini yana bir marta bosing.",
+      "clipboardUnavailableTitle": "Bufer mavjud emas",
+      "clipboardUnavailableBody": "Bufer matni haqiqiy autentifikator sozlamalari emas URL. Otpauth:// URL yoki QR rasmidan nusxa oling va qaytadan urinib koʻring.",
+      "clipboardAccessBody": "KaalKey vaqtinchalik xotiradan matn yoki rasmni oʻqiy olmadi. Buferga kirishga ruxsat bering, so‘ngra QR rasm yoki otpauth:// URL dan nusxa oling va QR Tasvir / URL tugmasini yana bir marta bosing.",
+      "couldNotPasteImageTitle": "Rasmni joylashtirib bo‘lmadi",
+      "couldNotPasteImageBody": "Bu qurilmada bu vaqtinchalik xotirada tasvirni joylashtirish ishlamaydi. Buning oʻrniga Import QR rasmidan foydalaning.",
+      "sourceImageDecodeFailure": "Boshqa QR tasvirni sinab koʻring.",
+      "pastedImportFailureBody": "Boshqa QR tasvirni sinab koʻring.",
+      "sourceImageReadFailure": "Aniq QR skrinshotni nusxalashga harakat qiling.",
+      "importFailedTitle": "QR rasm import qilinmadi",
+      "importFailedBody": "KaalKey bu rasmni oʻqiy olmadi. Boshqa QR kod tasvirini sinab koʻring.",
+      "notFoundBody": "Ko‘chirilgan rasmda o‘qilishi mumkin bo‘lgan QR kod mavjud emas.",
+      "pastedNotFoundBody": "Qo'yilgan rasmda o'qilishi mumkin bo'lgan QR kod mavjud emas.",
+      "pastedReadFailureBody": "Toʻliq QR kodini oʻz ichiga olgan aniq PNG yoki JPEG tasvirdan nusxa koʻring.",
+      "noQrCodeTextBody": "KaalKey tanlangan tasvirni dekodladi, lekin QR kodini topmadi. Toʻliq kod koʻrinadigan PNG yoki JPEG aniq, toʻliq piksellar sonini sinab koʻring."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Bu QR kodi vaqtga asoslangan autentifikatsiyani sozlash kodi emas.",
+      "missingAccountDetails": "QR kodida hisob tafsilotlari yoʻq.",
+      "unsupportedAlgorithm": "QR kodi qoʻllab-quvvatlanmaydigan algoritmdan foydalanadi.",
+      "unsupportedDigits": "Bu QR kod 6, 7 yoki 8 ta raqamdan foydalanishi kerak.",
+      "unsupportedPeriod": "Bu QR kod qoʻllab-quvvatlanmaydigan vaqt oraligʻidan foydalanadi.",
+      "invalidAccount": "QR kodini tekshirib boʻlmadi."
+    },
+    "backup": {
+      "invalidJson": "Zaxira fayli haqiqiy emas JSON.",
+      "unsupportedFormat": "Bu qoʻllab-quvvatlanmaydigan KaalKey shifrlangan zaxira nusxasi.",
+      "invalidPasswordOrDamaged": "Zaxira paroli noto'g'ri yoki zaxira fayli shikastlangan.",
+      "invalidContents": "Zaxira tarkibi yaroqsiz yoki toʻliq emas.",
+      "secureRandomUnavailableDetailed": "Xavfsiz tasodifiy yaratish mavjud emas. Android ilovasini expo-crypto bilan qayta tiklang va qayta oʻrnating, soʻngra qaytadan urinib koʻring.",
+      "invalidAccountDataForBackup": "Bir yoki bir nechta hisoblar yaroqsiz. Zaxira nusxasini yaratishdan oldin hisob ma'lumotlarini tuzating.",
+      "invalidPasswordOrModified": "Zaxira paroli noto'g'ri yoki zaxira fayli o'zgartirilgan.",
+      "invalidPasswordOrFileDamaged": "Zaxira paroli noto'g'ri yoki fayl shikastlangan.",
+      "passwordCopiedTitle": "Parol nusxalandi",
+      "enterPasswordTitle": "Zaxira parolingizni kiriting",
+      "enterPasswordBody": "Ushbu zaxira yaratilganda ishlatilgan parolni kiriting.",
+      "passwordCopiedBody": "Uni xavfsiz joyda saqlang, masalan, WhatsApp.",
+      "copyFailedTitle": "Nusxalash amalga oshmadi",
+      "copyFailedBody": "Parolni qo'lda tanlang va nusxa oling.",
+      "generatingPassword": "Xavfsiz zaxira parol yaratilmoqda…",
+      "encrypting": "Zaxira nusxasi shifrlanmoqda…",
+      "decrypting": "Zaxira nusxasi shifrlanmoqda…",
+      "restoring": "Hisoblar tiklanmoqda…",
+      "backupCreatedTitle": "Zaxira yaratildi",
+      "restoreCompleteTitle": "Qayta tiklash tugallandi",
+      "mergeConfirmTitle": "Zaxira hisoblari birlashtirilsinmi?",
+      "mergeConfirmButton": "Hisoblarni birlashtirish",
+      "backupSavedTemporary": "Shifrlangan zahira vaqtincha saqlangan:\n{uri}",
+      "generatePasswordErrorTitle": "Zaxira parolini yaratib bo‘lmadi",
+      "secureRandomUnavailable": "Xavfsiz tasodifiy yaratish mavjud emas.",
+      "passwordUnavailableTitle": "Zaxira paroli mavjud emas",
+      "passwordUnavailableBody": "Ushbu dialog oynasini yoping va xavfsiz parol yaratish uchun yangi zaxira nusxasini yarating.",
+      "backupDownloadedBody": "Sizning shifrlangan KaalKey zaxirangiz yuklab olindi. Fayl va parolni maxfiy saqlang.",
+      "backupFailedTitle": "Zaxiralash amalga oshmadi",
+      "backupCreateErrorBody": "KaalKey zaxira nusxasini yaratib boʻlmadi.",
+      "restoreFailedTitle": "Qayta tiklash amalga oshmadi",
+      "backupReadErrorBody": "Zaxira nusxasini o‘qib bo‘lmadi yoki saqlanmadi.",
+      "browserDownloadUnsupported": "Brauzeringiz zaxira fayllarni yuklab olishni qo'llab-quvvatlamaydi.",
+      "localFileUnavailable": "Mahalliy fayl joylashuvi bu qurilmada mavjud emas.",
+      "saveBackupTitle": "Shifrlangan KaalKey zaxira nusxasini saqlang"
+    },
+    "clipboard": {
+      "copiedTitle": "Kod nusxalandi",
+      "copiedBody": "Tasdiqlash kodingiz nusxalandi.",
+      "errorTitle": "Xato",
+      "errorBody": "Tasdiqlash kodini nusxalab bo‘lmadi."
+    },
+    "activity": {
+      "cameraReady": "Kamera tayyor. Uni autentifikatsiya qiluvchi QR kodiga yo'naltiring.",
+      "readingQrImage": "QR rasm oʻqilmoqda…",
+      "importingQrImage": "QR rasm import qilinmoqda…",
+      "importingAccount": "Autentifikatsiya hisobi import qilinmoqda…",
+      "importingPastedImage": "Joylashtirilgan QR rasm import qilinmoqda…"
+    }
+  },
+  "activity": {
+    "working": "Ishlash",
+    "wait": "Iltimos, kuting…",
+    "donTClose": "Iltimos, KaalKey bilan yopilmang yoki u bilan muloqot qilmang.",
+    "loadingLanguages": "Mavjud tillar yuklanmoqda…",
+    "loadingTranslation": "Tarjima yuklanmoqda…"
+  }
+}

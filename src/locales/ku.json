@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Ziman",
+      "description": "Zimanê ku di KaalKey de tê bikaranîn hilbijêrin.",
+      "english": "English",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "LANGUAGE",
+      "searchLanguageName": "Zimanê lêgerînê (nav an kod)",
+      "searchSupportedLanguages": "Li zimanên destekkirî bigerin",
+      "closeLanguageDropdown": "Daxistina zimên bigire",
+      "noTranslatedLanguage": "Zimanek werger nehat dîtin.",
+      "serverUrl": "Pêşkêşkara wergerê URL",
+      "serverUrlDescription": "KaalKey lîsteya ziman û wergeran ji vê serverê dadixe.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Pêşkêşkara wergerê tomar bike"
+    },
+    "title": "Mîhengên app",
+    "eyebrow": "KAALKEY BİXWÎNE",
+    "experience": {
+      "section": "EXPERIENCE"
+    },
+    "security": {
+      "section": "EWLEHIYÊ"
+    },
+    "backup": {
+      "section": "BACKUP & RECOVERY"
+    },
+    "danger": {
+      "section": "HERÊMA XETERÊ",
+      "clearAccounts": "Hemî hesaban paqij bikin",
+      "clearAccountsDescription": "Bi domdarî her hesab û veşartî ji vê cîhazê derxînin. Pêşî vegere.",
+      "clearAccountsAccessibilityLabel": "Hemî hesabên piştrastker paqij bikin"
+    },
+    "appearance": {
+      "section": "DÛYAN",
+      "title": "Dîtina ronahî",
+      "description": "KaalKey naha mijara xweya ronahiya paqij bikar tîne."
+    },
+    "haptics": {
+      "title": "Bersiva Haptic",
+      "description": "Ji bo tap û çalakiyên qedandî bertekên nerm."
+    },
+    "deviceLock": {
+      "title": "Girtina erêkirina cîhazê",
+      "description": "Dema ku KaalKey ji pêşangehê derkeve, kasa we tê girtin.",
+      "requirement": "Biyometrîka têlefona xwe an kilîtkirina ekranê PIN, nimûne, an şîfreya xwe hewce bike.",
+      "accessibilityLabel": "Qefilandina sepana erêkirina cîhazê"
+    },
+    "privacy": {
+      "title": "Yasayî & nepenî",
+      "description": "Siyaseta nepenîtiyê û Mercên Bikaranînê binirxînin.",
+      "storageNote": "Veşartiyên weyên nasker di kasa ewledar a li ser cîhazê de dimînin. Vebijêrkên herêmî têne tomar kirin."
+    }
+  },
+  "accounts": {
+    "edit": "Biguherîne",
+    "sortAccountName": "Li gorî navê hesabê rêz bikin",
+    "loadingSecureVault": "Barkirina kasa ewle...",
+    "tapCopy": "JI BO KOPIYÊ BIKE",
+    "noAccountsMatch": "Ti hesab li lêgerîna we nayê.",
+    "viewQrCode": "Ji bo hesabê QR kodê bibînin",
+    "removeAccount": "Hesabê jêbirin",
+    "copyVerificationCode": "Koda verastkirinê kopî bikin",
+    "active": "ÇALAK",
+    "sort": "SORT BY",
+    "account": "Account",
+    "clearSearch": "Lêgerînê paqij bike",
+    "sortServiceName": "Li gorî navê karûbarê rêz bikin",
+    "addFirstAccount": "Hesabê xweya yekem zêde bikin",
+    "searchAccounts": "Hesaban bigerin",
+    "searchServiceAccount": "Karûbar an hesabê lêgerînê",
+    "accounts": "Hesabên we",
+    "add": "+ Zêde bikin",
+    "vaultStartsHere": "Kevirê we li vir dest pê dike",
+    "service": "Service",
+    "emptyHint": "Hesabek bi karanîna mifteya wê ya veşartî ve zêde bikin da ku koda verastkirina xweya yekem çêbikin."
+  },
+  "common": {
+    "done": "Kirin",
+    "doneButton": "Kirin",
+    "closeSettings": "Mîhengan bigire",
+    "separator": "-",
+    "article": "a",
+    "save": "Save",
+    "delete": "Jêbirin",
+    "resizeAppBrand": "Mezinahiya sepan û panelên marqeyê biguherînin"
+  },
+  "qrImport": {
+    "readPastedImage": "Nekarî wêneyê pêvekirî bixwîne"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Hesabên di vê hilanînê de: {count}. KaalKey dê hesabên weyên heyî biparêze û hesabên ku jixwe ne amade ne lê zêde bike. Hesabên dubare dê werin paşguh kirin.",
+    "restoreCompletionBody": "Hesab hatin zêdekirin: {added}. Hesabên dubare hatin avêtin: {skipped}. Hesabên we yên heyî hatin parastin.",
+    "copyPassword": "Şîfreya çêkirî kopî bikin",
+    "passwordSafety": "Vê şîfreyê cuda tomar bike (mînak, di WhatsApp de). Her kesê bi herduyan re",
+    "importAction": "Pelê hilbijêrin û import bikin",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "SECURE VAULT",
+    "createBackup": "Piştgiriyê çêbikin",
+    "encryptedFile": "Pelê şîfrekirî",
+    "restoreBackup": "Vegerandina hilanînê",
+    "safetyNote": "Vegere nehêniyên we yên rastgir dihewîne. KaalKey ji bo her hilanînê şîfreyek yekta diafirîne. Ji hev cuda hilînin; KaalKey nikare wê vegerîne.",
+    "generatingSecurePassword": "Şîfreya ewle diafirîne…",
+    "importFile": "Pelê import",
+    "backupPassword": "ŞÎFERA BACKUP",
+    "account": "hesab",
+    "accounts": "hesaban",
+    "exportDescription": "Hemî {count} yên tomarkirî {accountLabel} di pelek hilanînê de şîfre bikin. KaalKey şîfreyek yekta çêdike; kopî bikin û ji pelê veqetînin.",
+    "restoreDescription": "Pelê hilanînê û şîfreya xwe KaalKey hilbijêrin. Hesabên nû dê li navnîşa hesabê weya heyî werin zêdekirin; hesabên heyî dê wekî xwe bimînin.",
+    "enterBackupPassword": "Şîfreya hilanînê binivîse",
+    "closeBackup": "Piştgiriyê bigire",
+    "copyGeneratedBackup": "Şîfreya hilanînê kopî bikin",
+    "backupPassword2": "Şîfreya hilanînê",
+    "clearBackupPassword": "Şîfreya hilanînê paqij bike",
+    "backupFilePassword": "pelê hilanînê û şîfreya xwe dikare hesabên erêkerê we sererast bike.",
+    "encryptShareBackup": "Şîfrekirin û parvekirina hilanînê"
+  },
+  "home": {
+    "unlockSecurely": "Bi ewlehî vekin",
+    "disableAppLock": "Girtina sepanê neçalak bike",
+    "enableAppLock": "Girtina sepanê çalak bike",
+    "checkingSecureLock": "Kontrolkirina mîhengên kilîtkirina xweya ewledar. Kodên we veşartî dimînin.",
+    "waitingVerification": "Li benda verastkirinê…",
+    "secretsStayStored": "Sirên we li ser vê cîhazê têne hilanîn.",
+    "openAppSettings": "Mîhengên sepanê vekin",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "Biyometrîka têlefona xwe an kilîtkirina ekranê PIN, nimûne, an şîfreya xwe bikar bînin da ku bigihîjin kodên verastkirina xweya yek-car.",
+    "localVault": "VAULT TE HERÊMÎ",
+    "codesDeviceControl": "Kodên we. Amûra we. Kontrola we.",
+    "securingVault": "Sazkirina kasa xwe…",
+    "vaultProtected": "Kevirê we parastî ye",
+    "lock": "LOCK ON",
+    "localVault2": "VAULT HERÊMÎ",
+    "authenticator": "KAALKEY DESTPÊKIRIN",
+    "tricolourLockEmblem": "KaalKey amblema qeflê ya sêreng",
+    "authenticator2": "AUTHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Heke hûn hilbijêrin ku kodek QR bişopînin, KaalKey ji bo wê çalakiyê destûra kamerayê bikar tîne. Nasnameya cîhaza vebijarkî û bertekên haptîk taybetmendiyên cîhaza têkildar bikar tînin. Hûn dikarin di mîhengên cîhaza xwe de destûran birêve bibin.",
+        "heading": "2. Destûr û taybetmendiyên cîhazê"
+      },
+      "backups": {
+        "body": "Dema ku hûn hilanînê diafirînin, KaalKey bi şîfreyek ku hûn hildibijêrin hilanînê şîfre dike. Hem pel û hem jî şîfreya taybet bihêlin û wan bi ewlehî hilînin. Her kesê ku pelê û şîfreya wê bi dest bixe, dibe ku bikaribe hesabên rastgirkerê we vegerîne. KaalKey nikare şîfreyek hilanînê ya jibîrkirî vegerîne.",
+        "heading": "3. Backups"
+      },
+      "security": {
+        "body": "Amûra xwe nûve bikin, wê bi kilîtkirina ekranê biparêzin, û nehênî û şîfreyên hilanînê yên OTP parve nekin. Rakirina sepanê, paqijkirina daneyên wê, an windakirina cîhazê dibe ku hesabên hilanîn ên herêmî ne berdest bike. Ger hewcedariya we bi vegerandinê hebe, paşvekêşek ewledar biparêzin.",
+        "heading": "5. Ewlekarî û parastin"
+      },
+      "information": {
+        "heading": "1. Agahdarî û veşartî",
+        "body": "KaalKey serîlêdanek rastgirker e. Etîketên hesabê û nirxên veşartî yên ku ji bo afirandina kodên yek-car hewce ne hesas in. Serlêdan ji bo hilanîna tomarên hesabê di hilana ewledar a cîhazê de hatî çêkirin. Kesê ku xwe bigihîne amûrek venebû an paşvekêşek hatî hinartin dibe ku bikaribe xwe bigihîne agahdariya hesas."
+      },
+      "sharing": {
+        "heading": "4. Parvekirin û aliyên sêyemîn",
+        "body": "Dibe ku herikîna paşvekişandinê pelgeya parvekirinê an hilbijarka pelê ya cîhaza we bikar bîne da ku pelan hilîne, veguhezîne an hilbijêrin. Pratîkên nepenîtiyê yên her serîlêdan an karûbarê sêyemîn a ku hûn hilbijêrin ji hêla wê pêşkêşker ve têne rêve kirin. Ev agahdarî îddîayek berbelav nake ku cîhaza we, pergala xebitandinê, an karûbarên parvekirinê yên bijartî tu carî daneyê napejirînin."
+      },
+      "changes": {
+        "heading": "6. Guhertin û têkilî",
+        "body": "Dibe ku ev hişyariya pêvekirî di berdanek serîlêdana pêşerojê de were guheztin. Ji bo pirsên nepenîtiyê, bi riya kanala piştevaniya fermî ya ku bi sepanê re hatî peyda kirin bi weşangerê sepanê re têkilî daynin."
+      },
+      "title": "Privacy Policy"
+    },
+    "terms": {
+      "use": {
+        "body": "Hûn dikarin KaalKey bikar bînin da ku kodên verastkirinê ji bo hesabên ku hûn destûr dane ku bigihîjin wan çêbikin. Hûn berpirsiyar in ku li gorî qanûnên bikêrhatî û rêzikên karûbarên ku hûn ji bo wan kodên erêkirinê bikar tînin bicîh bînin.",
+        "heading": "1. Bikaranîna we"
+      },
+      "protectAccounts": {
+        "body": "Hûn ji ewlekirina amûrê xwe, nehêniyên nasker, awayên hilanînê, paşvekêşana derhanîn, û şîfreyên hilanînê berpirsiyar in. Kod an razan bi kesên ku pê bawer nakin re parve nekin.",
+        "heading": "2. Hesabên xwe biparêzin"
+      },
+      "availability": {
+        "body": "Dibe ku taybetmendî di navbera berdanan de biguhezin. Pêdivî ye ku hûn sepanê nûve bikin û bi periyodîk verast bikin ku aranjmanên hilanînê û vegerandina we dixebitin.",
+        "heading": "5. Guhertin û hebûna"
+      },
+      "recovery": {
+        "body": "KaalKey nikare garantî bike ku her hesab dikare were vegerandin, ku her QR kod an veavakirin dê lihevhatî be, an ku sepan dê bê navber an xeletî bixebite. Rêbazên vegerandina alternatîf ên ku ji hêla karûbarê têkildar ve têne peyda kirin biparêzin.",
+        "heading": "3. No garantiya hilanînê"
+      },
+      "advice": {
+        "heading": "4. Şîreta pîşeyî tune",
+        "body": "Serlêdan karûbarek e û şîreta bersivdana bûyera qanûnî, darayî, an ewlehiyê peyda nake. Ger hesabek têkeve, rêwerz û rêbernameya ewlehiyê ya karûbarê bandorkirî bişopînin."
+      },
+      "liability": {
+        "heading": "6. Berpirsiyarî û hiqûqa pêkanîn",
+        "body": "Bi qasî ku ji hêla qanûnê ve hatî destûr kirin, sepan bêyî garantiyek xebata bênavber an bê xeletî tê peyda kirin. Tiştek di van şertan de maf an tedbîrên ku bi qanûnî nayên derxistin dernakeve. Berî berdanê, ti sînorkirinek din an şertên qanûnê divê ji hêla parêzgerek jêhatî ve ji bo dadweriya weşanger were vekolîn."
+      },
+      "title": "Mercên Bikaranînê"
+    },
+    "version": "Versiyon",
+    "saving": "Sazkirin…",
+    "acceptContinue": "Qebûlkirin & Berdewam",
+    "appliesAuthenticator": "Li ser KaalKey Rastnasker tê sepandin",
+    "reviewBothDocuments": "Ji kerema xwe berî ku KaalKey bikar bînin her du belgeyan binirxînin. Ew di sepanê de ne û negirêdayî hene.",
+    "originalMulticolourAuthenticator": "Emblema erêkerê pirreng KaalKey",
+    "legalPrivacyNotice": "Daxuyaniya Hiqûqî û Nepenîtiyê",
+    "legalInformation": "Agahiyên qanûnî",
+    "reviewSPrivacy": "Agahdariya nepenîtiyê û şertên karanînê KaalKey binirxînin.",
+    "iReadAgree": "Min Polîtîkaya Nepenîtiyê û Mercên Bikaranînê xwendiye û qebûl dikim."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Tevahiya QR kodê xuya bike. Sira we li ser vê cîhazê dimîne.",
+    "back": "Vegere",
+    "turnFlashlightOff": "Fenerê vemirînin",
+    "turnFlashlight": "Çirakê vekin",
+    "flashlight": "Çira li ser",
+    "flashlight2": "Flashlight",
+    "cameraUnavailableOpen": "Kamera ne berdest e. Vê rûpelê li ser HTTPS an localhost veke û destûr bide gihîştina kamerayê.",
+    "cameraPreviewUnavailable": "Pêşdîtina kamerayê ne berdest e. Skanerê bigire û ji nû ve veke.",
+    "cameraReadyPoint": "Kamera amade ye - wê li koda tevahî QR nîşan bidin.",
+    "browserCannotProcess": "Ev gerok nikare çarçoveyên kamerayê pêvajoyê bike.",
+    "qrCodeDetected": "QR kod hat dîtin.",
+    "couldnTRead": "Nekarî çarçeweyên kamerayê bixwîne. Destûrên kamerayê kontrol bikin û vê rûpelê ji nû ve bar bikin.",
+    "cameraPermissionDenied": "Destûra kamerayê hat redkirin. Destûrê bide gihîştina kamerayê di mîhengên gerokê de, dûv re skaner ji nû ve veke.",
+    "noCameraWas": "Li ser vê cîhazê kamera nehat dîtin.",
+    "cameraBusyAnother": "Kamera di sepanek din an tabloya gerokê de mijûl e.",
+    "startCameraHttps": "Nekarî dest bi kamerayê bike. HTTPS an localhost bikar bînin û destûrên gerokê kontrol bikin.",
+    "qrScannerCamera": "QR pêşdîtina kameraya skaner",
+    "cameraUnavailableCheck": "Kamera ne berdest e. Destûra kamerayê kontrol bikin û dîsa biceribînin.",
+    "pointCameraAuthenticator": "Kamera xwe nîşanî koda sazkerê QR ya ji karûbarê ku hûn lê zêde dikin bidin.",
+    "backAddAccount": "Vegere hesabê lê zêde bike",
+    "secureSetup": "SETUP SETUP",
+    "enterDetailsManually": "Li şûna wê hûrguliyan bi destan binivîse"
+  },
+  "accountForm": {
+    "hideManualEntry": "Têketina manual veşêre",
+    "secretKeySupplied": "Mifteya veşartî ya ku ji hêla karûbarê ku hûn mîheng dikin ve hatî peyda kirin bikar bînin. Tu carî şîfreya hesabê xwe li vir nenivîse. Algorîtma, jimareya jimare, û navberê bi rêwerzên sazkirinê yên karûbarê re hevber bikin.",
+    "updateServiceAccount": "Karûbar, navê hesabê, an mifteya veşartî nûve bikin.",
+    "secretKeyRead": "Mifteya veşartî, dema guherandinê tenê-xwendin",
+    "secretKeyBase32": "Mifteya veşartî di Base32",
+    "digits": "jimare",
+    "seconds": "seconds",
+    "enterDetailsManually": "AN BI DESTÊ HATIN BIKE",
+    "enterDetailsManually2": "Detayên bi destan binivîse",
+    "serviceAccountName": "Xizmet, navê hesabê û mifteya veşartî",
+    "saveChangesSecurely": "Guhertinan bi ewlehî hilînin",
+    "saveAccountSecurely": "Hesabê bi ewlehî hilînin",
+    "serviceIssuer": "Xizmet an belavker",
+    "accountName": "Navê hesabê",
+    "secretKey": "Mifteya veşartî",
+    "serviceIssuer2": "SERVICE / ESSUER",
+    "eGGoogle": "wek mînak. Google",
+    "clearServiceIssuer": "Xizmeta zelal an belavker",
+    "eGExample": "wek mînak. you@example.com",
+    "clearAccountName": "Navê hesabê paqij bike",
+    "secretKeyLocked": "KÎLYA VEŞAR (GIRTÎ)",
+    "secretKeyBase322": "KEYÊ VEŞRÎ (BASE32)",
+    "enterSetupKey": "Mifteya sazkirinê ya xwe binivîse",
+    "clearSecretKey": "Mifteya veşartî paqij bike",
+    "otpAlgorithm": "OTP ALGORÎTM",
+    "otpDigits": "OTP HEJMAR",
+    "refreshIntervalSeconds": "NAVBERA NÛKIRINÊ (ÇÎYAN)",
+    "otpRefreshInterval": "OTP navbera nûvekirinê di çirkeyan de",
+    "closeAccountForm": "Forma hesabê bigire",
+    "totpSetupUrl": "TOTP sazkirin URL",
+    "importSetupUrl": "Sazkirina importê URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "NAVÊ HESABÊ",
+    "addAccount": "Hesabê zêde bikin"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Koda rastnasker QR bişopîne",
+    "setupGuidance": "Ji bo sazkirina herî hêsan kodek QR bişopînin, an hûrguliyan bi destan binivîsin.",
+    "cameraAddAccount": "Kamera xwe bikar bînin da ku tavilê hesabek zêde bikin",
+    "scanQrCode2": "Koda QR bişopîne",
+    "uploadQrImage": "Wêneyê QR barkirin",
+    "chooseQrScreenshot": "Ji Galerî, Wêne, an Pelan dîmenek QR hilbijêrin",
+    "pasteQr": "Wêneyê QR binivîsin / URL",
+    "pasteCopiedQr": "Wêneyek QR ya kopîkirî an sazkirina rastdêrê pêve bike URL",
+    "uploadQrImage2": "Wêneyê QR barkirin"
+  },
+  "accountQr": {
+    "close": "Girtin",
+    "accountQrCode": "Koda hesabê QR",
+    "revealQrCode": "Koda QR eşkere bike",
+    "exportWarning": "Hişyarî: her kesê ku vê kodê QR bikole dikare ji bo vê hesabê kodên verastkirinê çêbike. Tenê wê li ser ekranek pêbawer eşkere bikin.",
+    "privacyHint": "Vê kodê QR taybet bihêle. Skenandina wê sira rastdêrê hesabê kopî dike."
+  },
+  "productInfo": {
+    "backupRestore": "Backup & restore",
+    "backupRestoreDescription": "Daneyên naskerê xwe paşve vegerînin û gava ku hûn derbasî amûrek din bibin, wê sererast bikin.",
+    "privacyDescription": "Hesabên verastkirina xwe li yek cîhek bihêlin. Vebijarkên hilanînê, hilanîn, û kilîtkirina cîhaza serîlêdanê bikar bînin da ku sazkirina xwe bi berpirsiyarî birêve bibin.",
+    "timeBasedCodes": "Kodên-based Time",
+    "generateOneTimeCodes": "Ji bo hesabên xwe şîfreyên zivirî yên yek-car biafirînin da ku verastkirina du-gavekî temam bikin.",
+    "quickAccountSetup": "Sazkirina hesabê bilez",
+    "quickSetupDescription": "Ji bo lê zêdekirina hesabek kodek rastsazkerek QR bişopînin an wêneyek QR derxînin.",
+    "accountsOnePlace": "Hesab li yek cihî",
+    "accountsInOnePlaceDescription": "Hesabên xweyên tomarkirî bi hev re bihêlin û gava ku dema têketinê ye têketina rast bibînin.",
+    "privateAccountVault": "Depoya hesabê taybet",
+    "privateVaultDescription": "Navnîşanên erêkerê xwe yên herêmî bi rê ve bibin û vebijarka berdest a cîhaza-qeftina serîlêdanê bikar bînin.",
+    "easyCodeAccess": "Gihîştina kodê hêsan",
+    "easyCodeAccessDescription": "Kodek heyî kopî bikin an hûrguliyên hesabê bi navgîniyek paqij, hûrgulî birêve bibin.",
+    "authenticatorTechsivaram": "DESTPÊKIRIN · BI TECHSIVARAM",
+    "mobileAuthenticator": "DESTPÊKIRÊ MOBILE TE",
+    "tagline": "Rêbazek hêsantir ji bo birêvebirina verastkirina xweya du-gav.",
+    "heroDescription": "Ji bo kodên verastkirinê-based-dem ezmûnek erêkerek berbiçav. Kodên hesabê lihevhatî bi KaalKey ji bo Android li ber destê xwe bigirin.",
+    "timeBasedCodes2": "KODÊN TIME-BINGEHÊN",
+    "privateDesign": "TAYBET BY DESIGN",
+    "builtSimpleAuthenticator": "JI BO KAREKA XEBATÊN DESTPÊKIRÎNÊ AVAKIRIN",
+    "qrSetupTimed": "QR SETUP · KODÊN WEXTÎ · RÊVEBERIYA HESABÊ",
+    "privacyTitle": "Hesabên we. Kodên we. Kontrola we.",
+    "authenticator": "KAALKEY · DESTPÊKIRIN",
+    "brandBanner": "KaalKey banner brand",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Betal bike",
+      "storageInvalidTitle": "Daneyên hilanînê nederbasdar e",
+      "storageInvalidBody": "Daneyên hesabê tomarkirî bi ewlehî nehat xwendin.",
+      "storageErrorTitle": "Çewtiya hilanînê",
+      "storageErrorBody": "Hesabên tomarkirî nehatin barkirin.",
+      "missingTitle": "Agahiyên winda",
+      "missingEditingBody": "Navê karûbarê û navê hesabê binivîse.",
+      "missingBody": "Navê karûbarê, navê hesabê, û mifteya veşartî binivîse.",
+      "invalidOtpBody": "Veşartina Base32 nepenî, algorîtma, hejmartina jimare, û heyama nûvekirinê kontrol bikin. Veşartî divê Base32 karakterên derbasdar hebin; divê jimar {digits} bin û dem divê {minPeriod}-{maxPeriod} saniye bin.",
+      "duplicateBody": "Hesabek bi vê servîsê û navê hesabê berê hatiye tomarkirin.",
+      "updatedBody": "Hesabê te hat nûkirin.",
+      "addedBody": "Hesabê we bi ewlehî hate zêdekirin.",
+      "invalidOtpTitle": "Mîhengên OTP nederbasdar",
+      "duplicateTitle": "Hesab jixwe heye",
+      "savedTitle": "Hesab xilas bû",
+      "invalidSecretTitle": "Mifteya veşartî nederbasdar e",
+      "invalidSecretBody": "Ji kerema xwe kontrol bikin ku we veşartî Base32 derbasdar e.",
+      "removedTitle": "Hesab hat rakirin",
+      "removedBody": "Hesab û sira wê ji vê cîhazê hatin rakirin.",
+      "clearedTitle": "Hesab hatin paqijkirin",
+      "clearedBody": "Hemî hesab û razên erêker ji vê cîhazê hatin rakirin.",
+      "someSavedAccountsNeedAttentionTitle": "Hin hesabên xilaskirî hewceyê balê ne",
+      "someSavedAccountsNeedAttentionBody": "{count} qeyd(ên) hesabê nederbas nehat barkirin. Hesabên derbasdar berdest dimînin. Berî ku hûn guheztinên din bikin, hilanînê biafirînin.",
+      "removeConfirmTitle": "Hesab jê bibe?",
+      "removeConfirmWebTitle": "Hesab jê bibe?",
+      "removeButton": "Rakirin",
+      "clearButton": "Hemî paqij bike",
+      "clearConfirmTitle": "Hemî hesaban paqij bikin?",
+      "saveErrorBody": "Hesab nehat xilas kirin. Hebûna hilanîna gerokê kontrol bikin û dîsa biceribînin.",
+      "notFoundTitle": "Hesab nehat dîtin",
+      "notFoundBody": "Ev hesab nehat dîtin. Edîtorê bigire û dîsa biceribîne.",
+      "removeConfirmBody": "Ev hesab û sira wê ji vê cîhazê radike.",
+      "clearConfirmBody": "Ev bi domdarî hemî hesabên nasker û nehêniyên wan ji vê cîhazê radike. Ger dibe ku hûn paşê van hesaban hewce bikin, pêşî paşvekêşek şîfrekirî biafirînin.",
+      "clearConfirmUndoBody": "Ev nayê betalkirin."
+    },
+    "biometric": {
+      "cancelButton": "Betal bike",
+      "saveErrorTitle": "Nekarî mîhengê tomar bike",
+      "unlockPrompt": "Vekin KaalKey Rastnasker",
+      "promptSubtitle": "Biyometrîk an kilîtkirina dîmendera cîhaza xwe bikar bînin",
+      "disableConfirmPrompt": "Pejirandin ku qefilandina sepanê KaalKey vebike",
+      "enablePrompt": "Girtina sepanê ji bo KaalKey çalak bike",
+      "deviceLockTitle": "Girtina dîmendera cîhaza xwe saz bikin",
+      "deviceLockBody": "KaalKey erêkirina têlefona weya çêkirî bikar tîne. Di mîhengên ewlehiyê yên têlefona xwe de amûrek PIN, nimûne, an şîfreyek bicîh bikin, paşê dîsa biceribînin. Biyometrîk vebijarkî ne.",
+      "unavailableTitle": "Nasnameya cîhazê ne berdest e",
+      "unavailableBody": "Têlefona we nekarî dest bi verastkirina ewle bike. Kontrol bikin ka kilîtkirina dîmendera cîhazê hatî mîheng kirin, dûv re dîsa biceribîne.",
+      "lockedTitle": "Nasname bi demkî hate girtin",
+      "lockedBody": "Têlefona we piştî gelek hewildanan verastkirina demkî neçalak kir. Bisekine û dîsa biceribîne.",
+      "promptErrorTitle": "Nasname ne berdest e",
+      "promptErrorBody": "KaalKey nikarî dest bi rastkirina ewle ya têlefonê bike. Ji kerema xwe dîsa biceribîne.",
+      "webLock": "Girtina erêkirina cîhazê di guhertoya webê de hîna peyda nabe. Kevirê webê vekirî dimîne; sepana Android ji bo rastkirina cîhaza xwemalî bikar bînin.",
+      "disabledTitle": "Qefta sepanê neçalak bû",
+      "disabledBody": "KaalKey kilama sepanê hat girtin.",
+      "disableSaveError": "Girtina sepanê çalak dimîne. Ji kerema xwe dîsa biceribîne.",
+      "enabledTitle": "Girtina sepanê çalak bû",
+      "enabledBody": "KaalKey dema vekir û gava ku hûn vedigerin wê erêkirina têlefona weya çêkirî daxwaz bike.",
+      "enableSaveError": "Qefta sepanê nehat çalakkirin. Ji kerema xwe dîsa biceribîne."
+    },
+    "qr": {
+      "startingCamera": "Kamera dest pê dike…",
+      "unsupportedTitle": "Koda QR nayê piştgirî kirin",
+      "unsupportedBody": "Koda sazkerê QR ya ku ji hêla karûbar ve hatî peyda kirin bişopîne. Divê ev kodek TOTP be, ne kodek têketinê ya normal QR be.",
+      "unsupportedDiagnostic": "Ew QR ne kodek sazkirinê ya TOTP ye. Armanca sazkirina rastgir QR.",
+      "detectedDiagnostic": "QR hat dîtin. Analîz…",
+      "analyzing": "Koda QR analîz dike…",
+      "duplicateTitle": "Hesab jixwe hatiye zêdekirin",
+      "duplicateBody": "{issuer}: {account} jixwe di KaalKey de ye.",
+      "addedTitle": "Hesab lê zêde kirin",
+      "addedBody": "{issuer}: {account} bi serkeftî hate zêdekirin.",
+      "saveFailedDiagnostic": "Hesab nehat hilanîn. Hûn dikarin dîsa bişopînin.",
+      "invalidTitle": "Koda QR nederbasdar e",
+      "invalidBody": "KaalKey nekarî vê koda rastgir QR parsek bike. {detail}. Koda sazkirina TOTP ya karûbarê QR bikar bînin (bi gelemperî bi {prefix} dest pê dike).",
+      "parseFailedDiagnostic": "QR nehat pêvajo kirin. Armanca sazkirinê QR bikin û dîsa biceribînin.",
+      "invalidUrlTitle": "Nederbasdar TOTP URL",
+      "invalidUrlBody": "Nasnamegerek bêkêmasî URL bi {prefix} dest pê dike bixin.",
+      "clipboardEmptyTitle": "Clipboard vala ye",
+      "clipboardEmptyBody": "Pêşî {prefix} URL kopî bikin, paşê bişkînin TOTP URL Bikin.",
+      "clipboardErrorTitle": "Nekarî klîpboardê bixwîne",
+      "clipboardErrorBody": "Sazkirina TOTP URL kopî bikin û dîsa biceribînin."
+    },
+    "haptics": {
+      "saveFailedTitle": "Nekarî mîhengê tomar bike",
+      "saveFailedBody": "Vebijêrka nerîna Haptîk nehat tomarkirin. Ji kerema xwe dîsa biceribîne."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Nekarî pejirandinê xilas bike",
+      "saveFailedBody": "Ji kerema xwe dîsa biceribîne. Berî ku hûn KaalKey bikar bînin divê hûn agahdariya qanûnî qebûl bikin."
+    },
+    "cameraPermission": {
+      "title": "Destûra kamerayê pêwîst e",
+      "body": "Destûrê bide gihîştina kamerayê ku kodek sazkerê QR bişopîne."
+    },
+    "storage": {
+      "browserUnavailable": "Depoya gerokê ne berdest e.",
+      "browserFilePickerUnavailable": "Hilbijêra pelê gerokê ne berdest e."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Pelê nayê piştgirî kirin",
+      "unsupportedFileBody": "Wêneyek kodê QR wekî PNG an JPEG hilbijêrin.",
+      "browserDecoderUnavailable": "Deşîfrekirina wêneya gerokê ne berdest e",
+      "imageLoadFailed": "Wêne nehat barkirin",
+      "unreadableDimensions": "Di wêneyê de pîvanên xwendinê tune",
+      "noQrCodeFoundTitle": "Koda QR nehat dîtin",
+      "noQrCodeFoundBody": "KaalKey di vê wêneyê de nikarî kodek QR deşîfre bike. Dîmenek an rezîliyek bilindtir PNG/JPEG biceribîne.",
+      "couldNotReadImageTitle": "Nekarî wêneyê bixwîne",
+      "couldNotReadImageBody": "Wêneyek zelal PNG an JPEG biceribînin ku koda sazkerê QR heye.",
+      "couldNotOpenPickerTitle": "Nekarî hilbijêra wêneyê veke",
+      "couldNotOpenPickerBody": "Ji kerema xwe dîsa biceribînin QR Barkirin.",
+      "normalizedDecodeFailed": "Wêneyê normalîzekirî nehat deşîfrekirin",
+      "clipboardImageLoadFailed": "Wêneyê clipboard nehat barkirin",
+      "imageProcessingUnavailable": "Pêvajoya wêneyê ne berdest e",
+      "imageProcessingUnavailableAlt": "Pêvajoya wêneyê ne berdest e",
+      "noImageInClipboardTitle": "Di clipboard de wêne tune",
+      "noImageInClipboardBody": "Wêneyek kodê QR kopî bikin, dûv re dîsa bixin QR Wêne bikirtînin.",
+      "clipboardUnavailableTitle": "Clipboard ne berdest e",
+      "clipboardUnavailableBody": "Nivîsa clipboard ne sazûmanek rastsazkerek derbasdar e URL. Wêneyek otpauth:// URL an QR kopî bikin û dîsa biceribînin.",
+      "clipboardAccessBody": "KaalKey nikarî nivîs an wêneyek ji pabloyê bixwîne. Destûrê bide gihîştina klîpboardê, dûv re wêneya QR an otpauth:// URL kopî bikin û dîsa bixin QR Wêne / URL.",
+      "couldNotPasteImageTitle": "Nekarî wêneyê lêve bike",
+      "couldNotPasteImageBody": "Veguheztina wêneyê ji hêla vê klîpboardê ve li ser vê cîhazê nayê piştgirî kirin. Li şûna wêneyê QR Import bikar bînin.",
+      "sourceImageDecodeFailure": "Wêneyek cûda QR biceribîne.",
+      "pastedImportFailureBody": "Wêneyek QR cuda biceribîne.",
+      "sourceImageReadFailure": "Biceribînin ku wêneyek QR zelal kopî bikin.",
+      "importFailedTitle": "QR importkirina wêneyê têk çû",
+      "importFailedBody": "KaalKey nikarî wê wêneyê bixwîne. Ji kerema xwe wêneyek koda QR din biceribîne.",
+      "notFoundBody": "Wêneya kopîkirî kodek QR ya ku tê xwendin tune.",
+      "pastedNotFoundBody": "Wêneya pêvekirî kodek QR ya tê xwendin tune.",
+      "pastedReadFailureBody": "Biceribînin ku wêneyek zelal PNG an JPEG ku tê de koda tevahî QR heye kopî bikin.",
+      "noQrCodeTextBody": "KaalKey wêneya hilbijartî deşîfre kir lê kodek QR nedît. Vebijêrkek zelal, bi tevahî PNG an JPEG bi tevahî kodê xuyakirî biceribînin."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Ev koda QR ne kodek sazkirinê ya rastgir-based-dem e.",
+      "missingAccountDetails": "Koda QR hûrguliyên hesabê wenda ye.",
+      "unsupportedAlgorithm": "Koda QR algorîtmayek nepiştgir bikar tîne.",
+      "unsupportedDigits": "Ev koda QR divê 6, 7, an 8 reqeman bikar bîne.",
+      "unsupportedPeriod": "Ev koda QR demeke nepiştgirî bikar tîne.",
+      "invalidAccount": "Koda QR nehate pejirandin."
+    },
+    "backup": {
+      "invalidJson": "Pelê hilanînê ne derbasdar e JSON.",
+      "unsupportedFormat": "Ev ne piştgiriyek şîfrekirî ya KaalKey ye.",
+      "invalidPasswordOrDamaged": "Şîfreya hilanînê xelet e an jî pela hilanînê zirarê ye.",
+      "invalidContents": "Naveroka hilanînê nederbasdar an ne temam in.",
+      "secureRandomUnavailableDetailed": "Nifşa rasthatî ya ewledar ne berdest e. Serlêdana Android bi expo-crypto ji nû ve ava bikin û saz bikin, dûv re dîsa biceribînin.",
+      "invalidAccountDataForBackup": "Hesabek an bêtir nederbasdar in. Berî afirandina hilanînê, daneyên hesabê rast bikin.",
+      "invalidPasswordOrModified": "Şîfreya hilanînê çewt e an jî pela hilanînê hatiye guhertin.",
+      "invalidPasswordOrFileDamaged": "Şîfreya hilanînê xelet e an jî pel xera bûye.",
+      "passwordCopiedTitle": "Şîfre hat kopî kirin",
+      "enterPasswordTitle": "Şîfreya xweya hilanînê binivîse",
+      "enterPasswordBody": "Şîfreya ku dema ku ev hilanînê hatî çêkirin tê bikaranîn.",
+      "passwordCopiedBody": "Wê li cîhek ewle hilînin, wek WhatsApp.",
+      "copyFailedTitle": "Kopî têk çû",
+      "copyFailedBody": "Bi destan şîfreyê hilbijêrin û kopî bikin.",
+      "generatingPassword": "Şîfreya hilanînê ya ewledar tê çêkirin…",
+      "encrypting": "Piştgiriya şîfrekirinê…",
+      "decrypting": "Deşîfrekirina hilanînê…",
+      "restoring": "Vegerandina hesaban…",
+      "backupCreatedTitle": "Backup hate afirandin",
+      "restoreCompleteTitle": "Restore temam",
+      "mergeConfirmTitle": "Hesabên hilanînê li hev bikin?",
+      "mergeConfirmButton": "Hesabên hev bikin",
+      "backupSavedTemporary": "Piştgiriya şîfrekirî bi demkî hate tomarkirin:\n{uri}",
+      "generatePasswordErrorTitle": "Nekarî şîfreya hilanînê çêbike",
+      "secureRandomUnavailable": "Nifşa rasthatî ya ewledar ne berdest e.",
+      "passwordUnavailableTitle": "Şîfreya hilanînê ne berdest e",
+      "passwordUnavailableBody": "Vê diyalogê bigire û hilanînê nû biafirîne da ku şîfreyek ewledar çêbike.",
+      "backupDownloadedBody": "Piştgiriya weya KaalKey ya şîfrekirî hat daxistin. Pelê û şîfreya taybet bihêlin.",
+      "backupFailedTitle": "Backup têk çû",
+      "backupCreateErrorBody": "KaalKey nekarî paşgir biafirîne.",
+      "restoreFailedTitle": "Vegerandin têk çû",
+      "backupReadErrorBody": "Piştgir nehat xwendin an tomarkirin.",
+      "browserDownloadUnsupported": "Geroka we dakêşana pelên hilanînê piştgirî nake.",
+      "localFileUnavailable": "Cihek pelê herêmî li ser vê cîhazê ne berdest e.",
+      "saveBackupTitle": "Piştgiriya xweya KaalKey ya şîfrekirî hilînin"
+    },
+    "clipboard": {
+      "copiedTitle": "Kod hat kopî kirin",
+      "copiedBody": "Koda verastkirina we hat kopî kirin.",
+      "errorTitle": "Error",
+      "errorBody": "Nekarî koda verastkirinê kopî bike."
+    },
+    "activity": {
+      "cameraReady": "Kamera amade ye. Wê nîşanî koda rastgir QR bidin.",
+      "readingQrImage": "Dixwînin QR wêne…",
+      "importingQrImage": "Wêne QR tê importkirin…",
+      "importingAccount": "Hesabê erêker tê importkirin…",
+      "importingPastedImage": "Wêneyê QR tê xêzkirin…"
+    }
+  },
+  "activity": {
+    "working": "Working",
+    "wait": "Ji kerema xwe li bendê bin…",
+    "donTClose": "Ji kerema xwe bi KaalKey re negirin û nekevin têkiliyê.",
+    "loadingLanguages": "Barkirina zimanên berdest…",
+    "loadingTranslation": "Wergerê tê barkirin…"
+  }
+}

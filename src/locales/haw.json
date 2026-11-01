@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "ʻŌlelo",
+      "description": "E koho i ka ʻōlelo i hoʻohana ʻia ma KaalKey.",
+      "english": "Pelekania",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "ʻŌlelo",
+      "searchLanguageName": "Huli ʻōlelo (inoa a code)",
+      "searchSupportedLanguages": "Huli i nā ʻōlelo i kākoʻo ʻia",
+      "closeLanguageDropdown": "Pani i ka hāʻule iho ʻōlelo",
+      "noTranslatedLanguage": "ʻAʻohe ʻōlelo unuhi i loaʻa.",
+      "serverUrl": "Kahuna unuhi URL",
+      "serverUrlDescription": "KaalKey hoʻoiho i ka papa inoa ʻōlelo a me nā unuhi mai kēia kikowaena.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "E mālama i ke kikowaena unuhi"
+    },
+    "title": "Nā hoʻonohonoho polokalamu",
+    "eyebrow": "KAALKEY MAKEMAKE",
+    "experience": {
+      "section": "KA HOIKE"
+    },
+    "security": {
+      "section": "PALAPALA"
+    },
+    "backup": {
+      "section": "HOOPAA & HOOLAA"
+    },
+    "danger": {
+      "section": "AINA PILI",
+      "clearAccounts": "Holoi i nā moʻokāki a pau",
+      "clearAccountsDescription": "Wehe mau i kēlā me kēia moʻokāki a me nā mea huna mai kēia hāmeʻa. E hoʻihoʻi mua.",
+      "clearAccountsAccessibilityLabel": "Holoi i nā moʻokāki authenticator a pau"
+    },
+    "appearance": {
+      "section": "IKE",
+      "title": "ʻAno māmā",
+      "description": "KaalKey ke hoʻohana nei i kāna kumuhana māmā maʻemaʻe."
+    },
+    "haptics": {
+      "title": "Manaʻo haptic",
+      "description": "Manaʻo mālie no nā paʻi a me nā hana i hoʻopau ʻia."
+    },
+    "deviceLock": {
+      "title": "Laka hōʻoia ʻana o ka hāmeʻa",
+      "description": "Laka kou waihona ke haʻalele ʻo KaalKey i ka mua.",
+      "requirement": "Koi i ka biometrics o kāu kelepona a i ʻole ka pale-pale PIN, kumu, a i ʻole ka ʻōlelo huna.",
+      "accessibilityLabel": "Laka polokalamu hoʻopaʻa paʻa"
+    },
+    "privacy": {
+      "title": "Kānāwai & pilikino",
+      "description": "E nānā i ke kulekele pilikino a me nā ʻōlelo hoʻohana.",
+      "storageNote": "Noho kāu mea huna authenticator i loko o ka waihona palekana ma ka polokalamu. Mālama ʻia nā makemake ma ka ʻāina."
+    }
+  },
+  "accounts": {
+    "edit": "Hoʻoponopono",
+    "sortAccountName": "Hoʻokaʻawale ma ka inoa moʻokāki",
+    "loadingSecureVault": "Ke hoʻouka nei i ka waihona paʻa...",
+    "tapCopy": "PILI E KOPE",
+    "noAccountsMatch": "ʻAʻohe moʻohelu pili i kāu hulina.",
+    "viewQrCode": "Nānā QR code no ka mooolelo",
+    "removeAccount": "Wehe mooolelo",
+    "copyVerificationCode": "E kope i ka helu hōʻoia",
+    "active": "HANA",
+    "sort": "HOOLAHA MA",
+    "account": "moʻokāki",
+    "clearSearch": "Holoi i ka huli",
+    "sortServiceName": "Hoʻokaʻawale ma ka inoa lawelawe",
+    "addFirstAccount": "Hoʻohui i kāu moʻokāki mua",
+    "searchAccounts": "Huli mooolelo",
+    "searchServiceAccount": "Huli lawelawe a mooolelo",
+    "accounts": "ʻO kāu mau moʻokāki",
+    "add": "+ Hoʻohui",
+    "vaultStartsHere": "Hoʻomaka kāu waihona ma ʻaneʻi",
+    "service": "lawelawe",
+    "emptyHint": "Hoʻohui i kahi moʻokāki e hoʻohana ana i kāna kī huna e hana i kāu code hōʻoia mua."
+  },
+  "common": {
+    "done": "Pau",
+    "doneButton": "Pau",
+    "closeSettings": "Pani i nā hoʻonohonoho",
+    "separator": "-",
+    "article": "a",
+    "save": "Mālama",
+    "delete": "Holoi",
+    "resizeAppBrand": "E hoʻololi i ka nui o ka app a me nā panela brand"
+  },
+  "qrImport": {
+    "readPastedImage": "ʻAʻole hiki ke heluhelu i ke kiʻi i hoʻopili ʻia"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Nā moʻokāki ma kēia waihona: {count}. KaalKey e mālama i kāu mau moʻokāki i kēia manawa a hoʻohui i nā moʻolelo ʻaʻole i loaʻa. Hoʻokuʻu ʻia nā moʻokāki pālua.",
+    "restoreCompletionBody": "Nā moʻokāki i hoʻohui ʻia: {added}. Hoʻokuʻu ʻia nā moʻokāki pālua: {skipped}. Ua mālama ʻia kāu mau moʻokāki.",
+    "copyPassword": "E kope i ka ʻōlelo huna",
+    "passwordSafety": "E mālama kaʻawale i kēia ʻōlelo huna (no ka laʻana, ma WhatsApp). ʻO kēlā me kēia me ka",
+    "importAction": "E koho i ka faila a lawe mai",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "HALE PALAPALA",
+    "createBackup": "Hana i ka waihona",
+    "encryptedFile": "faila i hoʻopili ʻia",
+    "restoreBackup": "Hoʻihoʻi i ka waihona",
+    "safetyNote": "Loaʻa i nā waihona kāu mau mea huna authenticator. KaalKey hana i ka ʻōlelo huna kū hoʻokahi no kēlā me kēia waihona. E mālama kaʻawale; ʻAʻole hiki iā KaalKey ke hoʻihoʻi.",
+    "generatingSecurePassword": "Ke hana nei i ka ʻōlelo huna paʻa…",
+    "importFile": "Waihona waihona",
+    "backupPassword": "HUA HOPE",
+    "account": "mooolelo",
+    "accounts": "mooolelo",
+    "exportDescription": "Hoʻopili i nā {count} i mālama ʻia {accountLabel} i loko o kahi waihona waihona. KaalKey hana i kahi ʻōlelo huna kū hoʻokahi; kope a mālama kaʻawale mai ka faila.",
+    "restoreDescription": "E koho i kāu KaalKey waihona waihona a me ka ʻōlelo huna. E hoʻohui ʻia nā moʻokāki hou i kāu papa inoa moʻokāki e kū nei; e noho mau nā moʻokāki e kū nei.",
+    "enterBackupPassword": "E hoʻokomo i ka ʻōlelo huna huna",
+    "closeBackup": "Pani i ka waihona",
+    "copyGeneratedBackup": "E kope i ka ʻōlelo huna huna",
+    "backupPassword2": "ʻōlelo huna huna",
+    "clearBackupPassword": "Holoi i ka ʻōlelo huna huna",
+    "backupFilePassword": "hiki ke hoʻihoʻi hou i kāu moʻokāki authenticator.",
+    "encryptShareBackup": "Hoʻopili a kaʻana like"
+  },
+  "home": {
+    "unlockSecurely": "Wehe paʻa",
+    "disableAppLock": "Hoʻopau i ka laka polokalamu",
+    "enableAppLock": "E ho'ā i ka laka polokalamu",
+    "checkingSecureLock": "Ke nānā nei i kāu mau hoʻonohonoho laka paʻa. Ua hūnā ʻia kāu mau code.",
+    "waitingVerification": "Ke kali nei no ka hōʻoia…",
+    "secretsStayStored": "Mālama ʻia kāu mau mea huna ma kēia hāmeʻa.",
+    "openAppSettings": "E wehe i nā hoʻonohonoho polokalamu",
+    "versionLabel": "HOOLAHA",
+    "unlockRequirement": "E hoʻohana i ka biometrics o kāu kelepona a i ʻole ka laka pale PIN, ke kumu, a i ʻole ka ʻōlelo huna no ke komo ʻana i kāu mau code hōʻoia hoʻokahi manawa.",
+    "localVault": "KO KOU WALE HALE",
+    "codesDeviceControl": "ʻO kāu mau code. ʻO kāu hāmeʻa. Kou mana.",
+    "securingVault": "Ke hoʻopaʻa nei i kāu waihona…",
+    "vaultProtected": "Mālama ʻia kāu waihona",
+    "lock": "LAKA MA",
+    "localVault2": "HALE KUAI",
+    "authenticator": "KAALKEY KA HOʻOHU",
+    "tricolourLockEmblem": "KaalKey hōʻailona laka ʻekolu kala",
+    "authenticator2": "KA MEA HOI"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Inā koho ʻoe e nānā i kahi code QR, KaalKey hoʻohana i ka ʻae pahupaʻikiʻi no kēlā hana. Hoʻohana ʻia ka hōʻoia ʻana o ka hāmeʻa koho a me ka pane haptic i nā hiʻohiʻona pili pono. Hiki iā ʻoe ke hoʻokele i nā ʻae i kāu hoʻonohonoho hāmeʻa.",
+        "heading": "2. Nā ʻae a me nā hiʻohiʻona"
+      },
+      "backups": {
+        "body": "Ke hana ʻoe i kope, hoʻopili ʻo KaalKey i ka waihona me ka ʻōlelo huna āu e koho ai. E mālama pono i ka faila a me ka ʻōlelo huna a mālama pono iā lākou. Hiki i ka mea i loaʻa ka faila a me kāna ʻōlelo huna ke hoʻihoʻi i kāu moʻokāki authenticator. KaalKey ʻaʻole hiki ke hoʻihoʻi i kahi ʻōlelo huna huna poina.",
+        "heading": "3. Nā waihona"
+      },
+      "security": {
+        "body": "E hoʻomau hou i kāu kelepona, e pale iā ia me ka laka pale, a mai kaʻana like OTP i nā mea huna a i ʻole nā ​​huaʻōlelo huna. ʻO ka wehe ʻana i ka app, ka holoi ʻana i kāna ʻikepili, a i ʻole ka nalo ʻana o ka hāmeʻa hiki ke loaʻa ʻole nā ​​​​moʻolelo mālama kūloko. E mālama i kahi hoʻihoʻi paʻa inā pono ʻoe e hoʻihoʻi.",
+        "heading": "5. Ka palekana a me ka mālama ʻana"
+      },
+      "information": {
+        "heading": "1. ʻIke a me nā mea huna",
+        "body": "KaalKey he polokalamu hōʻoia. ʻO nā lepili moʻokāki a me nā waiwai huna e pono ai e hana i nā code hoʻokahi manawa. Hoʻolālā ʻia ka app no ​​ka mālama ʻana i nā moʻolelo moʻohelu i loko o kahi waihona palekana o ka hāmeʻa. Hiki i nā mea a pau i loaʻa i kahi hāmeʻa i wehe ʻia a i ʻole kahi waihona i lawe ʻia i waho e hiki ke komo i ka ʻike pili."
+      },
+      "sharing": {
+        "heading": "4. Kaʻana like a me nā ʻaoʻao ʻekolu",
+        "body": "Hiki ke hoʻohana ʻia ke kahe hoʻihoʻi ʻana i ka pepa kaʻana like o kāu hāmeʻa a i ʻole koho faila e mālama, hoʻololi, a koho paha i nā faila. Hoʻoponopono ʻia nā hana pilikino o kēlā me kēia ʻaoʻao ʻekolu a i ʻole lawelawe āu e koho ai e kēlā mea hoʻolako. ʻAʻole ʻōlelo kēia hoʻolaha ʻaʻole e hoʻopololei kāu kelepona, ʻōnaehana hana, a i ʻole nā ​​​​lawelawe kaʻana like i koho ʻia."
+      },
+      "changes": {
+        "heading": "6. Hoʻololi a pili",
+        "body": "Hiki ke hoʻoponopono hou ʻia kēia leka i hoʻopili ʻia i ka hoʻokuʻu ʻana o ka app e hiki mai ana. No nā nīnau pilikino, e hoʻokaʻaʻike i ka mea hoʻopuka app ma o ke ala kākoʻo kūhelu i hāʻawi ʻia me ka app."
+      },
+      "title": "Kulekele pilikino"
+    },
+    "terms": {
+      "use": {
+        "body": "Hiki iā ʻoe ke hoʻohana i KaalKey e hana i nā code hōʻoia no nā moʻokāki i ʻae ʻia iā ʻoe e komo. Aia iā ʻoe ke kuleana no ka mālama ʻana i nā kānāwai kūpono a me nā lula o nā lawelawe āu e hoʻohana ai i nā code hōʻoia.",
+        "heading": "1. Kou hoohana"
+      },
+      "protectAccounts": {
+        "body": "ʻO ʻoe ke kuleana no ka hoʻopaʻa ʻana i kāu hāmeʻa, nā mea huna authenticator, nā ala hoʻihoʻi, nā waihona i lawe ʻia aku, a me nā ʻōlelo huna. Mai kaʻana like i nā code a me nā mea huna me nā poʻe āu e hilinaʻi ʻole ai.",
+        "heading": "2. Mālama i kāu mau moʻokāki"
+      },
+      "availability": {
+        "body": "Hiki ke loli nā hiʻohiʻona ma waena o nā hoʻokuʻu. Pono ʻoe e hoʻomau i ka hoʻonui ʻia ʻana o ka app a hōʻoia i kēlā me kēia manawa ua hana kāu hoʻonohonoho hoʻihoʻi a me ka hoʻihoʻi.",
+        "heading": "5. Hoʻololi a loaʻa"
+      },
+      "recovery": {
+        "body": "ʻAʻole hiki i KaalKey ke hōʻoiaʻiʻo e hiki ke hoʻihoʻi ʻia kēlā me kēia moʻokāki, e ʻae ʻia kēlā me kēia QR code a i ʻole ka hoʻonohonoho ʻana, a i ʻole e holo ka app me ka ʻole o ke keakea a i ʻole ka hewa. E mālama i nā ʻano hana hoʻolaʻa ʻē aʻe i hāʻawi ʻia e ka lawelawe kūpono.",
+        "heading": "3. ʻAʻohe hōʻoia hōʻoia"
+      },
+      "advice": {
+        "heading": "4. ʻAʻohe ʻōlelo aʻo ʻoihana",
+        "body": "He mea pono ka app a ʻaʻole hāʻawi i nā ʻōlelo aʻo pili kānāwai, kālā, a palekana paha. Inā hoʻopili ʻia kahi moʻokāki, e hahai i ka hoʻihoʻi kūhelu a me ke alakaʻi palekana o ka lawelawe i hoʻopilikia ʻia."
+      },
+      "liability": {
+        "heading": "6. Ke kuleana a me ke kānāwai pili",
+        "body": "I ka palena i ʻae ʻia e ke kānāwai pili, hāʻawi ʻia ka app me ka ʻole o ka hōʻoia ʻana o ka hana ʻole a i ʻole ka hala ʻole. ʻAʻohe mea i loko o kēia mau huaʻōlelo e kāpae i nā kuleana a i ʻole nā ​​​​hopena ʻaʻole hiki ke kāpae ʻia ma ke kānāwai. Pono e nānā ʻia nā palena ʻē aʻe a i ʻole nā ​​ʻōlelo pili kānāwai e kekahi loio kūpono no ka mana o ka mea hoʻopuka ma mua o ka hoʻokuʻu ʻia ʻana."
+      },
+      "title": "Nā ʻōlelo hoʻohana"
+    },
+    "version": "Manao",
+    "saving": "Mālama ʻia…",
+    "acceptContinue": "E ʻae a hoʻomau",
+    "appliesAuthenticator": "E pili ana i KaalKey Authenticator",
+    "reviewBothDocuments": "E ʻoluʻolu e nānā i nā palapala ʻelua ma mua o ka hoʻohana ʻana i KaalKey. Hoʻokomo ʻia lākou i loko o ka app a loaʻa ma waho.",
+    "originalMulticolourAuthenticator": "ʻO ka hōʻailona hōʻoia ʻokoʻa like ʻole KaalKey.",
+    "legalPrivacyNotice": "Hoʻolaha kānāwai & pilikino",
+    "legalInformation": "ʻIke pili kānāwai",
+    "reviewSPrivacy": "E nānā i ka ʻike pilikino a me nā ʻōlelo hoʻohana o KaalKey.",
+    "iReadAgree": "Ua heluhelu a ʻae wau i ka Kulekele pilikino a me nā ʻōlelo hoʻohana."
+  },
+  "qrScanner": {
+    "keepEntireQr": "E ʻike ʻia ka helu QR holoʻokoʻa. Noho kāu mea huna ma kēia hāmeʻa.",
+    "back": "Ke kua",
+    "turnFlashlightOff": "E hoʻopau i ke kukui uila",
+    "turnFlashlight": "E ho'ā i ke kukui uila",
+    "flashlight": "Hoʻā ʻia ke kukui uila",
+    "flashlight2": "kukui uila",
+    "cameraUnavailableOpen": "Loaʻa ʻole ka pahupaʻikiʻi. E wehe i kēia ʻaoʻao ma HTTPS a i ʻole localhost a ʻae i ke kiʻi paʻi kiʻi.",
+    "cameraPreviewUnavailable": "ʻAʻole loaʻa ka nānā ʻana i ka pahupaʻikiʻi. Pani a wehe hou i ka scanner.",
+    "cameraReadyPoint": "Mākaukau ka pahupaʻikiʻi — kuhikuhi iā ia ma ke code QR piha.",
+    "browserCannotProcess": "ʻAʻole hiki i kēia polokalamu kele ke hana i nā kiʻi paʻi kiʻi.",
+    "qrCodeDetected": "QR ʻike ʻia ke code.",
+    "couldnTRead": "ʻAʻole hiki ke heluhelu i nā pahu pahupaʻikiʻi. E nānā i nā ʻae pahupaʻikiʻi a hoʻouka hou i kēia ʻaoʻao.",
+    "cameraPermissionDenied": "Ua hōʻole ʻia ka ʻae pahupaʻikiʻi. E ʻae i ke komo ʻana i ka pahupaʻikiʻi ma nā hoʻonohonoho polokalamu kele pūnaewele, a laila e wehe hou i ka scanner.",
+    "noCameraWas": "ʻAʻohe pahupaʻikiʻi i loaʻa ma kēia hāmeʻa.",
+    "cameraBusyAnother": "Paʻa ka pahupaʻikiʻi ma kahi polokalamu ʻē aʻe a i ʻole ʻaoʻao polokalamu kele pūnaewele.",
+    "startCameraHttps": "ʻAʻole hiki ke hoʻomaka i ka pahupaʻikiʻi. E hoʻohana i HTTPS a i ʻole localhost a nānā i nā ʻae polokalamu kele pūnaewele.",
+    "qrScannerCamera": "QR namua pahupaʻikiʻi scanner",
+    "cameraUnavailableCheck": "Loaʻa ʻole ka pahupaʻikiʻi. E nānā i ka ʻae pahupaʻikiʻi a hoʻāʻo hou.",
+    "pointCameraAuthenticator": "E kuhikuhi i kāu pahupaʻikiʻi ma ke code hoʻonohonoho authenticator QR mai ka lawelawe āu e hoʻohui nei.",
+    "backAddAccount": "Hoʻi e hoʻohui i ka moʻokāki",
+    "secureSetup": "HOOLAHA PALU",
+    "enterDetailsManually": "E hoʻokomo lima i nā kikoʻī"
+  },
+  "accountForm": {
+    "hideManualEntry": "Hūnā i ke komo lima",
+    "secretKeySupplied": "E hoʻohana i ke kī huna i hāʻawi ʻia e ka lawelawe āu e hoʻonohonoho nei. Mai hoʻokomo i kāu ʻōlelo huna moʻokāki ma ʻaneʻi. E hoʻohālikelike i ka algorithm, ka helu helu, a me ka manawa i nā kuhikuhi hoʻonohonoho o ka lawelawe.",
+    "updateServiceAccount": "Hoʻohou i ka lawelawe, inoa moʻokāki, a i ʻole kī huna.",
+    "secretKeyRead": "Ki huna, heluhelu-wale i ka hooponopono ana",
+    "secretKeyBase32": "Ki huna ma Base32",
+    "digits": "huahelu",
+    "seconds": "kekona",
+    "enterDetailsManually": "A i ʻole e hoʻokomo i nā kikoʻī ma ka lima",
+    "enterDetailsManually2": "E hoʻokomo lima i nā kikoʻī",
+    "serviceAccountName": "ʻO ka lawelawe, ka inoa moʻokāki a me ke kī huna",
+    "saveChangesSecurely": "E mālama pono i nā hoʻololi",
+    "saveAccountSecurely": "E mālama pono i ka moʻokāki",
+    "serviceIssuer": "lawelawe a mea hoʻopuka",
+    "accountName": "inoa moʻokāki",
+    "secretKey": "Ki huna",
+    "serviceIssuer2": "HANA / HANA",
+    "eGGoogle": "e.g. Google",
+    "clearServiceIssuer": "Hoʻomaʻemaʻe i ka lawelawe a mea hoʻopuka",
+    "eGExample": "e.g. you@example.com",
+    "clearAccountName": "Holoi i ka inoa moʻokāki",
+    "secretKeyLocked": "KI HUNA (LAKA)",
+    "secretKeyBase322": "KI HUNA (BASE32)",
+    "enterSetupKey": "E hoʻokomo i kāu kī hoʻonohonoho",
+    "clearSecretKey": "Holoi i ke kī huna",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP NUI",
+    "refreshIntervalSeconds": "HOʻOU HOU ANA (SECONDS)",
+    "otpRefreshInterval": "OTP hōʻano hou i loko o kekona",
+    "closeAccountForm": "E pani i ka palapala moʻokāki",
+    "totpSetupUrl": "TOTP hoʻonohonoho URL",
+    "importSetupUrl": "Hoʻokomo hoʻonohonoho URL",
+    "totpSetupUrl2": "TOTP HOOLAHA URL",
+    "accountName2": "INOA HELU",
+    "addAccount": "Hoʻohui moʻokāki"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Hoʻokolo ʻia ka mea hōʻoia QR.",
+    "setupGuidance": "E nānā i kahi code QR no ka hoʻonohonoho maʻalahi, a i ʻole e hoʻokomo lima i nā kikoʻī.",
+    "cameraAddAccount": "E hoʻohana i kāu pahupaʻikiʻi e hoʻohui koke i kahi moʻokāki",
+    "scanQrCode2": "E nānā i ke code QR.",
+    "uploadQrImage": "Hoʻouka i ke kiʻi QR.",
+    "chooseQrScreenshot": "E koho i QR kiʻi kiʻi mai ka Hale Hōʻikeʻike, Nā kiʻi, a i ʻole nā faila",
+    "pasteQr": "Hoʻopili QR kiʻi / URL",
+    "pasteCopiedQr": "Hoʻopili i kahi kiʻi QR i kope ʻia a i ʻole hoʻonohonoho hōʻoia URL",
+    "uploadQrImage2": "Hoʻouka i ke kiʻi QR."
+  },
+  "accountQr": {
+    "close": "Pani",
+    "accountQrCode": "Helu helu QR.",
+    "revealQrCode": "Hōʻike i ke code QR.",
+    "exportWarning": "'Ōlelo Aʻo: hiki i ka mea nāna e nānā i kēia code QR ke hana i nā code hōʻoia no kēia moʻokāki. Hōʻike wale ia ma ka pale hilinaʻi.",
+    "privacyHint": "E mālama pono i kēia code QR. ʻO ka nānā ʻana iā ia e kope i ka huna authenticator o ka moʻokāki."
+  },
+  "productInfo": {
+    "backupRestore": "Hoʻihoʻi a hoʻihoʻi",
+    "backupRestoreDescription": "E hoʻopaʻa i kāu ʻikepili authenticator a hoʻihoʻi iā ia ke neʻe ʻoe i kahi mea ʻē aʻe.",
+    "privacyDescription": "E mālama i kāu mau moʻokāki hōʻoia ma kahi hoʻokahi. E hoʻohana i ke kākoʻo, hoʻihoʻi, a me nā koho laka o ka polokalamu no ka mālama pono ʻana i kāu hoʻonohonoho.",
+    "timeBasedCodes": "Nā code pili manawa",
+    "generateOneTimeCodes": "E hana i nā passcode hoʻokahi manawa no kāu mau moʻokāki e hoʻopau i ka hōʻoia ʻelua ʻanuʻu.",
+    "quickAccountSetup": "Hoʻonohonoho moʻokāki wikiwiki",
+    "quickSetupDescription": "E ʻimi i kahi code QR a i ʻole e hoʻokomo i kahi kiʻi QR e hoʻohui i kahi moʻokāki.",
+    "accountsOnePlace": "Nā moʻokāki ma kahi hoʻokahi",
+    "accountsInOnePlaceDescription": "E hoʻopaʻa pū i kāu mau moʻokāki i mālama ʻia a e ʻimi i ke komo ʻana kūpono i ka wā e kau inoa ai.",
+    "privateAccountVault": "Waihona mooolelo pilikino",
+    "privateVaultDescription": "E hoʻokele i kāu mau mea hōʻoia ma ka ʻāina a e hoʻohana i ka koho paʻa hāmeʻa i loaʻa.",
+    "easyCodeAccess": "Loaʻa code maʻalahi",
+    "easyCodeAccessDescription": "E kope i kahi code o kēia manawa a i ʻole e hoʻokele i nā kikoʻī moʻokāki ma o kahi kikowaena maʻemaʻe.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · NA TECHSIVARAM",
+    "mobileAuthenticator": "KO AUTHENTICATOR MOBILE",
+    "tagline": "He ala maʻalahi e hoʻokele i kāu hōʻoia ʻelua ʻanuʻu.",
+    "heroDescription": "ʻO kahi ʻike authenticator kālele no nā code hōʻoia e pili ana i ka manawa. E mālama i nā code moʻokāki kūpono ma kahi kokoke me KaalKey no Android.",
+    "timeBasedCodes2": "KĀWAI WĀWAI",
+    "privateDesign": "PILI MA KA HOOLAHA",
+    "builtSimpleAuthenticator": "KUKULU ANA NO KA HANA HANA HANA",
+    "qrSetupTimed": "QR KA HOʻOMAʻI · KĀWAI KULA",
+    "privacyTitle": "ʻO kāu mau moʻokāki. ʻO kāu mau code. Kou mana.",
+    "authenticator": "KAALKEY · AUTHENTICATOR",
+    "brandBanner": "KaalKey hae hae",
+    "logo": "KaalKey hōʻailona"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Hoʻopau",
+      "storageInvalidTitle": "He kūpono ʻole ka ʻikepili waihona",
+      "storageInvalidBody": "ʻAʻole hiki ke heluhelu pono ʻia nā ʻikepili i mālama ʻia.",
+      "storageErrorTitle": "Kuhi hewa",
+      "storageErrorBody": "ʻAʻole hiki ke hoʻouka ʻia nā moʻokāki i mālama ʻia.",
+      "missingTitle": "Nalo ka ʻike",
+      "missingEditingBody": "E hoʻokomo i ka inoa lawelawe a me ka inoa moʻokāki.",
+      "missingBody": "E hoʻokomo i ka inoa lawelawe, ka inoa moʻokāki, a me ke kī huna.",
+      "invalidOtpBody": "E nānā i ka Base32 mea huna, algorithm, helu helu, a me ka manawa hoʻomaha. Pono e loaʻa i nā mea huna nā huaʻōlelo Base32 kūpono; ʻO nā huahelu he {digits} a ʻo ka manawa he {minPeriod}–{maxPeriod} kekona.",
+      "duplicateBody": "Ua mālama ʻia kahi moʻokāki me kēia lawelawe a me ka inoa moʻokāki.",
+      "updatedBody": "Ua hōʻano hou ʻia kāu moʻokāki.",
+      "addedBody": "Ua hoʻohui paʻa ʻia kāu moʻokāki.",
+      "invalidOtpTitle": "He kūpono ʻole OTP.",
+      "duplicateTitle": "Aia ka moʻokāki",
+      "savedTitle": "Mālama ʻia ka moʻokāki",
+      "invalidSecretTitle": "He kī huna hewa ʻole",
+      "invalidSecretBody": "E ʻoluʻolu e nānā inā ua hoʻokomo ʻoe i kahi huna Base32 pono.",
+      "removedTitle": "Wehe ʻia ka moʻokāki",
+      "removedBody": "Ua wehe ʻia ka moʻokāki a me kāna mea huna mai kēia hāmeʻa.",
+      "clearedTitle": "Hoʻopau ʻia nā moʻokāki",
+      "clearedBody": "Ua wehe ʻia nā moʻokāki a me nā mea huna a pau mai kēia hāmeʻa.",
+      "someSavedAccountsNeedAttentionTitle": "Pono kekahi mau moʻokāki i mālama ʻia",
+      "someSavedAccountsNeedAttentionBody": "{count} ʻaʻole i hoʻouka ʻia nā moʻolelo moʻokāki hewa. Loaʻa nā moʻokāki kūpono. E noʻonoʻo e hana i kahi waihona ma mua o ka hoʻololi hou ʻana.",
+      "removeConfirmTitle": "Wehe moʻokāki?",
+      "removeConfirmWebTitle": "Wehe moʻokāki?",
+      "removeButton": "Wehe",
+      "clearButton": "Holoi i nā mea a pau",
+      "clearConfirmTitle": "Holoi i nā moʻokāki a pau?",
+      "saveErrorBody": "ʻAʻole hiki ke mālama ʻia nā moʻokāki. E nānā i ka loaʻa ʻana o ka waihona pūnaewele a hoʻāʻo hou.",
+      "notFoundTitle": "ʻAʻole i loaʻa ka moʻokāki",
+      "notFoundBody": "ʻAʻole hiki ke loaʻa kēia moʻolelo. Pani i ka mea hoʻoponopono a hoʻāʻo hou.",
+      "removeConfirmBody": "Hoʻopau kēia i ka moʻokāki a me kāna mea huna mai kēia hāmeʻa.",
+      "clearConfirmBody": "Hoʻopau mau kēia i nā moʻolelo authenticator a me kā lākou mea huna mai kēia hāmeʻa. E hana mua i kahi waihona i hoʻopili ʻia inā pono ʻoe i kēia mau moʻokāki ma hope.",
+      "clearConfirmUndoBody": "ʻAʻole hiki ke hoʻopau ʻia kēia."
+    },
+    "biometric": {
+      "cancelButton": "Hoʻopau",
+      "saveErrorTitle": "ʻAʻole hiki ke mālama i ka hoʻonohonoho",
+      "unlockPrompt": "Wehe i KaalKey mea hōʻoia",
+      "promptSubtitle": "E hoʻohana i ka biometric a i ʻole ka laka pale o kāu hāmeʻa",
+      "disableConfirmPrompt": "E hōʻoia e hoʻopau i KaalKey laka polokalamu",
+      "enablePrompt": "E ho'ā i ka laka polokalamu no KaalKey",
+      "deviceLockTitle": "E hoʻonohonoho i ka laka pale o kāu kelepona",
+      "deviceLockBody": "KaalKey hoʻohana i ka hōʻoia i kūkulu ʻia i loko o kāu kelepona. E hoʻopaʻa i kahi mea hana PIN, kumu, a i ʻole ʻōlelo huna ma nā hoʻonohonoho palekana o kāu kelepona, a laila e hoʻāʻo hou. He koho ka biometric.",
+      "unavailableTitle": "ʻAʻole loaʻa ka hōʻoia ʻana o ka hāmeʻa",
+      "unavailableBody": "ʻAʻole hiki i kāu kelepona ke hoʻomaka i ka hōʻoia palekana. E nānā inā ua hoʻonohonoho ʻia kahi laka pale, a laila e hoʻāʻo hou.",
+      "lockedTitle": "Hoʻopaʻa ʻia ka hōʻoia no kekahi manawa",
+      "lockedBody": "Ua hoʻopau kāu kelepona i ka hōʻoia ʻana ma hope o nā hoʻāʻo he nui. E kali a ho'āʻo hou.",
+      "promptErrorTitle": "ʻAʻole loaʻa ka hōʻoia",
+      "promptErrorBody": "ʻAʻole hiki iā KaalKey ke hoʻomaka i ka wikiwiki hōʻoia palekana o ke kelepona. E ʻoluʻolu e hoʻāʻo hou.",
+      "webLock": "ʻAʻole i loaʻa ka laka hōʻoia ʻana i ka polokalamu ma ka mana pūnaewele. Ua wehe ʻia ka waihona pūnaewele; e hoʻohana i ka polokalamu Android no ka hōʻoia ʻana i nā mea ʻōiwi.",
+      "disabledTitle": "Ua pio ka laka app",
+      "disabledBody": "KaalKey ua pio ka laka app.",
+      "disableSaveError": "Hoʻomau ʻia ka laka app. E ʻoluʻolu e hoʻāʻo hou.",
+      "enabledTitle": "Hoʻohana ʻia ka laka app",
+      "enabledBody": "KaalKey e noi i ka hōʻoia paʻa o kāu kelepona ke wehe ʻia a ke hoʻi ʻoe i laila.",
+      "enableSaveError": "ʻAʻole hiki ke hoʻohana ʻia ka laka polokalamu. E ʻoluʻolu e hoʻāʻo hou."
+    },
+    "qr": {
+      "startingCamera": "Hoʻomaka ka pahupaʻikiʻi…",
+      "unsupportedTitle": "Kākoʻo ʻole ʻia QR.",
+      "unsupportedBody": "E nānā i ke code hoʻonohonoho hōʻoia QR i hāʻawi ʻia e ka lawelawe. He code TOTP kēia, ʻaʻole he code komo maʻamau QR.",
+      "unsupportedDiagnostic": "ʻAʻole kēlā QR he code hoʻonohonoho TOTP. E ʻimi i kahi hoʻonohonoho hōʻoia QR.",
+      "detectedDiagnostic": "QR ʻike ʻia. Ke kālailai ʻana…",
+      "analyzing": "Ke kālailai nei QR code…",
+      "duplicateTitle": "Ua hoʻohui ʻia ka moʻokāki",
+      "duplicateBody": "{issuer}: {account} aia i loko o KaalKey.",
+      "addedTitle": "Hoʻohui ʻia ka moʻokāki",
+      "addedBody": "{issuer}: {account} ua hoʻohui maikaʻi ʻia.",
+      "saveFailedDiagnostic": "ʻAʻole hiki ke mālama i ka moʻokāki. Hiki iā ʻoe ke scan hou.",
+      "invalidTitle": "Helu QR code",
+      "invalidBody": "ʻAʻole hiki iā KaalKey ke hoʻokaʻawale i kēia code QR hōʻoia. {detail}. E hoʻohana i ke code TOTP o ka lawelawe (QR code (hoʻomaka mau me {prefix}).",
+      "parseFailedDiagnostic": "ʻAʻole hiki ke hana ʻia QR. Huli i ka hoʻonohonoho QR a hoʻāʻo hou.",
+      "invalidUrlTitle": "Hewa TOTP URL",
+      "invalidUrlBody": "Hoʻopili i kahi mea hōʻoia piha URL e hoʻomaka ana me {prefix}.",
+      "clipboardEmptyTitle": "ʻAʻohe kaʻawale",
+      "clipboardEmptyBody": "E kope mua i kahi {prefix} URL, a laila kaomi i ka Hoʻopili TOTP URL.",
+      "clipboardErrorTitle": "ʻAʻole hiki ke heluhelu i ka papa paʻi",
+      "clipboardErrorBody": "E kope i ka TOTP hoʻonohonoho URL a hoʻāʻo hou."
+    },
+    "haptics": {
+      "saveFailedTitle": "ʻAʻole hiki ke mālama i ka hoʻonohonoho",
+      "saveFailedBody": "ʻAʻole hiki ke mālama ʻia ka makemake manaʻo haptic. E ʻoluʻolu e hoʻāʻo hou."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "ʻAʻole hiki ke mālama i ka hōʻoia",
+      "saveFailedBody": "E ʻoluʻolu e hoʻāʻo hou. Pono ʻoe e ʻae i ka hoʻolaha kānāwai ma mua o ka hoʻohana ʻana iā KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Pono ka ʻae kamera",
+      "body": "E ʻae i ke kiʻi paʻi kiʻi e nānā i kahi code QR hōʻoia."
+    },
+    "storage": {
+      "browserUnavailable": "ʻAʻole loaʻa ka waihona pūnaewele.",
+      "browserFilePickerUnavailable": "ʻAʻole loaʻa ka mea koho waihona polokalamu kele pūnaewele."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Kākoʻo ʻole ʻia ka faila",
+      "unsupportedFileBody": "E koho i QR kiʻi code e like me PNG a i ʻole JPEG.",
+      "browserDecoderUnavailable": "ʻAʻole loaʻa ka wehe ʻana i nā kiʻi polokalamu kele pūnaewele",
+      "imageLoadFailed": "ʻAʻole hiki ke hoʻouka ʻia ke kiʻi",
+      "unreadableDimensions": "ʻAʻohe ana hiki ke heluhelu ʻia ke kiʻi",
+      "noQrCodeFoundTitle": "ʻAʻohe QR code i loaʻa",
+      "noQrCodeFoundBody": "ʻAʻole hiki iā KaalKey ke hoʻokaʻawale i kahi code QR ma kēia kiʻi. E ho'āʻo i kahi kiʻi paʻi kiʻi a i ʻole kahi hoʻonā kiʻekiʻe PNG/JPEG.",
+      "couldNotReadImageTitle": "ʻAʻole hiki ke heluhelu i ke kiʻi",
+      "couldNotReadImageBody": "E ho'āʻo i kahi kiʻi PNG a i ʻole JPEG kiʻi maʻemaʻe i loaʻa ka code hoʻonohonoho hōʻoia QR.",
+      "couldNotOpenPickerTitle": "ʻAʻole hiki ke wehe i ka mea koho kiʻi",
+      "couldNotOpenPickerBody": "E ʻoluʻolu e hoʻāʻo hou i ka hoʻouka QR.",
+      "normalizedDecodeFailed": "ʻAʻole hiki ke wehe ʻia ke kiʻi maʻamau",
+      "clipboardImageLoadFailed": "ʻAʻole hiki ke hoʻouka ʻia ke kiʻi papapaʻi",
+      "imageProcessingUnavailable": "ʻAʻole loaʻa ka hana kiʻi",
+      "imageProcessingUnavailableAlt": "ʻAʻole loaʻa ka hoʻoili kiʻi",
+      "noImageInClipboardTitle": "ʻAʻohe kiʻi ma ka papa paʻi",
+      "noImageInClipboardBody": "E kope i kahi kiʻi code QR, a laila kaomi hou i QR Kiʻi.",
+      "clipboardUnavailableTitle": "ʻAʻole loaʻa ka papa paʻi",
+      "clipboardUnavailableBody": "ʻAʻole he hoʻonohonoho hōʻoia hōʻoia kūpono ka kikokikona papapaʻi URL. E kope i kahi kiʻi otpauth:// URL a i ʻole QR a hoʻāʻo hou.",
+      "clipboardAccessBody": "ʻAʻole hiki iā KaalKey ke heluhelu i ka kikokikona a i ʻole ke kiʻi mai ka papa ʻokiʻoki. E ʻae i ke komo ʻana i ka papa ʻokiʻoki, a laila kope i ke kiʻi QR a i ʻole otpauth:// URL a kaomi hou i QR Kiʻi / URL.",
+      "couldNotPasteImageTitle": "ʻAʻole hiki ke hoʻopili i ke kiʻi",
+      "couldNotPasteImageBody": "ʻAʻole kākoʻo ʻia ka paʻi kiʻi e kēia papa ʻoki ma kēia hāmeʻa. E hoʻohana i ke kiʻi Import QR.",
+      "sourceImageDecodeFailure": "E ho'āʻo i kekahi kiʻi QR ʻē aʻe.",
+      "pastedImportFailureBody": "E ho'āʻo i kahi kiʻi QR ʻē aʻe.",
+      "sourceImageReadFailure": "E ho'āʻo e kope i kahi kiʻi paʻi kiʻi maopopo QR.",
+      "importFailedTitle": "QR ʻaʻole hiki ke hoʻokomo kiʻi",
+      "importFailedBody": "KaalKey hiki ʻole ke heluhelu i kēlā kiʻi. E ʻoluʻolu e hoʻāʻo i kekahi kiʻi code QR.",
+      "notFoundBody": "ʻAʻole i loaʻa i ke kiʻi kope kahi helu QR.",
+      "pastedNotFoundBody": "ʻAʻole loaʻa i ke kiʻi i hoʻopili ʻia kahi code QR hiki ke heluhelu ʻia.",
+      "pastedReadFailureBody": "E hoʻāʻo e kope i kahi kiʻi PNG a i ʻole JPEG kiʻi i loaʻa ke code piha QR.",
+      "noQrCodeTextBody": "Ua wehe ʻo KaalKey i ke kiʻi i koho ʻia akā ʻaʻole i loaʻa kahi code QR. E ho'āʻo i kahi hoʻonā piha piha PNG a i ʻole JPEG me ka ʻike ʻia o ke code holoʻokoʻa."
+    },
+    "totpImport": {
+      "invalidTotpCode": "ʻAʻole kēia code QR he code hoʻonohonoho hōʻoia i ka manawa.",
+      "missingAccountDetails": "ʻAʻohe kikoʻī moʻokāki ka QR code.",
+      "unsupportedAlgorithm": "Hoʻohana ka code QR i kahi algorithm i kākoʻo ʻole ʻia.",
+      "unsupportedDigits": "Pono kēia code QR e hoʻohana i nā huahelu 6, 7, a i ʻole 8.",
+      "unsupportedPeriod": "Hoʻohana kēia code QR i kahi manawa i kākoʻo ʻole ʻia.",
+      "invalidAccount": "ʻAʻole hiki ke hōʻoia ʻia ke code QR."
+    },
+    "backup": {
+      "invalidJson": "ʻAʻole kūpono ka waihona waihona JSON.",
+      "unsupportedFormat": "ʻAʻole kēia he kākoʻo KaalKey i kākoʻo ʻia.",
+      "invalidPasswordOrDamaged": "ʻAʻole pololei ka ʻōlelo huna huna a i ʻole ua pōʻino ka waihona waihona.",
+      "invalidContents": "He kūpono ʻole a piha ʻole paha nā ʻike waihona.",
+      "secureRandomUnavailableDetailed": "ʻAʻole i loaʻa ka hoʻokumu ʻana i nā mea paʻa. Kūkulu hou a hoʻouka hou i ka polokalamu Android me expo-crypto i hoʻokomo ʻia, a laila e hoʻāʻo hou.",
+      "invalidAccountDataForBackup": "ʻAʻole kūpono hoʻokahi a ʻoi aku paha nā moʻokāki. Hoʻoponopono i ka ʻikepili moʻokāki ma mua o ka hana ʻana i kahi hoʻihoʻi.",
+      "invalidPasswordOrModified": "ʻAʻole pololei ka ʻōlelo huna a i ʻole ua hoʻololi ʻia ka faila hoʻihoʻi.",
+      "invalidPasswordOrFileDamaged": "ʻAʻole pololei ka ʻōlelo huna a i ʻole ua pōʻino ka faila.",
+      "passwordCopiedTitle": "Kope ʻia ka ʻōlelo huna",
+      "enterPasswordTitle": "E hoʻokomo i kāu ʻōlelo huna",
+      "enterPasswordBody": "E hoʻokomo i ka ʻōlelo huna i hoʻohana ʻia i ka wā i hana ʻia ai kēia waihona.",
+      "passwordCopiedBody": "E mālama iā ia ma kahi palekana, e like me WhatsApp.",
+      "copyFailedTitle": "ʻAʻole hiki ke kope",
+      "copyFailedBody": "E koho a kope i ka ʻōlelo huna me ka lima.",
+      "generatingPassword": "Ke hana nei i ka ʻōlelo huna hoʻopaʻa paʻa…",
+      "encrypting": "Ke hoʻopaʻa nei i ka waihona…",
+      "decrypting": "Wehewehe i ka waihona…",
+      "restoring": "Hoʻihoʻi ʻia nā moʻokāki…",
+      "backupCreatedTitle": "Hana ʻia ka waihona",
+      "restoreCompleteTitle": "Hoʻihoʻi piha",
+      "mergeConfirmTitle": "E hoʻohui i nā moʻokāki hoʻihoʻi?",
+      "mergeConfirmButton": "Hoʻohui i nā moʻokāki",
+      "backupSavedTemporary": "Hoʻopaʻa ʻia ka waihona i hoʻopaʻa ʻia no kekahi manawa ma:\n{uri}",
+      "generatePasswordErrorTitle": "ʻAʻole hiki ke hana i ka ʻōlelo huna huna",
+      "secureRandomUnavailable": "ʻAʻole i loaʻa ka hoʻokumu ʻana i nā mea paʻa.",
+      "passwordUnavailableTitle": "ʻAʻole loaʻa ka ʻōlelo huna huna",
+      "passwordUnavailableBody": "E pani i kēia kamaʻilio a hana i kahi hoʻihoʻi hou e hana i kahi ʻōlelo huna.",
+      "backupDownloadedBody": "Ua hoʻoiho ʻia kāu kope KaalKey i hoʻopili ʻia. E mālama pono i ka faila a me ka ʻōlelo huna.",
+      "backupFailedTitle": "ʻAʻole i hoʻopaʻa ʻia",
+      "backupCreateErrorBody": "ʻAʻole hiki iā KaalKey ke hana i ka waihona.",
+      "restoreFailedTitle": "ʻAʻole hiki ke hoʻihoʻi",
+      "backupReadErrorBody": "ʻAʻole hiki ke heluhelu a mālama ʻia ka waihona.",
+      "browserDownloadUnsupported": "ʻAʻole kākoʻo kāu polokalamu kele i ka hoʻoiho ʻana i nā faila hoʻihoʻi.",
+      "localFileUnavailable": "ʻAʻole loaʻa kahi wahi faila kūloko ma kēia hāmeʻa.",
+      "saveBackupTitle": "E mālama i kāu kope KaalKey i hoʻopili ʻia"
+    },
+    "clipboard": {
+      "copiedTitle": "Kope ʻia ke code",
+      "copiedBody": "Ua kope ʻia kāu code hōʻoia.",
+      "errorTitle": "Kuhihewa",
+      "errorBody": "ʻAʻole hiki ke kope i ke code hōʻoia."
+    },
+    "activity": {
+      "cameraReady": "Mākaukau ka pahupaʻikiʻi. E kuhikuhi iā ia ma ke code authenticator QR.",
+      "readingQrImage": "Heluhelu QR kiʻi…",
+      "importingQrImage": "Ke lawe nei i ke kiʻi QR…",
+      "importingAccount": "Ke lawe nei i ka mooolelo authenticator…",
+      "importingPastedImage": "Ke lawe mai nei i ke kiʻi QR…"
+    }
+  },
+  "activity": {
+    "working": "Ke hana nei",
+    "wait": "E ʻoluʻolu e kali…",
+    "donTClose": "E ʻoluʻolu, mai pani a launa pū me KaalKey.",
+    "loadingLanguages": "Ke hoʻouka nei i nā ʻōlelo i loaʻa…",
+    "loadingTranslation": "Ke hoʻouka nei i ka unuhi…"
+  }
+}

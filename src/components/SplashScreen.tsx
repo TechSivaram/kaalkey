@@ -1,11 +1,13 @@
 import { Image, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import { styles } from "../styles/home.styles";
 import { useAppLanguage } from "../i18n";
+import ActivityOverlayModal from "./ActivityOverlayModal";
 
 /** Branded startup screen shown while initial app checks run. */
 export default function SplashScreen() {
-  const { t } = useAppLanguage();
+  const { t, languageLoading, translationLoading } = useAppLanguage();
+  const insets = useSafeAreaInsets();
   return (
     <SafeAreaView style={styles.splashScreen} edges={["top", "right", "bottom", "left"]}>
       <View style={styles.splashBrandCard}>
@@ -28,6 +30,17 @@ export default function SplashScreen() {
         <View style={styles.splashDivider} />
         <Text style={styles.splashTagline}>{t("home.codesDeviceControl")}</Text>
       </View>
+      <ActivityOverlayModal
+        insets={insets}
+        activityMessage={
+          languageLoading
+            ? t("activity.loadingLanguages")
+            : translationLoading
+              ? t("activity.loadingTranslation")
+              : null
+        }
+        visible={languageLoading || translationLoading}
+      />
     </SafeAreaView>
   );
 }

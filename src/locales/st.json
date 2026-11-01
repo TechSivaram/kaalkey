@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Puo",
+      "description": "Khetha puo e sebelisitsoeng ho KaalKey.",
+      "english": "Senyesemane",
+      "telugu": "Setelugu",
+      "hindi": "Sehindi",
+      "section": "PUO",
+      "searchLanguageName": "Batla puo (lebitso kapa khoutu)",
+      "searchSupportedLanguages": "Batla lipuo tse tšehetsoeng",
+      "closeLanguageDropdown": "Koala puo e hlahang",
+      "noTranslatedLanguage": "Ha ho puo e fetoletsoeng e fumanoeng.",
+      "serverUrl": "Seva ea phetolelo URL",
+      "serverUrlDescription": "KaalKey khoasolla lenane la lipuo le liphetolelo ho tsoa ho seva sena.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Boloka seva ea phetolelo"
+    },
+    "title": "Litlhophiso tsa app",
+    "eyebrow": "KAALKEY LIKHETHA",
+    "experience": {
+      "section": "BOIPHIBETSO"
+    },
+    "security": {
+      "section": "TS'IRELETSO"
+    },
+    "backup": {
+      "section": "TS'ELISO LE PHEKO"
+    },
+    "danger": {
+      "section": "KOTSI LEBAKA",
+      "clearAccounts": "Hlakola liakhaonto tsohle",
+      "clearAccountsDescription": "Tlosa ak'haonte e 'ngoe le e 'ngoe le lekunutu sesebelisoa sena ka ho sa feleng. Etsa kopo pele.",
+      "clearAccountsAccessibilityLabel": "Hlakola liakhaonto tsohle tsa netefatso"
+    },
+    "appearance": {
+      "section": "PONAHALO",
+      "title": "Ponahalo e kganyang",
+      "description": "KaalKey hajoale e sebelisa theme ea eona e hloekileng ea leseli."
+    },
+    "haptics": {
+      "title": "Maikutlo a haptic",
+      "description": "Maikutlo a bonolo bakeng sa lipompo le liketso tse phethiloeng."
+    },
+    "deviceLock": {
+      "title": "Senotlolo sa netefatso ea sesebelisoa",
+      "description": "Bokaholimo ba hau boa notlela ha KaalKey e tloha ka pele.",
+      "requirement": "E hloka biometrics kapa senotlolo sa fono ea hau PIN, paterone, kapa password.",
+      "accessibilityLabel": "Senotlolo sa netefatso ea sesebelisoa"
+    },
+    "privacy": {
+      "title": "Molao & khupamarama",
+      "description": "Hlahloba Leano la Lekunutu le Melao ea Tšebeliso.",
+      "storageNote": "Liphiri tsa hau tsa netefatso li lula sebakeng se sireletsehileng sa sesebelisoa. Likhetho li bolokiloe sebakeng sa heno."
+    }
+  },
+  "accounts": {
+    "edit": "Fetola",
+    "sortAccountName": "Hlopha ka lebitso la akhaonto",
+    "loadingSecureVault": "E kenya vault e sireletsehileng...",
+    "tapCopy": "TLANYA KHOPISA",
+    "noAccountsMatch": "Ha ho liakhaonto tse amanang le seo u se batlileng.",
+    "viewQrCode": "Sheba QR khoutu bakeng sa akhaonto",
+    "removeAccount": "Tlosa akhaonto",
+    "copyVerificationCode": "Kopitsa khoutu ea netefatso",
+    "active": "SEBELISA",
+    "sort": "HLOPHA KA",
+    "account": "Akhaonto",
+    "clearSearch": "Hlakola patlo",
+    "sortServiceName": "Hlopha ka lebitso la tshebeletso",
+    "addFirstAccount": "Kenya akhaonto ea hau ea pele",
+    "searchAccounts": "Batla liakhaonto",
+    "searchServiceAccount": "Batla tšebeletso kapa ak'haonte",
+    "accounts": "Liak'haonte tsa hau",
+    "add": "+ Eketsa",
+    "vaultStartsHere": "Sebaka sa hau sa polokelo se qala mona",
+    "service": "Tshebeletso",
+    "emptyHint": "Kenya ak'haonte u sebelisa senotlolo sa lekunutu ho hlahisa khoutu ea hau ea pele ea netefatso."
+  },
+  "common": {
+    "done": "E felile",
+    "doneButton": "E felile",
+    "closeSettings": "Koala litlhophiso",
+    "separator": "-",
+    "article": "a",
+    "save": "Boloka",
+    "delete": "Hlakola",
+    "resizeAppBrand": "Fetola boholo ba li-app le liphanele tsa mofuta"
+  },
+  "qrImport": {
+    "readPastedImage": "Ha e khone ho bala setšoantšo se petisitsoeng"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Litlaleho ho bekapo ena: {count}. KaalKey e tla boloka li-account tsa hau tse teng le ho kenya liakhaonto life kapa life tse seng li le teng. Liakhaonto tse kopitsoang li tla tloloa.",
+    "restoreCompletionBody": "Litlaleho li ekelitsoe: {added}. Litlaleho tse kopitsoang li tlositsoe: {skipped}. Liakhaonto tsa hau tse teng li bolokiloe.",
+    "copyPassword": "Kopitsa password e entsoeng",
+    "passwordSafety": "Boloka phasewete ena ka thoko (mohlala, ho WhatsApp). Mang kapa mang ea nang le tsona ka bobeli",
+    "importAction": "Khetha faele 'me u kenye",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "TS'IRELETSENG SEBAKA",
+    "createBackup": "Etsa bekapo",
+    "encryptedFile": "Faele e patiloeng",
+    "restoreBackup": "Khutlisa bekapo",
+    "safetyNote": "Li-backups li na le liphiri tsa hau tsa netefatso. KaalKey e hlahisa phasewete e ikhethang bakeng sa bekapo ka 'ngoe. E boloke ka thoko; KaalKey ha e khone ho e khutlisa.",
+    "generatingSecurePassword": "E hlahisa password e sireletsehileng...",
+    "importFile": "Kenya faele",
+    "backupPassword": "TS'ELISO PASEKA",
+    "account": "akhaonte",
+    "accounts": "litlaleho",
+    "exportDescription": "Ngola kaofela {count} li bolokoa {accountLabel} ho faele ea polokelo. KaalKey e hlahisa phasewete e ikhethang; kopitsa le ho e boloka ka thoko ho faele.",
+    "restoreDescription": "Khetha KaalKey faele ea hau ea ho boloka le password. Liakhaonto tse ncha li tla eketsoa lethathamong la hau le teng la li-account; li-account tse teng li tla lula li le joalo.",
+    "enterBackupPassword": "Kenya password ea bekapo",
+    "closeBackup": "Koala bekapo",
+    "copyGeneratedBackup": "Kopitsa password ea bekapo e hlahisitsoeng",
+    "backupPassword2": "Backup password",
+    "clearBackupPassword": "Hlakola password ea bekapo",
+    "backupFilePassword": "\"backup\" le password li ka khutlisa li-account tsa hau tsa authenticator.",
+    "encryptShareBackup": "Encrypt 'me u arolelane bekapo"
+  },
+  "home": {
+    "unlockSecurely": "Notlolla ka mokhoa o sireletsehileng",
+    "disableAppLock": "Tlosa senotlolo sa app",
+    "enableAppLock": "Dumella senotlolo sa app",
+    "checkingSecureLock": "Ho hlahloba litlhophiso tsa senotlolo sa hau se sireletsehileng. Likhoutu tsa hau li lula li patiloe.",
+    "waitingVerification": "E emetse netefatso…",
+    "secretsStayStored": "Liphiri tsa hau li lula li bolokiloe sesebelisoa sena.",
+    "openAppSettings": "Bula litlhophiso tsa app",
+    "versionLabel": "TŠEBELETSO",
+    "unlockRequirement": "Sebelisa biometrics kapa senotlolo sa mohala oa hau PIN, paterone, kapa phasewete ho fumana likhoutu tsa hau tsa netefatso ea hang.",
+    "localVault": "SEBAKA SA HAO",
+    "codesDeviceControl": "Dikhoutu tsa hao. Sesebelisoa sa hau. Taolo ya hao.",
+    "securingVault": "Ho sireletsa ntlo ea hau…",
+    "vaultProtected": "Vault ea hau e sirelelitsoe",
+    "lock": "TS'ELETSO TS'OA",
+    "localVault2": "SEBAKA SEBAKA",
+    "authenticator": "KAALKEY AUTHENTICATOR",
+    "tricolourLockEmblem": "KaalKey letshwao la senotlolo sa tricolor",
+    "authenticator2": "MOEKETSI"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Haeba u khetha ho skena khoutu ea QR, KaalKey e sebelisa tumello ea khamera bakeng sa ketso eo. Netefatso ya sesebediswa ka boikgethelo le maikutlo a haptic o sebedisa dikarolo tse amehang tsa sesebediswa. O ka laola ditumello ho dipeakanyo tsa sesebediswa sa hao.",
+        "heading": "2. Litumello le likarolo tsa sesebelisoa"
+      },
+      "backups": {
+        "body": "Ha o etsa bekapo, KaalKey e pata bekapo ka ho sebelisa phasewete eo u e khethileng. Boloka lifaele le password ka bobeli e le lekunutu 'me u li boloke li sireletsehile. Mang kapa mang ea fumanang faele le phasewete ea eona a ka khona ho khutlisa liakhaonto tsa hau tsa authenticator. KaalKey ha e khone ho fumana senotlolo se lebetsoeng sa bekapo.",
+        "heading": "3. Li-backups"
+      },
+      "security": {
+        "body": "Boloka sesebelisoa sa hau se le boemong bo bocha, se sireletse ka senotlolo sa skrine, 'me u se ke ua arolelana OTP makunutu kapa li-password tsa bekapo. Ho tlosa sesebelisoa, ho hlakola lintlha tsa eona, kapa ho lahleheloa ke sesebelisoa ho ka etsa hore liak'haonte tse bolokiloeng sebakeng sa hau li se fumanehe. Boloka backup e sireletsehileng haeba u hloka ho hlaphoheloa.",
+        "heading": "5. Tšireletseho le ho boloka"
+      },
+      "information": {
+        "heading": "1. Boitsebiso le liphiri",
+        "body": "KaalKey ke sesebelisoa sa netefatso. Li-labels tsa ak'haonte le lintlha tsa lekunutu tse hlokahalang ho hlahisa likhoutu tsa nako e le 'ngoe li bohlokoa. Sesebelisoa se etselitsoe ho boloka lirekoto tsa akhaonto polokelong e sireletsehileng ea sesebelisoa. Mang kapa mang ea nang le monyetla oa ho sebelisa sesebelisoa se sa notleloang kapa bekapo e romelloang kantle ho naha a ka khona ho fumana lintlha tsa bohlokoa."
+      },
+      "sharing": {
+        "heading": "4. Ho arolelana le batho ba boraro",
+        "body": "Mokhoa oa ho boloka bekapo o ka sebelisa leqephe la sesebediswa sa hau kapa se khethang lifaele ho boloka, ho fetisa kapa ho khetha lifaele. Melao ea lekunutu ea sesebelisoa kapa litšebeletso tseo u li khethang li laoloa ke mofani eo. Tsebiso ena ha e bolele feela hore sesebelisoa sa hau, sistimi ea ts'ebetso, kapa lits'ebeletso tse arolelanoang tse khethiloeng ha li sebetse data."
+      },
+      "changes": {
+        "heading": "6. Liphetoho le ho ikopanya",
+        "body": "Tsebiso ena e kenyelelitsoeng e kanna ea ntlafatsoa tokollong e tlang ea app. Bakeng sa lipotso tsa lekunutu, ikopanye le mohatisi oa app ka mocha oa semmuso o fanoeng ka sesebelisoa."
+      },
+      "title": "Leano la Lekunutu"
+    },
+    "terms": {
+      "use": {
+        "body": "U ka sebelisa KaalKey ho hlahisa likhoutu tsa netefatso bakeng sa li-account tseo u lumelletsoeng ho li fumana. U na le boikarabello ba ho ikamahanya le melao e sebetsang le melaoana ea litšebeletso tseo u sebelisang likhoutu tsa netefatso ho tsona.",
+        "heading": "1. Tšebeliso ea hau"
+      },
+      "protectAccounts": {
+        "body": "U na le boikarabello ba ho boloka sesebelisoa sa hau, liphiri tsa netefatso, mekhoa ea ho hlaphoheloa, li-backups tse romelloang kantle ho naha, le li-password tsa bekapo. Se ke oa arolelana likhoutu kapa makunutu le batho bao u sa ba tšepeng.",
+        "heading": "2. Sireletsa liak'haonte tsa hau"
+      },
+      "availability": {
+        "body": "Likarolo li ka fetoha lipakeng tsa likhatiso. U lokela ho boloka sesebelisoa se ntlafalitsoe 'me nako le nako u netefatse hore litlhophiso tsa hau tsa bekapo le tsa ho hlaphoheloa lia sebetsa.",
+        "heading": "5. Liphetoho le ho fumaneha"
+      },
+      "recovery": {
+        "body": "KaalKey e ke ke ea tiisa hore ak'haonte e 'ngoe le e 'ngoe e ka khutlisoa, hore khoutu e 'ngoe le e 'ngoe ea QR e tla lumellana, kapa hore sesebelisoa se tla sebetsa ntle le tšitiso kapa phoso. Boloka mekhoa e meng ea ho hlaphoheloa e fanoang ke tšebeletso e amehang.",
+        "heading": "3. Ha ho tiiso ea ho hlaphoheloa"
+      },
+      "advice": {
+        "heading": "4. Ha ho keletso ea litsebi",
+        "body": "Sesebelisoa ke sesebelisoa mme ha se fane ka likeletso mabapi le litaba tsa molao, tsa lichelete kapa tsa ts'ireletso. Haeba ak'haonte e senyehile, latela tataiso ea semmuso ea ts'ebeletso e amehang ea ho hlaphoheloa le ts'ireletso."
+      },
+      "liability": {
+        "heading": "6. Boikarabello le molao o sebetsang",
+        "body": "Ho ea moo molao o sebetsang teng o lumelletsoeng, sesebelisoa se fanoa ntle le tiisetso ea ts'ebetso e sa sitisoeng kapa e se nang liphoso. Ha ho letho ho melaoana ena le sa kenyelletseng litokelo kapa litokiso tse ke keng tsa qheleloa ka thoko ka molao. Meeli leha e le efe e meng kapa lipehelo tsa molao-motheo li lokela ho hlahlojoa ke 'muelli oa molao ea tšoanelehang bakeng sa matla a mohatisi pele a lokolloa."
+      },
+      "title": "Melao ea Tšebeliso"
+    },
+    "version": "Phetolelo",
+    "saving": "E boloka...",
+    "acceptContinue": "Amohela & Tsoela Pele",
+    "appliesAuthenticator": "E sebetsa ho KaalKey Authenticator",
+    "reviewBothDocuments": "Ka kopo, hlahloba litokomane ka bobeli pele u sebelisa KaalKey. Li kenyelelitsoe ho app 'me li fumaneha ntle le inthanete.",
+    "originalMulticolourAuthenticator": "Letshwao la nnete la multicolour KaalKey letshwao la nnete",
+    "legalPrivacyNotice": "Tsebiso ea Molao le Lekunutu",
+    "legalInformation": "Boitsebiso ba molao",
+    "reviewSPrivacy": "Hlahloba KaalKey boitsebiso ba lekunutu le lipehelo tsa tšebeliso.",
+    "iReadAgree": "Ke balile ebile ke lumellana le Leano la Lekunutu le Melao ea Tšebeliso."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Boloka khoutu kaofela QR e bonahala. Lekunutu la hau le lula sesebelisoa sena.",
+    "back": "Morao",
+    "turnFlashlightOff": "Tima toche",
+    "turnFlashlight": "Bulela toche",
+    "flashlight": "Lebone le bonesitsoe",
+    "flashlight2": "Lesedi",
+    "cameraUnavailableOpen": "Khamera ha e teng. Bula leqephe lena ho HTTPS kapa localhost 'me u lumelle ho kena ho khamera.",
+    "cameraPreviewUnavailable": "Ponahalo ea khamera ha e teng. Koala 'me u bule sekena hape.",
+    "cameraReadyPoint": "Khamera e lokile - e supe ka khouto e felletseng QR.",
+    "browserCannotProcess": "Sebatli sena ha se khone ho sebetsana le liforeimi tsa khamera.",
+    "qrCodeDetected": "QR khoutu e fumanoe.",
+    "couldnTRead": "Ha e khone ho bala liforeimi tsa khamera. Sheba litumello tsa khamera 'me u kenye leqephe lena bocha.",
+    "cameraPermissionDenied": "Tumello ea khamera e hanetsoe. Lumella khamera ho kena litlhophisong tsa sebatli, ebe o bula sekena hape.",
+    "noCameraWas": "Ha ho khamera e fumanoeng sesebelisoa sena.",
+    "cameraBusyAnother": "Khamera e phathahane ho app e 'ngoe kapa tab ea sebatli.",
+    "startCameraHttps": "Ha e khone ho qala khamera. Sebelisa HTTPS kapa localhost 'me u hlahlobe litumello tsa sebatli.",
+    "qrScannerCamera": "QR pono-pele ea khamera ea sekena",
+    "cameraUnavailableCheck": "Khamera ha e teng. Sheba tumello ea khamera ebe u leka hape.",
+    "pointCameraAuthenticator": "Supa kh'amera ea hau ho setupo sa netefatso QR khoutu ho tsoa ts'ebeletsong eo u e eketsang.",
+    "backAddAccount": "Khutlela ho kenya akhaonto",
+    "secureSetup": "TŠIRELETSENG HLOKO",
+    "enterDetailsManually": "Kenya lintlha ka letsoho"
+  },
+  "accountForm": {
+    "hideManualEntry": "Pata ho kena ka letsoho",
+    "secretKeySupplied": "Sebelisa senotlolo sa lekunutu se fanoeng ke tšebeletso eo u e lokisang. Le ka mohla u se ke ua kenya phasewete ea akhaonto ea hau mona. Bapisa algorithm, palo ea linomoro, le nako le litaelo tsa ho seta litšebeletso.",
+    "updateServiceAccount": "Ntlafatsa tshebeletso, lebitso la akhaonto, kapa senotlolo sa lekunutu.",
+    "secretKeyRead": "Senotlolo sa lekunutu, bala feela ha u ntse u hlophisa",
+    "secretKeyBase32": "Senotlolo sa lekunutu ho Base32",
+    "digits": "linomoro",
+    "seconds": "metsotsoana",
+    "enterDetailsManually": "KAPA KENYA LITABA KA TSONA",
+    "enterDetailsManually2": "Kenya lintlha ka bowena",
+    "serviceAccountName": "Tšebeletso, lebitso la akhaonto le senotlolo sa lekunutu",
+    "saveChangesSecurely": "Boloka liphetoho ka mokhoa o sireletsehileng",
+    "saveAccountSecurely": "Boloka akhaonto ka mokhoa o sireletsehileng",
+    "serviceIssuer": "Tšebeletso kapa mofani",
+    "accountName": "Lebitso la akhaonto",
+    "secretKey": "Senotlolo sa lekunutu",
+    "serviceIssuer2": "TŠEBELETSO / MOTSAMAI",
+    "eGGoogle": "mohlala Google",
+    "clearServiceIssuer": "Hlakola litšebeletso kapa mofani",
+    "eGExample": "mohlala you@example.com",
+    "clearAccountName": "Hlakola lebitso la ak'haonte",
+    "secretKeyLocked": "SEKUTLO SA SEPHIRI (LOKILE)",
+    "secretKeyBase322": "SEPHIRI SA SEPHIRI (BASE32)",
+    "enterSetupKey": "Kenya senotlolo sa hau sa ho seta",
+    "clearSecretKey": "Hlakola senotlolo sa lekunutu",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP DIGITS",
+    "refreshIntervalSeconds": "TSOELA PELE INTERVAL (METSOTSOANA)",
+    "otpRefreshInterval": "OTP nako ea ho khatholla ka metsotsoana",
+    "closeAccountForm": "Kwala foromo ya akhaonto",
+    "totpSetupUrl": "TOTP seta URL",
+    "importSetupUrl": "Tlhophiso ea ho reka kantle ho naha URL",
+    "totpSetupUrl2": "TOTP PEPO URL",
+    "accountName2": "ACCOUNT LEBITSO",
+    "addAccount": "Kenya akhaonto"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Sekaone sa netefatso QR khoutu",
+    "setupGuidance": "Hlakola khoutu ea QR bakeng sa ho seta habonolo, kapa kenya lintlha ka letsoho.",
+    "cameraAddAccount": "Sebedisa khamera ya hao ho kenya akhaonto hanghang",
+    "scanQrCode2": "Skena QR khoutu",
+    "uploadQrImage": "Kenya QR setšoantšo",
+    "chooseQrScreenshot": "Khetha QR senepe sa skrini ho tsoa ho Kalari, Lifoto, kapa Lifaele",
+    "pasteQr": "Beha QR setšoantšo / URL",
+    "pasteCopiedQr": "Beha setšoantšo se kopilitsoeng QR setšoantšo kapa setupo sa netefatso URL",
+    "uploadQrImage2": "Kenya QR setšoantšo"
+  },
+  "accountQr": {
+    "close": "Koala",
+    "accountQrCode": "Ak'haonte QR khoutu",
+    "revealQrCode": "Senola QR khoutu",
+    "exportWarning": "Tlhokomeliso: Mang kapa mang ea shebang khoutu ena QR a ka hlahisa likhoutu tsa netefatso bakeng sa ak'haonte ena. E senole feela skrineng se tšepahalang.",
+    "privacyHint": "Boloka khoutu ena QR e le lekunutu. Ho e skena ho kopitsa lekunutu la netefatso ea ak'haonte."
+  },
+  "productInfo": {
+    "backupRestore": "Boloka & khutlisetsa",
+    "backupRestoreDescription": "Boloka data ea hau ea netefatso 'me u e khutlisetse ha u fallela sesebelisoa se seng.",
+    "privacyDescription": "Boloka liakhaonto tsa hau tsa netefatso sebakeng se le seng. Sebelisa bekapo ea sesebelisoa, khutlisetsa, le likhetho tsa senotlolo sa sesebelisoa ho laola litlhophiso tsa hau ka nepo.",
+    "timeBasedCodes": "Likhoutu tse thehiloeng nako",
+    "generateOneTimeCodes": "Hlahisa li-passcode tsa nako e le 'ngoe bakeng sa liakhaonto tsa hau ho phethela netefatso ea mehato e 'meli.",
+    "quickAccountSetup": "Ho theha ak'haonte ka potlako",
+    "quickSetupDescription": "Skena mohatisi QR kapa o kenye senepe sa QR ho kenya akhaonto.",
+    "accountsOnePlace": "Liakhaonto sebakeng se le seng",
+    "accountsInOnePlaceDescription": "Boloka liak'haonte tsa hau tse bolokiloeng 'moho 'me u fumane keno e nepahetseng ha e le nako ea ho kena.",
+    "privateAccountVault": "Sebaka sa polokelo ea ak'haonte ea lekunutu",
+    "privateVaultDescription": "Beakanya dikenyo tsa mohatisi sebakeng sa hao mme o sebedise kgetho e fumanehang ya ho notlela sesebediswa.",
+    "easyCodeAccess": "Ho fihlella khoutu e bonolo",
+    "easyCodeAccessDescription": "Kopitsa khoutu ea hajoale kapa u tsamaise lintlha tsa ak'haonte ka sebopeho se hloekileng, se tsepamisitsoeng maikutlo.",
+    "authenticatorTechsivaram": "MOTHIBELI · KA TECHSIVARAM",
+    "mobileAuthenticator": "MOQETSI OA MOSEBETSI",
+    "tagline": "Mokhoa o bonolo oa ho laola netefatso ea mehato e 'meli.",
+    "heroDescription": "Boiphihlelo bo tsepamisitsoeng ba netefatso bakeng sa likhoutu tsa netefatso tsa nako. Boloka likhoutu tsa akhaonto tse tsamaellanang haufi le KaalKey bakeng sa Android.",
+    "timeBasedCodes2": "LIKHOUTU TSA NAKO",
+    "privateDesign": "PRIVATE KA MORATSO",
+    "builtSimpleAuthenticator": "E HAHELETSOE MOSEBETSI OA MOSEBETSI O BONOLO",
+    "qrSetupTimed": "QR PEPO · LIKHOUTU TSE LENG TIMED · MANAGEMENT ACCOUNT",
+    "privacyTitle": "Liak'haonte tsa hau. Dikhoutu tsa hao. Taolo ya hao.",
+    "authenticator": "KAALKEY · MONYATSI",
+    "brandBanner": "KaalKey letšoao la letšoao",
+    "logo": "KaalKey letšoao"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Hlakola",
+      "storageInvalidTitle": "Lintlha tsa polokelo ha li sebetse",
+      "storageInvalidBody": "Lintlha tse bolokiloeng tsa ak'haonte ha lia baloa ka mokhoa o sireletsehileng.",
+      "storageErrorTitle": "Phoso ea polokelo",
+      "storageErrorBody": "Liak'haonte tse bolokiloeng ha lia khona ho kenngoa.",
+      "missingTitle": "Lintlha tse sieo",
+      "missingEditingBody": "Kenya lebitso la tshebeletso le lebitso la akhaonto.",
+      "missingBody": "Kenya lebitso la tshebeletso, lebitso la akhaonto, le senotlolo sa lekunutu.",
+      "invalidOtpBody": "Sheba Base32 sephiri, algorithm, palo ea linomoro, le nako ea ho khatholla. Likunutu li tlameha ho ba le litlhaku tse nepahetseng tsa Base32; lipalo e tlameha ho ba {digits} mme nako e tlameha ho ba {minPeriod}–{maxPeriod} metsotsoana.",
+      "duplicateBody": "Ak'haonte e nang le tšebeletso ena le lebitso la ak'haonte li se li bolokiloe.",
+      "updatedBody": "Ak'haonte ea hau e ntlafalitsoe.",
+      "addedBody": "Ak'haonte ea hau e kentsoe ka mokhoa o sireletsehileng.",
+      "invalidOtpTitle": "Litlhophiso tse fosahetseng OTP",
+      "duplicateTitle": "Ak'haonte e se e le teng",
+      "savedTitle": "Akhaonto e bolokiloe",
+      "invalidSecretTitle": "Senotlolo se sa sebetseng sa lekunutu",
+      "invalidSecretBody": "Ka kopo, hlahloba hore na u kentse lekunutu la Base32 le nepahetseng.",
+      "removedTitle": "Ak'haonte e tlositsoe",
+      "removedBody": "Ak'haonte le lekunutu la eona li tlositsoe sesebelisoa sena.",
+      "clearedTitle": "Litlaleho li hlakotsoe",
+      "clearedBody": "Liakhaonto tsohle tsa netefatso le liphiri li tlositsoe sesebelisoa sena.",
+      "someSavedAccountsNeedAttentionTitle": "Liakhaonto tse ling tse bolokiloeng li hloka tlhokomelo",
+      "someSavedAccountsNeedAttentionBody": "{count} lirekoto tse fosahetseng tsa ak'haonte ha lia kengoa. Liakhaonto tse sebetsang li ntse li le teng. Nahana ka ho etsa bekapo pele u etsa liphetoho tse ling.",
+      "removeConfirmTitle": "Tlosa akhaonto?",
+      "removeConfirmWebTitle": "Tlosa akhaonto?",
+      "removeButton": "Tlosa",
+      "clearButton": "Hlakola tsohle",
+      "clearConfirmTitle": "Hlakola liakhaonto tsohle?",
+      "saveErrorBody": "Liakhaonto ha lia khona ho bolokoa. Lekola boteng ba sebaka sa polokelo ea marang-rang ebe u leka hape.",
+      "notFoundTitle": "Ak'haonte ha e fumanehe",
+      "notFoundBody": "Ak'haonte ena ha e fumanehe. Koala sehlophisi 'me u leke hape.",
+      "removeConfirmBody": "Sena se tlosa ak'haonte le lekunutu la eona sesebelisoa sena.",
+      "clearConfirmBody": "Sena se tlosa ka ho sa feleng liakhaonto tsa netefatso le liphiri tsa tsona sesebelisoa sena. Etsa bekapo e kentsoeng pele haeba u ka hloka li-account tsena hamorao.",
+      "clearConfirmUndoBody": "Sena se ke ke sa etsolloa."
+    },
+    "biometric": {
+      "cancelButton": "Hlakola",
+      "saveErrorTitle": "Ha e khone ho boloka litlhophiso",
+      "unlockPrompt": "Notlolla KaalKey Tiiso",
+      "promptSubtitle": "Sebelisa biometrics kapa senotlolo sa skrine sa sesebelisoa sa hau",
+      "disableConfirmPrompt": "Netefatsa ho tima KaalKey senotlolo sa app",
+      "enablePrompt": "Dumella senotlolo sa app bakeng sa KaalKey",
+      "deviceLockTitle": "Beakanya senotlolo sa sesebediswa sa hao",
+      "deviceLockBody": "KaalKey e sebelisa netefatso ea mohala oa hau. Beha sesebediswa PIN, paterone, kapa phasewete ho dipeakanyo tsa tshireletso fonong ya hao, ebe o leka hape. Biometrics ke boikhethelo.",
+      "unavailableTitle": "Netefatso ea sesebelisoa ha e fumanehe",
+      "unavailableBody": "Fono ea hau ha e khone ho qala netefatso e sireletsehileng. Hlahloba hore na senotlolo sa skrine sa sesebelisoa se hlophisitsoe, ebe u leka hape.",
+      "lockedTitle": "Netefatso e notletsoe ka nakoana",
+      "lockedBody": "Fono ea hau e koetse netefatso ka nakoana kamora liteko tse ngata haholo. Ema ebe o leka hape.",
+      "promptErrorTitle": "Netefatso ha e fumanehe",
+      "promptErrorBody": "KaalKey ha e khone ho qala molaetsa o sireletsehileng oa netefatso oa mohala. Ka kopo, leka hape.",
+      "webLock": "Senotlolo sa netefatso ea sesebelisoa ha se so fumanehe ho mofuta oa tepo. Sebaka sa marang-rang se lula se notletsoe; sebelisa Android app bakeng sa netefatso ea lisebelisoa tsa hau.",
+      "disabledTitle": "Sesebelisoa se koetsoe",
+      "disabledBody": "KaalKey senotlolo sa app se timiloe.",
+      "disableSaveError": "Sesebelisoa sa senotlolo se lula se lumelletsoe. Ka kopo, leka hape.",
+      "enabledTitle": "Sesebelisoa sa senotlolo se lumelletsoe",
+      "enabledBody": "KaalKey e tla kopa netefatso ea mohala oa hau ha e buloa le ha u khutlela ho eona.",
+      "enableSaveError": "App lock ha e khone ho lumelloa. Ka kopo, leka hape."
+    },
+    "qr": {
+      "startingCamera": "E qala khamera...",
+      "unsupportedTitle": "Ha e tšehetsoe QR khoutu",
+      "unsupportedBody": "Skena setupo sa netefatso QR khoutu e fanoeng ke tšebeletso. Ena e tlameha ho ba khoutu ea TOTP, eseng mokhoa o tloaelehileng oa ho kena QR.",
+      "unsupportedDiagnostic": "Seo QR ha se TOTP khoutu ea ho seta. Ikemisetse ho theha sehatisi QR.",
+      "detectedDiagnostic": "QR e fumanoe. E hlahloba...",
+      "analyzing": "E sekaseka QR khouto...",
+      "duplicateTitle": "Ak'haonte e se e kentsoe",
+      "duplicateBody": "{issuer}: {account} e se e le ho KaalKey.",
+      "addedTitle": "Account e kentsoe",
+      "addedBody": "{issuer}: {account} e kentsoe ka katleho.",
+      "saveFailedDiagnostic": "Ha e khone ho boloka ak'haonte. U ka khona ho skena hape.",
+      "invalidTitle": "Khouto e fosahetseng QR",
+      "invalidBody": "KaalKey ha e khone ho hlalosa sehatisi sena QR khoutu. {detail}. Sebelisa TOTP ho seta khoutu ea QR (hangata e qala ka {prefix}).",
+      "parseFailedDiagnostic": "QR ha e khone ho sebetsoa. Ikemisetse ho seta QR 'me u leke hape.",
+      "invalidUrlTitle": "E fosahetse TOTP URL",
+      "invalidUrlBody": "Beha netefatso e felletseng URL ho qala ka {prefix}.",
+      "clipboardEmptyTitle": "Clipboard ha e na letho",
+      "clipboardEmptyBody": "Kopitsa {prefix} URL pele, ebe o tlanya Peista TOTP URL.",
+      "clipboardErrorTitle": "Ha e khone ho bala clipboard",
+      "clipboardErrorBody": "Kopitsa TOTP ho seta URL ebe o leka hape."
+    },
+    "haptics": {
+      "saveFailedTitle": "Ha e khone ho boloka litlhophiso",
+      "saveFailedBody": "Maikutlo a haptic ha a khone ho bolokoa. Ka kopo, leka hape."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Ha e khone ho boloka tumello",
+      "saveFailedBody": "Ka kopo, leka hape. U tlameha ho amohela tsebiso ea molao pele u sebelisa KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Ho hlokahala tumello ea khamera",
+      "body": "Dumella ho kena ha khamera ho skena setaele sa mohatisi QR khoutu."
+    },
+    "storage": {
+      "browserUnavailable": "Sebaka sa polokelo ea sebatli ha se fumanehe.",
+      "browserFilePickerUnavailable": "Sekhetho sa lifaele tsa sebatli ha se fumanehe."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Faele e sa tšehetsoeng",
+      "unsupportedFileBody": "Khetha QR setšoantšo sa khoutu joalo ka PNG kapa JPEG.",
+      "browserDecoderUnavailable": "Mokhoa oa ho hlakola litšoantšo oa sebatli ha o fumanehe",
+      "imageLoadFailed": "Setšoantšo ha se khone ho kenngoa",
+      "unreadableDimensions": "Setšoantšo ha se na litekanyo tse balehang",
+      "noQrCodeFoundTitle": "Ha ho QR khoutu e fumanoeng",
+      "noQrCodeFoundBody": "KaalKey ha e khone ho khetholla QR khouto setšoantšong sena. Leka sets'oants'o sa skrini kapa qeto e holimo-limo PNG/JPEG.",
+      "couldNotReadImageTitle": "Ha e khone ho bala setšoantšo",
+      "couldNotReadImageBody": "Leka sets'oants'o se hlakileng sa PNG kapa JPEG se nang le seta sa netefatso QR khoutu.",
+      "couldNotOpenPickerTitle": "Ha e khone ho bula sekhetho sa litšoantšo",
+      "couldNotOpenPickerBody": "Ka kopo, leka ho Kenya QR hape.",
+      "normalizedDecodeFailed": "Setšoantšo se tloahelehileng ha se khone ho hlalosoa",
+      "clipboardImageLoadFailed": "Setšoantšo sa clipboard ha se khone ho kenngoa",
+      "imageProcessingUnavailable": "Ts'ebetso ea litšoantšo ha e teng",
+      "imageProcessingUnavailableAlt": "Ts'ebetso ea litšoantšo ha e fumanehe",
+      "noImageInClipboardTitle": "Ha ho setšoantšo ho clipboard",
+      "noImageInClipboardBody": "Kopitsa QR sets'oants'o sa khoutu, ebe o tlanya Beha QR Setšoantšo hape.",
+      "clipboardUnavailableTitle": "Clipboard ha e fumanehe",
+      "clipboardUnavailableBody": "Sengoloa sa Clipboard ha se setupo sa netefatso e nepahetseng URL. Kopitsa otpauth:// URL kapa QR setšoantšo ebe u leka hape.",
+      "clipboardAccessBody": "KaalKey ha e khone ho bala mongolo kapa setšoantšo se tsoang letlapeng la ho pata. Dumella ho kena ha clipboard, ebe o kopitsa QR setšoantšo kapa otpauth:// URL 'me u tobetse Peista QR Setšoantšo / URL hape.",
+      "couldNotPasteImageTitle": "Ha e khone ho beha setšoantšo",
+      "couldNotPasteImageBody": "Ho peista litšoantšo ha ho tšehetsoe ke clipboard sesebelisoa sena. Sebelisa setšoantšo sa Import QR ho e-na le hoo.",
+      "sourceImageDecodeFailure": "Leka setšoantšo se fapaneng QR.",
+      "pastedImportFailureBody": "Leka setšoantšo se fapaneng QR.",
+      "sourceImageReadFailure": "Leka ho kopitsa setšoantšo se hlakileng sa QR.",
+      "importFailedTitle": "QR ho lata setšoantšo ho hlotsoe",
+      "importFailedBody": "KaalKey ha a khona ho bala setšoantšo seo. Ka kopo, leka setšoantšo se seng sa khoutu QR.",
+      "notFoundBody": "Setšoantšo se kopilitsoeng ha se na khouto e balehang QR.",
+      "pastedNotFoundBody": "Setšoantšo se petisitsoeng ha se na khouto e balehang QR.",
+      "pastedReadFailureBody": "Leka ho kopitsa setšoantšo se hlakileng sa PNG kapa JPEG se nang le khoutu e felletseng ea QR.",
+      "noQrCodeTextBody": "KaalKey o khethile setšoantšo se khethiloeng empa ha a ka a fumana QR khoutu. Leka tharollo e hlakileng, e felletseng PNG kapa JPEG 'me khoutu eohle e bonahala."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Khoutu ena QR ha se khoutu ea ho seta ea netefatso ea nako.",
+      "missingAccountDetails": "QR khoutu ha e na lintlha tsa akhaonto.",
+      "unsupportedAlgorithm": "QR khouto e sebelisa algorithm e sa tšehetsoeng.",
+      "unsupportedDigits": "Khoutu ena QR e tlameha ho sebelisa linomoro tse 6, 7, kapa tse 8.",
+      "unsupportedPeriod": "Khoutu ena QR e sebelisa nako e sa tšehetsoeng.",
+      "invalidAccount": "QR khouto ha e ea netefatsoa."
+    },
+    "backup": {
+      "invalidJson": "Faele e boloketsoeng ha e sebetse JSON.",
+      "unsupportedFormat": "Sena ha se KaalKey bekapo e patiloeng.",
+      "invalidPasswordOrDamaged": "bekapo phasewete e fosahetse kapa bekapo faele e senyehile.",
+      "invalidContents": "Likahare tsa bekapo ha lia nepahala kapa ha lia phethahala.",
+      "secureRandomUnavailableDetailed": "Tšireletseho e sa fetoheng ha e fumanehe. Haha bocha 'me u kenye hape Android app e kenyellelitsoe expo-crypto, ebe u leka hape.",
+      "invalidAccountDataForBackup": "Ak'haonte e le 'ngoe kapa ho feta ha li sebetse. Lokisa lintlha tsa akhaonto pele u theha bekapo.",
+      "invalidPasswordOrModified": "bekapo password e fosahetse kapa faele ea bekapo e fetotsoe.",
+      "invalidPasswordOrFileDamaged": "Backup password e fosahetse kapa faele e senyehile.",
+      "passwordCopiedTitle": "Lekunutu le kopitsoe",
+      "enterPasswordTitle": "Kenya password ea hau ea bekapo",
+      "enterPasswordBody": "Kenya phasewete e sebelisitsoeng ha bekapo ena e etsoa.",
+      "passwordCopiedBody": "E boloke sebakeng se sireletsehileng, joalo ka WhatsApp.",
+      "copyFailedTitle": "E hlolehile ho kopitsa",
+      "copyFailedBody": "Khetha le ho kopitsa phasewete ka letsoho.",
+      "generatingPassword": "E hlahisa password e sireletsehileng ea bekapo…",
+      "encrypting": "E notlela bekapo...",
+      "decrypting": "E hlakola bekapo…",
+      "restoring": "E khutlisetsa liakhaonto...",
+      "backupCreatedTitle": "Backup e entsoe",
+      "restoreCompleteTitle": "Ho tsosolosa ho phethiloe",
+      "mergeConfirmTitle": "Kopanya li-account tsa bekapo?",
+      "mergeConfirmButton": "Kopanya liak'haonte",
+      "backupSavedTemporary": "Backup e patiloeng e bolokiloe ka nakoana ho:\n{uri}",
+      "generatePasswordErrorTitle": "Ha e khone ho hlahisa password ea bekapo",
+      "secureRandomUnavailable": "Tšireletseho e sa fetoheng ha e fumanehe.",
+      "passwordUnavailableTitle": "Backup password ha e fumanehe",
+      "passwordUnavailableBody": "Koala puisano ena 'me u thehe bekapo e ncha ho hlahisa senotlolo se sireletsehileng.",
+      "backupDownloadedBody": "Backup ea hau ea KaalKey e jarollotsoe. Boloka faele le password e le lekunutu.",
+      "backupFailedTitle": "Ho boloka bekapo e hlolehile",
+      "backupCreateErrorBody": "KaalKey ha e khone ho etsa bekapo.",
+      "restoreFailedTitle": "Ho khutlisa ho hlolehile",
+      "backupReadErrorBody": "Backup ha e khone ho baloa kapa ho bolokoa.",
+      "browserDownloadUnsupported": "Sebatli sa hau ha se tšehetse ho khoasolla lifaele tsa bekapo.",
+      "localFileUnavailable": "Sebaka sa faele sa lehae ha se fumanehe sesebelisoa sena.",
+      "saveBackupTitle": "Boloka bekapo ea hau KaalKey e patiloeng"
+    },
+    "clipboard": {
+      "copiedTitle": "Khoutu e kopitsoe",
+      "copiedBody": "Nomoro ea hau ea netefatso e kopitsoe.",
+      "errorTitle": "Phoso",
+      "errorBody": "Ha e khone ho kopitsa khoutu ea netefatso."
+    },
+    "activity": {
+      "cameraReady": "Khamera e lokile. E supe khoutong ea netefatso QR.",
+      "readingQrImage": "Ho bala QR setšoantšo...",
+      "importingQrImage": "E kenya QR setšoantšo...",
+      "importingAccount": "E kenya ak'haonte ea netefatso…",
+      "importingPastedImage": "E kenya setšoantšo se kentsoe QR…"
+    }
+  },
+  "activity": {
+    "working": "Ho sebetsa",
+    "wait": "Ke kopa o eme...",
+    "donTClose": "Ka kopo u se ke ua koala kapa ua sebelisana le KaalKey.",
+    "loadingLanguages": "E kenya lipuo tse teng...",
+    "loadingTranslation": "E kenya phetolelo..."
+  }
+}

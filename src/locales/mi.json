@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Reo",
+      "description": "Kōwhirihia te reo e whakamahia ana i KaalKey.",
+      "english": "Ingarihi",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "TE REO",
+      "searchLanguageName": "Rapu reo (ingoa, waehere ranei)",
+      "searchSupportedLanguages": "Rapua nga reo tautoko",
+      "closeLanguageDropdown": "Katia te takaiho reo",
+      "noTranslatedLanguage": "Karekau he reo whakamaori i kitea.",
+      "serverUrl": "Tūmau whakamaori URL",
+      "serverUrlDescription": "Ka tangohia e KaalKey te rarangi reo me nga whakamaoritanga mai i tenei tūmau.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Tiakina te tūmau whakamaori"
+    },
+    "title": "Tautuhinga taupānga",
+    "eyebrow": "KAALKEY NGA KORERO",
+    "experience": {
+      "section": "WHAKAMAHI"
+    },
+    "security": {
+      "section": "TE WHAKAMAHI"
+    },
+    "backup": {
+      "section": "PURI ME TE WHAKATAUTANGA"
+    },
+    "danger": {
+      "section": "Rohe mōrearea",
+      "clearAccounts": "Ūkuia ngā pūkete katoa",
+      "clearAccountsDescription": "Tango tuturu nga kaute me nga mea ngaro mai i tenei taputapu. Whakahokia tuatahi.",
+      "clearAccountsAccessibilityLabel": "Ūkuia ngā pūkete motuhēhē katoa"
+    },
+    "appearance": {
+      "section": "PUTANGA",
+      "title": "Te ahua marama",
+      "description": "KaalKey kei te whakamahi i tana kaupapa marama ma."
+    },
+    "haptics": {
+      "title": "Urupare Haptic",
+      "description": "He urupare ngawari mo nga tap me nga mahi kua oti."
+    },
+    "deviceLock": {
+      "title": "Maukati motuhēhēnga pūrere",
+      "description": "Ka raka to whaanui ina wehe a KaalKey i te papa o mua.",
+      "requirement": "Hiahia te koiora o to waea, maukati-mata PIN, tauira, kupuhipa ranei.",
+      "accessibilityLabel": "Maukati taupānga motuhēhēnga pūrere"
+    },
+    "privacy": {
+      "title": "Ture & tūmataiti",
+      "description": "Arotakehia te Kaupapahere Whaiaro me nga Ture Whakamahi.",
+      "storageNote": "Ko nga mea ngaro o to motuhēhēnga ka noho ki roto i te pouaka haumaru i runga i te taputapu. Ka penapenahia nga manakohanga ki te rohe."
+    }
+  },
+  "accounts": {
+    "edit": "Whakatikatika",
+    "sortAccountName": "Kōmaka mā te ingoa pūkete",
+    "loadingSecureVault": "E uta ana i te rūma haumaru...",
+    "tapCopy": "PAPA KI TE TOTO",
+    "noAccountsMatch": "Karekau he kaute e rite ana ki to rapunga.",
+    "viewQrCode": "Tirohia te QR waehere mo te kaute",
+    "removeAccount": "Tango pūkete",
+    "copyVerificationCode": "Tāruahia te waehere whakaū",
+    "active": "WHAKAMAHI",
+    "sort": "KAUPAPA MA",
+    "account": "Pūkete",
+    "clearSearch": "Maama te rapu",
+    "sortServiceName": "Kōmaka mā te ingoa ratonga",
+    "addFirstAccount": "Tāpirihia tō pūkete tuatahi",
+    "searchAccounts": "Rapu kaute",
+    "searchServiceAccount": "Rapu ratonga, kaute ranei",
+    "accounts": "Ō pūkete",
+    "add": "+ Tāpiri",
+    "vaultStartsHere": "Ka timata to whare taonga i konei",
+    "service": "Ratonga",
+    "emptyHint": "Tāpirihia he pūkete mā tana kī huna hei whakaputa i tō waehere whakaū tuatahi."
+  },
+  "common": {
+    "done": "Kua oti",
+    "doneButton": "Kua oti",
+    "closeSettings": "Katia nga tautuhinga",
+    "separator": "-",
+    "article": "a",
+    "save": "Tiaki",
+    "delete": "Mukua",
+    "resizeAppBrand": "Whakarahihia te taupānga me nga panui waitohu"
+  },
+  "qrImport": {
+    "readPastedImage": "Kaore i taea te panui te ahua whakapiri"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Nga kaute kei roto i tenei taapiri: {count}. KaalKey ka pupuri i o putea o naianei me te taapiri i nga kaute kaore ano kia tae mai. Ka pekehia nga kaute taarua.",
+    "restoreCompletionBody": "Nga kaute kua taapiri: {added}. I pekehia nga kaute takirua: {skipped}. I puritia o kaute o mua.",
+    "copyPassword": "Tāruahia te kupuhipa i hangaia",
+    "passwordSafety": "Tiakina tenei kupuhipa motuhake (hei tauira, ki WhatsApp). Ko te tangata e rua nga",
+    "importAction": "Kōwhiria te kōnae me te kawemai",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "RANGATIRA HURU",
+    "createBackup": "Waihangahia te taapiri",
+    "encryptedFile": "Kōnae whakamuna",
+    "restoreBackup": "Whakahokia te taapiri",
+    "safetyNote": "Kei roto i nga putunga nga mea ngaro o to motuhēhēnga. Ka mahia e KaalKey he kupuhipa ahurei mo ia taapiri. Tiakina motuhake; KaalKey kaore e taea te whakaora.",
+    "generatingSecurePassword": "Te whakaputa kupuhipa haumaru…",
+    "importFile": "Kawemai kōnae",
+    "backupPassword": "KUPU KUPU WHAKAARO",
+    "account": "pūkete",
+    "accounts": "kaute",
+    "exportDescription": "Whakamuna te {count} katoa i tiakina {accountLabel} ki te konae taapiri. KaalKey hanga he kupuhipa ahurei; kape ka tiakina motuhake mai i te konae.",
+    "restoreDescription": "Kōwhiria tō KaalKey kōnae pūrua me te kupuhipa. Ka taapirihia nga kaute hou ki to rarangi kaute o naianei; ka noho tonu nga kaute o naianei.",
+    "enterBackupPassword": "Whakauruhia te kupuhipa taapiri",
+    "closeBackup": "Katia te tārua",
+    "copyGeneratedBackup": "Tāruahia te kupuhipa tārua i hangaia",
+    "backupPassword2": "Kupuhipa pūrua",
+    "clearBackupPassword": "Ūkuia te kupuhipa pūrua",
+    "backupFilePassword": "Ka taea e te konae me te kupuhipa te whakahoki mai i o kaute motuhēhē.",
+    "encryptShareBackup": "Whakamuna me te tiri i te taapiri"
+  },
+  "home": {
+    "unlockSecurely": "Wewete haumaru",
+    "disableAppLock": "Monokia te maukati taupānga",
+    "enableAppLock": "Whakahohe raka taupānga",
+    "checkingSecureLock": "Te tirotiro i o tautuhinga maukati haumaru. Kei te huna tonu o waehere.",
+    "waitingVerification": "E tatari ana mo te manatoko…",
+    "secretsStayStored": "Ka mau tonu o mea ngaro ki runga i tenei taputapu.",
+    "openAppSettings": "Whakatuwherahia nga tautuhinga taupānga",
+    "versionLabel": "PUTANGA",
+    "unlockRequirement": "Whakamahia te biometrics o to waea, maukati-mata ranei PIN, tauira, kupuhipa ranei hei uru atu ki o waehere manatoko kotahi.",
+    "localVault": "TŌ RANGATIRA WAHI",
+    "codesDeviceControl": "Ko o waehere. Tō pūrere. To mana whakahaere.",
+    "securingVault": "Kei te whakamarumaru i to putea…",
+    "vaultProtected": "Ka tiakina to whare taonga",
+    "lock": "KARAKA KI",
+    "localVault2": "RANGATIRA WAHI",
+    "authenticator": "KAALKEY KAUPAPA",
+    "tricolourLockEmblem": "KaalKey tohu maukati tae toru",
+    "authenticator2": "KAUPAPA"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Ki te whiriwhiri koe ki te matawai i tetahi waehere QR, ka whakamahia e KaalKey te whakaaetanga kamera mo taua mahi. Ko te whakamotuhēhēnga taputapu me te urupare haptic ka whakamahi i nga ahuatanga taputapu e tika ana. Ka taea e koe te whakahaere whakaaetanga i o tautuhinga taputapu.",
+        "heading": "2. Whakaaetanga me nga ahuatanga o te taputapu"
+      },
+      "backups": {
+        "body": "Ina waihangahia e koe he taapiri, ka whakamunatia e KaalKey te taapiri ma te whakamahi i tetahi kupuhipa ka tohua e koe. Puritia te konae me te kupuhipa kia noho mokemoke ka tiakina kia mau. Ka taea e te tangata ka whiwhi i te konae me tana kupuhipa ki te whakaora i o kaute motuhēhēnga. KaalKey e kore e taea te whakaora i tetahi kupuhipa taapiri kua warewarehia.",
+        "heading": "3. Pūrua"
+      },
+      "security": {
+        "body": "Kia mau ki te whakahou i to taputapu, tiakina ki te raka mata, kaua hoki e tiritiri OTP nga mea ngaro, kupuhipa taapiri ranei. Ko te tango i te taupānga, te whakawātea i ana raraunga, te ngaro ranei i te taputapu ka kore e waatea nga kaute penapena o te rohe. Pupurihia he taapiri haumaru mena ka hiahia koe ki te whakaora.",
+        "heading": "5. Haumarutanga me te pupuri"
+      },
+      "information": {
+        "heading": "1. Nga korero me nga mea ngaro",
+        "body": "KaalKey he taupānga whakamotuhēhē. Ko nga tapanga kaute me nga uara ngaro e hiahiatia ana hei whakaputa i nga waehere wa-tahi he tairongo. I hangaia te taupānga ki te penapena i nga rekoata kaute i roto i te rokiroki haumaru o te taputapu. Ko te tangata e whai waahi ana ki tetahi taputapu wetekina, ki tetahi taapiri kaweake ranei ka taea te uru ki nga korero tairongo."
+      },
+      "sharing": {
+        "heading": "4. Te tiritahi me te hunga tuatoru",
+        "body": "Ka whakamahia pea e te rerenga taapiri te pepa tiri a to taputapu, kaikokoti konae ranei hei penapena, whakawhiti, hei kowhiri ranei i nga konae. Ko nga mahi tūmataitinga o tetahi taupānga-tuatoru, ratonga ranei e whiriwhiria ana e koe e whakahaeretia ana e taua kaiwhakarato. Karekau tenei panui e kii ana kaore to taputapu, punaha whakahaere, ratonga tiritahi ranei i whiriwhiria e kore rawa e tukatuka raraunga."
+      },
+      "changes": {
+        "heading": "6. Nga huringa me te whakapiri",
+        "body": "Ka taea te whakahou i tenei panui whakauru i roto i te tukunga taupānga a meake nei. Mō ngā pātai tūmataitinga, whakapā atu ki te kaiwhakaputa taupānga mā te hongere tautoko whaimana e whakaratohia ana me te taupānga."
+      },
+      "title": "Kaupapahere Tūmataiti"
+    },
+    "terms": {
+      "use": {
+        "body": "Ka taea e koe te whakamahi KaalKey ki te whakaputa waehere manatoko mo nga kaute kua whakamanahia koe ki te uru. Kei a koe te kawenga mo te whai i nga ture e tika ana me nga ture o nga ratonga e whakamahia ana e koe nga waehere motuhēhēnga.",
+        "heading": "1. To whakamahi"
+      },
+      "protectAccounts": {
+        "body": "Kei a koe te haepapa mo te tiaki i to taputapu, nga mea ngaro motuhēhē, ngā tikanga whakaora, ngā tārua kaweake, me ngā kupuhipa pūrua. Kaua e tiritiri waehere, mea ngaro ranei ki nga tangata kaore koe e whakawhirinaki.",
+        "heading": "2. Tiakina o kaute"
+      },
+      "availability": {
+        "body": "Ka huri pea nga ahuatanga i waenga i nga tukunga. Me whakahou tonu koe i te taupānga me te manatoko i ia wa kei te mahi to mahi whakaora me te whakaora.",
+        "heading": "5. Nga huringa me te waatea"
+      },
+      "recovery": {
+        "body": "Kaore e taea e KaalKey te kii ka taea te whakahoki mai i nga kaute katoa, ka hototahi te QR waehere, whirihoranga ranei, ka mahi ranei te taupānga me te kore e aukati, e hapa ranei. Kia mau ki nga tikanga whakaora rereke e whakaratohia ana e te ratonga e tika ana.",
+        "heading": "3. Kaore he taurangi whakaora"
+      },
+      "advice": {
+        "heading": "4. Kaore he tohutohu ngaio",
+        "body": "He whaipainga te taupānga me te kore e whakarato i te ture, i te putea, i te haumarutanga ranei i nga tohutohu urupare-whakautu. Mena ka taupatupatuhia tetahi kaute, whai i nga tohutohu a te ratonga e pa ana ki te whakaora me te haumarutanga."
+      },
+      "liability": {
+        "heading": "6. Te kawenga me te ture e pa ana",
+        "body": "Ki te nui e whakaaetia ana e te ture e tika ana, ka tukuna te taupānga me te kore he taurangi mo te mahi kore-kore, hapa-kore ranei. Karekau he mea i roto i enei tikanga ka aukati i nga motika me nga rongoatanga kaore e taea te whakakore i te ture. Ko etahi atu herenga, ture whakahaere ranei me arotake e tetahi roia whai mana mo te mana o te kaiwhakaputa i mua i te tukunga."
+      },
+      "title": "Nga Ture Whakamahi"
+    },
+    "version": "Putanga",
+    "saving": "Tiaki…",
+    "acceptContinue": "Whakaae & Haere tonu",
+    "appliesAuthenticator": "Ka pa ki te KaalKey Kaitautoko",
+    "reviewBothDocuments": "Tena koa tirohia nga tuhinga e rua i mua i te whakamahi KaalKey. Kei roto i te taupānga me te waatea tuimotu.",
+    "originalMulticolourAuthenticator": "Tae maha taketake KaalKey tohu motuhēhēnga",
+    "legalPrivacyNotice": "Panui Ture me te Matatapu",
+    "legalInformation": "Nga korero ture",
+    "reviewSPrivacy": "Arotakehia te KaalKey korero tūmataiti me nga tikanga whakamahi.",
+    "iReadAgree": "Kua panui ahau me te whakaae ki te Kaupapahere Whaiaro me nga Ture Whakamahi."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Kia kitea te waehere QR katoa. Ka noho tonu to mea ngaro ki runga i tenei taputapu.",
+    "back": "Whakamuri",
+    "turnFlashlightOff": "Whakawetohia te rama rama",
+    "turnFlashlight": "Whakakā te rama rama",
+    "flashlight": "Ko te rama rama",
+    "flashlight2": "rama rama",
+    "cameraUnavailableOpen": "Kārekau i te wātea. Whakatuwheratia tenei wharangi ki HTTPS localhost ranei ka whakaaehia te urunga kamera.",
+    "cameraPreviewUnavailable": "Kaore i te waatea te arokite kamera. Katia ka whakatuwheratia ano te matawai.",
+    "cameraReadyPoint": "Kua rite te kamera — tohu ki te QR katoa.",
+    "browserCannotProcess": "Kaore e taea e tenei kaitirotiro te whakahaere i nga papa kamera.",
+    "qrCodeDetected": "QR kua kitea te waehere.",
+    "couldnTRead": "Kāore i taea te pānui i ngā tāpare kāmera. Tirohia nga whakaaetanga kamera ka utaina ano tenei wharangi.",
+    "cameraPermissionDenied": "I whakakorehia te whakaaetanga kamera. Whakaaetia te urunga kamera ki nga tautuhinga tirotiro, ka whakatuwhera ano i te matawai.",
+    "noCameraWas": "Kaore he kamera i kitea i runga i tenei taputapu.",
+    "cameraBusyAnother": "Kei te pukumahi te kamera i tetahi atu taupānga, ripa tirotiro ranei.",
+    "startCameraHttps": "Kaore i taea te timata te kamera. Whakamahia HTTPS localhost ranei ka tirohia nga whakaaetanga tirotiro.",
+    "qrScannerCamera": "QR arokite kāmera matawai",
+    "cameraUnavailableCheck": "Kārekau i te wātea. Tirohia te whakaaetanga kamera ka ngana ano.",
+    "pointCameraAuthenticator": "Tohua to kamera ki te tatūnga whakamotuhēhē QR waehere mai i te ratonga e tāpiri ana koe.",
+    "backAddAccount": "Hoki ki te tāpiri pūkete",
+    "secureSetup": "WHAKATAUTANGA HAURA",
+    "enterDetailsManually": "Tāurutia ā-ringa ngā taipitopito"
+  },
+  "accountForm": {
+    "hideManualEntry": "Hunaia te urunga a-ringa",
+    "secretKeySupplied": "Whakamahia te kī ngaro i homai e te ratonga e whirihora ana koe. Kaua rawa e whakauru i to kupu huna ki konei. Whakatauritehia te algorithm, te tatau mati, me te waahi ki nga tohutohu tatūnga o te ratonga.",
+    "updateServiceAccount": "Whakahōuhia te ratonga, te ingoa pūkete, te kī ngaro ranei.",
+    "secretKeyRead": "Kī ngaro, panui-anake i te wa e whakatika ana",
+    "secretKeyBase32": "Kī ngaro i roto Base32",
+    "digits": "mati",
+    "seconds": "hēkona",
+    "enterDetailsManually": "RĀNEI KAUPAPA KAUPAPA KAUPAPA",
+    "enterDetailsManually2": "Whakauruhia nga taipitopito ma te ringa",
+    "serviceAccountName": "Ratonga, ingoa pūkete me te kī huna",
+    "saveChangesSecurely": "Tiakina nga huringa ma te haumaru",
+    "saveAccountSecurely": "Whakaorangia te putea ma te haumaru",
+    "serviceIssuer": "Ratonga, kaituku ranei",
+    "accountName": "Ingoa pūkete",
+    "secretKey": "Kī ngaro",
+    "serviceIssuer2": "RATONGA / KAUPAPA",
+    "eGGoogle": "e.g. Google",
+    "clearServiceIssuer": "Maama te ratonga, kaituku ranei",
+    "eGExample": "e.g. koe@example.com",
+    "clearAccountName": "Ūkuia te ingoa pūkete",
+    "secretKeyLocked": "Kī muna (kua raka)",
+    "secretKeyBase322": "Kī muna (BASE32)",
+    "enterSetupKey": "Whakauruhia to tatuhi tatū",
+    "clearSecretKey": "Ūkui kī ngaro",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP DIGITS",
+    "refreshIntervalSeconds": "WHAKATANGA WAWATANGA (SECONDS)",
+    "otpRefreshInterval": "OTP tāmata wā i roto i te hēkona",
+    "closeAccountForm": "Katia te puka kaute",
+    "totpSetupUrl": "TOTP tatūnga URL",
+    "importSetupUrl": "Kawemai tatūnga URL",
+    "totpSetupUrl2": "TOTP WHAKATAHI URL",
+    "accountName2": "Ingoa Pūkete",
+    "addAccount": "Tāpiri pūkete"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Matawai motuhēhē QR waehere",
+    "setupGuidance": "Matawai i te waehere QR mo te tatūnga ngawari, te whakauru ranei i nga taipitopito.",
+    "cameraAddAccount": "Whakamahia to kamera ki te taapiri i tetahi kaute inamata",
+    "scanQrCode2": "Matawai QR waehere",
+    "uploadQrImage": "Tukuake QR whakaahua",
+    "chooseQrScreenshot": "Kōwhiria he whakaahua QR mai i te Taiwhanga, Whakaahua, Kōnae ranei",
+    "pasteQr": "Whakapiri QR whakaahua / URL",
+    "pasteCopiedQr": "Whakapirihia he atahanga QR kua tāruahia, he tatūnga whakamotuhēhē rānei URL",
+    "uploadQrImage2": "Tukuake QR whakaahua"
+  },
+  "accountQr": {
+    "close": "Katia",
+    "accountQrCode": "Pūkete QR waehere",
+    "revealQrCode": "Whakaatuhia te waehere QR.",
+    "exportWarning": "Whakatupato: ka taea e te tangata e karapa ana i tenei waehere QR te whakaputa waehere manatoko mo tenei kaute. Whakakitea anake i runga i te mata pono.",
+    "privacyHint": "Puritia tenei waehere QR kia noho motuhake. Ko te karapahia ka kape i te mea ngaro o te motuhēhēnga o te pūkete."
+  },
+  "productInfo": {
+    "backupRestore": "Pūrua me te whakaora",
+    "backupRestoreDescription": "Whakaorangia o raraunga motuhēhēnga ka whakahoki mai ina neke koe ki tetahi atu taputapu.",
+    "privacyDescription": "Puritia ō pūkete whakaū ki te wāhi kotahi. Whakamahia te taapiri o te taupānga, te whakaora, me te maukati taputapu hei whakahaere tika i to tatūnga.",
+    "timeBasedCodes": "Waehere i runga i te waa",
+    "generateOneTimeCodes": "Waihangahia nga wa-waehere huri noa mo o putea hei whakaoti i te manatoko e rua-taahiraa.",
+    "quickAccountSetup": "Tatūnga pūkete tere",
+    "quickSetupDescription": "Matawai i tetahi waehere QR, kawemai ranei he ahua QR hei taapiri i tetahi kaute.",
+    "accountsOnePlace": "Nga kaute i te waahi kotahi",
+    "accountsInOnePlaceDescription": "Kia mau ki o putea kua tiakina ka kimihia te urunga tika ina tae ki te wa ki te haina.",
+    "privateAccountVault": "He putea putea motuhake",
+    "privateVaultDescription": "Whakahaerehia o whakaurunga mo to whakamotuhēhē i te rohe me te whakamahi i te kōwhiringa maukati taputapu o te taupānga.",
+    "easyCodeAccess": "Te urunga waehere ngawari",
+    "easyCodeAccessDescription": "Tāruahia he waehere o nāianei, whakahaere rānei i ngā taipitopito pūkete mā te atanga ma, arotahi.",
+    "authenticatorTechsivaram": "KAUPAPA WHAKAATU · NA TECHSIVARAM",
+    "mobileAuthenticator": "TO MOBILE ATHENTICATOR",
+    "tagline": "He huarahi ngawari ake ki te whakahaere i to manatoko-rua.",
+    "heroDescription": "He wheako whakamotuhēhē arotahi mō ngā waehere whakaū i runga i te wā. Kia mau ki te taha o nga waehere kaute hototahi me KaalKey mo Android.",
+    "timeBasedCodes2": "WAE-WAE",
+    "privateDesign": "MATAMUA I TE WHAKAMAHI",
+    "builtSimpleAuthenticator": "I HANGA MO TE RERE MAHI A TE KAUPAPA KAUPAPA",
+    "qrSetupTimed": "QR WHAKATAUTANGA · NGĀ WAETANGA WATA · WHAKAMAHI KAUPAPA",
+    "privacyTitle": "Ō pūkete. Ko o waehere. To mana whakahaere.",
+    "authenticator": "KAALKEY · KAUPAPA",
+    "brandBanner": "KaalKey kara tohu",
+    "logo": "KaalKey tohu"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Whakakore",
+      "storageInvalidTitle": "He muhu nga raraunga rokiroki",
+      "storageInvalidBody": "Ko nga raraunga kaute kua tiakina kaore i taea te panui haumaru.",
+      "storageErrorTitle": "Hapa rokiroki",
+      "storageErrorBody": "Kaore i taea te uta i nga kaute kua tiakina.",
+      "missingTitle": "Nga korero ngaro",
+      "missingEditingBody": "Whakauruhia te ingoa ratonga me te ingoa kaute.",
+      "missingBody": "Whakauruhia te ingoa ratonga, te ingoa pūkete, me te kī ngaro.",
+      "invalidOtpBody": "Takina te Base32 mea ngaro, algorithm, tatau mati, me te wa whakahou. Ko nga mea ngaro me mau Base32 pūāhua whaimana; ko nga mati me {digits} me te waa me {minPeriod}–{maxPeriod} hēkona.",
+      "duplicateBody": "Kua tiakina kētia he pūkete me tenei ratonga me te ingoa pūkete.",
+      "updatedBody": "I whakahōutia tō pūkete.",
+      "addedBody": "I taapiri pai to putea.",
+      "invalidOtpTitle": "Ko nga tautuhinga OTP muhu",
+      "duplicateTitle": "Kua takoto kē te pūkete",
+      "savedTitle": "Pūkete kua tiakina",
+      "invalidSecretTitle": "Kī ngaro muhu",
+      "invalidSecretBody": "Tena koa tirohia kua whakaurua e koe he Base32 muna.",
+      "removedTitle": "Kua tangohia te kaute",
+      "removedBody": "I tangohia te kaute me tana mea ngaro mai i tenei taputapu.",
+      "clearedTitle": "Kua whakakorehia nga kaute",
+      "clearedBody": "Ko nga kaute motuhēhē katoa me nga mea ngaro i tangohia mai i tenei taputapu.",
+      "someSavedAccountsNeedAttentionTitle": "Ko etahi o nga kaute kua tiakina me aro",
+      "someSavedAccountsNeedAttentionBody": "{count} rekoata kaute muhu kaore i utaina. Kei te waatea tonu nga kaute whaimana. Whakaarohia te hanga i tetahi taapiri i mua i te whakarereketanga.",
+      "removeConfirmTitle": "Tango pūkete?",
+      "removeConfirmWebTitle": "Tango pūkete?",
+      "removeButton": "Tango",
+      "clearButton": "Ūkuia katoa",
+      "clearConfirmTitle": "Ūkuia ngā pūkete katoa?",
+      "saveErrorBody": "Kaore i taea te tiaki i nga kaute. Tirohia te waatea o te rokiroki ka ngana ano.",
+      "notFoundTitle": "Kaore i kitea he kaute",
+      "notFoundBody": "Kāore tēnei pūkete i kitea. Katia te ētita ka ngana anō.",
+      "removeConfirmBody": "Ka tangohia e tenei te kaute me tana mea ngaro mai i tenei taputapu.",
+      "clearConfirmBody": "Ka tangohia tonutia nga kaute motuhēhē katoa me o ratou mea ngaro mai i tenei taputapu. Waihangatia he tārua whakamuna i te tuatahi mena ka hiahia koe ki enei kaute a muri ake.",
+      "clearConfirmUndoBody": "Kaore e taea te whakakore i tenei."
+    },
+    "biometric": {
+      "cancelButton": "Whakakore",
+      "saveErrorTitle": "Kāore i taea te tiaki te tautuhinga",
+      "unlockPrompt": "Wewete KaalKey Authenticator",
+      "promptSubtitle": "Whakamahia te biometrics, te maukati mata ranei o to taputapu",
+      "disableConfirmPrompt": "Whakaū ki te whakaweto KaalKey maukati taupānga",
+      "enablePrompt": "Whakahohe raka taupānga mo KaalKey",
+      "deviceLockTitle": "Whakaritehia te maukati mata o to taputapu",
+      "deviceLockBody": "Ka whakamahia e KaalKey te motuhēhēnga o to waea. Tautuhia he taputapu PIN, tauira, kupuhipa ranei ki nga tautuhinga haumarutanga o to waea, ka ngana ano. Ko te biometrics he mea whiriwhiri.",
+      "unavailableTitle": "Kāore i te wātea te motuhēhēnga pūrere",
+      "unavailableBody": "Kaore i taea e to waea te tiimata te motuhēhēnga haumaru. Tirohia kua whirihorahia he raka mata o te taputapu, ka ngana ano.",
+      "lockedTitle": "Kua kati te motuhēhēnga",
+      "lockedBody": "Kua monoa e to waea te motuhēhēnga i muri i te maha o nga nganatanga. Tatari ka ngana ano.",
+      "promptErrorTitle": "Kaore i te waatea te motuhēhēnga",
+      "promptErrorBody": "KaalKey kare i taea te timata te tere motuhēhēnga haumaru o te waea. Me ngana ano.",
+      "webLock": "Ko te raka motuhēhēnga pūrere kāore anō kia wātea ki te putanga tukutuku. Kei te wetewete tonu te waahi tukutuku; whakamahia te Android taupānga mo te motuhēhēnga taputapu taketake.",
+      "disabledTitle": "Kua monoa te maukati taupānga",
+      "disabledBody": "KaalKey kua weto te maukati taupānga.",
+      "disableSaveError": "Ka noho tonu te maukati taupānga. Me ngana ano.",
+      "enabledTitle": "Maukati taupānga i whakahohea",
+      "enabledBody": "KaalKey ka tono mo to waea mo te whakamotuhēhēnga hanga-i roto i te whakatuwheratanga me te hokinga mai.",
+      "enableSaveError": "Kāore i taea te maukati taupānga. Me ngana ano."
+    },
+    "qr": {
+      "startingCamera": "Ka timata te kamera…",
+      "unsupportedTitle": "Waehere QR kore tautoko",
+      "unsupportedBody": "Matawai i te tatūnga whakamotuhēhē QR waehere i homai e te ratonga. Me noho tenei he waehere TOTP, ehara i te waehere takiuru QR.",
+      "unsupportedDiagnostic": "Ko taua QR ehara i te TOTP waehere tatūnga. Me whai ki te tatūnga kaiwhakamotuhēhē QR.",
+      "detectedDiagnostic": "QR i kitea. Te tātari…",
+      "analyzing": "Ka tātarihia te waehere QR…",
+      "duplicateTitle": "Kua taapirihia he kaute",
+      "duplicateBody": "{issuer}: {account} kei roto kē i KaalKey.",
+      "addedTitle": "Ka taapirihia he kaute",
+      "addedBody": "{issuer}: {account} kua tutuki pai.",
+      "saveFailedDiagnostic": "Kāore i taea te tiaki i te pūkete. Ka taea e koe te matawai ano.",
+      "invalidTitle": "Waehere QR muhu",
+      "invalidBody": "KaalKey kaore i taea te poroporoaki i tenei motuhēhē QR waehere. {detail}. Whakamahia te waehere TOTP o te ratonga QR (ko te tikanga ka tiimata me te {prefix}).",
+      "parseFailedDiagnostic": "QR kaore i taea te tukatuka. Anga ki te tatūnga QR ka ngana ano.",
+      "invalidUrlTitle": "Muhu TOTP URL",
+      "invalidUrlBody": "Whakapirihia he tino motuhēhē URL timata mai i te {prefix}.",
+      "clipboardEmptyTitle": "Kei te putua te papatopenga",
+      "clipboardEmptyBody": "Tāruatia te {prefix} URL i te tuatahi, ka pato Whakapiri TOTP URL.",
+      "clipboardErrorTitle": "Kāore i taea te pānui papatopenga",
+      "clipboardErrorBody": "Tāruatia te TOTP tatūnga URL ka ngana anō."
+    },
+    "haptics": {
+      "saveFailedTitle": "Kāore i taea te tiaki te tautuhinga",
+      "saveFailedBody": "Kaore i taea te tiaki i te manakohanga urupare Haptic. Me ngana ano."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Kāore i taea te tiaki te mihi",
+      "saveFailedBody": "Me ngana ano. Me whakaae koe ki te panui ture i mua i te whakamahi KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Ka hiahiatia te whakaaetanga kamera",
+      "body": "Whakaaetia te urunga kamera ki te matawai i te tatūnga whakamotuhēhē QR waehere."
+    },
+    "storage": {
+      "browserUnavailable": "Kaore i te waatea te rokiroki tirotiro.",
+      "browserFilePickerUnavailable": "Karekau i te waatea te kaikohikohi konae tirotiro."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Kōnae kore tautoko",
+      "unsupportedFileBody": "Kōwhirihia he whakaahua waehere QR penei i te PNG ranei JPEG.",
+      "browserDecoderUnavailable": "Kaore i te waatea te wetewete whakaahua tirotiro",
+      "imageLoadFailed": "Kāore i taea te utaina te atahanga",
+      "unreadableDimensions": "Ko te ahua karekau he ahua panui",
+      "noQrCodeFoundTitle": "Karekau he waehere QR i kitea",
+      "noQrCodeFoundBody": "KaalKey kaore i taea te wetewete i tetahi waehere QR i tenei ahua. Whakamātauria he whakaahua whakaahua, he taumira teitei ake ranei PNG/JPEG.",
+      "couldNotReadImageTitle": "Kāore i taea te pānui pikitia",
+      "couldNotReadImageBody": "Whakamātauria he atahanga PNG JPEG maramara ranei kei roto te tatūnga whakamotuhēhē QR.",
+      "couldNotOpenPickerTitle": "Kaore i taea te whakatuwhera te kaikokoti atahanga",
+      "couldNotOpenPickerBody": "Me ngana ano te Tukuatu QR.",
+      "normalizedDecodeFailed": "Kāore i taea te wetewete te atahanga kua whakaritea",
+      "clipboardImageLoadFailed": "Kāore i taea te utaina te pikitia papatopenga",
+      "imageProcessingUnavailable": "Kaore i te waatea te tukatuka atahanga",
+      "imageProcessingUnavailableAlt": "Kore i te watea te tukatuka atahanga",
+      "noImageInClipboardTitle": "Karekau he pikitia i te papatopenga",
+      "noImageInClipboardBody": "Tāruahia he whakaahua waehere QR, ka pato Whakapiri QR Atahanga ano.",
+      "clipboardUnavailableTitle": "Kaore i te waatea te papatopenga",
+      "clipboardUnavailableBody": "Ko te kuputuhi papatopenga ehara i te tatūnga motuhēhē whaimana URL. Tāruatia he otpauth:// URL ranei QR atahanga ka ngana ano.",
+      "clipboardAccessBody": "KaalKey kaore i taea te panui i te tuhinga, i tetahi atahanga ranei mai i te papatopenga. Whakaaetia te uru ki te papatopenga, ka kape i te ahua QR atahanga ranei otpauth:// URL ka pato Whakapiri QR Atahanga / URL ano.",
+      "couldNotPasteImageTitle": "Kāore i taea te whakapiri atahanga",
+      "couldNotPasteImageBody": "Ko te whakapiri atahanga kaore i te tautokohia e tenei papatopenga i runga i tenei taputapu. Whakamahia te ahua Kawemai QR hei utu.",
+      "sourceImageDecodeFailure": "Whakamātauria he whakaahua kē QR.",
+      "pastedImportFailureBody": "Whakamātauria he whakaahua kē QR.",
+      "sourceImageReadFailure": "Whakamātauria te tārua QR whakaahua mata marama.",
+      "importFailedTitle": "QR i rahua te kawemai whakaahua",
+      "importFailedBody": "KaalKey kaore i taea te panui i taua ahua. Tena koa ngana ki tetahi atu ahua tohu QR.",
+      "notFoundBody": "Karekau he waehere QR ka taea te panui i te atahanga kua kape.",
+      "pastedNotFoundBody": "Ko te ahua whakapiri kaore he waehere QR ka taea te panui.",
+      "pastedReadFailureBody": "Whakamātauria te tārua PNG JPEG atahanga marama kei roto te QR katoa.",
+      "noQrCodeTextBody": "I wetewetehia e KaalKey te atahanga kua tohua engari kaore i kitea he waehere QR. Whakamātauria he PNG marama, PNG ranei JPEG ka kitea te waehere katoa."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Ko tenei waehere QR ehara i te waehere tatūnga whakamotuhēhē wā.",
+      "missingAccountDetails": "Ko te QR waehere kei te ngaro nga taipitopito kaute.",
+      "unsupportedAlgorithm": "Ka whakamahi te waehere QR i te algorithm kore tautoko.",
+      "unsupportedDigits": "Me whakamahi tenei waehere QR 6, 7, 8 ranei nga mati.",
+      "unsupportedPeriod": "Ka whakamahi tenei waehere QR i te waa kore tautoko.",
+      "invalidAccount": "Ko te waehere QR kaore i taea te whakamana."
+    },
+    "backup": {
+      "invalidJson": "Ko te kōnae pūrua kāore i te tika JSON.",
+      "unsupportedFormat": "Ehara tenei i te KaalKey tārua whakamunatia.",
+      "invalidPasswordOrDamaged": "Kei te hē te kupuhipa pūrua, kua pakaru rānei te kōnae pūrua.",
+      "invalidContents": "He muhu, he kore oti ranei nga ihirangi tārua.",
+      "secureRandomUnavailableDetailed": "Karekau i te waatea te whakatipuranga matapōkere haumaru. Hangaia me te whakauru ano i te taupānga Android me te expo-crypto kei roto, ka ngana ano.",
+      "invalidAccountDataForBackup": "Kotahi neke atu ranei nga kaute kei te muhu. Whakatikahia nga raraunga kaute i mua i te hanga i te taapiri.",
+      "invalidPasswordOrModified": "Kei te hē te kupuhipa pūrua, kua whakarerekētia rānei te kōnae pūrua.",
+      "invalidPasswordOrFileDamaged": "Kei te hē te kupuhipa pūrua, kua pakaru rānei te kōnae.",
+      "passwordCopiedTitle": "Kua kapea te kupuhipa",
+      "enterPasswordTitle": "Whakauruhia to kupuhipa taapiri",
+      "enterPasswordBody": "Whakauruhia te kupuhipa i whakamahia i te wa i hangaia ai tenei taapiri.",
+      "passwordCopiedBody": "Tiakina ki tetahi waahi haumaru, penei i te WhatsApp.",
+      "copyFailedTitle": "I rahua te kape",
+      "copyFailedBody": "Tīpakohia ka tārua ā-ringa i te kupuhipa.",
+      "generatingPassword": "Te whakaputa kupuhipa pūrua haumaru…",
+      "encrypting": "Whakamuna te tārua…",
+      "decrypting": "Wetemuna te tārua…",
+      "restoring": "Kei te whakaora i nga kaute…",
+      "backupCreatedTitle": "Hangaia te tārua",
+      "restoreCompleteTitle": "Kua oti te whakaora",
+      "mergeConfirmTitle": "Hanumi pūkete tārua?",
+      "mergeConfirmButton": "Hanumi pūkete",
+      "backupSavedTemporary": "Ko te tārua whakamuna i tiakina mo te wa poto i:\n{uri}",
+      "generatePasswordErrorTitle": "Kāore i taea te whakaputa kupuhipa pūrua",
+      "secureRandomUnavailable": "Karekau i te waatea te whakatipuranga matapōkere haumaru.",
+      "passwordUnavailableTitle": "Kāore i te wātea te kupuhipa pūrua",
+      "passwordUnavailableBody": "Katia tenei korero ka hangaia he taapiri hou hei whakaputa i tetahi kupuhipa haumaru.",
+      "backupDownloadedBody": "Kua tangohia to taapiri KaalKey kua whakamunatia. Kia noho tūmataiti te kōnae me te kupuhipa.",
+      "backupFailedTitle": "I rahua te tārua",
+      "backupCreateErrorBody": "KaalKey kāore i taea te hanga te pūrua.",
+      "restoreFailedTitle": "I rahua te whakaora",
+      "backupReadErrorBody": "Kāore i taea te pānui, te tiaki rānei i te pūrua.",
+      "browserDownloadUnsupported": "Kāore tō pūtirotiro e tautoko i te tikiake i ngā kōnae pūrua.",
+      "localFileUnavailable": "Karekau he waahi konae paetata i tenei taputapu.",
+      "saveBackupTitle": "Tiakina to whakamuna KaalKey tārua"
+    },
+    "clipboard": {
+      "copiedTitle": "Kua kapehia te waehere",
+      "copiedBody": "Kua kapehia to waehere manatoko.",
+      "errorTitle": "Hapa",
+      "errorBody": "Kāore i taea te tārua i te waehere whakaū."
+    },
+    "activity": {
+      "cameraReady": "Kua rite te kamera. Tohua ki te whakamotuhēhē QR waehere.",
+      "readingQrImage": "E panui ana QR whakaahua…",
+      "importingQrImage": "Kei te kawemai QR whakaahua…",
+      "importingAccount": "Kei te kawemai i te kaute motuhēhē...",
+      "importingPastedImage": "Kei te kawemai i te pikitia QR kua whakapiri…"
+    }
+  },
+  "activity": {
+    "working": "Mahi",
+    "wait": "Taihoa koa…",
+    "donTClose": "Tena koa kaua e kati me te taunekeneke ki KaalKey.",
+    "loadingLanguages": "Uta ana i nga reo e waatea ana…",
+    "loadingTranslation": "Uta ana i te whakamaoritanga…"
+  }
+}

@@ -6,16 +6,17 @@ import { useAppLanguage } from "../i18n";
 type Props = {
   insets: { top: number; bottom: number };
   activityMessage: string | null;
+  visible?: boolean;
 };
 
 /** Displays the blocking activity layer above the app's other dialogs. */
-export default function ActivityOverlayModal({ insets, activityMessage }: Props) {
+export default function ActivityOverlayModal({ insets, activityMessage, visible }: Props) {
   const inlineStyles = getActivityOverlayStyles(insets);
   const { t } = useAppLanguage();
 
   return (
     <Modal
-      visible={activityMessage !== null}
+      visible={visible ?? activityMessage !== null}
       transparent
       animationType="fade"
       statusBarTranslucent

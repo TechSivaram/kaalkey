@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Tungumál",
+      "description": "Veldu tungumálið sem notað er í KaalKey.",
+      "english": "ensku",
+      "telugu": "telúgú",
+      "hindi": "hindí",
+      "section": "TUNGUMÁL",
+      "searchLanguageName": "Leitartungumál (nafn eða kóði)",
+      "searchSupportedLanguages": "Leitaðu að studdum tungumálum",
+      "closeLanguageDropdown": "Lokaðu tungumálavalmyndinni",
+      "noTranslatedLanguage": "Ekkert þýtt tungumál fannst.",
+      "serverUrl": "Þýðingarþjónn URL",
+      "serverUrlDescription": "KaalKey halar niður tungumálalistanum og þýðingum frá þessum netþjóni.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Vista þýðingarþjónn"
+    },
+    "title": "App stillingar",
+    "eyebrow": "KAALKEY KOSNINGAR",
+    "experience": {
+      "section": "REYNSLA"
+    },
+    "security": {
+      "section": "ÖRYGGI"
+    },
+    "backup": {
+      "section": "Öryggisafrit og endurheimt"
+    },
+    "danger": {
+      "section": "HÆTTUSVÆÐI",
+      "clearAccounts": "Hreinsaðu alla reikninga",
+      "clearAccountsDescription": "Fjarlægðu alla reikninga og leyndarmál varanlega úr þessu tæki. Afritaðu fyrst.",
+      "clearAccountsAccessibilityLabel": "Hreinsaðu alla auðkenningarreikninga"
+    },
+    "appearance": {
+      "section": "ÚTLIT",
+      "title": "Létt útlit",
+      "description": "KaalKey notar eins og er hreint ljósþema sitt."
+    },
+    "haptics": {
+      "title": "Happísk endurgjöf",
+      "description": "Mjúk viðbrögð fyrir snertingu og lokið aðgerðir."
+    },
+    "deviceLock": {
+      "title": "Auðkenningarlás tækis",
+      "description": "Hvelfing þín læsist þegar KaalKey fer úr forgrunni.",
+      "requirement": "Krefjast líffræðileg tölfræði símans þíns eða skjálás PIN, mynstur eða lykilorð.",
+      "accessibilityLabel": "Tækja auðkenning app læsing"
+    },
+    "privacy": {
+      "title": "Lögfræði og friðhelgi einkalífsins",
+      "description": "Skoðaðu persónuverndarstefnuna og notkunarskilmálana.",
+      "storageNote": "Auðkenningarleyndarmál þín eru áfram í öruggri hvelfingu í tækinu. Óskir eru geymdar á staðnum."
+    }
+  },
+  "accounts": {
+    "edit": "Breyta",
+    "sortAccountName": "Raða eftir reikningsheiti",
+    "loadingSecureVault": "Hleður öruggri gröf...",
+    "tapCopy": "PIKKTU TIL AÐ AFRITA",
+    "noAccountsMatch": "Engir reikningar passa við leitina þína.",
+    "viewQrCode": "Skoðaðu QR kóða fyrir reikning",
+    "removeAccount": "Fjarlægðu reikning",
+    "copyVerificationCode": "Afritaðu staðfestingarkóða",
+    "active": "VIRK",
+    "sort": "RÁÐA EFTIR",
+    "account": "Reikningur",
+    "clearSearch": "Hreinsa leit",
+    "sortServiceName": "Raða eftir þjónustuheiti",
+    "addFirstAccount": "Bættu við fyrsta reikningnum þínum",
+    "searchAccounts": "Leitaðu að reikningum",
+    "searchServiceAccount": "Leitarþjónusta eða reikningur",
+    "accounts": "Reikningarnir þínir",
+    "add": "+ Bæta við",
+    "vaultStartsHere": "Hvelfing þín byrjar hér",
+    "service": "Þjónusta",
+    "emptyHint": "Bættu við reikningi með því að nota leynilykilinn til að búa til fyrsta staðfestingarkóðann þinn."
+  },
+  "common": {
+    "done": "Búið",
+    "doneButton": "Búið",
+    "closeSettings": "Lokaðu stillingum",
+    "separator": "-",
+    "article": "a",
+    "save": "Vista",
+    "delete": "Eyða",
+    "resizeAppBrand": "Breyta stærð forrita og vörumerkispjalda"
+  },
+  "qrImport": {
+    "readPastedImage": "Gat ekki lesið límda mynd"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Reikningar í þessari öryggisafrit: {count}. KaalKey mun halda núverandi reikningum þínum og bæta við reikningum sem eru ekki þegar til staðar. Tvíteknum reikningum verður sleppt.",
+    "restoreCompletionBody": "Reikningar bætt við: {added}. Tvíteknum reikningum sleppt: {skipped}. Fyrirliggjandi reikningum þínum var haldið.",
+    "copyPassword": "Afritaðu búið til lykilorð",
+    "passwordSafety": "Vistaðu þetta lykilorð sérstaklega (til dæmis í WhatsApp). Allir með bæði",
+    "importAction": "Veldu skrá og flyttu inn",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "ÖRYGGI VULT",
+    "createBackup": "Búðu til öryggisafrit",
+    "encryptedFile": "Dulkóðuð skrá",
+    "restoreBackup": "Endurheimta öryggisafrit",
+    "safetyNote": "Afrit innihalda auðkenningarleyndarmál þín. KaalKey býr til einstakt lykilorð fyrir hvert öryggisafrit. Vistaðu það sérstaklega; KaalKey getur ekki endurheimt það.",
+    "generatingSecurePassword": "Býr til öruggt lykilorð...",
+    "importFile": "Flytja inn skrá",
+    "backupPassword": "Öryggislykisorð",
+    "account": "reikning",
+    "accounts": "reikninga",
+    "exportDescription": "Dulkóða allar {count} vistaðar {accountLabel} í öryggisafrit. KaalKey býr til einstakt lykilorð; afritaðu og vistaðu það sérstaklega úr skránni.",
+    "restoreDescription": "Veldu KaalKey öryggisafrit og lykilorð. Nýjum reikningum verður bætt við núverandi reikningalistann þinn; núverandi reikningar verða áfram eins og þeir eru.",
+    "enterBackupPassword": "Sláðu inn öryggisafrit lykilorð",
+    "closeBackup": "Lokaðu öryggisafrit",
+    "copyGeneratedBackup": "Afritaðu búið til öryggisafrit lykilorð",
+    "backupPassword2": "Lykilorð til öryggisafrits",
+    "clearBackupPassword": "Hreinsa öryggisafrit lykilorð",
+    "backupFilePassword": "öryggisafrit og lykilorð geta endurheimt auðkenningarreikninga þína.",
+    "encryptShareBackup": "Dulkóða og deila öryggisafriti"
+  },
+  "home": {
+    "unlockSecurely": "Opnaðu á öruggan hátt",
+    "disableAppLock": "Slökktu á applás",
+    "enableAppLock": "Virkjaðu forritalás",
+    "checkingSecureLock": "Athugar stillingar fyrir örugga læsingu. Kóðarnir þínir eru enn faldir.",
+    "waitingVerification": "Bíður eftir staðfestingu...",
+    "secretsStayStored": "Leyndarmál þín eru geymd á þessu tæki.",
+    "openAppSettings": "Opnaðu forritastillingar",
+    "versionLabel": "ÚTGÁFA",
+    "unlockRequirement": "Notaðu líffræðileg tölfræði símans þíns eða skjálás PIN, mynstur eða lykilorð til að fá aðgang að einu sinni staðfestingarkóðana þína.",
+    "localVault": "ÞÍN STÆÐARVEIT",
+    "codesDeviceControl": "Kóðarnir þínir. Tækið þitt. Stjórn þín.",
+    "securingVault": "Tryggir hvelfinguna þína...",
+    "vaultProtected": "Hvelfing þín er vernduð",
+    "lock": "LÆSTU Á",
+    "localVault2": "STÆÐARHÖFUN",
+    "authenticator": "KAALKEY AÐVÖNDUNARMAÐUR",
+    "tricolourLockEmblem": "KaalKey þrílita læsingarmerki",
+    "authenticator2": "Auðkenningaraðili"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Ef þú velur að skanna QR kóða notar KaalKey myndavélarheimild fyrir þá aðgerð. Valfrjáls auðkenning tækis og haptic feedback notar viðeigandi eiginleika tækisins. Þú getur stjórnað heimildum í stillingum tækisins.",
+        "heading": "2. Heimildir og tækiseiginleikar"
+      },
+      "backups": {
+        "body": "Þegar þú býrð til öryggisafrit dulkóðar KaalKey öryggisafritið með því að nota lykilorð sem þú velur. Haltu bæði skránni og lykilorðinu persónulegum og geymdu þau á öruggan hátt. Allir sem fá skrána og lykilorð hennar geta hugsanlega endurheimt auðkenningarreikningana þína. KaalKey getur ekki endurheimt gleymt lykilorð fyrir öryggisafrit.",
+        "heading": "3. Afrit"
+      },
+      "security": {
+        "body": "Haltu tækinu þínu uppfærðu, verndaðu það með skjálás og ekki deila OTP leyndarmálum eða öryggisafritslykilorðum. Ef forritið er fjarlægt, gögn þess hreinsað eða tækið týnst getur það gert reikninga sem eru vistaðir á staðnum ótiltækir. Haltu öruggu öryggisafriti ef þú þarft endurheimt.",
+        "heading": "5. Öryggi og varðveisla"
+      },
+      "information": {
+        "heading": "1. Upplýsingar og leyndarmál",
+        "body": "KaalKey er auðkenningarforrit. Reikningsmerki og leynigildin sem þarf til að búa til einskiptiskóða eru viðkvæm. Forritið er hannað til að geyma reikningsskrár í öruggri geymslu tækisins. Allir sem hafa aðgang að ólæstu tæki eða útflutt öryggisafrit gætu fengið aðgang að viðkvæmum upplýsingum."
+      },
+      "sharing": {
+        "heading": "4. Samnýting og þriðju aðilar",
+        "body": "Afritunarflæðið gæti notað deilingarblað tækisins eða skráavalið til að vista, flytja eða velja skrár. Persónuverndarvenjur hvers kyns forrits eða þjónustu frá þriðja aðila sem þú velur er stjórnað af þeirri þjónustuveitu. Í þessari tilkynningu er ekki haldið fram að tækið þitt, stýrikerfi eða valin miðlunarþjónusta vinni aldrei gögn."
+      },
+      "changes": {
+        "heading": "6. Breytingar og samband",
+        "body": "Þessi innbyggða tilkynning gæti verið endurskoðuð í framtíðarútgáfu apps. Fyrir spurningar um persónuvernd, hafðu samband við útgefanda forritsins í gegnum opinberu stuðningsrásina sem fylgir appinu."
+      },
+      "title": "Persónuverndarstefna"
+    },
+    "terms": {
+      "use": {
+        "body": "Þú getur notað KaalKey til að búa til staðfestingarkóða fyrir reikninga sem þú hefur aðgang að. Þú berð ábyrgð á því að fylgja gildandi lögum og reglum þjónustunnar sem þú notar auðkenningarkóða fyrir.",
+        "heading": "1. Notkun þín"
+      },
+      "protectAccounts": {
+        "body": "Þú berð ábyrgð á að tryggja tækið þitt, auðkenningarleyndarmál, endurheimtaraðferðir, útflutt afrit og öryggisafrit af lykilorðum. Ekki deila kóða eða leyndarmálum með fólki sem þú treystir ekki.",
+        "heading": "2. Verndaðu reikninga þína"
+      },
+      "availability": {
+        "body": "Eiginleikar geta breyst á milli útgáfur. Þú ættir að halda appinu uppfærðu og sannreyna reglulega að öryggisafritunar- og endurheimtarfyrirkomulag virki.",
+        "heading": "5. Breytingar og framboð"
+      },
+      "recovery": {
+        "body": "KaalKey getur ekki ábyrgst að hægt sé að endurheimta alla reikninga, að sérhver QR kóða eða stillingar séu samhæfðar eða að appið virki án truflana eða villu. Haltu öðrum endurheimtaraðferðum sem viðkomandi þjónusta býður upp á.",
+        "heading": "3. Engin endurheimtarábyrgð"
+      },
+      "advice": {
+        "heading": "4. Engin fagleg ráðgjöf",
+        "body": "Forritið er tól og veitir ekki lagalega, fjárhagslega eða öryggisatviksráðgjöf. Ef reikningur er í hættu skaltu fylgja opinberum endurheimtar- og öryggisleiðbeiningum viðkomandi þjónustu."
+      },
+      "liability": {
+        "heading": "6. Ábyrgð og gildandi lög",
+        "body": "Að því marki sem gildandi lög leyfa, er appið útvegað án ábyrgðar á samfelldri eða villulausri notkun. Ekkert í þessum skilmálum útilokar réttindi eða úrræði sem ekki er hægt að útiloka lagalega. Allar frekari takmarkanir eða gildandi lagaskilmála ætti að fara yfir af hæfum lögfræðingi fyrir lögsögu útgefanda áður en þær eru gefnar út."
+      },
+      "title": "Notkunarskilmálar"
+    },
+    "version": "Útgáfa",
+    "saving": "Vistar...",
+    "acceptContinue": "Samþykkja og halda áfram",
+    "appliesAuthenticator": "Á við um KaalKey Authenticator",
+    "reviewBothDocuments": "Vinsamlegast skoðaðu bæði skjölin áður en þú notar KaalKey. Þau eru innifalin í appinu og fáanleg án nettengingar.",
+    "originalMulticolourAuthenticator": "Upprunalegt marglita KaalKey auðkennismerki",
+    "legalPrivacyNotice": "Laga- og persónuverndartilkynning",
+    "legalInformation": "Lagalegar upplýsingar",
+    "reviewSPrivacy": "Skoðaðu persónuverndarupplýsingar og notkunarskilmála KaalKey.",
+    "iReadAgree": "Ég hef lesið og samþykki persónuverndarstefnuna og notkunarskilmálana."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Haltu öllum QR kóðanum sýnilegum. Leyndarmálið þitt er áfram á þessu tæki.",
+    "back": "Til baka",
+    "turnFlashlightOff": "Slökktu á vasaljósinu",
+    "turnFlashlight": "Kveiktu á vasaljósinu",
+    "flashlight": "Kveikt á vasaljósi",
+    "flashlight2": "Vasaljós",
+    "cameraUnavailableOpen": "Myndavél ekki tiltæk. Opnaðu þessa síðu á HTTPS eða localhost og leyfðu myndavélaraðgang.",
+    "cameraPreviewUnavailable": "Forskoðun myndavélar er ekki tiltæk. Lokaðu og opnaðu skannann aftur.",
+    "cameraReadyPoint": "Myndavél tilbúin — beindu henni á allan QR kóðann.",
+    "browserCannotProcess": "Þessi vafri getur ekki unnið myndavélaramma.",
+    "qrCodeDetected": "QR kóði fannst.",
+    "couldnTRead": "Gat ekki lesið myndavélarramma. Athugaðu heimildir myndavélar og endurhlaða þessa síðu.",
+    "cameraPermissionDenied": "Myndavélarleyfi hafnað. Leyfðu myndavélaraðgangi í stillingum vafrans, opnaðu síðan skannann aftur.",
+    "noCameraWas": "Engin myndavél fannst á þessu tæki.",
+    "cameraBusyAnother": "Myndavélin er upptekin í öðru forriti eða vafraflipa.",
+    "startCameraHttps": "Gat ekki ræst myndavélina. Notaðu HTTPS eða localhost og athugaðu heimildir vafra.",
+    "qrScannerCamera": "QR forskoðun myndavélar skanni",
+    "cameraUnavailableCheck": "Myndavél ekki tiltæk. Athugaðu heimildir fyrir myndavél og reyndu aftur.",
+    "pointCameraAuthenticator": "Beindu myndavélinni þinni að auðkenningaruppsetningarkóðann QR frá þjónustunni sem þú ert að bæta við.",
+    "backAddAccount": "Til baka til að bæta við reikningi",
+    "secureSetup": "ÖRUGG UPPSETNING",
+    "enterDetailsManually": "Sláðu inn upplýsingar handvirkt í staðinn"
+  },
+  "accountForm": {
+    "hideManualEntry": "Fela handvirka færslu",
+    "secretKeySupplied": "Notaðu leynilykilinn sem þjónustan sem þú ert að stilla gefur upp. Sláðu aldrei inn lykilorð reikningsins þíns hér. Passaðu reiknirit, talnafjölda og bil við uppsetningarleiðbeiningar þjónustunnar.",
+    "updateServiceAccount": "Uppfærðu þjónustuna, reikningsnafnið eða leynilykilinn.",
+    "secretKeyRead": "Leynilykill, skrifvarinn á meðan verið er að breyta",
+    "secretKeyBase32": "Leynilykill í Base32",
+    "digits": "tölustafir",
+    "seconds": "sekúndur",
+    "enterDetailsManually": "EÐA Sláðu inn UPPlýsingar handvirkt",
+    "enterDetailsManually2": "Sláðu inn upplýsingar handvirkt",
+    "serviceAccountName": "Þjónusta, reikningsnafn og leynilykill",
+    "saveChangesSecurely": "Vistaðu breytingar á öruggan hátt",
+    "saveAccountSecurely": "Vistaðu reikning á öruggan hátt",
+    "serviceIssuer": "Þjónusta eða útgefandi",
+    "accountName": "Reikningsheiti",
+    "secretKey": "Leynilykill",
+    "serviceIssuer2": "ÞJÓNUSTA / ÚTGEFANDI",
+    "eGGoogle": "t.d. Google",
+    "clearServiceIssuer": "Hreinsa þjónusta eða útgefandi",
+    "eGExample": "t.d. þú@example.com",
+    "clearAccountName": "Hreinsaðu nafn reiknings",
+    "secretKeyLocked": "LEYNALYKILL (LÆST)",
+    "secretKeyBase322": "LEYNALYKILL (BASE32)",
+    "enterSetupKey": "Sláðu inn uppsetningarlykilinn þinn",
+    "clearSecretKey": "Hreinsaðu leynilykil",
+    "otpAlgorithm": "OTP ALGÓRITIMA",
+    "otpDigits": "OTP TÖFUR",
+    "refreshIntervalSeconds": "UPPFÆRSLABIL (sekúndur)",
+    "otpRefreshInterval": "OTP endurnýjunarbil í sekúndum",
+    "closeAccountForm": "Lokaðu reikningsformi",
+    "totpSetupUrl": "TOTP uppsetning URL",
+    "importSetupUrl": "Flytja inn uppsetningu URL",
+    "totpSetupUrl2": "TOTP UPPSETNING URL",
+    "accountName2": "NAFN REIKNINGS",
+    "addAccount": "Bæta við reikningi"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Skanna auðkenningar QR kóða",
+    "setupGuidance": "Skannaðu QR kóða fyrir auðveldustu uppsetninguna, eða sláðu inn upplýsingar handvirkt.",
+    "cameraAddAccount": "Notaðu myndavélina þína til að bæta við reikningi samstundis",
+    "scanQrCode2": "Skannaðu QR kóða",
+    "uploadQrImage": "Hladdu upp QR mynd",
+    "chooseQrScreenshot": "Veldu QR skjámynd úr Gallerí, Myndir eða Skrár",
+    "pasteQr": "Límdu QR mynd / URL",
+    "pasteCopiedQr": "Límdu afritaða QR mynd eða uppsetningu auðkenningar URL",
+    "uploadQrImage2": "Hladdu upp QR mynd"
+  },
+  "accountQr": {
+    "close": "Loka",
+    "accountQrCode": "Reikningskóði QR",
+    "revealQrCode": "Sýndu QR kóða",
+    "exportWarning": "Viðvörun: allir sem skannar þennan QR kóða geta búið til staðfestingarkóða fyrir þennan reikning. Sýndu það aðeins á traustum skjá.",
+    "privacyHint": "Haltu þessum QR kóða lokuðum. Með því að skanna það afritar leyndarmál auðkenningar reikningsins."
+  },
+  "productInfo": {
+    "backupRestore": "Afrita og endurheimta",
+    "backupRestoreDescription": "Taktu öryggisafrit af auðkenningargögnunum þínum og endurheimtu þau þegar þú ferð í annað tæki.",
+    "privacyDescription": "Geymdu staðfestingarreikningana þína á einum stað. Notaðu valkosti forritsins fyrir öryggisafrit, endurheimt og læsingu tækisins til að stjórna uppsetningunni þinni á ábyrgan hátt.",
+    "timeBasedCodes": "Tímabundnir kóðar",
+    "generateOneTimeCodes": "Búðu til einskiptis lykilorð fyrir reikninga þína til að ljúka tveggja þrepa staðfestingu.",
+    "quickAccountSetup": "Fljótleg uppsetning reiknings",
+    "quickSetupDescription": "Skannaðu auðkenningar QR kóða eða fluttu inn QR mynd til að bæta við reikningi.",
+    "accountsOnePlace": "Reikningar á einum stað",
+    "accountsInOnePlaceDescription": "Haltu vistuðum reikningum þínum saman og finndu réttu færsluna þegar það er kominn tími til að skrá þig inn.",
+    "privateAccountVault": "Hólf einkareiknings",
+    "privateVaultDescription": "Hafðu umsjón með auðkenningarfærslum þínum á staðnum og notaðu tiltækan tækjalásarmöguleika appsins.",
+    "easyCodeAccess": "Auðvelt aðgengi að kóða",
+    "easyCodeAccessDescription": "Afritaðu núverandi kóða eða stjórnaðu reikningsupplýsingum í gegnum hreint, einbeitt viðmót.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · EFTIR TECHSIVARAM",
+    "mobileAuthenticator": "FARSVIÐVIRKJARINN ÞINN",
+    "tagline": "Auðveldari leið til að stjórna tveggja þrepa staðfestingu þinni.",
+    "heroDescription": "Einbeittur auðkenningarupplifun fyrir tímatengda staðfestingarkóða. Hafðu samhæfa reikningskóða við höndina með KaalKey fyrir Android.",
+    "timeBasedCodes2": "TÍMATAGÐIR KÓÐAR",
+    "privateDesign": "PRIVATE BY HÖNNUN",
+    "builtSimpleAuthenticator": "BYGGÐ FYRIR EINFALT AAUTHENTICATOR VERKFLÆÐI",
+    "qrSetupTimed": "QR UPPSETNING · TÍMAKÓÐAR · REIKNINGSTJÓRN",
+    "privacyTitle": "Reikningarnir þínir. Kóðarnir þínir. Stjórn þín.",
+    "authenticator": "KAALKEY · AÐVÖNDUNARMAÐUR",
+    "brandBanner": "KaalKey vörumerki borði",
+    "logo": "KaalKey lógó"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Hætta við",
+      "storageInvalidTitle": "Geymslugögn ógild",
+      "storageInvalidBody": "Ekki var hægt að lesa vistuð reikningsgögn á öruggan hátt.",
+      "storageErrorTitle": "Geymsluvilla",
+      "storageErrorBody": "Ekki var hægt að hlaða vistuðum reikningum.",
+      "missingTitle": "Vantar upplýsingar",
+      "missingEditingBody": "Sláðu inn nafn þjónustunnar og nafn reiknings.",
+      "missingBody": "Sláðu inn nafn þjónustunnar, reikningsnafn og leynilykil.",
+      "invalidOtpBody": "Athugaðu Base32 leyndarmál, reiknirit, talnafjölda og endurnýjunartímabil. Leyndarmál verða að innihalda gilda Base32 stafi; tölustafir verða að vera {digits} og tímabilið verður að vera {minPeriod}–{maxPeriod} sekúndur.",
+      "duplicateBody": "Reikningur með þessari þjónustu og reikningsheiti er þegar vistaður.",
+      "updatedBody": "Reikningurinn þinn var uppfærður.",
+      "addedBody": "Reikningnum þínum var bætt við á öruggan hátt.",
+      "invalidOtpTitle": "Ógildar OTP stillingar",
+      "duplicateTitle": "Reikningur er þegar til",
+      "savedTitle": "Reikningur vistaður",
+      "invalidSecretTitle": "Ógildur leynilykill",
+      "invalidSecretBody": "Vinsamlegast athugaðu að þú hafir slegið inn gilt Base32 leyndarmál.",
+      "removedTitle": "Reikningur fjarlægður",
+      "removedBody": "Reikningurinn og leyndarmál hans voru fjarlægð úr þessu tæki.",
+      "clearedTitle": "Reikningar hreinsaðir",
+      "clearedBody": "Allir auðkenningarreikningar og leyndarmál voru fjarlægð úr þessu tæki.",
+      "someSavedAccountsNeedAttentionTitle": "Sumir vistaðir reikningar þurfa athygli",
+      "someSavedAccountsNeedAttentionBody": "{count} ógildar reikningsfærslur voru ekki hlaðnar. Gildir reikningar eru áfram tiltækir. Íhugaðu að búa til öryggisafrit áður en þú gerir frekari breytingar.",
+      "removeConfirmTitle": "Fjarlægja reikning?",
+      "removeConfirmWebTitle": "Fjarlægja reikning?",
+      "removeButton": "Fjarlægja",
+      "clearButton": "Hreinsaðu allt",
+      "clearConfirmTitle": "Hreinsa alla reikninga?",
+      "saveErrorBody": "Ekki tókst að vista reikninga. Athugaðu framboð vafrageymslu og reyndu aftur.",
+      "notFoundTitle": "Reikningur fannst ekki",
+      "notFoundBody": "Þessi reikningur fannst ekki. Lokaðu ritlinum og reyndu aftur.",
+      "removeConfirmBody": "Þetta fjarlægir reikninginn og leyndarmál hans úr þessu tæki.",
+      "clearConfirmBody": "Þetta fjarlægir alla auðkenningarreikninga og leyndarmál þeirra varanlega úr þessu tæki. Búðu til dulkóðað öryggisafrit fyrst ef þú gætir þurft þessa reikninga síðar.",
+      "clearConfirmUndoBody": "Þetta er ekki hægt að afturkalla."
+    },
+    "biometric": {
+      "cancelButton": "Hætta við",
+      "saveErrorTitle": "Ekki tókst að vista stillingu",
+      "unlockPrompt": "Opnaðu KaalKey Authenticator",
+      "promptSubtitle": "Notaðu líffræðileg tölfræði eða skjálás tækisins",
+      "disableConfirmPrompt": "Staðfestu að slökkva á KaalKey applás",
+      "enablePrompt": "Virkjaðu forritalás fyrir KaalKey",
+      "deviceLockTitle": "Settu upp skjálás tækisins",
+      "deviceLockBody": "KaalKey notar innbyggða auðkenningu símans þíns. Stilltu tæki PIN, mynstur eða lykilorð í öryggisstillingum símans þíns, reyndu svo aftur. Líffræðileg tölfræði er valfrjálst.",
+      "unavailableTitle": "Auðkenning tækis ekki tiltæk",
+      "unavailableBody": "Síminn þinn gat ekki ræst örugga auðkenningu. Athugaðu hvort skjálás tækisins sé stilltur og reyndu svo aftur.",
+      "lockedTitle": "Auðkenning læst tímabundið",
+      "lockedBody": "Síminn þinn hefur slökkt tímabundið á auðkenningu eftir of margar tilraunir. Bíddu og reyndu aftur.",
+      "promptErrorTitle": "Auðkenning ekki tiltæk",
+      "promptErrorBody": "KaalKey gat ekki ræst örugga auðkenningarkvaðningu símans. Vinsamlegast reyndu aftur.",
+      "webLock": "Auðkenningarlás tækis er ekki í boði í vefútgáfunni ennþá. Vefhólfið er áfram ólæst; notaðu Android appið fyrir innbyggða auðkenningu tækis.",
+      "disabledTitle": "Forritalás óvirk",
+      "disabledBody": "Slökkt hefur verið á KaalKey applás.",
+      "disableSaveError": "Forritalásinn er áfram virkur. Vinsamlegast reyndu aftur.",
+      "enabledTitle": "Forritalás virkur",
+      "enabledBody": "KaalKey mun biðja um innbyggða auðkenningu símans þíns þegar hann er opnaður og þegar þú ferð aftur í hann.",
+      "enableSaveError": "Ekki var hægt að virkja forritalás. Vinsamlegast reyndu aftur."
+    },
+    "qr": {
+      "startingCamera": "Ræsir myndavél...",
+      "unsupportedTitle": "Óstuddur QR kóði",
+      "unsupportedBody": "Skannaðu auðkenningaruppsetningarkóðann QR sem þjónustan veitir. Þetta verður að vera TOTP kóða, ekki venjulegur innskráningarkóði QR.",
+      "unsupportedDiagnostic": "Að QR er ekki TOTP uppsetningarkóði. Miðaðu að uppsetningu auðkenningar QR.",
+      "detectedDiagnostic": "QR fannst. Er að greina…",
+      "analyzing": "Greinir QR kóða...",
+      "duplicateTitle": "Reikningi þegar bætt við",
+      "duplicateBody": "{issuer}: {account} er nú þegar í KaalKey.",
+      "addedTitle": "Reikningi bætt við",
+      "addedBody": "{issuer}: {account} var bætt við.",
+      "saveFailedDiagnostic": "Ekki tókst að vista reikninginn. Þú getur skannað aftur.",
+      "invalidTitle": "Ógildur QR kóði",
+      "invalidBody": "KaalKey gat ekki þáttað þennan auðkenningarkóða QR. {detail}. Notaðu TOTP uppsetningarkóðann QR þjónustunnar (byrjar venjulega á {prefix}).",
+      "parseFailedDiagnostic": "QR var ekki hægt að vinna. Miðaðu að uppsetningunni QR og reyndu aftur.",
+      "invalidUrlTitle": "Ógilt TOTP URL",
+      "invalidUrlBody": "Límdu fullkomið auðkenningarkerfi URL sem byrjar á {prefix}.",
+      "clipboardEmptyTitle": "Klemmuspjald er tómt",
+      "clipboardEmptyBody": "Afritaðu fyrst {prefix} URL og pikkaðu síðan á Paste TOTP URL.",
+      "clipboardErrorTitle": "Gat ekki lesið klippiborð",
+      "clipboardErrorBody": "Afritaðu TOTP uppsetninguna URL og reyndu aftur."
+    },
+    "haptics": {
+      "saveFailedTitle": "Ekki tókst að vista stillingu",
+      "saveFailedBody": "Ekki var hægt að vista Haptic endurgjöf. Vinsamlegast reyndu aftur."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Ekki tókst að vista staðfestingu",
+      "saveFailedBody": "Vinsamlegast reyndu aftur. Þú verður að samþykkja lagalega tilkynninguna áður en þú notar KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Myndavélarleyfi krafist",
+      "body": "Leyfðu myndavélaraðgangi til að skanna auðkenningaruppsetningarkóða QR."
+    },
+    "storage": {
+      "browserUnavailable": "Vafrageymsla er ekki tiltæk.",
+      "browserFilePickerUnavailable": "Skráaval vafrans er ekki tiltækt."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Óstudd skrá",
+      "unsupportedFileBody": "Veldu QR kóðamynd eins og PNG eða JPEG.",
+      "browserDecoderUnavailable": "Afkóðun vaframynda er ekki tiltæk",
+      "imageLoadFailed": "Ekki var hægt að hlaða mynd",
+      "unreadableDimensions": "Myndin hefur engar læsilegar stærðir",
+      "noQrCodeFoundTitle": "Enginn QR kóði fannst",
+      "noQrCodeFoundBody": "KaalKey gat ekki afkóða QR kóða á þessari mynd. Prófaðu skjámynd eða hærri upplausn PNG/JPEG.",
+      "couldNotReadImageTitle": "Gat ekki lesið mynd",
+      "couldNotReadImageBody": "Prófaðu skýra PNG eða JPEG mynd sem inniheldur auðkenningaruppsetningarkóðann QR.",
+      "couldNotOpenPickerTitle": "Gat ekki opnað myndaval",
+      "couldNotOpenPickerBody": "Vinsamlegast reyndu að hlaða upp QR aftur.",
+      "normalizedDecodeFailed": "Ekki var hægt að afkóða staðlaða mynd",
+      "clipboardImageLoadFailed": "Ekki var hægt að hlaða mynd á klemmuspjald",
+      "imageProcessingUnavailable": "Myndvinnsla er ekki tiltæk",
+      "imageProcessingUnavailableAlt": "Myndvinnsla ekki tiltæk",
+      "noImageInClipboardTitle": "Engin mynd á klippiborðinu",
+      "noImageInClipboardBody": "Afritaðu QR kóða mynd, pikkaðu síðan á Paste QR mynd aftur.",
+      "clipboardUnavailableTitle": "Klemmuspjald ekki tiltækt",
+      "clipboardUnavailableBody": "Texti á klemmuspjaldi er ekki gild auðkenningaruppsetning URL. Afritaðu otpauth:// URL eða QR mynd og reyndu aftur.",
+      "clipboardAccessBody": "KaalKey gat ekki lesið texta eða mynd af klippiborðinu. Leyfðu aðgang að klemmuspjaldi, afritaðu síðan QR myndina eða otpauth:// URL og pikkaðu á Paste QR mynd / URL aftur.",
+      "couldNotPasteImageTitle": "Ekki tókst að líma mynd",
+      "couldNotPasteImageBody": "Myndlíming er ekki studd af þessu klippiborði á þessu tæki. Notaðu Flytja inn QR mynd í staðinn.",
+      "sourceImageDecodeFailure": "Prófaðu aðra QR mynd.",
+      "pastedImportFailureBody": "Prófaðu aðra QR mynd.",
+      "sourceImageReadFailure": "Prófaðu að afrita skýra QR skjámynd.",
+      "importFailedTitle": "QR myndinnflutningur mistókst",
+      "importFailedBody": "KaalKey gat ekki lesið þessa mynd. Vinsamlegast reyndu aðra QR kóðamynd.",
+      "notFoundBody": "Afritaða myndin inniheldur ekki læsanlegan QR kóða.",
+      "pastedNotFoundBody": "Límda myndin inniheldur ekki læsilegan QR kóða.",
+      "pastedReadFailureBody": "Prófaðu að afrita skýra PNG eða JPEG mynd sem inniheldur allan QR kóðann.",
+      "noQrCodeTextBody": "KaalKey afkóðaði valda mynd en fann ekki QR kóða. Prófaðu skýra PNG eða JPEG með fullri upplausn með allan kóðann sýnilegan."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Þessi QR kóði er ekki tímabundinn uppsetningarkóði auðkenningar.",
+      "missingAccountDetails": "Í QR kóðann vantar reikningsupplýsingar.",
+      "unsupportedAlgorithm": "Kóðinn QR notar óstudd reiknirit.",
+      "unsupportedDigits": "Þessi QR kóði verður að nota 6, 7 eða 8 tölustafi.",
+      "unsupportedPeriod": "Þessi QR kóða notar óstudd tímabil.",
+      "invalidAccount": "Ekki var hægt að staðfesta QR kóðann."
+    },
+    "backup": {
+      "invalidJson": "Afritaskráin er ekki gild JSON.",
+      "unsupportedFormat": "Þetta er ekki stutt KaalKey dulkóðað öryggisafrit.",
+      "invalidPasswordOrDamaged": "Lykilorðið fyrir öryggisafrit er rangt eða afritaskráin er skemmd.",
+      "invalidContents": "Innihald öryggisafritsins er ógilt eða ófullkomið.",
+      "secureRandomUnavailableDetailed": "Örugg tilviljunarkennd kynslóð er ekki tiltæk. Endurbyggðu og settu aftur upp Android appið með expo-crypto innifalið, reyndu svo aftur.",
+      "invalidAccountDataForBackup": "Einn eða fleiri reikningar eru ógildir. Lagaðu reikningsgögnin áður en þú býrð til öryggisafrit.",
+      "invalidPasswordOrModified": "Lykilorðið fyrir öryggisafrit er rangt eða öryggisafritsskránni hefur verið breytt.",
+      "invalidPasswordOrFileDamaged": "Lykilorðið fyrir öryggisafrit er rangt eða skráin er skemmd.",
+      "passwordCopiedTitle": "Lykilorð afritað",
+      "enterPasswordTitle": "Sláðu inn öryggisafrit lykilorðið þitt",
+      "enterPasswordBody": "Sláðu inn lykilorðið sem notað var þegar þetta öryggisafrit var búið til.",
+      "passwordCopiedBody": "Vistaðu það á öruggum stað, eins og WhatsApp.",
+      "copyFailedTitle": "Afritun mistókst",
+      "copyFailedBody": "Veldu og afritaðu lykilorðið handvirkt.",
+      "generatingPassword": "Býr til öruggt öryggisafritsaðgangsorð...",
+      "encrypting": "Dulkóðar öryggisafrit...",
+      "decrypting": "Afkóðari öryggisafrit...",
+      "restoring": "Endurheimtir reikninga...",
+      "backupCreatedTitle": "Afrit búin til",
+      "restoreCompleteTitle": "Endurheimtu lokið",
+      "mergeConfirmTitle": "Sameina varareikninga?",
+      "mergeConfirmButton": "Sameina reikninga",
+      "backupSavedTemporary": "Dulkóðuð öryggisafrit vistað tímabundið á:\n{uri}",
+      "generatePasswordErrorTitle": "Gat ekki búið til öryggisafritslykilorð",
+      "secureRandomUnavailable": "Örugg tilviljunarkennd kynslóð er ekki tiltæk.",
+      "passwordUnavailableTitle": "Lykilorð til öryggisafrits er ekki tiltækt",
+      "passwordUnavailableBody": "Lokaðu þessum glugga og búðu til nýtt öryggisafrit til að búa til öruggt lykilorð.",
+      "backupDownloadedBody": "Dulkóðuðu KaalKey öryggisafritinu þínu hefur verið hlaðið niður. Haltu skránni og lykilorðinu lokuðu.",
+      "backupFailedTitle": "Afritun mistókst",
+      "backupCreateErrorBody": "KaalKey gat ekki búið til öryggisafritið.",
+      "restoreFailedTitle": "Endurheimt mistókst",
+      "backupReadErrorBody": "Ekki var hægt að lesa eða vista öryggisafritið.",
+      "browserDownloadUnsupported": "Vafrinn þinn styður ekki niðurhal af varaskrám.",
+      "localFileUnavailable": "Staðbundin skráarstaður er ekki tiltækur á þessu tæki.",
+      "saveBackupTitle": "Vistaðu dulkóðaða KaalKey öryggisafritið þitt"
+    },
+    "clipboard": {
+      "copiedTitle": "Kóði afritaður",
+      "copiedBody": "Staðfestingarkóði þinn hefur verið afritaður.",
+      "errorTitle": "Villa",
+      "errorBody": "Ekki tókst að afrita staðfestingarkóðann."
+    },
+    "activity": {
+      "cameraReady": "Myndavél tilbúin. Beindu því á auðkenningarnúmerið QR.",
+      "readingQrImage": "Les QR mynd...",
+      "importingQrImage": "Flytur inn QR mynd...",
+      "importingAccount": "Flytur inn auðkenningarreikning...",
+      "importingPastedImage": "Flytur inn límda QR mynd..."
+    }
+  },
+  "activity": {
+    "working": "Að vinna",
+    "wait": "Vinsamlegast bíddu…",
+    "donTClose": "Vinsamlegast ekki loka eða hafa samskipti við KaalKey.",
+    "loadingLanguages": "Hleður tiltæk tungumál...",
+    "loadingTranslation": "Hleður þýðingu..."
+  }
+}

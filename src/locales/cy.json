@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Iaith",
+      "description": "Dewiswch yr iaith a ddefnyddir yn KaalKey.",
+      "english": "Saesneg",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "IAITH",
+      "searchLanguageName": "Iaith chwilio (enw neu god)",
+      "searchSupportedLanguages": "Chwilio ieithoedd a gefnogir",
+      "closeLanguageDropdown": "Cau'r gwymplen iaith",
+      "noTranslatedLanguage": "Ni chanfuwyd iaith wedi'i chyfieithu.",
+      "serverUrl": "Gweinydd cyfieithu URL",
+      "serverUrlDescription": "Mae KaalKey yn lawrlwytho'r rhestr ieithoedd a chyfieithiadau o'r gweinydd hwn.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Cadw gweinydd cyfieithu"
+    },
+    "title": "Gosodiadau ap",
+    "eyebrow": "KAALKEY DEWISIADAU",
+    "experience": {
+      "section": "PROFIAD"
+    },
+    "security": {
+      "section": "DIOGELWCH"
+    },
+    "backup": {
+      "section": "CEFNOGAETH AC ADFERIAD"
+    },
+    "danger": {
+      "section": "PARTH PERYGL",
+      "clearAccounts": "Clirio pob cyfrif",
+      "clearAccountsDescription": "Tynnwch bob cyfrif a chyfrinach o'r ddyfais hon yn barhaol. Yn ôl i fyny yn gyntaf.",
+      "clearAccountsAccessibilityLabel": "Clirio pob cyfrif dilysydd"
+    },
+    "appearance": {
+      "section": "YMDDANGOSIAD",
+      "title": "Ymddangosiad ysgafn",
+      "description": "KaalKey ar hyn o bryd yn defnyddio ei thema golau glân."
+    },
+    "haptics": {
+      "title": "Adborth haptig",
+      "description": "Adborth ysgafn ar gyfer tapiau a chamau gweithredu wedi'u cwblhau."
+    },
+    "deviceLock": {
+      "title": "Clo dilysu dyfais",
+      "description": "Mae eich claddgell yn cloi pan KaalKey yn gadael y blaendir.",
+      "requirement": "Angen biometreg neu glo sgrin PIN, patrwm neu gyfrinair eich ffôn.",
+      "accessibilityLabel": "Clo app dilysu dyfais"
+    },
+    "privacy": {
+      "title": "Cyfreithiol a phreifatrwydd",
+      "description": "Adolygu'r Polisi Preifatrwydd a'r Telerau Defnyddio.",
+      "storageNote": "Mae eich cyfrinachau dilysu yn aros yn y gladdgell ddiogel ar y ddyfais. Mae dewisiadau yn cael eu storio'n lleol."
+    }
+  },
+  "accounts": {
+    "edit": "Golygu",
+    "sortAccountName": "Trefnu yn ôl enw cyfrif",
+    "loadingSecureVault": "Wrthi'n llwytho gladdgell ddiogel...",
+    "tapCopy": "TAP I COPI",
+    "noAccountsMatch": "Nid oes unrhyw gyfrifon yn cyfateb i'ch chwiliad.",
+    "viewQrCode": "Gweld QR cod ar gyfer cyfrif",
+    "removeAccount": "Dileu cyfrif",
+    "copyVerificationCode": "Copïo cod dilysu",
+    "active": "ACTIF",
+    "sort": "SORT GAN",
+    "account": "Cyfrif",
+    "clearSearch": "Chwiliad clir",
+    "sortServiceName": "Trefnu yn ôl enw gwasanaeth",
+    "addFirstAccount": "Ychwanegwch eich cyfrif cyntaf",
+    "searchAccounts": "Chwilio cyfrifon",
+    "searchServiceAccount": "Chwilio gwasanaeth neu gyfrif",
+    "accounts": "Eich cyfrifon",
+    "add": "+Ychwanegu",
+    "vaultStartsHere": "Mae eich gladdgell yn dechrau yma",
+    "service": "Gwasanaeth",
+    "emptyHint": "Ychwanegwch gyfrif gan ddefnyddio ei allwedd gyfrinachol i gynhyrchu eich cod dilysu cyntaf."
+  },
+  "common": {
+    "done": "Wedi'i wneud",
+    "doneButton": "Wedi'i wneud",
+    "closeSettings": "Cau gosodiadau",
+    "separator": "-",
+    "article": "a",
+    "save": "Arbed",
+    "delete": "Dileu",
+    "resizeAppBrand": "Newid maint paneli app a brand"
+  },
+  "qrImport": {
+    "readPastedImage": "Methu darllen delwedd wedi'i gludo"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Cyfrifon yn y copi wrth gefn hwn: {count}. Bydd KaalKey yn cadw eich cyfrifon presennol ac yn ychwanegu unrhyw gyfrifon nad ydynt eisoes yn bresennol. Bydd cyfrifon dyblyg yn cael eu hanwybyddu.",
+    "restoreCompletionBody": "Cyfrifon a ychwanegwyd: {added}. Hepgor cyfrifon dyblyg: {skipped}. Cadwyd eich cyfrifon presennol.",
+    "copyPassword": "Copïo cyfrinair a gynhyrchir",
+    "passwordSafety": "Arbedwch y cyfrinair hwn ar wahân (er enghraifft, yn WhatsApp). Unrhyw un gyda'r ddau y",
+    "importAction": "Dewiswch ffeil a mewnforio",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "LLONG DDIOGEL",
+    "createBackup": "Creu copi wrth gefn",
+    "encryptedFile": "Ffeil wedi'i hamgryptio",
+    "restoreBackup": "Adfer copi wrth gefn",
+    "safetyNote": "Mae copïau wrth gefn yn cynnwys eich cyfrinachau dilysu. KaalKey yn cynhyrchu cyfrinair unigryw ar gyfer pob copi wrth gefn. Arbedwch ef ar wahân; Ni all KaalKey ei adennill.",
+    "generatingSecurePassword": "Wrthi'n cynhyrchu cyfrinair diogel…",
+    "importFile": "Mewnforio ffeil",
+    "backupPassword": "CYFRINN WRTH GEFN",
+    "account": "cyfrif",
+    "accounts": "cyfrifon",
+    "exportDescription": "Amgryptio pob {count} sydd wedi'i gadw {accountLabel} i mewn i ffeil wrth gefn. KaalKey yn cynhyrchu cyfrinair unigryw; ei gopïo a'i gadw ar wahân i'r ffeil.",
+    "restoreDescription": "Dewiswch eich KaalKey ffeil wrth gefn a chyfrinair. Bydd cyfrifon newydd yn cael eu hychwanegu at eich rhestr cyfrifon presennol; bydd cyfrifon presennol yn aros fel ag y maent.",
+    "enterBackupPassword": "Rhowch gyfrinair wrth gefn",
+    "closeBackup": "Caewch y copi wrth gefn",
+    "copyGeneratedBackup": "Copi cyfrinair wrth gefn a gynhyrchir",
+    "backupPassword2": "Cyfrinair wrth gefn",
+    "clearBackupPassword": "Clirio cyfrinair wrth gefn",
+    "backupFilePassword": "gall ffeil wrth gefn a chyfrinair adfer eich cyfrifon dilyswr.",
+    "encryptShareBackup": "Amgryptio a rhannu copi wrth gefn"
+  },
+  "home": {
+    "unlockSecurely": "Datgloi'n ddiogel",
+    "disableAppLock": "Analluogi clo app",
+    "enableAppLock": "Galluogi clo app",
+    "checkingSecureLock": "Gwirio eich gosodiadau clo diogel. Mae eich codau yn parhau i fod yn gudd.",
+    "waitingVerification": "Aros am ddilysiad…",
+    "secretsStayStored": "Mae eich cyfrinachau'n aros ar y ddyfais hon.",
+    "openAppSettings": "Agor gosodiadau ap",
+    "versionLabel": "FERSIWN",
+    "unlockRequirement": "Defnyddiwch fiometreg neu glo sgrin PIN, patrwm, neu gyfrinair eich ffôn i gael mynediad at eich codau dilysu un-amser.",
+    "localVault": "EICH VAULT LLEOL",
+    "codesDeviceControl": "Eich codau. Eich dyfais. Eich rheolaeth.",
+    "securingVault": "Wrthi'n diogelu'ch claddgell…",
+    "vaultProtected": "Mae eich claddgell wedi'i diogelu",
+    "lock": "CLOI YMLAEN",
+    "localVault2": "LLONG LLEOL",
+    "authenticator": "KAALKEY AWDURDOD",
+    "tricolourLockEmblem": "KaalKey arwyddlun clo tricolor",
+    "authenticator2": "AWDURDOD"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Os dewiswch sganio cod QR, mae KaalKey yn defnyddio caniatâd camera ar gyfer y weithred honno. Mae dilysu dyfeisiau dewisol ac adborth haptig yn defnyddio'r nodweddion dyfais perthnasol. Gallwch reoli caniatâd yng ngosodiadau eich dyfais.",
+        "heading": "2. Caniatâd a nodweddion dyfais"
+      },
+      "backups": {
+        "body": "Pan fyddwch yn creu copi wrth gefn, mae KaalKey yn amgryptio'r copi wrth gefn gan ddefnyddio cyfrinair o'ch dewis. Cadwch y ffeil a'r cyfrinair yn breifat a'u storio'n ddiogel. Mae'n bosibl y bydd unrhyw un sy'n cael y ffeil a'i chyfrinair yn gallu adfer eich cyfrifon dilysu. KaalKey ni all adennill cyfrinair wrth gefn anghofiedig.",
+        "heading": "3. Copïau wrth gefn"
+      },
+      "security": {
+        "body": "Diweddarwch eich dyfais, gwarchodwch hi â chlo sgrin, a pheidiwch â rhannu OTP gyfrinachau na chyfrineiriau wrth gefn. Gall dileu'r ap, clirio ei ddata, neu golli'r ddyfais olygu na fydd cyfrifon sydd wedi'u storio'n lleol ar gael. Cynnal copi wrth gefn diogel os oes angen adferiad arnoch.",
+        "heading": "5. Diogelwch a chadw"
+      },
+      "information": {
+        "heading": "1. Gwybodaeth a chyfrinachau",
+        "body": "KaalKey yn ap dilysu. Mae labeli cyfrifon a'r gwerthoedd cyfrinachol sydd eu hangen i gynhyrchu codau un-amser yn sensitif. Mae'r ap wedi'i gynllunio i storio cofnodion cyfrif yn storfa ddiogel y ddyfais. Mae'n bosibl y bydd unrhyw un sydd â mynediad i ddyfais sydd wedi'i datgloi neu gopi wrth gefn wedi'i allforio yn gallu cyrchu gwybodaeth sensitif."
+      },
+      "sharing": {
+        "heading": "4. Rhannu a thrydydd parti",
+        "body": "Gall y llif wrth gefn ddefnyddio dalen rannu neu ddewiswr ffeiliau eich dyfais i arbed, trosglwyddo neu ddewis ffeiliau. Mae arferion preifatrwydd unrhyw ap neu wasanaeth trydydd parti a ddewiswch yn cael eu llywodraethu gan y darparwr hwnnw. Nid yw'r hysbysiad hwn yn gwneud honiad cyffredinol nad yw eich dyfais, system weithredu, neu wasanaethau rhannu dewisol byth yn prosesu data."
+      },
+      "changes": {
+        "heading": "6. Newidiadau a chyswllt",
+        "body": "Mae'n bosibl y caiff yr hysbysiad mewnol hwn ei ddiwygio mewn datganiad ap yn y dyfodol. Ar gyfer cwestiynau preifatrwydd, cysylltwch â chyhoeddwr yr ap trwy'r sianel gefnogaeth swyddogol a ddarperir gyda'r ap."
+      },
+      "title": "Polisi Preifatrwydd"
+    },
+    "terms": {
+      "use": {
+        "body": "Gallwch ddefnyddio KaalKey i gynhyrchu codau dilysu ar gyfer cyfrifon yr ydych wedi'ch awdurdodi i'w cyrchu. Chi sy'n gyfrifol am gydymffurfio â chyfreithiau perthnasol a rheolau'r gwasanaethau yr ydych yn defnyddio codau dilysu ar eu cyfer.",
+        "heading": "1. Eich defnydd"
+      },
+      "protectAccounts": {
+        "body": "Chi sy'n gyfrifol am ddiogelu'ch dyfais, cyfrinachau dilysu, dulliau adfer, copïau wrth gefn wedi'u hallforio, a chyfrineiriau wrth gefn. Peidiwch â rhannu codau neu gyfrinachau â phobl nad ydych yn ymddiried ynddynt.",
+        "heading": "2. Diogelu eich cyfrifon"
+      },
+      "availability": {
+        "body": "Gall nodweddion newid rhwng datganiadau. Dylech ddiweddaru'r ap a gwirio o bryd i'w gilydd bod eich trefniadau wrth gefn ac adfer yn gweithio.",
+        "heading": "5. Newidiadau ac argaeledd"
+      },
+      "recovery": {
+        "body": "Ni all KaalKey warantu y gellir adennill pob cyfrif, y bydd pob QR cod neu ffurfweddiad yn gydnaws, neu y bydd yr ap yn gweithredu heb amhariad na gwall. Cadw dulliau adfer amgen a ddarperir gan y gwasanaeth perthnasol.",
+        "heading": "3. Dim gwarant adennill"
+      },
+      "advice": {
+        "heading": "4. Dim cyngor proffesiynol",
+        "body": "Cyfleustodau yw’r ap ac nid yw’n darparu cyngor cyfreithiol, ariannol na chyngor ymateb i ddigwyddiadau diogelwch. Os oes perygl i gyfrif, dilynwch ganllawiau adfer a diogelwch swyddogol y gwasanaeth yr effeithir arno."
+      },
+      "liability": {
+        "heading": "6. Atebolrwydd a chyfraith gymwys",
+        "body": "I'r graddau a ganiateir gan y gyfraith berthnasol, darperir yr ap heb warant o weithrediad di-dor neu ddi-wall. Nid oes dim yn y termau hyn yn eithrio hawliau neu rwymedïau na ellir eu heithrio'n gyfreithiol. Dylai unrhyw gyfyngiadau pellach neu delerau cyfraith lywodraethol gael eu hadolygu gan gyfreithiwr cymwysedig ar gyfer awdurdodaeth y cyhoeddwr cyn rhyddhau."
+      },
+      "title": "Telerau Defnyddio"
+    },
+    "version": "Fersiwn",
+    "saving": "Wrthi'n cadw…",
+    "acceptContinue": "Derbyn a Pharhau",
+    "appliesAuthenticator": "Yn berthnasol i KaalKey Dilyswr",
+    "reviewBothDocuments": "Adolygwch y ddwy ddogfen cyn defnyddio KaalKey. Maent wedi'u cynnwys yn yr ap ac ar gael all-lein.",
+    "originalMulticolourAuthenticator": "Amryliw gwreiddiol KaalKey arwyddlun dilysydd",
+    "legalPrivacyNotice": "Hysbysiad Cyfreithiol a Phreifatrwydd",
+    "legalInformation": "Gwybodaeth gyfreithiol",
+    "reviewSPrivacy": "Adolygu KaalKey gwybodaeth preifatrwydd a thelerau defnyddio.",
+    "iReadAgree": "Rwyf wedi darllen ac yn cytuno i'r Polisi Preifatrwydd a'r Telerau Defnyddio."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Cadwch y QR cod cyfan yn weladwy. Mae eich cyfrinach yn aros ar y ddyfais hon.",
+    "back": "Yn ol",
+    "turnFlashlightOff": "Trowch y fflachlamp i ffwrdd",
+    "turnFlashlight": "Trowch y flashlight ymlaen",
+    "flashlight": "Flashlight ymlaen",
+    "flashlight2": "Flashlight",
+    "cameraUnavailableOpen": "Camera ddim ar gael. Agorwch y dudalen hon ar HTTPS neu localhost a chaniatáu mynediad camera.",
+    "cameraPreviewUnavailable": "Nid yw rhagolwg camera ar gael. Caewch ac ailagor y sganiwr.",
+    "cameraReadyPoint": "Camera yn barod — pwyntiwch ef at y QR cod llawn.",
+    "browserCannotProcess": "Ni all y porwr hwn brosesu fframiau camera.",
+    "qrCodeDetected": "QR cod wedi'i ganfod.",
+    "couldnTRead": "Methu darllen fframiau camera. Gwiriwch ganiatadau camera ac ail-lwythwch y dudalen hon.",
+    "cameraPermissionDenied": "Caniatâd camera wedi'i wrthod. Caniatáu mynediad camera yng ngosodiadau porwr, yna ailagor y sganiwr.",
+    "noCameraWas": "Ni chanfuwyd camera ar y ddyfais hon.",
+    "cameraBusyAnother": "Mae'r camera yn brysur mewn ap neu dab porwr arall.",
+    "startCameraHttps": "Methu cychwyn camera. Defnyddiwch HTTPS neu localhost a gwirio caniatadau porwr.",
+    "qrScannerCamera": "QR rhagolwg camera sganiwr",
+    "cameraUnavailableCheck": "Camera ddim ar gael. Gwiriwch ganiatâd camera a rhowch gynnig arall arni.",
+    "pointCameraAuthenticator": "Pwyntiwch eich camera at y cod gosod dilyswr QR o'r gwasanaeth rydych chi'n ei ychwanegu.",
+    "backAddAccount": "Yn ôl i ychwanegu cyfrif",
+    "secureSetup": "SEFYDLIAD DIOGEL",
+    "enterDetailsManually": "Rhowch fanylion â llaw yn lle hynny"
+  },
+  "accountForm": {
+    "hideManualEntry": "Cuddio cofnod â llaw",
+    "secretKeySupplied": "Defnyddiwch yr allwedd gyfrinachol a ddarperir gan y gwasanaeth rydych chi'n ei ffurfweddu. Peidiwch byth â rhoi cyfrinair eich cyfrif yma. Parwch yr algorithm, y cyfrif digid, a'r egwyl â chyfarwyddiadau gosod y gwasanaeth.",
+    "updateServiceAccount": "Diweddaru'r gwasanaeth, enw'r cyfrif, neu allwedd gyfrinachol.",
+    "secretKeyRead": "Allwedd gyfrinachol, darllen yn unig wrth olygu",
+    "secretKeyBase32": "Allwedd gyfrinachol yn Base32",
+    "digits": "digidau",
+    "seconds": "eiliadau",
+    "enterDetailsManually": "NEU NODWCH Y MANYLION Â LLAW",
+    "enterDetailsManually2": "Rhowch fanylion â llaw",
+    "serviceAccountName": "Gwasanaeth, enw cyfrif ac allwedd gyfrinachol",
+    "saveChangesSecurely": "Cadw newidiadau yn ddiogel",
+    "saveAccountSecurely": "Arbedwch y cyfrif yn ddiogel",
+    "serviceIssuer": "Gwasanaeth neu gyhoeddwr",
+    "accountName": "Enw cyfrif",
+    "secretKey": "Allwedd gyfrinachol",
+    "serviceIssuer2": "GWASANAETH/RHOEDDWR",
+    "eGGoogle": "e.e. Google",
+    "clearServiceIssuer": "Gwasanaeth neu gyhoeddwr clir",
+    "eGExample": "e.e. ti@enghraifft.com",
+    "clearAccountName": "Clirio enw'r cyfrif",
+    "secretKeyLocked": "ALLWEDD GYFRINACHOL (WEDI EI GLO)",
+    "secretKeyBase322": "ALLWEDD GYFRINACHOL (BASE32)",
+    "enterSetupKey": "Rhowch eich allwedd gosod",
+    "clearSecretKey": "Clirio allwedd gyfrinachol",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP DIGITS",
+    "refreshIntervalSeconds": "CYFYNGIAD GWYBODAETH (EILIADAU)",
+    "otpRefreshInterval": "OTP egwyl adnewyddu mewn eiliadau",
+    "closeAccountForm": "Cau ffurflen cyfrif",
+    "totpSetupUrl": "TOTP gosod URL",
+    "importSetupUrl": "Gosodiad mewnforio URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "ENW'R CYFRIF",
+    "addAccount": "Ychwanegu cyfrif"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Sganio cod dilysydd QR",
+    "setupGuidance": "Sganiwch god QR ar gyfer y gosodiad hawsaf, neu rhowch fanylion â llaw.",
+    "cameraAddAccount": "Defnyddiwch eich camera i ychwanegu cyfrif ar unwaith",
+    "scanQrCode2": "Sganiwch QR cod",
+    "uploadQrImage": "Uwchlwythwch QR delwedd",
+    "chooseQrScreenshot": "Dewiswch sgrinlun QR o Oriel, Lluniau neu Ffeiliau",
+    "pasteQr": "Gludo QR delwedd / URL",
+    "pasteCopiedQr": "Gludwch ddelwedd wedi'i chopïo QR neu osodiad dilysydd URL",
+    "uploadQrImage2": "Uwchlwythwch QR delwedd"
+  },
+  "accountQr": {
+    "close": "Cau",
+    "accountQrCode": "Cod cyfrif QR",
+    "revealQrCode": "Datgelu QR cod",
+    "exportWarning": "Rhybudd: gall unrhyw un sy'n sganio'r cod hwn QR gynhyrchu codau dilysu ar gyfer y cyfrif hwn. Dim ond ar sgrin y gellir ymddiried ynddi y dylech ei datgelu.",
+    "privacyHint": "Cadwch y QR cod hwn yn breifat. Mae ei sganio yn copïo cyfrinach dilysydd y cyfrif."
+  },
+  "productInfo": {
+    "backupRestore": "Gwneud copi wrth gefn ac adfer",
+    "backupRestoreDescription": "Gwneud copi wrth gefn o'ch data dilysydd a'i adfer pan fyddwch chi'n symud i ddyfais arall.",
+    "privacyDescription": "Cadwch eich cyfrifon dilysu mewn un lle. Defnyddiwch opsiynau wrth gefn, adfer a chlo dyfais yr ap i reoli'ch gosodiad yn gyfrifol.",
+    "timeBasedCodes": "Codau seiliedig ar amser",
+    "generateOneTimeCodes": "Cynhyrchu codau pas un-amser cylchdroi ar gyfer eich cyfrifon i gwblhau dilysiad dau gam.",
+    "quickAccountSetup": "Gosod cyfrif cyflym",
+    "quickSetupDescription": "Sganiwch god dilysydd QR neu fewngludo delwedd QR i ychwanegu cyfrif.",
+    "accountsOnePlace": "Cyfrifon mewn un lle",
+    "accountsInOnePlaceDescription": "Cadwch eich cyfrifon sydd wedi'u cadw gyda'i gilydd a dewch o hyd i'r cofnod cywir pan ddaw'n amser mewngofnodi.",
+    "privateAccountVault": "Claddgell cyfrif preifat",
+    "privateVaultDescription": "Rheoli eich cofnodion dilysydd yn lleol a defnyddio'r opsiwn clo dyfais sydd ar gael yn yr ap.",
+    "easyCodeAccess": "Mynediad cod hawdd",
+    "easyCodeAccessDescription": "Copïwch god cyfredol neu reoli manylion cyfrif trwy ryngwyneb glân â ffocws.",
+    "authenticatorTechsivaram": "AWDHRENTICATOR · GAN TECHSIVARAM",
+    "mobileAuthenticator": "EICH AWDURDYDD SYMUDOL",
+    "tagline": "Ffordd symlach o reoli'ch dilysiad dau gam.",
+    "heroDescription": "Profiad dilysydd â ffocws ar gyfer codau dilysu ar sail amser. Cadwch godau cyfrif cydnaws wrth law gyda KaalKey ar gyfer Android.",
+    "timeBasedCodes2": "CODAU SY'N SEILIEDIG AR AMSER",
+    "privateDesign": "PREIFAT TRWY DYLUNIAD",
+    "builtSimpleAuthenticator": "ADEILADU AR GYFER LLIF GWAITH SYML ADDILYSUr",
+    "qrSetupTimed": "QR GOSOD · CODAU AMSEROL · RHEOLI CYFRIF",
+    "privacyTitle": "Eich cyfrifon. Eich codau. Eich rheolaeth.",
+    "authenticator": "KAALKEY · AWDENTICATOR",
+    "brandBanner": "KaalKey baner brand",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Canslo",
+      "storageInvalidTitle": "Data storio yn annilys",
+      "storageInvalidBody": "Nid oedd modd darllen data cyfrif a gadwyd yn ddiogel.",
+      "storageErrorTitle": "Gwall storio",
+      "storageErrorBody": "Nid oedd modd llwytho cyfrifon wedi'u cadw.",
+      "missingTitle": "Gwybodaeth ar goll",
+      "missingEditingBody": "Rhowch enw'r gwasanaeth ac enw'r cyfrif.",
+      "missingBody": "Rhowch enw'r gwasanaeth, enw'r cyfrif, a'r allwedd gyfrinachol.",
+      "invalidOtpBody": "Gwiriwch y Base32 gyfrinach, algorithm, cyfrif digidau, a chyfnod adnewyddu. Rhaid i gyfrinachau gynnwys Base32 nodau dilys; rhaid i ddigidau fod yn {digits} a rhaid i'r cyfnod fod yn {minPeriod}–{maxPeriod} eiliadau.",
+      "duplicateBody": "Mae cyfrif gyda'r gwasanaeth hwn ac enw cyfrif eisoes wedi'i gadw.",
+      "updatedBody": "Diweddarwyd eich cyfrif.",
+      "addedBody": "Ychwanegwyd eich cyfrif yn ddiogel.",
+      "invalidOtpTitle": "OTP gosodiadau annilys",
+      "duplicateTitle": "Mae'r cyfrif eisoes yn bodoli",
+      "savedTitle": "Cyfrif wedi'i gadw",
+      "invalidSecretTitle": "Allwedd gyfrinachol annilys",
+      "invalidSecretBody": "Gwiriwch eich bod wedi rhoi Base32 cyfrinach ddilys.",
+      "removedTitle": "Cyfrif wedi'i ddileu",
+      "removedBody": "Tynnwyd y cyfrif a'i gyfrinach o'r ddyfais hon.",
+      "clearedTitle": "Cyfrifon wedi'u clirio",
+      "clearedBody": "Tynnwyd holl gyfrifon a chyfrinachau'r dilysydd o'r ddyfais hon.",
+      "someSavedAccountsNeedAttentionTitle": "Mae angen rhoi sylw i rai cyfrifon sydd wedi'u cadw",
+      "someSavedAccountsNeedAttentionBody": "{count} ni lwythwyd cofnod(au) cyfrif annilys. Mae cyfrifon dilys yn parhau i fod ar gael. Ystyriwch greu copi wrth gefn cyn gwneud newidiadau pellach.",
+      "removeConfirmTitle": "Dileu cyfrif?",
+      "removeConfirmWebTitle": "Dileu cyfrif?",
+      "removeButton": "Dileu",
+      "clearButton": "Clirio'r cyfan",
+      "clearConfirmTitle": "Clirio pob cyfrif?",
+      "saveErrorBody": "Nid oedd modd cadw cyfrifon. Gwiriwch argaeledd storfa porwr a rhowch gynnig arall arni.",
+      "notFoundTitle": "Cyfrif heb ei ganfod",
+      "notFoundBody": "Nid oedd modd dod o hyd i'r cyfrif hwn. Caewch y golygydd a cheisiwch eto.",
+      "removeConfirmBody": "Mae hyn yn dileu'r cyfrif a'i gyfrinach o'r ddyfais hon.",
+      "clearConfirmBody": "Mae hyn yn dileu'r holl gyfrifon dilysu a'u cyfrinachau o'r ddyfais hon yn barhaol. Crëwch gopi wrth gefn wedi'i amgryptio yn gyntaf os bydd angen y cyfrifon hyn arnoch yn ddiweddarach.",
+      "clearConfirmUndoBody": "Ni ellir dadwneud hyn."
+    },
+    "biometric": {
+      "cancelButton": "Canslo",
+      "saveErrorTitle": "Methu cadw'r gosodiad",
+      "unlockPrompt": "Datgloi KaalKey Dilyswr",
+      "promptSubtitle": "Defnyddiwch fiometreg neu glo sgrin eich dyfais",
+      "disableConfirmPrompt": "Cadarnhewch i ddiffodd KaalKey clo ap",
+      "enablePrompt": "Galluogi clo ap ar gyfer KaalKey",
+      "deviceLockTitle": "Gosodwch glo sgrin eich dyfais",
+      "deviceLockBody": "KaalKey yn defnyddio dilysiad integredig eich ffôn. Gosodwch ddyfais PIN, patrwm, neu gyfrinair yng ngosodiadau diogelwch eich ffôn, yna ceisiwch eto. Mae biometreg yn ddewisol.",
+      "unavailableTitle": "Nid yw dilysu dyfais ar gael",
+      "unavailableBody": "Ni allai eich ffôn ddechrau dilysu diogel. Gwiriwch fod clo sgrin dyfais wedi'i ffurfweddu, yna ceisiwch eto.",
+      "lockedTitle": "Dilysu wedi'i gloi dros dro",
+      "lockedBody": "Mae eich ffôn wedi analluogi dilysu dros dro ar ôl gormod o ymdrechion. Arhoswch a cheisiwch eto.",
+      "promptErrorTitle": "Dilysu ddim ar gael",
+      "promptErrorBody": "KaalKey ni allai gychwyn anogwr dilysu diogel y ffôn. Ceisiwch eto.",
+      "webLock": "Nid yw clo dilysu dyfais ar gael yn y fersiwn we eto. Erys y gladdgell we heb ei gloi; defnyddio'r ap Android ar gyfer dilysu dyfeisiau brodorol.",
+      "disabledTitle": "Analluogwyd clo ap",
+      "disabledBody": "KaalKey clo ap wedi'i ddiffodd.",
+      "disableSaveError": "Mae clo'r app yn parhau i fod wedi'i alluogi. Ceisiwch eto.",
+      "enabledTitle": "Clo ap wedi'i alluogi",
+      "enabledBody": "Bydd KaalKey yn gofyn am ddilysiad integredig eich ffôn pan gaiff ei agor a phan fyddwch yn dychwelyd ato.",
+      "enableSaveError": "Nid oedd modd galluogi clo ap. Ceisiwch eto."
+    },
+    "qr": {
+      "startingCamera": "Yn cychwyn camera…",
+      "unsupportedTitle": "QR cod heb ei gefnogi",
+      "unsupportedBody": "Sganiwch y cod gosod dilysydd QR a ddarperir gan y gwasanaeth. Rhaid i hwn fod yn god TOTP, nid yn god mewngofnodi arferol QR.",
+      "unsupportedDiagnostic": "Nid yw QR yn god gosod TOTP. Anelwch at osod dilysydd QR.",
+      "detectedDiagnostic": "QR canfod. Wrthi'n dadansoddi…",
+      "analyzing": "Wrthi'n dadansoddi QR cod…",
+      "duplicateTitle": "Cyfrif eisoes wedi'i ychwanegu",
+      "duplicateBody": "{issuer}: {account} eisoes yn KaalKey.",
+      "addedTitle": "Ychwanegwyd cyfrif",
+      "addedBody": "{issuer}: {account} ychwanegwyd yn llwyddiannus.",
+      "saveFailedDiagnostic": "Methu cadw'r cyfrif. Gallwch sganio eto.",
+      "invalidTitle": "QR cod annilys",
+      "invalidBody": "KaalKey ni allai dosrannu'r cod dilysu hwn QR. {detail}. Defnyddiwch TOTP cod gosod QR y gwasanaeth (fel arfer yn dechrau gyda {prefix}).",
+      "parseFailedDiagnostic": "QR ni ellid ei phrosesu. Anelwch at y gosodiad QR a cheisiwch eto.",
+      "invalidUrlTitle": "Annilys TOTP URL",
+      "invalidUrlBody": "Gludwch ddilysydd cyflawn URL gan ddechrau gyda {prefix}.",
+      "clipboardEmptyTitle": "Mae'r clipfwrdd yn wag",
+      "clipboardEmptyBody": "Copïwch {prefix} URL yn gyntaf, yna tapiwch Gludo TOTP URL.",
+      "clipboardErrorTitle": "Methu darllen y clipfwrdd",
+      "clipboardErrorBody": "Copïwch y TOTP gosodiad URL a cheisiwch eto."
+    },
+    "haptics": {
+      "saveFailedTitle": "Methu cadw'r gosodiad",
+      "saveFailedBody": "Ni fu modd cadw dewis adborth haptig. Ceisiwch eto."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Methu cadw cydnabyddiaeth",
+      "saveFailedBody": "Ceisiwch eto. Rhaid i chi dderbyn yr hysbysiad cyfreithiol cyn defnyddio KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Mae angen caniatâd camera",
+      "body": "Caniatáu mynediad camera i sganio cod gosod dilyswr QR."
+    },
+    "storage": {
+      "browserUnavailable": "Nid yw storfa porwr ar gael.",
+      "browserFilePickerUnavailable": "Nid yw codwr ffeiliau'r porwr ar gael."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Ffeil heb ei chefnogi",
+      "unsupportedFileBody": "Dewiswch QR delwedd cod fel PNG neu JPEG.",
+      "browserDecoderUnavailable": "Nid yw dadgodio delwedd porwr ar gael",
+      "imageLoadFailed": "Ni fu modd llwytho'r ddelwedd",
+      "unreadableDimensions": "Nid oes gan y llun ddimensiynau darllenadwy",
+      "noQrCodeFoundTitle": "Ni chanfuwyd QR cod",
+      "noQrCodeFoundBody": "Ni allai KaalKey ddadgodio cod QR yn y ddelwedd hon. Rhowch gynnig ar sgrinlun neu gydraniad uwch PNG/JPEG.",
+      "couldNotReadImageTitle": "Methu darllen delwedd",
+      "couldNotReadImageBody": "Rhowch gynnig ar ddelwedd PNG neu JPEG clir sy'n cynnwys y cod gosod dilysydd QR.",
+      "couldNotOpenPickerTitle": "Methu agor y codwr delwedd",
+      "couldNotOpenPickerBody": "Ceisiwch Uwchlwytho QR eto.",
+      "normalizedDecodeFailed": "Nid oedd modd dadgodio delwedd wedi'i normaleiddio",
+      "clipboardImageLoadFailed": "Ni fu modd llwytho delwedd y clipfwrdd",
+      "imageProcessingUnavailable": "Nid yw prosesu delwedd ar gael",
+      "imageProcessingUnavailableAlt": "Nid yw prosesu delwedd ar gael",
+      "noImageInClipboardTitle": "Dim delwedd yn y clipfwrdd",
+      "noImageInClipboardBody": "Copïwch ddelwedd cod QR, yna tapiwch Gludo QR Delwedd eto.",
+      "clipboardUnavailableTitle": "Nid yw'r clipfwrdd ar gael",
+      "clipboardUnavailableBody": "Nid yw testun clipfwrdd yn osodiad dilysydd dilys URL. Copïwch ddelwedd otpauth:// URL neu QR a rhowch gynnig arall arni.",
+      "clipboardAccessBody": "KaalKey ni allai ddarllen testun na delwedd o'r clipfwrdd. Caniatáu mynediad clipfwrdd, yna copïwch y QR delwedd neu otpauth:// URL a thapiwch Gludo QR Delwedd / URL eto.",
+      "couldNotPasteImageTitle": "Methu gludo delwedd",
+      "couldNotPasteImageBody": "Nid yw'r clipfwrdd hwn ar y ddyfais hon yn cefnogi gludo delweddau. Defnyddiwch y ddelwedd Mewnforio QR yn lle hynny.",
+      "sourceImageDecodeFailure": "Rhowch gynnig ar ddelwedd QR gwahanol.",
+      "pastedImportFailureBody": "Rhowch gynnig ar QR delwedd wahanol.",
+      "sourceImageReadFailure": "Ceisiwch gopïo sgrinlun QR clir.",
+      "importFailedTitle": "QR mewngludo delwedd wedi methu",
+      "importFailedBody": "KaalKey ni allai ddarllen y ddelwedd honno. Rhowch gynnig ar ddelwedd cod QR arall.",
+      "notFoundBody": "Nid yw'r ddelwedd a gopïwyd yn cynnwys cod QR darllenadwy.",
+      "pastedNotFoundBody": "Nid yw'r ddelwedd sydd wedi'i gludo yn cynnwys cod QR darllenadwy.",
+      "pastedReadFailureBody": "Ceisiwch gopïo PNG neu JPEG delwedd glir sy'n cynnwys y QR cod llawn.",
+      "noQrCodeTextBody": "KaalKey dadgodio'r ddelwedd a ddewiswyd ond ni ddaeth o hyd i god QR. Rhowch gynnig ar PNG neu JPEG clir, cydraniad llawn gyda'r cod cyfan yn weladwy."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Nid yw'r cod QR hwn yn god gosod dilysydd seiliedig ar amser.",
+      "missingAccountDetails": "Mae manylion cyfrif ar goll yn y QR cod.",
+      "unsupportedAlgorithm": "Mae'r QR cod yn defnyddio algorithm heb ei gynnal.",
+      "unsupportedDigits": "Rhaid i'r QR cod hwn ddefnyddio 6, 7, neu 8 digid.",
+      "unsupportedPeriod": "Mae'r cod hwn QR yn defnyddio cyfnod amser heb ei gynnal.",
+      "invalidAccount": "Nid oedd modd dilysu'r QR cod."
+    },
+    "backup": {
+      "invalidJson": "Nid yw'r ffeil wrth gefn yn ddilys JSON.",
+      "unsupportedFormat": "Nid yw hwn yn gopi wrth gefn wedi'i amgryptio KaalKey a gefnogir.",
+      "invalidPasswordOrDamaged": "Mae'r cyfrinair wrth gefn yn anghywir neu mae'r ffeil wrth gefn wedi'i difrodi.",
+      "invalidContents": "Mae'r cynnwys wrth gefn yn annilys neu'n anghyflawn.",
+      "secureRandomUnavailableDetailed": "Nid yw cynhyrchu hap diogel ar gael. Ailadeiladu ac ailosod yr ap Android gyda expo-crypto wedi'i gynnwys, yna ceisiwch eto.",
+      "invalidAccountDataForBackup": "Mae un neu fwy o gyfrifon yn annilys. Trwsiwch ddata'r cyfrif cyn creu copi wrth gefn.",
+      "invalidPasswordOrModified": "Mae'r cyfrinair wrth gefn yn anghywir neu mae'r ffeil wrth gefn wedi'i haddasu.",
+      "invalidPasswordOrFileDamaged": "Mae'r cyfrinair wrth gefn yn anghywir neu mae'r ffeil wedi'i difrodi.",
+      "passwordCopiedTitle": "Cyfrinair wedi'i gopïo",
+      "enterPasswordTitle": "Rhowch eich cyfrinair wrth gefn",
+      "enterPasswordBody": "Rhowch y cyfrinair a ddefnyddiwyd pan grëwyd y copi wrth gefn hwn.",
+      "passwordCopiedBody": "Arbedwch ef yn rhywle diogel, megis WhatsApp.",
+      "copyFailedTitle": "Methodd y copi",
+      "copyFailedBody": "Dewiswch a chopïwch y cyfrinair â llaw.",
+      "generatingPassword": "Wrthi'n cynhyrchu cyfrinair diogel wrth gefn…",
+      "encrypting": "Wrthi'n amgryptio copi wrth gefn…",
+      "decrypting": "Wrthi'n dadgryptio copi wrth gefn…",
+      "restoring": "Wrthi'n adfer cyfrifon…",
+      "backupCreatedTitle": "Copi wrth gefn wedi'i greu",
+      "restoreCompleteTitle": "Adfer wedi'i gwblhau",
+      "mergeConfirmTitle": "Cyfuno cyfrifon wrth gefn?",
+      "mergeConfirmButton": "Cyfuno cyfrifon",
+      "backupSavedTemporary": "Copi wrth gefn wedi'i amgryptio wedi'i gadw dros dro yn:\n{uri}",
+      "generatePasswordErrorTitle": "Methu cynhyrchu cyfrinair wrth gefn",
+      "secureRandomUnavailable": "Nid yw cynhyrchu hap diogel ar gael.",
+      "passwordUnavailableTitle": "Nid yw'r cyfrinair wrth gefn ar gael",
+      "passwordUnavailableBody": "Caewch y dialog hwn a chreu copi wrth gefn newydd i greu cyfrinair diogel.",
+      "backupDownloadedBody": "Mae eich copi wrth gefn KaalKey wedi'i amgryptio wedi'i lawrlwytho. Cadwch y ffeil a'r cyfrinair yn breifat.",
+      "backupFailedTitle": "Wedi methu gwneud copi wrth gefn",
+      "backupCreateErrorBody": "KaalKey ni allai greu'r copi wrth gefn.",
+      "restoreFailedTitle": "Adfer wedi methu",
+      "backupReadErrorBody": "Nid oedd modd darllen na chadw'r copi wrth gefn.",
+      "browserDownloadUnsupported": "Nid yw eich porwr yn cefnogi lawrlwytho ffeiliau wrth gefn.",
+      "localFileUnavailable": "Nid yw lleoliad ffeil lleol ar gael ar y ddyfais hon.",
+      "saveBackupTitle": "Arbedwch eich copi wrth gefn KaalKey wedi'i amgryptio"
+    },
+    "clipboard": {
+      "copiedTitle": "Cod wedi'i gopïo",
+      "copiedBody": "Mae'ch cod dilysu wedi'i gopïo.",
+      "errorTitle": "Gwall",
+      "errorBody": "Methu â chopïo'r cod dilysu."
+    },
+    "activity": {
+      "cameraReady": "Camera yn barod. Pwyntiwch ef at y cod dilysu QR.",
+      "readingQrImage": "Yn darllen QR delwedd…",
+      "importingQrImage": "Wrthi'n mewnforio QR delwedd…",
+      "importingAccount": "Wrthi'n mewnforio cyfrif dilysydd…",
+      "importingPastedImage": "Wrthi'n mewnforio delwedd wedi'i gludo QR…"
+    }
+  },
+  "activity": {
+    "working": "Gweithio",
+    "wait": "Arhoswch os gwelwch yn dda…",
+    "donTClose": "Peidiwch â chau na rhyngweithio â KaalKey.",
+    "loadingLanguages": "Wrthi'n llwytho'r ieithoedd sydd ar gael…",
+    "loadingTranslation": "Wrthi'n llwytho cyfieithiad…"
+  }
+}

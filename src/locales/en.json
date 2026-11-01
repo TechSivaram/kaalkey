@@ -10,7 +10,11 @@
       "searchLanguageName": "Search language (name or code)",
       "searchSupportedLanguages": "Search supported languages",
       "closeLanguageDropdown": "Close language dropdown",
-      "noTranslatedLanguage": "No translated language found."
+      "noTranslatedLanguage": "No translated language found.",
+      "serverUrl": "Translation server URL",
+      "serverUrlDescription": "KaalKey downloads the language list and translations from this server.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Save translation server"
     },
     "title": "App settings",
     "eyebrow": "KAALKEY PREFERENCES",
@@ -497,6 +501,8 @@
   "activity": {
     "working": "Working",
     "wait": "Please wait…",
-    "donTClose": "Please don’t close or interact with KaalKey."
+    "donTClose": "Please don’t close or interact with KaalKey.",
+    "loadingLanguages": "Loading available languages…",
+    "loadingTranslation": "Loading translation…"
   }
 }

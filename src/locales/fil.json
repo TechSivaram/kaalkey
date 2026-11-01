@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Wika",
+      "description": "Piliin ang wikang ginamit sa KaalKey.",
+      "english": "Ingles",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "WIKA",
+      "searchLanguageName": "Wika sa paghahanap (pangalan o code)",
+      "searchSupportedLanguages": "Maghanap ng mga suportadong wika",
+      "closeLanguageDropdown": "Isara ang dropdown ng wika",
+      "noTranslatedLanguage": "Walang nakitang isinaling wika.",
+      "serverUrl": "Server ng pagsasalin URL",
+      "serverUrlDescription": "KaalKey ay nagda-download ng listahan ng wika at mga pagsasalin mula sa server na ito.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "I-save ang server ng pagsasalin"
+    },
+    "title": "Mga setting ng app",
+    "eyebrow": "KAALKEY PREFERENS",
+    "experience": {
+      "section": "KARANASAN"
+    },
+    "security": {
+      "section": "SEGURIDAD"
+    },
+    "backup": {
+      "section": "BACKUP & RECOVERY"
+    },
+    "danger": {
+      "section": "DANGER ZONE",
+      "clearAccounts": "I-clear ang lahat ng account",
+      "clearAccountsDescription": "Permanenteng alisin ang bawat account at sikreto sa device na ito. I-back up muna.",
+      "clearAccountsAccessibilityLabel": "I-clear ang lahat ng authenticator account"
+    },
+    "appearance": {
+      "section": "Hitsura",
+      "title": "Banayad na hitsura",
+      "description": "Kasalukuyang ginagamit ng KaalKey ang malinis na liwanag na tema nito."
+    },
+    "haptics": {
+      "title": "Haptic feedback",
+      "description": "Magiliw na feedback para sa mga pag-tap at nakumpletong pagkilos."
+    },
+    "deviceLock": {
+      "title": "Lock ng pagpapatunay ng device",
+      "description": "Nagla-lock ang iyong vault kapag umalis ang KaalKey sa foreground.",
+      "requirement": "Hilingin ang biometrics o screen-lock PIN, pattern, o password ng iyong telepono.",
+      "accessibilityLabel": "Lock ng app sa pagpapatotoo ng device"
+    },
+    "privacy": {
+      "title": "Legal at privacy",
+      "description": "Suriin ang Patakaran sa Privacy at Mga Tuntunin ng Paggamit.",
+      "storageNote": "Ang iyong mga lihim ng authenticator ay nananatili sa secure na vault sa device. Ang mga kagustuhan ay lokal na iniimbak."
+    }
+  },
+  "accounts": {
+    "edit": "I-edit",
+    "sortAccountName": "Pagbukud-bukurin ayon sa pangalan ng account",
+    "loadingSecureVault": "Nilo-load ang secure na vault...",
+    "tapCopy": "I-tap para KOPYA",
+    "noAccountsMatch": "Walang mga account na tumutugma sa iyong paghahanap.",
+    "viewQrCode": "Tingnan ang QR code para sa account",
+    "removeAccount": "Alisin ang account",
+    "copyVerificationCode": "Kopyahin ang verification code",
+    "active": "ACTIVE",
+    "sort": "PAGSAY-BAYIN NG",
+    "account": "Account",
+    "clearSearch": "I-clear ang paghahanap",
+    "sortServiceName": "Pagbukud-bukurin ayon sa pangalan ng serbisyo",
+    "addFirstAccount": "Idagdag ang iyong unang account",
+    "searchAccounts": "Maghanap ng mga account",
+    "searchServiceAccount": "Maghanap ng serbisyo o account",
+    "accounts": "Iyong mga account",
+    "add": "+ Idagdag",
+    "vaultStartsHere": "Dito magsisimula ang iyong vault",
+    "service": "Serbisyo",
+    "emptyHint": "Magdagdag ng account gamit ang secret key nito para buuin ang iyong unang verification code."
+  },
+  "common": {
+    "done": "Tapos na",
+    "doneButton": "Tapos na",
+    "closeSettings": "Isara ang mga setting",
+    "separator": "-",
+    "article": "a",
+    "save": "I-save",
+    "delete": "Tanggalin",
+    "resizeAppBrand": "Baguhin ang laki ng mga panel ng app at brand"
+  },
+  "qrImport": {
+    "readPastedImage": "Hindi mabasa ang naka-paste na larawan"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Mga account sa backup na ito: {count}. Papanatilihin ng KaalKey ang iyong mga umiiral nang account at magdagdag ng anumang mga account na wala pa. Ang mga duplicate na account ay lalaktawan.",
+    "restoreCompletionBody": "Mga idinagdag na account: {added}. Nilaktawan ang mga duplicate na account: {skipped}. Ang iyong mga kasalukuyang account ay itinago.",
+    "copyPassword": "Kopyahin ang nabuong password",
+    "passwordSafety": "I-save ang password na ito nang hiwalay (halimbawa, sa WhatsApp). Sinuman na may pareho ang",
+    "importAction": "Pumili ng file at mag-import",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "SECURE VAULT",
+    "createBackup": "Gumawa ng backup",
+    "encryptedFile": "Naka-encrypt na file",
+    "restoreBackup": "Ibalik ang backup",
+    "safetyNote": "Ang mga backup ay naglalaman ng mga lihim ng iyong authenticator. Ang KaalKey ay bumubuo ng isang natatanging password para sa bawat backup. I-save ito nang hiwalay; Hindi ito mabawi ng KaalKey.",
+    "generatingSecurePassword": "Bumubuo ng secure na password...",
+    "importFile": "Mag-import ng file",
+    "backupPassword": "BACKUP PASSWORD",
+    "account": "account",
+    "accounts": "mga account",
+    "exportDescription": "I-encrypt ang lahat ng {count} na na-save {accountLabel} sa isang backup na file. KaalKey ay bumubuo ng isang natatanging password; kopyahin at i-save ito nang hiwalay sa file.",
+    "restoreDescription": "Piliin ang iyong KaalKey backup na file at password. Ang mga bagong account ay idaragdag sa iyong kasalukuyang listahan ng account; ang mga umiiral na account ay mananatiling tulad ng mga ito.",
+    "enterBackupPassword": "Ipasok ang backup na password",
+    "closeBackup": "Isara ang backup",
+    "copyGeneratedBackup": "Kopyahin ang nabuong backup na password",
+    "backupPassword2": "I-backup ang password",
+    "clearBackupPassword": "I-clear ang backup na password",
+    "backupFilePassword": "maaaring ibalik ng backup na file at password ang iyong mga authenticator account.",
+    "encryptShareBackup": "I-encrypt at ibahagi ang backup"
+  },
+  "home": {
+    "unlockSecurely": "I-unlock nang ligtas",
+    "disableAppLock": "Huwag paganahin ang lock ng app",
+    "enableAppLock": "Paganahin ang lock ng app",
+    "checkingSecureLock": "Sinusuri ang iyong mga secure na setting ng lock. Nananatiling nakatago ang iyong mga code.",
+    "waitingVerification": "Naghihintay para sa pag-verify…",
+    "secretsStayStored": "Ang iyong mga lihim ay mananatiling nakaimbak sa device na ito.",
+    "openAppSettings": "Buksan ang mga setting ng app",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "Gamitin ang biometrics o screen-lock PIN, pattern, o password ng iyong telepono upang ma-access ang iyong mga one-time na verification code.",
+    "localVault": "IYONG LOKAL NA VAULT",
+    "codesDeviceControl": "Iyong mga code. Ang iyong device. Ang iyong kontrol.",
+    "securingVault": "Sini-secure ang iyong vault...",
+    "vaultProtected": "Ang iyong vault ay protektado",
+    "lock": "I-LOCK ON",
+    "localVault2": "LOKAL NA VAULT",
+    "authenticator": "KAALKEY AUTENTIKATOR",
+    "tricolourLockEmblem": "KaalKey tatlong kulay na emblem ng lock",
+    "authenticator2": "AUTENTIKATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Kung pipiliin mong mag-scan ng QR code, ang KaalKey ay gumagamit ng pahintulot ng camera para sa pagkilos na iyon. Ang opsyonal na pagpapatotoo ng device at haptic na feedback ay gumagamit ng mga nauugnay na feature ng device. Maaari mong pamahalaan ang mga pahintulot sa mga setting ng iyong device.",
+        "heading": "2. Mga pahintulot at feature ng device"
+      },
+      "backups": {
+        "body": "Kapag gumawa ka ng backup, ine-encrypt ng KaalKey ang backup gamit ang password na pipiliin mo. Panatilihing pribado ang file at password at ligtas na iimbak ang mga ito. Maaaring maibalik ng sinumang kumuha ng file at password nito ang iyong mga authenticator account. Hindi mabawi ng KaalKey ang isang nakalimutang backup na password.",
+        "heading": "3. Mga backup"
+      },
+      "security": {
+        "body": "Panatilihing updated ang iyong device, protektahan ito gamit ang lock ng screen, at huwag magbahagi ng mga lihim o backup na password ng OTP. Ang pag-alis sa app, pag-clear sa data nito, o pagkawala ng device ay maaaring maging sanhi ng mga lokal na nakaimbak na account na hindi magagamit. Panatilihin ang isang secure na backup kung kailangan mo ng pagbawi.",
+        "heading": "5. Seguridad at pagpapanatili"
+      },
+      "information": {
+        "heading": "1. Impormasyon at mga lihim",
+        "body": "Ang KaalKey ay isang authenticator app. Ang mga label ng account at ang mga lihim na halaga na kailangan upang makabuo ng mga minsanang code ay sensitibo. Ang app ay idinisenyo upang mag-imbak ng mga tala ng account sa secure na storage ng device. Maaaring ma-access ng sinumang may access sa isang naka-unlock na device o na-export na backup ang sensitibong impormasyon."
+      },
+      "sharing": {
+        "heading": "4. Pagbabahagi at mga ikatlong partido",
+        "body": "Maaaring gamitin ng backup na daloy ang share sheet o file picker ng iyong device para mag-save, maglipat, o pumili ng mga file. Ang mga kasanayan sa privacy ng anumang third-party na app o serbisyo na pipiliin mo ay pinamamahalaan ng provider na iyon. Ang abisong ito ay hindi gumagawa ng blankong claim na ang iyong device, operating system, o mga piniling serbisyo sa pagbabahagi ay hindi kailanman nagpoproseso ng data."
+      },
+      "changes": {
+        "heading": "6. Mga pagbabago at contact",
+        "body": "Maaaring baguhin ang naka-embed na notice na ito sa isang release ng app sa hinaharap. Para sa mga tanong sa privacy, makipag-ugnayan sa publisher ng app sa pamamagitan ng opisyal na channel ng suporta na ibinigay kasama ng app."
+      },
+      "title": "Patakaran sa Privacy"
+    },
+    "terms": {
+      "use": {
+        "body": "Maaari mong gamitin ang KaalKey upang bumuo ng mga verification code para sa mga account na pinahintulutan mong i-access. Responsable ka sa pagsunod sa mga naaangkop na batas at mga panuntunan ng mga serbisyo kung saan ginagamit mo ang mga code sa pagpapatunay.",
+        "heading": "1. Ang iyong paggamit"
+      },
+      "protectAccounts": {
+        "body": "Responsable ka sa pag-secure ng iyong device, mga lihim ng authenticator, mga paraan ng pagbawi, mga na-export na backup, at mga backup na password. Huwag magbahagi ng mga code o lihim sa mga taong hindi mo pinagkakatiwalaan.",
+        "heading": "2. Protektahan ang iyong mga account"
+      },
+      "availability": {
+        "body": "Maaaring magbago ang mga feature sa pagitan ng mga release. Dapat mong panatilihing na-update ang app at pana-panahong i-verify na gumagana ang iyong mga pagsasaayos sa pag-backup at pagbawi.",
+        "heading": "5. Mga pagbabago at kakayahang magamit"
+      },
+      "recovery": {
+        "body": "Hindi magagarantiya ng KaalKey na ang bawat account ay mababawi, na ang bawat QR code o configuration ay magiging tugma, o na ang app ay gagana nang walang pagkaantala o error. Panatilihin ang mga alternatibong paraan ng pagbawi na ibinigay ng nauugnay na serbisyo.",
+        "heading": "3. Walang garantiya sa pagbawi"
+      },
+      "advice": {
+        "heading": "4. Walang propesyonal na payo",
+        "body": "Ang app ay isang utility at hindi nagbibigay ng legal, pampinansyal, o seguridad na payo sa pagtugon sa insidente. Kung nakompromiso ang isang account, sundin ang opisyal na pagbawi at gabay sa seguridad ng apektadong serbisyo."
+      },
+      "liability": {
+        "heading": "6. Pananagutan at naaangkop na batas",
+        "body": "Sa lawak na pinahihintulutan ng naaangkop na batas, ibinibigay ang app nang walang garantiya ng tuluy-tuloy o walang error na operasyon. Wala sa mga tuntuning ito ang nagbubukod ng mga karapatan o remedyo na hindi maaaring legal na ibukod. Anumang karagdagang limitasyon o tuntunin ng namamahala sa batas ay dapat suriin ng isang kwalipikadong abogado para sa hurisdiksyon ng publisher bago ilabas."
+      },
+      "title": "Mga Tuntunin sa Paggamit"
+    },
+    "version": "Bersyon",
+    "saving": "Sine-save…",
+    "acceptContinue": "Tanggapin at Magpatuloy",
+    "appliesAuthenticator": "Nalalapat sa KaalKey Authenticator",
+    "reviewBothDocuments": "Pakisuri ang parehong mga dokumento bago gamitin ang KaalKey. Kasama ang mga ito sa app at available offline.",
+    "originalMulticolourAuthenticator": "Orihinal na multicolour KaalKey authenticator emblem",
+    "legalPrivacyNotice": "Paunawa sa Legal at Privacy",
+    "legalInformation": "Legal na impormasyon",
+    "reviewSPrivacy": "Suriin ang impormasyon sa privacy at mga tuntunin ng paggamit ng KaalKey.",
+    "iReadAgree": "Nabasa ko at sumasang-ayon ako sa Patakaran sa Privacy at Mga Tuntunin ng Paggamit."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Panatilihing nakikita ang buong QR code. Ang iyong sikreto ay nananatili sa device na ito.",
+    "back": "Bumalik",
+    "turnFlashlightOff": "Patayin ang flashlight",
+    "turnFlashlight": "I-on ang flashlight",
+    "flashlight": "Naka-on ang flashlight",
+    "flashlight2": "Flashlight",
+    "cameraUnavailableOpen": "Hindi available ang camera. Buksan ang page na ito sa HTTPS o localhost at payagan ang camera access.",
+    "cameraPreviewUnavailable": "Hindi available ang preview ng camera. Isara at buksan muli ang scanner.",
+    "cameraReadyPoint": "Handa na ang camera — ituro ito sa buong QR.",
+    "browserCannotProcess": "Hindi maproseso ng browser na ito ang mga frame ng camera.",
+    "qrCodeDetected": "Natukoy ang QR code.",
+    "couldnTRead": "Hindi mabasa ang mga frame ng camera. Suriin ang mga pahintulot sa camera at i-reload ang page na ito.",
+    "cameraPermissionDenied": "Tinanggihan ang pahintulot sa camera. Payagan ang pag-access ng camera sa mga setting ng browser, pagkatapos ay muling buksan ang scanner.",
+    "noCameraWas": "Walang nakitang camera sa device na ito.",
+    "cameraBusyAnother": "Abala ang camera sa isa pang app o tab ng browser.",
+    "startCameraHttps": "Hindi masimulan ang camera. Gamitin ang HTTPS o localhost at tingnan ang mga pahintulot sa browser.",
+    "qrScannerCamera": "QR preview ng camera ng scanner",
+    "cameraUnavailableCheck": "Hindi available ang camera. Tingnan ang pahintulot sa camera at subukang muli.",
+    "pointCameraAuthenticator": "Ituro ang iyong camera sa code ng setup ng authenticator QR mula sa serbisyong idinaragdag mo.",
+    "backAddAccount": "Bumalik upang magdagdag ng account",
+    "secureSetup": "SECURE SETUP",
+    "enterDetailsManually": "Sa halip, ipasok ang mga detalye nang manu-mano"
+  },
+  "accountForm": {
+    "hideManualEntry": "Itago ang manu-manong entry",
+    "secretKeySupplied": "Gamitin ang sikretong key na ibinibigay ng serbisyong iyong kino-configure. Huwag kailanman ilagay ang password ng iyong account dito. Itugma ang algorithm, bilang ng digit, at agwat sa mga tagubilin sa pag-setup ng serbisyo.",
+    "updateServiceAccount": "I-update ang serbisyo, pangalan ng account, o sikretong key.",
+    "secretKeyRead": "Secret key, read-only habang nag-e-edit",
+    "secretKeyBase32": "Lihim na key sa Base32",
+    "digits": "mga digit",
+    "seconds": "segundo",
+    "enterDetailsManually": "O MANWAL NA Ipasok ang mga DETALYE",
+    "enterDetailsManually2": "Manu-manong ipasok ang mga detalye",
+    "serviceAccountName": "Serbisyo, pangalan ng account at sikretong key",
+    "saveChangesSecurely": "I-save ang mga pagbabago nang ligtas",
+    "saveAccountSecurely": "I-save ang account nang ligtas",
+    "serviceIssuer": "Serbisyo o tagabigay",
+    "accountName": "Pangalan ng account",
+    "secretKey": "Lihim na susi",
+    "serviceIssuer2": "SERBISYO / ISSUER",
+    "eGGoogle": "hal. Google",
+    "clearServiceIssuer": "Malinaw na serbisyo o tagabigay",
+    "eGExample": "hal. you@example.com",
+    "clearAccountName": "I-clear ang pangalan ng account",
+    "secretKeyLocked": "SECRET KEY (LOCKED)",
+    "secretKeyBase322": "SECRET KEY (BASE32)",
+    "enterSetupKey": "Ilagay ang iyong setup key",
+    "clearSecretKey": "I-clear ang lihim na susi",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP DIGITS",
+    "refreshIntervalSeconds": "REFRESH INTERVAL (SECONDS)",
+    "otpRefreshInterval": "OTP agwat ng pag-refresh sa ilang segundo",
+    "closeAccountForm": "Isara ang form ng account",
+    "totpSetupUrl": "TOTP setup URL",
+    "importSetupUrl": "Setup ng import URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "PANGALAN NG ACCOUNT",
+    "addAccount": "Magdagdag ng account"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "I-scan ang code ng authenticator QR.",
+    "setupGuidance": "Mag-scan ng QR code para sa pinakamadaling setup, o manu-manong ilagay ang mga detalye.",
+    "cameraAddAccount": "Gamitin ang iyong camera upang magdagdag ng account kaagad",
+    "scanQrCode2": "I-scan ang QR code",
+    "uploadQrImage": "Mag-upload ng QR na larawan",
+    "chooseQrScreenshot": "Pumili ng screenshot ng QR mula sa Gallery, Photos, o Files",
+    "pasteQr": "I-paste ang QR larawan / URL",
+    "pasteCopiedQr": "Mag-paste ng kinopyang QR na imahe o setup ng authenticator URL",
+    "uploadQrImage2": "Mag-upload ng QR na larawan"
+  },
+  "accountQr": {
+    "close": "Isara",
+    "accountQrCode": "Account QR code",
+    "revealQrCode": "Ipakita ang QR code",
+    "exportWarning": "Babala: sinumang mag-scan sa QR code na ito ay maaaring bumuo ng mga verification code para sa account na ito. Ihayag lamang ito sa isang pinagkakatiwalaang screen.",
+    "privacyHint": "Panatilihing pribado ang QR code na ito. Ang pag-scan dito ay kinokopya ang lihim ng authenticator ng account."
+  },
+  "productInfo": {
+    "backupRestore": "I-backup at i-restore",
+    "backupRestoreDescription": "I-back up ang iyong data ng authenticator at i-restore ito kapag lumipat ka sa ibang device.",
+    "privacyDescription": "Panatilihin ang iyong mga verification account sa isang lugar. Gamitin ang mga opsyon sa pag-backup, pag-restore, at pag-lock ng device ng app para mapamahalaan ang iyong setup nang responsable.",
+    "timeBasedCodes": "Mga code na nakabatay sa oras",
+    "generateOneTimeCodes": "Bumuo ng umiikot na isang beses na passcode para sa iyong mga account upang makumpleto ang dalawang hakbang na pag-verify.",
+    "quickAccountSetup": "Mabilis na pag-setup ng account",
+    "quickSetupDescription": "Mag-scan ng code ng authenticator QR o mag-import ng larawan ng QR upang magdagdag ng account.",
+    "accountsOnePlace": "Mga account sa isang lugar",
+    "accountsInOnePlaceDescription": "Panatilihing magkasama ang iyong mga naka-save na account at hanapin ang tamang entry kapag oras na para mag-sign in.",
+    "privateAccountVault": "Pribadong account vault",
+    "privateVaultDescription": "Pamahalaan ang iyong mga entry sa authenticator nang lokal at gamitin ang magagamit na opsyon sa pag-lock ng device ng app.",
+    "easyCodeAccess": "Madaling pag-access sa code",
+    "easyCodeAccessDescription": "Kumopya ng kasalukuyang code o pamahalaan ang mga detalye ng account sa pamamagitan ng malinis at nakatutok na interface.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · NI TECHSIVARAM",
+    "mobileAuthenticator": "IYONG MOBILE AUTHENTICATOR",
+    "tagline": "Isang mas simpleng paraan upang pamahalaan ang iyong dalawang hakbang na pag-verify.",
+    "heroDescription": "Isang nakatuong karanasan sa authenticator para sa time-based na mga verification code. Panatilihing malapit ang mga katugmang account code sa KaalKey para sa Android.",
+    "timeBasedCodes2": "TIME-BASED CODES",
+    "privateDesign": "PRIVATE BY DESIGN",
+    "builtSimpleAuthenticator": "TINYO PARA SA ISANG SIMPLE AUTENTICATOR WORKFLOW",
+    "qrSetupTimed": "QR SETUP · TIMED CODE · ACCOUNT MANAGEMENT",
+    "privacyTitle": "Iyong mga account. Iyong mga code. Ang iyong kontrol.",
+    "authenticator": "KAALKEY · AUTENTIKATOR",
+    "brandBanner": "KaalKey banner ng brand",
+    "logo": "logo ng KaalKey."
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Kanselahin",
+      "storageInvalidTitle": "Di-wasto ang data ng storage",
+      "storageInvalidBody": "Hindi mababasa nang ligtas ang data ng naka-save na account.",
+      "storageErrorTitle": "Error sa storage",
+      "storageErrorBody": "Hindi ma-load ang mga naka-save na account.",
+      "missingTitle": "Nawawalang impormasyon",
+      "missingEditingBody": "Ipasok ang pangalan ng serbisyo at pangalan ng account.",
+      "missingBody": "Ipasok ang pangalan ng serbisyo, pangalan ng account, at sikretong key.",
+      "invalidOtpBody": "Suriin ang Base32 sikreto, algorithm, bilang ng digit, at panahon ng pag-refresh. Ang mga lihim ay dapat maglaman ng wastong Base32 na mga character; ang mga digit ay dapat na {digits} at ang tagal ay dapat na {minPeriod}–{maxPeriod} segundo.",
+      "duplicateBody": "Naka-save na ang isang account na may ganitong serbisyo at pangalan ng account.",
+      "updatedBody": "Na-update ang iyong account.",
+      "addedBody": "Ang iyong account ay ligtas na naidagdag.",
+      "invalidOtpTitle": "Di-wastong mga setting ng OTP.",
+      "duplicateTitle": "Umiiral na ang account",
+      "savedTitle": "Na-save ang account",
+      "invalidSecretTitle": "Di-wastong sikretong key",
+      "invalidSecretBody": "Pakitiyak na nagpasok ka ng wastong Base32.",
+      "removedTitle": "Inalis ang account",
+      "removedBody": "Inalis ang account at ang lihim nito sa device na ito.",
+      "clearedTitle": "Na-clear ang mga account",
+      "clearedBody": "Inalis ang lahat ng authenticator account at sikreto sa device na ito.",
+      "someSavedAccountsNeedAttentionTitle": "Ang ilang mga naka-save na account ay nangangailangan ng pansin",
+      "someSavedAccountsNeedAttentionBody": "{count} di-wastong (mga) tala ng account ay hindi na-load. Nananatiling available ang mga wastong account. Pag-isipang gumawa ng backup bago gumawa ng mga karagdagang pagbabago.",
+      "removeConfirmTitle": "Alisin ang account?",
+      "removeConfirmWebTitle": "Alisin ang account?",
+      "removeButton": "Alisin",
+      "clearButton": "I-clear lahat",
+      "clearConfirmTitle": "I-clear ang lahat ng account?",
+      "saveErrorBody": "Hindi ma-save ang mga account. Tingnan ang availability ng imbakan ng browser at subukang muli.",
+      "notFoundTitle": "Hindi nahanap ang account",
+      "notFoundBody": "Hindi mahanap ang account na ito. Isara ang editor at subukang muli.",
+      "removeConfirmBody": "Inaalis nito ang account at ang lihim nito sa device na ito.",
+      "clearConfirmBody": "Permanente nitong inaalis ang lahat ng authenticator account at ang kanilang mga lihim sa device na ito. Gumawa muna ng naka-encrypt na backup kung maaaring kailanganin mo ang mga account na ito sa ibang pagkakataon.",
+      "clearConfirmUndoBody": "Hindi na ito maaaring bawiin."
+    },
+    "biometric": {
+      "cancelButton": "Kanselahin",
+      "saveErrorTitle": "Hindi ma-save ang setting",
+      "unlockPrompt": "I-unlock ang KaalKey Authenticator",
+      "promptSubtitle": "Gumamit ng biometrics o lock ng screen ng iyong device",
+      "disableConfirmPrompt": "Kumpirmahin na i-off ang KaalKey lock ng app",
+      "enablePrompt": "Paganahin ang lock ng app para sa KaalKey",
+      "deviceLockTitle": "I-set up ang lock ng screen ng iyong device",
+      "deviceLockBody": "Ginagamit ng KaalKey ang built-in na pagpapatotoo ng iyong telepono. Magtakda ng device PIN, pattern, o password sa mga setting ng seguridad ng iyong telepono, pagkatapos ay subukang muli. Opsyonal ang biometrics.",
+      "unavailableTitle": "Hindi available ang pagpapatotoo ng device",
+      "unavailableBody": "Hindi masimulan ng iyong telepono ang secure na pagpapatotoo. Tingnan kung naka-configure ang lock ng screen ng device, pagkatapos ay subukang muli.",
+      "lockedTitle": "Pansamantalang naka-lock ang pagpapatotoo",
+      "lockedBody": "Pansamantalang hindi pinagana ng iyong telepono ang pagpapatunay pagkatapos ng napakaraming pagsubok. Maghintay at subukang muli.",
+      "promptErrorTitle": "Hindi available ang pagpapatotoo",
+      "promptErrorBody": "Hindi masimulan ng KaalKey ang secure na authentication prompt ng telepono. Pakisubukang muli.",
+      "webLock": "Ang lock ng pagpapatunay ng device ay hindi pa available sa bersyon ng web. Ang web vault ay nananatiling naka-unlock; gamitin ang Android app para sa native na pagpapatotoo ng device.",
+      "disabledTitle": "Naka-disable ang lock ng app",
+      "disabledBody": "KaalKey app lock ay naka-off.",
+      "disableSaveError": "Nananatiling naka-enable ang lock ng app. Pakisubukang muli.",
+      "enabledTitle": "Pinagana ang lock ng app",
+      "enabledBody": "Hihilingin ng KaalKey ang built-in na pagpapatotoo ng iyong telepono kapag binuksan at kapag bumalik ka dito.",
+      "enableSaveError": "Hindi ma-enable ang lock ng app. Pakisubukang muli."
+    },
+    "qr": {
+      "startingCamera": "Sinisimulan ang camera…",
+      "unsupportedTitle": "Hindi sinusuportahang QR code",
+      "unsupportedBody": "I-scan ang authenticator setup QR code na ibinigay ng serbisyo. Ito ay dapat na isang TOTP code, hindi isang normal na login QR.",
+      "unsupportedDiagnostic": "Ang QR ay hindi isang TOTP setup code. Layunin ang isang setup ng authenticator QR.",
+      "detectedDiagnostic": "Nakita ang QR. Sinusuri...",
+      "analyzing": "Sinusuri ang QR code…",
+      "duplicateTitle": "Naidagdag na ang account",
+      "duplicateBody": "{issuer}: {account} ay nasa KaalKey.",
+      "addedTitle": "Naidagdag ang account",
+      "addedBody": "{issuer}: Matagumpay na naidagdag ang {account}.",
+      "saveFailedDiagnostic": "Hindi ma-save ang account. Maaari kang mag-scan muli.",
+      "invalidTitle": "Di-wastong QR code",
+      "invalidBody": "Hindi ma-parse ng KaalKey ang code na ito ng authenticator na QR. {detail}. Gamitin ang TOTP setup QR code ng serbisyo (karaniwang nagsisimula sa {prefix}).",
+      "parseFailedDiagnostic": "Hindi maproseso ang QR. Layunin ang setup QR at subukang muli.",
+      "invalidUrlTitle": "Di-wasto TOTP URL",
+      "invalidUrlBody": "Mag-paste ng kumpletong authenticator URL na nagsisimula sa {prefix}.",
+      "clipboardEmptyTitle": "Walang laman ang clipboard",
+      "clipboardEmptyBody": "Kopyahin muna ang {prefix} URL, pagkatapos ay i-tap ang I-paste TOTP URL.",
+      "clipboardErrorTitle": "Hindi mabasa ang clipboard",
+      "clipboardErrorBody": "Kopyahin ang TOTP setup URL at subukang muli."
+    },
+    "haptics": {
+      "saveFailedTitle": "Hindi ma-save ang setting",
+      "saveFailedBody": "Hindi ma-save ang kagustuhan sa haptic na feedback. Pakisubukang muli."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Hindi ma-save ang pagkilala",
+      "saveFailedBody": "Pakisubukang muli. Dapat mong tanggapin ang legal na abiso bago gamitin ang KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Kinakailangan ang pahintulot sa camera",
+      "body": "Payagan ang access ng camera na mag-scan ng code ng setup ng authenticator QR."
+    },
+    "storage": {
+      "browserUnavailable": "Hindi available ang storage ng browser.",
+      "browserFilePickerUnavailable": "Hindi available ang browser file picker."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Hindi sinusuportahang file",
+      "unsupportedFileBody": "Pumili ng QR na larawan ng code gaya ng PNG o JPEG.",
+      "browserDecoderUnavailable": "Hindi available ang pag-decode ng larawan ng browser",
+      "imageLoadFailed": "Hindi ma-load ang larawan",
+      "unreadableDimensions": "Walang nababasang sukat ang larawan",
+      "noQrCodeFoundTitle": "Walang nakitang QR code",
+      "noQrCodeFoundBody": "Hindi ma-decode ng KaalKey ang isang QR code sa larawang ito. Subukan ang isang screenshot o isang mas mataas na resolution PNG/JPEG.",
+      "couldNotReadImageTitle": "Hindi mabasa ang larawan",
+      "couldNotReadImageBody": "Subukan ang isang malinaw na PNG o JPEG na larawan na naglalaman ng code ng setup ng authenticator na QR.",
+      "couldNotOpenPickerTitle": "Hindi mabuksan ang tagapili ng larawan",
+      "couldNotOpenPickerBody": "Pakisubukang muli ang Mag-upload ng QR.",
+      "normalizedDecodeFailed": "Hindi ma-decode ang normalized na imahe",
+      "clipboardImageLoadFailed": "Hindi ma-load ang larawan sa clipboard",
+      "imageProcessingUnavailable": "Hindi available ang pagpoproseso ng larawan",
+      "imageProcessingUnavailableAlt": "Hindi available ang pagpoproseso ng larawan",
+      "noImageInClipboardTitle": "Walang larawan sa clipboard",
+      "noImageInClipboardBody": "Kopyahin ang isang QR na larawan ng code, pagkatapos ay i-tap muli ang I-paste QR Larawan.",
+      "clipboardUnavailableTitle": "Hindi available ang clipboard",
+      "clipboardUnavailableBody": "Ang clipboard text ay hindi wastong authenticator setup URL. Kumopya ng otpauth:// URL o QR na larawan at subukang muli.",
+      "clipboardAccessBody": "KaalKey ay hindi makabasa ng teksto o isang imahe mula sa clipboard. Payagan ang pag-access sa clipboard, pagkatapos ay kopyahin ang QR na larawan o otpauth:// URL at i-tap muli ang I-paste QR Larawan / URL.",
+      "couldNotPasteImageTitle": "Hindi ma-paste ang larawan",
+      "couldNotPasteImageBody": "Ang pag-paste ng larawan ay hindi sinusuportahan ng clipboard na ito sa device na ito. Gamitin na lang ang Import QR na larawan.",
+      "sourceImageDecodeFailure": "Subukan ang ibang larawan ng QR.",
+      "pastedImportFailureBody": "Subukan ang ibang larawan ng QR.",
+      "sourceImageReadFailure": "Subukang kumopya ng malinaw na screenshot ng QR.",
+      "importFailedTitle": "QR nabigo ang pag-import ng larawan",
+      "importFailedBody": "Hindi mabasa ni KaalKey ang larawang iyon. Pakisubukan ang isa pang QR na larawan ng code.",
+      "notFoundBody": "Ang kinopyang larawan ay hindi naglalaman ng nababasang QR code.",
+      "pastedNotFoundBody": "Ang na-paste na larawan ay hindi naglalaman ng nababasang QR code.",
+      "pastedReadFailureBody": "Subukang kumopya ng malinaw na PNG o JPEG na larawan na naglalaman ng buong QR.",
+      "noQrCodeTextBody": "Na-decode ng KaalKey ang napiling larawan ngunit hindi nakahanap ng code na QR. Subukan ang isang malinaw, buong-resolution na PNG o JPEG na nakikita ang buong code."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Ang QR code na ito ay hindi isang time-based na authenticator setup code.",
+      "missingAccountDetails": "Ang QR code ay nawawala ang mga detalye ng account.",
+      "unsupportedAlgorithm": "Gumagamit ang QR code ng hindi sinusuportahang algorithm.",
+      "unsupportedDigits": "Ang QR code na ito ay dapat gumamit ng 6, 7, o 8 digit.",
+      "unsupportedPeriod": "Gumagamit ang QR code na ito ng hindi sinusuportahang yugto ng panahon.",
+      "invalidAccount": "Hindi ma-validate ang QR code."
+    },
+    "backup": {
+      "invalidJson": "Ang backup na file ay hindi wasto JSON.",
+      "unsupportedFormat": "Ito ay hindi isang suportadong KaalKey na naka-encrypt na backup.",
+      "invalidPasswordOrDamaged": "Mali ang backup na password o nasira ang backup file.",
+      "invalidContents": "Ang mga backup na nilalaman ay hindi wasto o hindi kumpleto.",
+      "secureRandomUnavailableDetailed": "Hindi available ang secure na random na henerasyon. I-rebuild at muling i-install ang Android app na may kasamang expo-crypto, pagkatapos ay subukang muli.",
+      "invalidAccountDataForBackup": "Ang isa o higit pang mga account ay hindi wasto. Ayusin ang data ng account bago gumawa ng backup.",
+      "invalidPasswordOrModified": "Mali ang backup na password o binago ang backup file.",
+      "invalidPasswordOrFileDamaged": "Mali ang backup na password o nasira ang file.",
+      "passwordCopiedTitle": "Nakopya ang password",
+      "enterPasswordTitle": "Ilagay ang iyong backup na password",
+      "enterPasswordBody": "Ilagay ang password na ginamit noong ginawa ang backup na ito.",
+      "passwordCopiedBody": "I-save ito sa isang lugar na ligtas, gaya ng WhatsApp.",
+      "copyFailedTitle": "Nabigo ang pagkopya",
+      "copyFailedBody": "Piliin at kopyahin ang password nang manu-mano.",
+      "generatingPassword": "Bumubuo ng secure na backup na password...",
+      "encrypting": "Ini-encrypt ang backup...",
+      "decrypting": "Dine-decrypt ang backup...",
+      "restoring": "Nire-restore ang mga account...",
+      "backupCreatedTitle": "Nagawa ang backup",
+      "restoreCompleteTitle": "Kumpleto ang pag-restore",
+      "mergeConfirmTitle": "Pagsamahin ang mga backup na account?",
+      "mergeConfirmButton": "Pagsamahin ang mga account",
+      "backupSavedTemporary": "Pansamantalang na-save ang naka-encrypt na backup sa:\n{uri}",
+      "generatePasswordErrorTitle": "Hindi makabuo ng backup na password",
+      "secureRandomUnavailable": "Hindi available ang secure na random na henerasyon.",
+      "passwordUnavailableTitle": "Hindi available ang backup na password",
+      "passwordUnavailableBody": "Isara ang dialog na ito at gumawa ng bagong backup para makabuo ng secure na password.",
+      "backupDownloadedBody": "Na-download na ang iyong naka-encrypt na KaalKey backup. Panatilihing pribado ang file at password.",
+      "backupFailedTitle": "Nabigo ang backup",
+      "backupCreateErrorBody": "Hindi magawa ng KaalKey ang backup.",
+      "restoreFailedTitle": "Nabigo ang pag-restore",
+      "backupReadErrorBody": "Hindi mabasa o ma-save ang backup.",
+      "browserDownloadUnsupported": "Hindi sinusuportahan ng iyong browser ang pag-download ng mga backup na file.",
+      "localFileUnavailable": "Hindi available ang lokal na lokasyon ng file sa device na ito.",
+      "saveBackupTitle": "I-save ang iyong naka-encrypt na KaalKey backup"
+    },
+    "clipboard": {
+      "copiedTitle": "Nakopya ang code",
+      "copiedBody": "Ang iyong verification code ay nakopya.",
+      "errorTitle": "Error",
+      "errorBody": "Hindi makopya ang verification code."
+    },
+    "activity": {
+      "cameraReady": "Handa na ang camera. Ituro ito sa authenticator QR code.",
+      "readingQrImage": "Binabasa ang QR na larawan…",
+      "importingQrImage": "Ini-import ang QR na larawan…",
+      "importingAccount": "Ini-import ang authenticator account...",
+      "importingPastedImage": "Ini-import ang na-paste na QR na larawan..."
+    }
+  },
+  "activity": {
+    "working": "Nagtatrabaho",
+    "wait": "Mangyaring maghintay…",
+    "donTClose": "Mangyaring huwag isara o makipag-ugnayan sa KaalKey.",
+    "loadingLanguages": "Nilo-load ang mga available na wika...",
+    "loadingTranslation": "Nilo-load ang pagsasalin..."
+  }
+}

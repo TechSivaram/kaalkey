@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "言語",
+      "description": "KaalKey で使用される言語を選択します。",
+      "english": "英語",
+      "telugu": "テルグ語",
+      "hindi": "ヒンディー語",
+      "section": "言語",
+      "searchLanguageName": "検索言語 (名前またはコード)",
+      "searchSupportedLanguages": "サポートされている言語を検索する",
+      "closeLanguageDropdown": "言語ドロップダウンを閉じる",
+      "noTranslatedLanguage": "翻訳された言語が見つかりません。",
+      "serverUrl": "翻訳サーバー URL",
+      "serverUrlDescription": "KaalKey は、このサーバーから言語リストと翻訳をダウンロードします。",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "翻訳サーバーを保存する"
+    },
+    "title": "アプリの設定",
+    "eyebrow": "KAALKEY の設定",
+    "experience": {
+      "section": "体験"
+    },
+    "security": {
+      "section": "セキュリティ"
+    },
+    "backup": {
+      "section": "バックアップとリカバリ"
+    },
+    "danger": {
+      "section": "デンジャーゾーン",
+      "clearAccounts": "すべてのアカウントをクリアする",
+      "clearAccountsDescription": "このデバイスからすべてのアカウントとシークレットを完全に削除します。まずバックアップしてください。",
+      "clearAccountsAccessibilityLabel": "すべての認証アカウントをクリアする"
+    },
+    "appearance": {
+      "section": "外観",
+      "title": "軽い外観",
+      "description": "KaalKey は現在、クリーン ライト テーマを使用しています。"
+    },
+    "haptics": {
+      "title": "触覚フィードバック",
+      "description": "タップと完了したアクションに対する優しいフィードバック。"
+    },
+    "deviceLock": {
+      "title": "端末認証ロック",
+      "description": "KaalKey がフォアグラウンドを離れると、保管庫がロックされます。",
+      "requirement": "携帯電話の生体認証または画面ロック PIN、パターン、またはパスワードが必要です。",
+      "accessibilityLabel": "端末認証アプリロック"
+    },
+    "privacy": {
+      "title": "法的とプライバシー",
+      "description": "プライバシー ポリシーと利用規約を確認してください。",
+      "storageNote": "認証者のシークレットは、デバイス上の安全な保管庫に保管されます。設定はローカルに保存されます。"
+    }
+  },
+  "accounts": {
+    "edit": "編集",
+    "sortAccountName": "アカウント名で並べ替える",
+    "loadingSecureVault": "安全な保管庫を読み込んでいます...",
+    "tapCopy": "タップしてコピー",
+    "noAccountsMatch": "検索に一致するアカウントはありません。",
+    "viewQrCode": "アカウントの QR コードを表示する",
+    "removeAccount": "アカウントを削除する",
+    "copyVerificationCode": "確認コードをコピーする",
+    "active": "アクティブ",
+    "sort": "並べ替え基準",
+    "account": "アカウント",
+    "clearSearch": "検索をクリア",
+    "sortServiceName": "サービス名で並べ替える",
+    "addFirstAccount": "最初のアカウントを追加する",
+    "searchAccounts": "アカウントを検索する",
+    "searchServiceAccount": "サービスまたはアカウントを検索する",
+    "accounts": "あなたのアカウント",
+    "add": "+追加",
+    "vaultStartsHere": "保管庫はここから始まります",
+    "service": "サービス",
+    "emptyHint": "秘密キーを使用してアカウントを追加し、最初の確認コードを生成します。"
+  },
+  "common": {
+    "done": "完了",
+    "doneButton": "完了",
+    "closeSettings": "設定を閉じる",
+    "separator": "-",
+    "article": "ある",
+    "save": "保存",
+    "delete": "削除",
+    "resizeAppBrand": "アプリとブランドパネルのサイズを変更する"
+  },
+  "qrImport": {
+    "readPastedImage": "貼り付けた画像を読み取れませんでした"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "このバックアップ内のアカウント: {count}。 KaalKey は既存のアカウントを保持し、まだ存在しないアカウントを追加します。重複するアカウントはスキップされます。",
+    "restoreCompletionBody": "追加されたアカウント: {added}。重複したアカウントはスキップされました: {skipped}。既存のアカウントは保持されました。",
+    "copyPassword": "生成されたパスワードをコピーする",
+    "passwordSafety": "このパスワードは個別に保存します (たとえば、WhatsApp に)。両方を持っている人は誰でも、",
+    "importAction": "ファイルを選択してインポートする",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "安全な保管庫",
+    "createBackup": "バックアップの作成",
+    "encryptedFile": "暗号化されたファイル",
+    "restoreBackup": "バックアップを復元する",
+    "safetyNote": "バックアップには認証者のシークレットが含まれています。 KaalKey はバックアップごとに一意のパスワードを生成します。別途保存してください。 KaalKey は回復できません。",
+    "generatingSecurePassword": "安全なパスワードを生成しています…",
+    "importFile": "インポートファイル",
+    "backupPassword": "バックアップパスワード",
+    "account": "アカウント",
+    "accounts": "アカウント",
+    "exportDescription": "{accountLabel} をバックアップ ファイルに保存したすべての {count} を暗号化します。 KaalKey は一意のパスワードを生成します。ファイルとは別にコピーして保存します。",
+    "restoreDescription": "KaalKey バックアップ ファイルとパスワードを選択してください。新しいアカウントが既存のアカウント リストに追加されます。既存のアカウントはそのまま残ります。",
+    "enterBackupPassword": "バックアップパスワードを入力してください",
+    "closeBackup": "バックアップを閉じる",
+    "copyGeneratedBackup": "生成されたバックアップパスワードをコピーする",
+    "backupPassword2": "バックアップパスワード",
+    "clearBackupPassword": "バックアップパスワードをクリアする",
+    "backupFilePassword": "バックアップ ファイルとパスワードを使用すると、認証アカウントを復元できます。",
+    "encryptShareBackup": "バックアップを暗号化して共有する"
+  },
+  "home": {
+    "unlockSecurely": "安全にロックを解除する",
+    "disableAppLock": "アプリロックを無効にする",
+    "enableAppLock": "アプリロックを有効にする",
+    "checkingSecureLock": "安全なロック設定を確認しています。コードは隠されたままになります。",
+    "waitingVerification": "検証を待っています…",
+    "secretsStayStored": "あなたのシークレットはこのデバイスに保存されたままになります。",
+    "openAppSettings": "アプリの設定を開く",
+    "versionLabel": "バージョン",
+    "unlockRequirement": "携帯電話の生体認証または画面ロック PIN、パターン、またはパスワードを使用して、ワンタイム確認コードにアクセスします。",
+    "localVault": "あなたのローカル保管庫",
+    "codesDeviceControl": "あなたのコード。あなたのデバイス。あなたのコントロール。",
+    "securingVault": "金庫を保護しています…",
+    "vaultProtected": "あなたの金庫は保護されています",
+    "lock": "ロックオン",
+    "localVault2": "ローカル保管庫",
+    "authenticator": "KAALKEY 認証者",
+    "tricolourLockEmblem": "【KaalKey】トリコロールロックエンブレム",
+    "authenticator2": "認証者"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "QR コードをスキャンすることを選択した場合、KaalKey はそのアクションに対してカメラ権限を使用します。オプションのデバイス認証と触覚フィードバックでは、関連するデバイス機能が使用されます。デバイス設定で権限を管理できます。",
+        "heading": "2. 権限とデバイスの機能"
+      },
+      "backups": {
+        "body": "バックアップを作成すると、KaalKey は選択したパスワードを使用してバックアップを暗号化します。ファイルとパスワードの両方を非公開にして安全に保管してください。ファイルとそのパスワードを入手した人は誰でも、認証アカウントを復元できる可能性があります。 KaalKey は忘れたバックアップ パスワードを回復できません。",
+        "heading": "3. バックアップ"
+      },
+      "security": {
+        "body": "デバイスを常に最新の状態に保ち、画面ロックで保護し、OTP の秘密やバックアップ パスワードを共有しないでください。アプリを削除したり、そのデータを消去したり、デバイスを紛失したりすると、ローカルに保存されているアカウントが利用できなくなる可能性があります。リカバリが必要な場合は、安全なバックアップを維持してください。",
+        "heading": "5. セキュリティと保持"
+      },
+      "information": {
+        "heading": "1. 情報と秘密",
+        "body": "KaalKey は認証アプリです。ワンタイム コードの生成に必要なアカウント ラベルとシークレット値は機密です。このアプリは、アカウントの記録をデバイスの安全なストレージに保存するように設計されています。ロック解除されたデバイスまたはエクスポートされたバックアップにアクセスできる人は誰でも、機密情報にアクセスできる可能性があります。"
+      },
+      "sharing": {
+        "heading": "4. 共有と第三者",
+        "body": "バックアップ フローでは、デバイスの共有シートまたはファイル ピッカーを使用して、ファイルを保存、転送、または選択する場合があります。あなたが選択したサードパーティのアプリまたはサービスのプライバシー慣行は、そのプロバイダーによって管理されます。この通知は、お使いのデバイス、オペレーティング システム、または選択した共有サービスがデータを処理しないと包括的に主張するものではありません。"
+      },
+      "changes": {
+        "heading": "6. 変更・連絡先",
+        "body": "この埋め込み通知は、将来のアプリのリリースで改訂される可能性があります。プライバシーに関する質問については、アプリに付属の公式サポート チャネルを通じてアプリ発行者にお問い合わせください。"
+      },
+      "title": "プライバシーポリシー"
+    },
+    "terms": {
+      "use": {
+        "body": "KaalKey を使用して、アクセスを許可されているアカウントの確認コードを生成できます。お客様は、適用される法律および認証コードを使用するサービスの規則を遵守する責任があります。",
+        "heading": "1. お客様のご利用について"
+      },
+      "protectAccounts": {
+        "body": "デバイス、認証シークレット、回復方法、エクスポートされたバックアップ、およびバックアップ パスワードを保護するのはお客様の責任です。信頼できない人とコードや秘密を共有しないでください。",
+        "heading": "2. アカウントを保護する"
+      },
+      "availability": {
+        "body": "機能はリリース間で変更される可能性があります。アプリを常に最新の状態に保ち、バックアップと復元の準備が機能していることを定期的に確認する必要があります。",
+        "heading": "5. 変更と利用可能性"
+      },
+      "recovery": {
+        "body": "KaalKey は、すべてのアカウントが回復できること、すべての QR コードや設定に互換性があること、アプリが中断やエラーなしで動作することを保証できません。関連するサービスによって提供される代替の回復方法を維持してください。",
+        "heading": "3. 回復保証なし"
+      },
+      "advice": {
+        "heading": "4. 専門的なアドバイスがない",
+        "body": "このアプリはユーティリティであり、法的、財務的、またはセキュリティ上のインシデント対応に関するアドバイスは提供しません。アカウントが侵害された場合は、影響を受けるサービスの公式の回復およびセキュリティ ガイダンスに従ってください。"
+      },
+      "liability": {
+        "heading": "6. 責任と適用法",
+        "body": "適用法で認められる範囲で、アプリは中断のない動作やエラーのない動作を保証することなく提供されます。本規約のいかなる規定も、法的に除外できない権利や救済を除外するものではありません。それ以上の制限や準拠法条件については、リリース前に出版社の管轄区域の資格のある弁護士によって検討される必要があります。"
+      },
+      "title": "利用規約"
+    },
+    "version": "バージョン",
+    "saving": "保存中…",
+    "acceptContinue": "同意して続行",
+    "appliesAuthenticator": "KaalKey 認証子に適用",
+    "reviewBothDocuments": "KaalKey を使用する前に、両方のドキュメントを確認してください。これらはアプリに含まれており、オフラインでも利用できます。",
+    "originalMulticolourAuthenticator": "オリジナル マルチカラー KaalKey 認証エンブレム",
+    "legalPrivacyNotice": "法的およびプライバシーに関する通知",
+    "legalInformation": "法的情報",
+    "reviewSPrivacy": "KaalKey のプライバシー情報と利用規約を確認してください。",
+    "iReadAgree": "プライバシー ポリシーと利用規約を読み、同意します。"
+  },
+  "qrScanner": {
+    "keepEntireQr": "QR コード全体を表示しておいてください。あなたの秘密はこのデバイスに残ります。",
+    "back": "戻る",
+    "turnFlashlightOff": "懐中電灯をオフにする",
+    "turnFlashlight": "懐中電灯をオンにする",
+    "flashlight": "懐中電灯が点灯",
+    "flashlight2": "懐中電灯",
+    "cameraUnavailableOpen": "カメラが使用できません。 HTTPS またはローカルホストでこのページを開き、カメラへのアクセスを許可します。",
+    "cameraPreviewUnavailable": "カメラのプレビューは使用できません。スキャナを閉じて再度開きます。",
+    "cameraReadyPoint": "カメラの準備ができました — 完全な QR コードにカメラを向けてください。",
+    "browserCannotProcess": "このブラウザはカメラ フレームを処理できません。",
+    "qrCodeDetected": "QR コードが検出されました。",
+    "couldnTRead": "カメラのフレームを読み取れませんでした。カメラの許可を確認し、このページをリロードしてください。",
+    "cameraPermissionDenied": "カメラの許可が拒否されました。ブラウザ設定でカメラへのアクセスを許可し、スキャナを再度開きます。",
+    "noCameraWas": "このデバイスにはカメラが見つかりませんでした。",
+    "cameraBusyAnother": "カメラは別のアプリまたはブラウザーのタブで使用中です。",
+    "startCameraHttps": "カメラを起動できませんでした。 HTTPS または localhost を使用してブラウザの権限を確認してください。",
+    "qrScannerCamera": "QR スキャナー カメラのプレビュー",
+    "cameraUnavailableCheck": "カメラが使用できません。カメラの許可を確認して再試行してください。",
+    "pointCameraAuthenticator": "追加するサービスの認証設定 QR コードにカメラを向けます。",
+    "backAddAccount": "アカウントの追加に戻る",
+    "secureSetup": "安全なセットアップ",
+    "enterDetailsManually": "代わりに手動で詳細を入力してください"
+  },
+  "accountForm": {
+    "hideManualEntry": "手動入力を非表示にする",
+    "secretKeySupplied": "構成しているサービスによって提供される秘密キーを使用します。ここにアカウントのパスワードを入力しないでください。アルゴリズム、桁数、間隔をサービスのセットアップ手順と一致させます。",
+    "updateServiceAccount": "サービス、アカウント名、または秘密キーを更新します。",
+    "secretKeyRead": "秘密キー、編集中は読み取り専用",
+    "secretKeyBase32": "Base32 の秘密鍵",
+    "digits": "数字",
+    "seconds": "秒",
+    "enterDetailsManually": "または詳細を手動で入力します",
+    "enterDetailsManually2": "詳細を手動で入力します",
+    "serviceAccountName": "サービス、アカウント名、秘密キー",
+    "saveChangesSecurely": "変更を安全に保存する",
+    "saveAccountSecurely": "アカウントを安全に保存する",
+    "serviceIssuer": "サービスまたは発行者",
+    "accountName": "アカウント名",
+    "secretKey": "秘密鍵",
+    "serviceIssuer2": "サービス / 発行者",
+    "eGGoogle": "例: Google",
+    "clearServiceIssuer": "サービスまたは発行者を明確にする",
+    "eGExample": "例: you@example.com",
+    "clearAccountName": "アカウント名をクリアする",
+    "secretKeyLocked": "秘密キー (ロック済み)",
+    "secretKeyBase322": "秘密鍵 (BASE32)",
+    "enterSetupKey": "セットアップキーを入力してください",
+    "clearSecretKey": "秘密鍵をクリアする",
+    "otpAlgorithm": "OTP アルゴリズム",
+    "otpDigits": "OTP 桁",
+    "refreshIntervalSeconds": "更新間隔 (秒)",
+    "otpRefreshInterval": "OTP 更新間隔 (秒)",
+    "closeAccountForm": "アカウント閉鎖フォーム",
+    "totpSetupUrl": "TOTP セットアップ URL",
+    "importSetupUrl": "インポートセットアップ URL",
+    "totpSetupUrl2": "TOTP セットアップ URL",
+    "accountName2": "アカウント名",
+    "addAccount": "アカウントを追加"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "認証コード QR コードをスキャンします",
+    "setupGuidance": "QR コードをスキャンして最も簡単なセットアップを行うか、詳細を手動で入力します。",
+    "cameraAddAccount": "カメラを使用してアカウントをすぐに追加します",
+    "scanQrCode2": "QR コードをスキャンします",
+    "uploadQrImage": "QR 画像をアップロードする",
+    "chooseQrScreenshot": "ギャラリー、写真、またはファイルから QR スクリーンショットを選択します",
+    "pasteQr": "QR 画像を貼り付け / URL",
+    "pasteCopiedQr": "コピーした QR 画像または認証設定 URL を貼り付けます",
+    "uploadQrImage2": "QR 画像をアップロードする"
+  },
+  "accountQr": {
+    "close": "閉じる",
+    "accountQrCode": "アカウント QR コード",
+    "revealQrCode": "QR コードを明らかにする",
+    "exportWarning": "警告: この QR コードをスキャンした人は誰でも、このアカウントの確認コードを生成できます。信頼できる画面でのみ公開してください。",
+    "privacyHint": "この QR コードは非公開にしてください。これをスキャンすると、アカウントの認証シークレットがコピーされます。"
+  },
+  "productInfo": {
+    "backupRestore": "バックアップと復元",
+    "backupRestoreDescription": "認証データをバックアップし、別のデバイスに移動するときに復元します。",
+    "privacyDescription": "確認アカウントを 1 か所に保管します。アプリのバックアップ、復元、デバイス ロックのオプションを使用して、セットアップを責任を持って管理します。",
+    "timeBasedCodes": "時間ベースのコード",
+    "generateOneTimeCodes": "アカウントのローテーション ワンタイム パスコードを生成して、2 段階認証を完了します。",
+    "quickAccountSetup": "素早いアカウント設定",
+    "quickSetupDescription": "認証コード QR コードをスキャンするか、QR 画像をインポートしてアカウントを追加します。",
+    "accountsOnePlace": "アカウントを 1 か所に",
+    "accountsInOnePlaceDescription": "保存したアカウントをまとめて保管し、サインインするときに適切なエントリを見つけてください。",
+    "privateAccountVault": "プライベートアカウント保管庫",
+    "privateVaultDescription": "認証エントリをローカルで管理し、アプリで利用可能なデバイス ロック オプションを使用します。",
+    "easyCodeAccess": "簡単なコードアクセス",
+    "easyCodeAccessDescription": "現在のコードをコピーしたり、明確で焦点を絞ったインターフェイスを通じてアカウントの詳細を管理したりできます。",
+    "authenticatorTechsivaram": "認証者 · TECHSIVARAM 著",
+    "mobileAuthenticator": "あなたのモバイル認証者",
+    "tagline": "2 段階認証を管理する簡単な方法。",
+    "heroDescription": "時間ベースの検証コードに焦点を当てた認証エクスペリエンス。 Android の KaalKey と互換性のあるアカウント コードを手元に置いておいてください。",
+    "timeBasedCodes2": "時間ベースのコード",
+    "privateDesign": "プライベート・バイ・デザイン",
+    "builtSimpleAuthenticator": "シンプルな認証ワークフロー向けに構築",
+    "qrSetupTimed": "QR セットアップ · タイムコード · アカウント管理",
+    "privacyTitle": "あなたのアカウント。あなたのコード。あなたのコントロール。",
+    "authenticator": "KAALKEY · 認証者",
+    "brandBanner": "KaalKey ブランドバナー",
+    "logo": "KaalKey ロゴ"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "キャンセル",
+      "storageInvalidTitle": "ストレージデータが無効です",
+      "storageInvalidBody": "保存されたアカウント データを安全に読み取ることができませんでした。",
+      "storageErrorTitle": "ストレージエラー",
+      "storageErrorBody": "保存されたアカウントをロードできませんでした。",
+      "missingTitle": "不足している情報",
+      "missingEditingBody": "サービス名とアカウント名を入力します。",
+      "missingBody": "サービス名、アカウント名、シークレットキーを入力します。",
+      "invalidOtpBody": "Base32 シークレット、アルゴリズム、桁数、更新周期を確認してください。シークレットには有効な Base32 文字が含まれている必要があります。桁は {digits} でなければならず、ピリオドは {minPeriod} ～ {maxPeriod} 秒でなければなりません。",
+      "duplicateBody": "このサービスとアカウント名のアカウントはすでに保存されています。",
+      "updatedBody": "アカウントが更新されました。",
+      "addedBody": "アカウントは安全に追加されました。",
+      "invalidOtpTitle": "OTP 設定が無効です",
+      "duplicateTitle": "アカウントはすでに存在します",
+      "savedTitle": "アカウントが保存されました",
+      "invalidSecretTitle": "無効な秘密キー",
+      "invalidSecretBody": "有効な Base32 シークレットを入力したことを確認してください。",
+      "removedTitle": "アカウントが削除されました",
+      "removedBody": "アカウントとそのシークレットはこのデバイスから削除されました。",
+      "clearedTitle": "アカウントがクリアされました",
+      "clearedBody": "すべての認証アカウントとシークレットがこのデバイスから削除されました。",
+      "someSavedAccountsNeedAttentionTitle": "一部の保存済みアカウントには注意が必要です",
+      "someSavedAccountsNeedAttentionBody": "{count} 無効なアカウント レコードがロードされませんでした。有効なアカウントは引き続き利用可能です。さらに変更を加える前に、バックアップを作成することを検討してください。",
+      "removeConfirmTitle": "アカウントを削除しますか?",
+      "removeConfirmWebTitle": "アカウントを削除しますか?",
+      "removeButton": "削除",
+      "clearButton": "すべてクリア",
+      "clearConfirmTitle": "すべてのアカウントをクリアしますか?",
+      "saveErrorBody": "アカウントを保存できませんでした。ブラウザのストレージの空き状況を確認して、再試行してください。",
+      "notFoundTitle": "アカウントが見つかりません",
+      "notFoundBody": "このアカウントは見つかりませんでした。エディタを閉じて、もう一度試してください。",
+      "removeConfirmBody": "これにより、アカウントとそのシークレットがこのデバイスから削除されます。",
+      "clearConfirmBody": "これにより、すべての認証アカウントとそのシークレットがこのデバイスから永久に削除されます。これらのアカウントが後で必要になる可能性がある場合は、最初に暗号化されたバックアップを作成してください。",
+      "clearConfirmUndoBody": "これを元に戻すことはできません。"
+    },
+    "biometric": {
+      "cancelButton": "キャンセル",
+      "saveErrorTitle": "設定を保存できませんでした",
+      "unlockPrompt": "KaalKey 認証システムのロックを解除する",
+      "promptSubtitle": "生体認証またはデバイスの画面ロックを使用する",
+      "disableConfirmPrompt": "KaalKey アプリロックをオフにすることを確認します",
+      "enablePrompt": "KaalKey のアプリロックを有効にする",
+      "deviceLockTitle": "デバイスの画面ロックを設定する",
+      "deviceLockBody": "KaalKey は、携帯電話の組み込み認証を使用します。携帯電話のセキュリティ設定でデバイス PIN、パターン、またはパスワードを設定してから、もう一度試してください。生体認証はオプションです。",
+      "unavailableTitle": "デバイス認証が利用できない",
+      "unavailableBody": "電話機は安全な認証を開始できませんでした。デバイスの画面ロックが設定されていることを確認して、再試行してください。",
+      "lockedTitle": "認証が一時的にロックされています",
+      "lockedBody": "試行回数が多すぎると、携帯電話は認証を一時的に無効にしました。待ってからもう一度試してください。",
+      "promptErrorTitle": "認証が利用できません",
+      "promptErrorBody": "KaalKey は電話の安全な認証プロンプトを開始できませんでした。もう一度試してください。",
+      "webLock": "端末認証ロックはWeb版ではまだ利用できません。 Web ボルトはロック解除されたままになります。ネイティブデバイス認証には Android アプリを使用します。",
+      "disabledTitle": "アプリロックが無効になっています",
+      "disabledBody": "KaalKey アプリロックがオフになりました。",
+      "disableSaveError": "アプリロックは有効なままになります。もう一度試してください。",
+      "enabledTitle": "アプリロックが有効になっている",
+      "enabledBody": "KaalKey は、携帯電話を開いたときと携帯電話に戻ったときに、内蔵の認証を要求します。",
+      "enableSaveError": "アプリロックを有効にできませんでした。もう一度試してください。"
+    },
+    "qr": {
+      "startingCamera": "カメラを起動中…",
+      "unsupportedTitle": "サポートされていない QR コードです",
+      "unsupportedBody": "サービスによって提供される認証設定 QR コードをスキャンします。これは、通常のログイン QR コードではなく、TOTP コードである必要があります。",
+      "unsupportedDiagnostic": "その QR は TOTP セットアップ コードではありません。認証システムのセットアップ QR を目指します。",
+      "detectedDiagnostic": "QR が検出されました。分析中…",
+      "analyzing": "QR コードを分析中…",
+      "duplicateTitle": "アカウントはすでに追加されています",
+      "duplicateBody": "{issuer}: {account} はすでに KaalKey にあります。",
+      "addedTitle": "アカウントが追加されました",
+      "addedBody": "{issuer}: {account} が正常に追加されました。",
+      "saveFailedDiagnostic": "アカウントを保存できませんでした。再度スキャンすることもできます。",
+      "invalidTitle": "無効な QR コードです",
+      "invalidBody": "KaalKey はこの認証コード QR コードを解析できませんでした。 {detail}。サービスの TOTP セットアップ QR コード (通常は {prefix} で始まります) を使用します。",
+      "parseFailedDiagnostic": "QR を処理できませんでした。セットアップ QR を目指して再試行してください。",
+      "invalidUrlTitle": "無効です TOTP URL",
+      "invalidUrlBody": "{prefix} で始まる完全な認証子 URL を貼り付けます。",
+      "clipboardEmptyTitle": "クリップボードが空です",
+      "clipboardEmptyBody": "まず {prefix} URL をコピーし、TOTP URL をタップして貼り付けます。",
+      "clipboardErrorTitle": "クリップボードを読み取れませんでした",
+      "clipboardErrorBody": "TOTP セットアップ URL をコピーして、再試行してください。"
+    },
+    "haptics": {
+      "saveFailedTitle": "設定を保存できませんでした",
+      "saveFailedBody": "触覚フィードバック設定を保存できませんでした。もう一度試してください。"
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "確認応答を保存できませんでした",
+      "saveFailedBody": "もう一度試してください。 KaalKey を使用する前に、法的通知に同意する必要があります。"
+    },
+    "cameraPermission": {
+      "title": "カメラの許可が必要です",
+      "body": "認証システムのセットアップ QR コードをスキャンするためのカメラ アクセスを許可します。"
+    },
+    "storage": {
+      "browserUnavailable": "ブラウザのストレージが利用できません。",
+      "browserFilePickerUnavailable": "ブラウザのファイル ピッカーは使用できません。"
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "サポートされていないファイル",
+      "unsupportedFileBody": "PNG や JPEG などの QR コード イメージを選択します。",
+      "browserDecoderUnavailable": "ブラウザ画像のデコードは利用できません",
+      "imageLoadFailed": "画像を読み込めませんでした",
+      "unreadableDimensions": "画像に読み取り可能な寸法がありません",
+      "noQrCodeFoundTitle": "QR コードが見つかりません",
+      "noQrCodeFoundBody": "KaalKey は、この画像の QR コードをデコードできませんでした。スクリーンショットまたは高解像度の PNG/JPEG をお試しください。",
+      "couldNotReadImageTitle": "画像を読み取れませんでした",
+      "couldNotReadImageBody": "認証システムのセットアップ QR コードを含むクリアな PNG または JPEG イメージを試してください。",
+      "couldNotOpenPickerTitle": "画像ピッカーを開けませんでした",
+      "couldNotOpenPickerBody": "QR をもう一度アップロードしてください。",
+      "normalizedDecodeFailed": "正規化された画像をデコードできませんでした",
+      "clipboardImageLoadFailed": "クリップボード画像をロードできませんでした",
+      "imageProcessingUnavailable": "画像処理ができない",
+      "imageProcessingUnavailableAlt": "画像処理不可",
+      "noImageInClipboardTitle": "クリップボードに画像がありません",
+      "noImageInClipboardBody": "QR コード画像をコピーし、もう一度 QR 画像の貼り付けをタップします。",
+      "clipboardUnavailableTitle": "クリップボードが使用できません",
+      "clipboardUnavailableBody": "クリップボードのテキストは有効な認証設定ではありません URL。 otpauth:// URL または QR イメージをコピーして、再試行してください。",
+      "clipboardAccessBody": "KaalKey はクリップボードからテキストまたは画像を読み取ることができませんでした。クリップボードへのアクセスを許可し、QR 画像または otpauth:// URL をコピーして、QR 画像 / URL の貼り付けを再度タップします。",
+      "couldNotPasteImageTitle": "画像を貼り付けることができませんでした",
+      "couldNotPasteImageBody": "このデバイスのこのクリップボードでは、画像の貼り付けがサポートされていません。代わりに QR イメージのインポートを使用してください。",
+      "sourceImageDecodeFailure": "別の QR 画像を試してください。",
+      "pastedImportFailureBody": "別の QR 画像を試してください。",
+      "sourceImageReadFailure": "鮮明な QR スクリーンショットをコピーしてみてください。",
+      "importFailedTitle": "QR 画像のインポートに失敗しました",
+      "importFailedBody": "KaalKey はその画像を読み取れませんでした。別の QR コード イメージを試してください。",
+      "notFoundBody": "コピーされたイメージには、読み取り可能な QR コードが含まれていません。",
+      "pastedNotFoundBody": "貼り付けられた画像には、読み取り可能な QR コードが含まれていません。",
+      "pastedReadFailureBody": "完全な QR コードを含むクリアな PNG または JPEG イメージをコピーしてみてください。",
+      "noQrCodeTextBody": "KaalKey は選択した画像をデコードしましたが、QR コードが見つかりませんでした。コード全体が表示される、鮮明なフル解像度 PNG または JPEG を試してください。"
+    },
+    "totpImport": {
+      "invalidTotpCode": "この QR コードは、時間ベースの認証システムのセットアップ コードではありません。",
+      "missingAccountDetails": "QR コードにアカウントの詳細がありません。",
+      "unsupportedAlgorithm": "QR コードはサポートされていないアルゴリズムを使用しています。",
+      "unsupportedDigits": "この QR コードには 6、7、または 8 桁を使用する必要があります。",
+      "unsupportedPeriod": "この QR コードでは、サポートされていない期間が使用されています。",
+      "invalidAccount": "QR コードを検証できませんでした。"
+    },
+    "backup": {
+      "invalidJson": "バックアップ ファイルが無効です JSON。",
+      "unsupportedFormat": "これはサポートされている KaalKey 暗号化バックアップではありません。",
+      "invalidPasswordOrDamaged": "バックアップパスワードが間違っているか、バックアップファイルが破損しています。",
+      "invalidContents": "バックアップ内容が無効または不完全です。",
+      "secureRandomUnavailableDetailed": "安全なランダム生成は利用できません。 expo-crypto を含めて Android アプリを再構築して再インストールし、もう一度お試しください。",
+      "invalidAccountDataForBackup": "1 つ以上のアカウントが無効です。バックアップを作成する前にアカウント データを修正してください。",
+      "invalidPasswordOrModified": "バックアップのパスワードが間違っているか、バックアップ ファイルが変更されています。",
+      "invalidPasswordOrFileDamaged": "バックアップのパスワードが間違っているか、ファイルが破損しています。",
+      "passwordCopiedTitle": "パスワードがコピーされました",
+      "enterPasswordTitle": "バックアップパスワードを入力してください",
+      "enterPasswordBody": "このバックアップの作成時に使用したパスワードを入力します。",
+      "passwordCopiedBody": "WhatsApp などの安全な場所に保存します。",
+      "copyFailedTitle": "コピーに失敗しました",
+      "copyFailedBody": "パスワードを手動で選択してコピーします。",
+      "generatingPassword": "安全なバックアップ パスワードを生成しています…",
+      "encrypting": "バックアップを暗号化しています…",
+      "decrypting": "バックアップを復号化しています…",
+      "restoring": "アカウントを復元中…",
+      "backupCreatedTitle": "バックアップが作成されました",
+      "restoreCompleteTitle": "復元が完了しました",
+      "mergeConfirmTitle": "バックアップアカウントを統合しますか?",
+      "mergeConfirmButton": "アカウントを統合する",
+      "backupSavedTemporary": "暗号化されたバックアップは次の場所に一時的に保存されました:\n{uri}",
+      "generatePasswordErrorTitle": "バックアップパスワードを生成できませんでした",
+      "secureRandomUnavailable": "安全なランダム生成は利用できません。",
+      "passwordUnavailableTitle": "バックアップパスワードは使用できません",
+      "passwordUnavailableBody": "このダイアログを閉じて新しいバックアップを作成し、安全なパスワードを生成します。",
+      "backupDownloadedBody": "暗号化された KaalKey バックアップがダウンロードされました。ファイルとパスワードは非公開にしてください。",
+      "backupFailedTitle": "バックアップに失敗しました",
+      "backupCreateErrorBody": "KaalKey はバックアップを作成できませんでした。",
+      "restoreFailedTitle": "復元に失敗しました",
+      "backupReadErrorBody": "バックアップを読み取ることも保存することもできませんでした。",
+      "browserDownloadUnsupported": "お使いのブラウザはバックアップ ファイルのダウンロードをサポートしていません。",
+      "localFileUnavailable": "このデバイスではローカル ファイルの場所を使用できません。",
+      "saveBackupTitle": "暗号化された KaalKey バックアップを保存します"
+    },
+    "clipboard": {
+      "copiedTitle": "コードをコピーしました",
+      "copiedBody": "確認コードがコピーされました。",
+      "errorTitle": "エラー",
+      "errorBody": "確認コードをコピーできませんでした。"
+    },
+    "activity": {
+      "cameraReady": "カメラの準備ができました。認証コード QR コードを指します。",
+      "readingQrImage": "QR 画像を読み取り中…",
+      "importingQrImage": "QR 画像をインポートしています…",
+      "importingAccount": "認証アカウントをインポートしています…",
+      "importingPastedImage": "貼り付けられた QR 画像をインポートしています…"
+    }
+  },
+  "activity": {
+    "working": "働く",
+    "wait": "お待ちください…",
+    "donTClose": "KaalKey を閉じたり、操作したりしないでください。",
+    "loadingLanguages": "利用可能な言語を読み込んでいます…",
+    "loadingTranslation": "翻訳を読み込み中…"
+  }
+}

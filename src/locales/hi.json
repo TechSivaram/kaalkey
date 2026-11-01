@@ -10,7 +10,11 @@
       "searchLanguageName": "भाषा खोजें (नाम या कोड)",
       "searchSupportedLanguages": "समर्थित भाषाएँ खोजें",
       "closeLanguageDropdown": "भाषा सूची बंद करें",
-      "noTranslatedLanguage": "कोई भाषा नहीं मिली।"
+      "noTranslatedLanguage": "कोई भाषा नहीं मिली।",
+      "serverUrl": "अनुवाद सर्वर URL",
+      "serverUrlDescription": "KaalKey इस सर्वर से भाषा सूची और अनुवाद डाउनलोड करता है।",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "अनुवाद सर्वर सहेजें"
     },
     "title": "ऐप सेटिंग्स",
     "eyebrow": "KAALKEY प्राथमिकताएँ",
@@ -497,6 +501,8 @@
   "activity": {
     "working": "काम हो रहा है",
     "wait": "कृपया प्रतीक्षा करें…",
-    "donTClose": "कृपया KaalKey को बंद न करें या उसमें बदलाव न करें।"
+    "donTClose": "कृपया KaalKey को बंद न करें या उसमें बदलाव न करें।",
+    "loadingLanguages": "उपलब्ध भाषाएँ लोड हो रही हैं...",
+    "loadingTranslation": "अनुवाद लोड हो रहा है..."
   }
 }

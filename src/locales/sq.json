@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Gjuha",
+      "description": "Zgjidhni gjuhën e përdorur në KaalKey.",
+      "english": "anglisht",
+      "telugu": "telugu",
+      "hindi": "Hindi",
+      "section": "GJUHA",
+      "searchLanguageName": "Gjuha e kërkimit (emri ose kodi)",
+      "searchSupportedLanguages": "Kërkoni gjuhët e mbështetura",
+      "closeLanguageDropdown": "Mbyll listën e gjuhës",
+      "noTranslatedLanguage": "Nuk u gjet asnjë gjuhë e përkthyer.",
+      "serverUrl": "Serveri i përkthimit URL",
+      "serverUrlDescription": "KaalKey shkarkon listën e gjuhëve dhe përkthimet nga ky server.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Ruaj serverin e përkthimit"
+    },
+    "title": "Cilësimet e aplikacionit",
+    "eyebrow": "PREFERENCA KAALKEY",
+    "experience": {
+      "section": "EKSPERIENCA"
+    },
+    "security": {
+      "section": "SIGURIA"
+    },
+    "backup": {
+      "section": "REZERVIMI DHE RIKURTIMI"
+    },
+    "danger": {
+      "section": "ZONË E RREZIKUT",
+      "clearAccounts": "Pastro të gjitha llogaritë",
+      "clearAccountsDescription": "Hiqni përgjithmonë çdo llogari dhe sekret nga kjo pajisje. Rezervo fillimisht.",
+      "clearAccountsAccessibilityLabel": "Pastro të gjitha llogaritë e vërtetuesit"
+    },
+    "appearance": {
+      "section": "PARAQITJA",
+      "title": "Pamje e lehtë",
+      "description": "KaalKey aktualisht përdor temën e tij të pastër të dritës."
+    },
+    "haptics": {
+      "title": "Reagime haptike",
+      "description": "Reagime të buta për prekjet dhe veprimet e përfunduara."
+    },
+    "deviceLock": {
+      "title": "Kyçja e vërtetimit të pajisjes",
+      "description": "Kasaforta juaj kyçet kur KaalKey largohet nga plani i parë.",
+      "requirement": "Kërkoni biometrikën e telefonit tuaj ose kyçjen e ekranit PIN, modelin ose fjalëkalimin.",
+      "accessibilityLabel": "Kyçja e aplikacionit të vërtetimit të pajisjes"
+    },
+    "privacy": {
+      "title": "Ligjore dhe privatësi",
+      "description": "Rishikoni Politikën e Privatësisë dhe Kushtet e Përdorimit.",
+      "storageNote": "Sekretet tuaja të vërtetuesit qëndrojnë në kasafortën e sigurt të pajisjes. Preferencat ruhen në nivel lokal."
+    }
+  },
+  "accounts": {
+    "edit": "Redakto",
+    "sortAccountName": "Rendit sipas emrit të llogarisë",
+    "loadingSecureVault": "Po ngarkohet kasaforta e sigurt...",
+    "tapCopy": "TAKONI PËR TË KOPJUAR",
+    "noAccountsMatch": "Asnjë llogari nuk përputhet me kërkimin tuaj.",
+    "viewQrCode": "Shiko kodin QR për llogarinë",
+    "removeAccount": "Hiq llogarinë",
+    "copyVerificationCode": "Kopjo kodin e verifikimit",
+    "active": "AKTIVE",
+    "sort": "RENDOSJE SIPAS",
+    "account": "Llogaria",
+    "clearSearch": "Pastro kërkimin",
+    "sortServiceName": "Rendit sipas emrit të shërbimit",
+    "addFirstAccount": "Shtoni llogarinë tuaj të parë",
+    "searchAccounts": "Kërkoni llogaritë",
+    "searchServiceAccount": "Shërbimi ose llogaria e kërkimit",
+    "accounts": "Llogaritë tuaja",
+    "add": "+ Shto",
+    "vaultStartsHere": "Kasaforta juaj fillon këtu",
+    "service": "Shërbimi",
+    "emptyHint": "Shtoni një llogari duke përdorur çelësin e saj sekret për të gjeneruar kodin tuaj të parë të verifikimit."
+  },
+  "common": {
+    "done": "U krye",
+    "doneButton": "U krye",
+    "closeSettings": "Mbyll cilësimet",
+    "separator": "-",
+    "article": "a",
+    "save": "Ruaj",
+    "delete": "Fshije",
+    "resizeAppBrand": "Ndryshimi i madhësisë së paneleve të aplikacionit dhe markës"
+  },
+  "qrImport": {
+    "readPastedImage": "Imazhi i ngjitur nuk mund të lexohej"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Llogaritë në këtë kopje rezervë: {count}. KaalKey do të mbajë llogaritë tuaja ekzistuese dhe do të shtojë çdo llogari që nuk është tashmë e pranishme. Llogaritë e kopjuara do të anashkalohen.",
+    "restoreCompletionBody": "Llogaritë e shtuara: {added}. Llogaritë e kopjuara të anashkaluara: {skipped}. Llogaritë tuaja ekzistuese u mbajtën.",
+    "copyPassword": "Kopjo fjalëkalimin e krijuar",
+    "passwordSafety": "Ruaje këtë fjalëkalim veçmas (për shembull, në WhatsApp). Kushdo me të dyja",
+    "importAction": "Zgjidhni skedarin dhe importoni",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "VAULT I SIGURT",
+    "createBackup": "Krijo kopje rezervë",
+    "encryptedFile": "Skedar i koduar",
+    "restoreBackup": "Rivendos kopjen rezervë",
+    "safetyNote": "Rezervimet përmbajnë sekretet e vërtetuesit tuaj. KaalKey gjeneron një fjalëkalim unik për çdo kopje rezervë. Ruajeni veçmas; KaalKey nuk mund ta rikuperojë atë.",
+    "generatingSecurePassword": "Po krijon fjalëkalim të sigurt…",
+    "importFile": "Importo skedarin",
+    "backupPassword": "FJALËKALIM REZERVËS",
+    "account": "llogari",
+    "accounts": "llogaritë",
+    "exportDescription": "Enkripto të gjitha {count} të ruajtura {accountLabel} në një skedar rezervë. KaalKey gjeneron një fjalëkalim unik; kopjoni dhe ruani veçmas nga skedari.",
+    "restoreDescription": "Zgjidhni skedarin tuaj rezervë dhe fjalëkalimin KaalKey. Llogaritë e reja do të shtohen në listën tuaj ekzistuese të llogarive; llogaritë ekzistuese do të qëndrojnë ashtu siç janë.",
+    "enterBackupPassword": "Fut fjalëkalimin rezervë",
+    "closeBackup": "Mbyll rezervimin",
+    "copyGeneratedBackup": "Kopjo fjalëkalimin rezervë të krijuar",
+    "backupPassword2": "Fjalëkalimi rezervë",
+    "clearBackupPassword": "Pastro fjalëkalimin rezervë",
+    "backupFilePassword": "skedari rezervë dhe fjalëkalimi mund të rivendosin llogaritë tuaja të vërtetuesit.",
+    "encryptShareBackup": "Enkriptoni dhe ndani kopjen rezervë"
+  },
+  "home": {
+    "unlockSecurely": "Zhbllokoni në mënyrë të sigurt",
+    "disableAppLock": "Çaktivizo kyçjen e aplikacionit",
+    "enableAppLock": "Aktivizo kyçjen e aplikacionit",
+    "checkingSecureLock": "Po kontrollon cilësimet e bllokimit të sigurt. Kodet tuaja mbeten të fshehura.",
+    "waitingVerification": "Në pritje të verifikimit…",
+    "secretsStayStored": "Sekretet tuaja mbeten të ruajtura në këtë pajisje.",
+    "openAppSettings": "Hap cilësimet e aplikacionit",
+    "versionLabel": "VERSIONI",
+    "unlockRequirement": "Përdorni biometrikën e telefonit tuaj ose PIN të kyçjes së ekranit, modelin ose fjalëkalimin për të hyrë në kodet tuaja të verifikimit një herë.",
+    "localVault": "VAULTI TUAJ LOKALE",
+    "codesDeviceControl": "Kodet tuaja. Pajisja juaj. Kontrolli juaj.",
+    "securingVault": "Sigurimi i kasafortës suaj…",
+    "vaultProtected": "Kasaforta juaj është e mbrojtur",
+    "lock": "LOCK ON",
+    "localVault2": "VAULT LOKALE",
+    "authenticator": "KAALKEY AUTENTIKUESI",
+    "tricolourLockEmblem": "Emblema e bravës me tre ngjyra KaalKey",
+    "authenticator2": "AUTENTIKUESI"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Nëse zgjidhni të skanoni një kod QR, KaalKey përdor lejen e kamerës për atë veprim. Vërtetimi opsional i pajisjes dhe reagimi haptik përdorin veçoritë përkatëse të pajisjes. Mund të menaxhoni lejet në cilësimet e pajisjes tuaj.",
+        "heading": "2. Lejet dhe veçoritë e pajisjes"
+      },
+      "backups": {
+        "body": "Kur krijoni një kopje rezervë, KaalKey kodon kopjen rezervë duke përdorur një fjalëkalim që ju zgjidhni. Mbaji skedarin dhe fjalëkalimin privat dhe ruaji ato në mënyrë të sigurt. Kushdo që merr skedarin dhe fjalëkalimin e tij mund të jetë në gjendje të rivendosë llogaritë tuaja të vërtetuesit. KaalKey nuk mund të rikuperojë një fjalëkalim rezervë të harruar.",
+        "heading": "3. Rezervimet"
+      },
+      "security": {
+        "body": "Mbajeni pajisjen tuaj të përditësuar, mbrojeni atë me një kyçje ekrani dhe mos ndani sekretet e OTP ose fjalëkalime rezervë. Heqja e aplikacionit, pastrimi i të dhënave të tij ose humbja e pajisjes mund t'i bëjë të padisponueshme llogaritë e ruajtura në vend. Mbani një kopje rezervë të sigurt nëse keni nevojë për rikuperim.",
+        "heading": "5. Siguria dhe mbajtja"
+      },
+      "information": {
+        "heading": "1. Informacioni dhe sekretet",
+        "body": "KaalKey është një aplikacion vërtetues. Etiketat e llogarisë dhe vlerat sekrete të nevojshme për të gjeneruar kode një herë janë të ndjeshme. Aplikacioni është krijuar për të ruajtur të dhënat e llogarisë në ruajtjen e sigurt të pajisjes. Kushdo që ka qasje në një pajisje të shkyçur ose një kopje rezervë të eksportuar mund të jetë në gjendje të ketë qasje në informacione të ndjeshme."
+      },
+      "sharing": {
+        "heading": "4. Ndarja dhe palët e treta",
+        "body": "Rrjedha e rezervimit mund të përdorë fletën e ndarjes ose zgjedhësin e skedarëve të pajisjes suaj për të ruajtur, transferuar ose zgjedhur skedarë. Praktikat e privatësisë së çdo aplikacioni ose shërbimi të palëve të treta që zgjidhni rregullohen nga ai ofrues. Ky njoftim nuk bën një pretendim të plotë se pajisja juaj, sistemi operativ ose shërbimet e zgjedhura të ndarjes nuk përpunojnë kurrë të dhëna."
+      },
+      "changes": {
+        "heading": "6. Ndryshimet dhe kontaktet",
+        "body": "Ky njoftim i integruar mund të rishikohet në një version të ardhshëm të aplikacionit. Për pyetje rreth privatësisë, kontaktoni botuesin e aplikacionit përmes kanalit zyrtar të mbështetjes të ofruar me aplikacionin."
+      },
+      "title": "Politika e privatësisë"
+    },
+    "terms": {
+      "use": {
+        "body": "Ju mund të përdorni KaalKey për të gjeneruar kode verifikimi për llogaritë ku jeni të autorizuar t'i përdorni. Ju jeni përgjegjës për respektimin e ligjeve në fuqi dhe rregullat e shërbimeve për të cilat përdorni kodet e vërtetimit.",
+        "heading": "1. Përdorimi juaj"
+      },
+      "protectAccounts": {
+        "body": "Ju jeni përgjegjës për sigurimin e pajisjes tuaj, sekretet e vërtetuesit, metodat e rikuperimit, kopjet rezervë të eksportuara dhe fjalëkalimet rezervë. Mos ndani kode ose sekrete me njerëz që nuk keni besim.",
+        "heading": "2. Mbroni llogaritë tuaja"
+      },
+      "availability": {
+        "body": "Veçoritë mund të ndryshojnë ndërmjet publikimeve. Ju duhet ta mbani aplikacionin të përditësuar dhe të verifikoni periodikisht nëse aranzhimet tuaja rezervë dhe rikuperimi funksionojnë.",
+        "heading": "5. Ndryshimet dhe disponueshmëria"
+      },
+      "recovery": {
+        "body": "KaalKey nuk mund të garantojë që çdo llogari mund të rikuperohet, se çdo kod ose konfigurim QR do të jetë i pajtueshëm ose që aplikacioni do të funksionojë pa ndërprerje ose gabime. Mbani metoda alternative të rikuperimit të ofruara nga shërbimi përkatës.",
+        "heading": "3. Nuk ka garanci rikuperimi"
+      },
+      "advice": {
+        "heading": "4. Asnjë këshillë profesionale",
+        "body": "Aplikacioni është një mjet i dobishëm dhe nuk ofron këshilla ligjore, financiare ose të sigurisë për reagimin ndaj incidenteve. Nëse një llogari është komprometuar, ndiqni udhëzimet për rikuperimin dhe sigurinë zyrtare të shërbimit të prekur."
+      },
+      "liability": {
+        "heading": "6. Përgjegjësia dhe ligji në fuqi",
+        "body": "Në masën e lejuar nga ligji në fuqi, aplikacioni ofrohet pa garanci për funksionim të pandërprerë ose pa gabime. Asgjë në këto terma nuk përjashton të drejtat ose mjetet juridike që nuk mund të përjashtohen ligjërisht. Çdo kufizim i mëtejshëm ose term i ligjit qeverisës duhet të shqyrtohet nga një avokat i kualifikuar për juridiksionin e botuesit përpara publikimit."
+      },
+      "title": "Kushtet e Përdorimit"
+    },
+    "version": "Versioni",
+    "saving": "Po ruan…",
+    "acceptContinue": "Prano & Vazhdo",
+    "appliesAuthenticator": "Zbatohet për Vërtetuesin KaalKey",
+    "reviewBothDocuments": "Ju lutemi rishikoni të dy dokumentet përpara se të përdorni KaalKey. Ato përfshihen në aplikacion dhe disponohen jashtë linje.",
+    "originalMulticolourAuthenticator": "Emblema origjinale shumëngjyrëshe e vërtetuesit KaalKey",
+    "legalPrivacyNotice": "Njoftim ligjor dhe privatësie",
+    "legalInformation": "Informacion ligjor",
+    "reviewSPrivacy": "Rishikoni informacionin e privatësisë dhe kushtet e përdorimit të KaalKey.",
+    "iReadAgree": "Kam lexuar dhe pajtohem me Politikën e Privatësisë dhe Kushtet e Përdorimit."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Mbajeni të gjithë kodin QR të dukshëm. Sekreti juaj qëndron në këtë pajisje.",
+    "back": "Mbrapa",
+    "turnFlashlightOff": "Fik elektrik dore",
+    "turnFlashlight": "Ndiz elektrik dore",
+    "flashlight": "Elektrik dore ndezur",
+    "flashlight2": "Elektrik dore",
+    "cameraUnavailableOpen": "Kamera nuk ofrohet. Hape këtë faqe në HTTPS ose localhost dhe lejo aksesin e kamerës.",
+    "cameraPreviewUnavailable": "Pamja paraprake e kamerës nuk ofrohet. Mbyllni dhe rihapni skanerin.",
+    "cameraReadyPoint": "Kamera gati — drejtojeni në kodin e plotë QR.",
+    "browserCannotProcess": "Ky shfletues nuk mund të përpunojë kornizat e kamerës.",
+    "qrCodeDetected": "U zbulua kodi QR.",
+    "couldnTRead": "Kornizat e kamerës nuk mund të lexoheshin. Kontrolloni lejet e kamerës dhe ringarkoni këtë faqe.",
+    "cameraPermissionDenied": "Leja e kamerës u refuzua. Lejo qasjen e kamerës në cilësimet e shfletuesit dhe më pas rihap skanerin.",
+    "noCameraWas": "Nuk u gjet asnjë kamerë në këtë pajisje.",
+    "cameraBusyAnother": "Kamera është e zënë në një aplikacion tjetër ose skedë shfletuesi.",
+    "startCameraHttps": "Kamera nuk mund të nisej. Përdorni HTTPS ose localhost dhe kontrolloni lejet e shfletuesit.",
+    "qrScannerCamera": "Pamja paraprake e kamerës së skanerit QR",
+    "cameraUnavailableCheck": "Kamera nuk ofrohet. Kontrollo lejen e kamerës dhe provo sërish.",
+    "pointCameraAuthenticator": "Drejtojeni kamerën drejt kodit QR të konfigurimit të vërtetuesit nga shërbimi që po shtoni.",
+    "backAddAccount": "Kthehu për të shtuar llogarinë",
+    "secureSetup": "KONFIGURIMI I SIGURT",
+    "enterDetailsManually": "Futni detajet manualisht në vend"
+  },
+  "accountForm": {
+    "hideManualEntry": "Fshih hyrjen manuale",
+    "secretKeySupplied": "Përdorni çelësin sekret të dhënë nga shërbimi që po konfiguroni. Asnjëherë mos e futni fjalëkalimin e llogarisë suaj këtu. Përputhni algoritmin, numrin e shifrave dhe intervalin me udhëzimet e konfigurimit të shërbimit.",
+    "updateServiceAccount": "Përditësoni shërbimin, emrin e llogarisë ose çelësin sekret.",
+    "secretKeyRead": "Çelësi sekret, vetëm për lexim gjatë redaktimit",
+    "secretKeyBase32": "Çelësi sekret në Base32",
+    "digits": "shifra",
+    "seconds": "sekonda",
+    "enterDetailsManually": "OSE FUT DETAJET MANUALISHT",
+    "enterDetailsManually2": "Futni detajet me dorë",
+    "serviceAccountName": "Shërbimi, emri i llogarisë dhe çelësi sekret",
+    "saveChangesSecurely": "Ruani ndryshimet në mënyrë të sigurt",
+    "saveAccountSecurely": "Ruani llogarinë në mënyrë të sigurt",
+    "serviceIssuer": "Shërbimi ose lëshuesi",
+    "accountName": "Emri i llogarisë",
+    "secretKey": "Çelësi sekret",
+    "serviceIssuer2": "SHËRBIMI / LESUESI",
+    "eGGoogle": "p.sh. Google",
+    "clearServiceIssuer": "Pastro shërbimin ose lëshuesin",
+    "eGExample": "p.sh. you@example.com",
+    "clearAccountName": "Pastro emrin e llogarisë",
+    "secretKeyLocked": "ÇELESËS SEKRET (I KYÇUAR)",
+    "secretKeyBase322": "ÇELËSI SEKRET (BASE32)",
+    "enterSetupKey": "Futni çelësin tuaj të konfigurimit",
+    "clearSecretKey": "Pastro çelësin sekret",
+    "otpAlgorithm": "ALGORITMI OTP",
+    "otpDigits": "SHIFRA OTP",
+    "refreshIntervalSeconds": "INTERvali i rifreskimit (SEKONDA)",
+    "otpRefreshInterval": "Intervali i rifreskimit OTP në sekonda",
+    "closeAccountForm": "Mbyll formularin e llogarisë",
+    "totpSetupUrl": "Konfigurimi i TOTP URL",
+    "importSetupUrl": "Importo konfigurimin URL",
+    "totpSetupUrl2": "SETUP TOTP URL",
+    "accountName2": "EMRI I LLOGARISË",
+    "addAccount": "Shto llogari"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Skanoni kodin QR të vërtetuesit",
+    "setupGuidance": "Skanoni një kod QR për konfigurimin më të lehtë ose futni detajet manualisht.",
+    "cameraAddAccount": "Përdorni kamerën tuaj për të shtuar një llogari në çast",
+    "scanQrCode2": "Skanoni kodin QR",
+    "uploadQrImage": "Ngarko imazhin QR",
+    "chooseQrScreenshot": "Zgjidhni një pamje ekrani QR nga Galeria, Fotografitë ose Skedarët",
+    "pasteQr": "Ngjit imazhin QR / URL",
+    "pasteCopiedQr": "Ngjit një imazh të kopjuar QR ose konfigurimin e vërtetuesit URL",
+    "uploadQrImage2": "Ngarko imazhin QR"
+  },
+  "accountQr": {
+    "close": "Mbylle",
+    "accountQrCode": "Kodi i llogarisë QR",
+    "revealQrCode": "Zbuloni kodin QR",
+    "exportWarning": "Kujdes: kushdo që skanon këtë kod QR mund të gjenerojë kode verifikimi për këtë llogari. Shfaqeni vetëm në një ekran të besuar.",
+    "privacyHint": "Mbaje privat këtë kod QR. Skanimi i tij kopjon sekretin e vërtetuesit të llogarisë."
+  },
+  "productInfo": {
+    "backupRestore": "Rezervoni dhe rivendosni",
+    "backupRestoreDescription": "Bëni kopje rezervë të të dhënave të vërtetuesit tuaj dhe rivendosni ato kur lëvizni në një pajisje tjetër.",
+    "privacyDescription": "Mbani llogaritë tuaja të verifikimit në një vend. Përdorni opsionet e rezervimit, rivendosjes dhe kyçjes së pajisjes së aplikacionit për të menaxhuar konfigurimin tuaj me përgjegjësi.",
+    "timeBasedCodes": "Kodet e bazuara në kohë",
+    "generateOneTimeCodes": "Gjeneroni kodkalime të rradhës një herë për llogaritë tuaja për të përfunduar verifikimin me dy hapa.",
+    "quickAccountSetup": "Konfigurimi i shpejtë i llogarisë",
+    "quickSetupDescription": "Skanoni një kod autentikuesi QR ose importoni një imazh QR për të shtuar një llogari.",
+    "accountsOnePlace": "Llogaritë në një vend",
+    "accountsInOnePlaceDescription": "Mbani së bashku llogaritë tuaja të ruajtura dhe gjeni hyrjen e duhur kur të jetë koha për t'u identifikuar.",
+    "privateAccountVault": "Kasaforta e llogarisë private",
+    "privateVaultDescription": "Menaxho hyrjet e vërtetuesit në nivel lokal dhe përdor opsionin e disponueshëm të aplikacionit për kyçjen e pajisjes.",
+    "easyCodeAccess": "Qasje e lehtë në kod",
+    "easyCodeAccessDescription": "Kopjoni një kod aktual ose menaxhoni detajet e llogarisë përmes një ndërfaqe të pastër dhe të fokusuar.",
+    "authenticatorTechsivaram": "Vërtetuesi · NGA TECHSIVARAM",
+    "mobileAuthenticator": "AUTENTIKUESI TUAJ MOBILE",
+    "tagline": "Një mënyrë më e thjeshtë për të menaxhuar verifikimin tuaj me dy hapa.",
+    "heroDescription": "Një përvojë e fokusuar e vërtetuesit për kodet e verifikimit të bazuara në kohë. Mbani afër kodet e llogarive të përputhshme me KaalKey për Android.",
+    "timeBasedCodes2": "KODET E BAZË TË KOHËS",
+    "privateDesign": "PRIVAT SIPAS DIZAJNIT",
+    "builtSimpleAuthenticator": "E NDËRTUAR PËR NJË RRJEDHË TË THJESHTË PUNE AUTENTIKUESE",
+    "qrSetupTimed": "SETUP QR · KODET ME KOHA · MENAXHIM LLOGARI",
+    "privacyTitle": "Llogaritë tuaja. Kodet tuaja. Kontrolli juaj.",
+    "authenticator": "KAALKEY · Vërtetuesi",
+    "brandBanner": "Banner i markës KaalKey",
+    "logo": "Logoja KaalKey"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Anulo",
+      "storageInvalidTitle": "Të dhënat e ruajtjes janë të pavlefshme",
+      "storageInvalidBody": "Të dhënat e ruajtura të llogarisë nuk mund të lexoheshin në mënyrë të sigurt.",
+      "storageErrorTitle": "Gabim në ruajtje",
+      "storageErrorBody": "Llogaritë e ruajtura nuk mund të ngarkoheshin.",
+      "missingTitle": "Mungon informacioni",
+      "missingEditingBody": "Futni emrin e shërbimit dhe emrin e llogarisë.",
+      "missingBody": "Futni emrin e shërbimit, emrin e llogarisë dhe çelësin sekret.",
+      "invalidOtpBody": "Kontrolloni sekretin Base32, algoritmin, numërimin e shifrave dhe periudhën e rifreskimit. Sekretet duhet të përmbajnë karaktere të vlefshme Base32; shifrat duhet të jenë {digits} dhe periudha duhet të jetë {minPeriod}–{maxPeriod} sekonda.",
+      "duplicateBody": "Një llogari me këtë shërbim dhe emrin e llogarisë është ruajtur tashmë.",
+      "updatedBody": "Llogaria juaj u përditësua.",
+      "addedBody": "Llogaria juaj u shtua në mënyrë të sigurt.",
+      "invalidOtpTitle": "Cilësimet e pavlefshme OTP",
+      "duplicateTitle": "Llogaria ekziston tashmë",
+      "savedTitle": "Llogaria u ruajt",
+      "invalidSecretTitle": "Çelësi sekret i pavlefshëm",
+      "invalidSecretBody": "Ju lutemi kontrolloni që keni futur një sekret të vlefshëm Base32.",
+      "removedTitle": "Llogaria u hoq",
+      "removedBody": "Llogaria dhe sekreti i saj u hoqën nga kjo pajisje.",
+      "clearedTitle": "Llogaritë e pastruara",
+      "clearedBody": "Të gjitha llogaritë dhe sekretet e vërtetuesit u hoqën nga kjo pajisje.",
+      "someSavedAccountsNeedAttentionTitle": "Disa llogari të ruajtura kanë nevojë për vëmendje",
+      "someSavedAccountsNeedAttentionBody": "{count} regjistrimet e pavlefshme të llogarisë nuk u ngarkuan. Llogaritë e vlefshme mbeten të disponueshme. Konsideroni krijimin e një kopje rezervë përpara se të bëni ndryshime të mëtejshme.",
+      "removeConfirmTitle": "Të hiqet llogaria?",
+      "removeConfirmWebTitle": "Të hiqet llogaria?",
+      "removeButton": "Hiq",
+      "clearButton": "Pastro të gjitha",
+      "clearConfirmTitle": "Të pastrohen të gjitha llogaritë?",
+      "saveErrorBody": "Llogaritë nuk mund të ruheshin. Kontrollo disponueshmërinë e hapësirës ruajtëse të shfletuesit dhe provo përsëri.",
+      "notFoundTitle": "Llogaria nuk u gjet",
+      "notFoundBody": "Kjo llogari nuk mund të gjendej. Mbyllni redaktorin dhe provoni përsëri.",
+      "removeConfirmBody": "Kjo heq llogarinë dhe sekretin e saj nga kjo pajisje.",
+      "clearConfirmBody": "Kjo heq përgjithmonë të gjitha llogaritë e vërtetuesve dhe sekretet e tyre nga kjo pajisje. Krijoni fillimisht një kopje rezervë të koduar nëse mund t'ju nevojiten këto llogari më vonë.",
+      "clearConfirmUndoBody": "Kjo nuk mund të zhbëhet."
+    },
+    "biometric": {
+      "cancelButton": "Anulo",
+      "saveErrorTitle": "Cilësimi nuk mund të ruhej",
+      "unlockPrompt": "Zhbllokoni Vërtetuesin KaalKey",
+      "promptSubtitle": "Përdorni biometrikën ose kyçjen e ekranit të pajisjes tuaj",
+      "disableConfirmPrompt": "Konfirmo për të çaktivizuar kyçjen e aplikacionit KaalKey",
+      "enablePrompt": "Aktivizo kyçjen e aplikacionit për KaalKey",
+      "deviceLockTitle": "Konfiguro kyçjen e ekranit të pajisjes",
+      "deviceLockBody": "KaalKey përdor vërtetimin e integruar të telefonit tuaj. Vendosni një pajisje PIN, model ose fjalëkalim në cilësimet e sigurisë së telefonit tuaj dhe provoni përsëri. Biometria është fakultative.",
+      "unavailableTitle": "Vërtetimi i pajisjes nuk ofrohet",
+      "unavailableBody": "Telefoni juaj nuk mund të fillonte vërtetimin e sigurt. Kontrollo që kyçja e ekranit të pajisjes të jetë konfiguruar, më pas provo sërish.",
+      "lockedTitle": "Autentifikimi u kyç përkohësisht",
+      "lockedBody": "Telefoni juaj ka çaktivizuar përkohësisht vërtetimin pas shumë përpjekjeve. Prisni dhe provoni përsëri.",
+      "promptErrorTitle": "Vërtetimi i padisponueshëm",
+      "promptErrorBody": "KaalKey nuk mund të niste kërkesën e vërtetimit të sigurt të telefonit. Ju lutemi provoni përsëri.",
+      "webLock": "Kyçja e vërtetimit të pajisjes nuk ofrohet ende në versionin e uebit. Kasaforta e internetit mbetet e shkyçur; përdorni aplikacionin Android për vërtetimin origjinal të pajisjes.",
+      "disabledTitle": "Kyçja e aplikacionit është çaktivizuar",
+      "disabledBody": "Kyçja e aplikacionit KaalKey është çaktivizuar.",
+      "disableSaveError": "Kyçja e aplikacionit mbetet e aktivizuar. Ju lutemi provoni përsëri.",
+      "enabledTitle": "Kyçja e aplikacionit është aktivizuar",
+      "enabledBody": "KaalKey do të kërkojë vërtetimin e integruar të telefonit tuaj kur të hapet dhe kur të ktheheni tek ai.",
+      "enableSaveError": "Kyçja e aplikacionit nuk mund të aktivizohej. Ju lutemi provoni përsëri."
+    },
+    "qr": {
+      "startingCamera": "Po nis kamerën…",
+      "unsupportedTitle": "Kodi QR i pambështetur",
+      "unsupportedBody": "Skanoni kodin QR të konfigurimit të vërtetuesit të dhënë nga shërbimi. Ky duhet të jetë një kod TOTP, jo një kod normal identifikimi QR.",
+      "unsupportedDiagnostic": "Ai QR nuk është një kod konfigurimi i TOTP. Synoni një konfigurim vërtetues QR.",
+      "detectedDiagnostic": "QR u zbulua. Duke analizuar…",
+      "analyzing": "Po analizon kodin QR…",
+      "duplicateTitle": "Llogaria është shtuar tashmë",
+      "duplicateBody": "{issuer}: {account} është tashmë në KaalKey.",
+      "addedTitle": "Llogaria u shtua",
+      "addedBody": "{issuer}: {account} u shtua me sukses.",
+      "saveFailedDiagnostic": "Llogaria nuk mund të ruhej. Mund të skanoni përsëri.",
+      "invalidTitle": "Kodi i pavlefshëm QR",
+      "invalidBody": "KaalKey nuk mund ta analizonte këtë kod të vërtetuesit QR. {detail}. Përdorni kodin QR të konfigurimit TOTP të shërbimit (zakonisht fillon me {prefix}).",
+      "parseFailedDiagnostic": "QR nuk mund të përpunohej. Synoni konfigurimin QR dhe provoni përsëri.",
+      "invalidUrlTitle": "TOTP URL e pavlefshme",
+      "invalidUrlBody": "Ngjit një vërtetues të plotë URL duke filluar me {prefix}.",
+      "clipboardEmptyTitle": "Clipboard është bosh",
+      "clipboardEmptyBody": "Kopjoni fillimisht një {prefix} URL, më pas prekni Paste TOTP URL.",
+      "clipboardErrorTitle": "Clipboard nuk mund të lexohej",
+      "clipboardErrorBody": "Kopjo konfigurimin TOTP URL dhe provo sërish."
+    },
+    "haptics": {
+      "saveFailedTitle": "Cilësimi nuk mund të ruhej",
+      "saveFailedBody": "Preferenca e reagimit haptik nuk mund të ruhej. Ju lutemi provoni përsëri."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Mirënjohja nuk mund të ruhej",
+      "saveFailedBody": "Ju lutemi provoni përsëri. Duhet të pranoni njoftimin ligjor përpara se të përdorni KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Kërkohet leja e kamerës",
+      "body": "Lejo qasjen e kamerës për të skanuar një kod QR të konfigurimit të vërtetuesit."
+    },
+    "storage": {
+      "browserUnavailable": "Hapësira ruajtëse e shfletuesit nuk është e disponueshme.",
+      "browserFilePickerUnavailable": "Zgjedhësi i skedarit të shfletuesit nuk është i disponueshëm."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Skedar i pambështetur",
+      "unsupportedFileBody": "Zgjidhni një imazh kodi QR si PNG ose JPEG.",
+      "browserDecoderUnavailable": "Dekodimi i imazhit të shfletuesit nuk ofrohet",
+      "imageLoadFailed": "Imazhi nuk mund të ngarkohej",
+      "unreadableDimensions": "Imazhi nuk ka dimensione të lexueshme",
+      "noQrCodeFoundTitle": "Nuk u gjet asnjë kod QR",
+      "noQrCodeFoundBody": "KaalKey nuk mund të dekodonte një kod QR në këtë imazh. Provoni një pamje ekrani ose një PNG/JPEG me rezolucion më të lartë.",
+      "couldNotReadImageTitle": "Imazhi nuk mund të lexohej",
+      "couldNotReadImageBody": "Provoni një imazh të qartë PNG ose JPEG që përmban kodin QR të konfigurimit të vërtetuesit.",
+      "couldNotOpenPickerTitle": "Zgjedhësi i imazhit nuk mund të hapej",
+      "couldNotOpenPickerBody": "Ju lutemi provoni të ngarkoni përsëri QR.",
+      "normalizedDecodeFailed": "Imazhi i normalizuar nuk mund të dekodohej",
+      "clipboardImageLoadFailed": "Imazhi i kujtesës së fragmenteve nuk mund të ngarkohej",
+      "imageProcessingUnavailable": "Përpunimi i imazhit nuk ofrohet",
+      "imageProcessingUnavailableAlt": "Përpunimi i imazhit nuk ofrohet",
+      "noImageInClipboardTitle": "Asnjë imazh në kujtesën e fragmenteve",
+      "noImageInClipboardBody": "Kopjoni një imazh të kodit QR, më pas prekni përsëri Paste QR Image.",
+      "clipboardUnavailableTitle": "Clipboard i padisponueshëm",
+      "clipboardUnavailableBody": "Teksti i kujtesës nuk është një konfigurim i vlefshëm i vërtetuesit URL. Kopjoni një imazh otpauth:// URL ose QR dhe provoni përsëri.",
+      "clipboardAccessBody": "KaalKey nuk mund të lexonte tekst ose imazh nga clipboard. Lejo qasjen në kujtesën e fragmenteve, më pas kopjoni imazhin QR ose otpauth:// URL dhe prekni sërish Ngjit imazhin QR / URL.",
+      "couldNotPasteImageTitle": "Imazhi nuk mund të ngjitej",
+      "couldNotPasteImageBody": "Ngjitja e imazhit nuk mbështetet nga kjo kujtesë në këtë pajisje. Në vend të kësaj, përdorni imazhin Import QR.",
+      "sourceImageDecodeFailure": "Provoni një imazh tjetër QR.",
+      "pastedImportFailureBody": "Provoni një imazh tjetër QR.",
+      "sourceImageReadFailure": "Provoni të kopjoni një pamje të qartë të ekranit QR.",
+      "importFailedTitle": "Importimi i imazhit QR dështoi",
+      "importFailedBody": "KaalKey nuk mund ta lexonte atë imazh. Ju lutemi provoni një imazh tjetër të kodit QR.",
+      "notFoundBody": "Imazhi i kopjuar nuk përmban një kod QR të lexueshëm.",
+      "pastedNotFoundBody": "Imazhi i ngjitur nuk përmban një kod QR të lexueshëm.",
+      "pastedReadFailureBody": "Provoni të kopjoni një imazh të qartë PNG ose JPEG që përmban kodin e plotë QR.",
+      "noQrCodeTextBody": "KaalKey deshifroi imazhin e zgjedhur, por nuk gjeti një kod QR. Provoni një PNG ose JPEG të qartë me rezolucion të plotë me të gjithë kodin të dukshëm."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Ky kod QR nuk është një kod i konfigurimit të vërtetuesit të bazuar në kohë.",
+      "missingAccountDetails": "Kodi QR i mungojnë detajet e llogarisë.",
+      "unsupportedAlgorithm": "Kodi QR përdor një algoritëm të pambështetur.",
+      "unsupportedDigits": "Ky kod QR duhet të përdorë 6, 7 ose 8 shifra.",
+      "unsupportedPeriod": "Ky kod QR përdor një periudhë kohore të pambështetur.",
+      "invalidAccount": "Kodi QR nuk mund të vërtetohej."
+    },
+    "backup": {
+      "invalidJson": "Skedari rezervë nuk është i vlefshëm JSON.",
+      "unsupportedFormat": "Ky nuk është një rezervë e koduar e mbështetur nga KaalKey.",
+      "invalidPasswordOrDamaged": "Fjalëkalimi rezervë është i pasaktë ose skedari rezervë është i dëmtuar.",
+      "invalidContents": "Përmbajtja rezervë është e pavlefshme ose e paplotë.",
+      "secureRandomUnavailableDetailed": "Gjenerimi i sigurt i rastësishëm nuk ofrohet. Rindërtoni dhe riinstaloni aplikacionin Android me expo-crypto të përfshirë, më pas provoni përsëri.",
+      "invalidAccountDataForBackup": "Një ose më shumë llogari janë të pavlefshme. Rregulloni të dhënat e llogarisë përpara se të krijoni një kopje rezervë.",
+      "invalidPasswordOrModified": "Fjalëkalimi rezervë është i pasaktë ose skedari rezervë është modifikuar.",
+      "invalidPasswordOrFileDamaged": "Fjalëkalimi rezervë është i pasaktë ose skedari është i dëmtuar.",
+      "passwordCopiedTitle": "Fjalëkalimi u kopjua",
+      "enterPasswordTitle": "Futni fjalëkalimin tuaj rezervë",
+      "enterPasswordBody": "Futni fjalëkalimin e përdorur kur u krijua kjo kopje rezervë.",
+      "passwordCopiedBody": "Ruajeni diku të sigurt, si p.sh. WhatsApp.",
+      "copyFailedTitle": "Kopjimi dështoi",
+      "copyFailedBody": "Zgjidhni dhe kopjoni fjalëkalimin me dorë.",
+      "generatingPassword": "Po krijon një fjalëkalim të sigurt rezervë…",
+      "encrypting": "Rezervimi po kriptohet…",
+      "decrypting": "Rezervimi po deshifrohet…",
+      "restoring": "Po restaurohen llogaritë…",
+      "backupCreatedTitle": "U krijua një kopje rezervë",
+      "restoreCompleteTitle": "Rivendosja e plotë",
+      "mergeConfirmTitle": "Të shkrihen llogaritë rezervë?",
+      "mergeConfirmButton": "Bashkoni llogaritë",
+      "backupSavedTemporary": "Rezervimi i koduar u ruajt përkohësisht në:\n{uri}",
+      "generatePasswordErrorTitle": "Fjalëkalimi rezervë nuk mund të krijohej",
+      "secureRandomUnavailable": "Gjenerimi i sigurt i rastësishëm nuk ofrohet.",
+      "passwordUnavailableTitle": "Fjalëkalimi rezervë i padisponueshëm",
+      "passwordUnavailableBody": "Mbyllni këtë dialog dhe krijoni një kopje rezervë të re për të krijuar një fjalëkalim të sigurt.",
+      "backupDownloadedBody": "Rezervimi juaj i koduar KaalKey është shkarkuar. Mbajeni skedarin dhe fjalëkalimin privat.",
+      "backupFailedTitle": "Rezervimi dështoi",
+      "backupCreateErrorBody": "KaalKey nuk mund të krijonte kopjen rezervë.",
+      "restoreFailedTitle": "Rivendosja dështoi",
+      "backupReadErrorBody": "Rezervimi nuk mund të lexohej ose të ruhej.",
+      "browserDownloadUnsupported": "Shfletuesi juaj nuk e mbështet shkarkimin e skedarëve rezervë.",
+      "localFileUnavailable": "Vendndodhja e skedarit lokal nuk disponohet në këtë pajisje.",
+      "saveBackupTitle": "Ruani kopjen rezervë të koduar KaalKey"
+    },
+    "clipboard": {
+      "copiedTitle": "Kodi u kopjua",
+      "copiedBody": "Kodi juaj i verifikimit është kopjuar.",
+      "errorTitle": "Gabim",
+      "errorBody": "Kodi i verifikimit nuk mund të kopjohej."
+    },
+    "activity": {
+      "cameraReady": "Kamera gati. Drejtojeni atë te kodi i vërtetuesit QR.",
+      "readingQrImage": "Po lexon imazhin QR…",
+      "importingQrImage": "Po importon imazhin QR…",
+      "importingAccount": "Po importon llogarinë e vërtetuesit…",
+      "importingPastedImage": "Po importon imazhin e ngjitur QR…"
+    }
+  },
+  "activity": {
+    "working": "Duke punuar",
+    "wait": "Ju lutemi prisni…",
+    "donTClose": "Ju lutemi, mos e mbyllni ose mos ndërveproni me KaalKey.",
+    "loadingLanguages": "Po ngarkon gjuhët e disponueshme…",
+    "loadingTranslation": "Përkthimi po ngarkohet…"
+  }
+}

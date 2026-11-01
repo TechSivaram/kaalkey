@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Linguae",
+      "description": "Linguam elige in usu KaalKey.",
+      "english": "Anglicus",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "LINGUA",
+      "searchLanguageName": "Quaerere linguam (nomen vel codice)",
+      "searchSupportedLanguages": "Quaerere linguarum sustentatur",
+      "closeLanguageDropdown": "Prope lingua dropdown",
+      "noTranslatedLanguage": "Nulla lingua translata invenitur.",
+      "serverUrl": "Translatio servi URL",
+      "serverUrlDescription": "KaalKey downloads indicem linguae latinae et translationes ab hoc servo.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Servare translationem servo"
+    },
+    "title": "App occasus",
+    "eyebrow": "KAALKEY PREFERENCES",
+    "experience": {
+      "section": "USUS"
+    },
+    "security": {
+      "section": "SATISDATIO"
+    },
+    "backup": {
+      "section": "BACKUP & RECUPERATIO"
+    },
+    "danger": {
+      "section": "PERICULUM PLAGA",
+      "clearAccounts": "Patet omnes rationes",
+      "clearAccountsDescription": "In perpetuum ab hac arte omnem rationem abalienando removeas. Tergum est primum.",
+      "clearAccountsAccessibilityLabel": "Patet omnes rationes authenticator"
+    },
+    "appearance": {
+      "section": "APPARENTIA",
+      "title": "lux specie",
+      "description": "KaalKey Hodierna luce nitido utitur themate."
+    },
+    "haptics": {
+      "title": "Haptic feedback",
+      "description": "Lenis feedback in taps et actus perficitur."
+    },
+    "deviceLock": {
+      "title": "Machinam authenticas cincinno",
+      "description": "Tuum testudinis crines cum KaalKey relinquit antica.",
+      "requirement": "Telephonium biometricum vel scrinium PIN, exemplar vel tesseram require.",
+      "accessibilityLabel": "Machinam authenticas app cincinno"
+    },
+    "privacy": {
+      "title": "Legal & privacy",
+      "description": "Recensere Privacy ac Terms of Use.",
+      "storageNote": "Secretorum authenticator tuus manere in firmamento in-machina secure. Optiones localiter reponuntur."
+    }
+  },
+  "accounts": {
+    "edit": "Edit",
+    "sortAccountName": "Pro nomine digerere",
+    "loadingSecureVault": "Securae firmamentum Loading...",
+    "tapCopy": "ICTUS ad effingo",
+    "noAccountsMatch": "Nullae rationes quaestioni tuae aequant.",
+    "viewQrCode": "Visum QR codicem pro ratione",
+    "removeAccount": "Aufer rationem",
+    "copyVerificationCode": "Exemplum verificationis",
+    "active": "Active",
+    "sort": "Sort BY",
+    "account": "Ratio",
+    "clearSearch": "Patet quaerere",
+    "sortServiceName": "Sort by service name",
+    "addFirstAccount": "Addere primum rationem",
+    "searchAccounts": "Quaerere rationes",
+    "searchServiceAccount": "Quaerere ministerium vel rationem",
+    "accounts": "Rationes tuae",
+    "add": "+ Add",
+    "vaultStartsHere": "Tuum firmamentum hic incipit",
+    "service": "Service",
+    "emptyHint": "Rationem adde clavis arcanis utens ad verificationem primam tuam generandam."
+  },
+  "common": {
+    "done": "Done",
+    "doneButton": "Done",
+    "closeSettings": "Proxima occasus",
+    "separator": "-",
+    "article": "a",
+    "save": "Servare",
+    "delete": "Delere",
+    "resizeAppBrand": "Resize app ac notam tabulata"
+  },
+  "qrImport": {
+    "readPastedImage": "Non legitur crustulum imaginem"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Rationes in hoc tergum: {count}. KaalKey rationes tuas exsistentes servabo et rationes nullas iam praesentes addas. Duplicare rationes omittenda erit.",
+    "restoreCompletionBody": "Rationes adduntur: {added}. Duplicatae rationes perstrinxerunt: {skipped}. Tuae rationes exsistebant.",
+    "copyPassword": "Exemplum generatae password",
+    "passwordSafety": "Serva hanc tesseram separatim (exempli gratia in WhatsApp). Quis cum utroque",
+    "importAction": "Elige file ac import",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "Secure VECTIS",
+    "createBackup": "Tergum crea",
+    "encryptedFile": "Encrypted file",
+    "restoreBackup": "Restitue tergum",
+    "safetyNote": "Tergum continent tua secreta authenticator. KaalKey Tesseram singularem generat pro singulis tergum. Serva hoc divisim; KaalKey recuperare non potest.",
+    "generatingSecurePassword": "Securus password…",
+    "importFile": "Inferre file",
+    "backupPassword": "BACKUP SIGNUM",
+    "account": "propter",
+    "accounts": "rationes",
+    "exportDescription": "Encrypt omnes {count} servatae sunt {accountLabel} in tergum lima. KaalKey Tesseram unicam generat; effingo et serva separatim a tabella.",
+    "restoreDescription": "Elige tuum KaalKey fasciculi tergum ac tesseram. Novae rationes ad indicem rationis tuae adicientur; existentibus rationibus mansurae sunt.",
+    "enterBackupPassword": "Intra tergum password",
+    "closeBackup": "Prope tergum",
+    "copyGeneratedBackup": "Effingo generatae tergum password",
+    "backupPassword2": "Tergum password",
+    "clearBackupPassword": "Patet tergum password",
+    "backupFilePassword": "tergum lima et password potest restituere rationes authenticas.",
+    "encryptShareBackup": "Encrypt et participes tergum"
+  },
+  "home": {
+    "unlockSecurely": "Basem confidenter",
+    "disableAppLock": "Inactivare app cincinno",
+    "enableAppLock": "Admitte app cincinno",
+    "checkingSecureLock": "Reprehendo vestri cincinno occasus secure. Codices tui latent.",
+    "waitingVerification": "Expectans verificationem ...",
+    "secretsStayStored": "Secreta tua in hac arte condita maneant.",
+    "openAppSettings": "Open app occasus",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "Utere telephonicis biometricis vel scrinio PIN, exemplari, vel tessera ad accessum temporis tui codicis verificationis.",
+    "localVault": "TUUM LOCORUM VECTIS",
+    "codesDeviceControl": "Codices tui. Tuo modo. Tuum imperium.",
+    "securingVault": "Impetrandum firmamentum ...",
+    "vaultProtected": "Tua firmamentum munita",
+    "lock": "CLAUSURA ON",
+    "localVault2": "VALLUM LOCORUM",
+    "authenticator": "KAALKEY AUTHENTICATOR",
+    "tricolourLockEmblem": "KaalKey cincinno tricolor emblema",
+    "authenticator2": "AUTHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Si codicem KaalKey lustrare libet, permissu camerae utitur. Ad libitum fabrica authenticas et haptic feedback utere ad lineamenta fabrica pertinentes. Permissiones in tuo fabrica occasus administrare potes.",
+        "heading": "2. Permissionibus et features fabrica"
+      },
+      "backups": {
+        "body": "Cum tergum creas, KaalKey encryptas tergum utendo tesseram eliges. Tum tabellam et tesseram privatam custodi et secure repone. Quisquis tabellam eiusque tesseram obtinet, rationes authenticas tuas restituere poterit. KaalKey oblitteratum tergum tesserae recuperare non potest.",
+        "heading": "3. Tergum"
+      },
+      "security": {
+        "body": "Serva fabricam tuam renovatam, eam cum cincinno protege, nec secreta vel tesseras tergum OTP communica. Appium removere, eius notitia purgare, vel machinam amittere, ut rationes repositas localiter perpendat. Secum retine tergum, si recuperare opus est.",
+        "heading": "5. Securitatis et retentionis"
+      },
+      "information": {
+        "heading": "1. Information and secreta",
+        "body": "KaalKey authenticator app. Rationis pittacia et valores occulti ad generandum unum tempus codices sensitivos sunt. App ordinatur ad tabulas reponendas in repositionis fabrica. Quisquis cum accessu ad fabricam reseratam vel ad tergum exportatum accedere potest notitias sensitivas."
+      },
+      "sharing": {
+        "heading": "4. Socius et tertius partes",
+        "body": "Fluxus tergum tuum fabrica participes uti potest sheet vel fasciculus picker ad salvandum, transferendum vel lima selecta. Praxis secreti cuiusvis app vel servitii tertii-partis quas eligis ab illo provisore reguntur. Hanc notitiam non facit stragulum, quod fabrica tua, ratio operandi, vel officia communicandi electa nunquam in notitia processus processit."
+      },
+      "changes": {
+        "heading": "6. Mutationes et contactus",
+        "body": "Haec animadversio embedded potest in futuro app emissione recognoscenda. Ad quaestiones privatas, app publisher contactu per canalem subsidii officialis cum app."
+      },
+      "title": "Privacy Policy"
+    },
+    "terms": {
+      "use": {
+        "body": "Potes uti KaalKey verificationes ad generandum rationes quas accessere permissum est. Tu responsalis es obtemperans legibus applicabilibus et officiorum regulis pro quibus codicibus authenticas uteris.",
+        "heading": "1. tuum usum"
+      },
+      "protectAccounts": {
+        "body": "Tu responsalis es tuendae machinae, secretorum authenticator, methodorum recuperandi, tergum exportandi, et passwords tergum. Noli communicare codicibus vel secretis cum hominibus non confidis.",
+        "heading": "2. rationes tuas protege"
+      },
+      "availability": {
+        "body": "Features may change between solvo. App renovationem ac periodice servare debes cognoscere ut tergum tuum et recuperatio dispositionum operari possit.",
+        "heading": "5. Mutationes et disponibilitate"
+      },
+      "recovery": {
+        "body": "KaalKey praestare non potest omnem rationem recuperari posse, omnem codicem vel configurationem compatibilem fore, vel app operabitur sine intermissione vel errore. Reservare modos recuperandi modos ab officio ad rem pertinentes.",
+        "heading": "3. Non recuperatio fideiussores"
+      },
+      "advice": {
+        "heading": "4. Nemo professionalem consilium",
+        "body": "Applicatio utilitas est et non praebet consilium legale, oeconomum vel securitatem incidenti-responsum. Si ratio compromissatur, servitutem affectatam sequi officialem recuperationem et regimen securitatis."
+      },
+      "liability": {
+        "heading": "6. Rusticis et applicabilis lex",
+        "body": "Quatenus iure applicabili permittitur, app cavetur sine cautione sine intermissione vel errore liberae operationis. Nihil his in verbis excludit iura vel remedia quae legitime excludi non possunt. Limitationes seu termini iuris regendi ulteriores recognoscere debent a advocato habili de iurisdictione editoris ante remissionem."
+      },
+      "title": "Terms of Use"
+    },
+    "version": "Version",
+    "saving": "Salvis…",
+    "acceptContinue": "Accipere & Perge",
+    "appliesAuthenticator": "Apponitur ad KaalKey Authenticatorem",
+    "reviewBothDocuments": "Utraque documenta recense quaeso antequam utens KaalKey. Includuntur in online et in promptu sunt.",
+    "originalMulticolourAuthenticator": "Originale multicoloris KaalKey authenticator emblema",
+    "legalPrivacyNotice": "Legal & Privacy Notice",
+    "legalInformation": "Legalis notitia",
+    "reviewSPrivacy": "Recognitio KaalKey notitiae secretae et usus termini.",
+    "iReadAgree": "Legi et assentior ad Privacy ac Terms of Use."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Serva totum QR codicem conspicuum. Secretum tuum in hac arte manet.",
+    "back": "Retro",
+    "turnFlashlightOff": "Turn saccus dorsualis off",
+    "turnFlashlight": "Turn saccus dorsualis in",
+    "flashlight": "Flashlight on",
+    "flashlight2": "Flashlight",
+    "cameraUnavailableOpen": "Camera unavailable. Aperi hanc paginam in HTTPS vel localem exercitum et permitte aditum camerae.",
+    "cameraPreviewUnavailable": "Camera praevisum est unavailable. Claudere et recludere scannum.",
+    "cameraReadyPoint": "Camera parata — illud ad plenam QR designandum.",
+    "browserCannotProcess": "Hoc navigatrum non potest procedere ad tabulas cameras.",
+    "qrCodeDetected": "QR codicem deprehendit.",
+    "couldnTRead": "Camera tabulas legere non potuit. Reprehendo camera permissiones et hanc paginam reload.",
+    "cameraPermissionDenied": "Camera licentia denegata. Sinite camera accessum in occasus navigatri, deinde scannum recludere.",
+    "noCameraWas": "Nulla camera in hac fabrica inventa est.",
+    "cameraBusyAnother": "Camera in alio app vel navigatro tab occupatus est.",
+    "startCameraHttps": "Non potuit incipere camera. Utere HTTPS vel locali hospitio et permissu pasco reprime.",
+    "qrScannerCamera": "QR scanner camera preview",
+    "cameraUnavailableCheck": "Camera unavailable. Reprehendo diam licentia rursum.",
+    "pointCameraAuthenticator": "Monstrare cameram tuam ad authenticatorem constituendum QR codicem e servitio quod addis.",
+    "backAddAccount": "Ad rationem addere",
+    "secureSetup": "Secure ERECTUS",
+    "enterDetailsManually": "Intra singula manually loco"
+  },
+  "accountForm": {
+    "hideManualEntry": "Manual viscus celare",
+    "secretKeySupplied": "Utere secreto clavem supplere per ministerium quod configuraris. Numquam hic tesseram tuam inscribe. Algorithmum, comitem digiti, et intervallum ad instructiones ministerii par.",
+    "updateServiceAccount": "Renova ministerium, rationem nominis, vel clavis secreta.",
+    "secretKeyRead": "Clavis secreta, lege solum cum edendis",
+    "secretKeyBase32": "Secretum clavem in Base32",
+    "digits": "numeri",
+    "seconds": "seconds",
+    "enterDetailsManually": "VEL INTRA Details Manually",
+    "enterDetailsManually2": "Intra singula manually",
+    "serviceAccountName": "Servitium, ratio nominis et clavis secreta",
+    "saveChangesSecurely": "Salvum mutare securely",
+    "saveAccountSecurely": "Salvum ob secure",
+    "serviceIssuer": "Service vel issuer",
+    "accountName": "Ratio nominis",
+    "secretKey": "Secretum clavis",
+    "serviceIssuer2": "SERVICE / Issuer",
+    "eGGoogle": "e.g. Google",
+    "clearServiceIssuer": "Patet ministerium vel issuer",
+    "eGExample": "e.g. you@example.com",
+    "clearAccountName": "Patet propter nomen",
+    "secretKeyLocked": "CLAVIS SECRETA (LOCKED)",
+    "secretKeyBase322": "SECRETA CLAVIS (BASE32)",
+    "enterSetupKey": "Nulla key setup",
+    "clearSecretKey": "Patet secretum clavem",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP DIGITS",
+    "refreshIntervalSeconds": "REFOVEO INTERLATIO (SECONDS)",
+    "otpRefreshInterval": "OTP Refice intervallum secundis",
+    "closeAccountForm": "Prope rationem forma",
+    "totpSetupUrl": "TOTP habeat URL",
+    "importSetupUrl": "Importare setup URL",
+    "totpSetupUrl2": "TOTP ERECTUS URL",
+    "accountName2": "NAME RATIONEM HABEO",
+    "addAccount": "Addere rationem"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Scan authenticator QR code",
+    "setupGuidance": "Scan a QR codicem ad facillimum institutum, vel manually singula intrant.",
+    "cameraAddAccount": "Utere camera ad rationem statim",
+    "scanQrCode2": "Scan QR code",
+    "uploadQrImage": "Index QR image",
+    "chooseQrScreenshot": "Eligite QR tortorem e Pinacotheca, Imaginibus, aut Tabulariis",
+    "pasteQr": "Crustulum QR image / URL",
+    "pasteCopiedQr": "Crustulum exscriptus QR imago seu authenticator setup URL",
+    "uploadQrImage2": "Index QR image"
+  },
+  "accountQr": {
+    "close": "Close",
+    "accountQrCode": "Account QR code",
+    "revealQrCode": "Revelata QR code",
+    "exportWarning": "Monitum: quisquis hunc lustrat QR codicem verificationes hac ratione generare potest. Tantum revelare in screen creditorum.",
+    "privacyHint": "Hunc serva QR codicem privatum. Enucleat rationes authenticas secreti."
+  },
+  "productInfo": {
+    "backupRestore": "Tergum & restituet",
+    "backupRestoreDescription": "Documenta tua authentica restitue et eam restitue cum ad aliam machinam movebis.",
+    "privacyDescription": "Serva in uno loco rationes verificationem tuam. Tergum app utere, restitue, et optionibus cincinnis fabricae ut responsabilitatem setup tuam regendi.",
+    "timeBasedCodes": "Tempus-fundatur codes",
+    "generateOneTimeCodes": "Generare unum tempus passcodes rotating propter rationes tuas ad verificationem duos gradus complendas.",
+    "quickAccountSetup": "Velox propter setup",
+    "quickSetupDescription": "Scan authenticator QR signum vel importare QR imaginem rationem addere.",
+    "accountsOnePlace": "Rationes in unum locum",
+    "accountsInOnePlaceDescription": "Rationes conservatae tuae conserva simul et invenies ingressum rectum cum tempus est ad signum in.",
+    "privateAccountVault": "Privatus propter firmamentum",
+    "privateVaultDescription": "Viscus authenticator localiter curo et utere optione cincinno fabricae apps available.",
+    "easyCodeAccess": "Securus accessum codice",
+    "easyCodeAccessDescription": "Codicem currentem effingo vel rationi singula per mundum, interface feruntur.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · PER techsivaram",
+    "mobileAuthenticator": "AUTHENTICATOR mobile tuum",
+    "tagline": "Simplicior via ad verificationem duos gradus regendi tuos.",
+    "heroDescription": "A authenticator experientiam focused verificationis substructio in tempore. Serva compatibilia rationi prope cum KaalKey pro Android.",
+    "timeBasedCodes2": "TEMPUS EX CODES",
+    "privateDesign": "PRIVATIS PER DESIGN",
+    "builtSimpleAuthenticator": "ERECTUS SIMPLICI AUTHENTATOR WORKFLOW",
+    "qrSetupTimed": "QR ERECTUS · TEMPUS CODES · RATIO MAGISTERII",
+    "privacyTitle": "Rationes tuas. Codices tui. Tuum imperium.",
+    "authenticator": "KAALKEY · AUTHENTICATOR",
+    "brandBanner": "KaalKey notam vexillum",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Cancel",
+      "storageInvalidTitle": "Repono notitia irritum",
+      "storageInvalidBody": "Servata ratio data tuto legi non potuit.",
+      "storageErrorTitle": "Error repono",
+      "storageErrorBody": "Servata rationes non oneratus.",
+      "missingTitle": "Absentis notitia",
+      "missingEditingBody": "Intrant servitium nomen et rationem nominis.",
+      "missingBody": "Intrant servitium nomen, rationem nominis, et clavis secreta.",
+      "invalidOtpBody": "Compesce Base32 secretum, algorithmum, digiti comitem, et periodum recrea. Secreta valida continere debent characteres Base32; digiti debent esse {digits} et periodus {minPeriod}-{maxPeriod} secundis.",
+      "duplicateBody": "Rationem muneris huius ac nominis ratio iam servata est.",
+      "updatedBody": "Ratio tua renovata est.",
+      "addedBody": "Tua ratio fiducialiter addita est.",
+      "invalidOtpTitle": "Invalida OTP occasus",
+      "duplicateTitle": "Ratio iam exstat",
+      "savedTitle": "Ratio salvus",
+      "invalidSecretTitle": "Aliquam secretum clavem",
+      "invalidSecretBody": "Quaeso reprehendo te validum Base32 secretum intrasse.",
+      "removedTitle": "Ratio remota",
+      "removedBody": "Ratio et arcanum ab hac arte sublatum est.",
+      "clearedTitle": "Rationes purgata",
+      "clearedBody": "Omnes rationes authenticator et secreta ab hac arte sublata sunt.",
+      "someSavedAccountsNeedAttentionTitle": "Quidam servata ratione opus est",
+      "someSavedAccountsNeedAttentionBody": "{count} Rationis record(s) invalidae non sunt onerata. Rationes praesto manere valet. Considera tergum creando antequam mutationes ulteriores faciens.",
+      "removeConfirmTitle": "Aufer rationem?",
+      "removeConfirmWebTitle": "Aufer rationem?",
+      "removeButton": "Aufer",
+      "clearButton": "Patet omnia",
+      "clearConfirmTitle": "Patet omnes rationes?",
+      "saveErrorBody": "Rationes salvari non poterant. Sisto navigatro promptuarium repono et iterum conare.",
+      "notFoundTitle": "Quare non inveni",
+      "notFoundBody": "Haec ratio inveniri non potuit. Claude editorem et iterum tenta.",
+      "removeConfirmBody": "Hoc autem rationem removet et suum secretum ab hac arte removet.",
+      "clearConfirmBody": "Hoc in perpetuum omnes rationes authenticatas et secreta ab hac arte removet. Tergum encrypted primum crea si his rationibus postea opus est.",
+      "clearConfirmUndoBody": "Hoc fieri infectum non potest."
+    },
+    "biometric": {
+      "cancelButton": "Cancel",
+      "saveErrorTitle": "Posset servare occasum",
+      "unlockPrompt": "Basem KaalKey Authenticator",
+      "promptSubtitle": "Utere biometrics vel tuom screen cincinno",
+      "disableConfirmPrompt": "Ad confirmandas averte KaalKey cincinno app",
+      "enablePrompt": "Admitte app cincinno pro KaalKey",
+      "deviceLockTitle": "Erige tuom screen cincinno",
+      "deviceLockBody": "KaalKey phone constructo in authenticis utitur. Pone machinam PIN, exemplar vel tesseram in occasus securitatis telephonicae tui, deinde iterum conare. Biometricae libitum sunt.",
+      "unavailableTitle": "Machinam authenticas unavailable",
+      "unavailableBody": "Telephonium tuum fortisan authenticas incipere non potuit. Reprehendo machinam velum crinem configuratur, deinde iterum tenta.",
+      "lockedTitle": "Authenticas tempus clausum",
+      "lockedBody": "Telephonium tuum ad tempus authenticas erret post nimium multa conamina. Exspecta et iterum conare.",
+      "promptErrorTitle": "unavailable authenticas",
+      "promptErrorBody": "KaalKey phone securam authenticationem promptum incipere non potuit. Quaeso, iterum conare.",
+      "webLock": "Fabrica authenticas clausum est in versione interretiali adhuc praesto non est. Tela crypta reserata manet; uti Android app pro indigena fabrica authenticas.",
+      "disabledTitle": "App clausum erret",
+      "disabledBody": "KaalKey cincinno app aversa est.",
+      "disableSaveError": "In app cincinno enabled manet. Quaeso, iterum conare.",
+      "enabledTitle": "App cincinno enabled",
+      "enabledBody": "KaalKey Rogabit phone aedificatum authenticas apertas et cum ad illud redieris.",
+      "enableSaveError": "App cincinno non dabilis est. Quaeso, iterum conare."
+    },
+    "qr": {
+      "startingCamera": "Satus cameram…",
+      "unsupportedTitle": "Sine QR code",
+      "unsupportedBody": "Scan authenticator paro QR codicem supplevit per servitium. Hoc signum esse debet TOTP codicem, non login normalem QR codicem.",
+      "unsupportedDiagnostic": "Quod QR non est TOTP codicem habeat. Contende ad authenticatorem setup QR.",
+      "detectedDiagnostic": "QR deprehensus. Analyzing…",
+      "analyzing": "Analysing QR codice…",
+      "duplicateTitle": "Ratio iam additae",
+      "duplicateBody": "{issuer}: {account} iam in KaalKey.",
+      "addedTitle": "Ratio additae",
+      "addedBody": "{issuer}: {account} feliciter accessit.",
+      "saveFailedDiagnostic": "Integer non consequat nisi. Iterum scan potes.",
+      "invalidTitle": "Invalida QR code",
+      "invalidBody": "Huic authenticatori parse non potuit QR codicem. {detail}. Utere servitio scriptor TOTP habeat QR codice (plerumque incipit cum {prefix}).",
+      "parseFailedDiagnostic": "QR discursum esse non potuit. Intende ad setup QR et iterum conare.",
+      "invalidUrlTitle": "Invalida TOTP URL",
+      "invalidUrlBody": "Crustulum integrum authenticatorem URL incipiendo {prefix}.",
+      "clipboardEmptyTitle": "Clipboard inanis",
+      "clipboardEmptyBody": "Exemplar {prefix} URL primum, deinde Paste ICTUS TOTP URL.",
+      "clipboardErrorTitle": "Non legitur clipboard",
+      "clipboardErrorBody": "Effingo quod TOTP habeat URL et iterum tenta."
+    },
+    "haptics": {
+      "saveFailedTitle": "Posset servare occasum",
+      "saveFailedBody": "Praeferre opiniones haptic non poterat salvari. Quaeso, iterum conare."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Non salvare recognitionem",
+      "saveFailedBody": "Quaeso, iterum conare. Iudicium accipere debes antequam utaris KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Camera licentia requiratur",
+      "body": "Permittite camera aditum ad scandendum authenticatorem setup QR codicem."
+    },
+    "storage": {
+      "browserUnavailable": "Naviculator repositionis est unavailable.",
+      "browserFilePickerUnavailable": "Fasciculi navigatoris picker unavailable."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Sine file",
+      "unsupportedFileBody": "Elige QR codicem imaginem ut PNG vel JPEG.",
+      "browserDecoderUnavailable": "Pasco imaginem decoding est unavailable",
+      "imageLoadFailed": "Imago non oneratus",
+      "unreadableDimensions": "Image has no readable dimensiones",
+      "noQrCodeFoundTitle": "Nullum QR codicem repertum",
+      "noQrCodeFoundBody": "KaalKey codicem in hac imagine detexere non potuit. Conare screenshots vel altiorem solutionem PNG/JPEG.",
+      "couldNotReadImageTitle": "Non legitur imago",
+      "couldNotReadImageBody": "Dilucidam proba PNG vel JPEG imaginem in qua authenticator habeat QR codicem.",
+      "couldNotOpenPickerTitle": "Non aperire imaginem picker",
+      "couldNotOpenPickerBody": "Quaeso, iterum conare Index QR.",
+      "normalizedDecodeFailed": "Normalised imaginem non decoded",
+      "clipboardImageLoadFailed": "Clipboard imaginem non oneratus",
+      "imageProcessingUnavailable": "Imago processus est unavailable",
+      "imageProcessingUnavailableAlt": "Imago processus unavailable",
+      "noImageInClipboardTitle": "Nulla imago in clipboard",
+      "noImageInClipboardBody": "Exemplar QR signum imaginis, deinde Paste ICTUS QR Imaginem iterum.",
+      "clipboardUnavailableTitle": "Clipboard unavailable",
+      "clipboardUnavailableBody": "Textus Clipboard validum authenticatorem habeat URL. Exemplar otpauth:// URL vel QR imaginem et iterum conare.",
+      "clipboardAccessBody": "KaalKey textum vel imaginem e clipboard legere non potuit. Patitur aditus clipboard, deinde imaginem QR imaginis vel otpauth:// URL et sonum Paste QR Imaginem / URL iterum.",
+      "couldNotPasteImageTitle": "Non crustulum imaginem",
+      "couldNotPasteImageBody": "Imago pasting non valet per hanc machinam clipboard. Usus Import QR imaginem loco.",
+      "sourceImageDecodeFailure": "Aliam proba imaginem.",
+      "pastedImportFailureBody": "Aliam proba imaginem.",
+      "sourceImageReadFailure": "Conare exemplum clarum QR tortor.",
+      "importFailedTitle": "QR import imago defecit",
+      "importFailedBody": "KaalKey imaginem illam legi non potuit. Quaeso, experire aliam QR codicem imaginem.",
+      "notFoundBody": "Imago exscriptus non legit codicem QR.",
+      "pastedNotFoundBody": "Imaginum conglutinatam legibilem QR codicem non continet.",
+      "pastedReadFailureBody": "Conare describendo clarum PNG vel JPEG imaginem continens plenam QR codicem.",
+      "noQrCodeTextBody": "KaalKey imaginem electam decoctam sed non inveni QR codicem. Conare claram, plenam solutionem PNG vel cum toto codice visibili."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Hoc QR signum non est temporis substructio authenticatoris setup codicem.",
+      "missingAccountDetails": "In codice deest singula ratio.",
+      "unsupportedAlgorithm": "In QR codice sine algorithmo utitur.",
+      "unsupportedDigits": "Hoc codice utendum est 6, 7, vel 8 digitorum.",
+      "unsupportedPeriod": "Hoc QR codice sine temporis spatio utitur.",
+      "invalidAccount": "In codice QR convalescere non potuit."
+    },
+    "backup": {
+      "invalidJson": "Scapus tergum tergum JSON non valet.",
+      "unsupportedFormat": "Hoc non est encrypted tergum KaalKey.",
+      "invalidPasswordOrDamaged": "Tessera tergum falsa vel fasciculus tergum laeditur.",
+      "invalidContents": "In tergum contenta sunt invalida vel incompleta.",
+      "secureRandomUnavailableDetailed": "Securus temere generatio est unavailable. Reficere et restituo Android app cum expo-crypto inclusa, deinde iterum conare.",
+      "invalidAccountDataForBackup": "Rationes una vel plures invalidae sunt. Fige rationem data ante partum tergum.",
+      "invalidPasswordOrModified": "Tessera tergum falsa vel fasciculus tergum mutata est.",
+      "invalidPasswordOrFileDamaged": "Tessera tergum falsa vel tabella laeditur.",
+      "passwordCopiedTitle": "Password copied",
+      "enterPasswordTitle": "Nulla tergum password",
+      "enterPasswordBody": "Intrant tesseram adhibendam cum hoc tergum creatum est.",
+      "passwordCopiedBody": "Salvum est alicubi tutum, ut WhatsApp.",
+      "copyFailedTitle": "Effingo defecit",
+      "copyFailedBody": "Tesseras manually eligere et effingo.",
+      "generatingPassword": "Securus tergum password…",
+      "encrypting": "Encrypting tergum…",
+      "decrypting": "Decrypting tergum…",
+      "restoring": "Rationes restituendae…",
+      "backupCreatedTitle": "Tergum creatus",
+      "restoreCompleteTitle": "restitue integram",
+      "mergeConfirmTitle": "Merge tergum rationes?",
+      "mergeConfirmButton": "Merge rationes",
+      "backupSavedTemporary": "Encrypted tergum servavit temporaliter at:\n{uri}",
+      "generatePasswordErrorTitle": "Non potest generate password tergum",
+      "secureRandomUnavailable": "Securus temere generatio est unavailable.",
+      "passwordUnavailableTitle": "Tergum password unavailable",
+      "passwordUnavailableBody": "Hunc alternis claudere ac novum tergum creare ut tesseram securam generaret.",
+      "backupDownloadedBody": "Your encrypted KaalKey tergum receptae sunt. Serva tabellam et tesseram privatam.",
+      "backupFailedTitle": "Tergum defecit",
+      "backupCreateErrorBody": "KaalKey tergum creare non potuit.",
+      "restoreFailedTitle": "Restitue defecit",
+      "backupReadErrorBody": "Tergum legi vel salvari non potuit.",
+      "browserDownloadUnsupported": "Navicula tua repla non adiuvat lima tergum exsequentes.",
+      "localFileUnavailable": "Locus lima locus est in hac fabrica unavailable.",
+      "saveBackupTitle": "Servo tuo encrypted KaalKey tergum"
+    },
+    "clipboard": {
+      "copiedTitle": "Code copied",
+      "copiedBody": "Tuum verificationis est copied.",
+      "errorTitle": "Error",
+      "errorBody": "Non verificationis effingo."
+    },
+    "activity": {
+      "cameraReady": "Camera parata. Indicare apud authenticatorem QR codicem.",
+      "readingQrImage": "Lectio QR imago…",
+      "importingQrImage": "Importans QR imaginem…",
+      "importingAccount": "Ratio authentica importat ...",
+      "importingPastedImage": "Importans conglutinatam QR imaginem…"
+    }
+  },
+  "activity": {
+    "working": "Operatio",
+    "wait": "Quaeso exspectare…",
+    "donTClose": "Quaeso, ne claudas aut penitus cum KaalKey.",
+    "loadingLanguages": "Linguae praesto Loading...",
+    "loadingTranslation": "Loading translation…"
+  }
+}

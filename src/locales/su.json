@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Basa",
+      "description": "Pilih basa anu digunakeun dina KaalKey.",
+      "english": "Inggris",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "BASA",
+      "searchLanguageName": "Pilarian basa (ngaran atawa kode)",
+      "searchSupportedLanguages": "Pilarian basa anu dirojong",
+      "closeLanguageDropdown": "Tutup dropdown basa",
+      "noTranslatedLanguage": "Teu aya basa anu ditarjamahkeun.",
+      "serverUrl": "Server tarjamahan URL",
+      "serverUrlDescription": "KaalKey ngundeur daptar basa sareng tarjamahan tina server ieu.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Simpen server tarjamah"
+    },
+    "title": "Setélan aplikasi",
+    "eyebrow": "KAALKEY PREFERENSI",
+    "experience": {
+      "section": "PANGALAMAN"
+    },
+    "security": {
+      "section": "KAAMANAN"
+    },
+    "backup": {
+      "section": "Nyadangkeun & recovery"
+    },
+    "danger": {
+      "section": "ZONA BAHAYA",
+      "clearAccounts": "Hapus sadaya akun",
+      "clearAccountsDescription": "Hapus unggal akun sareng rusiah sacara permanén tina alat ieu. Nyadangkeun heula.",
+      "clearAccountsAccessibilityLabel": "Hapus sadaya akun auténtikasi"
+    },
+    "appearance": {
+      "section": "PENAMPILAN",
+      "title": "Penampilan cahayana",
+      "description": "KaalKey ayeuna ngagunakeun tema cahaya bersih na."
+    },
+    "haptics": {
+      "title": "eupan balik Haptic",
+      "description": "Eupan balik lembut pikeun ketok sareng tindakan réngsé."
+    },
+    "deviceLock": {
+      "title": "Konci auténtikasi alat",
+      "description": "Kolong anjeun ngonci nalika KaalKey ninggalkeun foreground.",
+      "requirement": "Merlukeun biometrik telepon anjeun atanapi konci layar PIN, pola, atanapi kecap akses.",
+      "accessibilityLabel": "Konci aplikasi auténtikasi alat"
+    },
+    "privacy": {
+      "title": "Hukum & privasi",
+      "description": "Pariksa Kabijakan Privasi sareng Sarat Pamakéan.",
+      "storageNote": "Rahasia authenticator anjeun tetep dina kolong aman dina alat. Preferensi disimpen sacara lokal."
+    }
+  },
+  "accounts": {
+    "edit": "Édit",
+    "sortAccountName": "Susun dumasar ngaran akun",
+    "loadingSecureVault": "Ngamuat kolong aman...",
+    "tapCopy": "KEtok Pikeun nyalin",
+    "noAccountsMatch": "Teu aya akun anu cocog sareng milarian anjeun.",
+    "viewQrCode": "Témbongkeun QR kode pikeun akun",
+    "removeAccount": "Hapus akun",
+    "copyVerificationCode": "Salin kode verifikasi",
+    "active": "AKTIF",
+    "sort": "diurutkeun ku",
+    "account": "Rekening",
+    "clearSearch": "Hapus pilarian",
+    "sortServiceName": "Susun dumasar ngaran jasa",
+    "addFirstAccount": "Tambahkeun akun munggaran anjeun",
+    "searchAccounts": "Pilarian akun",
+    "searchServiceAccount": "Milarian jasa atanapi akun",
+    "accounts": "Rekening anjeun",
+    "add": "+ Tambahkeun",
+    "vaultStartsHere": "Kolong anjeun dimimitian di dieu",
+    "service": "Palayanan",
+    "emptyHint": "Tambahkeun akun nganggo konci rusiahna pikeun ngahasilkeun kode verifikasi munggaran anjeun."
+  },
+  "common": {
+    "done": "Réngsé",
+    "doneButton": "Réngsé",
+    "closeSettings": "Tutup setélan",
+    "separator": "-",
+    "article": "a",
+    "save": "Simpen",
+    "delete": "Hapus",
+    "resizeAppBrand": "Ganti ukuran panel aplikasi sareng merek"
+  },
+  "qrImport": {
+    "readPastedImage": "Teu bisa maca gambar nu ditempelkeun"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Akun dina cadangan ieu: {count}. KaalKey bakal ngajaga akun anjeun anu tos aya sareng nambihan akun anu henteu acan aya. Duplikat akun bakal dilewatan.",
+    "restoreCompletionBody": "Akun ditambahkeun: {added}. Akun duplikat dilewatan: {skipped}. Akun anjeun anu tos aya disimpen.",
+    "copyPassword": "Nyalin sandi dihasilkeun",
+    "passwordSafety": "Simpen kecap akses ieu nyalira (contona, dina WhatsApp). Saha jeung duanana teh",
+    "importAction": "Pilih file sareng impor",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "Kolong aman",
+    "createBackup": "Jieun cadangan",
+    "encryptedFile": "file énkripsi",
+    "restoreBackup": "Mulangkeun cadangan",
+    "safetyNote": "Cadangan ngandung rusiah authenticator anjeun. KaalKey ngahasilkeun sandi unik pikeun tiap cadangan. Simpen sacara misah; KaalKey teu tiasa pulih deui.",
+    "generatingSecurePassword": "Ngahasilkeun kecap akses anu aman…",
+    "importFile": "Impor file",
+    "backupPassword": "Sandi cadangan",
+    "account": "akun",
+    "accounts": "rekening",
+    "exportDescription": "Énkripsi sadaya {count} disimpen {accountLabel} kana payel cadangan. KaalKey ngahasilkeun sandi unik; nyalin tur simpen eta misah ti file.",
+    "restoreDescription": "Pilih KaalKey file cadangan sareng kecap akses anjeun. Akun anyar bakal ditambah kana daptar akun anjeun anu tos aya; rekening aya bakal tetep sakumaha aranjeunna.",
+    "enterBackupPassword": "Lebetkeun kecap akses cadangan",
+    "closeBackup": "Tutup cadangan",
+    "copyGeneratedBackup": "Nyalin sandi cadangan dihasilkeun",
+    "backupPassword2": "Sandi cadangan",
+    "clearBackupPassword": "Hapus sandi cadangan",
+    "backupFilePassword": "file cadangan sareng kecap akses tiasa mulangkeun akun authenticator anjeun.",
+    "encryptShareBackup": "Énkripsi sareng bagikeun cadangan"
+  },
+  "home": {
+    "unlockSecurely": "Buka konci aman",
+    "disableAppLock": "Nonaktipkeun konci aplikasi",
+    "enableAppLock": "Aktipkeun konci aplikasi",
+    "checkingSecureLock": "Mariksa setélan konci aman anjeun. Kode anjeun tetep disumputkeun.",
+    "waitingVerification": "Nungguan verifikasi…",
+    "secretsStayStored": "Rahasia anjeun tetep disimpen dina alat ieu.",
+    "openAppSettings": "Buka setélan aplikasi",
+    "versionLabel": "VERSI",
+    "unlockRequirement": "Anggo biometrik telepon anjeun atanapi konci layar PIN, pola, atanapi kecap akses pikeun ngakses kode verifikasi sakali anjeun.",
+    "localVault": "KOANG LOKAL Anjeun",
+    "codesDeviceControl": "Konci anjeun. alat Anjeun. Kadali anjeun.",
+    "securingVault": "Ngamankeun kolong anjeun…",
+    "vaultProtected": "Kolong anjeun ditangtayungan",
+    "lock": "KUNCI ON",
+    "localVault2": "LOKAL LOKAL",
+    "authenticator": "KAALKEY AUTHENTICATOR",
+    "tricolourLockEmblem": "KaalKey lambang konci tricolor",
+    "authenticator2": "AUTENTIKATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Upami anjeun milih nyeken kode QR, KaalKey nganggo idin kaméra pikeun tindakan éta. Auténtikasi alat opsional sareng eupan balik haptic nganggo fitur alat anu relevan. Anjeun tiasa ngatur idin dina setelan alat Anjeun.",
+        "heading": "2. Idin sarta fitur alat"
+      },
+      "backups": {
+        "body": "Lamun anjeun nyieun cadangan, KaalKey énkripsi cadangan maké kecap akses nu anjeun pilih. Simpen duanana file sareng kecap akses pribadi sareng simpenana aman. Saha waé anu kéngingkeun file sareng kecap aksesna tiasa mulangkeun akun auténtikasi anjeun. KaalKey teu bisa cageur sandi cadangan poho.",
+        "heading": "3. Nyadangkeun"
+      },
+      "security": {
+        "body": "Tetep apdet alat Anjeun, ngajaga eta ku konci layar, sarta ulah babagi OTP rusiah atawa kecap akses cadangan. Ngahapus aplikasi, mupus datana, atanapi kaleungitan alat tiasa nyababkeun akun anu disimpen sacara lokal teu sayogi. Jaga cadangan anu aman upami anjeun peryogi pamulihan.",
+        "heading": "5. Kaamanan jeung ingetan"
+      },
+      "information": {
+        "heading": "1. Émbaran jeung Rahasia",
+        "body": "KaalKey mangrupikeun aplikasi auténtikasi. Labél akun sareng nilai rusiah anu dipikabutuh pikeun ngahasilkeun kode hiji waktos sénsitip. Aplikasi ieu dirancang pikeun nyimpen rékaman akun dina panyimpenan aman alat. Saha waé anu gaduh aksés kana alat anu teu dikonci atanapi cadangan anu diékspor tiasa tiasa ngaksés inpormasi sénsitip."
+      },
+      "sharing": {
+        "heading": "4. Sharing jeung pihak katilu",
+        "body": "Aliran cadangan tiasa nganggo lambar pangsa alat anjeun atanapi pamilih file pikeun nyimpen, nransper, atanapi milih file. Prakték privasi tina aplikasi atanapi jasa pihak katilu anu anjeun pilih diatur ku panyadia éta. Bewara ieu henteu ngaku yén alat anjeun, sistem operasi, atanapi jasa babagi anu dipilih henteu pernah ngolah data."
+      },
+      "changes": {
+        "heading": "6. Parobahan jeung kontak",
+        "body": "Bewara anu dipasang ieu tiasa dirévisi dina rilis aplikasi anu bakal datang. Pikeun patarosan privasi, hubungi penerbit aplikasi ngalangkungan saluran dukungan resmi anu disayogikeun sareng aplikasi éta."
+      },
+      "title": "Kawijakan Privasi"
+    },
+    "terms": {
+      "use": {
+        "body": "Anjeun tiasa nganggo KaalKey pikeun ngahasilkeun kode verifikasi pikeun akun anu anjeun otorisasi aksés. Anjeun tanggel waler pikeun patuh kana hukum anu berlaku sareng aturan jasa anu anjeun pake kode auténtikasi.",
+        "heading": "1. pamakéan Anjeun"
+      },
+      "protectAccounts": {
+        "body": "Anjeun tanggung jawab pikeun ngamankeun alat anjeun, rusiah auténtikasi, metode pamulihan, cadangan anu diékspor, sareng kecap akses cadangan. Tong ngabagi kodeu atanapi rusiah ka jalma anu anjeun teu percanten.",
+        "heading": "2. Jaga akun anjeun"
+      },
+      "availability": {
+        "body": "Fitur tiasa robih antara sékrési. Anjeun kedah tetep aplikasi diropéa sareng pariksa périodik yén pangaturan cadangan sareng pamulihan anjeun tiasa dianggo.",
+        "heading": "5. Parobahan sarta kasadiaan"
+      },
+      "recovery": {
+        "body": "KaalKey teu tiasa ngajamin yén unggal akun tiasa pulih, yén unggal QR kode atanapi konfigurasi bakal cocog, atanapi yén aplikasi bakal beroperasi tanpa gangguan atanapi kasalahan. Tetep métode recovery alternatif disadiakeun ku layanan relevan.",
+        "heading": "3. Taya jaminan recovery"
+      },
+      "advice": {
+        "heading": "4. Taya nasehat profésional",
+        "body": "Aplikasina mangrupikeun utilitas sareng henteu masihan naséhat réspon kajadian hukum, kauangan, atanapi kaamanan. Upami hiji akun dikompromi, turutan pituduh pamulihan sareng kaamanan resmi jasa anu kapangaruhan."
+      },
+      "liability": {
+        "heading": "6. Liability jeung hukum lumaku",
+        "body": "Sajauh anu diijinkeun ku hukum anu berlaku, aplikasina disayogikeun tanpa jaminan operasi anu teu diganggu atanapi henteu aya kasalahan. Henteu aya dina istilah ieu anu ngaluarkeun hak atanapi pangobatan anu teu tiasa dikaluarkeun sacara sah. Watesan salajengna atanapi istilah hukum pamaréntahan kedah diulas ku pengacara anu mumpuni pikeun yurisdiksi penerbit sateuacan dileupaskeun."
+      },
+      "title": "Sarat jeung Kaayaan Pamakéan"
+    },
+    "version": "Vérsi",
+    "saving": "Nyimpen…",
+    "acceptContinue": "Tampa & Teruskeun",
+    "appliesAuthenticator": "Manglaku ka KaalKey Authenticator",
+    "reviewBothDocuments": "Mangga marios duanana dokumén sateuacan nganggo KaalKey. Éta kalebet kana aplikasi sareng sayogi offline.",
+    "originalMulticolourAuthenticator": "Multicolour asli KaalKey lambang auténtikasi",
+    "legalPrivacyNotice": "Bewara Hukum & Privasi",
+    "legalInformation": "Inpormasi hukum",
+    "reviewSPrivacy": "Tinjau inpormasi privasi KaalKey sareng syarat pamakean.",
+    "iReadAgree": "Abdi parantos maca sareng satuju kana Kabijakan Privasi sareng Sarat Pamakéan."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Tetep sakabéh QR kode ditingali. Rahasia anjeun tetep dina alat ieu.",
+    "back": "Balik deui",
+    "turnFlashlightOff": "Pareuman senter",
+    "turnFlashlight": "Hurungkeun senter",
+    "flashlight": "Senter hurung",
+    "flashlight2": "Senter",
+    "cameraUnavailableOpen": "Kaméra teu sadia. Buka kaca ieu dina HTTPS atawa localhost sarta ngidinan aksés kaméra.",
+    "cameraPreviewUnavailable": "Tilik kaméra teu sadia. Tutup sareng buka deui alat panyeken.",
+    "cameraReadyPoint": "Kaméra siap — arahkeun kana kode QR lengkep.",
+    "browserCannotProcess": "Browser ieu teu tiasa ngolah pigura kaméra.",
+    "qrCodeDetected": "QR kode dideteksi.",
+    "couldnTRead": "Teu bisa maca pigura kaméra. Pariksa idin kaméra sareng muatkeun deui halaman ieu.",
+    "cameraPermissionDenied": "Idin kaméra ditolak. Ngidinan aksés kaméra dina setélan browser, teras buka deui scanner.",
+    "noCameraWas": "Henteu aya kaméra anu kapendak dina alat ieu.",
+    "cameraBusyAnother": "Kaméra sibuk dina aplikasi atanapi tab browser anu sanés.",
+    "startCameraHttps": "Teu bisa ngamimitian kaméra. Anggo HTTPS atanapi localhost sareng pariksa idin browser.",
+    "qrScannerCamera": "QR sawangan kaméra scanner",
+    "cameraUnavailableCheck": "Kaméra teu sadia. Pariksa idin kaméra jeung cobian deui.",
+    "pointCameraAuthenticator": "Arah kaméra anjeun ka kodeu setup authenticator QR tina layanan anu anjeun tambahkeun.",
+    "backAddAccount": "Balik pikeun nambahkeun akun",
+    "secureSetup": "SETUP AMAN",
+    "enterDetailsManually": "Lebetkeun rinci sacara manual"
+  },
+  "accountForm": {
+    "hideManualEntry": "Sumputkeun entri manual",
+    "secretKeySupplied": "Anggo konci rusiah anu disayogikeun ku jasa anu anjeun konfigurasi. Pernah ngasupkeun sandi akun anjeun di dieu. Cocogkeun algoritma, cacah angka, sareng interval sareng paréntah pangaturan jasa.",
+    "updateServiceAccount": "Apdet ladenan, ngaran akun, atawa konci rusiah.",
+    "secretKeyRead": "Konci rusiah, baca wungkul bari ngédit",
+    "secretKeyBase32": "Konci rusiah dina Base32",
+    "digits": "angka",
+    "seconds": "detik",
+    "enterDetailsManually": "ATAWA Asupkeun rinci sacara manual",
+    "enterDetailsManually2": "Lebetkeun rinci sacara manual",
+    "serviceAccountName": "Service, ngaran akun tur konci rusiah",
+    "saveChangesSecurely": "Simpen parobahanana aman",
+    "saveAccountSecurely": "Simpen akun aman",
+    "serviceIssuer": "Service atawa penerbit",
+    "accountName": "Ngaran akun",
+    "secretKey": "konci rusiah",
+    "serviceIssuer2": "LAYANAN / PENERBIT",
+    "eGGoogle": "misalna. Google",
+    "clearServiceIssuer": "jasa jelas atawa penerbit",
+    "eGExample": "misalna. anjeun@example.com",
+    "clearAccountName": "Hapus ngaran akun",
+    "secretKeyLocked": "KUNCI RAHASIA (KONCUNG)",
+    "secretKeyBase322": "KUNCI RAHASIA (BASE32)",
+    "enterSetupKey": "Lebetkeun konci setelan Anjeun",
+    "clearSecretKey": "Hapus konci rusiah",
+    "otpAlgorithm": "OTP ALGORITMA",
+    "otpDigits": "OTP ANGKA",
+    "refreshIntervalSeconds": "INTERVAL REfresh (detik)",
+    "otpRefreshInterval": "OTP interval refresh dina detik",
+    "closeAccountForm": "Tutup formulir akun",
+    "totpSetupUrl": "TOTP setelan URL",
+    "importSetupUrl": "Setélan impor URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "NAMA AKUN",
+    "addAccount": "Tambahkeun akun"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Scan authenticator QR kode",
+    "setupGuidance": "Nyeken kode QR pikeun setelan panggampangna, atawa lebetkeun detil sacara manual.",
+    "cameraAddAccount": "Paké kaméra Anjeun pikeun nambahkeun hiji akun instan",
+    "scanQrCode2": "Scan kode QR.",
+    "uploadQrImage": "Unggah QR gambar",
+    "chooseQrScreenshot": "Pilih layar QR tina Galeri, Poto, atanapi Payil",
+    "pasteQr": "Témpél QR gambar / URL",
+    "pasteCopiedQr": "Tempelkeun gambar QR salinan atanapi setelan auténtikasi URL",
+    "uploadQrImage2": "Unggah QR gambar"
+  },
+  "accountQr": {
+    "close": "Tutup",
+    "accountQrCode": "Kode akun QR.",
+    "revealQrCode": "Nembongkeun QR kode",
+    "exportWarning": "Peringatan: saha waé anu nyeken kode QR ieu tiasa ngahasilkeun kode verifikasi pikeun akun ieu. Ngan nembongkeun eta dina layar dipercaya.",
+    "privacyHint": "Tetep kode ieu QR pribadi. Nyeken éta nyalin rusiah authenticator akun."
+  },
+  "productInfo": {
+    "backupRestore": "Nyadangkeun & malikkeun",
+    "backupRestoreDescription": "Nyadangkeun data authenticator anjeun sarta balikkeun deui lamun anjeun pindah ka alat sejen.",
+    "privacyDescription": "Simpen akun verifikasi anjeun dina hiji tempat. Anggo pilihan cadangan, pamulihan, sareng konci alat pikeun ngatur setelan anjeun sacara tanggung jawab.",
+    "timeBasedCodes": "Kode dumasar-waktos",
+    "generateOneTimeCodes": "Ngahasilkeun kodeu aksés sakali-waktos pikeun akun anjeun pikeun ngabéréskeun verifikasi dua léngkah.",
+    "quickAccountSetup": "Setélan akun gancang",
+    "quickSetupDescription": "Nyeken kode auténtikator QR atanapi impor gambar QR pikeun nambihan akun.",
+    "accountsOnePlace": "Rekening di hiji tempat",
+    "accountsInOnePlaceDescription": "Simpen akun anu disimpen babarengan sareng panggihan entri anu pas nalika waktuna asup.",
+    "privateAccountVault": "Kolong akun pribadi",
+    "privateVaultDescription": "Atur éntri authenticator anjeun sacara lokal sareng paké pilihan konci alat aplikasi anu sayogi.",
+    "easyCodeAccess": "aksés kode gampang",
+    "easyCodeAccessDescription": "Salin kodeu ayeuna atanapi atur detil akun ngalangkungan antarmuka anu bersih sareng fokus.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · BY TECHSIVARAM",
+    "mobileAuthenticator": "AUTHENTICATOR MOBILE Anjeun",
+    "tagline": "Cara anu langkung saderhana pikeun ngatur verifikasi dua léngkah anjeun.",
+    "heroDescription": "Pangalaman auténtikator anu difokuskeun pikeun kode verifikasi dumasar kana waktos. Tetep kode akun cocog caket di leungeun kalawan KaalKey pikeun Android.",
+    "timeBasedCodes2": "KODE dumasar kana waktos",
+    "privateDesign": "PRIBADI ku rarancang",
+    "builtSimpleAuthenticator": "Diwangun pikeun alur kerja AUTHENTICATOR basajan",
+    "qrSetupTimed": "QR SETUP · KODE WAKTU · MANAJEMEN AKUN",
+    "privacyTitle": "Rekening anjeun. Konci anjeun. Kadali anjeun.",
+    "authenticator": "KAALKEY · AUTENTIKATOR",
+    "brandBanner": "KaalKey spanduk merek",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Ngabolaykeun",
+      "storageInvalidTitle": "Data gudang teu valid",
+      "storageInvalidBody": "Data akun nu disimpen teu bisa dibaca kalawan aman.",
+      "storageErrorTitle": "Kasalahan gudang",
+      "storageErrorBody": "Akun nu disimpen teu bisa dimuat.",
+      "missingTitle": "Kaleungitan inpormasi",
+      "missingEditingBody": "Lebetkeun nami jasa sareng nami akun.",
+      "missingBody": "Lebetkeun nami jasa, nami akun, sareng konci rahasia.",
+      "invalidOtpBody": "Pariksa Base32 rusiah, algoritme, jumlah digit, jeung jaman refresh. Rahasia kudu ngandung karakter valid Base32; digit kudu {digits} jeung periode kudu {minPeriod}–{maxPeriod} detik.",
+      "duplicateBody": "Akun anu nganggo jasa ieu sareng nami akun parantos disimpen.",
+      "updatedBody": "Akun anjeun diropéa.",
+      "addedBody": "Rekening anjeun ditambahkeun aman.",
+      "invalidOtpTitle": "Setélan OTP teu valid",
+      "duplicateTitle": "Rekening geus aya",
+      "savedTitle": "Akun disimpen",
+      "invalidSecretTitle": "konci rusiah teu valid",
+      "invalidSecretBody": "Punten parios yén anjeun ngalebetkeun rusiah Base32 anu sah.",
+      "removedTitle": "Akun dihapus",
+      "removedBody": "Akun sareng rusiahna dipiceun tina alat ieu.",
+      "clearedTitle": "Rekening diberesihan",
+      "clearedBody": "Sadaya akun sareng rahasia authenticator dipiceun tina alat ieu.",
+      "someSavedAccountsNeedAttentionTitle": "Sababaraha akun anu disimpen peryogi perhatian",
+      "someSavedAccountsNeedAttentionBody": "{count} catetan akun teu sah teu dimuat. Akun anu sah tetep sayogi. Pertimbangkeun nyieun cadangan samemeh nyieun parobahan salajengna.",
+      "removeConfirmTitle": "Hapus akun?",
+      "removeConfirmWebTitle": "Hapus akun?",
+      "removeButton": "Cabut",
+      "clearButton": "Pupus sadayana",
+      "clearConfirmTitle": "Hapus sadaya akun?",
+      "saveErrorBody": "Rekening teu bisa disimpen. Pariksa kasadiaan panyimpenan browser sareng cobian deui.",
+      "notFoundTitle": "Rekening teu kapanggih",
+      "notFoundBody": "Akun ieu teu tiasa dipendakan. Tutup éditor sareng cobian deui.",
+      "removeConfirmBody": "Ieu ngahapus akun sareng rusiahna tina alat ieu.",
+      "clearConfirmBody": "Ieu sacara permanen ngahapus sadaya akun auténtikasi sareng rusiahna tina alat ieu. Jieun cadangan énkripsi heula upami anjeun peryogi akun ieu engké.",
+      "clearConfirmUndoBody": "Ieu teu bisa dibolaykeun."
+    },
+    "biometric": {
+      "cancelButton": "Ngabolaykeun",
+      "saveErrorTitle": "Teu bisa nyimpen setelan",
+      "unlockPrompt": "Buka konci KaalKey Authenticator",
+      "promptSubtitle": "Anggo biometrik atanapi konci layar alat anjeun",
+      "disableConfirmPrompt": "Konfirmasi mareuman KaalKey konci aplikasi",
+      "enablePrompt": "Aktipkeun konci aplikasi pikeun KaalKey",
+      "deviceLockTitle": "Setel konci layar alat anjeun",
+      "deviceLockBody": "KaalKey ngagunakeun auténtikasi internal telepon anjeun. Setel alat PIN, pola, atawa kecap akses dina setelan kaamanan telepon anjeun, teras cobian deui. Biometrics mangrupakeun pilihan.",
+      "unavailableTitle": "Auténtikasi alat teu sadia",
+      "unavailableBody": "Telepon anjeun teu bisa ngamimitian auténtikasi aman. Pariksa yen konci layar alat geus ngonpigurasi, teras cobian deui.",
+      "lockedTitle": "Auténtikasi samentara dikonci",
+      "lockedBody": "Telepon anjeun samentawis nganonaktipkeun auténtikasi saatos seueur teuing usaha. Antosan teras cobian deui.",
+      "promptErrorTitle": "Auténtikasi teu sadia",
+      "promptErrorBody": "KaalKey teu bisa ngamimitian ajakan auténtikasi aman telepon. Mangga cobian deui.",
+      "webLock": "Konci auténtikasi alat teu acan sayogi dina versi wéb. Kolong wéb tetep teu dikonci; pake aplikasi Android pikeun auténtikasi alat asli.",
+      "disabledTitle": "Konci aplikasi ditumpurkeun",
+      "disabledBody": "KaalKey konci aplikasi geus dipareuman.",
+      "disableSaveError": "Konci aplikasi tetep diaktipkeun. Mangga cobian deui.",
+      "enabledTitle": "Konci aplikasi diaktipkeun",
+      "enabledBody": "KaalKey bakal menta auténtikasi internal telepon anjeun nalika dibuka sareng nalika anjeun uih deui.",
+      "enableSaveError": "Konci aplikasi teu tiasa diaktipkeun. Mangga cobian deui."
+    },
+    "qr": {
+      "startingCamera": "Ngamimitian kaméra…",
+      "unsupportedTitle": "Kode QR teu dirojong",
+      "unsupportedBody": "Nyeken kodeu setup authenticator QR anu disayogikeun ku jasa éta. Ieu kedah janten kode TOTP, sanés kode login normal QR.",
+      "unsupportedDiagnostic": "Éta QR sanes kode pangaturan TOTP. Tujuan hiji setelan auténtikator QR.",
+      "detectedDiagnostic": "QR dideteksi. Nganalisis…",
+      "analyzing": "Nganalisis QR kode...",
+      "duplicateTitle": "Akun geus ditambahkeun",
+      "duplicateBody": "{issuer}: {account} parantos aya dina KaalKey.",
+      "addedTitle": "Akun ditambahkeun",
+      "addedBody": "{issuer}: {account} suksés ditambahkeun.",
+      "saveFailedDiagnostic": "Teu bisa nyimpen akun. Anjeun tiasa nyeken deui.",
+      "invalidTitle": "Kode QR teu valid",
+      "invalidBody": "KaalKey teu tiasa nga-parse kodeu QR authenticator ieu. {detail}. Anggo kode setelan TOTP jasa QR (biasana dimimitian ku {prefix}).",
+      "parseFailedDiagnostic": "QR teu bisa diolah. Tujuan kana setelan QR teras cobian deui.",
+      "invalidUrlTitle": "Teu valid TOTP URL",
+      "invalidUrlBody": "Tempelkeun authenticator lengkep URL dimimitian ku {prefix}.",
+      "clipboardEmptyTitle": "Papan klip kosong",
+      "clipboardEmptyBody": "Tiron heula {prefix} URL, teras ketok Témpél TOTP URL.",
+      "clipboardErrorTitle": "Teu bisa maca clipboard",
+      "clipboardErrorBody": "Tiron setelan TOTP URL teras cobian deui."
+    },
+    "haptics": {
+      "saveFailedTitle": "Teu bisa nyimpen setelan",
+      "saveFailedBody": "Preferensi eupan balik haptic teu bisa disimpen. Mangga cobian deui."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Teu bisa nyimpen pangakuan",
+      "saveFailedBody": "Mangga cobian deui. Anjeun kedah nampi bewara hukum sateuacan nganggo KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Idin kaméra diperlukeun",
+      "body": "Ngidinan aksés kaméra pikeun nyeken kode setup authenticator QR."
+    },
+    "storage": {
+      "browserUnavailable": "Panyimpen browser teu sadia.",
+      "browserFilePickerUnavailable": "Pamilih file browser henteu sayogi."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Berkas teu dirojong",
+      "unsupportedFileBody": "Pilih gambar kode QR sapertos PNG atanapi JPEG.",
+      "browserDecoderUnavailable": "decoding gambar browser teu sadia",
+      "imageLoadFailed": "Gambar teu tiasa dimuat",
+      "unreadableDimensions": "Gambar teu gaduh dimensi anu tiasa dibaca",
+      "noQrCodeFoundTitle": "Taya QR kode kapanggih",
+      "noQrCodeFoundBody": "KaalKey teu bisa decode a QR kode dina gambar ieu. Coba screenshot atawa resolusi luhur PNG/JPEG.",
+      "couldNotReadImageTitle": "Teu bisa maca gambar",
+      "couldNotReadImageBody": "Coba gambar PNG atawa JPEG jelas ngandung kodeu setup authenticator QR.",
+      "couldNotOpenPickerTitle": "Teu bisa muka pamilih gambar",
+      "couldNotOpenPickerBody": "Mangga cobian Unggah QR deui.",
+      "normalizedDecodeFailed": "Gambar anu dinormalisasi teu tiasa dikodekeun",
+      "clipboardImageLoadFailed": "Gambar papan klip teu tiasa dimuat",
+      "imageProcessingUnavailable": "Ngolah gambar teu sadia",
+      "imageProcessingUnavailableAlt": "Ngolah gambar teu sadia",
+      "noImageInClipboardTitle": "Taya gambar dina clipboard",
+      "noImageInClipboardBody": "Salin gambar kode QR, teras ketok Tempelkeun QR Gambar deui.",
+      "clipboardUnavailableTitle": "Clipboard teu sadia",
+      "clipboardUnavailableBody": "Teks clipboard sanes setelan auténtikasi anu valid URL. Salin gambar otpauth:// URL atanapi QR teras cobian deui.",
+      "clipboardAccessBody": "KaalKey teu bisa maca téks atawa gambar tina clipboard. Ngidinan aksés clipboard, teras salin gambar QR atanapi otpauth:// URL teras ketok Tempelkeun QR Gambar / URL deui.",
+      "couldNotPasteImageTitle": "Teu bisa nempelkeun gambar",
+      "couldNotPasteImageBody": "Nempelkeun gambar teu dirojong ku clipboard ieu dina alat ieu. Anggo gambar Impor QR.",
+      "sourceImageDecodeFailure": "Coba gambar QR anu béda.",
+      "pastedImportFailureBody": "Coba gambar QR anu béda.",
+      "sourceImageReadFailure": "Coba tiron layar QR anu jelas.",
+      "importFailedTitle": "QR impor gambar gagal",
+      "importFailedBody": "KaalKey teu bisa maca éta gambar. Mangga cobian gambar kode QR anu sanés.",
+      "notFoundBody": "Gambar anu disalin henteu ngandung kode QR anu tiasa dibaca.",
+      "pastedNotFoundBody": "Gambar anu ditempelkeun henteu ngandung kode QR anu tiasa dibaca.",
+      "pastedReadFailureBody": "Coba tiron gambar PNG atanapi JPEG anu jelas ngandung kode QR lengkep.",
+      "noQrCodeTextBody": "KaalKey decode gambar nu dipilih tapi teu manggihan kode QR. Coba jelas, resolusi pinuh PNG atawa JPEG kalawan sakabeh kode katempo."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Kode QR ieu sanés kode pangaturan auténtikator dumasar waktos.",
+      "missingAccountDetails": "Kode QR leungit detil akun.",
+      "unsupportedAlgorithm": "Kode QR ngagunakeun algoritma anu teu didukung.",
+      "unsupportedDigits": "Kode QR ieu kedah nganggo 6, 7, atanapi 8 digit.",
+      "unsupportedPeriod": "Kode QR ieu ngagunakeun periode waktu anu teu didukung.",
+      "invalidAccount": "Kode QR teu bisa disahkeun."
+    },
+    "backup": {
+      "invalidJson": "Payil cadangan teu valid JSON.",
+      "unsupportedFormat": "Ieu sanés cadangan énkripsi KaalKey anu dirojong.",
+      "invalidPasswordOrDamaged": "Sandi cadangan lepat atanapi payel cadanganna ruksak.",
+      "invalidContents": "Eusi cadangan teu valid atawa teu lengkep.",
+      "secureRandomUnavailableDetailed": "Generasi acak aman henteu sayogi. Jieun deui sareng pasang deui aplikasi Android sareng expo-crypto kalebet, teras cobian deui.",
+      "invalidAccountDataForBackup": "Hiji atawa leuwih akun teu valid. Fix data akun sateuacan nyieun cadangan.",
+      "invalidPasswordOrModified": "Sandi cadangan salah atawa payel cadangan geus dirobah.",
+      "invalidPasswordOrFileDamaged": "Sandi cadangan lepat atanapi filena ruksak.",
+      "passwordCopiedTitle": "Sandi disalin",
+      "enterPasswordTitle": "Lebetkeun kecap akses cadangan Anjeun",
+      "enterPasswordBody": "Lebetkeun sandi dipaké nalika cadangan ieu dijieun.",
+      "passwordCopiedBody": "Simpen di tempat anu aman, sapertos WhatsApp.",
+      "copyFailedTitle": "Nyalin gagal",
+      "copyFailedBody": "Pilih sareng salin sandi sacara manual.",
+      "generatingPassword": "Ngahasilkeun kecap akses cadangan anu aman…",
+      "encrypting": "Énkripsi cadangan…",
+      "decrypting": "Ngadekrip cadangan…",
+      "restoring": "Malikkeun akun…",
+      "backupCreatedTitle": "Nyadangkeun dijieun",
+      "restoreCompleteTitle": "Pamulihan lengkep",
+      "mergeConfirmTitle": "Gabungkeun akun cadangan?",
+      "mergeConfirmButton": "Ngagabung akun",
+      "backupSavedTemporary": "Cadangan énkripsi disimpen samentawis di:\n{uri}",
+      "generatePasswordErrorTitle": "Teu bisa nyieun sandi cadangan",
+      "secureRandomUnavailable": "Generasi acak aman henteu sayogi.",
+      "passwordUnavailableTitle": "Sandi cadangan teu sadia",
+      "passwordUnavailableBody": "Tutup dialog ieu sareng jieun cadangan anyar pikeun ngahasilkeun kecap akses anu aman.",
+      "backupDownloadedBody": "Cadangan énkripsi KaalKey anjeun parantos diunduh. Tetep file sareng kecap akses pribadi.",
+      "backupFailedTitle": "Nyadangkeun gagal",
+      "backupCreateErrorBody": "KaalKey teu bisa nyieun cadangan.",
+      "restoreFailedTitle": "Pamulihan gagal",
+      "backupReadErrorBody": "Cadangan teu bisa dibaca atawa disimpen.",
+      "browserDownloadUnsupported": "Panyungsi anjeun henteu ngadukung unduh file cadangan.",
+      "localFileUnavailable": "Lokasi file lokal teu sadia dina alat ieu.",
+      "saveBackupTitle": "Simpen énkripsi KaalKey cadangan Anjeun"
+    },
+    "clipboard": {
+      "copiedTitle": "Kode disalin",
+      "copiedBody": "Kode verifikasi anjeun parantos disalin.",
+      "errorTitle": "Kasalahan",
+      "errorBody": "Teu bisa nyalin kodeu verifikasi."
+    },
+    "activity": {
+      "cameraReady": "Kaméra siap. Tunjukkeun kana kode authenticator QR.",
+      "readingQrImage": "Maca gambar QR…",
+      "importingQrImage": "Ngimpor gambar QR…",
+      "importingAccount": "Ngimpor akun authenticator…",
+      "importingPastedImage": "Ngimpor gambar QR anu ditempelkeun…"
+    }
+  },
+  "activity": {
+    "working": "Gawé",
+    "wait": "Mangga antosan…",
+    "donTClose": "Punten entong nutup atanapi berinteraksi sareng KaalKey.",
+    "loadingLanguages": "Ngamuat basa anu sayogi…",
+    "loadingTranslation": "Ngamuat tarjamahan…"
+  }
+}

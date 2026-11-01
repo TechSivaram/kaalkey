@@ -56,6 +56,11 @@ type Props = {
   clearAllAccounts: () => void;
   language: AppLanguage;
   setLanguage: (language: AppLanguage) => void;
+  languages: import("../i18n/languages").LanguageOption[];
+  languageLoading: boolean;
+  translationLoading: boolean;
+  translationServerUrl: string;
+  setTranslationServerUrl: (url: string) => Promise<void>;
 };
 
 /** Settings, backup, and blocking activity dialogs for the vault screen. */
@@ -84,9 +89,16 @@ export default function SettingsBackupActivityModals(props: Props) {
     clearAllAccounts,
     language,
     setLanguage,
+    languages,
+    languageLoading,
+    translationLoading,
+    translationServerUrl,
+    setTranslationServerUrl,
   } = props;
   const [languageSearch, setLanguageSearch] = useState("");
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
+  const [translationServerDraft, setTranslationServerDraft] = useState(translationServerUrl);
+
   const handleLanguageSelect = (selectedLanguage: AppLanguage) => {
     setLanguageDropdownOpen(false);
     setLanguageSearch("");
@@ -153,7 +165,34 @@ export default function SettingsBackupActivityModals(props: Props) {
                     noResultsText={translate(language, "settings.language.noTranslatedLanguage")}
                     placeholder={translate(language, "settings.language.searchLanguageName")}
                     label={translate(language, "settings.language.name")}
+                    languages={languages}
+                    loading={languageLoading}
                   />
+                  <Text style={styles.settingDescription}>
+                    {translate(language, "settings.language.serverUrlDescription")}
+                  </Text>
+                  <TextInput
+                    value={translationServerDraft}
+                    onChangeText={setTranslationServerDraft}
+                    placeholder={translate(language, "settings.language.serverUrlPlaceholder")}
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    keyboardType="url"
+                    style={styles.input}
+                    accessibilityLabel={translate(language, "settings.language.serverUrl")}
+                  />
+                  <TouchableOpacity
+                    style={styles.primaryButton}
+                    onPress={() => void setTranslationServerUrl(translationServerDraft)}
+                    disabled={
+                      languageLoading || translationLoading || !translationServerDraft.trim()
+                    }
+                    activeOpacity={BUTTON_ACTIVE_OPACITY}
+                  >
+                    <Text style={styles.primaryButtonText}>
+                      {translate(language, "settings.language.saveServerUrl")}
+                    </Text>
+                  </TouchableOpacity>
                 </View>
               </View>
 
@@ -501,7 +540,17 @@ export default function SettingsBackupActivityModals(props: Props) {
           </KeyboardAvoidingView>
         </View>
       </Modal>
-      <ActivityOverlayModal insets={insets} activityMessage={activityMessage} />
+      <ActivityOverlayModal
+        insets={insets}
+        activityMessage={
+          languageLoading
+            ? translate(language, "activity.loadingLanguages")
+            : translationLoading
+              ? translate(language, "activity.loadingTranslation")
+              : activityMessage
+        }
+        visible={activityMessage !== null || languageLoading || translationLoading}
+      />
     </>
   );
 }

@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Sprooch",
+      "description": "Wielt d'Sprooch déi an KaalKey benotzt gëtt.",
+      "english": "Englesch",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "SPROOCH",
+      "searchLanguageName": "Sichsprooch (Numm oder Code)",
+      "searchSupportedLanguages": "Sich ënnerstëtzt Sproochen",
+      "closeLanguageDropdown": "Sprooch Dropdown zoumaachen",
+      "noTranslatedLanguage": "Keng iwwersat Sprooch fonnt.",
+      "serverUrl": "Iwwersetzungsserver URL",
+      "serverUrlDescription": "KaalKey luet d'Sproochelëscht an d'Iwwersetzunge vun dësem Server erof.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Iwwersetzungsserver späicheren"
+    },
+    "title": "App Astellunge",
+    "eyebrow": "KAALKEY PREFERENCEN",
+    "experience": {
+      "section": "ERLIEFNES"
+    },
+    "security": {
+      "section": "SECURITÉIT"
+    },
+    "backup": {
+      "section": "BACKUP & RECOVERY"
+    },
+    "danger": {
+      "section": "DANGER ZONE",
+      "clearAccounts": "Kloer all Konten",
+      "clearAccountsDescription": "Permanent all Kont a Geheimnis vun dësem Apparat ewechhuelen. Back up éischt.",
+      "clearAccountsAccessibilityLabel": "Kloer all Authentifizéierer Konten"
+    },
+    "appearance": {
+      "section": "OPSCHREIWEN",
+      "title": "Liicht Erscheinung",
+      "description": "KaalKey benotzt de Moment säi propper Liichtthema."
+    },
+    "haptics": {
+      "title": "Haptesch Feedback",
+      "description": "Gentle Feedback fir Krunn a fäerdeg Aktiounen."
+    },
+    "deviceLock": {
+      "title": "Apparat Authentifikatioun Spär",
+      "description": "Är Vault gespaart wann KaalKey de Virdergrond verléisst.",
+      "requirement": "Erfuerdert d'Biometrie vun Ärem Telefon oder den Écran-Spär PIN, Muster oder Passwuert.",
+      "accessibilityLabel": "Apparat Authentifikatioun App Spär"
+    },
+    "privacy": {
+      "title": "Juristesch & Privatsphär",
+      "description": "Iwwerpréift d'Privatsphär Politik an d'Benotzungsbedéngungen.",
+      "storageNote": "Är Authentifizéierer Geheimnisser bleiwen am séchere Vault on-Device. Virléiften sinn lokal gespäichert."
+    }
+  },
+  "accounts": {
+    "edit": "Edit",
+    "sortAccountName": "Sortéiert nom Kontonumm",
+    "loadingSecureVault": "Luede sécher Vault ...",
+    "tapCopy": "TAP fir KOPIEREN",
+    "noAccountsMatch": "Keng Konte passen Är Sich.",
+    "viewQrCode": "Gesinn QR Code fir Kont",
+    "removeAccount": "Ewechzehuelen Kont",
+    "copyVerificationCode": "Kopie Verifikatiounscode",
+    "active": "AKTIV",
+    "sort": "SORT BY",
+    "account": "Kont",
+    "clearSearch": "Kloer Sich",
+    "sortServiceName": "Sortéiert nom Servicenumm",
+    "addFirstAccount": "Füügt Ären éischte Kont un",
+    "searchAccounts": "Sich Konte",
+    "searchServiceAccount": "Sich Service oder Kont",
+    "accounts": "Är Konten",
+    "add": "+ Addéieren",
+    "vaultStartsHere": "Är Vault fänkt hei un",
+    "service": "Service",
+    "emptyHint": "Füügt e Kont mat sengem geheime Schlëssel fir Ären éischte Verifizéierungscode ze generéieren."
+  },
+  "common": {
+    "done": "Gemaach",
+    "doneButton": "Gemaach",
+    "closeSettings": "Zoumaachen Astellungen",
+    "separator": "-",
+    "article": "a",
+    "save": "Spueren",
+    "delete": "Läschen",
+    "resizeAppBrand": "Änneren d'Gréisst vun der App a Markepanelen"
+  },
+  "qrImport": {
+    "readPastedImage": "Konnt net gepaakt Bild liesen"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Konten an dësem Backup: {count}. KaalKey behält Är existent Konten a füügt all Konten un déi net scho präsent sinn. Duplizéiert Konten ginn iwwersprangen.",
+    "restoreCompletionBody": "Konten dobäigesat: {added}. Duplikat Konten iwwersprongen: {skipped}. Är bestehend Konte goufen gehal.",
+    "copyPassword": "Kopie generéiert Passwuert",
+    "passwordSafety": "Späichert dëst Passwuert separat (zum Beispill an WhatsApp). Jiddereen mat souwuel de",
+    "importAction": "Wielt Datei an importéiert",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "SECURERT VULT",
+    "createBackup": "Schafen Backupsatellit",
+    "encryptedFile": "Verschlësselte Fichier",
+    "restoreBackup": "Restauréieren Backupsatellit",
+    "safetyNote": "Backups enthalen Är Authentifizéierer Geheimnisser. KaalKey generéiert en eenzegaartegt Passwuert fir all Backup. Späichert et separat; KaalKey kann et net recuperéieren.",
+    "generatingSecurePassword": "Séchert Passwuert generéiert ...",
+    "importFile": "Import Datei",
+    "backupPassword": "BACKUP PASSWORD",
+    "account": "Kont",
+    "accounts": "Konten",
+    "exportDescription": "Verschlësselt all {count} gespäichert {accountLabel} an eng Backupdatei. KaalKey generéiert en eenzegaartegt Passwuert; kopéiert a späichert se separat vun der Datei.",
+    "restoreDescription": "Wielt Är KaalKey Backupdatei a Passwuert. Nei Konte ginn op Är existent Kontelëscht bäigefüügt; bestehend Konte bleiwen wéi se sinn.",
+    "enterBackupPassword": "Gitt Backupsatellit Passwuert",
+    "closeBackup": "Zoumaachen Backupsatellit",
+    "copyGeneratedBackup": "Kopie generéiert Backupsatellit Passwuert",
+    "backupPassword2": "Backupsatellit Passwuert",
+    "clearBackupPassword": "Kloer Backupsatellit Passwuert",
+    "backupFilePassword": "Backupdatei a Passwuert kënnen Är Authentifizéiererkonten restauréieren.",
+    "encryptShareBackup": "Verschlësselen an deelen de Backup"
+  },
+  "home": {
+    "unlockSecurely": "Spär sécher",
+    "disableAppLock": "App Spär auszeschalten",
+    "enableAppLock": "App Spär aktivéieren",
+    "checkingSecureLock": "Iwwerpréift Är sécher gespaarten Astellunge. Är Coden bleiwen verstoppt.",
+    "waitingVerification": "Waart op d'Verifizéierung ...",
+    "secretsStayStored": "Är Geheimnisser bleiwen op dësem Apparat gespäichert.",
+    "openAppSettings": "Open App Astellungen",
+    "versionLabel": "VERSIOUN",
+    "unlockRequirement": "Benotzt Är Telefons Biometrie oder Écran-Spär PIN, Muster oder Passwuert fir Zougang zu Ären eemolege Verifikatiounscoden.",
+    "localVault": "ÄR LOCAL Vault",
+    "codesDeviceControl": "Är Coden. Ären Apparat. Är Kontroll.",
+    "securingVault": "Séchert Är Vault ...",
+    "vaultProtected": "Är Vault ass geschützt",
+    "lock": "LOCK AN",
+    "localVault2": "LOCAL VULT",
+    "authenticator": "KAALKEY AUTHENTICATOR",
+    "tricolourLockEmblem": "KaalKey tricolor Spär Emblème",
+    "authenticator2": "AUTHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Wann Dir wielt e QR Code ze scannen, benotzt KaalKey Kamera Erlaabnis fir dës Aktioun. Optional Apparat Authentifikatioun an haptesch Feedback benotzen déi relevant Apparat Features. Dir kënnt Permissiounen an Ärem Apparat Astellunge verwalten.",
+        "heading": "2. Permissiounen an Apparat Fonctiounen"
+      },
+      "backups": {
+        "body": "Wann Dir e Backup erstellt, verschlësselt KaalKey de Backup mat engem Passwuert dat Dir gewielt hutt. Halt souwuel d'Datei wéi och d'Passwuert privat a späichere se sécher. Jiddereen deen d'Datei a säi Passwuert kritt, kann fäeg sinn Är Authentifizéiererkonten ze restauréieren. KaalKey kann e vergiessene Backuppasswuert net recuperéieren.",
+        "heading": "3. Backups"
+      },
+      "security": {
+        "body": "Halt Ären Apparat aktualiséiert, schützt et mat engem Écranschloss, an deelt keng OTP Geheimnisser oder Backuppasswierder. D'App erofhuelen, seng Donnéeën läschen oder den Apparat verléieren kann lokal gespäichert Konten net verfügbar maachen. Erhalen e séchere Backup wann Dir Erhuelung braucht.",
+        "heading": "5. Sécherheet a Retention"
+      },
+      "information": {
+        "heading": "1. Informatiounen a Geheimnisser",
+        "body": "KaalKey ass eng Authentifizéierungsapp. Kontetiketten an déi geheim Wäerter déi néideg sinn fir eemoleg Coden ze generéieren sinn sensibel. D'App ass entwéckelt fir Kontorecords an der sécherer Späichere vum Apparat ze späicheren. Jiddereen mat Zougang zu engem opgehuewe Gerät oder engem exportéierte Backup kann empfindlech Informatioun zougräifen."
+      },
+      "sharing": {
+        "heading": "4. Deelen an drëtte Parteien",
+        "body": "De Backupfloss kann Ären Apparat säin Deeleblat oder Dateiepicker benotze fir Dateien ze späicheren, ze transferéieren oder ze wielen. D'Privatsphärpraktiken vun all Drëtt-Partei-App oder Service, deen Dir gewielt hutt, gi vun deem Provider regéiert. Dës Ukënnegung mécht keng Decken Fuerderung datt Ären Apparat, Betribssystem oder gewielte Deeleservicer ni Daten veraarbecht."
+      },
+      "changes": {
+        "heading": "6. Ännerungen a Kontakt",
+        "body": "Dës embedded Notiz kann an enger zukünfteg App Verëffentlechung iwwerschafft ginn. Fir Privatsphär Froen, kontaktéiert den App Verlag iwwer den offiziellen Supportkanal mat der App geliwwert."
+      },
+      "title": "Privatsphär Politik"
+    },
+    "terms": {
+      "use": {
+        "body": "Dir kënnt KaalKey benotzen fir Verifizéierungscodes fir Konten ze generéieren op déi Dir autoriséiert sidd. Dir sidd verantwortlech fir applicabel Gesetzer an d'Regele vun de Servicer ze respektéieren, fir déi Dir Authentifikatiounscoden benotzt.",
+        "heading": "1. Äre Gebrauch"
+      },
+      "protectAccounts": {
+        "body": "Dir sidd verantwortlech fir Ären Apparat, Authentifikatiounsgeheimnisser, Erhuelungsmethoden, exportéierte Backups a Backuppasswuert ze sécheren. Deelt keng Coden oder Geheimnisser mat Leit déi Dir net vertraut.",
+        "heading": "2. Schützt Är Konten"
+      },
+      "availability": {
+        "body": "Features kënnen tëscht Verëffentlechungen änneren. Dir sollt d'App aktualiséiert halen a periodesch verifizéieren datt Är Backup- an Erhuelungsarrangementer funktionnéieren.",
+        "heading": "5. Ännerungen an Disponibilitéit"
+      },
+      "recovery": {
+        "body": "KaalKey kann net garantéieren datt all Kont recuperéiert ka ginn, datt all QR Code oder Konfiguratioun kompatibel ass, oder datt d'App ouni Ënnerbriechung oder Feeler funktionnéiert. Halt alternativ Erhuelungsmethoden déi vum zoustännege Service geliwwert ginn.",
+        "heading": "3. Nee Erhuelung garantéieren"
+      },
+      "advice": {
+        "heading": "4. Keng berufflech Berodung",
+        "body": "D'App ass en Utility a bitt keng juristesch, finanziell oder Sécherheetsincident-Äntwert Berodung. Wann e Kont kompromittéiert ass, befollegt déi offiziell Erhuelung a Sécherheetsleit vum betraffene Service."
+      },
+      "liability": {
+        "heading": "6. Haftung an applicabel Gesetz",
+        "body": "Am Ausmooss erlaabt duerch applicabel Gesetz, gëtt d'App ouni Garantie vun onënnerbrach oder Feeler-gratis Operatioun geliwwert. Näischt an dëse Konditioune schléisst Rechter oder Remedies aus, déi gesetzlech net ausgeschloss kënne ginn. All weider Aschränkungen oder regéierend Gesetzbedingunge solle vun engem qualifizéierten Affekot fir d'Juridictioun vum Verlag iwwerpréift ginn ier d'Verëffentlechung."
+      },
+      "title": "Benotzungsconditiounen"
+    },
+    "version": "Versioun",
+    "saving": "Spuert…",
+    "acceptContinue": "Akzeptéieren & weider",
+    "appliesAuthenticator": "Gëllt fir KaalKey Authenticator",
+    "reviewBothDocuments": "Iwwerpréift w.e.g. béid Dokumenter ier Dir KaalKey benotzt. Si sinn an der App abegraff a sinn offline verfügbar.",
+    "originalMulticolourAuthenticator": "Original multicolour KaalKey Authentifizéierer Emblème",
+    "legalPrivacyNotice": "Juristesch & Privatsphär Notiz",
+    "legalInformation": "Juristesch Informatiounen",
+    "reviewSPrivacy": "Iwwerpréift KaalKey Privatsphärinformatioun a Benotzungsbedingunge.",
+    "iReadAgree": "Ech hunn d'Privatsphär Politik an d'Benotzungsbedéngungen gelies an averstanen."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Halt de ganze QR Code siichtbar. Äert Geheimnis bleift op dësem Apparat.",
+    "back": "Zréck",
+    "turnFlashlightOff": "Taschenlamp ausschalten",
+    "turnFlashlight": "Täscheluucht un",
+    "flashlight": "Taschenlamp an",
+    "flashlight2": "Täscheluucht",
+    "cameraUnavailableOpen": "Kamera net verfügbar. Öffnen dës Säit op HTTPS oder localhost an erlaabt Kamera Zougang.",
+    "cameraPreviewUnavailable": "Kamera Virschau ass net verfügbar. Zoumaachen an de Scanner opmaachen.",
+    "cameraReadyPoint": "Kamera prett - richt et op de vollen QR Code.",
+    "browserCannotProcess": "Dëse Browser kann net Kamera Rummen veraarbecht.",
+    "qrCodeDetected": "QR Code entdeckt.",
+    "couldnTRead": "Konnt d'Kameraframes net liesen. Kontrolléiert d'Kamera Permissiounen a lued dës Säit nei.",
+    "cameraPermissionDenied": "Kamera Erlaabnis refuséiert. Erlaabt d'Kamera Zougang an de Browser-Astellungen, da maach de Scanner nei op.",
+    "noCameraWas": "Keng Kamera gouf op dësem Apparat fonnt.",
+    "cameraBusyAnother": "D'Kamera ass beschäftegt an enger anerer App oder Browser Tab.",
+    "startCameraHttps": "Konnt d'Kamera net starten. Benotzt HTTPS oder localhost a kontrolléiert de Browser Permissiounen.",
+    "qrScannerCamera": "QR Scanner Kamera Virschau",
+    "cameraUnavailableCheck": "Kamera net verfügbar. Kontrolléiert d'Kamera Erlaabnis a probéiert nach eng Kéier.",
+    "pointCameraAuthenticator": "Richt Är Kamera op den Authentifizéierer Setup QR Code vum Service deen Dir bäidréit.",
+    "backAddAccount": "Zréck fir de Kont ze addéieren",
+    "secureSetup": "SECURERT SETUP",
+    "enterDetailsManually": "Gitt Detailer manuell amplaz"
+  },
+  "accountForm": {
+    "hideManualEntry": "Verstoppen manuell Entrée",
+    "secretKeySupplied": "Benotzt de geheime Schlëssel geliwwert vum Service deen Dir konfiguréiert. Gitt ni Äert Kont Passwuert hei. Passt den Algorithmus, d'Zifferzuel an den Intervall un d'Instruktioune vum Service un.",
+    "updateServiceAccount": "Update de Service, de Kontonumm oder de geheime Schlëssel.",
+    "secretKeyRead": "Geheime Schlëssel, nëmme liesen wärend der Redaktioun",
+    "secretKeyBase32": "Geheimschlëssel an Base32",
+    "digits": "Zifferen",
+    "seconds": "Sekonnen",
+    "enterDetailsManually": "ODER GEE DETAILER MANUELL",
+    "enterDetailsManually2": "Gitt Detailer manuell",
+    "serviceAccountName": "Service, Kont Numm a geheime Schlëssel",
+    "saveChangesSecurely": "Späichert Ännerungen sécher",
+    "saveAccountSecurely": "Retten Kont sécher",
+    "serviceIssuer": "Service oder Emittent",
+    "accountName": "Kont Numm",
+    "secretKey": "Geheim Schlëssel",
+    "serviceIssuer2": "SERVICE / ISSUER",
+    "eGGoogle": "z.B. Google",
+    "clearServiceIssuer": "Kloer Service oder Emittent",
+    "eGExample": "z.B. du@example.com",
+    "clearAccountName": "Kloer Kont Numm",
+    "secretKeyLocked": "GEHEIM KEY (GESLOTEN)",
+    "secretKeyBase322": "GEHEIM KEY (BASE32)",
+    "enterSetupKey": "Gitt Äre Setup Schlëssel un",
+    "clearSecretKey": "Kloer geheime Schlëssel",
+    "otpAlgorithm": "OTP ALGORITHME",
+    "otpDigits": "OTP Zifferen",
+    "refreshIntervalSeconds": "REFRESH INTERVAL (SECONDS)",
+    "otpRefreshInterval": "OTP Erfrëschungsintervall a Sekonnen",
+    "closeAccountForm": "Zoumaachen Kont Form",
+    "totpSetupUrl": "TOTP Setup URL",
+    "importSetupUrl": "Import Setup URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "KONTO NUMM",
+    "addAccount": "Füügt Kont"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Scan Authentifizéierer QR Code",
+    "setupGuidance": "Scan e QR Code fir den einfachsten Setup, oder gitt Detailer manuell.",
+    "cameraAddAccount": "Benotzt Är Kamera fir e Kont direkt ze addéieren",
+    "scanQrCode2": "Scan QR Code",
+    "uploadQrImage": "Eroplueden QR Bild",
+    "chooseQrScreenshot": "Wielt e QR Screenshot aus Galerie, Fotoen oder Dateien",
+    "pasteQr": "Paste QR Bild / URL",
+    "pasteCopiedQr": "Paste e kopéiert QR Bild oder Authentifizéierer Setup URL",
+    "uploadQrImage2": "Eroplueden QR Bild"
+  },
+  "accountQr": {
+    "close": "Zoumaachen",
+    "accountQrCode": "Kont QR Code",
+    "revealQrCode": "Entdeckt QR Code",
+    "exportWarning": "Opgepasst: Jiddereen deen dëse QR Code scannt kann Verifizéierungscodes fir dëse Kont generéieren. Entdeckt et nëmmen op engem zouverléissege Bildschierm.",
+    "privacyHint": "Halt dëse QR Code privat. Scannen et kopéiert d'Authentifizéierungsgeheimnis vum Kont."
+  },
+  "productInfo": {
+    "backupRestore": "Backup & Restauréieren",
+    "backupRestoreDescription": "Backupéiert Är Authentifizéierungsdaten a restauréiert se wann Dir op en aneren Apparat plënnert.",
+    "privacyDescription": "Halt Är Verifizéierungskonten op enger Plaz. Benotzt d'Backup-, Restauratiouns- an Apparat-Späroptiounen vun der App fir Äre Setup verantwortlech ze managen.",
+    "timeBasedCodes": "Zäit-baséiert Coden",
+    "generateOneTimeCodes": "Generéiere rotéierend eemoleg Passcodes fir Är Konten fir zwee-Schrëtt Verifizéierung ze kompletéieren.",
+    "quickAccountSetup": "Quick Kont Astellung",
+    "quickSetupDescription": "Scann en Authentifizéierer QR Code oder importéiert e QR Bild fir e Kont derbäi ze ginn.",
+    "accountsOnePlace": "Konten op enger Plaz",
+    "accountsInOnePlaceDescription": "Haalt Är gespäichert Konten zesummen a fannt déi richteg Entrée wann et Zäit ass fir Iech unzemellen.",
+    "privateAccountVault": "Privat Kont Vault",
+    "privateVaultDescription": "Verwalten Är Authentifizéierer Entréen lokal a benotzt d'verfügbar Apparat Spär Optioun vun der App.",
+    "easyCodeAccess": "Einfach Code Zougang",
+    "easyCodeAccessDescription": "Kopéiert en aktuelle Code oder verwalten Kontdetailer duerch eng propper, fokusséiert Interface.",
+    "authenticatorTechsivaram": "AUTENTICATOR · VUN TECHSIVARAM",
+    "mobileAuthenticator": "ÄR MOBILE AUTENTICATOR",
+    "tagline": "E méi einfache Wee fir Är zwee-Schrëtt Verifizéierung ze managen.",
+    "heroDescription": "Eng fokusséiert Authentifikatiounserfarung fir Zäitbaséiert Verifikatiounscodes. Haalt kompatibel Kont Coden no bei Hand mat KaalKey fir Android.",
+    "timeBasedCodes2": "TIME-BASERT CODES",
+    "privateDesign": "PRIVATE VUM DESIGN",
+    "builtSimpleAuthenticator": "BUIGT FIR EEN EINFACHEN AUTHENTICATOR WORKFLOW",
+    "qrSetupTimed": "QR SETUP · TIMED CODES · KONTOMANAGEMENT",
+    "privacyTitle": "Är Konten. Är Coden. Är Kontroll.",
+    "authenticator": "KAALKEY · AUTHENTICATOR",
+    "brandBanner": "KaalKey Mark Banner",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Ofbriechen",
+      "storageInvalidTitle": "Späicherdaten ongëlteg",
+      "storageInvalidBody": "Gespäichert Kontdaten konnten net sécher gelies ginn.",
+      "storageErrorTitle": "Späicherfehler",
+      "storageErrorBody": "Gespäichert Konte konnten net geluede ginn.",
+      "missingTitle": "Vermësst Informatiounen",
+      "missingEditingBody": "Gitt de Servicenumm an de Kontonumm un.",
+      "missingBody": "Gitt de Servicenumm, de Kontonumm a geheime Schlëssel un.",
+      "invalidOtpBody": "Kontrolléiert de Base32 Geheimnis, Algorithmus, Zifferzuel an Erfrëschungsperiod. Geheimnisser mussen valabel Base32 Zeeche enthalen; d'Ziffere mussen {digits} sinn an d'Period muss {minPeriod}-{maxPeriod} Sekonnen sinn.",
+      "duplicateBody": "E Kont mat dësem Service a Kontnumm ass scho gespäichert.",
+      "updatedBody": "Äre Kont gouf aktualiséiert.",
+      "addedBody": "Äre Kont gouf sécher dobäigesat.",
+      "invalidOtpTitle": "Invalid OTP Astellunge",
+      "duplicateTitle": "Kont existéiert schonn",
+      "savedTitle": "Kont gespäichert",
+      "invalidSecretTitle": "Invalid geheime Schlëssel",
+      "invalidSecretBody": "Kontrolléiert w.e.g. datt Dir e gëlteg Base32 Geheimnis aginn hutt.",
+      "removedTitle": "Kont geläscht",
+      "removedBody": "De Kont a säi Geheimnis goufe vun dësem Apparat geläscht.",
+      "clearedTitle": "Konten geläscht",
+      "clearedBody": "All Authentifizéierer Konten a Geheimnisser goufen aus dësem Apparat geläscht.",
+      "someSavedAccountsNeedAttentionTitle": "E puer gespäichert Konten brauchen Opmierksamkeet",
+      "someSavedAccountsNeedAttentionBody": "{count} ongëlteg Kont(en) goufen net gelueden. Gülteg Konte bleiwen verfügbar. Betruecht e Backup ze kreéieren ier Dir weider Ännerungen maacht.",
+      "removeConfirmTitle": "Kont ewechhuelen?",
+      "removeConfirmWebTitle": "Kont ewechhuelen?",
+      "removeButton": "Ewechzehuelen",
+      "clearButton": "Alles läschen",
+      "clearConfirmTitle": "All Konten läschen?",
+      "saveErrorBody": "Konte konnten net gespäichert ginn. Kontrolléiert d'Verfügbarkeet vum Browser a probéiert nach eng Kéier.",
+      "notFoundTitle": "Kont net fonnt",
+      "notFoundBody": "Dëse Kont konnt net fonnt ginn. Den Editor zoumaachen a probéiert nach eng Kéier.",
+      "removeConfirmBody": "Dëst läscht de Kont a säi Geheimnis vun dësem Apparat.",
+      "clearConfirmBody": "Dëst läscht permanent all Authentifizéiererkonten an hir Geheimnisser vun dësem Apparat. Erstellt als éischt e verschlësselte Backup wann Dir dës Konten spéider braucht.",
+      "clearConfirmUndoBody": "Dëst kann net réckgängeg gemaach ginn."
+    },
+    "biometric": {
+      "cancelButton": "Ofbriechen",
+      "saveErrorTitle": "Konnt d'Astellung net späicheren",
+      "unlockPrompt": "Spär KaalKey Authentifizéierer",
+      "promptSubtitle": "Benotzt Biometrie oder Ären Apparat Écran Spär",
+      "disableConfirmPrompt": "Confirméieren fir auszeschalten KaalKey App Spär",
+      "enablePrompt": "Aktivéiert d'App Sperrung fir KaalKey",
+      "deviceLockTitle": "Ariichten Ären Apparat Écran Spär",
+      "deviceLockBody": "KaalKey benotzt Är Telefon gebaut-an Authentifikatioun. Setzt en Apparat PIN, Muster oder Passwuert an de Sécherheetsastellungen vun Ärem Telefon a probéiert dann nach eng Kéier. Biometrie sinn fakultativ.",
+      "unavailableTitle": "Apparat Authentifikatioun net verfügbar",
+      "unavailableBody": "Ären Telefon konnt net eng sécher Authentifikatioun starten. Kontrolléiert datt en Apparat Écran Spär konfiguréiert ass, probéiert dann nach eng Kéier.",
+      "lockedTitle": "Authentifikatioun temporär gespaart",
+      "lockedBody": "Ären Telefon huet d'Authentifikatioun temporär deaktivéiert no ze vill Versich. Waart a probéiert nach eng Kéier.",
+      "promptErrorTitle": "Authentifikatioun net verfügbar",
+      "promptErrorBody": "KaalKey konnt den Telefon seng sécher Authentifikatiounsprompt net starten. Probéiert w.e.g. nach eng Kéier.",
+      "webLock": "Apparat Authentifikatioun Spär ass nach net an der Web Versioun verfügbar. D'Web Vault bleift opgespaart; benotzt der Android App fir gebierteg Apparat Authentifikatioun.",
+      "disabledTitle": "App Spär behënnert",
+      "disabledBody": "KaalKey App Spär gouf ausgeschalt.",
+      "disableSaveError": "D'App Spär bleift aktivéiert. Probéiert w.e.g. nach eng Kéier.",
+      "enabledTitle": "App Spär aktivéiert",
+      "enabledBody": "KaalKey freet d'integréiert Authentifikatioun vun Ärem Telefon wann Dir opmaacht a wann Dir zréck kënnt.",
+      "enableSaveError": "App Spär konnt net ageschalt ginn. Probéiert w.e.g. nach eng Kéier."
+    },
+    "qr": {
+      "startingCamera": "Kamera starten…",
+      "unsupportedTitle": "Net ënnerstëtzt QR Code",
+      "unsupportedBody": "Scan den Authentifizéierer Setup QR Code geliwwert vum Service. Dëst muss e TOTP Code sinn, net en normale Login QR Code.",
+      "unsupportedDiagnostic": "Datt QR ass keen TOTP Setup Code. Zil op en Authentifizéierer-Setup QR.",
+      "detectedDiagnostic": "QR entdeckt. Analyséieren…",
+      "analyzing": "Analyséiert QR Code ...",
+      "duplicateTitle": "Kont schonn dobäi",
+      "duplicateBody": "{issuer}: {account} ass schonn am KaalKey.",
+      "addedTitle": "Kont dobäi",
+      "addedBody": "{issuer}: {account} gouf erfollegräich derbäigesat.",
+      "saveFailedDiagnostic": "Konnt de Kont net späicheren. Dir kënnt erëm scannen.",
+      "invalidTitle": "Invalid QR Code",
+      "invalidBody": "KaalKey konnt dësen Authentifizéierer QR Code net parséieren. {detail}. Benotzt de Service TOTP Setup QR Code (fänkt normalerweis mat {prefix}).",
+      "parseFailedDiagnostic": "QR konnt net veraarbecht ginn. Ziel op de Setup QR a probéiert nach eng Kéier.",
+      "invalidUrlTitle": "Invalid TOTP URL",
+      "invalidUrlBody": "Paste e komplette Authentifizéierer URL Ufank mat {prefix}.",
+      "clipboardEmptyTitle": "Clipboard ass eidel",
+      "clipboardEmptyBody": "Kopéiert eng {prefix} URL éischt, tippt dann op Paste TOTP URL.",
+      "clipboardErrorTitle": "Konnt de Clipboard net liesen",
+      "clipboardErrorBody": "Kopéiert den TOTP Setup URL a probéiert nach eng Kéier."
+    },
+    "haptics": {
+      "saveFailedTitle": "Konnt d'Astellung net späicheren",
+      "saveFailedBody": "Haptesch Feedback Präferenz konnt net gespäichert ginn. Probéiert w.e.g. nach eng Kéier."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Konnt d'Unerkennung net späicheren",
+      "saveFailedBody": "Probéiert w.e.g. nach eng Kéier. Dir musst déi legal Notifikatioun akzeptéieren ier Dir KaalKey benotzt."
+    },
+    "cameraPermission": {
+      "title": "Kamera Erlaabnis néideg",
+      "body": "Erlaabt d'Kamera Zougang fir en Authenticator Setup QR Code ze scannen."
+    },
+    "storage": {
+      "browserUnavailable": "Browserlagerung ass net verfügbar.",
+      "browserFilePickerUnavailable": "De Browser Datei Picker ass net verfügbar."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Net ënnerstëtzte Fichier",
+      "unsupportedFileBody": "Wielt e QR Code Bild wéi PNG oder JPEG.",
+      "browserDecoderUnavailable": "Browserbilddekodéierung ass net verfügbar",
+      "imageLoadFailed": "Bild konnt net gelueden ginn",
+      "unreadableDimensions": "Bild huet keng liesbar Dimensiounen",
+      "noQrCodeFoundTitle": "Keen QR Code fonnt",
+      "noQrCodeFoundBody": "KaalKey konnt net en QR Code an dësem Bild decodéieren. Probéiert e Screenshot oder eng méi héich Opléisung PNG/JPEG.",
+      "couldNotReadImageTitle": "Konnt d'Bild net liesen",
+      "couldNotReadImageBody": "Probéiert e kloert PNG oder JPEG Bild mat der Authentifizéierungskonfiguratioun QR Code.",
+      "couldNotOpenPickerTitle": "Konnt den Image Picker net opmaachen",
+      "couldNotOpenPickerBody": "Probéiert w.e.g. Eroplueden QR erëm.",
+      "normalizedDecodeFailed": "Normaliséiert Bild konnt net decodéiert ginn",
+      "clipboardImageLoadFailed": "Clipboard Bild konnt net gelueden ginn",
+      "imageProcessingUnavailable": "Bildveraarbechtung ass net verfügbar",
+      "imageProcessingUnavailableAlt": "Bildveraarbechtung net verfügbar",
+      "noImageInClipboardTitle": "Kee Bild am Clipboard",
+      "noImageInClipboardBody": "Kopéiert e QR Code Bild, tippt dann op Paste QR Bild erëm.",
+      "clipboardUnavailableTitle": "Clipboard net verfügbar",
+      "clipboardUnavailableBody": "Clipboard Text ass net e gëltege Authentifizéierer Setup URL. Kopéiert en otpauth:// URL oder QR Bild a probéiert nach eng Kéier.",
+      "clipboardAccessBody": "KaalKey konnt den Text oder e Bild vum Clipboard net liesen. Erlaabt Clipboard Zougang, kopéiert dann d'QR Bild oder otpauth:// URL a tippt op Paste QR Bild / URL erëm.",
+      "couldNotPasteImageTitle": "Konnt d'Bild net pechen",
+      "couldNotPasteImageBody": "Bildpaste gëtt net vun dësem Clipboard op dësem Apparat ënnerstëtzt. Benotzen Import QR Bild amplaz.",
+      "sourceImageDecodeFailure": "Probéiert en anert QR Bild.",
+      "pastedImportFailureBody": "Probéiert en anert QR Bild.",
+      "sourceImageReadFailure": "Probéieren eng kloer QR Screenshot kopéieren.",
+      "importFailedTitle": "QR Bildimport gescheitert",
+      "importFailedBody": "KaalKey konnt dat Bild net liesen. Probéiert w.e.g. en anert QR Codebild.",
+      "notFoundBody": "Dat kopéiert Bild enthält kee liesbaren QR Code.",
+      "pastedNotFoundBody": "D'gepaakt Bild enthält keng liesbar QR Code.",
+      "pastedReadFailureBody": "Probéiert e kloert PNG oder JPEG Bild ze kopéieren dat de ganzen QR Code enthält.",
+      "noQrCodeTextBody": "KaalKey decodéiert dat ausgewielt Bild, awer keng QR Code fonnt. Probéieren eng kloer, voll-Resolutioun PNG oder JPEG mat de ganze Code siichtbar."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Dësen QR Code ass keen Zäitbaséierten Authentifizéierungscode.",
+      "missingAccountDetails": "Den QR Code fehlt Kontdetailer.",
+      "unsupportedAlgorithm": "De QR Code benotzt en net ënnerstëtzten Algorithmus.",
+      "unsupportedDigits": "Dëse QR Code muss 6, 7 oder 8 Ziffere benotzen.",
+      "unsupportedPeriod": "Dëse QR Code benotzt eng net ënnerstëtzt Zäitperiod.",
+      "invalidAccount": "De QR Code konnt net validéiert ginn."
+    },
+    "backup": {
+      "invalidJson": "D'Backupdatei ass net valabel JSON.",
+      "unsupportedFormat": "Dëst ass net en ënnerstëtzten KaalKey verschlësselte Backup.",
+      "invalidPasswordOrDamaged": "Backuppasswuert ass falsch oder d'Backupdatei ass beschiedegt.",
+      "invalidContents": "De Backup Inhalt ass ongëlteg oder onkomplett.",
+      "secureRandomUnavailableDetailed": "Séchert zoufälleg Generatioun ass net verfügbar. Opbau an nei installéieren der Android App mat expo-crypto abegraff, da probéiert nach eng Kéier.",
+      "invalidAccountDataForBackup": "Een oder méi Konte sinn ongëlteg. Fixéiert d'Kontdaten ier Dir e Backup erstellt.",
+      "invalidPasswordOrModified": "Backuppasswuert ass falsch oder d'Backupdatei gouf geännert.",
+      "invalidPasswordOrFileDamaged": "Backuppasswuert ass falsch oder d'Datei ass beschiedegt.",
+      "passwordCopiedTitle": "Passwuert kopéiert",
+      "enterPasswordTitle": "Gitt Äert Backuppasswuert un",
+      "enterPasswordBody": "Gitt d'Passwuert a benotzt wann dëse Backup erstallt gouf.",
+      "passwordCopiedBody": "Späichert et iergendwou sécher, sou wéi WhatsApp.",
+      "copyFailedTitle": "Kopie gescheitert",
+      "copyFailedBody": "Wielt a kopéiert d'Passwuert manuell.",
+      "generatingPassword": "Generéiere séchert Backuppasswuert…",
+      "encrypting": "Verschlësselt de Backup…",
+      "decrypting": "Entschlësselt de Backup…",
+      "restoring": "Konten restauréieren…",
+      "backupCreatedTitle": "Backup erstallt",
+      "restoreCompleteTitle": "Restauréieren komplett",
+      "mergeConfirmTitle": "Backupkonten fusionéieren?",
+      "mergeConfirmButton": "Konte fusionéieren",
+      "backupSavedTemporary": "Verschlësselte Backup gespäichert temporär um:\n{uri}",
+      "generatePasswordErrorTitle": "Konnt kee Backuppasswuert generéieren",
+      "secureRandomUnavailable": "Séchert zoufälleg Generatioun ass net verfügbar.",
+      "passwordUnavailableTitle": "Backup Passwuert net verfügbar",
+      "passwordUnavailableBody": "Zoumaachen dësen Dialog a erstellt en neie Backup fir e séchert Passwuert ze generéieren.",
+      "backupDownloadedBody": "Äre verschlësselte KaalKey Backup gouf erofgelueden. Halt d'Datei a Passwuert privat.",
+      "backupFailedTitle": "Backup ass gescheitert",
+      "backupCreateErrorBody": "KaalKey konnt de Backup net erstellen.",
+      "restoreFailedTitle": "Restauréieren gescheitert",
+      "backupReadErrorBody": "De Backup konnt net gelies oder gespäichert ginn.",
+      "browserDownloadUnsupported": "Äre Browser ënnerstëtzt net Backupsatellit eroflueden.",
+      "localFileUnavailable": "Eng lokal Dateiplaz ass op dësem Apparat net verfügbar.",
+      "saveBackupTitle": "Späichert Äre verschlësselte KaalKey Backup"
+    },
+    "clipboard": {
+      "copiedTitle": "Code kopéiert",
+      "copiedBody": "Äre Verifikatiounscode gouf kopéiert.",
+      "errorTitle": "Feeler",
+      "errorBody": "Konnt den Verifizéierungscode net kopéieren."
+    },
+    "activity": {
+      "cameraReady": "Kamera prett. Punkt et op der Authenticator QR Code.",
+      "readingQrImage": "Liest QR Bild ...",
+      "importingQrImage": "Importéiert QR Bild ...",
+      "importingAccount": "Authentifizéierer Kont importéieren ...",
+      "importingPastedImage": "Importéiert gepaakt QR Bild ..."
+    }
+  },
+  "activity": {
+    "working": "Schaffen",
+    "wait": "W.e.g. waart ...",
+    "donTClose": "Maacht w.e.g. net zou oder interagéiert net mat KaalKey.",
+    "loadingLanguages": "Verfügbare Sproochen lueden…",
+    "loadingTranslation": "Lueden Iwwersetzung…"
+  }
+}

@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Ururimi",
+      "description": "Hitamo imvugo ikoreshwa muri KaalKey.",
+      "english": "Icyongereza",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "URURIMI",
+      "searchLanguageName": "Shakisha ururimi (izina cyangwa code)",
+      "searchSupportedLanguages": "Shakisha indimi zishyigikiwe",
+      "closeLanguageDropdown": "Funga ururimi",
+      "noTranslatedLanguage": "Nta rurimi rwahinduwe rwabonetse.",
+      "serverUrl": "Seriveri y'ubuhinduzi URL",
+      "serverUrlDescription": "KaalKey ikuramo urutonde rwindimi hamwe nubusobanuro muri iyi seriveri.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Bika seriveri yubusobanuro"
+    },
+    "title": "Igenamiterere rya porogaramu",
+    "eyebrow": "KAALKEY INGINGO",
+    "experience": {
+      "section": "UBURYO"
+    },
+    "security": {
+      "section": "UMUTEKANO"
+    },
+    "backup": {
+      "section": "INYUMA & RECOVERY"
+    },
+    "danger": {
+      "section": "AKARERE KA DANGER",
+      "clearAccounts": "Kuraho konti zose",
+      "clearAccountsDescription": "Kuraho burundu konti yose nibanga muri iki gikoresho. Banza usubire inyuma.",
+      "clearAccountsAccessibilityLabel": "Kuraho konti zose zemeza"
+    },
+    "appearance": {
+      "section": "KUBONA",
+      "title": "Kugaragara neza",
+      "description": "KaalKey kuri ubu ikoresha insanganyamatsiko yumucyo usukuye."
+    },
+    "haptics": {
+      "title": "Igitekerezo cyiza",
+      "description": "Ubwitonzi bwitondewe kuri kanda nibikorwa byarangiye."
+    },
+    "deviceLock": {
+      "title": "Gufunga ibikoresho",
+      "description": "Ububiko bwawe burafunga iyo KaalKey avuye imbere.",
+      "requirement": "Saba biometrike ya terefone yawe cyangwa ecran-gufunga PIN, icyitegererezo, cyangwa ijambo ryibanga.",
+      "accessibilityLabel": "Gufunga ibikoresho bya porogaramu"
+    },
+    "privacy": {
+      "title": "Amategeko & ubuzima bwite",
+      "description": "Ongera usuzume Politiki Yibanga n'amabwiriza yo gukoresha.",
+      "storageNote": "Ibanga ryukuri ryemeza guma mubikoresho bifite umutekano. Ibyifuzo bibitswe mugace."
+    }
+  },
+  "accounts": {
+    "edit": "Hindura",
+    "sortAccountName": "Gutondekanya izina rya konte",
+    "loadingSecureVault": "Gupakira ububiko butekanye ...",
+    "tapCopy": "KORA Kopi",
+    "noAccountsMatch": "Nta konti ihuye nubushakashatsi bwawe.",
+    "viewQrCode": "Reba QR kode ya konte",
+    "removeAccount": "Kuraho konti",
+    "copyVerificationCode": "Gukoporora kode yo kugenzura",
+    "active": "IGIKORWA",
+    "sort": "SORT BY",
+    "account": "Konti",
+    "clearSearch": "Gushakisha neza",
+    "sortServiceName": "Gutondeka izina rya serivisi",
+    "addFirstAccount": "Ongeraho konte yawe yambere",
+    "searchAccounts": "Shakisha konti",
+    "searchServiceAccount": "Shakisha serivisi cyangwa konti",
+    "accounts": "Konti zawe",
+    "add": "Ongeraho",
+    "vaultStartsHere": "Ububiko bwawe butangirira hano",
+    "service": "Serivisi",
+    "emptyHint": "Ongeraho konte ukoresheje urufunguzo rwibanga kugirango ubyare kode yambere yo kugenzura."
+  },
+  "common": {
+    "done": "Byakozwe",
+    "doneButton": "Byakozwe",
+    "closeSettings": "Funga igenamiterere",
+    "separator": "-",
+    "article": "a",
+    "save": "Bika",
+    "delete": "Siba",
+    "resizeAppBrand": "Hindura porogaramu hamwe n'ibirango"
+  },
+  "qrImport": {
+    "readPastedImage": "Ntushobora gusoma ishusho yanditse"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Konti muri iyi backup: {count}. KaalKey izagumana konti zawe zisanzwe kandi wongere konti zose zitari zihari. Konti zibiri zizasimbuka.",
+    "restoreCompletionBody": "Konti yongeyeho: {added}. Konti zibiri zasimbuwe: {skipped}. Konti zawe zisanzwe zabitswe.",
+    "copyPassword": "Gukoporora ijambo ryibanga",
+    "passwordSafety": "Bika iri jambo ryibanga ukundi (urugero, muri WhatsApp). Umuntu wese ufite byombi",
+    "importAction": "Hitamo dosiye no gutumiza hanze",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "UMUTEKANO WIZA",
+    "createBackup": "Kora backup",
+    "encryptedFile": "Idosiye ihishe",
+    "restoreBackup": "Ongera usubize inyuma",
+    "safetyNote": "Ububiko burimo amabanga yawe yemewe. KaalKey itanga ijambo ryibanga ryihariye kuri buri backup. Bika ukundi; KaalKey ntishobora kugarura.",
+    "generatingSecurePassword": "Gukora ijambo ryibanga ryizewe…",
+    "importFile": "Kuzana dosiye",
+    "backupPassword": "INYUMA PASSWORD",
+    "account": "konte",
+    "accounts": "Konti",
+    "exportDescription": "Shishoza byose {count} wabitswe {accountLabel} muri dosiye yububiko. KaalKey itanga ijambo ryibanga ridasanzwe; gukoporora no kubika bitandukanye na dosiye.",
+    "restoreDescription": "Hitamo dosiye yawe KaalKey reba dosiye nijambo ryibanga. Konti nshya zizongerwa kurutonde rwawe rusanzwe; konti zihari zizaguma uko zimeze.",
+    "enterBackupPassword": "Injira ijambo ryibanga",
+    "closeBackup": "Funga ibikubiyemo",
+    "copyGeneratedBackup": "Gukoporora ijambo ryibanga ryibanga",
+    "backupPassword2": "Wibike ijambo ryibanga",
+    "clearBackupPassword": "Kuraho ijambo ryibanga ryibanga",
+    "backupFilePassword": "kubika dosiye nijambobanga birashobora kugarura konti yawe.",
+    "encryptShareBackup": "Shishoza kandi usangire ibikubiyemo"
+  },
+  "home": {
+    "unlockSecurely": "Fungura neza",
+    "disableAppLock": "Hagarika gufunga porogaramu",
+    "enableAppLock": "Gushoboza gufunga porogaramu",
+    "checkingSecureLock": "Kugenzura igenamiterere ryawe rifite umutekano. Kode yawe ikomeza guhishwa.",
+    "waitingVerification": "Gutegereza igenzura…",
+    "secretsStayStored": "Amabanga yawe guma kubikwa kuri iki gikoresho.",
+    "openAppSettings": "Fungura igenamiterere rya porogaramu",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "Koresha biometrike ya terefone yawe cyangwa gufunga ecran PIN, icyitegererezo, cyangwa ijambo ryibanga kugirango ugere kode yawe yo kugenzura inshuro imwe.",
+    "localVault": "URUBUGA RWAWE",
+    "codesDeviceControl": "Kode yawe. Igikoresho cyawe. Igenzura ryawe.",
+    "securingVault": "Kurinda ububiko bwawe…",
+    "vaultProtected": "Ububiko bwawe burarinzwe",
+    "lock": "SHAKA",
+    "localVault2": "INGINGO Z'AKARERE",
+    "authenticator": "KAALKEY UMWANDITSI",
+    "tricolourLockEmblem": "KaalKey ikirango cyo gufunga tricolor",
+    "authenticator2": "UMWANDITSI"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Niba uhisemo gusikana kode QR, KaalKey ikoresha uruhushya rwa kamera kubyo bikorwa. Kwemeza ibikoresho bidahwitse hamwe nibitekerezo bishimishije ukoreshe ibiranga ibikoresho bijyanye. Urashobora gucunga uruhushya mugikoresho cyawe.",
+        "heading": "2. Uruhushya nibiranga ibikoresho"
+      },
+      "backups": {
+        "body": "Iyo uremye backup, KaalKey ihishe inyuma ukoresheje ijambo ryibanga wahisemo. Gumana dosiye nijambobanga wenyine kandi ubibike neza. Umuntu wese ubonye dosiye nijambobanga ryayo arashobora kugarura konti yawe yemewe. KaalKey ntishobora kugarura ijambo ryibanga ryibagiwe.",
+        "heading": "3. Ibikubiyemo"
+      },
+      "security": {
+        "body": "Komeza ibikoresho byawe bigezweho, ubirinde ukoresheje ecran ya ecran, kandi ntugasangire OTP amabanga cyangwa ijambo ryibanga ryibanga. Kuraho porogaramu, gusiba amakuru yayo, cyangwa gutakaza igikoresho birashobora gutuma konti zabitswe zaho zitaboneka. Komeza kugarura umutekano niba ukeneye gukira.",
+        "heading": "5. Umutekano no kugumana"
+      },
+      "information": {
+        "heading": "1. Amakuru n'amabanga",
+        "body": "KaalKey ni porogaramu yemeza. Ibirango bya konti hamwe nibanga ryibanga rikenewe kugirango habeho inshuro imwe code irumva. Porogaramu yashizweho kugirango ibike inyandiko za konti mububiko bwizewe bwibikoresho. Umuntu wese ufite uburyo bwo gufungura igikoresho kidafunguwe cyangwa ibicuruzwa byoherejwe hanze ashobora kubona amakuru yunvikana."
+      },
+      "sharing": {
+        "heading": "4. Kugabana nabandi bantu",
+        "body": "Kumanura ibintu birashobora gukoresha urupapuro rwibikoresho cyangwa igikoresho cya dosiye kugirango ubike, wohereze, cyangwa uhitemo dosiye. Imikorere yibanga ya porogaramu iyo ari yo yose cyangwa serivisi wahisemo igengwa nuwo mutanga. Iri tangazo ntirisobanura ko igikoresho cyawe, sisitemu y'imikorere, cyangwa serivisi wasanganywe zitigera zitunganya amakuru."
+      },
+      "changes": {
+        "heading": "6. Guhindura no kuvugana",
+        "body": "Iri tangazo ryashyizwemo rishobora gusubirwamo mugihe kizaza gisohoka. Kubibazo byihariye, hamagara uwamamaza porogaramu ukoresheje umuyoboro wemewe utangwa na porogaramu."
+      },
+      "title": "Politiki Yibanga"
+    },
+    "terms": {
+      "use": {
+        "body": "Urashobora gukoresha KaalKey kugirango ubyare kode yo kugenzura konti wemerewe kwinjira. Ushinzwe kubahiriza amategeko akurikizwa n'amategeko ya serivisi ukoresha kode yo kwemeza.",
+        "heading": "1. Gukoresha kwawe"
+      },
+      "protectAccounts": {
+        "body": "Ushinzwe kurinda igikoresho cyawe, amabanga yemeza, uburyo bwo kugarura ibintu, kohereza ibicuruzwa hanze, hamwe n’ibanga ryibanga. Ntugasangire kode cyangwa amabanga kubantu utizeye.",
+        "heading": "2. Kurinda konti zawe"
+      },
+      "availability": {
+        "body": "Ibiranga birashobora guhinduka hagati yo gusohora. Ugomba gukomeza porogaramu ivugururwa kandi ukagenzura buri gihe ko gahunda yawe yo kugarura no kugarura ikora.",
+        "heading": "5. Guhinduka no kuboneka"
+      },
+      "recovery": {
+        "body": "[] Komeza ubundi buryo bwo kugarura butangwa na serivisi bireba.",
+        "heading": "3. Nta garanti yo gukira"
+      },
+      "advice": {
+        "heading": "4. Nta nama zumwuga",
+        "body": "Porogaramu ningirakamaro kandi ntabwo itanga inama zemewe n'amategeko, imari, cyangwa umutekano. Niba konte ibangamiwe, kurikiza serivise yibasiwe no kugarura no kuyobora umutekano."
+      },
+      "liability": {
+        "heading": "6. Inshingano n'amategeko akurikizwa",
+        "body": "Mugihe cyemewe namategeko akurikizwa, porogaramu itangwa nta garanti yimikorere idahagarara cyangwa idafite amakosa. Nta kintu na kimwe muri aya magambo gikubiyemo uburenganzira cyangwa imiti idashobora gukurwaho byemewe n'amategeko. Izindi mbogamizi zose cyangwa amategeko-agenga amategeko agomba gusubirwamo numunyamategeko ubishoboye kububasha bw'umwanditsi mbere yo kurekurwa."
+      },
+      "title": "Amategeko yo gukoresha"
+    },
+    "version": "Inyandiko",
+    "saving": "Kuzigama…",
+    "acceptContinue": "Emera & Komeza",
+    "appliesAuthenticator": "Irasaba kuri KaalKey Authenticator",
+    "reviewBothDocuments": "Nyamuneka suzuma inyandiko zombi mbere yo gukoresha KaalKey. Bashyizwe muri porogaramu kandi iraboneka kumurongo.",
+    "originalMulticolourAuthenticator": "Ikirangantego cyumwimerere KaalKey ikirango cyemeza",
+    "legalPrivacyNotice": "Amatangazo yemewe & Amabanga",
+    "legalInformation": "Amakuru yemewe",
+    "reviewSPrivacy": "Subiramo KaalKey amakuru yerekeye ubuzima bwite n'amabwiriza yo gukoresha.",
+    "iReadAgree": "Nasomye kandi nemera Politiki Yibanga n'amabwiriza yo gukoresha."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Komeza kode yose QR igaragara. Ibanga ryawe riguma kuri iki gikoresho.",
+    "back": "Inyuma",
+    "turnFlashlightOff": "Zimya itara",
+    "turnFlashlight": "Zimya itara",
+    "flashlight": "Itara ryaka",
+    "flashlight2": "Itara",
+    "cameraUnavailableOpen": "Kamera ntishobora kuboneka. Fungura iyi page kuri HTTPS cyangwa localhost hanyuma wemerere kamera.",
+    "cameraPreviewUnavailable": "Kamera yo kureba ntishobora kuboneka. Funga kandi wugurure scaneri.",
+    "cameraReadyPoint": "Kamera yiteguye - iyereke kuri kode yuzuye QR.",
+    "browserCannotProcess": "Mucukumbuzi ntishobora gutunganya amakadiri ya kamera.",
+    "qrCodeDetected": "QR kode yagaragaye.",
+    "couldnTRead": "Ntushobora gusoma amakadiri ya kamera. Reba uruhushya rwa kamera hanyuma usubiremo iyi page.",
+    "cameraPermissionDenied": "Uruhushya rwa Kamera rwanze. Emerera kamera kwinjira mumiterere ya mushakisha, hanyuma ufungure scaneri.",
+    "noCameraWas": "Nta kamera yabonetse kuri iki gikoresho.",
+    "cameraBusyAnother": "Kamera irahuze murindi porogaramu cyangwa tab ya mushakisha.",
+    "startCameraHttps": "Ntushobora gutangira kamera. Koresha HTTPS cyangwa localhost hanyuma urebe uruhushya rwa mushakisha.",
+    "qrScannerCamera": "QR scaneri yerekana kamera",
+    "cameraUnavailableCheck": "Kamera ntishobora kuboneka. Reba uruhushya rwa kamera hanyuma ugerageze.",
+    "pointCameraAuthenticator": "Erekana kamera yawe kuri kode yemewe QR kode kuva muri serivisi wongeyeho.",
+    "backAddAccount": "Garuka kugirango wongere konti",
+    "secureSetup": "SETUP YUMUTEKANO",
+    "enterDetailsManually": "Injira ibisobanuro intoki aho"
+  },
+  "accountForm": {
+    "hideManualEntry": "Hisha intoki",
+    "secretKeySupplied": "Koresha urufunguzo rwibanga rutangwa na serivisi urimo gushiraho. Ntuzigere winjiza ijambo ryibanga rya konte yawe hano. Huza algorithm, kubara imibare, hamwe nintera kumabwiriza ya serivise.",
+    "updateServiceAccount": "Kuvugurura serivisi, izina rya konte, cyangwa urufunguzo rwibanga.",
+    "secretKeyRead": "Urufunguzo rwibanga, soma-gusa mugihe uhindura",
+    "secretKeyBase32": "Urufunguzo rwibanga muri Base32",
+    "digits": "imibare",
+    "seconds": "amasegonda",
+    "enterDetailsManually": "CYANGWA WINJIZE AMAFARANGA",
+    "enterDetailsManually2": "Injira intoki",
+    "serviceAccountName": "Serivisi, izina rya konte nurufunguzo rwibanga",
+    "saveChangesSecurely": "Bika impinduka neza",
+    "saveAccountSecurely": "Bika konti neza",
+    "serviceIssuer": "Serivisi cyangwa uyitanga",
+    "accountName": "Izina rya konti",
+    "secretKey": "Urufunguzo rwibanga",
+    "serviceIssuer2": "UMURIMO / ISUBIZO",
+    "eGGoogle": "urugero Google",
+    "clearServiceIssuer": "Serivisi isobanutse cyangwa uyitanga",
+    "eGExample": "urugero wowe@urugero.com",
+    "clearAccountName": "Kuraho izina rya konti",
+    "secretKeyLocked": "URUKINGO RW'AMABANGA (RUGENDE)",
+    "secretKeyBase322": "URUKINGO RW'AMABANGA (BASE32)",
+    "enterSetupKey": "Injira urufunguzo rwawe",
+    "clearSecretKey": "Kuraho urufunguzo rwibanga",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP IMIGANI",
+    "refreshIntervalSeconds": "SHAKA INTERVAL (SECONDS)",
+    "otpRefreshInterval": "OTP kugarura intera mumasegonda",
+    "closeAccountForm": "Funga konti",
+    "totpSetupUrl": "TOTP gushiraho URL",
+    "importSetupUrl": "Gutumiza mu mahanga URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "IZINA RYA KONTI",
+    "addAccount": "Ongeraho konti"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Sikana kwemeza QR kode",
+    "setupGuidance": "Sikana kode ya QR kugirango ubone ibintu byoroshye, cyangwa wandike ibisobanuro intoki.",
+    "cameraAddAccount": "Koresha kamera yawe kugirango wongere konte ako kanya",
+    "scanQrCode2": "Sikana QR kode",
+    "uploadQrImage": "Kuramo QR ishusho",
+    "chooseQrScreenshot": "Hitamo amashusho ya QR kuva mubitabo, Amafoto, cyangwa Idosiye",
+    "pasteQr": "Shyira QR ishusho / URL",
+    "pasteCopiedQr": "Shyiramo amashusho QR ishusho cyangwa kwemeza URL",
+    "uploadQrImage2": "Kuramo QR ishusho"
+  },
+  "accountQr": {
+    "close": "Funga",
+    "accountQrCode": "Konti QR kode",
+    "revealQrCode": "Hishura kode QR kode",
+    "exportWarning": "Icyitonderwa: umuntu wese usikana iyi kode QR arashobora gutanga kode yo kugenzura iyi konti. Gusa ubihishure kuri ecran yizewe.",
+    "privacyHint": "Komeza iyi QR kode wenyine. Gusikana ikoporora ibanga ryemeza konti."
+  },
+  "productInfo": {
+    "backupRestore": "Kubika no kugarura",
+    "backupRestoreDescription": "Bika amakuru yawe yemewe kandi uyagarure mugihe wimukiye mubindi bikoresho.",
+    "privacyDescription": "Bika konti yawe yo kugenzura ahantu hamwe. Koresha ububiko bwa porogaramu, kugarura, no gufunga ibikoresho kugirango ucunge neza.",
+    "timeBasedCodes": "Kode ishingiye ku gihe",
+    "generateOneTimeCodes": "Kora kuzenguruka inshuro imwe ya passcode kuri konte yawe kugirango urangize intambwe ebyiri.",
+    "quickAccountSetup": "Gushiraho konti byihuse",
+    "quickSetupDescription": "Sikana kode yemewe QR cyangwa winjize ishusho QR kugirango wongere konti.",
+    "accountsOnePlace": "Konti ahantu hamwe",
+    "accountsInOnePlaceDescription": "Komeza konti zawe wabitswe hamwe ushakishe ibyinjira mugihe cyo kwinjira.",
+    "privateAccountVault": "Ububiko bwa konti bwite",
+    "privateVaultDescription": "Gucunga ibyemezo byawe byemewe hanyuma ukoreshe porogaramu iboneka-igikoresho cyo gufunga.",
+    "easyCodeAccess": "Kubona kode byoroshye",
+    "easyCodeAccessDescription": "Gukoporora kode iriho cyangwa gucunga konti ukoresheje interineti isukuye, yibanze.",
+    "authenticatorTechsivaram": "UMWANDITSI · BY TECHSIVARAM",
+    "mobileAuthenticator": "UMWANDITSI WA MOBILE WAWE",
+    "tagline": "Inzira yoroshye yo gucunga intambwe zawe ebyiri.",
+    "heroDescription": "Icyerekezo cyibanze cyemeza kubijyanye nigihe cyo kugenzura kode. Komeza kode ya konte ihuje hafi na KaalKey kuri Android.",
+    "timeBasedCodes2": "KODE ishingiye ku GIHE",
+    "privateDesign": "KUGARAGAZA KUBIKORWA",
+    "builtSimpleAuthenticator": "KUBAKA KUBIKORWA BYOROSHE BY'UBUYOBOZI",
+    "qrSetupTimed": "QR SETUP · KODE YIGIHE CYANE",
+    "privacyTitle": "Konti zawe. Kode yawe. Igenzura ryawe.",
+    "authenticator": "KAALKEY · UMWANDITSI",
+    "brandBanner": "KaalKey ibendera",
+    "logo": "KaalKey ikirango"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Kureka",
+      "storageInvalidTitle": "Ububiko butemewe",
+      "storageInvalidBody": "Amakuru yabitswe yabitswe ntashobora gusomwa neza.",
+      "storageErrorTitle": "Ikosa ryo kubika",
+      "storageErrorBody": "Konti zabitswe ntizishobora gutwarwa.",
+      "missingTitle": "Kubura amakuru",
+      "missingEditingBody": "Injiza izina rya serivisi n'izina rya konti.",
+      "missingBody": "Injiza izina rya serivisi, izina rya konte, nurufunguzo rwibanga.",
+      "invalidOtpBody": "Reba Base32 ibanga, algorithm, kubara imibare, no kugarura igihe. Amabanga agomba kuba arimo inyuguti zemewe Base32; imibare igomba kuba {digits} kandi igihe kigomba kuba {minPeriod} - {maxPeriod} amasegonda.",
+      "duplicateBody": "Konti hamwe niyi serivisi nizina rya konti yamaze kubikwa.",
+      "updatedBody": "Konti yawe yaravuguruwe.",
+      "addedBody": "Konti yawe yongeyeho umutekano.",
+      "invalidOtpTitle": "Igenamiterere OTP",
+      "duplicateTitle": "Konti irahari",
+      "savedTitle": "Konti yabitswe",
+      "invalidSecretTitle": "Urufunguzo rwibanga rutemewe",
+      "invalidSecretBody": "Nyamuneka reba ko winjiye ibanga ryemewe Base32.",
+      "removedTitle": "Konti yakuweho",
+      "removedBody": "Konti n'ibanga ryayo yakuwe muri iki gikoresho.",
+      "clearedTitle": "Konti zahanaguwe",
+      "clearedBody": "Konti zose zemeza kandi amabanga zavanywe muri iki gikoresho.",
+      "someSavedAccountsNeedAttentionTitle": "Konti zimwe zabitswe zikeneye kwitabwaho",
+      "someSavedAccountsNeedAttentionBody": "{count} konti ya konte itemewe ntabwo yapimwe. Konti zemewe ziracyaboneka. Tekereza gukora backup mbere yo gukora izindi mpinduka.",
+      "removeConfirmTitle": "Kuraho konti?",
+      "removeConfirmWebTitle": "Kuraho konti?",
+      "removeButton": "Kuraho",
+      "clearButton": "Kuraho byose",
+      "clearConfirmTitle": "Kuraho konti zose?",
+      "saveErrorBody": "Konti ntishobora kubikwa. Reba ububiko bwa mushakisha buboneka hanyuma ugerageze.",
+      "notFoundTitle": "Konti ntabwo yabonetse",
+      "notFoundBody": "Iyi konti ntishobora kuboneka. Funga umwanditsi hanyuma ugerageze.",
+      "removeConfirmBody": "Ibi bikuraho konti nibanga ryayo muri iki gikoresho.",
+      "clearConfirmBody": "Ibi bivanaho burundu konti zose zemeza namabanga yabo muri iki gikoresho. Kora ibanga ryibanga mbere niba ushobora gukenera konti nyuma.",
+      "clearConfirmUndoBody": "Ibi ntibishobora gusubirwaho."
+    },
+    "biometric": {
+      "cancelButton": "Kureka",
+      "saveErrorTitle": "Ntushobora kubika igenamiterere",
+      "unlockPrompt": "Fungura KaalKey Authenticator",
+      "promptSubtitle": "Koresha biometrike cyangwa igikoresho cya ecran yawe",
+      "disableConfirmPrompt": "Emeza kuzimya KaalKey gufunga porogaramu",
+      "enablePrompt": "Gushoboza gufunga porogaramu ya KaalKey",
+      "deviceLockTitle": "Shiraho igikoresho cya ecran yawe",
+      "deviceLockBody": "KaalKey ikoresha terefone yawe yemewe. Shiraho igikoresho PIN, icyitegererezo, cyangwa ijambo ryibanga mumiterere yumutekano wa terefone yawe, hanyuma ugerageze. Ibinyabuzima birahinduka.",
+      "unavailableTitle": "Kwemeza ibikoresho ntibishoboka",
+      "unavailableBody": "Terefone yawe ntishobora gutangira kwemeza umutekano. Reba neza ko igikoresho cya ecran gifunga cyagenwe, hanyuma ugerageze.",
+      "lockedTitle": "Kwemeza bifunze by'agateganyo",
+      "lockedBody": "Terefone yawe yahagaritse by'agateganyo kwemeza nyuma yo kugerageza cyane. Tegereza hanyuma wongere ugerageze.",
+      "promptErrorTitle": "Kwemeza ntibishoboka",
+      "promptErrorBody": "KaalKey ntishobora gutangira terefone yizewe neza. Nyamuneka gerageza.",
+      "webLock": "Ibikoresho byo kwemeza ibikoresho ntibishobora kuboneka kurubuga rwurubuga. Urubuga rwububiko rukomeza gufungurwa; koresha porogaramu ya Android kugirango yemeze ibikoresho kavukire.",
+      "disabledTitle": "Gufunga porogaramu byahagaritswe",
+      "disabledBody": "KaalKey gufunga porogaramu byafunzwe.",
+      "disableSaveError": "Gufunga porogaramu bikomeza gukora. Nyamuneka gerageza.",
+      "enabledTitle": "Gufunga porogaramu birashoboka",
+      "enabledBody": "KaalKey izasaba terefone yawe yemewe-yemewe iyo ifunguye nigihe uzayigarukira.",
+      "enableSaveError": "Gufunga porogaramu ntibishobora. Nyamuneka gerageza."
+    },
+    "qr": {
+      "startingCamera": "Gutangiza kamera…",
+      "unsupportedTitle": "Kode idashyigikiwe QR kode",
+      "unsupportedBody": "Sikana kode yemewe QR code yatanzwe na serivisi. Iyi igomba kuba kode ya TOTP, ntabwo ari kode isanzwe QR.",
+      "unsupportedDiagnostic": "Ko QR ntabwo ari code ya TOTP. Intego mugushiraho ibyemezo QR.",
+      "detectedDiagnostic": "QR byagaragaye. Gusesengura…",
+      "analyzing": "Gusesengura QR code…",
+      "duplicateTitle": "Konti yongeyeho",
+      "duplicateBody": "{issuer}: {account} yamaze muri KaalKey.",
+      "addedTitle": "Konti yongeyeho",
+      "addedBody": "{issuer}: {account} yongeyeho neza.",
+      "saveFailedDiagnostic": "Ntushobora kubika konti. Urashobora kongera gusikana.",
+      "invalidTitle": "Kode itemewe QR kode",
+      "invalidBody": "KaalKey ntishobora gusobanura kode yemewe QR. {detail}. Koresha serivise ya TOTP igenamiterere QR kode (mubisanzwe itangirana na {prefix}).",
+      "parseFailedDiagnostic": "QR ntishobora gutunganywa. Intego kuri setup QR hanyuma ugerageze.",
+      "invalidUrlTitle": "Ntibyemewe TOTP URL",
+      "invalidUrlBody": "Shyiramo ibyemezo byuzuye URL utangirana na {prefix}.",
+      "clipboardEmptyTitle": "Ububiko burimo ubusa",
+      "clipboardEmptyBody": "Wandukure {prefix} URL ubanza, hanyuma ukande Paste TOTP URL",
+      "clipboardErrorTitle": "Ntushobora gusoma clip clip",
+      "clipboardErrorBody": "Gukoporora TOTP gushiraho URL hanyuma ugerageze."
+    },
+    "haptics": {
+      "saveFailedTitle": "Ntushobora kubika igenamiterere",
+      "saveFailedBody": "Ibyifuzo byishimishije ntibishobora gukizwa. Nyamuneka gerageza."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Ntushobora kubika kwemerwa",
+      "saveFailedBody": "Nyamuneka gerageza. Ugomba kwemera integuza yemewe mbere yo gukoresha KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Uruhushya rwa Kamera rurakenewe",
+      "body": "Emerera kamera kubona scan yemewe QR kode."
+    },
+    "storage": {
+      "browserUnavailable": "Ububiko bwa mushakisha ntibushobora kuboneka.",
+      "browserFilePickerUnavailable": "Mucukumbuzi ya dosiye ya mushakisha ntishobora kuboneka."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Idosiye idashyigikiwe",
+      "unsupportedFileBody": "Hitamo ishusho ya QR ishusho ya code nka PNG cyangwa JPEG.",
+      "browserDecoderUnavailable": "Ishusho ya mushakisha decoding ntishobora kuboneka",
+      "imageLoadFailed": "Ishusho ntishobora kuremererwa",
+      "unreadableDimensions": "Ishusho ntigira ibipimo bisomeka",
+      "noQrCodeFoundTitle": "Oya QR code yabonetse",
+      "noQrCodeFoundBody": "KaalKey ntishobora gutandukanya kode QR kuriyi shusho. Gerageza amashusho cyangwa ibisubizo bihanitse PNG / JPEG.",
+      "couldNotReadImageTitle": "Ntushobora gusoma ishusho",
+      "couldNotReadImageBody": "Gerageza PNG cyangwa JPEG ishusho ikubiyemo kode yemewe QR kode.",
+      "couldNotOpenPickerTitle": "Ntushobora gufungura uwatoraguye amashusho",
+      "couldNotOpenPickerBody": "Nyamuneka gerageza Gukuramo QR ongera.",
+      "normalizedDecodeFailed": "Ishusho isanzwe ntishobora kwandikwa",
+      "clipboardImageLoadFailed": "Ishusho ya Clipboard ntishobora kuremererwa",
+      "imageProcessingUnavailable": "Gutunganya amashusho ntibishoboka",
+      "imageProcessingUnavailableAlt": "Gutunganya amashusho ntibishoboka",
+      "noImageInClipboardTitle": "Nta shusho iri mububiko",
+      "noImageInClipboardBody": "Gukoporora amashusho ya QR, hanyuma ukande Kanda QR Ongera ushushanye.",
+      "clipboardUnavailableTitle": "Ububiko ntibuboneka",
+      "clipboardUnavailableBody": "Clipboard inyandiko ntabwo yemewe yemewe URL. Wandukure otpauth: // URL cyangwa QR ishusho hanyuma ugerageze.",
+      "clipboardAccessBody": "KaalKey ntishobora gusoma inyandiko cyangwa ishusho ivuye mububiko. Emerera clipboard kwinjira, hanyuma wandukure QR ishusho cyangwa otpauth: // URL hanyuma ukande Paste QR Ishusho / URL.",
+      "couldNotPasteImageTitle": "Ntushobora gushira ishusho",
+      "couldNotPasteImageBody": "Kwandika amashusho ntabwo ashyigikiwe niyi clip clip kuri iki gikoresho. Koresha Ishusho QR ishusho aho.",
+      "sourceImageDecodeFailure": "Gerageza ishusho itandukanye QR ishusho.",
+      "pastedImportFailureBody": "Gerageza ishusho itandukanye QR ishusho.",
+      "sourceImageReadFailure": "Gerageza kwigana amashusho asobanutse QR.",
+      "importFailedTitle": "QR kwinjiza amashusho byananiranye",
+      "importFailedBody": "KaalKey ntabwo yashoboye gusoma iyo shusho. Nyamuneka gerageza indi QR ishusho ya code.",
+      "notFoundBody": "Ishusho yimuwe ntabwo ikubiyemo kode isomeka QR.",
+      "pastedNotFoundBody": "Ishusho yanditswemo ntabwo ikubiyemo kode isomeka QR.",
+      "pastedReadFailureBody": "Gerageza kwigana ishusho isobanutse PNG cyangwa JPEG ishusho irimo kode yuzuye QR.",
+      "noQrCodeTextBody": "KaalKey yashushanyije ishusho yatoranijwe ariko ntiyabona kode QR. Gerageza ibisobanuro byuzuye, byuzuye PNG cyangwa JPEG hamwe na code yose igaragara."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Iyi QR kode ntabwo ari igihe cyashizweho cyo kwemeza kode.",
+      "missingAccountDetails": "Kode QR yabuze ibisobanuro bya konti.",
+      "unsupportedAlgorithm": "Kode QR ikoresha algorithm idashyigikiwe.",
+      "unsupportedDigits": "Iyi QR kode igomba gukoresha imibare 6, 7, cyangwa 8.",
+      "unsupportedPeriod": "Iyi QR kode ikoresha igihe kidashyigikiwe.",
+      "invalidAccount": "Kode QR ntishobora kwemerwa."
+    },
+    "backup": {
+      "invalidJson": "Idosiye yububiko ntizemewe JSON.",
+      "unsupportedFormat": "Ntabwo ari inkunga KaalKey ibitswe neza.",
+      "invalidPasswordOrDamaged": "Ijambo ryibanga ryibanga ntabwo aribyo cyangwa dosiye yinyuma yangiritse.",
+      "invalidContents": "Ibikubiyemo byabitswe ntibyemewe cyangwa bituzuye.",
+      "secureRandomUnavailableDetailed": "Igisekuru cyizewe ntigishobora kuboneka. Ongera wubake kandi wongere usubiremo porogaramu ya Android irimo expo-crypto, hanyuma ugerageze.",
+      "invalidAccountDataForBackup": "Konti imwe cyangwa nyinshi zitemewe. Kosora amakuru ya konte mbere yo gukora backup.",
+      "invalidPasswordOrModified": "Ijambo ryibanga ryibanga ntabwo ariryo cyangwa dosiye yinyuma yarahinduwe.",
+      "invalidPasswordOrFileDamaged": "Ijambo ryibanga ryibanga ntabwo ariryo cyangwa dosiye yarangiritse.",
+      "passwordCopiedTitle": "Ijambobanga ryimuwe",
+      "enterPasswordTitle": "Injira ijambo ryibanga ryibanga",
+      "enterPasswordBody": "Injira ijambo ryibanga ryakoreshejwe mugihe iyi backup yakozwe.",
+      "passwordCopiedBody": "Uzigame ahantu hizewe, nka WhatsApp.",
+      "copyFailedTitle": "Gukoporora byarananiranye",
+      "copyFailedBody": "Hitamo kandi wandukure ijambo ryibanga.",
+      "generatingPassword": "Gukora ijambo ryibanga ryibanga ryizewe…",
+      "encrypting": "Encrypting backup…",
+      "decrypting": "Kurangiza kubika…",
+      "restoring": "Kugarura konti…",
+      "backupCreatedTitle": "Ububiko bwarakozwe",
+      "restoreCompleteTitle": "Kugarura byuzuye",
+      "mergeConfirmTitle": "Guhuza konti zo kubika?",
+      "mergeConfirmButton": "Guhuza konti",
+      "backupSavedTemporary": "Ububiko bwabitswe bwabitswe by'agateganyo kuri: \n {uri}",
+      "generatePasswordErrorTitle": "Ntushobora kubyara ijambo ryibanga",
+      "secureRandomUnavailable": "Igisekuru cyizewe ntigishobora kuboneka.",
+      "passwordUnavailableTitle": "Wibike ijambo ryibanga ntiriboneka",
+      "passwordUnavailableBody": "Funga iki kiganiro hanyuma ukore backup nshya kugirango utange ijambo ryibanga ryizewe.",
+      "backupDownloadedBody": "Ibanga ryawe ryibanga KaalKey ibikubiyemo byavanyweho. Gumana dosiye nijambobanga wenyine.",
+      "backupFailedTitle": "Ububiko bwananiwe",
+      "backupCreateErrorBody": "KaalKey ntishobora gukora backup.",
+      "restoreFailedTitle": "Kugarura byarananiranye",
+      "backupReadErrorBody": "Ububiko ntibushobora gusomwa cyangwa kubikwa.",
+      "browserDownloadUnsupported": "Mucukumbuzi yawe ntabwo ishigikira gukuramo dosiye zinyuma.",
+      "localFileUnavailable": "Ahantu dosiye yaho ntishobora kuboneka kuri iki gikoresho.",
+      "saveBackupTitle": "Bika ibanga ryawe ryibanga KaalKey"
+    },
+    "clipboard": {
+      "copiedTitle": "Kode yandukuwe",
+      "copiedBody": "Kode yawe yo kugenzura yarimuwe.",
+      "errorTitle": "Ikosa",
+      "errorBody": "Ntushobora gukoporora kode yo kugenzura."
+    },
+    "activity": {
+      "cameraReady": "Kamera iriteguye. Iyereke kuri kode yemewe QR kode.",
+      "readingQrImage": "Gusoma QR ishusho…",
+      "importingQrImage": "Kuzana QR ishusho…",
+      "importingAccount": "Kuzana konti yemewe…",
+      "importingPastedImage": "Gutumiza mu mahanga QR ishusho…"
+    }
+  },
+  "activity": {
+    "working": "Gukora",
+    "wait": "Nyamuneka tegereza…",
+    "donTClose": "Nyamuneka ntugafunge cyangwa ngo usabane na KaalKey.",
+    "loadingLanguages": "Gutwara indimi ziboneka…",
+    "loadingTranslation": "Kurekura ibisobanuro…"
+  }
+}

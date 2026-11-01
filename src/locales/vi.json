@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Ngôn ngữ",
+      "description": "Chọn ngôn ngữ được sử dụng trong KaalKey.",
+      "english": "Tiếng Anh",
+      "telugu": "tiếng Telugu",
+      "hindi": "Tiếng Hindi",
+      "section": "NGÔN NGỮ",
+      "searchLanguageName": "Ngôn ngữ tìm kiếm (tên hoặc mã)",
+      "searchSupportedLanguages": "Tìm kiếm ngôn ngữ được hỗ trợ",
+      "closeLanguageDropdown": "Đóng menu thả xuống ngôn ngữ",
+      "noTranslatedLanguage": "Không tìm thấy ngôn ngữ dịch.",
+      "serverUrl": "Máy chủ dịch thuật URL",
+      "serverUrlDescription": "KaalKey tải xuống danh sách ngôn ngữ và bản dịch từ máy chủ này.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Lưu máy chủ dịch"
+    },
+    "title": "Cài đặt ứng dụng",
+    "eyebrow": "KAALKEY ƯU ĐÃI",
+    "experience": {
+      "section": "KINH NGHIỆM"
+    },
+    "security": {
+      "section": "AN NINH"
+    },
+    "backup": {
+      "section": "SAO LƯU & PHỤC HỒI"
+    },
+    "danger": {
+      "section": "KHU NGUY HIỂM",
+      "clearAccounts": "Xóa tất cả tài khoản",
+      "clearAccountsDescription": "Xóa vĩnh viễn mọi tài khoản và bí mật khỏi thiết bị này. Sao lưu trước.",
+      "clearAccountsAccessibilityLabel": "Xóa tất cả tài khoản xác thực"
+    },
+    "appearance": {
+      "section": "XUẤT HIỆN",
+      "title": "Ngoại hình nhẹ nhàng",
+      "description": "KaalKey hiện đang sử dụng chủ đề ánh sáng trong trẻo."
+    },
+    "haptics": {
+      "title": "Phản hồi xúc giác",
+      "description": "Phản hồi nhẹ nhàng cho các thao tác chạm và hoàn thành."
+    },
+    "deviceLock": {
+      "title": "Khóa xác thực thiết bị",
+      "description": "Vault của bạn khóa khi KaalKey rời khỏi nền trước.",
+      "requirement": "Yêu cầu sinh trắc học hoặc khóa màn hình PIN, hình mở khóa hoặc mật khẩu của điện thoại.",
+      "accessibilityLabel": "Khóa ứng dụng xác thực thiết bị"
+    },
+    "privacy": {
+      "title": "Pháp lý và quyền riêng tư",
+      "description": "Xem lại Chính sách quyền riêng tư và Điều khoản sử dụng.",
+      "storageNote": "Bí mật xác thực của bạn vẫn được lưu giữ trong kho bảo mật trên thiết bị. Tùy chọn được lưu trữ cục bộ."
+    }
+  },
+  "accounts": {
+    "edit": "Chỉnh sửa",
+    "sortAccountName": "Sắp xếp theo tên tài khoản",
+    "loadingSecureVault": "Đang tải kho lưu trữ an toàn...",
+    "tapCopy": "NHẤN ĐỂ SAO CHÉP",
+    "noAccountsMatch": "Không có tài khoản nào phù hợp với tìm kiếm của bạn.",
+    "viewQrCode": "Xem mã QR cho tài khoản",
+    "removeAccount": "Xóa tài khoản",
+    "copyVerificationCode": "Sao chép mã xác minh",
+    "active": "HOẠT ĐỘNG",
+    "sort": "SẮP XẾP THEO",
+    "account": "Tài khoản",
+    "clearSearch": "Xóa tìm kiếm",
+    "sortServiceName": "Sắp xếp theo tên dịch vụ",
+    "addFirstAccount": "Thêm tài khoản đầu tiên của bạn",
+    "searchAccounts": "Tìm kiếm tài khoản",
+    "searchServiceAccount": "Tìm kiếm dịch vụ hoặc tài khoản",
+    "accounts": "Tài khoản của bạn",
+    "add": "+ Thêm",
+    "vaultStartsHere": "Vault của bạn bắt đầu ở đây",
+    "service": "Dịch vụ",
+    "emptyHint": "Thêm tài khoản bằng khóa bí mật của tài khoản đó để tạo mã xác minh đầu tiên của bạn."
+  },
+  "common": {
+    "done": "Xong",
+    "doneButton": "Xong",
+    "closeSettings": "Đóng cài đặt",
+    "separator": "-",
+    "article": "một",
+    "save": "Lưu",
+    "delete": "Xóa",
+    "resizeAppBrand": "Thay đổi kích thước bảng ứng dụng và thương hiệu"
+  },
+  "qrImport": {
+    "readPastedImage": "Không thể đọc hình ảnh đã dán"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Các tài khoản trong bản sao lưu này: {count}. KaalKey sẽ giữ lại các tài khoản hiện có của bạn và thêm bất kỳ tài khoản nào chưa có. Các tài khoản trùng lặp sẽ bị bỏ qua.",
+    "restoreCompletionBody": "Tài khoản đã thêm: {added}. Tài khoản trùng lặp bị bỏ qua: {skipped}. Các tài khoản hiện có của bạn đã được giữ lại.",
+    "copyPassword": "Sao chép mật khẩu đã tạo",
+    "passwordSafety": "Lưu riêng mật khẩu này (ví dụ: trong WhatsApp). Bất cứ ai có cả hai",
+    "importAction": "Chọn tệp và nhập",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "VÒI AN TOÀN",
+    "createBackup": "Tạo bản sao lưu",
+    "encryptedFile": "Tệp được mã hóa",
+    "restoreBackup": "Khôi phục bản sao lưu",
+    "safetyNote": "Bản sao lưu chứa bí mật xác thực của bạn. KaalKey tạo một mật khẩu duy nhất cho mỗi bản sao lưu. Lưu nó riêng biệt; KaalKey không thể khôi phục nó.",
+    "generatingSecurePassword": "Đang tạo mật khẩu an toàn…",
+    "importFile": "Nhập tập tin",
+    "backupPassword": "MẬT KHẨU SAO LƯU",
+    "account": "tài khoản",
+    "accounts": "tài khoản",
+    "exportDescription": "Mã hóa tất cả {count} đã lưu {accountLabel} vào một tệp sao lưu. KaalKey tạo một mật khẩu duy nhất; sao chép và lưu nó riêng biệt với tập tin.",
+    "restoreDescription": "Chọn tệp sao lưu và mật khẩu KaalKey của bạn. Tài khoản mới sẽ được thêm vào danh sách tài khoản hiện có của bạn; các tài khoản hiện có sẽ vẫn như cũ.",
+    "enterBackupPassword": "Nhập mật khẩu dự phòng",
+    "closeBackup": "Đóng bản sao lưu",
+    "copyGeneratedBackup": "Sao chép mật khẩu sao lưu đã tạo",
+    "backupPassword2": "Sao lưu mật khẩu",
+    "clearBackupPassword": "Xóa mật khẩu sao lưu",
+    "backupFilePassword": "tập tin sao lưu và mật khẩu có thể khôi phục tài khoản xác thực của bạn.",
+    "encryptShareBackup": "Mã hóa và chia sẻ bản sao lưu"
+  },
+  "home": {
+    "unlockSecurely": "Mở khóa an toàn",
+    "disableAppLock": "Tắt khóa ứng dụng",
+    "enableAppLock": "Bật khóa ứng dụng",
+    "checkingSecureLock": "Đang kiểm tra cài đặt khóa an toàn của bạn. Mã của bạn vẫn được ẩn.",
+    "waitingVerification": "Đang chờ xác minh…",
+    "secretsStayStored": "Bí mật của bạn vẫn được lưu trữ trên thiết bị này.",
+    "openAppSettings": "Mở cài đặt ứng dụng",
+    "versionLabel": "PHIÊN BẢN",
+    "unlockRequirement": "Sử dụng sinh trắc học hoặc khóa màn hình PIN, hình mở khóa hoặc mật khẩu của điện thoại để truy cập mã xác minh một lần của bạn.",
+    "localVault": "VAULT ĐỊA PHƯƠNG CỦA BẠN",
+    "codesDeviceControl": "Mã của bạn. Thiết bị của bạn. Sự kiểm soát của bạn.",
+    "securingVault": "Bảo vệ kho tiền của bạn…",
+    "vaultProtected": "Kho tiền của bạn được bảo vệ",
+    "lock": "KHÓA BẬT",
+    "localVault2": "VAU ĐỊA PHƯƠNG",
+    "authenticator": "KAALKEY NGƯỜI XÁC THỰC",
+    "tricolourLockEmblem": "KaalKey biểu tượng khóa ba màu",
+    "authenticator2": "NGƯỜI XÁC THỰC"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Nếu bạn chọn quét mã QR thì KaalKey sẽ sử dụng quyền của máy ảnh cho hành động đó. Xác thực thiết bị tùy chọn và phản hồi xúc giác sử dụng các tính năng liên quan của thiết bị. Bạn có thể quản lý quyền trong cài đặt thiết bị của mình.",
+        "heading": "2. Quyền và tính năng của thiết bị"
+      },
+      "backups": {
+        "body": "Khi bạn tạo bản sao lưu, KaalKey sẽ mã hóa bản sao lưu bằng mật khẩu bạn chọn. Giữ cả tập tin và mật khẩu ở chế độ riêng tư và lưu trữ chúng một cách an toàn. Bất kỳ ai lấy được tệp và mật khẩu của tệp đều có thể khôi phục tài khoản xác thực của bạn. KaalKey không thể khôi phục mật khẩu sao lưu đã quên.",
+        "heading": "3. Sao lưu"
+      },
+      "security": {
+        "body": "Luôn cập nhật thiết bị của bạn, bảo vệ thiết bị bằng khóa màn hình và không chia sẻ bí mật OTP hoặc mật khẩu dự phòng. Xóa ứng dụng, xóa dữ liệu hoặc mất thiết bị có thể khiến các tài khoản được lưu trữ cục bộ không khả dụng. Duy trì một bản sao lưu an toàn nếu bạn cần phục hồi.",
+        "heading": "5. Bảo mật và lưu giữ"
+      },
+      "information": {
+        "heading": "1. Thông tin và bí mật",
+        "body": "KaalKey là một ứng dụng xác thực. Nhãn tài khoản và các giá trị bí mật cần thiết để tạo mã một lần rất nhạy cảm. Ứng dụng này được thiết kế để lưu trữ hồ sơ tài khoản trong bộ lưu trữ an toàn của thiết bị. Bất kỳ ai có quyền truy cập vào thiết bị đã mở khóa hoặc bản sao lưu đã xuất đều có thể truy cập thông tin nhạy cảm."
+      },
+      "sharing": {
+        "heading": "4. Chia sẻ và bên thứ ba",
+        "body": "Luồng sao lưu có thể sử dụng bảng chia sẻ hoặc bộ chọn tệp trên thiết bị của bạn để lưu, chuyển hoặc chọn tệp. Các biện pháp bảo vệ quyền riêng tư của bất kỳ ứng dụng hoặc dịch vụ bên thứ ba nào mà bạn chọn đều do nhà cung cấp đó quản lý. Thông báo này không đưa ra tuyên bố chung chung rằng thiết bị, hệ điều hành hoặc các dịch vụ chia sẻ đã chọn của bạn không bao giờ xử lý dữ liệu."
+      },
+      "changes": {
+        "heading": "6. Thay đổi và liên hệ",
+        "body": "Thông báo được nhúng này có thể được sửa đổi trong bản phát hành ứng dụng trong tương lai. Nếu có câu hỏi về quyền riêng tư, hãy liên hệ với nhà xuất bản ứng dụng thông qua kênh hỗ trợ chính thức được cung cấp kèm theo ứng dụng."
+      },
+      "title": "Chính sách bảo mật"
+    },
+    "terms": {
+      "use": {
+        "body": "Bạn có thể sử dụng KaalKey để tạo mã xác minh cho các tài khoản mà bạn được phép truy cập. Bạn có trách nhiệm tuân thủ luật pháp hiện hành và các quy tắc của dịch vụ mà bạn sử dụng mã xác thực.",
+        "heading": "1. Việc sử dụng của bạn"
+      },
+      "protectAccounts": {
+        "body": "Bạn chịu trách nhiệm bảo mật thiết bị của mình, bí mật xác thực, phương pháp khôi phục, bản sao lưu đã xuất và mật khẩu sao lưu. Không chia sẻ mã hoặc bí mật với những người bạn không tin tưởng.",
+        "heading": "2. Bảo vệ tài khoản của bạn"
+      },
+      "availability": {
+        "body": "Các tính năng có thể thay đổi giữa các phiên bản. Bạn nên cập nhật ứng dụng và định kỳ xác minh rằng các sắp xếp sao lưu và khôi phục của bạn hoạt động.",
+        "heading": "5. Những thay đổi và tính khả dụng"
+      },
+      "recovery": {
+        "body": "KaalKey không thể đảm bảo rằng mọi tài khoản đều có thể được khôi phục, rằng mọi mã hoặc cấu hình QR sẽ tương thích hoặc ứng dụng sẽ hoạt động mà không bị gián đoạn hoặc gặp lỗi. Giữ các phương pháp khôi phục thay thế do dịch vụ liên quan cung cấp.",
+        "heading": "3. Không đảm bảo phục hồi"
+      },
+      "advice": {
+        "heading": "4. Không có lời khuyên chuyên nghiệp",
+        "body": "Ứng dụng này là một tiện ích và không cung cấp lời khuyên ứng phó sự cố về pháp lý, tài chính hoặc bảo mật. Nếu tài khoản bị xâm phạm, hãy làm theo hướng dẫn bảo mật và khôi phục chính thức của dịch vụ bị ảnh hưởng."
+      },
+      "liability": {
+        "heading": "6. Trách nhiệm pháp lý và luật áp dụng",
+        "body": "Trong phạm vi được pháp luật hiện hành cho phép, ứng dụng được cung cấp mà không có sự đảm bảo về hoạt động không bị gián đoạn hoặc không có lỗi. Không có nội dung nào trong các điều khoản này loại trừ các quyền hoặc biện pháp khắc phục không thể bị loại trừ về mặt pháp lý. Bất kỳ giới hạn hoặc điều khoản luật điều chỉnh nào khác phải được luật sư có trình độ chuyên môn về khu vực pháp lý của nhà xuất bản xem xét trước khi phát hành."
+      },
+      "title": "Điều khoản sử dụng"
+    },
+    "version": "Phiên bản",
+    "saving": "Đang lưu…",
+    "acceptContinue": "Chấp nhận và tiếp tục",
+    "appliesAuthenticator": "Áp dụng cho KaalKey Trình xác thực",
+    "reviewBothDocuments": "Vui lòng xem lại cả hai tài liệu trước khi sử dụng KaalKey. Chúng được bao gồm trong ứng dụng và có sẵn ngoại tuyến.",
+    "originalMulticolourAuthenticator": "Biểu tượng xác thực nhiều màu gốc KaalKey",
+    "legalPrivacyNotice": "Thông báo pháp lý và quyền riêng tư",
+    "legalInformation": "Thông tin pháp lý",
+    "reviewSPrivacy": "Xem lại thông tin về quyền riêng tư và điều khoản sử dụng của KaalKey.",
+    "iReadAgree": "Tôi đã đọc và đồng ý với Chính sách quyền riêng tư và Điều khoản sử dụng."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Giữ toàn bộ mã QR hiển thị. Bí mật của bạn vẫn còn trên thiết bị này.",
+    "back": "Quay lại",
+    "turnFlashlightOff": "Tắt đèn pin",
+    "turnFlashlight": "Bật đèn pin",
+    "flashlight": "Bật đèn pin",
+    "flashlight2": "Đèn pin",
+    "cameraUnavailableOpen": "Máy ảnh không có sẵn. Mở trang này trên HTTPS hoặc localhost và cho phép truy cập máy ảnh.",
+    "cameraPreviewUnavailable": "Xem trước máy ảnh không có sẵn. Đóng và mở lại máy quét.",
+    "cameraReadyPoint": "Máy ảnh đã sẵn sàng — trỏ nó vào mã QR đầy đủ.",
+    "browserCannotProcess": "Trình duyệt này không thể xử lý khung hình camera.",
+    "qrCodeDetected": "QR đã phát hiện mã.",
+    "couldnTRead": "Không thể đọc khung hình camera. Kiểm tra quyền của máy ảnh và tải lại trang này.",
+    "cameraPermissionDenied": "Quyền sử dụng máy ảnh bị từ chối. Cho phép truy cập máy ảnh trong cài đặt trình duyệt, sau đó mở lại máy quét.",
+    "noCameraWas": "Không tìm thấy máy ảnh nào trên thiết bị này.",
+    "cameraBusyAnother": "Máy ảnh đang bận trong một ứng dụng hoặc tab trình duyệt khác.",
+    "startCameraHttps": "Không thể khởi động máy ảnh. Sử dụng HTTPS hoặc localhost và kiểm tra quyền của trình duyệt.",
+    "qrScannerCamera": "QR xem trước máy ảnh máy quét",
+    "cameraUnavailableCheck": "Máy ảnh không có sẵn. Hãy kiểm tra quyền của máy ảnh và thử lại.",
+    "pointCameraAuthenticator": "Hướng máy ảnh của bạn vào mã thiết lập trình xác thực QR từ dịch vụ bạn đang thêm.",
+    "backAddAccount": "Quay lại để thêm tài khoản",
+    "secureSetup": "CÀI ĐẶT AN TOÀN",
+    "enterDetailsManually": "Thay vào đó, hãy nhập chi tiết theo cách thủ công"
+  },
+  "accountForm": {
+    "hideManualEntry": "Ẩn mục nhập thủ công",
+    "secretKeySupplied": "Sử dụng khóa bí mật được cung cấp bởi dịch vụ bạn đang định cấu hình. Không bao giờ nhập mật khẩu tài khoản của bạn ở đây. Hãy ghép thuật toán, số chữ số và khoảng thời gian với hướng dẫn thiết lập của dịch vụ.",
+    "updateServiceAccount": "Cập nhật dịch vụ, tên tài khoản hoặc khóa bí mật.",
+    "secretKeyRead": "Khóa bí mật, chỉ đọc khi chỉnh sửa",
+    "secretKeyBase32": "Khóa bí mật trong Base32",
+    "digits": "chữ số",
+    "seconds": "giây",
+    "enterDetailsManually": "HOẶC NHẬP CHI TIẾT THỦ CÔNG",
+    "enterDetailsManually2": "Nhập chi tiết theo cách thủ công",
+    "serviceAccountName": "Dịch vụ, tên tài khoản và khóa bí mật",
+    "saveChangesSecurely": "Lưu các thay đổi một cách an toàn",
+    "saveAccountSecurely": "Lưu tài khoản một cách an toàn",
+    "serviceIssuer": "Dịch vụ hoặc nhà phát hành",
+    "accountName": "Tên tài khoản",
+    "secretKey": "Khóa bí mật",
+    "serviceIssuer2": "DỊCH VỤ / PHÁT HÀNH",
+    "eGGoogle": "ví dụ: Google",
+    "clearServiceIssuer": "Xóa dịch vụ hoặc nhà phát hành",
+    "eGExample": "ví dụ: bạn@example.com",
+    "clearAccountName": "Xóa tên tài khoản",
+    "secretKeyLocked": "KHÓA BÍ MẬT (ĐÃ KHÓA)",
+    "secretKeyBase322": "KHÓA BÍ MẬT (BASE32)",
+    "enterSetupKey": "Nhập khóa thiết lập của bạn",
+    "clearSecretKey": "Xóa khóa bí mật",
+    "otpAlgorithm": "OTP Thuật toán",
+    "otpDigits": "OTP CHỮ SỐ",
+    "refreshIntervalSeconds": "Khoảng thời gian làm mới (GIÂY)",
+    "otpRefreshInterval": "OTP khoảng thời gian làm mới tính bằng giây",
+    "closeAccountForm": "Đóng mẫu tài khoản",
+    "totpSetupUrl": "TOTP thiết lập URL",
+    "importSetupUrl": "Nhập thiết lập URL",
+    "totpSetupUrl2": "TOTP CÀI ĐẶT URL",
+    "accountName2": "TÊN TÀI KHOẢN",
+    "addAccount": "Thêm tài khoản"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Quét mã xác thực QR",
+    "setupGuidance": "Quét mã QR để thiết lập dễ dàng nhất hoặc nhập chi tiết theo cách thủ công.",
+    "cameraAddAccount": "Sử dụng máy ảnh của bạn để thêm tài khoản ngay lập tức",
+    "scanQrCode2": "Quét mã QR",
+    "uploadQrImage": "Tải lên hình ảnh QR",
+    "chooseQrScreenshot": "Chọn ảnh chụp màn hình QR từ Thư viện, Ảnh hoặc Tệp",
+    "pasteQr": "Dán hình ảnh QR / URL",
+    "pasteCopiedQr": "Dán hình ảnh QR đã sao chép hoặc thiết lập trình xác thực URL",
+    "uploadQrImage2": "Tải lên hình ảnh QR"
+  },
+  "accountQr": {
+    "close": "Đóng",
+    "accountQrCode": "Mã tài khoản QR",
+    "revealQrCode": "Tiết lộ mã QR",
+    "exportWarning": "Cảnh báo: bất kỳ ai quét mã QR này đều có thể tạo mã xác minh cho tài khoản này. Chỉ tiết lộ nó trên một màn hình đáng tin cậy.",
+    "privacyHint": "Giữ mã QR này ở chế độ riêng tư. Quét nó sẽ sao chép bí mật xác thực của tài khoản."
+  },
+  "productInfo": {
+    "backupRestore": "Sao lưu và khôi phục",
+    "backupRestoreDescription": "Sao lưu dữ liệu xác thực của bạn và khôi phục dữ liệu đó khi bạn chuyển sang thiết bị khác.",
+    "privacyDescription": "Giữ tài khoản xác minh của bạn ở một nơi. Sử dụng các tùy chọn sao lưu, khôi phục và khóa thiết bị của ứng dụng để quản lý thiết lập của bạn một cách có trách nhiệm.",
+    "timeBasedCodes": "Mã dựa trên thời gian",
+    "generateOneTimeCodes": "Tạo mật mã luân phiên một lần cho tài khoản của bạn để hoàn tất xác minh hai bước.",
+    "quickAccountSetup": "Thiết lập tài khoản nhanh",
+    "quickSetupDescription": "Quét mã xác thực QR hoặc nhập hình ảnh QR để thêm tài khoản.",
+    "accountsOnePlace": "Tài khoản ở một nơi",
+    "accountsInOnePlaceDescription": "Giữ các tài khoản đã lưu của bạn lại với nhau và tìm mục nhập phù hợp khi đến lúc đăng nhập.",
+    "privateAccountVault": "Kho tài khoản riêng",
+    "privateVaultDescription": "Quản lý cục bộ các mục xác thực của bạn và sử dụng tùy chọn khóa thiết bị có sẵn của ứng dụng.",
+    "easyCodeAccess": "Truy cập mã dễ dàng",
+    "easyCodeAccessDescription": "Sao chép mã hiện tại hoặc quản lý chi tiết tài khoản thông qua giao diện rõ ràng, tập trung.",
+    "authenticatorTechsivaram": "NGƯỜI XÁC THỰC · BỞI TECHSIVARAM",
+    "mobileAuthenticator": "CÔNG CỤ XÁC THỰC DI ĐỘNG CỦA BẠN",
+    "tagline": "Một cách đơn giản hơn để quản lý xác minh hai bước của bạn.",
+    "heroDescription": "Trải nghiệm xác thực tập trung cho mã xác minh dựa trên thời gian. Luôn có sẵn các mã tài khoản tương thích với KaalKey cho Android.",
+    "timeBasedCodes2": "MÃ THEO THỜI GIAN",
+    "privateDesign": "RIÊNG THEO THIẾT KẾ",
+    "builtSimpleAuthenticator": "ĐƯỢC XÂY DỰNG CHO QUY TRÌNH XÁC THỰC ĐƠN GIẢN",
+    "qrSetupTimed": "QR CÀI ĐẶT · MÃ THỜI GIAN · QUẢN LÝ TÀI KHOẢN",
+    "privacyTitle": "Tài khoản của bạn. Mã của bạn. Sự kiểm soát của bạn.",
+    "authenticator": "KAALKEY · NGƯỜI XÁC THỰC",
+    "brandBanner": "KaalKey biểu ngữ thương hiệu",
+    "logo": "KaalKey biểu tượng"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Hủy bỏ",
+      "storageInvalidTitle": "Dữ liệu lưu trữ không hợp lệ",
+      "storageInvalidBody": "Dữ liệu tài khoản đã lưu không thể được đọc một cách an toàn.",
+      "storageErrorTitle": "Lỗi lưu trữ",
+      "storageErrorBody": "Không thể tải các tài khoản đã lưu.",
+      "missingTitle": "Thiếu thông tin",
+      "missingEditingBody": "Nhập tên dịch vụ và tên tài khoản.",
+      "missingBody": "Nhập tên dịch vụ, tên tài khoản và khóa bí mật.",
+      "invalidOtpBody": "Kiểm tra bí mật Base32, thuật toán, số chữ số và thời gian làm mới. Bí mật phải chứa ký tự Base32 hợp lệ; các chữ số phải là {digits} và dấu chấm phải là {minPeriod}–{maxPeriod} giây.",
+      "duplicateBody": "Tài khoản có dịch vụ này và tên tài khoản đã được lưu.",
+      "updatedBody": "Tài khoản của bạn đã được cập nhật.",
+      "addedBody": "Tài khoản của bạn đã được thêm một cách an toàn.",
+      "invalidOtpTitle": "Cài đặt OTP không hợp lệ",
+      "duplicateTitle": "Tài khoản đã tồn tại",
+      "savedTitle": "Đã lưu tài khoản",
+      "invalidSecretTitle": "Khóa bí mật không hợp lệ",
+      "invalidSecretBody": "Vui lòng kiểm tra xem bạn đã nhập bí mật Base32 hợp lệ hay chưa.",
+      "removedTitle": "Đã xóa tài khoản",
+      "removedBody": "Tài khoản và bí mật của nó đã bị xóa khỏi thiết bị này.",
+      "clearedTitle": "Đã xóa tài khoản",
+      "clearedBody": "Tất cả tài khoản xác thực và bí mật đã bị xóa khỏi thiết bị này.",
+      "someSavedAccountsNeedAttentionTitle": "Một số tài khoản đã lưu cần chú ý",
+      "someSavedAccountsNeedAttentionBody": "{count} (các) bản ghi tài khoản không hợp lệ không được tải. Tài khoản hợp lệ vẫn có sẵn. Hãy cân nhắc việc tạo bản sao lưu trước khi thực hiện các thay đổi tiếp theo.",
+      "removeConfirmTitle": "Xóa tài khoản?",
+      "removeConfirmWebTitle": "Xóa tài khoản?",
+      "removeButton": "Xóa",
+      "clearButton": "Xóa tất cả",
+      "clearConfirmTitle": "Xóa tất cả tài khoản?",
+      "saveErrorBody": "Không thể lưu tài khoản. Hãy kiểm tra tính khả dụng của bộ nhớ trình duyệt và thử lại.",
+      "notFoundTitle": "Không tìm thấy tài khoản",
+      "notFoundBody": "Không thể tìm thấy tài khoản này. Đóng trình chỉnh sửa và thử lại.",
+      "removeConfirmBody": "Thao tác này sẽ xóa tài khoản và bí mật của tài khoản đó khỏi thiết bị này.",
+      "clearConfirmBody": "Thao tác này sẽ xóa vĩnh viễn tất cả tài khoản xác thực và bí mật của chúng khỏi thiết bị này. Trước tiên, hãy tạo bản sao lưu được mã hóa nếu bạn có thể cần những tài khoản này sau này.",
+      "clearConfirmUndoBody": "Điều này không thể hoàn tác được."
+    },
+    "biometric": {
+      "cancelButton": "Hủy bỏ",
+      "saveErrorTitle": "Không thể lưu cài đặt",
+      "unlockPrompt": "Mở khóa KaalKey Trình xác thực",
+      "promptSubtitle": "Sử dụng sinh trắc học hoặc khóa màn hình thiết bị của bạn",
+      "disableConfirmPrompt": "Xác nhận tắt khóa ứng dụng KaalKey",
+      "enablePrompt": "Bật khóa ứng dụng cho KaalKey",
+      "deviceLockTitle": "Thiết lập khóa màn hình thiết bị của bạn",
+      "deviceLockBody": "KaalKey sử dụng xác thực tích hợp trong điện thoại của bạn. Đặt thiết bị PIN, hình mở khóa hoặc mật khẩu trong cài đặt bảo mật điện thoại của bạn rồi thử lại. Sinh trắc học là tùy chọn.",
+      "unavailableTitle": "Xác thực thiết bị không khả dụng",
+      "unavailableBody": "Điện thoại của bạn không thể bắt đầu xác thực an toàn. Kiểm tra xem khóa màn hình thiết bị đã được định cấu hình chưa, sau đó thử lại.",
+      "lockedTitle": "Xác thực tạm thời bị khóa",
+      "lockedBody": "Điện thoại của bạn đã tạm thời vô hiệu hóa xác thực sau quá nhiều lần thử. Hãy đợi và thử lại.",
+      "promptErrorTitle": "Xác thực không có sẵn",
+      "promptErrorBody": "KaalKey không thể khởi động lời nhắc xác thực an toàn của điện thoại. Vui lòng thử lại.",
+      "webLock": "Khóa xác thực thiết bị chưa có sẵn trong phiên bản web. Kho web vẫn được mở khóa; sử dụng ứng dụng Android để xác thực thiết bị gốc.",
+      "disabledTitle": "Đã tắt khóa ứng dụng",
+      "disabledBody": "KaalKey khóa ứng dụng đã bị tắt.",
+      "disableSaveError": "Khóa ứng dụng vẫn được bật. Vui lòng thử lại.",
+      "enabledTitle": "Đã bật khóa ứng dụng",
+      "enabledBody": "KaalKey sẽ yêu cầu xác thực tích hợp trong điện thoại của bạn khi mở và khi bạn quay lại điện thoại.",
+      "enableSaveError": "Không thể bật khóa ứng dụng. Vui lòng thử lại."
+    },
+    "qr": {
+      "startingCamera": "Đang khởi động máy ảnh…",
+      "unsupportedTitle": "Mã QR không được hỗ trợ",
+      "unsupportedBody": "Quét mã thiết lập trình xác thực QR do dịch vụ cung cấp. Đây phải là mã TOTP, không phải mã đăng nhập QR thông thường.",
+      "unsupportedDiagnostic": "QR đó không phải là mã thiết lập TOTP. Nhằm mục đích thiết lập trình xác thực QR.",
+      "detectedDiagnostic": "QR đã được phát hiện. Đang phân tích…",
+      "analyzing": "Đang phân tích mã QR…",
+      "duplicateTitle": "Tài khoản đã được thêm",
+      "duplicateBody": "{issuer}: {account} đã có trong KaalKey.",
+      "addedTitle": "Đã thêm tài khoản",
+      "addedBody": "{issuer}: {account} đã được thêm thành công.",
+      "saveFailedDiagnostic": "Không thể lưu tài khoản. Bạn có thể quét lại.",
+      "invalidTitle": "Mã QR không hợp lệ",
+      "invalidBody": "KaalKey không thể phân tích mã xác thực QR này. {detail}. Sử dụng mã thiết lập TOTP của dịch vụ QR (thường bắt đầu bằng {prefix}).",
+      "parseFailedDiagnostic": "QR không thể xử lý được. Hãy nhắm vào thiết lập QR và thử lại.",
+      "invalidUrlTitle": "Không hợp lệ TOTP URL",
+      "invalidUrlBody": "Dán trình xác thực hoàn chỉnh URL bắt đầu bằng {prefix}.",
+      "clipboardEmptyTitle": "Bảng tạm trống",
+      "clipboardEmptyBody": "Trước tiên hãy sao chép {prefix} URL, sau đó nhấn vào Dán TOTP URL.",
+      "clipboardErrorTitle": "Không thể đọc bảng nhớ tạm",
+      "clipboardErrorBody": "Sao chép thiết lập TOTP URL và thử lại."
+    },
+    "haptics": {
+      "saveFailedTitle": "Không thể lưu cài đặt",
+      "saveFailedBody": "Không thể lưu tùy chọn phản hồi xúc giác. Vui lòng thử lại."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Không thể lưu xác nhận",
+      "saveFailedBody": "Vui lòng thử lại. Bạn phải chấp nhận thông báo pháp lý trước khi sử dụng KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Cần có sự cho phép của máy ảnh",
+      "body": "Cho phép truy cập vào camera để quét mã thiết lập trình xác thực QR."
+    },
+    "storage": {
+      "browserUnavailable": "Bộ nhớ trình duyệt không khả dụng.",
+      "browserFilePickerUnavailable": "Trình chọn tệp trình duyệt không khả dụng."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Tệp không được hỗ trợ",
+      "unsupportedFileBody": "Chọn hình ảnh mã QR chẳng hạn như PNG hoặc JPEG.",
+      "browserDecoderUnavailable": "Giải mã hình ảnh trình duyệt không khả dụng",
+      "imageLoadFailed": "Không thể tải hình ảnh",
+      "unreadableDimensions": "Hình ảnh không có kích thước có thể đọc được",
+      "noQrCodeFoundTitle": "Không tìm thấy mã QR",
+      "noQrCodeFoundBody": "KaalKey không thể giải mã mã QR trong hình ảnh này. Hãy thử chụp ảnh màn hình hoặc độ phân giải cao hơn PNG/JPEG.",
+      "couldNotReadImageTitle": "Không thể đọc hình ảnh",
+      "couldNotReadImageBody": "Hãy thử hình ảnh PNG hoặc JPEG rõ ràng chứa mã thiết lập trình xác thực QR.",
+      "couldNotOpenPickerTitle": "Không thể mở bộ chọn hình ảnh",
+      "couldNotOpenPickerBody": "Vui lòng thử Tải lên lại QR.",
+      "normalizedDecodeFailed": "Không thể giải mã được hình ảnh chuẩn hóa",
+      "clipboardImageLoadFailed": "Không thể tải hình ảnh bảng nhớ tạm",
+      "imageProcessingUnavailable": "Xử lý hình ảnh không khả dụng",
+      "imageProcessingUnavailableAlt": "Xử lý hình ảnh không khả dụng",
+      "noImageInClipboardTitle": "Không có hình ảnh trong clipboard",
+      "noImageInClipboardBody": "Sao chép hình ảnh mã QR, sau đó nhấn lại vào Dán hình ảnh QR.",
+      "clipboardUnavailableTitle": "Không có bảng nhớ tạm",
+      "clipboardUnavailableBody": "Văn bản bảng nhớ tạm không phải là thiết lập trình xác thực hợp lệ URL. Sao chép hình ảnh otpauth:// URL hoặc QR và thử lại.",
+      "clipboardAccessBody": "KaalKey không thể đọc văn bản hoặc hình ảnh từ bảng ghi tạm. Cho phép truy cập vào khay nhớ tạm, sau đó sao chép hình ảnh QR hoặc otpauth:// URL và nhấn lại vào Dán QR Hình ảnh / URL.",
+      "couldNotPasteImageTitle": "Không thể dán hình ảnh",
+      "couldNotPasteImageBody": "Tính năng dán hình ảnh không được hỗ trợ bởi bảng nhớ tạm này trên thiết bị này. Thay vào đó, hãy sử dụng hình ảnh Nhập QR.",
+      "sourceImageDecodeFailure": "Hãy thử một hình ảnh QR khác.",
+      "pastedImportFailureBody": "Hãy thử một hình ảnh QR khác.",
+      "sourceImageReadFailure": "Hãy thử sao chép ảnh chụp màn hình QR rõ ràng.",
+      "importFailedTitle": "QR nhập hình ảnh không thành công",
+      "importFailedBody": "KaalKey không thể đọc được hình ảnh đó. Vui lòng thử hình ảnh mã QR khác.",
+      "notFoundBody": "Hình ảnh được sao chép không chứa mã QR có thể đọc được.",
+      "pastedNotFoundBody": "Hình ảnh được dán không chứa mã QR có thể đọc được.",
+      "pastedReadFailureBody": "Hãy thử sao chép một hình ảnh PNG hoặc JPEG rõ ràng chứa mã QR đầy đủ.",
+      "noQrCodeTextBody": "KaalKey đã giải mã được hình ảnh đã chọn nhưng không tìm thấy mã QR. Hãy thử độ phân giải đầy đủ, rõ ràng PNG hoặc JPEG để hiển thị toàn bộ mã."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Mã QR này không phải là mã thiết lập trình xác thực dựa trên thời gian.",
+      "missingAccountDetails": "Mã QR thiếu chi tiết tài khoản.",
+      "unsupportedAlgorithm": "Mã QR sử dụng thuật toán không được hỗ trợ.",
+      "unsupportedDigits": "Mã QR này phải sử dụng 6, 7 hoặc 8 chữ số.",
+      "unsupportedPeriod": "Mã QR này sử dụng khoảng thời gian không được hỗ trợ.",
+      "invalidAccount": "Mã QR không thể được xác thực."
+    },
+    "backup": {
+      "invalidJson": "Tệp sao lưu không hợp lệ JSON.",
+      "unsupportedFormat": "Đây không phải là bản sao lưu mã hóa KaalKey được hỗ trợ.",
+      "invalidPasswordOrDamaged": "Mật khẩu sao lưu không chính xác hoặc tập tin sao lưu bị hỏng.",
+      "invalidContents": "Nội dung sao lưu không hợp lệ hoặc không đầy đủ.",
+      "secureRandomUnavailableDetailed": "Tạo ngẫu nhiên an toàn không có sẵn. Xây dựng lại và cài đặt lại ứng dụng Android có bao gồm expo-crypto, sau đó thử lại.",
+      "invalidAccountDataForBackup": "Một hoặc nhiều tài khoản không hợp lệ. Sửa dữ liệu tài khoản trước khi tạo bản sao lưu.",
+      "invalidPasswordOrModified": "Mật khẩu sao lưu không chính xác hoặc tập tin sao lưu đã bị sửa đổi.",
+      "invalidPasswordOrFileDamaged": "Mật khẩu sao lưu không chính xác hoặc tập tin bị hỏng.",
+      "passwordCopiedTitle": "Đã sao chép mật khẩu",
+      "enterPasswordTitle": "Nhập mật khẩu dự phòng của bạn",
+      "enterPasswordBody": "Nhập mật khẩu được sử dụng khi bản sao lưu này được tạo.",
+      "passwordCopiedBody": "Lưu nó ở nơi nào đó an toàn, chẳng hạn như WhatsApp.",
+      "copyFailedTitle": "Sao chép không thành công",
+      "copyFailedBody": "Chọn và sao chép mật khẩu theo cách thủ công.",
+      "generatingPassword": "Đang tạo mật khẩu sao lưu an toàn…",
+      "encrypting": "Đang mã hóa bản sao lưu…",
+      "decrypting": "Đang giải mã bản sao lưu…",
+      "restoring": "Đang khôi phục tài khoản…",
+      "backupCreatedTitle": "Đã tạo bản sao lưu",
+      "restoreCompleteTitle": "Khôi phục hoàn tất",
+      "mergeConfirmTitle": "Hợp nhất các tài khoản dự phòng?",
+      "mergeConfirmButton": "Hợp nhất tài khoản",
+      "backupSavedTemporary": "Bản sao lưu được mã hóa được lưu tạm thời tại:\n{uri}",
+      "generatePasswordErrorTitle": "Không thể tạo mật khẩu dự phòng",
+      "secureRandomUnavailable": "Tạo ngẫu nhiên an toàn không có sẵn.",
+      "passwordUnavailableTitle": "Mật khẩu sao lưu không có sẵn",
+      "passwordUnavailableBody": "Đóng hộp thoại này và tạo bản sao lưu mới để tạo mật khẩu an toàn.",
+      "backupDownloadedBody": "Bản sao lưu KaalKey mã hóa của bạn đã được tải xuống. Giữ tập tin và mật khẩu riêng tư.",
+      "backupFailedTitle": "Sao lưu không thành công",
+      "backupCreateErrorBody": "KaalKey không thể tạo bản sao lưu.",
+      "restoreFailedTitle": "Khôi phục không thành công",
+      "backupReadErrorBody": "Không thể đọc hoặc lưu bản sao lưu.",
+      "browserDownloadUnsupported": "Trình duyệt của bạn không hỗ trợ tải xuống các tập tin sao lưu.",
+      "localFileUnavailable": "Vị trí tệp cục bộ không có sẵn trên thiết bị này.",
+      "saveBackupTitle": "Lưu bản sao lưu KaalKey đã mã hóa của bạn"
+    },
+    "clipboard": {
+      "copiedTitle": "Đã sao chép mã",
+      "copiedBody": "Mã xác minh của bạn đã được sao chép.",
+      "errorTitle": "Lỗi",
+      "errorBody": "Không thể sao chép mã xác minh."
+    },
+    "activity": {
+      "cameraReady": "Máy ảnh đã sẵn sàng. Trỏ nó vào mã xác thực QR.",
+      "readingQrImage": "Đang đọc hình ảnh QR…",
+      "importingQrImage": "Đang nhập hình ảnh QR…",
+      "importingAccount": "Đang nhập tài khoản xác thực...",
+      "importingPastedImage": "Đang nhập hình ảnh đã dán QR…"
+    }
+  },
+  "activity": {
+    "working": "Đang làm việc",
+    "wait": "Xin vui lòng chờ…",
+    "donTClose": "Vui lòng không đóng hoặc tương tác với KaalKey.",
+    "loadingLanguages": "Đang tải các ngôn ngữ có sẵn…",
+    "loadingTranslation": "Đang tải bản dịch…"
+  }
+}

@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Cànain",
+      "description": "Tagh an cànan a chleachdar ann an KaalKey.",
+      "english": "Beurla",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "CÀNAIN",
+      "searchLanguageName": "Cànan rannsachaidh (ainm no còd)",
+      "searchSupportedLanguages": "Rannsaich cànanan le taic",
+      "closeLanguageDropdown": "Dùin an clàr-taice cànain",
+      "noTranslatedLanguage": "Cha deach cànan eadar-theangaichte a lorg.",
+      "serverUrl": "Frithealaiche eadar-theangachaidh URL",
+      "serverUrlDescription": "KaalKey luchdaich sìos an liosta cànain agus eadar-theangachaidhean bhon t-seirbheisiche seo.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Sàbhail am frithealaiche eadar-theangachaidh"
+    },
+    "title": "Roghainnean app",
+    "eyebrow": "KAALKEY ROGHAINNEAN",
+    "experience": {
+      "section": "FEAR-CIUIL"
+    },
+    "security": {
+      "section": "SEACHDAIN"
+    },
+    "backup": {
+      "section": "CUNNTAS & ATH-LEASACHADH"
+    },
+    "danger": {
+      "section": "CRIOSDUIDH",
+      "clearAccounts": "Glan a h-uile cunntas",
+      "clearAccountsDescription": "Thoir air falbh gu buan a h-uile cunntas agus dìomhaireachd bhon inneal seo. Cùl suas an toiseach.",
+      "clearAccountsAccessibilityLabel": "Glan a h-uile cunntas dearbhaidh"
+    },
+    "appearance": {
+      "section": "LAOIDH",
+      "title": "Cumadh aotrom",
+      "description": "KaalKey an-dràsta a’ cleachdadh a chuspair solas glan."
+    },
+    "haptics": {
+      "title": "Fios air ais haptach",
+      "description": "Fios air ais socair airson tapan agus gnìomhan crìochnaichte."
+    },
+    "deviceLock": {
+      "title": "Glasadh dearbhaidh inneal",
+      "description": "Bidh an seilear agad a’ glasadh nuair KaalKey a’ fàgail aghaidh an deilbh.",
+      "requirement": "Feumaidh tu biometrics no glas-sgrion PIN, pàtran no facal-faire an fhòn agad.",
+      "accessibilityLabel": "Glasadh app dearbhaidh inneal"
+    },
+    "privacy": {
+      "title": "Prìobhaideach agus laghail",
+      "description": "Dèan lèirmheas air a’ Phoileasaidh Dìomhaireachd agus na Cumhachan Cleachdaidh.",
+      "storageNote": "Bidh na dìomhaireachdan dearbhaidh agad a’ fuireach anns an t-seilear thèarainte air-inneal. Tha roghainnean air an stòradh gu h-ionadail."
+    }
+  },
+  "accounts": {
+    "edit": "Deasaich",
+    "sortAccountName": "Deasaich a rèir ainm a’ chunntais",
+    "loadingSecureVault": "A luchdachadh a-nuas sàbhailte geama. . .",
+    "tapCopy": "TAP TO COPY",
+    "noAccountsMatch": "Chan eil cunntasan sam bith a' freagairt ris an rannsachadh agad.",
+    "viewQrCode": "Faic QR còd airson cunntas",
+    "removeAccount": "Thoir air falbh cunntas",
+    "copyVerificationCode": "Dèan lethbhreac den chòd dearbhaidh",
+    "active": "GNIOMHARA",
+    "sort": "SORT LE",
+    "account": "Cunntas",
+    "clearSearch": "Glan lorg",
+    "sortServiceName": "Deasaich a rèir ainm seirbheis",
+    "addFirstAccount": "Cuir ris a’ chiad chunntas agad",
+    "searchAccounts": "Rannsaich cunntasan",
+    "searchServiceAccount": "Lorg seirbheis no cunntas",
+    "accounts": "Na cunntasan agad",
+    "add": "+ Cuir ris",
+    "vaultStartsHere": "Bidh an seilear agad a’ tòiseachadh an seo",
+    "service": "Seirbheis",
+    "emptyHint": "Cuir cunntas ris a’ cleachdadh an iuchair dhìomhair aige gus a’ chiad chòd dearbhaidh agad a ghineadh."
+  },
+  "common": {
+    "done": "Dèanta",
+    "doneButton": "Dèanta",
+    "closeSettings": "Dùin roghainnean",
+    "separator": "-",
+    "article": "a",
+    "save": "Sàbhail",
+    "delete": "Sguab às",
+    "resizeAppBrand": "Ath-mheudaich pannalan app agus branda"
+  },
+  "qrImport": {
+    "readPastedImage": "Cha b' urrainn dhuinn an dealbh pasgte a leughadh"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Cunntasan sa chùl-taic seo: {count}. Cumaidh KaalKey na cunntasan gnàthaichte agad agus cuiridh iad cunntasan sam bith nach eil an làthair mar-thà. Thèid cunntasan dùblaichte a sheachnadh.",
+    "restoreCompletionBody": "Cunntasan air an cur ris: {added}. Leum cunntasan dùblaichte: {skipped}. Chaidh na cunntasan gnàthaichte agad a chumail.",
+    "copyPassword": "Dèan lethbhreac dhen fhacal-fhaire a chaidh a chruthachadh",
+    "passwordSafety": "Sàbhail am facal-faire seo air leth (mar eisimpleir, ann an WhatsApp). Duine sam bith leis an dà chuid an",
+    "importAction": "Tagh faidhle agus cuir a-steach",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "LUACHMHOR SHLAINTEIL",
+    "createBackup": "Cruthaich cùl-taic",
+    "encryptedFile": "Faidhle crioptaichte",
+    "restoreBackup": "Thoir air ais cùl-taic",
+    "safetyNote": "Ann an cùl-taic tha na dìomhaireachdan dearbhaidh agad. Bidh KaalKey a’ gineadh facal-faire sònraichte airson gach cùl-taic. Sàbhail e air leth; KaalKey chan urrainn dha fhaighinn air ais.",
+    "generatingSecurePassword": "A’ cruthachadh facal-faire tèarainte…",
+    "importFile": "Cuir a-steach faidhle",
+    "backupPassword": "PUING CHEUDNA",
+    "account": "cunntas",
+    "accounts": "cunntasan",
+    "exportDescription": "Cuir a-steach a h-uile {count} a chaidh a shàbhaladh {accountLabel} ann am faidhle cùl-taic. KaalKey a’ gineadh facal-faire sònraichte; dèan lethbhreac agus sàbhail e air leth bhon fhaidhle.",
+    "restoreDescription": "Tagh am faidhle cùl-taic agus am facal-faire KaalKey agad. Thèid cunntasan ùra a chur ris an liosta chunntasan a th’ agad mu thràth; fuirichidh cunntasan gnàthaichte mar a tha iad.",
+    "enterBackupPassword": "Cuir a-steach am facal-faire cùl-taic",
+    "closeBackup": "Dùin cùl-taic",
+    "copyGeneratedBackup": "Dèan lethbhreac de fhacal-faire cùl-taic gineadh",
+    "backupPassword2": "Facal-faire cùl-taic",
+    "clearBackupPassword": "Glan am facal-faire cùl-taic",
+    "backupFilePassword": "faodaidh faidhle cùl-taic agus facal-faire na cunntasan dearbhaidh agad a thoirt air ais.",
+    "encryptShareBackup": "Dèan crioptachadh agus roinn cùl-taic"
+  },
+  "home": {
+    "unlockSecurely": "Fuasgail gu sàbhailte",
+    "disableAppLock": "Cuir dheth glasadh app",
+    "enableAppLock": "Dèan comas glasadh app",
+    "checkingSecureLock": "A’ sgrùdadh nan roghainnean glasaidh tèarainte agad. Tha na còdan agad fhathast falaichte.",
+    "waitingVerification": "A’ feitheamh ri dearbhadh…",
+    "secretsStayStored": "Bidh na dìomhaireachdan agad air an stòradh air an inneal seo.",
+    "openAppSettings": "Fosgail roghainnean app",
+    "versionLabel": "LAOIDH",
+    "unlockRequirement": "Cleachd biometrics no glas-sgrion an fhòn agad PIN, pàtran, no facal-faire gus faighinn gu na còdan dearbhaidh aon-ùine agad.",
+    "localVault": "DO GHAIDHEALACH IONADAIL",
+    "codesDeviceControl": "Na còdan agad. An inneal agad. Do smachd.",
+    "securingVault": "A’ dèanamh cinnteach à do bhobhla…",
+    "vaultProtected": "Tha do bhodhaig air a dhìon",
+    "lock": "GLADH AIR",
+    "localVault2": "LUATH IONADAIL",
+    "authenticator": "KAALKEY RIAGHLADH",
+    "tricolourLockEmblem": "KaalKey suaicheantas glas tricolor",
+    "authenticator2": "URNAIGHEAN"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Ma roghnaicheas tu còd QR a sganadh, cleachdaidh KaalKey cead camara airson an gnìomh sin. Bidh dearbhadh inneal roghainneil agus fios air ais haptic a’ cleachdadh na feartan inneal iomchaidh. Faodaidh tu ceadan a riaghladh ann an roghainnean an uidheim agad.",
+        "heading": "2. Ceadan agus feartan inneal"
+      },
+      "backups": {
+        "body": "Nuair a chruthaicheas tu cùl-taic, crioptaichidh KaalKey an cùl-taic a’ cleachdadh facal-faire a thaghas tu. Cùm an dà chuid am faidhle agus am facal-faire prìobhaideach agus stòraich iad gu tèarainte. Is dòcha gum bi e comasach dha neach sam bith a gheibh am faidhle agus am facal-faire aige na cunntasan dearbhaidh agad ath-nuadhachadh. Chan urrainn KaalKey facal-faire cùl-taic a dhìochuimhnich fhaighinn air ais.",
+        "heading": "3. Cùl-taic"
+      },
+      "security": {
+        "body": "Cùm an inneal agad air ùrachadh, dìon e le glas sgrion, agus na roinn OTP dìomhaireachdan no faclan-faire cùl-taic. Le bhith a’ toirt air falbh an aplacaid, a’ glanadh an dàta aige, no a’ call an uidheim dh’ fhaodadh nach bi cunntasan air an stòradh gu h-ionadail rim faighinn. Cùm cùl-taic tèarainte ma tha feum agad air ath-bheothachadh.",
+        "heading": "5. Tèarainteachd agus gleidheadh"
+      },
+      "information": {
+        "heading": "1. Fiosrachadh agus dìomhaireachdan",
+        "body": "Tha KaalKey na aplacaid dearbhaidh. Tha bileagan cunntais agus na luachan dìomhair a dh’ fheumar gus còdan aon-ùine a ghineadh mothachail. Tha an aplacaid air a dhealbhadh gus clàran cunntais a stòradh ann an stòradh tèarainte an uidheim. Is dòcha gum faigh duine sam bith aig a bheil cothrom air inneal neo-ghlaiste no cùl-taic às-mhalairt cothrom air fiosrachadh mothachail."
+      },
+      "sharing": {
+        "heading": "4. Co-roinn agus treas phàrtaidhean",
+        "body": "Faodaidh an sruth cùl-taic duilleag roinn no inneal-togail fhaidhlichean an inneal agad a chleachdadh gus faidhlichean a shàbhaladh, a ghluasad no a thaghadh. Tha cleachdaidhean prìobhaideachd app no ​​seirbheis treas-phàrtaidh sam bith a thaghas tu air an riaghladh leis an t-solaraiche sin. Chan eil an sanas seo a’ dèanamh tagradh farsaing nach bi an inneal agad, an siostam obrachaidh no na seirbheisean roinneadh taghte a’ giullachd dàta gu bràth."
+      },
+      "changes": {
+        "heading": "6. Atharraichean agus fios",
+        "body": "Faodar am fios freumhaichte seo ath-sgrùdadh ann am brath app san àm ri teachd. Airson ceistean prìobhaideachd, cuir fios gu foillsichear na h-aplacaid tron ​​​​t-sianal taic oifigeil a chaidh a thoirt seachad leis an aplacaid."
+      },
+      "title": "Poileasaidh Dìomhaireachd"
+    },
+    "terms": {
+      "use": {
+        "body": "Faodaidh tu KaalKey a chleachdadh gus còdan dearbhaidh a ghineadh airson cunntasan a tha cead agad faighinn a-steach. Tha e an urra riut gèilleadh ri laghan iomchaidh agus riaghailtean nan seirbheisean airson am bi thu a’ cleachdadh còdan dearbhaidh.",
+        "heading": "1. Do chleachdadh"
+      },
+      "protectAccounts": {
+        "body": "Tha e an urra riut an inneal agad a dhèanamh tèarainte, dìomhaireachdan dearbhaidh, dòighean ath-bheothachaidh, cùl-taic às-mhalairt, agus faclan-faire cùl-taic. Na roinn còdan no dìomhaireachdan le daoine anns nach eil earbsa agad.",
+        "heading": "2. Dìon do chunntasan"
+      },
+      "availability": {
+        "body": "Faodaidh feartan atharrachadh eadar fiosan. Bu chòir dhut an aplacaid a chumail ùraichte agus dearbhadh bho àm gu àm gu bheil na rèiteachaidhean cùl-taic agus ath-bheothachaidh agad ag obair.",
+        "heading": "5. Atharrachaidhean agus ruigsinneachd"
+      },
+      "recovery": {
+        "body": "Chan urrainn dha KaalKey gealltainn gun tèid a h-uile cunntas fhaighinn air ais, gum bi a h-uile QR còd no rèiteachadh co-chòrdail, no gun obraich an aplacaid gun bhriseadh no mearachd. Cùm dòighean eile air ais air an toirt seachad leis an t-seirbheis iomchaidh.",
+        "heading": "3. Gun ghealltanas ath-bheothachaidh"
+      },
+      "advice": {
+        "heading": "4. Gun chomhairle proifeasanta",
+        "body": "Tha an app na ghoireas agus chan eil e a’ toirt seachad comhairle laghail, ionmhais no tèarainteachd mu fhreagairt tachartas. Ma tha cunntas ann an cunnart, lean stiùireadh oifigeil ath-bheothachaidh is tèarainteachd na seirbheis air a bheil buaidh."
+      },
+      "liability": {
+        "heading": "6. Buailteachd agus lagh iomchaidh",
+        "body": "Chun na h-ìre a tha ceadaichte fon lagh iomchaidh, tha an app air a thoirt seachad gun ghealladh airson obrachadh gun bhriseadh no gun mhearachd. Chan eil dad anns na teirmean seo a’ dùnadh a-mach chòraichean no leigheasan nach gabh an dùnadh a-mach gu laghail. Bu chòir do chuingealachaidhean no cumhachan lagha riaghlaidh ath-sgrùdadh le neach-lagha le teisteanas airson uachdranas an fhoillsichear mus tèid a leigeil ma sgaoil."
+      },
+      "title": "Cumhachan Cleachdaidh"
+    },
+    "version": "Tionndadh",
+    "saving": "A’ sàbhaladh…",
+    "acceptContinue": "Gabh ris & Lean air adhart",
+    "appliesAuthenticator": "A’ buntainn ri KaalKey Neach-dearbhaidh",
+    "reviewBothDocuments": "Feuch an toir thu sùil air an dà sgrìobhainn mus cleachd thu KaalKey. Tha iad air an toirt a-steach don app agus rim faighinn far-loidhne.",
+    "originalMulticolourAuthenticator": "Ioma-dath tùsail KaalKey suaicheantas dearbhadair",
+    "legalPrivacyNotice": "Sanas laghail is dìomhaireachd",
+    "legalInformation": "Fiosrachadh laghail",
+    "reviewSPrivacy": "Dèan lèirmheas air KaalKey fiosrachadh prìobhaideachd agus teirmean cleachdaidh.",
+    "iReadAgree": "Tha mi air am Poileasaidh Dìomhaireachd agus na Cumhachan Cleachdaidh a leughadh agus aontachadh."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Cùm an QR còd gu lèir ri fhaicinn. Bidh an dìomhaireachd agad a’ fuireach air an inneal seo.",
+    "back": "Air ais",
+    "turnFlashlightOff": "Cuir dheth an flashlight",
+    "turnFlashlight": "Tionndaidh an flashlight air",
+    "flashlight": "Flashlight air",
+    "flashlight2": "Flashlight",
+    "cameraUnavailableOpen": "Chan eil camara ri fhaighinn. Fosgail an duilleag seo air HTTPS no localhost agus leig le inntrigeadh camara.",
+    "cameraPreviewUnavailable": "Chan eil ro-shealladh camara ri fhaighinn. Dùin agus fosgail an sganair a-rithist.",
+    "cameraReadyPoint": "Camara deiseil - comharraich e aig a’ chòd slàn QR.",
+    "browserCannotProcess": "Chan urrainn dhan bhrobhsair seo frèamaichean camara a làimhseachadh.",
+    "qrCodeDetected": "QR còd air a lorg.",
+    "couldnTRead": "Cha b' urrainn dhuinn frèamaichean camara a leughadh. Thoir sùil air ceadan camara agus ath-luchdaich an duilleag seo.",
+    "cameraPermissionDenied": "Chaidh cead camara a dhiùltadh. Leig le camara faighinn a-steach ann an roghainnean brabhsair, agus an uairsin fosgail an sganair a-rithist.",
+    "noCameraWas": "Cha deach camara a lorg air an inneal seo.",
+    "cameraBusyAnother": "Tha an camara trang ann an aplacaid eile no tab brabhsair.",
+    "startCameraHttps": "Cha b' urrainn dhuinn camara a thòiseachadh. Cleachd HTTPS no localhost agus thoir sùil air ceadan brabhsair.",
+    "qrScannerCamera": "QR ro-shealladh camara sganair",
+    "cameraUnavailableCheck": "Chan eil camara ri fhaighinn. Thoir sùil air cead camara is feuch ris a-rithist.",
+    "pointCameraAuthenticator": "Comharraich do chamara aig còd rèiteachaidh an dearbhaidh QR bhon t-seirbheis a tha thu a’ cur ris.",
+    "backAddAccount": "Air ais gus cunntas a chuir ris",
+    "secureSetup": "SEALLADH DE NEAMH",
+    "enterDetailsManually": "Cuir a-steach mion-fhiosrachadh le làimh na àite"
+  },
+  "accountForm": {
+    "hideManualEntry": "Falaich inntrigeadh làimhe",
+    "secretKeySupplied": "Cleachd an iuchair dhìomhair a thug an t-seirbheis a tha thu a’ rèiteachadh. Na cuir a-steach facal-faire a’ chunntais agad gu bràth an seo. Dèan maids eadar an algairim, an àireamh figear, agus an eadar-ama ri stiùireadh rèiteachaidh na seirbheis.",
+    "updateServiceAccount": "Ùraich an t-seirbheis, ainm cunntais, no iuchair dhìomhair.",
+    "secretKeyRead": "Iuchair dhìomhair, ri leughadh a-mhàin fhad ‘s a tha thu a’ deasachadh",
+    "secretKeyBase32": "Iuchair dhìomhair ann an Base32",
+    "digits": "àireamhan",
+    "seconds": "diogan",
+    "enterDetailsManually": "NO cuir a-steach mion-fhiosrachadh le làimh",
+    "enterDetailsManually2": "Cuir a-steach mion-fhiosrachadh le làimh",
+    "serviceAccountName": "Seirbheis, ainm cunntais agus iuchair dhìomhair",
+    "saveChangesSecurely": "Sàbhail atharraichean gu tèarainte",
+    "saveAccountSecurely": "Sàbhail cunntas gu tèarainte",
+    "serviceIssuer": "Seirbheis no neach-lìbhrigidh",
+    "accountName": "Ainm cunntais",
+    "secretKey": "An iuchair dhìomhair",
+    "serviceIssuer2": "SEIRBHEIS/ISSUER",
+    "eGGoogle": "m.e. Google",
+    "clearServiceIssuer": "Glan seirbheis no neach-lìbhrigidh",
+    "eGExample": "m.e. thu@example.com",
+    "clearAccountName": "Glan ainm cunntais",
+    "secretKeyLocked": "Iuchrach dìomhair (glaiste)",
+    "secretKeyBase322": "PRÌOMH DÙTHCHAIL (BASE32)",
+    "enterSetupKey": "Cuir a-steach an iuchair rèiteachaidh agad",
+    "clearSecretKey": "Glan an iuchair dhìomhair",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP DIGITEAN",
+    "refreshIntervalSeconds": "ÙRACHADH EADAR (Diog)",
+    "otpRefreshInterval": "OTP àm ùrachaidh ann an diogan",
+    "closeAccountForm": "Dùin am foirm cunntas",
+    "totpSetupUrl": "TOTP stèidheachadh URL",
+    "importSetupUrl": "Ion-phortachadh suidheachadh URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "AINM CUNTAS",
+    "addAccount": "Cuir cunntas ris"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Sgan còd dearbhaidh QR",
+    "setupGuidance": "Sgan còd QR airson an rèiteachadh as fhasa, no cuir a-steach mion-fhiosrachadh le làimh.",
+    "cameraAddAccount": "Cleachd an camara agad gus cunntas a chuir ris sa bhad",
+    "scanQrCode2": "Sgan QR còd",
+    "uploadQrImage": "Luchdaich suas QR dealbh",
+    "chooseQrScreenshot": "Tagh dealbh-sgrìn QR bho Ghailearaidh, Dealbhan no Faidhlichean",
+    "pasteQr": "Paste QR dealbh / URL",
+    "pasteCopiedQr": "Cuir a-steach ìomhaigh leth-bhreac QR no suidheachadh dearbhadair URL",
+    "uploadQrImage2": "Luchdaich suas QR dealbh"
+  },
+  "accountQr": {
+    "close": "Dùin",
+    "accountQrCode": "Còd a’ chunntais QR",
+    "revealQrCode": "Nochdaidh QR còd",
+    "exportWarning": "Rabhadh: faodaidh duine sam bith a sganas a’ chòd seo QR còdan dearbhaidh a ghineadh airson a’ chunntais seo. Na nochd ach air scrion earbsach.",
+    "privacyHint": "Cùm an QR còd seo prìobhaideach. Le bhith ga sganadh bidh e a’ dèanamh lethbhreac de dhìomhaireachd dearbhaidh a’ chunntais."
+  },
+  "productInfo": {
+    "backupRestore": "Cùl-taic & ath-nuadhachadh",
+    "backupRestoreDescription": "Cùl suas an dàta dearbhaidh agad agus cuir air ais e nuair a ghluaiseas tu gu inneal eile.",
+    "privacyDescription": "Cùm na cunntasan dearbhaidh agad ann an aon àite. Cleachd roghainnean cùl-taic, ath-nuadhachadh agus glas inneal an aplacaid gus do shuidheachadh a riaghladh gu ciallach.",
+    "timeBasedCodes": "Còdan stèidhichte air ùine",
+    "generateOneTimeCodes": "Cruthaich còdan pas rothlach aon-ùine airson do chunntasan gus dearbhadh dà-cheum a chrìochnachadh.",
+    "quickAccountSetup": "Suidheachadh cunntais luath",
+    "quickSetupDescription": "Sgan còd dearbhadair QR no cuir a-steach dealbh QR gus cunntas a chuir ris.",
+    "accountsOnePlace": "Cunntasan ann an aon àite",
+    "accountsInOnePlaceDescription": "Cùm na cunntasan sàbhalaidh agad còmhla agus lorg an inntrigeadh ceart nuair a tha an t-àm ann clàradh a-steach.",
+    "privateAccountVault": "Seilear cunntas prìobhaideach",
+    "privateVaultDescription": "Stiùirich na h-inntrigidhean dearbhaidh agad gu h-ionadail agus cleachd an roghainn glas inneal a tha ri fhaighinn san aplacaid.",
+    "easyCodeAccess": "Cothrom furasta air còd",
+    "easyCodeAccessDescription": "Dèan lethbhreac de chòd làithreach no stiùirich mion-fhiosrachadh cunntais tro eadar-aghaidh glan, cuimsichte.",
+    "authenticatorTechsivaram": "AUTHENICATOR · LE TECHSIVARAM",
+    "mobileAuthenticator": "DO MHATHAIR GHAIDHEALACH",
+    "tagline": "Dòigh nas sìmplidh air do dhearbhadh dà-cheum a riaghladh.",
+    "heroDescription": "Eòlas dearbhadair cuimsichte airson còdan dearbhaidh stèidhichte air ùine. Cùm còdan cunntais co-fhreagarrach faisg air làimh le KaalKey airson Android.",
+    "timeBasedCodes2": "COGADH NAOMH TIOMNA",
+    "privateDesign": "PRÌOBHACH LE DEARADH",
+    "builtSimpleAuthenticator": "AIR A THOGAIL AIRSON sruth-obrach sìmplidh dearbhte",
+    "qrSetupTimed": "QR SETUP · CODANNA TIMED · RIAGHLADH cunntais",
+    "privacyTitle": "Na cunntasan agad. Na còdan agad. Do smachd.",
+    "authenticator": "KAALKEY · ATH-LEASACHADH",
+    "brandBanner": "KaalKey bratach brand",
+    "logo": "KaalKey suaicheantas"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Sguir dheth",
+      "storageInvalidTitle": "Dàta stòraidh mì-dhligheach",
+      "storageInvalidBody": "Cha b' urrainn dhuinn dàta cunntais a chaidh a shàbhaladh a leughadh gu sàbhailte.",
+      "storageErrorTitle": "Mearachd stòraidh",
+      "storageErrorBody": "Cha b' urrainn dhuinn cunntasan glèidhte a luchdachadh.",
+      "missingTitle": "Fiosrachadh a dhìth",
+      "missingEditingBody": "Cuir a-steach ainm na seirbheis agus ainm a’ chunntais.",
+      "missingBody": "Cuir a-steach ainm seirbheis, ainm cunntais, agus iuchair dhìomhair.",
+      "invalidOtpBody": "Thoir sùil air an Base32 dìomhair, algairim, cunntadh àireamhan, agus ùine ùrachaidh. Feumaidh Base32 caractaran dligheach a bhith ann an dìomhaireachd; feumaidh àireamhan a bhith {digits} agus feumaidh an ùine a bhith {minPeriod}–{maxPeriod} diogan.",
+      "duplicateBody": "Tha cunntas leis an t-seirbheis seo agus ainm a’ chunntais air a shàbhaladh mu thràth.",
+      "updatedBody": "Chaidh an cunntas agad ùrachadh.",
+      "addedBody": "Chaidh do chunntas a chur ris gu tèarainte.",
+      "invalidOtpTitle": "OTP roghainnean mì-dhligheach",
+      "duplicateTitle": "Tha cunntas ann mu thràth",
+      "savedTitle": "Cunntas air a shàbhaladh",
+      "invalidSecretTitle": "Iuchrach dhìomhair mì-dhligheach",
+      "invalidSecretBody": "Feuch an dèan thu cinnteach gun do chuir thu a-steach dìomhaireachd Base32 dligheach.",
+      "removedTitle": "Cunntas air a thoirt air falbh",
+      "removedBody": "Chaidh an cunntas agus a dhìomhaireachd a thoirt air falbh bhon inneal seo.",
+      "clearedTitle": "Cunntasan air am fuadach",
+      "clearedBody": "Chaidh a h-uile cunntas dearbhaidh agus dìomhaireachd a thoirt air falbh bhon inneal seo.",
+      "someSavedAccountsNeedAttentionTitle": "Feumaidh cuid de chunntasan sàbhalaidh aire",
+      "someSavedAccountsNeedAttentionBody": "{count} cha deach clàr(an) cunntais mì-dhligheach a luchdachadh. Tha cunntasan dligheach fhathast rim faighinn. Beachdaich air cruthachadh cùl-taic mus dèan thu tuilleadh atharrachaidhean.",
+      "removeConfirmTitle": "Thoir air falbh cunntas?",
+      "removeConfirmWebTitle": "Thoir air falbh cunntas?",
+      "removeButton": "Thoir air falbh",
+      "clearButton": "Glan na h-uile",
+      "clearConfirmTitle": "Glan a h-uile cunntas?",
+      "saveErrorBody": "Cha b' urrainn dhuinn cunntasan a shàbhaladh. Thoir sùil air cothrom air stòradh brabhsair is feuch ris a-rithist.",
+      "notFoundTitle": "Cha deach cunntas a lorg",
+      "notFoundBody": "Cha deach an cunntas seo a lorg. Dùin an deasaiche is feuch ris a-rithist.",
+      "removeConfirmBody": "Bheir seo air falbh an cunntas agus a dhìomhaireachd bhon inneal seo.",
+      "clearConfirmBody": "Bheir seo air falbh gu buan a h-uile cunntas dearbhaidh agus na dìomhaireachdan aca bhon inneal seo. Cruthaich cùl-taic crioptaichte an-toiseach ma tha feum agad air na cunntasan seo nas fhaide air adhart.",
+      "clearConfirmUndoBody": "Chan urrainnear seo a chuir dheth."
+    },
+    "biometric": {
+      "cancelButton": "Sguir dheth",
+      "saveErrorTitle": "Cha b' urrainn dhuinn an suidheachadh a shàbhaladh",
+      "unlockPrompt": "Fuasgail KaalKey Dearbhadair",
+      "promptSubtitle": "Cleachd biometrics no glas sgrion an uidheim agad",
+      "disableConfirmPrompt": "Dearbhaich gun cuir thu dheth KaalKey glas app",
+      "enablePrompt": "Cuir an comas glas app airson KaalKey",
+      "deviceLockTitle": "Suidhich glas sgrion an uidheim agad",
+      "deviceLockBody": "Bidh KaalKey a’ cleachdadh dearbhadh togte an fhòn agad. Suidhich inneal PIN, pàtran no facal-faire ann an roghainnean tèarainteachd an fhòn agad agus feuch ris a-rithist. Tha biometrics roghainneil.",
+      "unavailableTitle": "Chan eil dearbhadh inneal ri fhaighinn",
+      "unavailableBody": "Cha b' urrainn dhan fhòn agad tòiseachadh air dearbhadh tèarainte. Dèan cinnteach gu bheil glas sgrion inneal air a rèiteachadh, feuch ris a-rithist.",
+      "lockedTitle": "Dearbhadh glaiste airson ùine",
+      "lockedBody": "Tha am fòn agad air dearbhadh a chuir à comas rè ùine às deidh cus oidhirpean. Fuirich agus feuch ris a-rithist.",
+      "promptErrorTitle": "Chan eil dearbhadh ri fhaighinn",
+      "promptErrorBody": "KaalKey cha b’ urrainn dhuinn am fòn dearbhaidh tèarainte a thòiseachadh. Feuch ris a-rithist.",
+      "webLock": "Chan eil glas dearbhaidh an uidheim ri fhaighinn san dreach lìn fhathast. Tha an seilear lìn fhathast gun fhosgladh; cleachd an Android app airson dearbhadh inneal dùthchasach.",
+      "disabledTitle": "Tha glasadh app à comas",
+      "disabledBody": "KaalKey glas app air a chuir dheth.",
+      "disableSaveError": "Tha glas na h-aplacaid fhathast air a chomasachadh. Feuch ris a-rithist.",
+      "enabledTitle": "Glasadh app air a chomasachadh",
+      "enabledBody": "Iarraidh KaalKey dearbhadh togte an fhòn agad nuair a thèid fhosgladh agus nuair a thilleas tu thuige.",
+      "enableSaveError": "Cha b' urrainn glas na h-aplacaid a chur an comas. Feuch ris a-rithist."
+    },
+    "qr": {
+      "startingCamera": "A’ tòiseachadh camara…",
+      "unsupportedTitle": "Còd QR gun taic",
+      "unsupportedBody": "Sgan an còd rèiteachaidh dearbhadair QR a thug an t-seirbheis seachad. Feumaidh gur e còd TOTP a tha seo, chan e còd logadh a-steach àbhaisteach QR.",
+      "unsupportedDiagnostic": "Chan e TOTP còd rèiteachaidh a tha sin QR. Amas air suidheachadh dearbhadair QR.",
+      "detectedDiagnostic": "QR air a lorg. A’ mion-sgrùdadh…",
+      "analyzing": "A’ mion-sgrùdadh QR còd…",
+      "duplicateTitle": "Cunntas air a chur ris mu thràth",
+      "duplicateBody": "{issuer}: {account} ann an KaalKey mu thràth.",
+      "addedTitle": "Cunntas air a chur ris",
+      "addedBody": "{issuer}: {account} air a chur ris gu soirbheachail.",
+      "saveFailedDiagnostic": "Cha b' urrainn dhuinn an cunntas a shàbhaladh. Faodaidh tu sganadh a-rithist.",
+      "invalidTitle": "Còd neo-dhligheach QR",
+      "invalidBody": "KaalKey cha b’ urrainn dhuinn a’ chòd dearbhaidh QR seo a pharsadh. {detail}. Cleachd TOTP còd rèiteachaidh na seirbheis QR (mar as trice a’ tòiseachadh le {prefix}).",
+      "parseFailedDiagnostic": "QR cha b’ urrainn dhuinn a làimhseachadh. Amas air an t-suidheachadh QR agus feuch ris a-rithist.",
+      "invalidUrlTitle": "Neo-dhligheach TOTP URL",
+      "invalidUrlBody": "Cuir a-steach dearbhadair iomlan URL a’ tòiseachadh le {prefix}.",
+      "clipboardEmptyTitle": "Tha am bòrd-gearraidh falamh",
+      "clipboardEmptyBody": "Dèan lethbhreac de {prefix} URL an toiseach, agus an uairsin tap air Paste TOTP URL.",
+      "clipboardErrorTitle": "Cha b' urrainn dhuinn am bòrd-gearraidh a leughadh",
+      "clipboardErrorBody": "Dèan lethbhreac dhen TOTP suidheachadh URL is feuch ris a-rithist."
+    },
+    "haptics": {
+      "saveFailedTitle": "Cha b' urrainn dhuinn an suidheachadh a shàbhaladh",
+      "saveFailedBody": "Cha b' urrainn dhuinn roghainn fios-air-ais haptic a shàbhaladh. Feuch ris a-rithist."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Cha b' urrainn dhuinn an aithne a shàbhaladh",
+      "saveFailedBody": "Feuch ris a-rithist. Feumaidh tu gabhail ris an fhios laghail mus cleachd thu KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Feumar cead camara",
+      "body": "Leig le cothrom air camara còd rèiteachaidh dearbhadair QR a sganadh."
+    },
+    "storage": {
+      "browserUnavailable": "Chan eil stòradh brabhsair ri fhaighinn.",
+      "browserFilePickerUnavailable": "Chan eil neach-togail fhaidhlichean a’ bhrobhsair ri fhaighinn."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Faidhle gun taic",
+      "unsupportedFileBody": "Tagh QR ìomhaigh còd mar PNG no JPEG.",
+      "browserDecoderUnavailable": "Chan eil còdachadh ìomhaigh brabhsair ri fhaighinn",
+      "imageLoadFailed": "Cha b' urrainn dhuinn an dealbh a luchdachadh",
+      "unreadableDimensions": "Chan eil meudan leughaidh aig an ìomhaigh",
+      "noQrCodeFoundTitle": "Cha deach QR còd a lorg",
+      "noQrCodeFoundBody": "Cha b' urrainn do KaalKey còd QR san ìomhaigh seo a dhì-chòdachadh. Feuch ri dealbh-sgrìn no le rùn nas àirde PNG/JPEG.",
+      "couldNotReadImageTitle": "Cha b' urrainn dhuinn an dealbh a leughadh",
+      "couldNotReadImageBody": "Feuch ri dealbh soilleir PNG no JPEG anns a bheil an còd rèiteachaidh dearbhadair QR.",
+      "couldNotOpenPickerTitle": "Cha b' urrainn dhuinn neach-togail dhealbhan fhosgladh",
+      "couldNotOpenPickerBody": "Feuch ris Upload QR a-rithist.",
+      "normalizedDecodeFailed": "Cha b' urrainn dhuinn dealbh àbhaisteach a dhì-chòdachadh",
+      "clipboardImageLoadFailed": "Cha b' urrainn dhuinn dealbh a' ghearradair a luchdadh",
+      "imageProcessingUnavailable": "Chan eil làimhseachadh dhealbhan ri fhaighinn",
+      "imageProcessingUnavailableAlt": "Chan eil làimhseachadh dhealbhan ri fhaighinn",
+      "noImageInClipboardTitle": "Chan eil dealbh sam bith air a’ bhòrd bhidio",
+      "noImageInClipboardBody": "Dèan lethbhreac de QR ìomhaigh còd, an uairsin tap air Paste QR Ìomhaigh a-rithist.",
+      "clipboardUnavailableTitle": "Clipboard nach eil ri fhaighinn",
+      "clipboardUnavailableBody": "Chan e suidheachadh dearbhaidh dligheach a tha ann an teacsa clipboard URL. Dèan lethbhreac dhen ìomhaigh otpauth:// URL neo QR is feuch ris a-rithist.",
+      "clipboardAccessBody": "KaalKey cha b’ urrainn dhuinn teacsa no dealbh bhon chlàr-bhùird a leughadh. Leig le cothrom air a’ chlàr-chlàir, an uairsin dèan lethbhreac dhen QR ìomhaigh no otpauth: // URL agus tap air Paste QR Ìomhaigh / URL a-rithist.",
+      "couldNotPasteImageTitle": "Cha b' urrainn dhuinn an dealbh a phasgadh",
+      "couldNotPasteImageBody": "Chan eil am bòrd-gearraidh seo air an uidheam seo a' cur taic ri pasadh dhealbhan. Cleachd an ìomhaigh Import QR na àite.",
+      "sourceImageDecodeFailure": "Feuch ri dealbh QR eile.",
+      "pastedImportFailureBody": "Feuch ri dealbh QR eile.",
+      "sourceImageReadFailure": "Feuch ri lethbhreac a dhèanamh de QR dealbh-sgrìn soilleir.",
+      "importFailedTitle": "QR Dh’fhàillig in-mhalairt ìomhaigh",
+      "importFailedBody": "KaalKey cha b’ urrainn dhaibh an dealbh sin a leughadh. Feuch QR dealbh còd eile.",
+      "notFoundBody": "Chan eil còd QR a ghabhas leughadh san dealbh a chaidh a chopaigeadh.",
+      "pastedNotFoundBody": "Chan eil còd QR a ghabhas leughadh san dealbh a chaidh a phasgadh.",
+      "pastedReadFailureBody": "Feuch ri lethbhreac a dhèanamh de PNG no JPEG dealbh anns a bheil an còd slàn QR.",
+      "noQrCodeTextBody": "KaalKey dhì-chòdaich an ìomhaigh taghte ach cha do lorg e còd QR. Feuch ri PNG neo JPEG soilleir, làn-rùn leis a’ chòd gu lèir ri fhaicinn."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Chan eil an còd QR seo na chòd rèiteachaidh dearbhadair stèidhichte air ùine.",
+      "missingAccountDetails": "Tha fiosrachadh cunntais a dhìth air a' chòd QR.",
+      "unsupportedAlgorithm": "Tha an còd QR a’ cleachdadh algairim nach eil taic ann.",
+      "unsupportedDigits": "Feumaidh an còd seo QR 6, 7, no 8 àireamhan a chleachdadh.",
+      "unsupportedPeriod": "Tha an còd QR seo a’ cleachdadh ùine gun taic.",
+      "invalidAccount": "Cha b' urrainn dhuinn an QR còd a dhearbhadh."
+    },
+    "backup": {
+      "invalidJson": "Chan eil am faidhle cùl-taic dligheach JSON.",
+      "unsupportedFormat": "Chan e cùl-taic crioptaichte KaalKey le taic.",
+      "invalidPasswordOrDamaged": "Tha am facal-faire cùl-taic ceàrr no tha am faidhle cùl-taic air a mhilleadh.",
+      "invalidContents": "Tha susbaint nan cùl-taic neo-dhligheach no neo-iomlan.",
+      "secureRandomUnavailableDetailed": "Chan eil gineadh air thuaiream tèarainte ri fhaighinn. Ath-thog is ath-stàlaich an Android app le expo-crypto na bhroinn, feuch ris a-rithist.",
+      "invalidAccountDataForBackup": "Tha aon chunntas no barrachd neo-dhligheach. Ceartaich dàta a’ chunntais mus cruthaich thu cùl-taic.",
+      "invalidPasswordOrModified": "Tha am facal-faire cùl-taic ceàrr no chaidh am faidhle cùl-taic atharrachadh.",
+      "invalidPasswordOrFileDamaged": "Tha am facal-faire cùl-taic ceàrr no tha am faidhle air a mhilleadh.",
+      "passwordCopiedTitle": "Facal-faire air a chopaigeadh",
+      "enterPasswordTitle": "Cuir a-steach am facal-faire cùl-taic agad",
+      "enterPasswordBody": "Cuir a-steach am facal-faire a chaidh a chleachdadh nuair a chaidh an cùl-taic seo a chruthachadh.",
+      "passwordCopiedBody": "Sàbhail e an àiteigin sàbhailte, leithid WhatsApp.",
+      "copyFailedTitle": "Dh'fhàillig lethbhreac",
+      "copyFailedBody": "Tagh agus dèan lethbhreac den fhacal-fhaire le làimh.",
+      "generatingPassword": "A’ cruthachadh facal-faire cùl-taic tèarainte…",
+      "encrypting": "A’ crioptachadh cùl-taic…",
+      "decrypting": "A’ dì-chrioptachadh cùl-taic…",
+      "restoring": "Ag ath-nuadhachadh chunntasan…",
+      "backupCreatedTitle": "Cùl-taic air a chruthachadh",
+      "restoreCompleteTitle": "Ath-nuadhachadh coileanta",
+      "mergeConfirmTitle": "An cuir thu còmhla cunntasan cùl-taic?",
+      "mergeConfirmButton": "Cuir còmhla cunntasan",
+      "backupSavedTemporary": "Cùl-taic crioptaichte air a shàbhaladh airson ùine aig:\n{uri}",
+      "generatePasswordErrorTitle": "Cha b' urrainn dhuinn am facal-faire cùl-taic a ghineadh",
+      "secureRandomUnavailable": "Chan eil gineadh air thuaiream tèarainte ri fhaighinn.",
+      "passwordUnavailableTitle": "Chan eil am facal-faire cùl-taic ri fhaighinn",
+      "passwordUnavailableBody": "Dùin an còmhradh seo agus cruthaich cùl-taic ùr gus facal-faire tèarainte a ghineadh.",
+      "backupDownloadedBody": "Chaidh an cùl-taic crioptaichte KaalKey agad a luchdachadh a-nuas. Cùm am faidhle agus am facal-faire prìobhaideach.",
+      "backupFailedTitle": "Dh'fhàillig lethbhreac-glèidhidh",
+      "backupCreateErrorBody": "KaalKey cha b’ urrainn dhuinn an cùl-taic a chruthachadh.",
+      "restoreFailedTitle": "Dh'fhàillig ath-nuadhachadh",
+      "backupReadErrorBody": "Cha b' urrainn dhuinn an cùl-taic a leughadh no a shàbhaladh.",
+      "browserDownloadUnsupported": "Chan eil do bhrobhsair a’ cur taic ri luchdachadh sìos faidhlichean cùl-taic.",
+      "localFileUnavailable": "Chan eil ionad faidhle ionadail ri fhaighinn air an inneal seo.",
+      "saveBackupTitle": "Sàbhail an cùl-taic crioptaichte KaalKey agad"
+    },
+    "clipboard": {
+      "copiedTitle": "Còd air a chopaigeadh",
+      "copiedBody": "Chaidh lethbhreac a dhèanamh den chòd dearbhaidh agad.",
+      "errorTitle": "Mearachd",
+      "errorBody": "Cha b' urrainn dhuinn lethbhreac a dhèanamh den chòd dearbhaidh."
+    },
+    "activity": {
+      "cameraReady": "Camara deiseil. Comharraich e aig a’ chòd dearbhaidh QR.",
+      "readingQrImage": "A’ leughadh QR dealbh…",
+      "importingQrImage": "A’ toirt a-steach QR dealbh…",
+      "importingAccount": "A’ toirt a-steach cunntas dearbhadair…",
+      "importingPastedImage": "A’ toirt a-steach dealbh pasted QR…"
+    }
+  },
+  "activity": {
+    "working": "Ag obair",
+    "wait": "Feuch an fuirich thu…",
+    "donTClose": "Feuch nach dùin thu no nach dèan thu eadar-obrachadh le KaalKey.",
+    "loadingLanguages": "A’ luchdachadh nan cànanan a tha rim faighinn…",
+    "loadingTranslation": "A’ luchdachadh eadar-theangachaidh…"
+  }
+}

@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Lingua",
+      "description": "Scegli la lingua utilizzata in KaalKey.",
+      "english": "Inglese",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "LINGUA",
+      "searchLanguageName": "Cerca lingua (nome o codice)",
+      "searchSupportedLanguages": "Cerca le lingue supportate",
+      "closeLanguageDropdown": "Chiudi il menu a discesa della lingua",
+      "noTranslatedLanguage": "Nessuna lingua tradotta trovata.",
+      "serverUrl": "Server di traduzione URL",
+      "serverUrlDescription": "KaalKey scarica l'elenco delle lingue e le traduzioni da questo server.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Salva il server di traduzione"
+    },
+    "title": "Impostazioni dell'app",
+    "eyebrow": "KAALKEY PREFERENZE",
+    "experience": {
+      "section": "ESPERIENZA"
+    },
+    "security": {
+      "section": "SICUREZZA"
+    },
+    "backup": {
+      "section": "BACKUP E RIPRISTINO"
+    },
+    "danger": {
+      "section": "ZONA DI PERICOLO",
+      "clearAccounts": "Cancella tutti i conti",
+      "clearAccountsDescription": "Rimuovi definitivamente ogni account e segreto da questo dispositivo. Eseguire prima il backup.",
+      "clearAccountsAccessibilityLabel": "Cancella tutti gli account di autenticazione"
+    },
+    "appearance": {
+      "section": "ASPETTO",
+      "title": "Aspetto leggero",
+      "description": "KaalKey attualmente utilizza il tema della luce pulita."
+    },
+    "haptics": {
+      "title": "Feedback tattile",
+      "description": "Feedback delicato per i tocchi e le azioni completate."
+    },
+    "deviceLock": {
+      "title": "Blocco dell'autenticazione del dispositivo",
+      "description": "Il tuo caveau si blocca quando KaalKey lascia il primo piano.",
+      "requirement": "Richiedi i dati biometrici o il blocco schermo PIN, la sequenza o la password del tuo telefono.",
+      "accessibilityLabel": "Blocco dell'app di autenticazione del dispositivo"
+    },
+    "privacy": {
+      "title": "Legale e privacy",
+      "description": "Consulta l'Informativa sulla privacy e i Termini di utilizzo.",
+      "storageNote": "I segreti del tuo autenticatore rimangono nell'archivio sicuro sul dispositivo. Le preferenze vengono memorizzate localmente."
+    }
+  },
+  "accounts": {
+    "edit": "Modifica",
+    "sortAccountName": "Ordina per nome account",
+    "loadingSecureVault": "Caricamento dell'archivio protetto in corso...",
+    "tapCopy": "TOCCA PER COPIARE",
+    "noAccountsMatch": "Nessun account corrisponde alla tua ricerca.",
+    "viewQrCode": "Visualizza il codice QR per l'account",
+    "removeAccount": "Rimuovi conto",
+    "copyVerificationCode": "Copia il codice di verifica",
+    "active": "ATTIVO",
+    "sort": "ORDINA PER",
+    "account": "Conto",
+    "clearSearch": "Cancella ricerca",
+    "sortServiceName": "Ordina per nome del servizio",
+    "addFirstAccount": "Aggiungi il tuo primo account",
+    "searchAccounts": "Cerca account",
+    "searchServiceAccount": "Cerca servizio o account",
+    "accounts": "I tuoi conti",
+    "add": "+ Aggiungi",
+    "vaultStartsHere": "Il tuo caveau inizia qui",
+    "service": "Servizio",
+    "emptyHint": "Aggiungi un account utilizzando la sua chiave segreta per generare il tuo primo codice di verifica."
+  },
+  "common": {
+    "done": "Fatto",
+    "doneButton": "Fatto",
+    "closeSettings": "Chiudi le impostazioni",
+    "separator": "-",
+    "article": "un",
+    "save": "Salva",
+    "delete": "Elimina",
+    "resizeAppBrand": "Ridimensiona i pannelli dell'app e del marchio"
+  },
+  "qrImport": {
+    "readPastedImage": "Impossibile leggere l'immagine incollata"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Account in questo backup: {count}. KaalKey manterrà i tuoi account esistenti e aggiungerà eventuali account che non sono già presenti. Gli account duplicati verranno ignorati.",
+    "restoreCompletionBody": "Account aggiunti: {added}. Account duplicati saltati: {skipped}. I tuoi account esistenti sono stati mantenuti.",
+    "copyPassword": "Copia la password generata",
+    "passwordSafety": "Salvare questa password separatamente (ad esempio, in WhatsApp). Chiunque abbia entrambi i",
+    "importAction": "Scegli il file e importa",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "SICUREZZA SICURA",
+    "createBackup": "Crea backup",
+    "encryptedFile": "File crittografato",
+    "restoreBackup": "Ripristina il backup",
+    "safetyNote": "I backup contengono i segreti dell'autenticatore. KaalKey genera una password univoca per ciascun backup. Salvalo separatamente; KaalKey non può recuperarlo.",
+    "generatingSecurePassword": "Generazione password sicura…",
+    "importFile": "Importa file",
+    "backupPassword": "PASSWORD DI BACKUP",
+    "account": "conto",
+    "accounts": "conti",
+    "exportDescription": "Crittografa tutti i {count} salvati {accountLabel} in un file di backup. KaalKey genera una password univoca; copiarlo e salvarlo separatamente dal file.",
+    "restoreDescription": "Scegli il file di backup e la password KaalKey. Nuovi account verranno aggiunti all'elenco degli account esistenti; gli account esistenti rimarranno come sono.",
+    "enterBackupPassword": "Inserisci la password di backup",
+    "closeBackup": "Chiudi backup",
+    "copyGeneratedBackup": "Copia la password di backup generata",
+    "backupPassword2": "Password di backup",
+    "clearBackupPassword": "Cancella password di backup",
+    "backupFilePassword": "il file di backup e la password possono ripristinare i tuoi account di autenticazione.",
+    "encryptShareBackup": "Crittografa e condividi il backup"
+  },
+  "home": {
+    "unlockSecurely": "Sblocca in modo sicuro",
+    "disableAppLock": "Disattiva il blocco dell'app",
+    "enableAppLock": "Abilita il blocco dell'app",
+    "checkingSecureLock": "Controllo delle impostazioni di blocco sicuro. I tuoi codici rimangono nascosti.",
+    "waitingVerification": "In attesa di verifica...",
+    "secretsStayStored": "I tuoi segreti rimangono archiviati su questo dispositivo.",
+    "openAppSettings": "Apri le impostazioni dell'app",
+    "versionLabel": "VERSIONE",
+    "unlockRequirement": "Utilizza i dati biometrici o il blocco schermo PIN, la sequenza o la password del tuo telefono per accedere ai codici di verifica monouso.",
+    "localVault": "IL TUO DEPOSITO LOCALE",
+    "codesDeviceControl": "I tuoi codici Il tuo dispositivo. Il tuo controllo.",
+    "securingVault": "Protezione del tuo caveau...",
+    "vaultProtected": "Il tuo caveau è protetto",
+    "lock": "BLOCCARE",
+    "localVault2": "VOLANTE LOCALE",
+    "authenticator": "KAALKEY AUTENTICATORE",
+    "tricolourLockEmblem": "KaalKey emblema del lucchetto tricolore",
+    "authenticator2": "AUTENTICATORE"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Se scegli di scansionare un codice QR, KaalKey utilizza l'autorizzazione della fotocamera per quell'azione. L'autenticazione opzionale del dispositivo e il feedback tattile utilizzano le funzionalità del dispositivo pertinenti. Puoi gestire le autorizzazioni nelle impostazioni del tuo dispositivo.",
+        "heading": "2. Autorizzazioni e funzionalità del dispositivo"
+      },
+      "backups": {
+        "body": "Quando crei un backup, KaalKey crittografa il backup utilizzando una password scelta da te. Mantieni privati ​​sia il file che la password e archiviali in modo sicuro. Chiunque ottenga il file e la relativa password potrebbe essere in grado di ripristinare i tuoi account di autenticazione. KaalKey non riesce a recuperare una password di backup dimenticata.",
+        "heading": "3. Backup"
+      },
+      "security": {
+        "body": "Mantieni aggiornato il tuo dispositivo, proteggilo con un blocco schermo e non condividere segreti OTP o password di backup. La rimozione dell'app, la cancellazione dei dati o la perdita del dispositivo potrebbero rendere non disponibili gli account archiviati localmente. Mantieni un backup sicuro se hai bisogno di ripristino.",
+        "heading": "5. Sicurezza e conservazione"
+      },
+      "information": {
+        "heading": "1. Informazioni e segreti",
+        "body": "KaalKey è un'app di autenticazione. Le etichette degli account e i valori segreti necessari per generare codici monouso sono sensibili. L'app è progettata per archiviare i record dell'account nell'archivio sicuro del dispositivo. Chiunque abbia accesso a un dispositivo sbloccato o a un backup esportato potrebbe essere in grado di accedere a informazioni sensibili."
+      },
+      "sharing": {
+        "heading": "4. Condivisione e terze parti",
+        "body": "Il flusso di backup può utilizzare il foglio di condivisione o il selettore file del tuo dispositivo per salvare, trasferire o selezionare file. Le pratiche sulla privacy di qualsiasi app o servizio di terze parti scelto sono regolate da tale fornitore. Questo avviso non afferma in modo assoluto che il tuo dispositivo, sistema operativo o servizi di condivisione scelti non elaborano mai i dati."
+      },
+      "changes": {
+        "heading": "6. Modifiche e contatti",
+        "body": "Questo avviso incorporato potrebbe essere modificato in una versione futura dell'app. Per domande sulla privacy, contatta l'editore dell'app tramite il canale di supporto ufficiale fornito con l'app."
+      },
+      "title": "Informativa sulla privacy"
+    },
+    "terms": {
+      "use": {
+        "body": "Puoi utilizzare KaalKey per generare codici di verifica per gli account a cui sei autorizzato ad accedere. Sei responsabile del rispetto delle leggi applicabili e delle regole dei servizi per i quali utilizzi i codici di autenticazione.",
+        "heading": "1. Il tuo utilizzo"
+      },
+      "protectAccounts": {
+        "body": "Sei responsabile della protezione del tuo dispositivo, dei segreti dell'autenticatore, dei metodi di ripristino, dei backup esportati e delle password di backup. Non condividere codici o segreti con persone di cui non ti fidi.",
+        "heading": "2. Proteggi i tuoi account"
+      },
+      "availability": {
+        "body": "Le funzionalità potrebbero cambiare tra una versione e l'altra. Dovresti mantenere l'app aggiornata e verificare periodicamente che le modalità di backup e ripristino funzionino.",
+        "heading": "5. Modifiche e disponibilità"
+      },
+      "recovery": {
+        "body": "KaalKey non può garantire che ogni account possa essere recuperato, che ogni codice o configurazione QR sarà compatibile o che l'app funzionerà senza interruzioni o errori. Conservare metodi di recupero alternativi forniti dal servizio pertinente.",
+        "heading": "3. Nessuna garanzia di recupero"
+      },
+      "advice": {
+        "heading": "4. Nessuna consulenza professionale",
+        "body": "L'app è un'utilità e non fornisce consulenza legale, finanziaria o in risposta agli incidenti di sicurezza. Se un account viene compromesso, segui le linee guida ufficiali per il ripristino e la sicurezza del servizio interessato."
+      },
+      "liability": {
+        "heading": "6. Responsabilità e legge applicabile",
+        "body": "Nella misura consentita dalla legge applicabile, l'app viene fornita senza garanzia di funzionamento ininterrotto o privo di errori. Niente in questi termini esclude diritti o rimedi che non possono essere legalmente esclusi. Eventuali ulteriori limitazioni o termini di legge applicabili devono essere esaminati da un avvocato qualificato per la giurisdizione dell'editore prima del rilascio."
+      },
+      "title": "Condizioni d'uso"
+    },
+    "version": "Versione",
+    "saving": "Salvataggio…",
+    "acceptContinue": "Accetta e continua",
+    "appliesAuthenticator": "Si applica a KaalKey Autenticatore",
+    "reviewBothDocuments": "Si prega di rivedere entrambi i documenti prima di utilizzare KaalKey. Sono inclusi nell'app e disponibili offline.",
+    "originalMulticolourAuthenticator": "Emblema originale dell'autenticatore KaalKey multicolore",
+    "legalPrivacyNotice": "Informativa legale e sulla privacy",
+    "legalInformation": "Informazioni legali",
+    "reviewSPrivacy": "Consulta le informazioni sulla privacy e i termini di utilizzo di KaalKey.",
+    "iReadAgree": "Ho letto e accetto l'Informativa sulla privacy e i Termini di utilizzo."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Mantieni visibile l'intero codice QR. Il tuo segreto rimane su questo dispositivo.",
+    "back": "Indietro",
+    "turnFlashlightOff": "Spegni la torcia",
+    "turnFlashlight": "Accendi la torcia",
+    "flashlight": "Torcia accesa",
+    "flashlight2": "Torcia elettrica",
+    "cameraUnavailableOpen": "Fotocamera non disponibile. Apri questa pagina su HTTPS o localhost e consenti l'accesso alla telecamera.",
+    "cameraPreviewUnavailable": "L'anteprima della fotocamera non è disponibile. Chiudere e riaprire lo scanner.",
+    "cameraReadyPoint": "Fotocamera pronta: puntala sul codice QR completo.",
+    "browserCannotProcess": "Questo browser non può elaborare i fotogrammi della fotocamera.",
+    "qrCodeDetected": "Codice QR rilevato.",
+    "couldnTRead": "Impossibile leggere i fotogrammi della fotocamera. Controlla i permessi della fotocamera e ricarica questa pagina.",
+    "cameraPermissionDenied": "Autorizzazione della fotocamera negata. Consenti l'accesso alla fotocamera nelle impostazioni del browser, quindi riapri lo scanner.",
+    "noCameraWas": "Nessuna fotocamera trovata su questo dispositivo.",
+    "cameraBusyAnother": "La fotocamera è occupata in un'altra app o scheda del browser.",
+    "startCameraHttps": "Impossibile avviare la fotocamera. Utilizza HTTPS o localhost e controlla le autorizzazioni del browser.",
+    "qrScannerCamera": "QR anteprima della fotocamera dello scanner",
+    "cameraUnavailableCheck": "Fotocamera non disponibile. Controlla l'autorizzazione della fotocamera e riprova.",
+    "pointCameraAuthenticator": "Punta la fotocamera verso il codice di configurazione dell'autenticatore QR del servizio che stai aggiungendo.",
+    "backAddAccount": "Torna per aggiungere account",
+    "secureSetup": "IMPOSTAZIONE SICURA",
+    "enterDetailsManually": "Inserisci invece i dettagli manualmente"
+  },
+  "accountForm": {
+    "hideManualEntry": "Nascondi l'immissione manuale",
+    "secretKeySupplied": "Utilizza la chiave segreta fornita dal servizio che stai configurando. Non inserire mai la password del tuo account qui. Abbina l'algoritmo, il conteggio delle cifre e l'intervallo alle istruzioni di configurazione del servizio.",
+    "updateServiceAccount": "Aggiorna il servizio, il nome dell'account o la chiave segreta.",
+    "secretKeyRead": "Chiave segreta, di sola lettura durante la modifica",
+    "secretKeyBase32": "Chiave segreta in Base32",
+    "digits": "cifre",
+    "seconds": "secondi",
+    "enterDetailsManually": "OPPURE INSERIRE I DETTAGLI MANUALMENTE",
+    "enterDetailsManually2": "Inserisci i dettagli manualmente",
+    "serviceAccountName": "Servizio, nome account e chiave segreta",
+    "saveChangesSecurely": "Salva le modifiche in modo sicuro",
+    "saveAccountSecurely": "Salva l'account in modo sicuro",
+    "serviceIssuer": "Servizio o emittente",
+    "accountName": "Nome dell'account",
+    "secretKey": "Chiave segreta",
+    "serviceIssuer2": "SERVIZIO/EMITTENTE",
+    "eGGoogle": "ad es. Google",
+    "clearServiceIssuer": "Servizio o emittente chiaro",
+    "eGExample": "ad es. tu@esempio.com",
+    "clearAccountName": "Cancella nome account",
+    "secretKeyLocked": "CHIAVE SEGRETA (BLOCCATA)",
+    "secretKeyBase322": "CHIAVE SEGRETA (BASE32)",
+    "enterSetupKey": "Inserisci la chiave di configurazione",
+    "clearSecretKey": "Cancella la chiave segreta",
+    "otpAlgorithm": "OTP ALGORITMO",
+    "otpDigits": "OTP CIFRE",
+    "refreshIntervalSeconds": "INTERVALLO DI AGGIORNAMENTO (SECONDI)",
+    "otpRefreshInterval": "OTP intervallo di aggiornamento in secondi",
+    "closeAccountForm": "Chiudi modulo account",
+    "totpSetupUrl": "TOTP configurazione URL",
+    "importSetupUrl": "Configurazione dell'importazione URL",
+    "totpSetupUrl2": "TOTP IMPOSTAZIONE URL",
+    "accountName2": "NOME CONTO",
+    "addAccount": "Aggiungi account"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Scansiona il codice dell'autenticatore QR.",
+    "setupGuidance": "Scansiona un codice QR per la configurazione più semplice o inserisci i dettagli manualmente.",
+    "cameraAddAccount": "Usa la tua fotocamera per aggiungere immediatamente un account",
+    "scanQrCode2": "Scansionare il codice QR.",
+    "uploadQrImage": "Carica l'immagine QR.",
+    "chooseQrScreenshot": "Scegli uno screenshot QR da Galleria, Foto o File",
+    "pasteQr": "Incolla l'immagine QR / URL",
+    "pasteCopiedQr": "Incolla un'immagine QR copiata o la configurazione dell'autenticatore URL",
+    "uploadQrImage2": "Carica l'immagine QR."
+  },
+  "accountQr": {
+    "close": "Chiudi",
+    "accountQrCode": "Codice conto QR.",
+    "revealQrCode": "Rivela il codice QR.",
+    "exportWarning": "Attenzione: chiunque scansiona questo codice QR può generare codici di verifica per questo account. Rivelalo solo su uno schermo attendibile.",
+    "privacyHint": "Mantieni privato questo codice QR. La scansione copia il segreto dell'autenticatore dell'account."
+  },
+  "productInfo": {
+    "backupRestore": "Backup e ripristino",
+    "backupRestoreDescription": "Esegui il backup dei dati del tuo autenticatore e ripristinali quando ti sposti su un altro dispositivo.",
+    "privacyDescription": "Mantieni i tuoi account di verifica in un unico posto. Utilizza le opzioni di backup, ripristino e blocco del dispositivo dell'app per gestire la configurazione in modo responsabile.",
+    "timeBasedCodes": "Codici basati sul tempo",
+    "generateOneTimeCodes": "Genera passcode monouso a rotazione per i tuoi account per completare la verifica in due passaggi.",
+    "quickAccountSetup": "Configurazione rapida dell'account",
+    "quickSetupDescription": "Scansiona un codice di autenticazione QR o importa un'immagine QR per aggiungere un account.",
+    "accountsOnePlace": "Conti in un unico posto",
+    "accountsInOnePlaceDescription": "Tieni insieme i tuoi account salvati e trova la voce giusta quando è il momento di accedere.",
+    "privateAccountVault": "Deposito di conti privati",
+    "privateVaultDescription": "Gestisci le voci dell'autenticatore localmente e utilizza l'opzione di blocco del dispositivo disponibile nell'app.",
+    "easyCodeAccess": "Facile accesso al codice",
+    "easyCodeAccessDescription": "Copia un codice corrente o gestisci i dettagli dell'account tramite un'interfaccia pulita e mirata.",
+    "authenticatorTechsivaram": "AUTENTICATORE · DI TECHSIVARAM",
+    "mobileAuthenticator": "IL TUO AUTENTICATORE MOBILE",
+    "tagline": "Un modo più semplice per gestire la verifica in due passaggi.",
+    "heroDescription": "Un'esperienza di autenticazione mirata per codici di verifica basati sul tempo. Tieni i codici account compatibili a portata di mano con KaalKey per Android.",
+    "timeBasedCodes2": "CODICI BASATI SUL TEMPO",
+    "privateDesign": "PRIVATO PER DESIGN",
+    "builtSimpleAuthenticator": "COSTRUITO PER UN FLUSSO DI LAVORO AUTENTICATORE SEMPLICE",
+    "qrSetupTimed": "QR IMPOSTAZIONE · CODICI A TEMPO · GESTIONE ACCOUNT",
+    "privacyTitle": "I tuoi conti. I tuoi codici Il tuo controllo.",
+    "authenticator": "KAALKEY · AUTENTICATORE",
+    "brandBanner": "KaalKey banner del marchio",
+    "logo": "Logo KaalKey."
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Annulla",
+      "storageInvalidTitle": "Dati di archiviazione non validi",
+      "storageInvalidBody": "Non è stato possibile leggere in modo sicuro i dati dell'account salvati.",
+      "storageErrorTitle": "Errore di archiviazione",
+      "storageErrorBody": "Impossibile caricare gli account salvati.",
+      "missingTitle": "Informazioni mancanti",
+      "missingEditingBody": "Inserisci il nome del servizio e il nome dell'account.",
+      "missingBody": "Inserisci il nome del servizio, il nome dell'account e la chiave segreta.",
+      "invalidOtpBody": "Controlla il segreto Base32, l'algoritmo, il conteggio delle cifre e il periodo di aggiornamento. I segreti devono contenere caratteri Base32 validi; le cifre devono essere {digits} e il punto deve essere {minPeriod}–{maxPeriod} secondi.",
+      "duplicateBody": "Un account con questo servizio e nome account è già salvato.",
+      "updatedBody": "Il tuo account è stato aggiornato.",
+      "addedBody": "Il tuo account è stato aggiunto in modo sicuro.",
+      "invalidOtpTitle": "Impostazioni OTP non valide",
+      "duplicateTitle": "L'account esiste già",
+      "savedTitle": "Conto salvato",
+      "invalidSecretTitle": "Chiave segreta non valida",
+      "invalidSecretBody": "Verifica di aver inserito un segreto Base32 valido.",
+      "removedTitle": "Conto rimosso",
+      "removedBody": "L'account e il relativo segreto sono stati rimossi da questo dispositivo.",
+      "clearedTitle": "Conti saldati",
+      "clearedBody": "Tutti gli account e i segreti dell'autenticatore sono stati rimossi da questo dispositivo.",
+      "someSavedAccountsNeedAttentionTitle": "Alcuni account salvati richiedono attenzione",
+      "someSavedAccountsNeedAttentionBody": "{count} record di account non validi non sono stati caricati. Gli account validi rimangono disponibili. Valuta la possibilità di creare un backup prima di apportare ulteriori modifiche.",
+      "removeConfirmTitle": "Rimuovere l'account?",
+      "removeConfirmWebTitle": "Rimuovere l'account?",
+      "removeButton": "Rimuovi",
+      "clearButton": "Cancella tutto",
+      "clearConfirmTitle": "Cancellare tutti gli account?",
+      "saveErrorBody": "Impossibile salvare gli account. Controlla la disponibilità dello spazio di archiviazione del browser e riprova.",
+      "notFoundTitle": "Conto non trovato",
+      "notFoundBody": "Impossibile trovare questo account. Chiudi l'editor e riprova.",
+      "removeConfirmBody": "Questa operazione rimuoverà l'account e il relativo segreto da questo dispositivo.",
+      "clearConfirmBody": "Ciò rimuove permanentemente tutti gli account di autenticazione e i relativi segreti da questo dispositivo. Crea prima un backup crittografato se potresti aver bisogno di questi account in seguito.",
+      "clearConfirmUndoBody": "Questa operazione non può essere annullata."
+    },
+    "biometric": {
+      "cancelButton": "Annulla",
+      "saveErrorTitle": "Impossibile salvare l'impostazione",
+      "unlockPrompt": "Sblocca l'autenticatore KaalKey.",
+      "promptSubtitle": "Utilizza la biometria o il blocco dello schermo del dispositivo",
+      "disableConfirmPrompt": "Conferma per disattivare il blocco dell'app KaalKey.",
+      "enablePrompt": "Abilita il blocco dell'app per KaalKey",
+      "deviceLockTitle": "Configura il blocco dello schermo del tuo dispositivo",
+      "deviceLockBody": "KaalKey utilizza l'autenticazione integrata del telefono. Imposta un dispositivo PIN, una sequenza o una password nelle impostazioni di sicurezza del telefono, quindi riprova. I dati biometrici sono facoltativi.",
+      "unavailableTitle": "Autenticazione del dispositivo non disponibile",
+      "unavailableBody": "Il tuo telefono non è riuscito ad avviare l'autenticazione sicura. Verifica che sia configurato un blocco schermo del dispositivo, quindi riprova.",
+      "lockedTitle": "Autenticazione temporaneamente bloccata",
+      "lockedBody": "Il tuo telefono ha temporaneamente disabilitato l'autenticazione dopo troppi tentativi. Aspetta e riprova.",
+      "promptErrorTitle": "Autenticazione non disponibile",
+      "promptErrorBody": "KaalKey non è riuscito ad avviare la richiesta di autenticazione sicura del telefono. Per favore riprova.",
+      "webLock": "Il blocco dell'autenticazione del dispositivo non è ancora disponibile nella versione web. Il web vault rimane sbloccato; utilizzare l'app Android per l'autenticazione nativa del dispositivo.",
+      "disabledTitle": "Blocco app disabilitato",
+      "disabledBody": "KaalKey il blocco dell'app è stato disattivato.",
+      "disableSaveError": "Il blocco dell'app rimane abilitato. Per favore riprova.",
+      "enabledTitle": "Blocco app abilitato",
+      "enabledBody": "KaalKey richiederà l'autenticazione integrata del telefono quando viene aperto e quando ci ritorni.",
+      "enableSaveError": "Impossibile abilitare il blocco dell'app. Per favore riprova."
+    },
+    "qr": {
+      "startingCamera": "Avvio della fotocamera…",
+      "unsupportedTitle": "Codice QR non supportato",
+      "unsupportedBody": "Eseguire la scansione del codice di configurazione dell'autenticatore QR fornito dal servizio. Deve essere un codice TOTP, non un normale codice di accesso QR.",
+      "unsupportedDiagnostic": "Quel QR non è un codice di configurazione TOTP. Puntare a una configurazione dell'autenticatore QR.",
+      "detectedDiagnostic": "QR rilevato. Analizzando...",
+      "analyzing": "Analisi del codice QR…",
+      "duplicateTitle": "Account già aggiunto",
+      "duplicateBody": "{issuer}: {account} è già in KaalKey.",
+      "addedTitle": "Conto aggiunto",
+      "addedBody": "{issuer}: {account} è stato aggiunto con successo.",
+      "saveFailedDiagnostic": "Impossibile salvare l'account. È possibile eseguire nuovamente la scansione.",
+      "invalidTitle": "Codice QR non valido",
+      "invalidBody": "KaalKey non è riuscito ad analizzare il codice di questo autenticatore QR. {detail}. Utilizza il codice di configurazione QR del servizio TOTP (di solito inizia con {prefix}).",
+      "parseFailedDiagnostic": "Impossibile elaborare QR. Puntare alla configurazione QR e riprovare.",
+      "invalidUrlTitle": "Non valido TOTP URL",
+      "invalidUrlBody": "Incolla un autenticatore completo URL che inizia con {prefix}.",
+      "clipboardEmptyTitle": "Gli appunti sono vuoti",
+      "clipboardEmptyBody": "Copia prima un {prefix} URL, quindi tocca Incolla TOTP URL.",
+      "clipboardErrorTitle": "Impossibile leggere gli appunti",
+      "clipboardErrorBody": "Copiare la configurazione TOTP URL e riprovare."
+    },
+    "haptics": {
+      "saveFailedTitle": "Impossibile salvare l'impostazione",
+      "saveFailedBody": "Impossibile salvare la preferenza del feedback tattile. Per favore riprova."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Impossibile salvare il riconoscimento",
+      "saveFailedBody": "Per favore riprova. È necessario accettare le note legali prima di utilizzare KaalKey."
+    },
+    "cameraPermission": {
+      "title": "È richiesta l'autorizzazione della fotocamera",
+      "body": "Consentire l'accesso alla telecamera per scansionare un codice di configurazione dell'autenticatore QR."
+    },
+    "storage": {
+      "browserUnavailable": "Lo spazio di archiviazione del browser non è disponibile.",
+      "browserFilePickerUnavailable": "Il selettore file del browser non è disponibile."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "File non supportato",
+      "unsupportedFileBody": "Scegli un'immagine codice QR come PNG o JPEG.",
+      "browserDecoderUnavailable": "La decodifica delle immagini del browser non è disponibile",
+      "imageLoadFailed": "Impossibile caricare l'immagine",
+      "unreadableDimensions": "L'immagine non ha dimensioni leggibili",
+      "noQrCodeFoundTitle": "Nessun codice QR trovato",
+      "noQrCodeFoundBody": "KaalKey non è riuscito a decodificare un codice QR in questa immagine. Prova uno screenshot o un PNG/JPEG a risoluzione più elevata.",
+      "couldNotReadImageTitle": "Impossibile leggere l'immagine",
+      "couldNotReadImageBody": "Prova un'immagine PNG o JPEG chiara contenente il codice di configurazione dell'autenticatore QR.",
+      "couldNotOpenPickerTitle": "Impossibile aprire il selettore immagini",
+      "couldNotOpenPickerBody": "Prova di nuovo a caricare QR.",
+      "normalizedDecodeFailed": "Impossibile decodificare l'immagine normalizzata",
+      "clipboardImageLoadFailed": "Impossibile caricare l'immagine negli appunti",
+      "imageProcessingUnavailable": "L'elaborazione delle immagini non è disponibile",
+      "imageProcessingUnavailableAlt": "Elaborazione immagine non disponibile",
+      "noImageInClipboardTitle": "Nessuna immagine negli appunti",
+      "noImageInClipboardBody": "Copia un'immagine del codice QR, quindi tocca nuovamente Incolla QR immagine.",
+      "clipboardUnavailableTitle": "Appunti non disponibili",
+      "clipboardUnavailableBody": "Il testo degli appunti non è una configurazione di autenticazione valida URL. Copia un'immagine otpauth:// URL o QR e riprova.",
+      "clipboardAccessBody": "KaalKey non è riuscito a leggere il testo o un'immagine dagli appunti. Consentire l'accesso agli appunti, quindi copiare l'immagine QR o otpauth:// URL e toccare nuovamente Incolla immagine QR / URL.",
+      "couldNotPasteImageTitle": "Impossibile incollare l'immagine",
+      "couldNotPasteImageBody": "L'incollatura di immagini non è supportata dagli appunti su questo dispositivo. Utilizza invece l'immagine Importa QR.",
+      "sourceImageDecodeFailure": "Prova un'immagine QR diversa.",
+      "pastedImportFailureBody": "Prova un'immagine QR diversa.",
+      "sourceImageReadFailure": "Prova a copiare uno screenshot QR nitido.",
+      "importFailedTitle": "L'importazione dell'immagine QR non è riuscita",
+      "importFailedBody": "KaalKey non è riuscito a leggere l'immagine. Prova un'altra immagine del codice QR.",
+      "notFoundBody": "L'immagine copiata non contiene un codice QR leggibile.",
+      "pastedNotFoundBody": "L'immagine incollata non contiene un codice QR leggibile.",
+      "pastedReadFailureBody": "Prova a copiare un'immagine PNG o JPEG nitida contenente il codice QR completo.",
+      "noQrCodeTextBody": "KaalKey ha decodificato l'immagine selezionata ma non ha trovato un codice QR. Prova un PNG o un JPEG nitido e alla massima risoluzione con l'intero codice visibile."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Questo codice QR non è un codice di configurazione dell'autenticatore basato sul tempo.",
+      "missingAccountDetails": "Nel codice QR mancano i dettagli dell'account.",
+      "unsupportedAlgorithm": "Il codice QR utilizza un algoritmo non supportato.",
+      "unsupportedDigits": "Questo codice QR deve utilizzare 6, 7 o 8 cifre.",
+      "unsupportedPeriod": "Questo codice QR utilizza un periodo di tempo non supportato.",
+      "invalidAccount": "Impossibile convalidare il codice QR."
+    },
+    "backup": {
+      "invalidJson": "Il file di backup non è valido JSON.",
+      "unsupportedFormat": "Questo non è un backup crittografato KaalKey supportato.",
+      "invalidPasswordOrDamaged": "La password di backup non è corretta o il file di backup è danneggiato.",
+      "invalidContents": "I contenuti del backup non sono validi o incompleti.",
+      "secureRandomUnavailableDetailed": "La generazione casuale sicura non è disponibile. Ricostruisci e reinstalla l'app Android con expo-crypto incluso, quindi riprova.",
+      "invalidAccountDataForBackup": "Uno o più account non sono validi. Correggi i dati dell'account prima di creare un backup.",
+      "invalidPasswordOrModified": "La password di backup non è corretta oppure il file di backup è stato modificato.",
+      "invalidPasswordOrFileDamaged": "La password di backup non è corretta o il file è danneggiato.",
+      "passwordCopiedTitle": "Password copiata",
+      "enterPasswordTitle": "Inserisci la tua password di backup",
+      "enterPasswordBody": "Inserisci la password utilizzata quando è stato creato questo backup.",
+      "passwordCopiedBody": "Salvalo in un posto sicuro, ad esempio WhatsApp.",
+      "copyFailedTitle": "Copia non riuscita",
+      "copyFailedBody": "Seleziona e copia manualmente la password.",
+      "generatingPassword": "Generazione della password di backup sicura…",
+      "encrypting": "Crittografia del backup…",
+      "decrypting": "Decrittografia del backup…",
+      "restoring": "Ripristino degli account…",
+      "backupCreatedTitle": "Backup creato",
+      "restoreCompleteTitle": "Ripristino completato",
+      "mergeConfirmTitle": "Unire gli account di backup?",
+      "mergeConfirmButton": "Unire gli account",
+      "backupSavedTemporary": "Backup crittografato salvato temporaneamente in:\n{uri}",
+      "generatePasswordErrorTitle": "Impossibile generare la password di backup",
+      "secureRandomUnavailable": "La generazione casuale sicura non è disponibile.",
+      "passwordUnavailableTitle": "Password di backup non disponibile",
+      "passwordUnavailableBody": "Chiudi questa finestra di dialogo e crea un nuovo backup per generare una password sicura.",
+      "backupDownloadedBody": "Il tuo backup crittografato KaalKey è stato scaricato. Mantieni il file e la password privati.",
+      "backupFailedTitle": "Backup non riuscito",
+      "backupCreateErrorBody": "KaalKey non è riuscito a creare il backup.",
+      "restoreFailedTitle": "Ripristino non riuscito",
+      "backupReadErrorBody": "Impossibile leggere o salvare il backup.",
+      "browserDownloadUnsupported": "Il tuo browser non supporta il download di file di backup.",
+      "localFileUnavailable": "Un percorso di file locale non è disponibile su questo dispositivo.",
+      "saveBackupTitle": "Salva il tuo backup crittografato KaalKey."
+    },
+    "clipboard": {
+      "copiedTitle": "Codice copiato",
+      "copiedBody": "Il tuo codice di verifica è stato copiato.",
+      "errorTitle": "Errore",
+      "errorBody": "Impossibile copiare il codice di verifica."
+    },
+    "activity": {
+      "cameraReady": "Fotocamera pronta. Puntalo verso il codice dell'autenticatore QR.",
+      "readingQrImage": "Lettura dell'immagine QR…",
+      "importingQrImage": "Importazione dell'immagine QR…",
+      "importingAccount": "Importazione dell'account di autenticazione…",
+      "importingPastedImage": "Importazione dell'immagine QR incollata…"
+    }
+  },
+  "activity": {
+    "working": "Funzionante",
+    "wait": "Per favore aspetta...",
+    "donTClose": "Si prega di non chiudere o interagire con KaalKey.",
+    "loadingLanguages": "Caricamento delle lingue disponibili…",
+    "loadingTranslation": "Caricamento traduzione..."
+  }
+}

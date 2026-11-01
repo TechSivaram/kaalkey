@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "ژبه",
+      "description": "هغه ژبه غوره کړئ چې په KaalKey کې کارول کیږي.",
+      "english": "انګلیسي",
+      "telugu": "تیلګو",
+      "hindi": "هندي",
+      "section": "LANGUAGE",
+      "searchLanguageName": "د لټون ژبه (نوم یا کوډ)",
+      "searchSupportedLanguages": "ملاتړ شوي ژبې وپلټئ",
+      "closeLanguageDropdown": "د ژبې ښکته کول بند کړئ",
+      "noTranslatedLanguage": "کومه ژباړل شوې ژبه ونه موندل شوه.",
+      "serverUrl": "د ژباړې سرور URL",
+      "serverUrlDescription": "KaalKey د دې سرور څخه د ژبې لیست او ژباړې ډاونلوډ کوي.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "د ژباړې سرور خوندي کړئ"
+    },
+    "title": "د اپلیکیشن تنظیمات",
+    "eyebrow": "KAALKEY غوره توبونه",
+    "experience": {
+      "section": "تجربه"
+    },
+    "security": {
+      "section": "امنیت"
+    },
+    "backup": {
+      "section": "بیک اپ او بیا رغونه"
+    },
+    "danger": {
+      "section": "د خطر زون",
+      "clearAccounts": "ټول حسابونه پاک کړئ",
+      "clearAccountsDescription": "د تل لپاره له دې وسیلې څخه هر حساب او راز لرې کړئ. لومړی بیک اپ کړئ.",
+      "clearAccountsAccessibilityLabel": "ټول د تصدیق کونکي حسابونه پاک کړئ"
+    },
+    "appearance": {
+      "section": "ظاهري بڼه",
+      "title": "د رڼا بڼه",
+      "description": "KaalKey اوس مهال خپله پاکه رڼا موضوع کاروي."
+    },
+    "haptics": {
+      "title": "هپټیک غبرګون",
+      "description": "د نلونو او بشپړ شوي عملونو لپاره نرم غبرګون."
+    },
+    "deviceLock": {
+      "title": "د وسیلې تصدیق کول",
+      "description": "ستاسو والټ بندیږي کله چې KaalKey مخکینۍ برخه پریږدي.",
+      "requirement": "ستاسو د تلیفون بایومیټریک یا سکرین لاک PIN، نمونه، یا پاسورډ ته اړتیا لرئ.",
+      "accessibilityLabel": "د وسیلې تصدیق کولو ایپ لاک"
+    },
+    "privacy": {
+      "title": "قانوني او محرمیت",
+      "description": "د محرمیت پالیسي او د کارولو شرایط بیاکتنه.",
+      "storageNote": "ستاسو د تصدیق کونکي رازونه د وسیلې په خوندي والټ کې پاتې کیږي. غوره توبونه په محلي توګه ساتل کیږي."
+    }
+  },
+  "accounts": {
+    "edit": "سمون",
+    "sortAccountName": "د حساب نوم له مخې ترتیب کړئ",
+    "loadingSecureVault": "خوندي والټ پورته کول ...",
+    "tapCopy": "د کاپي کولو لپاره ټایپ کړئ",
+    "noAccountsMatch": "هیڅ حساب ستاسو د لټون سره سمون نلري.",
+    "viewQrCode": "د حساب لپاره QR کوډ وګورئ",
+    "removeAccount": "حساب لرې کړئ",
+    "copyVerificationCode": "د تایید کوډ کاپي کړئ",
+    "active": "فعاله",
+    "sort": "په ترتیب سره",
+    "account": "حساب",
+    "clearSearch": "پاک لټون",
+    "sortServiceName": "د خدمت نوم سره ترتیب کړئ",
+    "addFirstAccount": "خپل لومړی حساب اضافه کړئ",
+    "searchAccounts": "د حسابونو لټون",
+    "searchServiceAccount": "د لټون خدمت یا حساب",
+    "accounts": "ستاسو حسابونه",
+    "add": "+ اضافه کړئ",
+    "vaultStartsHere": "ستاسو والټ دلته پیل کیږي",
+    "service": "خدمت",
+    "emptyHint": "ستاسو د لومړي تصدیق کوډ رامینځته کولو لپاره د دې پټ کیلي په کارولو سره یو حساب اضافه کړئ."
+  },
+  "common": {
+    "done": "ترسره شو",
+    "doneButton": "ترسره شو",
+    "closeSettings": "تنظیمات بند کړئ",
+    "separator": "-",
+    "article": "a",
+    "save": "خوندي کړئ",
+    "delete": "ړنګول",
+    "resizeAppBrand": "د ایپ او برانډ پینلونه له سره اندازه کړئ"
+  },
+  "qrImport": {
+    "readPastedImage": "چپه شوی انځور لوستلی نشو"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "په دې بیک اپ کې حسابونه: {count}. KaalKey به ستاسو موجوده حسابونه ساتي او هر هغه حسابونه به اضافه کړي چې دمخه شتون نلري. نقل شوي حسابونه به پریښودل شي.",
+    "restoreCompletionBody": "حسابونه اضافه شوي: {added}. نقل شوي حسابونه پریښودل شوي: {skipped}. ستاسو موجوده حسابونه ساتل شوي.",
+    "copyPassword": "جوړ شوی پاسورډ کاپي کړئ",
+    "passwordSafety": "دا پټنوم په جلا توګه خوندي کړئ (د مثال په توګه په WhatsApp کې). هر څوک چې د دواړو سره",
+    "importAction": "فایل غوره کړئ او وارد کړئ",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "خوندي والټ",
+    "createBackup": "بیک اپ جوړ کړئ",
+    "encryptedFile": "کوډ شوی فایل",
+    "restoreBackup": "بیک اپ بحال کړئ",
+    "safetyNote": "بیک اپ ستاسو د تصدیق کونکي رازونه لري. KaalKey د هر بیک اپ لپاره یو ځانګړی پاسورډ رامینځته کوي. په جلا توګه خوندي کړئ؛ KaalKey نشي کولی دا بیرته ترلاسه کړي.",
+    "generatingSecurePassword": "خوندي پټنوم پیدا کول…",
+    "importFile": "فایل وارد کړئ",
+    "backupPassword": "بیک اپ پاسورډ",
+    "account": "حساب",
+    "accounts": "حسابونه",
+    "exportDescription": "ټول {count} خوندي شوي {accountLabel} په بیک اپ فایل کې کوډ کړئ. KaalKey یو ځانګړی پاسورډ رامینځته کوي؛ کاپي کړئ او دا د فایل څخه جلا خوندي کړئ.",
+    "restoreDescription": "خپل KaalKey بیک اپ فایل او پټنوم غوره کړئ. نوي حسابونه به ستاسو د موجوده حساب لیست کې اضافه شي؛ موجوده حسابونه به لکه څنګه چې وي پاتې شي.",
+    "enterBackupPassword": "بیک اپ رمز دننه کړئ",
+    "closeBackup": "بیک اپ بند کړئ",
+    "copyGeneratedBackup": "د تولید شوي بیک اپ پټنوم کاپي کړئ",
+    "backupPassword2": "بیک اپ پټنوم",
+    "clearBackupPassword": "د بیک اپ پټنوم پاک کړئ",
+    "backupFilePassword": "بیک اپ فایل او پټنوم کولی شي ستاسو د تصدیق کونکي حسابونه بحال کړي.",
+    "encryptShareBackup": "بیک اپ کوډ کړئ او شریک کړئ"
+  },
+  "home": {
+    "unlockSecurely": "په خوندي توګه خلاص کړئ",
+    "disableAppLock": "د ایپ لاک غیر فعال کړئ",
+    "enableAppLock": "د اپلیکیشن لاک فعال کړئ",
+    "checkingSecureLock": "ستاسو د خوندي لاک ترتیبات چیک کول. ستاسو کوډونه پټ پاتې دي.",
+    "waitingVerification": "د تایید لپاره انتظار…",
+    "secretsStayStored": "ستاسو رازونه په دې وسیله ساتل کیږي.",
+    "openAppSettings": "د اپلیکیشن تنظیمات خلاص کړئ",
+    "versionLabel": "نسخه",
+    "unlockRequirement": "د خپل تلیفون بایومیټریک یا سکرین لاک PIN، نمونه، یا پټنوم د یو ځل تایید کوډونو ته د لاسرسي لپاره وکاروئ.",
+    "localVault": "ستاسو محلي والټ",
+    "codesDeviceControl": "ستاسو کوډونه. ستاسو وسیله. ستاسو کنټرول.",
+    "securingVault": "ستاسو د کور خوندي کول…",
+    "vaultProtected": "ستاسو خزانه خوندي ده",
+    "lock": "لاک آن",
+    "localVault2": "ځايي والټ",
+    "authenticator": "KAALKEY تصدیق کونکی",
+    "tricolourLockEmblem": "KaalKey درې رنګه قفل نښه",
+    "authenticator2": "تصدیق کوونکی"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "که تاسو د QR کوډ سکین کول غوره کړئ، KaalKey د دې عمل لپاره د کیمرې اجازه کاروي. د اختیاري وسیله تصدیق او هپټیک فیډبیک د اړونده وسیلې ځانګړتیاوې کاروي. تاسو کولی شئ د خپل وسیله تنظیماتو کې اجازې اداره کړئ.",
+        "heading": "2. اجازه او د وسایلو ځانګړتیاوې"
+      },
+      "backups": {
+        "body": "کله چې تاسو بیک اپ جوړ کړئ، KaalKey د هغه پټنوم په کارولو سره بیک اپ کوډ کوي چې تاسو یې غوره کوئ. فایل او پټنوم دواړه شخصي وساتئ او په خوندي ډول یې ذخیره کړئ. هر هغه څوک چې فایل او د هغې پټنوم ترلاسه کوي ممکن ستاسو د تصدیق کونکي حسابونه بحال کړي. KaalKey نشي کولی هیر شوی بیک اپ پټنوم بیرته ترلاسه کړي.",
+        "heading": "3. بیک اپ"
+      },
+      "security": {
+        "body": "خپل وسیله تازه وساتئ، د سکرین لاک سره یې وساتئ، او د OTP رازونه یا بیک اپ پاسورډونه مه شریکوئ. د اپلیکیشن لرې کول ، د دې ډیټا پاکول ، یا د وسیلې له لاسه ورکول ممکن په محلي ډول ذخیره شوي حسابونه شتون ونلري. که تاسو بیا رغونې ته اړتیا لرئ یو خوندي بیک اپ وساتئ.",
+        "heading": "5. امنیت او ساتل"
+      },
+      "information": {
+        "heading": "1. معلومات او رازونه",
+        "body": "KaalKey یو مستند ایپ دی. د حساب لیبلونه او پټ ارزښتونه چې د یو وخت کوډونو رامینځته کولو لپاره اړین دي حساس دي. ایپ د وسیلې په خوندي ذخیره کې د حساب ریکارډونو ذخیره کولو لپاره ډیزاین شوی. هر څوک چې خلاص شوي وسیلې یا صادر شوي بیک اپ ته لاسرسی ولري ممکن حساس معلوماتو ته لاسرسی ولري."
+      },
+      "sharing": {
+        "heading": "4. شریکول او دریم اړخونه",
+        "body": "د بیک اپ جریان ممکن ستاسو د وسیلې شریک شیټ یا فایل غوره کونکي وکاروي ترڅو فایلونه خوندي کړي ، لیږد یا غوره کړي. د هرې دریمې ډلې ایپ یا خدمت چې تاسو یې غوره کوئ د محرمیت کړنې د دې چمتو کونکي لخوا اداره کیږي. دا خبرتیا دا ادعا نه کوي چې ستاسو وسیله، عملیاتي سیسټم، یا د شریکولو غوره شوي خدمتونه هیڅکله ډاټا پروسس نه کوي."
+      },
+      "changes": {
+        "heading": "6. بدلونونه او اړیکه",
+        "body": "دا سرایت شوی خبرتیا ممکن په راتلونکي اپلیکیشن ریلیز کې بیاکتنه وشي. د محرمیت پوښتنو لپاره، د اپلیکیشن سره چمتو شوي رسمي ملاتړ چینل له لارې د اپلیکیشن خپرونکي سره اړیکه ونیسئ."
+      },
+      "title": "د محرمیت پالیسي"
+    },
+    "terms": {
+      "use": {
+        "body": "تاسو کولی شئ د KaalKey څخه کار واخلئ ترڅو د هغو حسابونو لپاره د تایید کوډونه تولید کړئ چې تاسو یې د لاسرسي اجازه لرئ. تاسو د تطبیق وړ قوانینو او د خدماتو قواعدو سره د موافقت مسولیت لرئ چې تاسو یې د تصدیق کوډونه کاروئ.",
+        "heading": "1. ستاسو کارول"
+      },
+      "protectAccounts": {
+        "body": "تاسو د خپل وسیله خوندي کولو مسؤلیت یاست، د تصدیق کونکي رازونه، د بیا رغونې میتودونه، صادر شوي بیک اپ، او بیک اپ پاسورډونه. د هغو خلکو سره کوډونه یا رازونه مه شریکوئ چې تاسو یې باور نه لرئ.",
+        "heading": "2. خپل حسابونه خوندي کړئ"
+      },
+      "availability": {
+        "body": "ځانګړتیاوې کیدای شي د ریلیزونو ترمنځ بدلون ومومي. تاسو باید اپلیکیشن تازه وساتئ او په وخت سره تایید کړئ چې ستاسو د بیک اپ او بیا رغونې ترتیبات کار کوي.",
+        "heading": "5. بدلونونه او شتون"
+      },
+      "recovery": {
+        "body": "KaalKey نشي تضمین کولی چې هر حساب بیرته ترلاسه کیدی شي، دا چې هر QR کوډ یا ترتیب به مطابقت ولري، یا دا چې ایپ به پرته له کوم خنډ یا خطا کار وکړي. د اړونده خدماتو لخوا چمتو شوي د بیا رغونې بدیل میتودونه وساتئ.",
+        "heading": "3. د بیا رغونې تضمین نشته"
+      },
+      "advice": {
+        "heading": "4. هیڅ مسلکي مشوره نشته",
+        "body": "اپلیکیشن یو ګټور دی او قانوني، مالي، یا امنیتي پیښې ځواب مشوره نه ورکوي. که یو حساب جوړ شوی وي، د اغیزمن شوي خدمت رسمي بیا رغونه او امنیتي لارښوونې تعقیب کړئ."
+      },
+      "liability": {
+        "heading": "6. مسؤلیت او د تطبیق وړ قانون",
+        "body": "تر هغه حده چې د تطبیق شوي قانون لخوا اجازه ورکړل شوې، اپلیکیشن د بې خنډه یا له خطا پاک عملیاتو تضمین پرته چمتو شوی. په دې شرایطو کې هیڅ شی حقونه یا درملنې نه لري چې په قانوني توګه نه شي ایستل کیدی. کوم نور محدودیتونه یا د حکومت کولو قانون شرایط باید د خوشې کیدو دمخه د خپرونکي د صالحیت لپاره د وړ وکیل لخوا بیاکتنه وشي."
+      },
+      "title": "د کارولو شرایط"
+    },
+    "version": "نسخه",
+    "saving": "خوندي کول…",
+    "acceptContinue": "ومنئ او دوام ورکړئ",
+    "appliesAuthenticator": "د KaalKey تصدیق کونکي ته تطبیق کیږي",
+    "reviewBothDocuments": "مهرباني وکړئ د KaalKey کارولو دمخه دواړه اسناد بیاکتنه وکړئ. دوی په اپلیکیشن کې شامل دي او آفلاین شتون لري.",
+    "originalMulticolourAuthenticator": "اصلي څو رنګه KaalKey د اعتبار وړ نښه",
+    "legalPrivacyNotice": "د قانوني او محرمیت خبرتیا",
+    "legalInformation": "قانوني معلومات",
+    "reviewSPrivacy": "د KaalKey د محرمیت معلوماتو او د کارولو شرایط بیاکتنه.",
+    "iReadAgree": "ما د محرمیت تګلاره او د کارولو شرایط لوستلي او ورسره موافق یم."
+  },
+  "qrScanner": {
+    "keepEntireQr": "ټول QR کوډ ښکاره وساتئ. ستاسو راز په دې وسیله کې پاتې کیږي.",
+    "back": "شاته",
+    "turnFlashlightOff": "فلش لائټ بند کړئ",
+    "turnFlashlight": "فلش لائټ چالان کړئ",
+    "flashlight": "فلش رڼا",
+    "flashlight2": "فلش رڼا",
+    "cameraUnavailableOpen": "کیمره شتون نلري. دا پاڼه په HTTPS یا لوکل هوسټ کې پرانیزئ او کیمرې ته د لاسرسي اجازه ورکړئ.",
+    "cameraPreviewUnavailable": "د کیمرې مخکتنه شتون نلري. سکینر وتړئ او بیا خلاص کړئ.",
+    "cameraReadyPoint": "کیمره چمتو ده - دا په بشپړ QR کوډ کې په نښه کړئ.",
+    "browserCannotProcess": "دا براوزر نشي کولی د کیمرې چوکاټونه پروسس کړي.",
+    "qrCodeDetected": "QR کوډ کشف شو.",
+    "couldnTRead": "د کیمرې چوکاټونه نشو لوستلی. د کیمرې اجازه چیک کړئ او دا پاڼه بیا پورته کړئ.",
+    "cameraPermissionDenied": "د کیمرې اجازه رد شوه. د براوزر تنظیماتو کې د کیمرې لاسرسي ته اجازه ورکړئ ، بیا سکینر خلاص کړئ.",
+    "noCameraWas": "په دې وسیله هیڅ کیمره ونه موندل شوه.",
+    "cameraBusyAnother": "کیمره په بل اپلیکیشن یا براوزر ټب کې بوخته ده.",
+    "startCameraHttps": "کیمره پیل نشوه. HTTPS یا لوکل هوسټ وکاروئ او د براوزر اجازه چیک کړئ.",
+    "qrScannerCamera": "QR د سکینر کیمرې مخکتنه",
+    "cameraUnavailableCheck": "کیمره شتون نلري. د کیمرې اجازه چیک کړئ او بیا هڅه وکړئ.",
+    "pointCameraAuthenticator": "خپله کیمره د هغه خدمت څخه چې تاسو یې اضافه کوئ د تصدیق کونکي تنظیم QR کوډ ته اشاره وکړئ.",
+    "backAddAccount": "د حساب اضافه کولو لپاره بیرته",
+    "secureSetup": "خوندي ترتیب",
+    "enterDetailsManually": "پرځای یې په لاسي ډول توضیحات دننه کړئ"
+  },
+  "accountForm": {
+    "hideManualEntry": "لاسي ننوتل پټ کړئ",
+    "secretKeySupplied": "د هغه خدمت لخوا چمتو شوي پټ کیلي وکاروئ چې تاسو یې تنظیم کوئ. هیڅکله دلته د خپل حساب پټنوم مه دننه کړئ. د خدماتو تنظیم کولو لارښوونو سره د الګوریتم ، ډیجیټ شمیره ، او وقفه میچ کړئ.",
+    "updateServiceAccount": "خدمت، د حساب نوم، یا پټ کیلي تازه کړئ.",
+    "secretKeyRead": "پټ کیلي، یوازې د لوستلو په وخت کې د ترمیم کولو لپاره",
+    "secretKeyBase32": "پټ کیلي په Base32 کې",
+    "digits": "عددونه",
+    "seconds": "ثانیې",
+    "enterDetailsManually": "یا په لاسي ډول توضیحات دننه کړئ",
+    "enterDetailsManually2": "په لاسي ډول توضیحات دننه کړئ",
+    "serviceAccountName": "خدمت، د حساب نوم او پټ کیلي",
+    "saveChangesSecurely": "بدلونونه په خوندي ډول خوندي کړئ",
+    "saveAccountSecurely": "په خوندي توګه حساب خوندي کړئ",
+    "serviceIssuer": "خدمت یا جاري کونکی",
+    "accountName": "د حساب نوم",
+    "secretKey": "پټ کیلي",
+    "serviceIssuer2": "خدمت / صادرونکی",
+    "eGGoogle": "د مثال په توګه ګوګل",
+    "clearServiceIssuer": "پاک خدمت یا جاري کونکی",
+    "eGExample": "د مثال په توګه you@example.com",
+    "clearAccountName": "د حساب نوم پاک کړئ",
+    "secretKeyLocked": "پټه کیلي (بنده)",
+    "secretKeyBase322": "پټه کیلي (BASE32)",
+    "enterSetupKey": "خپل د تنظیم کولو کیلي دننه کړئ",
+    "clearSecretKey": "پټ پټ کیلي پاک کړئ",
+    "otpAlgorithm": "OTP الګوریتم",
+    "otpDigits": "OTP عددونه",
+    "refreshIntervalSeconds": "د تازه کولو وقفه (ثانوي)",
+    "otpRefreshInterval": "OTP په ثانیو کې د تازه کولو وقفه",
+    "closeAccountForm": "د حساب فورمه بنده کړئ",
+    "totpSetupUrl": "TOTP ترتیب URL",
+    "importSetupUrl": "د واردولو ترتیب URL",
+    "totpSetupUrl2": "TOTP ترتیب URL",
+    "accountName2": "د حساب نوم",
+    "addAccount": "حساب اضافه کړئ"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "د تصدیق کونکي QR کوډ سکین کړئ",
+    "setupGuidance": "د اسانه ترتیب لپاره QR کوډ سکین کړئ، یا په لاسي ډول توضیحات دننه کړئ.",
+    "cameraAddAccount": "په سمدستي توګه د حساب اضافه کولو لپاره خپله کیمره وکاروئ",
+    "scanQrCode2": "QR کوډ سکین کړئ",
+    "uploadQrImage": "اپلوډ QR انځور",
+    "chooseQrScreenshot": "د ګالري، عکسونو، یا فایلونو څخه د QR سکرین شاټ غوره کړئ",
+    "pasteQr": "پیسټ QR انځور / URL",
+    "pasteCopiedQr": "کاپي شوی QR عکس یا د تصدیق کونکي تنظیمات URL پیسټ کړئ",
+    "uploadQrImage2": "اپلوډ QR انځور"
+  },
+  "accountQr": {
+    "close": "تړل",
+    "accountQrCode": "د حساب QR کوډ",
+    "revealQrCode": "QR کوډ ښکاره کړئ",
+    "exportWarning": "خبرداری: هرڅوک چې دا QR کوډ سکین کوي کولی شي د دې حساب لپاره د تایید کوډونه رامینځته کړي. یوازې دا په یو باوري سکرین کې ښکاره کړئ.",
+    "privacyHint": "دا QR کوډ شخصي وساتئ. د دې سکین کول د حساب تصدیق کونکي راز کاپي کوي."
+  },
+  "productInfo": {
+    "backupRestore": "بیک اپ او بیا رغونه",
+    "backupRestoreDescription": "خپل د تصدیق کونکي ډیټا بیک اپ کړئ او کله چې تاسو بل وسیلې ته ځئ بیرته یې وساتئ.",
+    "privacyDescription": "خپل د تایید حسابونه په یو ځای کې وساتئ. د خپل سیټ اپ په مسؤلیت سره اداره کولو لپاره د اپلیکیشن بیک اپ ، ریسټور ، او د وسیلې لاک اختیارونه وکاروئ.",
+    "timeBasedCodes": "د وخت پر بنسټ کوډونه",
+    "generateOneTimeCodes": "ستاسو د حسابونو لپاره د دوه مرحلې تایید بشپړولو لپاره یو ځل ګرځیدلي پاسکوډونه رامینځته کړئ.",
+    "quickAccountSetup": "د چټک حساب تنظیم کول",
+    "quickSetupDescription": "د یو حساب اضافه کولو لپاره د تصدیق کونکي QR کوډ سکین کړئ یا د QR عکس وارد کړئ.",
+    "accountsOnePlace": "حسابونه په یو ځای کې",
+    "accountsInOnePlaceDescription": "خپل خوندي شوي حسابونه یوځای وساتئ او سمه ننوتل ومومئ کله چې د ننوتلو وخت وي.",
+    "privateAccountVault": "د شخصي حساب والټ",
+    "privateVaultDescription": "خپل د تصدیق کونکي ننوتل په ځایی ډول اداره کړئ او د اپلیکیشن موجود وسیله لاک اختیار وکاروئ.",
+    "easyCodeAccess": "اسانه کوډ ته لاسرسی",
+    "easyCodeAccessDescription": "اوسنی کوډ کاپي کړئ یا د پاک ، متمرکز انٹرفیس له لارې د حساب توضیحات اداره کړئ.",
+    "authenticatorTechsivaram": "تصدیق کونکی · د ټیکسیوارام لخوا",
+    "mobileAuthenticator": "ستاسو د موبایل تصدیق کوونکی",
+    "tagline": "ستاسو د دوه مرحلې تایید اداره کولو لپاره اسانه لار.",
+    "heroDescription": "د وخت پراساس د تایید کوډونو لپاره د متمرکز تصدیق کونکي تجربه. د KaalKey لپاره د Android لپاره د مناسب حساب کوډونه په لاس کې وساتئ.",
+    "timeBasedCodes2": "د وخت پر بنسټ کوډونه",
+    "privateDesign": "د ډیزاین له مخې شخصي",
+    "builtSimpleAuthenticator": "د یو ساده تصدیق کونکي کاري فلو لپاره جوړ شوی",
+    "qrSetupTimed": "QR ترتیب · وخت کوډونه · د حساب مدیریت",
+    "privacyTitle": "ستاسو حسابونه. ستاسو کوډونه. ستاسو کنټرول.",
+    "authenticator": "KAALKEY · تصدیق کونکی",
+    "brandBanner": "KaalKey د برانډ بینر",
+    "logo": "KaalKey لوگو"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "لغوه کړئ",
+      "storageInvalidTitle": "د ذخیره کولو ډاټا ناسمه ده",
+      "storageInvalidBody": "خوندي شوي حساب ډاټا په خوندي توګه لوستل کیدی نشي.",
+      "storageErrorTitle": "د ذخیره کولو تېروتنه",
+      "storageErrorBody": "خوندي شوي حسابونه نشي پورته کولی.",
+      "missingTitle": "ورک شوي معلومات",
+      "missingEditingBody": "د خدمت نوم او د حساب نوم دننه کړئ.",
+      "missingBody": "د خدمت نوم، د حساب نوم، او پټ کیلي دننه کړئ.",
+      "invalidOtpBody": "د Base32 پټ، الګوریتم، د شمېرې شمېره، او د تازه کولو موده وګورئ. رازونه باید معتبر Base32 حروف ولري؛ عددونه باید {digits} وي او موده باید {minPeriod}–{maxPeriod} ثانیې وي.",
+      "duplicateBody": "د دې خدمت او حساب نوم سره یو حساب لا دمخه خوندي شوی دی.",
+      "updatedBody": "ستاسو حساب تازه شو.",
+      "addedBody": "ستاسو حساب په خوندي ډول اضافه شوی.",
+      "invalidOtpTitle": "ناسم OTP ترتیبات",
+      "duplicateTitle": "حساب لا دمخه شتون لري",
+      "savedTitle": "حساب خوندي شو",
+      "invalidSecretTitle": "ناباوره پټ کیلي",
+      "invalidSecretBody": "مهرباني وکړئ وګورئ چې تاسو یو معتبر Base32 راز داخل کړی.",
+      "removedTitle": "حساب لرې شو",
+      "removedBody": "حساب او د هغې راز له دې وسیلې څخه لرې شوی.",
+      "clearedTitle": "حسابونه پاک شول",
+      "clearedBody": "د دې وسیلې څخه ټول تصدیق کونکي حسابونه او رازونه لرې شوي.",
+      "someSavedAccountsNeedAttentionTitle": "ځینې خوندي شوي حسابونه پاملرنې ته اړتیا لري",
+      "someSavedAccountsNeedAttentionBody": "{count} ناسم حساب ریکارډونه نه دي پورته شوي. معتبر حسابونه شتون لري. د نورو بدلونونو کولو دمخه د بیک اپ رامینځته کولو په اړه فکر وکړئ.",
+      "removeConfirmTitle": "حساب لرې کړئ؟",
+      "removeConfirmWebTitle": "حساب لرې کړئ؟",
+      "removeButton": "لرې کړئ",
+      "clearButton": "ټول پاک کړئ",
+      "clearConfirmTitle": "ټول حسابونه پاک کړئ؟",
+      "saveErrorBody": "حسابونه خوندي نه شول. د براوزر ذخیره کولو شتون چیک کړئ او بیا هڅه وکړئ.",
+      "notFoundTitle": "حساب ونه موندل شو",
+      "notFoundBody": "دا حساب ونه موندل شو. مدیر بند کړئ او بیا هڅه وکړئ.",
+      "removeConfirmBody": "دا د دې وسیلې څخه حساب او د هغې راز لرې کوي.",
+      "clearConfirmBody": "دا د تل لپاره د دې وسیلې څخه ټول تصدیق کونکي حسابونه او د دوی رازونه لرې کوي. لومړی یو کوډ شوی بیک اپ جوړ کړئ که تاسو ممکن وروسته دې حسابونو ته اړتیا ولرئ.",
+      "clearConfirmUndoBody": "دا نشي رد کیدی."
+    },
+    "biometric": {
+      "cancelButton": "لغوه کړئ",
+      "saveErrorTitle": "ترتیب خوندي نشو کړای",
+      "unlockPrompt": "خلاصول KaalKey تصدیق کونکی",
+      "promptSubtitle": "بایومیټریک یا ستاسو د وسیلې سکرین لاک وکاروئ",
+      "disableConfirmPrompt": "د KaalKey ایپ لاک بندولو تایید کړئ",
+      "enablePrompt": "د KaalKey لپاره د ایپ لاک فعال کړئ",
+      "deviceLockTitle": "د خپل وسیله سکرین لاک تنظیم کړئ",
+      "deviceLockBody": "KaalKey ستاسو د تلیفون جوړ شوی تصدیق کاروي. د خپل تلیفون په امنیتي ترتیباتو کې وسیله PIN، نمونه، یا پټنوم ترتیب کړئ، بیا هڅه وکړئ. بایومتریک اختیاري دي.",
+      "unavailableTitle": "د وسیلې تصدیق شتون نلري",
+      "unavailableBody": "ستاسو تلیفون نشي کولی خوندي تصدیق پیل کړي. وګورئ چې د وسیلې سکرین لاک تنظیم شوی ، بیا هڅه وکړئ.",
+      "lockedTitle": "تصدیق په لنډمهاله توګه بند شوی",
+      "lockedBody": "ستاسو تلیفون د ډیرو هڅو وروسته په لنډمهاله توګه تصدیق غیر فعال کړی دی. انتظار وکړئ او بیا هڅه وکړئ.",
+      "promptErrorTitle": "تصدیق شتون نلري",
+      "promptErrorBody": "KaalKey نشي کولی د تلیفون خوندي تصدیق پرامپټ پیل کړي. مهرباني وکړئ بیا هڅه وکړئ.",
+      "webLock": "د وسیلې تصدیق کول لا تر اوسه په ویب نسخه کې شتون نلري. د ویب والټ خلاص پاتې دی؛ د اصلي وسیلې تصدیق لپاره Android ایپ وکاروئ.",
+      "disabledTitle": "د اپلیکیشن لاک غیر فعال شوی",
+      "disabledBody": "KaalKey د اپلیکیشن لاک بند شوی دی.",
+      "disableSaveError": "د اپلیکیشن لاک فعال پاتې دی. مهرباني وکړئ بیا هڅه وکړئ.",
+      "enabledTitle": "د اپلیکیشن لاک فعال شوی",
+      "enabledBody": "KaalKey به ستاسو د تلیفون د جوړ شوي تصدیق غوښتنه وکړي کله چې خلاص شي او کله چې تاسو بیرته راشئ.",
+      "enableSaveError": "د اپلیکیشن لاک فعال نه شو. مهرباني وکړئ بیا هڅه وکړئ."
+    },
+    "qr": {
+      "startingCamera": "کیمره پیل کول…",
+      "unsupportedTitle": "نه ملاتړی QR کوډ",
+      "unsupportedBody": "د تصدیق کونکي ترتیب QR د خدماتو لخوا چمتو شوی کوډ سکین کړئ. دا باید د TOTP کوډ وي، نه د عادي ننوتلو QR کوډ.",
+      "unsupportedDiagnostic": "دا QR د TOTP ترتیب کوډ ندی. د تصدیق کونکي تنظیم کولو هدف QR.",
+      "detectedDiagnostic": "QR کشف شو. تحلیل…",
+      "analyzing": "د QR کوډ تحلیل کول…",
+      "duplicateTitle": "حساب لا دمخه اضافه شوی",
+      "duplicateBody": "{issuer}: {account} لا دمخه په KaalKey کې دی.",
+      "addedTitle": "حساب اضافه شو",
+      "addedBody": "{issuer}: {account} په بریالیتوب سره اضافه شو.",
+      "saveFailedDiagnostic": "حساب خوندي نشو کړای. تاسو بیا سکین کولی شئ.",
+      "invalidTitle": "ناسم QR کوډ",
+      "invalidBody": "KaalKey د دې مستند کوډ QR کوډ نشي پارس کولی. {detail}. د خدمت TOTP ترتیب QR کوډ وکاروئ (معمولا د {prefix} سره پیل کیږي).",
+      "parseFailedDiagnostic": "QR پروسس نشي کیدلی. په ترتیب QR هدف وګرځئ او بیا هڅه وکړئ.",
+      "invalidUrlTitle": "ناسم TOTP URL",
+      "invalidUrlBody": "یو بشپړ تصدیق کونکی URL په {prefix} سره پیل کړئ.",
+      "clipboardEmptyTitle": "کلپ بورډ خالي دی",
+      "clipboardEmptyBody": "لومړی یو {prefix} URL کاپي کړئ، بیا وروسته TOTP URL ټایپ کړئ.",
+      "clipboardErrorTitle": "کلپبورډ ونه لوستل شو",
+      "clipboardErrorBody": "کاپي کړئ TOTP ترتیب URL او بیا هڅه وکړئ."
+    },
+    "haptics": {
+      "saveFailedTitle": "ترتیب خوندي نشو کړای",
+      "saveFailedBody": "د هپټیک فیډبیک ترجیح خوندي نشوه. مهرباني وکړئ بیا هڅه وکړئ."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "اعتراف خوندي نشو کولی",
+      "saveFailedBody": "مهرباني وکړئ بیا هڅه وکړئ. تاسو باید د KaalKey کارولو دمخه قانوني خبرتیا ومنئ."
+    },
+    "cameraPermission": {
+      "title": "د کیمرې اجازه اړینه ده",
+      "body": "د کیمرې لاسرسي ته اجازه ورکړئ چې د تصدیق کونکي سیټ اپ QR کوډ سکین کړي."
+    },
+    "storage": {
+      "browserUnavailable": "د براوزر ذخیره شتون نلري.",
+      "browserFilePickerUnavailable": "د براوزر فایل غوره کونکی شتون نلري."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "نه ملاتړ شوی فایل",
+      "unsupportedFileBody": "یو QR کوډ انځور غوره کړئ لکه PNG یا JPEG.",
+      "browserDecoderUnavailable": "د براوزر عکس کوډ کول شتون نلري",
+      "imageLoadFailed": "انځور نشي پورته کولی",
+      "unreadableDimensions": "انځور د لوستلو وړ ابعاد نه لري",
+      "noQrCodeFoundTitle": "هیڅ QR کوډ ونه موندل شو",
+      "noQrCodeFoundBody": "KaalKey په دې عکس کې QR کوډ نشي کولي. د سکرین شاټ یا لوړ ریزولوشن هڅه وکړئ PNG/JPEG.",
+      "couldNotReadImageTitle": "انځور نشو لوستلی",
+      "couldNotReadImageBody": "یو روښانه PNG یا JPEG انځور چې د تصدیق کونکي ترتیب QR کوډ لري هڅه وکړئ.",
+      "couldNotOpenPickerTitle": "د انځور غوره کوونکی خلاص نشو",
+      "couldNotOpenPickerBody": "مهرباني وکړئ د پورته کولو هڅه وکړئ QR بیا.",
+      "normalizedDecodeFailed": "نورمال شوي انځور نشي کولي",
+      "clipboardImageLoadFailed": "د کلیپبورډ عکس نشي پورته کیدی",
+      "imageProcessingUnavailable": "د انځور پروسس کول شتون نلري",
+      "imageProcessingUnavailableAlt": "د انځور پروسس کول شتون نلري",
+      "noImageInClipboardTitle": "په کلپ بورډ کې هیڅ عکس نشته",
+      "noImageInClipboardBody": "د QR کوډ انځور کاپي کړئ، بیا وروسته QR انځور پیسټ کړئ.",
+      "clipboardUnavailableTitle": "کلپ بورډ شتون نلري",
+      "clipboardUnavailableBody": "د کلیپ بورډ متن د اعتبار وړ تصدیق کونکي ترتیب ندی URL. یو otpauth:// URL یا QR انځور کاپي کړئ او بیا هڅه وکړئ.",
+      "clipboardAccessBody": "KaalKey د کلپ بورډ څخه متن یا عکس نشي لوستلی. کلپبورډ ته د لاسرسي اجازه ورکړئ، بیا د QR انځور یا otpauth:// URL کاپي کړئ او د QR انځور / URL بیا پیسټ کړئ.",
+      "couldNotPasteImageTitle": "انځور نشي پیسټ کولی",
+      "couldNotPasteImageBody": "په دې وسیله د دې کلیپ بورډ لخوا د انځور چپه کول نه ملاتړ کیږي. پرځای یې د وارداتو QR عکس وکاروئ.",
+      "sourceImageDecodeFailure": "یو بل QR انځور هڅه وکړئ.",
+      "pastedImportFailureBody": "یو بل QR انځور هڅه وکړئ.",
+      "sourceImageReadFailure": "د روښانه QR سکرین شاټ کاپي کولو هڅه وکړئ.",
+      "importFailedTitle": "QR د انځور واردول ناکام شو",
+      "importFailedBody": "KaalKey هغه انځور نشي لوستلی. مهرباني وکړئ د بل QR کوډ انځور هڅه وکړئ.",
+      "notFoundBody": "کاپي شوی انځور د لوستلو وړ QR کوډ نلري.",
+      "pastedNotFoundBody": "پیسټ شوی انځور د لوستلو وړ QR کوډ نلري.",
+      "pastedReadFailureBody": "هڅه وکړئ یو روښانه PNG یا JPEG انځور چې بشپړ QR کوډ ولري کاپي کړئ.",
+      "noQrCodeTextBody": "KaalKey ټاکل شوی انځور ډیکوډ کړی خو QR کوډ یې نه دی موندلی. یو روښانه، بشپړ ریزولوشن PNG یا JPEG هڅه وکړئ چې ټول کوډ ښکاره شي."
+    },
+    "totpImport": {
+      "invalidTotpCode": "دا QR کوډ د وخت پر بنسټ د تصدیق کونکي ترتیب کوډ ندی.",
+      "missingAccountDetails": "د QR کوډ د حساب توضیحات ورک دي.",
+      "unsupportedAlgorithm": "QR کوډ یو نه ملاتړی الګوریتم کاروي.",
+      "unsupportedDigits": "دا QR کوډ باید 6، 7، یا 8 عددونه وکاروي.",
+      "unsupportedPeriod": "دا QR کوډ د نه ملاتړ شوي وخت موده کاروي.",
+      "invalidAccount": "د QR کوډ د اعتبار وړ نه دی."
+    },
+    "backup": {
+      "invalidJson": "د بیک اپ فایل اعتبار نلري JSON.",
+      "unsupportedFormat": "دا یو ملاتړ شوی KaalKey کوډ شوی بیک اپ ندی.",
+      "invalidPasswordOrDamaged": "د بیک اپ پټنوم غلط دی یا د بیک اپ فایل خراب شوی.",
+      "invalidContents": "د بیک اپ مینځپانګې ناسم یا نیمګړې دي.",
+      "secureRandomUnavailableDetailed": "خوندي تصادفي نسل شتون نلري. د Android اپلیکیشن له expo-crypto سره بیا جوړ او بیا انسټال کړئ، بیا هڅه وکړئ.",
+      "invalidAccountDataForBackup": "یو یا ډیر حسابونه ناسم دي. د بیک اپ جوړولو دمخه د حساب ډاټا سم کړئ.",
+      "invalidPasswordOrModified": "د بیک اپ پټنوم غلط دی یا د بیک اپ فایل بدل شوی.",
+      "invalidPasswordOrFileDamaged": "د بیک اپ پټنوم غلط دی یا فایل خراب شوی.",
+      "passwordCopiedTitle": "پاسورډ کاپي شوی",
+      "enterPasswordTitle": "خپل بیک اپ پټنوم دننه کړئ",
+      "enterPasswordBody": "هغه رمز دننه کړئ چې دا بیک اپ رامینځته شوی و.",
+      "passwordCopiedBody": "دا په خوندي ځای کې وساتئ، لکه WhatsApp.",
+      "copyFailedTitle": "کاپي ناکامه شوه",
+      "copyFailedBody": "پاسورډ په لاسي ډول غوره او کاپي کړئ.",
+      "generatingPassword": "د خوندي بیک اپ پټنوم رامینځته کول…",
+      "encrypting": "بیک اپ کوډ کول…",
+      "decrypting": "بیک اپ کوډ کول…",
+      "restoring": "د حسابونو بیا رغول…",
+      "backupCreatedTitle": "بیک اپ جوړ شو",
+      "restoreCompleteTitle": "بیا رغونه بشپړه شوه",
+      "mergeConfirmTitle": "بیک اپ حسابونه یوځای کړئ؟",
+      "mergeConfirmButton": "حسابونه یوځای کړئ",
+      "backupSavedTemporary": "کوډ شوی بیک اپ په لنډمهاله توګه په دې ځای کې خوندي شو:\n{uri}",
+      "generatePasswordErrorTitle": "د بیک اپ پټنوم نه شو پیدا کولی",
+      "secureRandomUnavailable": "خوندي تصادفي نسل شتون نلري.",
+      "passwordUnavailableTitle": "د بیک اپ پټنوم شتون نلري",
+      "passwordUnavailableBody": "دا ډیالوګ بند کړئ او د خوندي پټنوم رامینځته کولو لپاره یو نوی بیک اپ جوړ کړئ.",
+      "backupDownloadedBody": "ستاسو کوډ شوی KaalKey بیک اپ ډاونلوډ شوی دی. فایل او پټنوم شخصي وساتئ.",
+      "backupFailedTitle": "بیک اپ ناکام شو",
+      "backupCreateErrorBody": "KaalKey نشي کولی بیک اپ جوړ کړي.",
+      "restoreFailedTitle": "بیا رغونه ناکامه شوه",
+      "backupReadErrorBody": "بیک اپ لوستل یا خوندي نشو کولی.",
+      "browserDownloadUnsupported": "ستاسو براوزر د بیک اپ فایلونو ډاونلوډ کولو ملاتړ نه کوي.",
+      "localFileUnavailable": "په دې وسیله کې د ځایی فایل ځای شتون نلري.",
+      "saveBackupTitle": "خپل کوډ شوی KaalKey بیک اپ خوندي کړئ"
+    },
+    "clipboard": {
+      "copiedTitle": "کوډ کاپي شوی",
+      "copiedBody": "ستاسو د تایید کوډ کاپي شوی.",
+      "errorTitle": "تېروتنه",
+      "errorBody": "د تایید کوډ کاپي نشي کولی."
+    },
+    "activity": {
+      "cameraReady": "کیمره چمتو ده. دا د تصدیق کونکي QR کوډ ته اشاره وکړئ.",
+      "readingQrImage": "د QR انځور لوستل…",
+      "importingQrImage": "د QR انځور واردول…",
+      "importingAccount": "د تصدیق کونکي حساب واردول…",
+      "importingPastedImage": "پیسټ شوی QR عکس واردول…"
+    }
+  },
+  "activity": {
+    "working": "کار کول",
+    "wait": "مهرباني وکړئ انتظار وکړئ…",
+    "donTClose": "مهرباني وکړئ د KaalKey سره نږدې یا اړیکه مه کوئ.",
+    "loadingLanguages": "شته ژبې لوډیږي…",
+    "loadingTranslation": "ژباړه لوډیږي…"
+  }
+}

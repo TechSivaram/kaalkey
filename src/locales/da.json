@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Sprog",
+      "description": "Vælg det sprog, der bruges i KaalKey.",
+      "english": "engelsk",
+      "telugu": "Telugu",
+      "hindi": "hindi",
+      "section": "SPROG",
+      "searchLanguageName": "Søgesprog (navn eller kode)",
+      "searchSupportedLanguages": "Søg på understøttede sprog",
+      "closeLanguageDropdown": "Luk sprog rullemenuen",
+      "noTranslatedLanguage": "Intet oversat sprog fundet.",
+      "serverUrl": "Oversættelsesserver URL",
+      "serverUrlDescription": "KaalKey downloader sproglisten og oversættelser fra denne server.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Gem oversættelsesserver"
+    },
+    "title": "App-indstillinger",
+    "eyebrow": "KAALKEY PRÆFERENCER",
+    "experience": {
+      "section": "ERFARING"
+    },
+    "security": {
+      "section": "SIKKERHED"
+    },
+    "backup": {
+      "section": "SIKKERHEDSKOPI OG GENDANNELSE"
+    },
+    "danger": {
+      "section": "FAREZONE",
+      "clearAccounts": "Ryd alle konti",
+      "clearAccountsDescription": "Fjern permanent alle konti og hemmeligheder fra denne enhed. Sikkerhedskopier først.",
+      "clearAccountsAccessibilityLabel": "Ryd alle godkendelseskonti"
+    },
+    "appearance": {
+      "section": "UDSEENDE",
+      "title": "Let udseende",
+      "description": "KaalKey bruger i øjeblikket sit rene lys-tema."
+    },
+    "haptics": {
+      "title": "Haptisk feedback",
+      "description": "Blid feedback for tryk og gennemførte handlinger."
+    },
+    "deviceLock": {
+      "title": "Enhedsgodkendelseslås",
+      "description": "Dit hvælving låses, når KaalKey forlader forgrunden.",
+      "requirement": "Kræv din telefons biometri eller skærmlås PIN, mønster eller adgangskode.",
+      "accessibilityLabel": "Applås til enhedsgodkendelse"
+    },
+    "privacy": {
+      "title": "Juridisk og privatliv",
+      "description": "Gennemgå privatlivspolitikken og vilkårene for brug.",
+      "storageNote": "Dine autentificeringshemmeligheder forbliver i den sikre boks på enheden. Præferencer gemmes lokalt."
+    }
+  },
+  "accounts": {
+    "edit": "Rediger",
+    "sortAccountName": "Sorter efter kontonavn",
+    "loadingSecureVault": "Indlæser sikker boks...",
+    "tapCopy": "TRYK FOR AT KOPIERE",
+    "noAccountsMatch": "Ingen konti matcher din søgning.",
+    "viewQrCode": "Se QR koden for kontoen",
+    "removeAccount": "Fjern konto",
+    "copyVerificationCode": "Kopiér bekræftelseskoden",
+    "active": "AKTIV",
+    "sort": "SORTERT EFTER",
+    "account": "Konto",
+    "clearSearch": "Ryd søgning",
+    "sortServiceName": "Sorter efter tjenestenavn",
+    "addFirstAccount": "Tilføj din første konto",
+    "searchAccounts": "Søg efter konti",
+    "searchServiceAccount": "Søgetjeneste eller konto",
+    "accounts": "Dine konti",
+    "add": "+ Tilføj",
+    "vaultStartsHere": "Din boks starter her",
+    "service": "Service",
+    "emptyHint": "Tilføj en konto ved hjælp af dens hemmelige nøgle for at generere din første bekræftelseskode."
+  },
+  "common": {
+    "done": "Færdig",
+    "doneButton": "Færdig",
+    "closeSettings": "Luk indstillinger",
+    "separator": "-",
+    "article": "a",
+    "save": "Gem",
+    "delete": "Slet",
+    "resizeAppBrand": "Tilpas størrelse på app- og brandpaneler"
+  },
+  "qrImport": {
+    "readPastedImage": "Kunne ikke læse indsat billede"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Konti i denne backup: {count}. KaalKey beholder dine eksisterende konti og tilføjer konti, der ikke allerede er til stede. Dublerede konti vil blive sprunget over.",
+    "restoreCompletionBody": "Konti tilføjet: {added}. Duplikerede konti sprunget over: {skipped}. Dine eksisterende konti blev opbevaret.",
+    "copyPassword": "Kopiér genereret adgangskode",
+    "passwordSafety": "Gem denne adgangskode separat (for eksempel i WhatsApp). Enhver med både",
+    "importAction": "Vælg fil og importer",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "SIKKER VALG",
+    "createBackup": "Opret backup",
+    "encryptedFile": "Krypteret fil",
+    "restoreBackup": "Gendan backup",
+    "safetyNote": "Sikkerhedskopier indeholder dine autentificeringshemmeligheder. KaalKey genererer en unik adgangskode for hver sikkerhedskopi. Gem det separat; KaalKey kan ikke gendanne den.",
+    "generatingSecurePassword": "Generer sikker adgangskode...",
+    "importFile": "Importer fil",
+    "backupPassword": "BACKUP ADGANGSKODE",
+    "account": "konto",
+    "accounts": "regnskaber",
+    "exportDescription": "Krypter alle {count} gemte {accountLabel} i en sikkerhedskopi. KaalKey genererer en unik adgangskode; kopier og gem den separat fra filen.",
+    "restoreDescription": "Vælg din KaalKey backupfil og adgangskode. Nye konti vil blive tilføjet til din eksisterende kontoliste; eksisterende konti forbliver, som de er.",
+    "enterBackupPassword": "Indtast backup-adgangskode",
+    "closeBackup": "Luk backup",
+    "copyGeneratedBackup": "Kopiér genereret backup-adgangskode",
+    "backupPassword2": "Backup adgangskode",
+    "clearBackupPassword": "Ryd backup-adgangskode",
+    "backupFilePassword": "backup-fil og adgangskode kan gendanne dine autentificeringskonti.",
+    "encryptShareBackup": "Krypter og del backup"
+  },
+  "home": {
+    "unlockSecurely": "Lås sikkert op",
+    "disableAppLock": "Deaktiver applås",
+    "enableAppLock": "Aktiver applås",
+    "checkingSecureLock": "Tjek dine indstillinger for sikker lås. Dine koder forbliver skjulte.",
+    "waitingVerification": "Venter på bekræftelse...",
+    "secretsStayStored": "Dine hemmeligheder forbliver gemt på denne enhed.",
+    "openAppSettings": "Åbn appindstillinger",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "Brug din telefons biometri eller skærmlås PIN, mønster eller adgangskode for at få adgang til dine engangsbekræftelseskoder.",
+    "localVault": "DIN LOKALE VALG",
+    "codesDeviceControl": "Dine koder. Din enhed. Din kontrol.",
+    "securingVault": "Sikrer din boks...",
+    "vaultProtected": "Din boks er beskyttet",
+    "lock": "LÅS PÅ",
+    "localVault2": "LOKAL HØVLING",
+    "authenticator": "KAALKEY AUTENTIKATOR",
+    "tricolourLockEmblem": "KaalKey trefarvet låseemblem",
+    "authenticator2": "AUTENTIKATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Hvis du vælger at scanne en QR-kode, bruger KaalKey kameratilladelse til den handling. Valgfri enhedsgodkendelse og haptisk feedback bruger de relevante enhedsfunktioner. Du kan administrere tilladelser i dine enhedsindstillinger.",
+        "heading": "2. Tilladelser og enhedsfunktioner"
+      },
+      "backups": {
+        "body": "Når du opretter en sikkerhedskopi, krypterer KaalKey sikkerhedskopien ved hjælp af en adgangskode, du vælger. Hold både filen og adgangskoden private og gem dem sikkert. Enhver, der får fat i filen og dens adgangskode, kan muligvis gendanne dine autentificeringskonti. KaalKey kan ikke gendanne en glemt backup-adgangskode.",
+        "heading": "3. Sikkerhedskopier"
+      },
+      "security": {
+        "body": "Hold din enhed opdateret, beskyt den med en skærmlås, og del ikke OTP hemmeligheder eller backup-adgangskoder. Fjernelse af appen, rydning af dens data eller tab af enheden kan gøre lokalt gemte konti utilgængelige. Oprethold en sikker backup, hvis du har brug for gendannelse.",
+        "heading": "5. Sikkerhed og fastholdelse"
+      },
+      "information": {
+        "heading": "1. Information og hemmeligheder",
+        "body": "KaalKey er en godkendelsesapp. Kontoetiketter og de hemmelige værdier, der er nødvendige for at generere engangskoder, er følsomme. Appen er designet til at gemme kontoregistreringer i enhedens sikre lager. Enhver med adgang til en ulåst enhed eller en eksporteret sikkerhedskopi kan muligvis få adgang til følsomme oplysninger."
+      },
+      "sharing": {
+        "heading": "4. Deling og tredjeparter",
+        "body": "Sikkerhedskopieringsforløbet kan bruge din enheds deleark eller filvælger til at gemme, overføre eller vælge filer. Privatlivspraksis for enhver tredjepartsapp eller -tjeneste, du vælger, styres af den pågældende udbyder. Denne meddelelse gør ikke en generel påstand om, at din enhed, dit operativsystem eller dine valgte delingstjenester aldrig behandler data."
+      },
+      "changes": {
+        "heading": "6. Ændringer og kontakt",
+        "body": "Denne indlejrede meddelelse kan blive revideret i en fremtidig app-udgivelse. For spørgsmål om beskyttelse af personlige oplysninger, kontakt app-udgiveren via den officielle supportkanal, der følger med appen."
+      },
+      "title": "Privatlivspolitik"
+    },
+    "terms": {
+      "use": {
+        "body": "Du kan bruge KaalKey til at generere bekræftelseskoder for konti, som du har tilladelse til at få adgang til. Du er ansvarlig for at overholde gældende love og reglerne for de tjenester, som du bruger autentifikationskoder til.",
+        "heading": "1. Din brug"
+      },
+      "protectAccounts": {
+        "body": "Du er ansvarlig for at sikre din enhed, autentificeringshemmeligheder, gendannelsesmetoder, eksporterede sikkerhedskopier og sikkerhedskopieringsadgangskoder. Del ikke koder eller hemmeligheder med personer, du ikke har tillid til.",
+        "heading": "2. Beskyt dine konti"
+      },
+      "availability": {
+        "body": "Funktioner kan ændre sig mellem udgivelser. Du bør holde appen opdateret og med jævne mellemrum kontrollere, at dine sikkerhedskopierings- og gendannelsesordninger fungerer.",
+        "heading": "5. Ændringer og tilgængelighed"
+      },
+      "recovery": {
+        "body": "KaalKey kan ikke garantere, at hver konto kan gendannes, at hver QR kode eller konfiguration vil være kompatibel, eller at appen vil fungere uden afbrydelser eller fejl. Behold alternative gendannelsesmetoder leveret af den relevante tjeneste.",
+        "heading": "3. Ingen inddrivelsesgaranti"
+      },
+      "advice": {
+        "heading": "4. Ingen professionel rådgivning",
+        "body": "Appen er et hjælpeprogram og giver ikke juridisk, finansiel eller sikkerhedsrådgivning vedrørende hændelser. Hvis en konto er kompromitteret, skal du følge den berørte tjenestes officielle genopretnings- og sikkerhedsvejledning."
+      },
+      "liability": {
+        "heading": "6. Ansvar og gældende lovgivning",
+        "body": "I det omfang det er tilladt i henhold til gældende lovgivning, leveres appen uden garanti for uafbrudt eller fejlfri drift. Intet i disse vilkår udelukker rettigheder eller retsmidler, der ikke juridisk kan udelukkes. Eventuelle yderligere begrænsninger eller gældende lovbestemmelser bør gennemgås af en kvalificeret advokat for udgiverens jurisdiktion inden udgivelsen."
+      },
+      "title": "Vilkår for brug"
+    },
+    "version": "version",
+    "saving": "Gemmer...",
+    "acceptContinue": "Accepter og fortsæt",
+    "appliesAuthenticator": "Gælder for KaalKey Authenticator",
+    "reviewBothDocuments": "Gennemgå venligst begge dokumenter, før du bruger KaalKey. De er inkluderet i appen og tilgængelige offline.",
+    "originalMulticolourAuthenticator": "Original flerfarvet KaalKey autentificeringsemblem",
+    "legalPrivacyNotice": "Juridisk og fortrolighedserklæring",
+    "legalInformation": "Juridiske oplysninger",
+    "reviewSPrivacy": "Gennemgå KaalKeys privatlivsoplysninger og brugsbetingelser.",
+    "iReadAgree": "Jeg har læst og accepterer fortrolighedspolitikken og vilkårene for brug."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Hold hele QR-koden synlig. Din hemmelighed forbliver på denne enhed.",
+    "back": "Tilbage",
+    "turnFlashlightOff": "Sluk lommelygten",
+    "turnFlashlight": "Tænd lommelygten",
+    "flashlight": "Lommelygte tændt",
+    "flashlight2": "Lommelygte",
+    "cameraUnavailableOpen": "Kameraet er ikke tilgængeligt. Åbn denne side på HTTPS eller localhost og tillad kameraadgang.",
+    "cameraPreviewUnavailable": "Kameraeksempel er ikke tilgængelig. Luk og åbn scanneren igen.",
+    "cameraReadyPoint": "Kamera klar — peg det mod den fulde QR-kode.",
+    "browserCannotProcess": "Denne browser kan ikke behandle kamerarammer.",
+    "qrCodeDetected": "QR kode fundet.",
+    "couldnTRead": "Kunne ikke læse kamerarammer. Tjek kameratilladelser og genindlæs denne side.",
+    "cameraPermissionDenied": "Kameratilladelse nægtet. Tillad kameraadgang i browserindstillingerne, og åbn derefter scanneren igen.",
+    "noCameraWas": "Der blev ikke fundet noget kamera på denne enhed.",
+    "cameraBusyAnother": "Kameraet er optaget i en anden app eller browserfane.",
+    "startCameraHttps": "Kameraet kunne ikke startes. Brug HTTPS eller localhost og tjek browsertilladelser.",
+    "qrScannerCamera": "QR forhåndsvisning af scannerkamera",
+    "cameraUnavailableCheck": "Kameraet er ikke tilgængeligt. Tjek kameratilladelsen, og prøv igen.",
+    "pointCameraAuthenticator": "Ret dit kamera mod godkendelsesindstillingskoden QR fra den tjeneste, du tilføjer.",
+    "backAddAccount": "Tilbage for at tilføje konto",
+    "secureSetup": "SIKKER OPSÆTNING",
+    "enterDetailsManually": "Indtast detaljerne manuelt i stedet"
+  },
+  "accountForm": {
+    "hideManualEntry": "Skjul manuel indtastning",
+    "secretKeySupplied": "Brug den hemmelige nøgle, der leveres af den tjeneste, du konfigurerer. Indtast aldrig din kontoadgangskode her. Match algoritmen, cifferantal og interval til tjenestens opsætningsinstruktioner.",
+    "updateServiceAccount": "Opdater tjenesten, kontonavnet eller den hemmelige nøgle.",
+    "secretKeyRead": "Hemmelig nøgle, skrivebeskyttet under redigering",
+    "secretKeyBase32": "Hemmelig nøgle i Base32",
+    "digits": "cifre",
+    "seconds": "sekunder",
+    "enterDetailsManually": "ELLER INDGIV DETALJER MANUELT",
+    "enterDetailsManually2": "Indtast detaljer manuelt",
+    "serviceAccountName": "Service, kontonavn og hemmelig nøgle",
+    "saveChangesSecurely": "Gem ændringer sikkert",
+    "saveAccountSecurely": "Gem konto sikkert",
+    "serviceIssuer": "Service eller udsteder",
+    "accountName": "Kontonavn",
+    "secretKey": "Hemmelig nøgle",
+    "serviceIssuer2": "SERVICE / UDSTEDER",
+    "eGGoogle": "f.eks. Google",
+    "clearServiceIssuer": "Ryd service eller udsteder",
+    "eGExample": "f.eks. dig@eksempel.com",
+    "clearAccountName": "Ryd kontonavn",
+    "secretKeyLocked": "HEMMELIG NØGLE (LÅST)",
+    "secretKeyBase322": "HEMMELIG NØGLE (BASE32)",
+    "enterSetupKey": "Indtast din opsætningsnøgle",
+    "clearSecretKey": "Ryd hemmelig nøgle",
+    "otpAlgorithm": "OTP ALGORITME",
+    "otpDigits": "OTP CIFRE",
+    "refreshIntervalSeconds": "OPDATERINGSINTERVAL (SEKUNDER)",
+    "otpRefreshInterval": "OTP opdateringsinterval i sekunder",
+    "closeAccountForm": "Luk kontoformular",
+    "totpSetupUrl": "TOTP opsætning URL",
+    "importSetupUrl": "Importopsætning URL",
+    "totpSetupUrl2": "TOTP OPSÆTNING URL",
+    "accountName2": "KONTONAVN",
+    "addAccount": "Tilføj konto"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Scan Authenticator QR kode",
+    "setupGuidance": "Scan en QR kode for den nemmeste opsætning, eller indtast detaljer manuelt.",
+    "cameraAddAccount": "Brug dit kamera til at tilføje en konto med det samme",
+    "scanQrCode2": "Scan QR kode",
+    "uploadQrImage": "Upload QR billede",
+    "chooseQrScreenshot": "Vælg et QR skærmbillede fra Galleri, Fotos eller Filer",
+    "pasteQr": "Indsæt QR billede / URL",
+    "pasteCopiedQr": "Indsæt et kopieret QR billede eller godkendelsesopsætning URL",
+    "uploadQrImage2": "Upload QR billede"
+  },
+  "accountQr": {
+    "close": "Luk",
+    "accountQrCode": "Konto QR kode",
+    "revealQrCode": "Vis QR kode",
+    "exportWarning": "Advarsel: enhver, der scanner denne QR kode, kan generere bekræftelseskoder for denne konto. Vis det kun på en pålidelig skærm.",
+    "privacyHint": "Hold denne QR kode privat. Scanning af den kopierer kontoens autentificeringshemmelighed."
+  },
+  "productInfo": {
+    "backupRestore": "Sikkerhedskopiering og gendannelse",
+    "backupRestoreDescription": "Sikkerhedskopier dine autentificeringsdata, og gendan dem, når du flytter til en anden enhed.",
+    "privacyDescription": "Gem dine bekræftelseskonti ét sted. Brug appens muligheder for sikkerhedskopiering, gendannelse og enhedslås til at administrere din opsætning ansvarligt.",
+    "timeBasedCodes": "Tidsbaserede koder",
+    "generateOneTimeCodes": "Generer roterende engangsadgangskoder til dine konti for at fuldføre totrinsbekræftelse.",
+    "quickAccountSetup": "Hurtig kontoopsætning",
+    "quickSetupDescription": "Scan en godkendelseskode QR eller importer et QR billede for at tilføje en konto.",
+    "accountsOnePlace": "Konti ét sted",
+    "accountsInOnePlaceDescription": "Hold dine gemte konti sammen, og find den rigtige post, når det er tid til at logge ind.",
+    "privateAccountVault": "Privat kontoboks",
+    "privateVaultDescription": "Administrer dine autentificeringsposter lokalt, og brug appens tilgængelige enhedslåsemulighed.",
+    "easyCodeAccess": "Nem kodeadgang",
+    "easyCodeAccessDescription": "Kopier en aktuel kode eller administrer kontooplysninger gennem en ren, fokuseret grænseflade.",
+    "authenticatorTechsivaram": "AUTENTICATOR · AF TECHSIVARAM",
+    "mobileAuthenticator": "DIN MOBILE AUTENTIKATOR",
+    "tagline": "En enklere måde at administrere din totrinsbekræftelse på.",
+    "heroDescription": "En fokuseret autentificeringsoplevelse for tidsbaserede bekræftelseskoder. Hold kompatible kontokoder lige ved hånden med KaalKey for Android.",
+    "timeBasedCodes2": "TIDSBASEREDE KODER",
+    "privateDesign": "PRIVAT VED DESIGN",
+    "builtSimpleAuthenticator": "BYGGET TIL ET ENKELT AUTENTICATOR-ARBEJDSFLOW",
+    "qrSetupTimed": "QR OPSÆTNING · TIDSPUNKT KODER · KONTOSTYRING",
+    "privacyTitle": "Dine konti. Dine koder. Din kontrol.",
+    "authenticator": "KAALKEY · AUTHENTICATOR",
+    "brandBanner": "KaalKey mærkebanner",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Annuller",
+      "storageInvalidTitle": "Lagerdata er ugyldige",
+      "storageInvalidBody": "Gemte kontodata kunne ikke læses sikkert.",
+      "storageErrorTitle": "Opbevaringsfejl",
+      "storageErrorBody": "Gemte konti kunne ikke indlæses.",
+      "missingTitle": "Manglende information",
+      "missingEditingBody": "Indtast tjenestens navn og kontonavn.",
+      "missingBody": "Indtast tjenestens navn, kontonavn og hemmelige nøgle.",
+      "invalidOtpBody": "Tjek Base32 hemmeligheden, algoritmen, cifferoptællingen og opdateringsperioden. Hemmeligheder skal indeholde gyldige Base32 tegn; cifrene skal være {digits}, og perioden skal være {minPeriod}–{maxPeriod} sekunder.",
+      "duplicateBody": "En konto med denne tjeneste og kontonavn er allerede gemt.",
+      "updatedBody": "Din konto blev opdateret.",
+      "addedBody": "Din konto blev tilføjet sikkert.",
+      "invalidOtpTitle": "Ugyldige OTP-indstillinger",
+      "duplicateTitle": "Kontoen eksisterer allerede",
+      "savedTitle": "Kontoen er gemt",
+      "invalidSecretTitle": "Ugyldig hemmelig nøgle",
+      "invalidSecretBody": "Tjek venligst, at du har indtastet en gyldig Base32 hemmelighed.",
+      "removedTitle": "Konto fjernet",
+      "removedBody": "Kontoen og dens hemmelighed blev fjernet fra denne enhed.",
+      "clearedTitle": "Konti ryddet",
+      "clearedBody": "Alle autentificeringskonti og hemmeligheder blev fjernet fra denne enhed.",
+      "someSavedAccountsNeedAttentionTitle": "Nogle gemte konti kræver opmærksomhed",
+      "someSavedAccountsNeedAttentionBody": "{count} ugyldig(e) konto(r) blev ikke indlæst. Gyldige konti forbliver tilgængelige. Overvej at oprette en sikkerhedskopi, før du foretager yderligere ændringer.",
+      "removeConfirmTitle": "Vil du fjerne kontoen?",
+      "removeConfirmWebTitle": "Vil du fjerne kontoen?",
+      "removeButton": "Fjern",
+      "clearButton": "Ryd alle",
+      "clearConfirmTitle": "Vil du rydde alle konti?",
+      "saveErrorBody": "Konti kunne ikke gemmes. Tjek tilgængeligheden af ​​browserlagerplads, og prøv igen.",
+      "notFoundTitle": "Konto ikke fundet",
+      "notFoundBody": "Denne konto kunne ikke findes. Luk editoren og prøv igen.",
+      "removeConfirmBody": "Dette fjerner kontoen og dens hemmelighed fra denne enhed.",
+      "clearConfirmBody": "Dette fjerner permanent alle autentificeringskonti og deres hemmeligheder fra denne enhed. Opret først en krypteret sikkerhedskopi, hvis du muligvis får brug for disse konti senere.",
+      "clearConfirmUndoBody": "Dette kan ikke fortrydes."
+    },
+    "biometric": {
+      "cancelButton": "Annuller",
+      "saveErrorTitle": "Indstillingen kunne ikke gemmes",
+      "unlockPrompt": "Lås op KaalKey Authenticator",
+      "promptSubtitle": "Brug biometri eller din enheds skærmlås",
+      "disableConfirmPrompt": "Bekræft for at slå KaalKey applås fra",
+      "enablePrompt": "Aktiver applås for KaalKey",
+      "deviceLockTitle": "Konfigurer din enheds skærmlås",
+      "deviceLockBody": "KaalKey bruger din telefons indbyggede godkendelse. Indstil en enhed PIN, mønster eller adgangskode i telefonens sikkerhedsindstillinger, og prøv derefter igen. Biometri er valgfrit.",
+      "unavailableTitle": "Enhedsgodkendelse er ikke tilgængelig",
+      "unavailableBody": "Din telefon kunne ikke starte sikker godkendelse. Tjek, at en enhedsskærmlås er konfigureret, og prøv derefter igen.",
+      "lockedTitle": "Godkendelse midlertidigt låst",
+      "lockedBody": "Din telefon har midlertidigt deaktiveret godkendelse efter for mange forsøg. Vent og prøv igen.",
+      "promptErrorTitle": "Godkendelse er ikke tilgængelig",
+      "promptErrorBody": "KaalKey kunne ikke starte telefonens sikre godkendelsesprompt. Prøv venligst igen.",
+      "webLock": "Enhedsgodkendelseslås er ikke tilgængelig i webversionen endnu. Webhvælvingen forbliver ulåst; brug Android-appen til indbygget enhedsgodkendelse.",
+      "disabledTitle": "Applås deaktiveret",
+      "disabledBody": "KaalKey applåsen er blevet slået fra.",
+      "disableSaveError": "Applåsen forbliver aktiveret. Prøv venligst igen.",
+      "enabledTitle": "Applås aktiveret",
+      "enabledBody": "KaalKey vil anmode om din telefons indbyggede godkendelse, når den åbnes, og når du vender tilbage til den.",
+      "enableSaveError": "Applås kunne ikke aktiveres. Prøv venligst igen."
+    },
+    "qr": {
+      "startingCamera": "Starter kamera...",
+      "unsupportedTitle": "Ikke-understøttet QR-kode",
+      "unsupportedBody": "Scan godkendelseskonfigurationskoden QR leveret af tjenesten. Dette skal være en TOTP-kode, ikke en normal login-kode QR.",
+      "unsupportedDiagnostic": "At QR ikke er en TOTP opsætningskode. Sigt mod en godkendelsesopsætning QR.",
+      "detectedDiagnostic": "QR fundet. Analyserer...",
+      "analyzing": "Analyserer QR kode...",
+      "duplicateTitle": "Konto allerede tilføjet",
+      "duplicateBody": "{issuer}: {account} er allerede i KaalKey.",
+      "addedTitle": "Konto tilføjet",
+      "addedBody": "{issuer}: {account} blev tilføjet.",
+      "saveFailedDiagnostic": "Kunne ikke gemme kontoen. Du kan scanne igen.",
+      "invalidTitle": "Ugyldig QR kode",
+      "invalidBody": "KaalKey kunne ikke parse denne autentificeringskode QR. {detail}. Brug tjenestens TOTP opsætningskode QR (starter normalt med {prefix}).",
+      "parseFailedDiagnostic": "QR kunne ikke behandles. Sigt mod opsætningen QR, og prøv igen.",
+      "invalidUrlTitle": "Ugyldig TOTP URL",
+      "invalidUrlBody": "Indsæt en komplet autentificering URL begyndende med {prefix}.",
+      "clipboardEmptyTitle": "Udklipsholderen er tom",
+      "clipboardEmptyBody": "Kopier først en {prefix} URL og tryk derefter på Indsæt TOTP URL.",
+      "clipboardErrorTitle": "Kunne ikke læse udklipsholder",
+      "clipboardErrorBody": "Kopiér TOTP opsætningen URL, og prøv igen."
+    },
+    "haptics": {
+      "saveFailedTitle": "Indstillingen kunne ikke gemmes",
+      "saveFailedBody": "Haptisk feedback-præference kunne ikke gemmes. Prøv venligst igen."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Kunne ikke gemme bekræftelsen",
+      "saveFailedBody": "Prøv venligst igen. Du skal acceptere den juridiske meddelelse, før du bruger KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Kameratilladelse påkrævet",
+      "body": "Tillad kameraadgang for at scanne en autentificeringskode QR."
+    },
+    "storage": {
+      "browserUnavailable": "Browserlagring er ikke tilgængelig.",
+      "browserFilePickerUnavailable": "Browserens filvælger er ikke tilgængelig."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Ikke-understøttet fil",
+      "unsupportedFileBody": "Vælg et QR kodebillede, såsom PNG eller JPEG.",
+      "browserDecoderUnavailable": "Browserbilledafkodning er ikke tilgængelig",
+      "imageLoadFailed": "Billedet kunne ikke indlæses",
+      "unreadableDimensions": "Billedet har ingen læsbare dimensioner",
+      "noQrCodeFoundTitle": "Ingen QR kode fundet",
+      "noQrCodeFoundBody": "KaalKey kunne ikke afkode en QR-kode i dette billede. Prøv et skærmbillede eller en højere opløsning PNG/JPEG.",
+      "couldNotReadImageTitle": "Billedet kunne ikke læses",
+      "couldNotReadImageBody": "Prøv et klart PNG- eller JPEG-billede, der indeholder autentificerings-opsætningskoden QR.",
+      "couldNotOpenPickerTitle": "Billedvælgeren kunne ikke åbnes",
+      "couldNotOpenPickerBody": "Prøv venligst Upload QR igen.",
+      "normalizedDecodeFailed": "Normaliseret billede kunne ikke afkodes",
+      "clipboardImageLoadFailed": "Udklipsholderbilledet kunne ikke indlæses",
+      "imageProcessingUnavailable": "Billedbehandling er ikke tilgængelig",
+      "imageProcessingUnavailableAlt": "Billedbehandling er ikke tilgængelig",
+      "noImageInClipboardTitle": "Intet billede i udklipsholderen",
+      "noImageInClipboardBody": "Kopiér et QR kodebillede, og tryk derefter på Indsæt QR billede igen.",
+      "clipboardUnavailableTitle": "Udklipsholder ikke tilgængelig",
+      "clipboardUnavailableBody": "Udklipsholdertekst er ikke en gyldig godkendelsesopsætning URL. Kopiér et otpauth:// URL- eller QR-billede og prøv igen.",
+      "clipboardAccessBody": "KaalKey kunne ikke læse tekst eller et billede fra udklipsholderen. Tillad adgang til udklipsholderen, og kopier derefter QR-billedet eller otpauth:// URL og tryk på Indsæt QR-billede / URL igen.",
+      "couldNotPasteImageTitle": "Billedet kunne ikke indsættes",
+      "couldNotPasteImageBody": "Billedindsættelse understøttes ikke af dette udklipsholder på denne enhed. Brug Importer QR billede i stedet.",
+      "sourceImageDecodeFailure": "Prøv et andet QR billede.",
+      "pastedImportFailureBody": "Prøv et andet QR billede.",
+      "sourceImageReadFailure": "Prøv at kopiere et tydeligt QR skærmbillede.",
+      "importFailedTitle": "QR billedimport mislykkedes",
+      "importFailedBody": "KaalKey kunne ikke læse det billede. Prøv venligst et andet QR kodebillede.",
+      "notFoundBody": "Det kopierede billede indeholder ikke en læsbar QR-kode.",
+      "pastedNotFoundBody": "Det indsatte billede indeholder ikke en læsbar QR-kode.",
+      "pastedReadFailureBody": "Prøv at kopiere et klart PNG- eller JPEG-billede, der indeholder den fulde QR-kode.",
+      "noQrCodeTextBody": "KaalKey afkodede det valgte billede, men fandt ikke en QR-kode. Prøv en klar, fuld opløsning PNG eller JPEG med hele koden synlig."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Denne QR kode er ikke en tidsbaseret autentificeringskode.",
+      "missingAccountDetails": "QR-koden mangler kontooplysninger.",
+      "unsupportedAlgorithm": "QR-koden bruger en ikke-understøttet algoritme.",
+      "unsupportedDigits": "Denne QR kode skal bruge 6, 7 eller 8 cifre.",
+      "unsupportedPeriod": "Denne QR kode bruger en ikke-understøttet tidsperiode.",
+      "invalidAccount": "QR-koden kunne ikke valideres."
+    },
+    "backup": {
+      "invalidJson": "Sikkerhedskopieringsfilen er ikke gyldig JSON.",
+      "unsupportedFormat": "Dette er ikke en understøttet KaalKey krypteret sikkerhedskopi.",
+      "invalidPasswordOrDamaged": "Sikkerhedskopieringsadgangskoden er forkert, eller backupfilen er beskadiget.",
+      "invalidContents": "Sikkerhedskopieringsindholdet er ugyldigt eller ufuldstændigt.",
+      "secureRandomUnavailableDetailed": "Sikker tilfældig generering er ikke tilgængelig. Genopbyg og geninstaller Android-appen med expo-crypto inkluderet, og prøv derefter igen.",
+      "invalidAccountDataForBackup": "En eller flere konti er ugyldige. Ret kontodataene, før du laver en sikkerhedskopi.",
+      "invalidPasswordOrModified": "Sikkerhedskopieringsadgangskoden er forkert, eller backupfilen er blevet ændret.",
+      "invalidPasswordOrFileDamaged": "Backup-adgangskoden er forkert, eller filen er beskadiget.",
+      "passwordCopiedTitle": "Adgangskode kopieret",
+      "enterPasswordTitle": "Indtast din backup-adgangskode",
+      "enterPasswordBody": "Indtast adgangskoden, der blev brugt, da denne sikkerhedskopi blev oprettet.",
+      "passwordCopiedBody": "Gem det et sikkert sted, såsom WhatsApp.",
+      "copyFailedTitle": "Kopiering mislykkedes",
+      "copyFailedBody": "Vælg og kopier adgangskoden manuelt.",
+      "generatingPassword": "Generer sikker backup-adgangskode...",
+      "encrypting": "Krypterer sikkerhedskopiering...",
+      "decrypting": "Dekrypterer sikkerhedskopiering...",
+      "restoring": "Gendanner konti...",
+      "backupCreatedTitle": "Backup oprettet",
+      "restoreCompleteTitle": "Gendannelse fuldført",
+      "mergeConfirmTitle": "Vil du flette backupkonti?",
+      "mergeConfirmButton": "Flet konti",
+      "backupSavedTemporary": "Krypteret sikkerhedskopi gemt midlertidigt på:\n{uri}",
+      "generatePasswordErrorTitle": "Kunne ikke generere backup-adgangskode",
+      "secureRandomUnavailable": "Sikker tilfældig generering er ikke tilgængelig.",
+      "passwordUnavailableTitle": "Backup-adgangskode er ikke tilgængelig",
+      "passwordUnavailableBody": "Luk denne dialog og opret en ny sikkerhedskopi for at generere en sikker adgangskode.",
+      "backupDownloadedBody": "Din krypterede KaalKey sikkerhedskopi er blevet downloadet. Hold filen og adgangskoden private.",
+      "backupFailedTitle": "Sikkerhedskopiering mislykkedes",
+      "backupCreateErrorBody": "KaalKey kunne ikke oprette sikkerhedskopien.",
+      "restoreFailedTitle": "Gendannelse mislykkedes",
+      "backupReadErrorBody": "Sikkerhedskopien kunne ikke læses eller gemmes.",
+      "browserDownloadUnsupported": "Din browser understøtter ikke download af backupfiler.",
+      "localFileUnavailable": "En lokal filplacering er ikke tilgængelig på denne enhed.",
+      "saveBackupTitle": "Gem din krypterede KaalKey sikkerhedskopi"
+    },
+    "clipboard": {
+      "copiedTitle": "Kode kopieret",
+      "copiedBody": "Din bekræftelseskode er blevet kopieret.",
+      "errorTitle": "Fejl",
+      "errorBody": "Kunne ikke kopiere bekræftelseskoden."
+    },
+    "activity": {
+      "cameraReady": "Kamera klar. Peg den mod autentificeringskoden QR.",
+      "readingQrImage": "Læser QR billede...",
+      "importingQrImage": "Importerer QR billede...",
+      "importingAccount": "Importerer godkendelseskonto...",
+      "importingPastedImage": "Importerer indsat QR billede..."
+    }
+  },
+  "activity": {
+    "working": "Arbejder",
+    "wait": "Vent venligst...",
+    "donTClose": "Undlad at lukke eller interagere med KaalKey.",
+    "loadingLanguages": "Indlæser tilgængelige sprog...",
+    "loadingTranslation": "Indlæser oversættelse..."
+  }
+}

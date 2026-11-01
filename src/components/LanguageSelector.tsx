@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
-import type { AppLanguage } from "../i18n/languages";
-import { SUPPORTED_LANGUAGES } from "../i18n/languages";
+import type { AppLanguage, LanguageOption as LanguageOptionType } from "../i18n/languages";
 import { useLanguageSearch } from "../hooks/useLanguageSearch";
 import LanguageOption from "./LanguageOption";
 import { languageSelectorStyles as s } from "./language-selector.styles";
@@ -17,13 +16,15 @@ type Props = {
   noResultsText: string;
   placeholder: string;
   label: string;
+  languages: LanguageOptionType[];
+  loading?: boolean;
 };
 
 export default function LanguageSelector(p: Props) {
   const [inputBottom, setInputBottom] = useState(0);
-  const matches = useLanguageSearch(p.search);
+  const matches = useLanguageSearch(p.search, p.languages);
   const selectedName =
-    SUPPORTED_LANGUAGES.find((item) => item.code === p.language)?.nativeName ?? p.language;
+    p.languages.find((item) => item.code === p.language)?.nativeName ?? p.language;
   return (
     <View style={[s.container, p.open && s.containerOpen]}>
       <View style={s.headingRow}>

@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Lingwa",
+      "description": "Agħżel il-lingwa użata f'KaalKey.",
+      "english": "Ingliż",
+      "telugu": "Telugu",
+      "hindi": "Ħindi",
+      "section": "LINGWA",
+      "searchLanguageName": "Fittex il-lingwa (isem jew kodiċi)",
+      "searchSupportedLanguages": "Fittex lingwi appoġġjati",
+      "closeLanguageDropdown": "Agħlaq dropdown tal-lingwa",
+      "noTranslatedLanguage": "Ma nstabet l-ebda lingwa tradotta.",
+      "serverUrl": "Server tat-traduzzjoni URL",
+      "serverUrlDescription": "KaalKey tniżżel il-lista tal-lingwi u t-traduzzjonijiet minn dan is-server.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Issejvja s-server tat-traduzzjoni"
+    },
+    "title": "Settings tal-app",
+    "eyebrow": "KAALKEY PREFERENZI",
+    "experience": {
+      "section": "ESPERJENZA"
+    },
+    "security": {
+      "section": "SIGURTÀ"
+    },
+    "backup": {
+      "section": "BACKUP & IRKUPRU"
+    },
+    "danger": {
+      "section": "ŻONA TA’ PERIKLU",
+      "clearAccounts": "Ċara l-kontijiet kollha",
+      "clearAccountsDescription": "Neħħi b'mod permanenti kull kont u sigriet minn dan l-apparat. Back up l-ewwel.",
+      "clearAccountsAccessibilityLabel": "Ċara l-kontijiet kollha tal-awtentikatur"
+    },
+    "appearance": {
+      "section": "DEhra",
+      "title": "Dehra ħafifa",
+      "description": "KaalKey bħalissa juża t-tema tad-dawl nadif tiegħu."
+    },
+    "haptics": {
+      "title": "Feedback haptic",
+      "description": "Feedback ġentili għal viti u azzjonijiet kompluti."
+    },
+    "deviceLock": {
+      "title": "Lock tal-awtentikazzjoni tal-apparat",
+      "description": "Il-kaxxa-forti tiegħek jissakkar meta KaalKey iħalli t-tagħrif miksub.",
+      "requirement": "Irrikjedi l-bijometrika tat-telefon tiegħek jew screen-lock PIN, mudell, jew password.",
+      "accessibilityLabel": "App lock tal-awtentikazzjoni tal-apparat"
+    },
+    "privacy": {
+      "title": "Legali u privatezza",
+      "description": "Irrevedi l-Politika tal-Privatezza u t-Termini tal-Użu.",
+      "storageNote": "Is-sigrieti tal-awtentikatur tiegħek jibqgħu fil-kaxxa-forti sigura fuq l-apparat. Il-preferenzi huma maħżuna lokalment."
+    }
+  },
+  "accounts": {
+    "edit": "Editja",
+    "sortAccountName": "Issortja skont l-isem tal-kont",
+    "loadingSecureVault": "Tagħbija kaxxa-forti sigura...",
+    "tapCopy": "TAPPETI BIEX KOPJA",
+    "noAccountsMatch": "L-ebda kont ma jaqbel mat-tfittxija tiegħek.",
+    "viewQrCode": "Ara QR kodiċi għall-kont",
+    "removeAccount": "Neħħi kont",
+    "copyVerificationCode": "Ikkopja kodiċi ta' verifika",
+    "active": "ATTIVA",
+    "sort": "ISORTA MINN",
+    "account": "Kont",
+    "clearSearch": "Tiftix ċar",
+    "sortServiceName": "Issortja skond l-isem tas-servizz",
+    "addFirstAccount": "Żid l-ewwel kont tiegħek",
+    "searchAccounts": "Fittex kontijiet",
+    "searchServiceAccount": "Fittex servizz jew kont",
+    "accounts": "Il-kontijiet tiegħek",
+    "add": "+ Żid",
+    "vaultStartsHere": "Il-kaxxa-forti tiegħek tibda hawn",
+    "service": "Servizz",
+    "emptyHint": "Żid kont billi tuża ċ-ċavetta sigrieta tagħha biex tiġġenera l-ewwel kodiċi ta 'verifika tiegħek."
+  },
+  "common": {
+    "done": "Magħmul",
+    "doneButton": "Magħmul",
+    "closeSettings": "Agħlaq is-settings",
+    "separator": "-",
+    "article": "a",
+    "save": "Ħlief",
+    "delete": "Ħassar",
+    "resizeAppBrand": "Id-daqs tal-app u l-pannelli tad-ditta"
+  },
+  "qrImport": {
+    "readPastedImage": "Ma setgħetx taqra l-immaġni pasted"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Kontijiet f'din il-backup: {count}. KaalKey se jżomm il-kontijiet eżistenti tiegħek u jżid kwalunkwe kontijiet li mhumiex diġà preżenti. Il-kontijiet duplikati se jinqabżu.",
+    "restoreCompletionBody": "Kontijiet miżjuda: {added}. Kontijiet duplikati maqbuża: {skipped}. Il-kontijiet eżistenti tiegħek inżammu.",
+    "copyPassword": "Ikkopja password ġġenerata",
+    "passwordSafety": "Issejvja din il-password separatament (per eżempju, fi WhatsApp). Kull min kemm il",
+    "importAction": "Agħżel il-fajl u l-importazzjoni",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "VAULT SIGUR",
+    "createBackup": "Oħloq backup",
+    "encryptedFile": "Fajl kriptat",
+    "restoreBackup": "Irrestawra l-backup",
+    "safetyNote": "Il-backups fihom is-sigrieti tal-awtentikatur tiegħek. KaalKey jiġġenera password unika għal kull backup. Ħlief separatament; KaalKey ma jistax jirkupraha.",
+    "generatingSecurePassword": "Tiġġenera password sigura...",
+    "importFile": "Importazzjoni tal-fajl",
+    "backupPassword": "BACKUP PASSWORD",
+    "account": "kont",
+    "accounts": "kontijiet",
+    "exportDescription": "Kriptaġġ {count} kollha ssejvjati {accountLabel} f'fajl ta' backup. KaalKey jiġġenera password unika; kopja u ssejvjaha separatament mill-fajl.",
+    "restoreDescription": "Agħżel il-fajl backup u l-password tiegħek KaalKey. Kontijiet ġodda se jiġu miżjuda mal-lista tal-kontijiet eżistenti tiegħek; kontijiet eżistenti se jibqgħu kif inhuma.",
+    "enterBackupPassword": "Daħħal il-password tal-backup",
+    "closeBackup": "Agħlaq backup",
+    "copyGeneratedBackup": "Ikkopja l-password tal-backup iġġenerat",
+    "backupPassword2": "Backup password",
+    "clearBackupPassword": "Password ta' backup ċara",
+    "backupFilePassword": "fajl backup u password jistgħu jirrestawraw il-kontijiet awtentikatur tiegħek.",
+    "encryptShareBackup": "Kriptaġġ u jaqsmu backup"
+  },
+  "home": {
+    "unlockSecurely": "Nisfruttaw b'mod sikur",
+    "disableAppLock": "Iddiżattiva l-lock tal-app",
+    "enableAppLock": "Ippermetti l-lock tal-app",
+    "checkingSecureLock": "Iċċekkja s-settings tal-lock sikur tiegħek. Il-kodiċijiet tiegħek jibqgħu moħbija.",
+    "waitingVerification": "Qed nistennew il-verifika...",
+    "secretsStayStored": "Is-sigrieti tiegħek jibqgħu maħżuna fuq dan l-apparat.",
+    "openAppSettings": "Iftaħ is-settings tal-app",
+    "versionLabel": "VERŻJONI",
+    "unlockRequirement": "Uża l-bijometrika jew screen-lock tat-telefon tiegħek PIN, il-mudell, jew il-password biex taċċessa l-kodiċi ta’ verifika ta’ darba tiegħek.",
+    "localVault": "IL-VULT LOKALI TIEGĦEK",
+    "codesDeviceControl": "Il-kodiċijiet tiegħek. It-tagħmir tiegħek. Kontroll tiegħek.",
+    "securingVault": "L-iżgurar tal-kaxxa-forti tiegħek...",
+    "vaultProtected": "Il-kaxxa-forti tiegħek hija protetta",
+    "lock": "LOCK ON",
+    "localVault2": "VAULT LOKALI",
+    "authenticator": "KAALKEY AWTENTIKATUR",
+    "tricolourLockEmblem": "KaalKey emblema tal-lock tricolor",
+    "authenticator2": "AWENTIKATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Jekk tagħżel li tiskennja kodiċi QR, KaalKey juża permess tal-kamera għal dik l-azzjoni. L-awtentikazzjoni tal-apparat fakultattiva u l-feedback haptic jużaw il-karatteristiċi rilevanti tal-apparat. Tista' timmaniġġja l-permessi fis-settings tat-tagħmir tiegħek.",
+        "heading": "2. Permessi u karatteristiċi tal-apparat"
+      },
+      "backups": {
+        "body": "Meta toħloq backup, KaalKey jikkripta l-backup billi tuża password li tagħżel. Żomm kemm il-fajl kif ukoll il-password privati ​​u aħżenhom b'mod sigur. Kull min jikseb il-fajl u l-password tiegħu jista 'jkun kapaċi jirrestawra l-kontijiet awtentikatur tiegħek. KaalKey ma jistax jirkupra password backup minsija.",
+        "heading": "3. Backups"
+      },
+      "security": {
+        "body": "Żomm it-tagħmir tiegħek aġġornat, ipproteġih b'lock tal-iskrin, u taqsamx OTP sigrieti jew passwords ta' backup. It-tneħħija tal-app, l-ikklerjar tad-dejta tagħha, jew it-telf tal-apparat jistgħu jagħmlu l-kontijiet maħżuna lokalment mhux disponibbli. Żomm backup sigur jekk għandek bżonn l-irkupru.",
+        "heading": "5. Sigurtà u żamma"
+      },
+      "information": {
+        "heading": "1. Informazzjoni u sigrieti",
+        "body": "KaalKey hija app awtentikatur. It-tikketti tal-kontijiet u l-valuri sigrieti meħtieġa biex jiġu ġġenerati kodiċi ta' darba huma sensittivi. L-app hija mfassla biex taħżen ir-rekords tal-kontijiet fil-ħażna sigura tal-apparat. Kull min għandu aċċess għal apparat mhux imsakkar jew backup esportat jista 'jkun kapaċi jaċċessa informazzjoni sensittiva."
+      },
+      "sharing": {
+        "heading": "4. Qsim u partijiet terzi",
+        "body": "Il-fluss tal-backup jista 'juża l-folja tal-ishma jew il-picker tal-fajls tat-tagħmir tiegħek biex issalva, tittrasferixxi jew tagħżel fajls. Il-prattiki tal-privatezza ta' kwalunkwe app jew servizz ta' parti terza li tagħżel huma rregolati minn dak il-fornitur. Dan l-avviż ma jagħmilx pretensjoni ġenerali li t-tagħmir tiegħek, is-sistema operattiva, jew is-servizzi ta' qsim magħżula qatt ma jipproċessaw id-dejta."
+      },
+      "changes": {
+        "heading": "6. Bidliet u kuntatt",
+        "body": "Dan l-avviż inkorporat jista' jiġi rivedut f'rilaxx ta' app futur. Għal mistoqsijiet dwar il-privatezza, ikkuntattja lill-pubblikatur tal-app permezz tal-kanal tal-appoġġ uffiċjali pprovdut mal-app."
+      },
+      "title": "Politika ta' Privatezza"
+    },
+    "terms": {
+      "use": {
+        "body": "Tista' tuża KaalKey biex tiġġenera kodiċi ta' verifika għall-kontijiet li int awtorizzat li taċċessa. Int responsabbli biex tikkonforma mal-liġijiet applikabbli u r-regoli tas-servizzi li għalihom tuża kodiċijiet ta' awtentikazzjoni.",
+        "heading": "1. L-użu tiegħek"
+      },
+      "protectAccounts": {
+        "body": "Int responsabbli biex tiżgura t-tagħmir tiegħek, is-sigrieti tal-awtentikatur, il-metodi ta 'rkupru, il-backups esportati, u l-passwords tal-backup. Taqsamx kodiċijiet jew sigrieti ma’ nies li ma tafdax.",
+        "heading": "2. Ipproteġi l-kontijiet tiegħek"
+      },
+      "availability": {
+        "body": "Il-karatteristiċi jistgħu jinbidlu bejn ir-rilaxxi. Għandek iżżomm l-app aġġornata u perjodikament tivverifika li l-arranġamenti tal-backup u l-irkupru tiegħek jaħdmu.",
+        "heading": "5. Bidliet u disponibbiltà"
+      },
+      "recovery": {
+        "body": "KaalKey ma jistax jiggarantixxi li kull kont jista' jiġi rkuprat, li kull QR kodiċi jew konfigurazzjoni se jkunu kompatibbli, jew li l-app se topera mingħajr interruzzjoni jew żball. Żomm metodi ta' rkupru alternattivi pprovduti mis-servizz rilevanti.",
+        "heading": "3. L-ebda garanzija ta 'rkupru"
+      },
+      "advice": {
+        "heading": "4. L-ebda parir professjonali",
+        "body": "L-app hija utilità u ma tipprovdix pariri legali, finanzjarji jew ta' sigurtà dwar rispons għall-inċidenti. Jekk kont jiġi kompromess, segwi l-gwida uffiċjali dwar l-irkupru u s-sigurtà tas-servizz affettwat."
+      },
+      "liability": {
+        "heading": "6. Responsabbiltà u liġi applikabbli",
+        "body": "Sal-limitu permess mil-liġi applikabbli, l-app hija pprovduta mingħajr garanzija ta' tħaddim bla interruzzjoni jew mingħajr żbalji. Xejn f'dawn it-termini ma jeskludi drittijiet jew rimedji li ma jistgħux jiġu esklużi legalment. Kwalunkwe limitazzjoni oħra jew termini tal-liġi regolatorja għandhom jiġu riveduti minn avukat kwalifikat għall-ġurisdizzjoni tal-pubblikatur qabel ir-rilaxx."
+      },
+      "title": "Termini ta' Użu"
+    },
+    "version": "Verżjoni",
+    "saving": "Insalva...",
+    "acceptContinue": "Aċċetta & Kompli",
+    "appliesAuthenticator": "Japplika għal KaalKey Awtentikatur",
+    "reviewBothDocuments": "Jekk jogħġbok irrevedi ż-żewġ dokumenti qabel tuża KaalKey. Huma inklużi fl-app u disponibbli offline.",
+    "originalMulticolourAuthenticator": "Emblema oriġinali ta' awtentikatur KaalKey b'ħafna kuluri",
+    "legalPrivacyNotice": "Avviż Legali u Privatezza",
+    "legalInformation": "Informazzjoni legali",
+    "reviewSPrivacy": "Irrevedi l-informazzjoni dwar il-privatezza u t-termini tal-użu ta’ KaalKey.",
+    "iReadAgree": "Qrajt u naqbel mal-Politika tal-Privatezza u t-Termini tal-Użu."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Żomm il-kodiċi QR kollu viżibbli. Is-sigriet tiegħek jibqa' fuq dan l-apparat.",
+    "back": "Lura",
+    "turnFlashlightOff": "Itfi l-flashlight",
+    "turnFlashlight": "Ixgħel il-flashlight",
+    "flashlight": "Flashlight mixgħula",
+    "flashlight2": "Flashlight",
+    "cameraUnavailableOpen": "Kamera mhux disponibbli. Iftaħ din il-paġna fuq HTTPS jew localhost u ħalli aċċess għall-kamera.",
+    "cameraPreviewUnavailable": "Preview camera mhix disponibbli. Agħlaq u terġa' tiftaħ l-iskaner.",
+    "cameraReadyPoint": "Kamera lesta — ippuntha lejn il-kodiċi QR sħiħ.",
+    "browserCannotProcess": "Dan il-browser ma jistax jipproċessa frames tal-kameras.",
+    "qrCodeDetected": "QR kodiċi misjub.",
+    "couldnTRead": "Ma setax jaqra frames tal-kameras. Iċċekkja l-permessi tal-kamera u erġa' tagħbija din il-paġna.",
+    "cameraPermissionDenied": "Permess tal-kamera miċħud. Ħalli l-aċċess tal-kamera fis-settings tal-browser, imbagħad iftaħ mill-ġdid l-iskaner.",
+    "noCameraWas": "Ma nstabet l-ebda kamera fuq dan l-apparat.",
+    "cameraBusyAnother": "Il-kamera hija okkupata f'app oħra jew tab tal-browser.",
+    "startCameraHttps": "Ma setgħetx tibda l-kamera. Uża HTTPS jew localhost u ċċekkja l-permessi tal-browser.",
+    "qrScannerCamera": "QR preview tal-kamera tal-iskaner",
+    "cameraUnavailableCheck": "Kamera mhux disponibbli. Iċċekkja l-permess tal-kamera u erġa' pprova.",
+    "pointCameraAuthenticator": "Ippunta l-kamera tiegħek lejn il-kodiċi tas-setup tal-awtentikatur QR mis-servizz li qed iżżid.",
+    "backAddAccount": "Lura biex iżżid kont",
+    "secureSetup": "SETUP SIGUR",
+    "enterDetailsManually": "Daħħal id-dettalji manwalment minflok"
+  },
+  "accountForm": {
+    "hideManualEntry": "Aħbi d-dħul manwali",
+    "secretKeySupplied": "Uża ċ-ċavetta sigrieta pprovduta mis-servizz li qed tikkonfigura. Qatt ma ddaħħal il-password tal-kont tiegħek hawn. Qabbel l-algoritmu, l-għadd taċ-ċifri, u l-intervall mal-istruzzjonijiet tas-setup tas-servizz.",
+    "updateServiceAccount": "Aġġorna s-servizz, l-isem tal-kont jew iċ-ċavetta sigrieta.",
+    "secretKeyRead": "Ċavetta sigrieta, tinqara biss waqt l-editjar",
+    "secretKeyBase32": "Ċavetta sigrieta fi Base32",
+    "digits": "ċifri",
+    "seconds": "sekondi",
+    "enterDetailsManually": "JEW DĦAL DETTALJI MANUALMENT",
+    "enterDetailsManually2": "Daħħal id-dettalji manwalment",
+    "serviceAccountName": "Servizz, isem tal-kont u ċavetta sigrieta",
+    "saveChangesSecurely": "Issejvja l-bidliet b'mod sigur",
+    "saveAccountSecurely": "Issejvja l-kont b'mod sigur",
+    "serviceIssuer": "Servizz jew emittent",
+    "accountName": "Isem tal-kont",
+    "secretKey": "Ċavetta sigrieta",
+    "serviceIssuer2": "SERVIZZ / EMITTENT",
+    "eGGoogle": "eż. Google",
+    "clearServiceIssuer": "Servizz ċar jew emittent",
+    "eGExample": "eż. you@example.com",
+    "clearAccountName": "Isem il-kont ċar",
+    "secretKeyLocked": "ĊAVET SIGRIETA (MAQKULA)",
+    "secretKeyBase322": "EWLENIN SIGRIETA (BASE32)",
+    "enterSetupKey": "Daħħal is-setup key tiegħek",
+    "clearSecretKey": "Ċavetta sigrieta ċara",
+    "otpAlgorithm": "OTP ALGORITM",
+    "otpDigits": "OTP ĊIFRI",
+    "refreshIntervalSeconds": "INTERVAL TA' AFFRESKAZZJONI (SEKONDI)",
+    "otpRefreshInterval": "OTP intervall ta' aġġornar f'sekondi",
+    "closeAccountForm": "Agħlaq il-formola tal-kont",
+    "totpSetupUrl": "TOTP setup URL",
+    "importSetupUrl": "Setup tal-importazzjoni URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "ISEM TAL-KONT",
+    "addAccount": "Żid kont"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Skennja l-kodiċi tal-awtentikatur QR.",
+    "setupGuidance": "Skennja kodiċi QR għall-eħfef setup, jew daħħal id-dettalji manwalment.",
+    "cameraAddAccount": "Uża l-kamera tiegħek biex iżżid kont istantanjament",
+    "scanQrCode2": "Skennja l-kodiċi QR.",
+    "uploadQrImage": "Tella QR immaġni",
+    "chooseQrScreenshot": "Agħżel screenshot QR mill-Gallerija, Ritratti, jew Fajls",
+    "pasteQr": "Pasta QR immaġni / URL",
+    "pasteCopiedQr": "Paste QR immaġni kkupjata jew setup ta' awtentikatur URL",
+    "uploadQrImage2": "Tella QR immaġini"
+  },
+  "accountQr": {
+    "close": "Agħlaq",
+    "accountQrCode": "Kodiċi tal-kont QR.",
+    "revealQrCode": "Ikxef il-kodiċi QR.",
+    "exportWarning": "Twissija: kull min jiskenja dan il-kodiċi QR jista' jiġġenera kodiċi ta' verifika għal dan il-kont. Żvelaha biss fuq skrin fdat.",
+    "privacyHint": "Żomm dan il-kodiċi QR privat. L-iskannjar tiegħu jikkopja s-sigriet tal-awtentikatur tal-kont."
+  },
+  "productInfo": {
+    "backupRestore": "Backup u restawr",
+    "backupRestoreDescription": "Agħmel backup tad-dejta tal-awtentikatur tiegħek u rrestawraha meta tmur għal apparat ieħor.",
+    "privacyDescription": "Żomm il-kontijiet ta' verifika tiegħek f'post wieħed. Uża l-għażliet tal-backup, ir-restawr u l-illokkjar tal-apparat tal-app biex timmaniġġja s-setup tiegħek b'mod responsabbli.",
+    "timeBasedCodes": "Kodiċijiet ibbażati fuq il-ħin",
+    "generateOneTimeCodes": "Iġġenera passcodes li jduru ta' darba għall-kontijiet tiegħek biex tlesti l-verifika f'żewġ passi.",
+    "quickAccountSetup": "Setup tal-kont malajr",
+    "quickSetupDescription": "Skennja kodiċi awtentikatur QR jew importa immaġini QR biex iżżid kont.",
+    "accountsOnePlace": "Kontijiet f'post wieħed",
+    "accountsInOnePlaceDescription": "Żomm il-kontijiet salvati tiegħek flimkien u sib id-dħul it-tajjeb meta jkun iż-żmien li tidħol.",
+    "privateAccountVault": "Vault tal-kont privat",
+    "privateVaultDescription": "Immaniġġja l-entrati tal-awtentikatur tiegħek lokalment u uża l-għażla disponibbli tal-app tal-lock tal-apparat.",
+    "easyCodeAccess": "Aċċess faċli għall-kodiċi",
+    "easyCodeAccessDescription": "Ikkopja kodiċi kurrenti jew immaniġġja d-dettalji tal-kont permezz ta’ interface nadif u ffukat.",
+    "authenticatorTechsivaram": "AWTENTIKATUR · MINN TECHSIVARAM",
+    "mobileAuthenticator": "L-AWENTIKATUR MOBILE TIEGĦEK",
+    "tagline": "Mod aktar sempliċi biex timmaniġġja l-verifika tiegħek f'żewġ passi.",
+    "heroDescription": "Esperjenza ta' awtentikatur iffukata għal kodiċijiet ta' verifika bbażati fuq il-ħin. Żomm kodiċijiet tal-kont kompatibbli fil-qrib ma' KaalKey għal Android.",
+    "timeBasedCodes2": "KODIĊIJIET BBAŻATI FUQ IL-ĦIN",
+    "privateDesign": "PRIVAT MILL-DISINN",
+    "builtSimpleAuthenticator": "MINNHA GĦAL FLUSS TA' XOGĦOL SEMPLIĊI TA' AWTENTIKATUR",
+    "qrSetupTimed": "QR SETUP · KODIĊIJIET TIMED · ĠESTJONI TAL-KONT",
+    "privacyTitle": "Il-kontijiet tiegħek. Il-kodiċijiet tiegħek. Kontroll tiegħek.",
+    "authenticator": "KAALKEY · AWTENTIKATUR",
+    "brandBanner": "KaalKey banner tad-ditta",
+    "logo": "KaalKey logo"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Ikkanċella",
+      "storageInvalidTitle": "Data tal-ħażna invalida",
+      "storageInvalidBody": "Id-dejta tal-kont issejvjata ma setgħetx tinqara mingħajr periklu.",
+      "storageErrorTitle": "Żball fil-ħażna",
+      "storageErrorBody": "Kontijiet salvati ma setgħux jitgħabbew.",
+      "missingTitle": "Informazzjoni nieqsa",
+      "missingEditingBody": "Daħħal l-isem tas-servizz u l-isem tal-kont.",
+      "missingBody": "Daħħal l-isem tas-servizz, l-isem tal-kont, u ċ-ċavetta sigrieta.",
+      "invalidOtpBody": "Iċċekkja s-sigriet Base32, l-algoritmu, l-għadd taċ-ċifri, u l-perjodu ta’ aġġornar. Is-sigrieti għandu jkun fihom Base32 karattri validi; iċ-ċifri għandhom ikunu {digits} u l-perjodu għandu jkun {minPeriod}–{maxPeriod} sekondi.",
+      "duplicateBody": "Kont b'dan is-servizz u l-isem tal-kont diġà huwa ssejvjat.",
+      "updatedBody": "Il-kont tiegħek ġie aġġornat.",
+      "addedBody": "Il-kont tiegħek ġie miżjud b'mod sigur.",
+      "invalidOtpTitle": "OTP settings mhux validi",
+      "duplicateTitle": "Kont diġà jeżisti",
+      "savedTitle": "Kont issejvjat",
+      "invalidSecretTitle": "Ċavetta sigrieta mhux valida",
+      "invalidSecretBody": "Jekk jogħġbok iċċekkja li daħħalt sigriet Base32 validu.",
+      "removedTitle": "Kont imneħħi",
+      "removedBody": "Il-kont u s-sigriet tiegħu tneħħew minn dan l-apparat.",
+      "clearedTitle": "Kontijiet ikklerjati",
+      "clearedBody": "Il-kontijiet u s-sigrieti kollha tal-awtentikatur tneħħew minn dan l-apparat.",
+      "someSavedAccountsNeedAttentionTitle": "Xi kontijiet salvati jeħtieġu attenzjoni",
+      "someSavedAccountsNeedAttentionBody": "{count} rekord(i) tal-kont invalidi ma tgħabbewx. Kontijiet validi jibqgħu disponibbli. Ikkunsidra li toħloq backup qabel ma tagħmel aktar bidliet.",
+      "removeConfirmTitle": "Neħħi kont?",
+      "removeConfirmWebTitle": "Neħħi kont?",
+      "removeButton": "Neħħi",
+      "clearButton": "Ċara kollox",
+      "clearConfirmTitle": "Tnaddaf il-kontijiet kollha?",
+      "saveErrorBody": "Il-kontijiet ma setgħux jiġu salvati. Iċċekkja d-disponibbiltà tal-ħażna tal-browser u erġa' pprova.",
+      "notFoundTitle": "Kont ma nstabx",
+      "notFoundBody": "Dan il-kont ma setax jinstab. Agħlaq l-editur u erġa' pprova.",
+      "removeConfirmBody": "Dan ineħħi l-kont u s-sigriet tiegħu minn dan l-apparat.",
+      "clearConfirmBody": "Dan ineħħi b'mod permanenti l-kontijiet kollha tal-awtentikatur u s-sigrieti tagħhom minn dan l-apparat. Oħloq backup ikkodifikat l-ewwel jekk jista 'jkollok bżonn dawn il-kontijiet aktar tard.",
+      "clearConfirmUndoBody": "Dan ma jistax jitneħħa."
+    },
+    "biometric": {
+      "cancelButton": "Ikkanċella",
+      "saveErrorTitle": "Ma setgħetx issalva l-issettjar",
+      "unlockPrompt": "Nisfruttaw KaalKey Awtentikatur",
+      "promptSubtitle": "Uża l-bijometrika jew il-lock tal-iskrin tat-tagħmir tiegħek",
+      "disableConfirmPrompt": "Ikkonferma li titfi KaalKey app lock",
+      "enablePrompt": "Ippermetti l-illokkjar tal-app għal KaalKey",
+      "deviceLockTitle": "Issettja l-lock tal-iskrin tat-tagħmir tiegħek",
+      "deviceLockBody": "KaalKey juża l-awtentikazzjoni integrata tat-telefon tiegħek. Issettja apparat PIN, mudell, jew password fis-settings tas-sigurtà tat-telefon tiegħek, imbagħad erġa' pprova. Il-bijometriċi huma fakultattivi.",
+      "unavailableTitle": "Awtentikazzjoni tat-tagħmir mhux disponibbli",
+      "unavailableBody": "It-telefon tiegħek ma setax jibda awtentikazzjoni sigura. Iċċekkja li lock tal-iskrin tat-tagħmir huwa kkonfigurat, imbagħad erġa' pprova.",
+      "lockedTitle": "Awtentikazzjoni msakkra temporanjament",
+      "lockedBody": "It-telefon tiegħek iddiżattiva l-awtentikazzjoni temporanjament wara wisq tentattivi. Stenna u erġa' pprova.",
+      "promptErrorTitle": "Awtentikazzjoni mhux disponibbli",
+      "promptErrorBody": "KaalKey ma setax jibda l-pront ta' awtentikazzjoni sigura tat-telefon. Jekk jogħġbok erġa' pprova.",
+      "webLock": "Il-lock tal-awtentikazzjoni tal-apparat għadu mhux disponibbli fil-verżjoni tal-web. Il-kaxxa-forti tal-web jibqa' miftuħ; uża l-Android app għall-awtentikazzjoni tal-apparat nattiv.",
+      "disabledTitle": "App lock diżattivat",
+      "disabledBody": "KaalKey app lock ġie mitfi.",
+      "disableSaveError": "Il-lock tal-app jibqa' attivat. Jekk jogħġbok erġa' pprova.",
+      "enabledTitle": "App lock attivat",
+      "enabledBody": "KaalKey se jitlob l-awtentikazzjoni integrata tat-telefon tiegħek meta jinfetaħ u meta terġa' lura għalih.",
+      "enableSaveError": "App lock ma setax jiġi attivat. Jekk jogħġbok erġa' pprova."
+    },
+    "qr": {
+      "startingCamera": "Nibda l-kamera...",
+      "unsupportedTitle": "Kodiċi QR mhux appoġġjat",
+      "unsupportedBody": "Skennja l-kodiċi tas-setup tal-awtentikatur QR ipprovdut mis-servizz. Dan għandu jkun kodiċi TOTP, mhux kodiċi QR tal-login normali.",
+      "unsupportedDiagnostic": "Dak QR mhuwiex kodiċi ta’ setup TOTP. Immira lejn setup ta' awtentikatur QR.",
+      "detectedDiagnostic": "QR misjuba. Qed tanalizza...",
+      "analyzing": "L-analiżi tal-kodiċi QR...",
+      "duplicateTitle": "Kont diġà miżjud",
+      "duplicateBody": "{issuer}: {account} diġà jinsab fi KaalKey.",
+      "addedTitle": "Kont miżjud",
+      "addedBody": "{issuer}: {account} ġie miżjud b'suċċess.",
+      "saveFailedDiagnostic": "Ma setax isalva l-kont. Tista' terġa' tiskennja.",
+      "invalidTitle": "Kodiċi QR mhux validu",
+      "invalidBody": "KaalKey ma setax janalizza dan il-kodiċi awtentikatur QR. {detail}. Uża TOTP setup tas-servizz QR kodiċi (ġeneralment jibda b'{prefix}).",
+      "parseFailedDiagnostic": "QR ma setgħetx tiġi pproċessata. Immira lejn is-setup QR u erġa' pprova.",
+      "invalidUrlTitle": "TOTP URL mhux validu",
+      "invalidUrlBody": "Paste awtentikatur komplut URL li jibda b'{prefix}.",
+      "clipboardEmptyTitle": "Clipboard huwa vojt",
+      "clipboardEmptyBody": "Ikkopja {prefix} URL l-ewwel, imbagħad tektek Paste TOTP URL.",
+      "clipboardErrorTitle": "Ma setax jaqra clipboard",
+      "clipboardErrorBody": "Ikkopja s-setup TOTP URL u erġa' pprova."
+    },
+    "haptics": {
+      "saveFailedTitle": "Ma setgħetx issalva l-issettjar",
+      "saveFailedBody": "Il-preferenza ta' feedback haptic ma setgħetx tiġi salvata. Jekk jogħġbok erġa' pprova."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Ma setgħetx tissejvja rikonoxximent",
+      "saveFailedBody": "Jekk jogħġbok erġa' pprova. Trid taċċetta l-avviż legali qabel tuża KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Meħtieġ permess tal-kamera",
+      "body": "Ħalli l-aċċess tal-kamera biex tiskennja kodiċi QR tas-setup ta' awtentikatur."
+    },
+    "storage": {
+      "browserUnavailable": "Il-ħażna tal-browser mhix disponibbli.",
+      "browserFilePickerUnavailable": "Il-picker tal-fajl tal-browser mhux disponibbli."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Fajl mhux appoġġjat",
+      "unsupportedFileBody": "Agħżel immaġini ta' kodiċi QR bħal PNG jew JPEG.",
+      "browserDecoderUnavailable": "Id-dekodifikazzjoni tal-immaġni tal-browser mhix disponibbli",
+      "imageLoadFailed": "L-immaġni ma setgħetx titgħabba",
+      "unreadableDimensions": "L-immaġni m'għandha l-ebda dimensjoni li tinqara",
+      "noQrCodeFoundTitle": "L-ebda kodiċi QR ma nstab",
+      "noQrCodeFoundBody": "KaalKey ma setax jiddekodifika kodiċi QR f'din l-immaġni. Ipprova screenshot jew PNG/JPEG b'riżoluzzjoni ogħla.",
+      "couldNotReadImageTitle": "Ma setgħetx taqra l-immaġni",
+      "couldNotReadImageBody": "Ipprova immaġni ċara PNG jew JPEG li fiha l-kodiċi tas-setup tal-awtentikatur QR.",
+      "couldNotOpenPickerTitle": "Ma setgħetx tiftaħ il-picker tal-immaġni",
+      "couldNotOpenPickerBody": "Jekk jogħġbok ipprova Ittella QR mill-ġdid.",
+      "normalizedDecodeFailed": "Immaġini normalizzata ma setgħetx tiġi dekodifikata",
+      "clipboardImageLoadFailed": "L-immaġni tal-clipboard ma setgħetx titgħabba",
+      "imageProcessingUnavailable": "L-ipproċessar tal-immaġni mhuwiex disponibbli",
+      "imageProcessingUnavailableAlt": "L-ipproċessar tal-immaġni mhux disponibbli",
+      "noImageInClipboardTitle": "L-ebda immaġni fil-clipboard",
+      "noImageInClipboardBody": "Ikkopja immaġni tal-kodiċi QR, imbagħad tektek Paste QR Immaġni mill-ġdid.",
+      "clipboardUnavailableTitle": "Clipboard mhux disponibbli",
+      "clipboardUnavailableBody": "It-test tal-clipboard mhuwiex setup validu ta' awtentikatur URL. Ikkopja immaġni otpauth:// URL jew QR u erġa' pprova.",
+      "clipboardAccessBody": "KaalKey ma setax jaqra test jew immaġni mill-clipboard. Ħalli l-aċċess għall-clipboard, imbagħad ikkopja l-immaġni QR jew otpauth:// URL u tektek Paste QR Image / URL mill-ġdid.",
+      "couldNotPasteImageTitle": "Ma setgħetx tippejstja l-immaġni",
+      "couldNotPasteImageBody": "It-twaħħil tal-immaġni mhuwiex appoġġjat minn dan il-clipboard fuq dan it-tagħmir. Uża l-Importa QR immaġini minflok.",
+      "sourceImageDecodeFailure": "Ipprova immaġini QR differenti.",
+      "pastedImportFailureBody": "Ipprova immaġini QR differenti.",
+      "sourceImageReadFailure": "Ipprova kkupja screenshot ċara ta' QR.",
+      "importFailedTitle": "L-importazzjoni tal-immaġni QR falliet",
+      "importFailedBody": "KaalKey ma setax jaqra dik l-immaġni. Jekk jogħġbok ipprova immaġni tal-kodiċi QR oħra.",
+      "notFoundBody": "L-immaġni kkupjata ma fiha kodiċi QR li jista' jinqara.",
+      "pastedNotFoundBody": "L-immaġni pasted ma fiha kodiċi QR li jista' jinqara.",
+      "pastedReadFailureBody": "Ipprova kkupja immaġni ċara PNG jew JPEG li fiha l-kodiċi QR sħiħ.",
+      "noQrCodeTextBody": "KaalKey iddekodifika l-immaġni magħżula iżda ma sabx kodiċi QR. Ipprova PNG jew JPEG ċar u b'riżoluzzjoni sħiħa bil-kodiċi kollu viżibbli."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Dan il-kodiċi QR mhuwiex kodiċi ta' setup ta' awtentikatur ibbażat fuq il-ħin.",
+      "missingAccountDetails": "Il-kodiċi QR huwa nieqes id-dettalji tal-kont.",
+      "unsupportedAlgorithm": "Il-kodiċi QR juża algoritmu mhux appoġġjat.",
+      "unsupportedDigits": "Dan il-kodiċi QR irid juża 6, 7, jew 8 ċifri.",
+      "unsupportedPeriod": "Dan il-kodiċi QR juża perjodu ta' żmien mhux appoġġjat.",
+      "invalidAccount": "Il-kodiċi QR ma setax jiġi vvalidat."
+    },
+    "backup": {
+      "invalidJson": "Il-fajl tal-backup mhuwiex validu JSON.",
+      "unsupportedFormat": "Din mhix backup kodifikat KaalKey appoġġjat.",
+      "invalidPasswordOrDamaged": "Il-password tal-backup mhix korretta jew il-fajl tal-backup huwa bil-ħsara.",
+      "invalidContents": "Il-kontenut tal-backup huwa invalidu jew mhux komplut.",
+      "secureRandomUnavailableDetailed": "Ġenerazzjoni każwali sigura mhix disponibbli. Ibni mill-ġdid u installa mill-ġdid l-appli Android b'expo-crypto inkluż, imbagħad erġa' pprova.",
+      "invalidAccountDataForBackup": "Kont wieħed jew aktar huma invalidi. Waħħal id-dejta tal-kont qabel ma toħloq backup.",
+      "invalidPasswordOrModified": "Il-password tal-backup mhix korretta jew il-fajl tal-backup ġie modifikat.",
+      "invalidPasswordOrFileDamaged": "Il-password tal-backup mhix korretta jew il-fajl ikun bil-ħsara.",
+      "passwordCopiedTitle": "Password kkupjata",
+      "enterPasswordTitle": "Daħħal il-password tal-backup tiegħek",
+      "enterPasswordBody": "Daħħal il-password użata meta nħolqot din il-backup.",
+      "passwordCopiedBody": "Issejvjah xi mkien sigur, bħal WhatsApp.",
+      "copyFailedTitle": "Il-kopja falliet",
+      "copyFailedBody": "Agħżel u kkopja l-password manwalment.",
+      "generatingPassword": "Tiġġenera password ta' backup sigura...",
+      "encrypting": "Kriptaġġ tal-backup...",
+      "decrypting": "Decrypting backup...",
+      "restoring": "Nirrestawraw il-kontijiet...",
+      "backupCreatedTitle": "Backup maħluqa",
+      "restoreCompleteTitle": "Restore kompluta",
+      "mergeConfirmTitle": "Jingħaqdu kontijiet backup?",
+      "mergeConfirmButton": "Għaqda kontijiet",
+      "backupSavedTemporary": "Backup kriptat salvat temporanjament fi:\n{uri}",
+      "generatePasswordErrorTitle": "Ma setgħetx tiġġenera password backup",
+      "secureRandomUnavailable": "Ġenerazzjoni każwali sigura mhix disponibbli.",
+      "passwordUnavailableTitle": "Password ta' backup mhux disponibbli",
+      "passwordUnavailableBody": "Agħlaq dan id-djalogu u oħloq backup ġdid biex tiġġenera password sigura.",
+      "backupDownloadedBody": "Il-backup KaalKey ikkodifikat tiegħek ġie mniżżel. Żomm il-fajl u l-password privati.",
+      "backupFailedTitle": "Il-backup falla",
+      "backupCreateErrorBody": "KaalKey ma setgħetx toħloq il-backup.",
+      "restoreFailedTitle": "Ir-restawr falla",
+      "backupReadErrorBody": "Il-backup ma setgħetx tinqara jew tissejvja.",
+      "browserDownloadUnsupported": "Il-browser tiegħek ma jappoġġjax it-tniżżil ta' fajls ta' backup.",
+      "localFileUnavailable": "Post tal-fajl lokali mhuwiex disponibbli fuq dan it-tagħmir.",
+      "saveBackupTitle": "Issejvja l-backup KaalKey ikkodifikat tiegħek"
+    },
+    "clipboard": {
+      "copiedTitle": "Kodiċi kkupjat",
+      "copiedBody": "Il-kodiċi ta' verifika tiegħek ġie kkupjat.",
+      "errorTitle": "Żball",
+      "errorBody": "Ma setgħetx tikkopja l-kodiċi tal-verifika."
+    },
+    "activity": {
+      "cameraReady": "Kamera lesta. Ippuntha lejn il-kodiċi awtentikatur QR.",
+      "readingQrImage": "Qari ta' QR immaġini...",
+      "importingQrImage": "Qed tiġi importata QR immaġini...",
+      "importingAccount": "Importazzjoni tal-kont tal-awtentikatur...",
+      "importingPastedImage": "L-importazzjoni ta' QR immaġini pasted..."
+    }
+  },
+  "activity": {
+    "working": "Ħidma",
+    "wait": "Jekk jogħġbok stenna...",
+    "donTClose": "Jekk jogħġbok tagħlaqx jew tinteraġixxix ma' KaalKey.",
+    "loadingLanguages": "Qiegħed ittella' l-lingwi disponibbli...",
+    "loadingTranslation": "Qiegħed it-traduzzjoni..."
+  }
+}

@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Ulwimi",
+      "description": "Khetha ulwimi olusetyenziswe ku-KaalKey.",
+      "english": "IsiNgesi",
+      "telugu": "IsiTelugu",
+      "hindi": "IsiHindi",
+      "section": "ULWIMI",
+      "searchLanguageName": "Phendla ulwimi (igama okanye ikhowudi)",
+      "searchSupportedLanguages": "Phendla iilwimi ezixhaswayo",
+      "closeLanguageDropdown": "Vala ukwehla kolwimi",
+      "noTranslatedLanguage": "Akukho lwimi luguqulelweyo lufunyenweyo.",
+      "serverUrl": "Iseva yoguqulo URL",
+      "serverUrlDescription": "KaalKey khuphela uluhlu lweelwimi kunye neenguqulelo kule seva.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Gcina iseva yoguqulelo"
+    },
+    "title": "Useto lwe-app",
+    "eyebrow": "KAALKEY IMISEBENZI",
+    "experience": {
+      "section": "AMAVA"
+    },
+    "security": {
+      "section": "UKHUSELEKO"
+    },
+    "backup": {
+      "section": "UKUBEKA & UKUBUYISELWA"
+    },
+    "danger": {
+      "section": "INDAWO YOBUNGOZI",
+      "clearAccounts": "Coca zonke ii-akhawunti",
+      "clearAccountsDescription": "Susa ngokusisigxina yonke iakhawunti kunye nemfihlo kwesi sixhobo. Gcina umqolo kuqala.",
+      "clearAccountsAccessibilityLabel": "Cima zonke ii-akhawunti zomqinisekisi"
+    },
+    "appearance": {
+      "section": "INKCAZELO",
+      "title": "Imbonakalo yokukhanya",
+      "description": "KaalKey okwangoku isebenzisa umxholo wokukhanya ococekileyo."
+    },
+    "haptics": {
+      "title": "Impendulo yeHaptic",
+      "description": "Impendulo ethambileyo yeetephu kunye nezenzo ezigqityiweyo."
+    },
+    "deviceLock": {
+      "title": "Isitshixo soqinisekiso lwesixhobo",
+      "description": "Ivault yakho iyatshixa xa KaalKey ishiya umphambili.",
+      "requirement": "Funa ibhayometriki yefowuni yakho okanye ukutshixa isikrini PIN, ipateni, okanye igama lokugqitha.",
+      "accessibilityLabel": "Isixhobo sokuqinisekisa i-app lock"
+    },
+    "privacy": {
+      "title": "Ezomthetho & nemfihlo",
+      "description": "Hlaziya uMgaqo-nkqubo waBucala kunye neMiqathango yokuSetyenziswa.",
+      "storageNote": "Iimfihlo zakho zokunyanisekisa zihlala kwindawo ekhuselekileyo yesixhobo. Ezikhethwayo zigcinwa kwindawo."
+    }
+  },
+  "accounts": {
+    "edit": "Hlela",
+    "sortAccountName": "Hlela ngegama le-akhawunti",
+    "loadingSecureVault": "Ilayisha ivault ekhuselekileyo...",
+    "tapCopy": "THEPHA UKUZE UKOPE",
+    "noAccountsMatch": "Akukho akhawunti zihambelana nophendlo lwakho.",
+    "viewQrCode": "Jonga QR ikhowudi ye-akhawunti",
+    "removeAccount": "Susa iakhawunti",
+    "copyVerificationCode": "Kopa ikhowudi yokuqinisekisa",
+    "active": "IYASEBENZA",
+    "sort": "HLUNGA NGO",
+    "account": "Iakhawunti",
+    "clearSearch": "Cima uphendlo",
+    "sortServiceName": "Hlela ngegama lenkonzo",
+    "addFirstAccount": "Yongeza iakhawunti yakho yokuqala",
+    "searchAccounts": "Phendla ii-akhawunti",
+    "searchServiceAccount": "Khangela inkonzo okanye iakhawunti",
+    "accounts": "Iiakhawunti zakho",
+    "add": "+ Yongeza",
+    "vaultStartsHere": "Igumbi lakho lokulala liqala apha",
+    "service": "Inkonzo",
+    "emptyHint": "Yongeza iakhawunti usebenzisa isitshixo sayo esiyimfihlo ukwenza ikhowudi yakho yokuqala yokuqinisekisa."
+  },
+  "common": {
+    "done": "Ugqibile",
+    "doneButton": "Ugqibile",
+    "closeSettings": "Vala iisetingi",
+    "separator": "-",
+    "article": "a",
+    "save": "Gcina",
+    "delete": "Cima",
+    "resizeAppBrand": "Hlaziya usetyenziso kunye neepaneli zebhrendi"
+  },
+  "qrImport": {
+    "readPastedImage": "Ayikwazanga ukufunda umfanekiso oncamathisiweyo"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Iiakhawunti kolu gcino: {count}. KaalKey uya kugcina ii-akhawunti zakho esele zikhona kwaye wongeze naziphi na ii-akhawunti ezingekhoyo. Iiakhawunti eziphindiweyo ziya kutsitywa.",
+    "restoreCompletionBody": "Iiakhawunti zongezwa: {added}. Iiakhawunti eziphindiweyo zitsityiwe: {skipped}. Iiakhawunti zakho ezikhoyo ziye zagcinwa.",
+    "copyPassword": "Khuphela igama lokugqithisa elenziwe",
+    "passwordSafety": "Gcina eli gama lokugqithisa ngokwahlukeneyo (umzekelo, kwi WhatsApp). Nabani na onazo zombini",
+    "importAction": "Khetha ifayile kwaye ungenise",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "I-VAULT EKHUSELEKILEYO",
+    "createBackup": "Yenza i-backup",
+    "encryptedFile": "Ifayile efihliweyo",
+    "restoreBackup": "Buyisela i-backup",
+    "safetyNote": "Ugcino luqulathe iimfihlo zakho zomqinisekisi. KaalKey yenza igama eliyimfihlo elikhethekileyo kugcino ngalunye. Yigcine ngokwahlukeneyo; KaalKey akakwazi ukuyibuyisela.",
+    "generatingSecurePassword": "Ivelisa igama eliyimfihlo elikhuselekileyo...",
+    "importFile": "Thatha ngaphandle ifayile",
+    "backupPassword": "IPASWEDI EYAQINA",
+    "account": "iakhawunti",
+    "accounts": "akhawunti",
+    "exportDescription": "Fihla zonke {count} zigciniwe {accountLabel} kwifayile yokugcina. KaalKey yenza igama eliyimfihlo elilodwa; khuphela kwaye uyigcine ngokwahlukileyo kwifayile.",
+    "restoreDescription": "Khetha KaalKey ifayile elilalela kunye negama lokugqitha. Iiakhawunti ezintsha ziya kongezwa kuluhlu lweakhawunti yakho ekhoyo; akhawunti ezikhoyo ziya kuhlala njengoko zinjalo.",
+    "enterBackupPassword": "Faka igama eliyimfihlo eliyimfihlo",
+    "closeBackup": "Vala ugcino",
+    "copyGeneratedBackup": "Khuphela igama eligqithisiweyo eligciniweyo elenziwe",
+    "backupPassword2": "Gcina igama lokugqitha",
+    "clearBackupPassword": "Cima igama eliyimfihlo eliyimfihlo",
+    "backupFilePassword": "ifayile egciniweyo kunye negama lokugqitha inokubuyisela iiakhawunti zakho zomqinisekisi.",
+    "encryptShareBackup": "Fihla kwaye wabelane nge-backup"
+  },
+  "home": {
+    "unlockSecurely": "Vula ngokukhuselekileyo",
+    "disableAppLock": "Khubaza i-app lock",
+    "enableAppLock": "Vula i-app lock",
+    "checkingSecureLock": "Ukujonga useto lwakho lokutshixa olukhuselekileyo. Iikhowudi zakho zihlala zifihliwe.",
+    "waitingVerification": "Ilinde ukuqinisekiswa...",
+    "secretsStayStored": "Iimfihlo zakho zihlala zigcinwe kwesi sixhobo.",
+    "openAppSettings": "Vula useto losetyenziso",
+    "versionLabel": "IVERSION",
+    "unlockRequirement": "Sebenzisa ibhayometriki yefowuni yakho okanye ukutshixa isikrini PIN, ipateni, okanye igama eliyimfihlo ukufikelela kwiikhowudi zakho zokuqinisekisa okwexesha elinye.",
+    "localVault": "I-VAUL YAKHO YASEKHAYA",
+    "codesDeviceControl": "Iikhowudi zakho. Isixhobo sakho. Ulawulo lwakho.",
+    "securingVault": "Ukukhusela ivault yakho...",
+    "vaultProtected": "Ivault yakho ikhuselwe",
+    "lock": "TSHIXA",
+    "localVault2": "I-VAULT YASEKHAYA",
+    "authenticator": "KAALKEY UMQINISEKISI",
+    "tricolourLockEmblem": "KaalKey i-emblem ye-tricolor lock",
+    "authenticator2": "UMQINISEKISI"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Ukuba ukhetha ukuskena ikhowudi QR, KaalKey isebenzisa imvume yekhamera kweso senzo. Ungqinisiso lwesixhobo esikhethwayo kunye nengxelo ye-haptic sebenzisa iimpawu zesixhobo ezifanelekileyo. Ungalawula iimvume kwiisetingi zesixhobo sakho.",
+        "heading": "2. Iimvume kunye nezixhobo zesixhobo"
+      },
+      "backups": {
+        "body": "Xa usenza ugcino, KaalKey ufihla ugcino usebenzisa igama eliyimfihlo olikhethileyo. Gcina zombini ifayile kunye negama lokugqitha ngasese kwaye uzigcine ngokukhuselekileyo. Nabani na ofumana ifayile kunye negama eligqithisiweyo layo unokukwazi ukubuyisela ii-akhawunti zakho zokuqinisekisa. KaalKey akakwazi ukuphinda alifumane igama eligqithisiweyo eligcinwayo elilityelweyo.",
+        "heading": "3. Iikopi"
+      },
+      "security": {
+        "body": "Gcina isixhobo sakho sihlaziyiwe, sikhusele ngesitshixo sesikrini, kwaye ungabelani OTP ngeemfihlo okanye amagama ayimfihlo. Ukususa i-app, ukucima idatha yayo, okanye ukuphulukana nesixhobo kunokwenza ii-akhawunti ezigcinwe ekuhlaleni zingafumaneki. Gcina i-backup ekhuselekileyo ukuba ufuna ukuchacha.",
+        "heading": "5. Ukhuseleko kunye nokugcinwa"
+      },
+      "information": {
+        "heading": "1. Ulwazi kunye neemfihlo",
+        "body": "KaalKey yi-app yenyani. Iileyibhile zeakhawunti kunye namaxabiso ayimfihlo afunekayo ukwenza iikhowudi zexesha elinye abuthathaka. I-app yenzelwe ukugcina iirekhodi zeakhawunti kwindawo yokugcina ekhuselekileyo yesixhobo. Nabani na onofikelelo kwisixhobo esivuliweyo okanye ugcino oluthunyelwe ngaphandle angakwazi ukufikelela kulwazi olubuthathaka."
+      },
+      "sharing": {
+        "heading": "4. Ukwabelana kunye namaqela esithathu",
+        "body": "Ukuqukuqela kogcino kunokusebenzisa iphepha lokwabelana lesixhobo sakho okanye isicholi sefayile ukugcina, ukudlulisela, okanye ukukhetha iifayile. Iinkqubo zabucala zayo nayiphi na i-app yomntu wesithathu okanye inkonzo oyikhethayo ilawulwa ngumboneleli. Esi saziso asenzi ibango elipheleleyo lokuba isixhobo sakho, inkqubo yokusebenza, okanye iinkonzo zokwabelana ezikhethiweyo azize zisebenze idatha."
+      },
+      "changes": {
+        "heading": "6. Utshintsho kunye noqhagamshelwano",
+        "body": "Esi saziso sihlonyelweyo sinokuphinda sihlaziywe kukhupho losetyenziso lwexesha elizayo. Ngemibuzo yabucala, qhakamshelana nomshicileli we-app usebenzisa ijelo lenkxaso elisemthethweni elinikwe ne-app."
+      },
+      "title": "Umgaqo-nkqubo wabucala"
+    },
+    "terms": {
+      "use": {
+        "body": "Ungasebenzisa KaalKey ukuvelisa iikhowudi zokuqinisekisa kwii-akhawunti ogunyaziswe ukufikelela kuzo. Unoxanduva lokuthobela imithetho esebenzayo kunye nemigaqo yeenkonzo ozisebenzisayo iikhowudi zokuqinisekisa.",
+        "heading": "1. Ukusebenzisa kwakho"
+      },
+      "protectAccounts": {
+        "body": "Unoxanduva lokukhusela isixhobo sakho, iimfihlo zokunyanisekisa, iindlela zokubuyisela kwakhona, ii-backups ezithunyelwa ngaphandle, kunye namagama ayimfihlo. Musa ukwabelana ngeekhowudi okanye iimfihlo nabantu ongabathembiyo.",
+        "heading": "2. Khusela iiakhawunti zakho"
+      },
+      "availability": {
+        "body": "Iimpawu zinokutshintsha phakathi kokukhutshwa. Kuya kufuneka ugcine i-app ihlaziywa kwaye uqinisekise ngamaxesha ukuba amalungiselelo akho ogcino kunye nokubuyisela ayasebenza.",
+        "heading": "5. Utshintsho kunye nokufumaneka"
+      },
+      "recovery": {
+        "body": "KaalKey ayinakuqinisekisa ukuba yonke i-akhawunti inokufunyanwa kwakhona, ukuba yonke QR ikhowudi okanye ulungelelwaniso luya kuhambelana, okanye usetyenziso luya kusebenza ngaphandle kokuphazamiseka okanye impazamo. Gcina ezinye iindlela zokubuyisela ezinikezelwa yinkonzo efanelekileyo.",
+        "heading": "3. Akukho siqinisekiso sokubuyisela"
+      },
+      "advice": {
+        "heading": "4. Akukho ngcebiso yobungcali",
+        "body": "I-app iluncedo kwaye ayinikezeli ngengcebiso yezomthetho, yezemali, okanye yokhuseleko kwisehlo-impendulo. Ukuba i-akhawunti iphazamisekile, landela inkonzo echaphazelekayo yokubuyisela kunye nesikhokelo sokhuseleko."
+      },
+      "liability": {
+        "heading": "6. Ubutyala kunye nomthetho osebenzayo",
+        "body": "Ukuya kutsho kumda ovunyelwe ngumthetho osebenzayo, i-app ibonelelwa ngaphandle kwesiqinisekiso sokungaphazanyiswa okanye ukusebenza ngaphandle kweempazamo. Akukho nto kule migaqo ikhuphela ngaphandle amalungelo okanye izilungiso ezingenako ukukhutshelwa ngaphandle ngokusemthethweni. Nayiphi na eminye imida okanye imigaqo yomthetho olawulayo kufuneka ihlaziywe ligqwetha eliqeqeshiweyo kulawulo lompapashi ngaphambi kokukhululwa."
+      },
+      "title": "Imigaqo yokusebenzisa"
+    },
+    "version": "Inguqulelo",
+    "saving": "Iyagcina...",
+    "acceptContinue": "Yamkela & Qhuba",
+    "appliesAuthenticator": "Isebenza ku KaalKey uMqinisekisi",
+    "reviewBothDocuments": "Nceda ujonge omabini amaxwebhu phambi kokuba uwasebenzise KaalKey. Zibandakanyiwe kwi-app kwaye ziyafumaneka ngaphandle kweintanethi.",
+    "originalMulticolourAuthenticator": "Imibala emininzi yoqobo KaalKey umfuziselo wobunyani",
+    "legalPrivacyNotice": "Isaziso soMthetho kunye noBucala",
+    "legalInformation": "Ulwazi olusemthethweni",
+    "reviewSPrivacy": "Hlaziya KaalKey iinkcukacha zabucala kunye nemigaqo yokusetyenziswa.",
+    "iReadAgree": "Ndiyifundile kwaye ndiyavumelana noMgaqo-nkqubo waBucala kunye neMigqaliselo yokuSebenzisa."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Gcina yonke QR ikhowudi ibonakala. Imfihlo yakho ihlala kwesi sixhobo.",
+    "back": "Emva",
+    "turnFlashlightOff": "Cima isibane",
+    "turnFlashlight": "Layita isibane",
+    "flashlight": "Isibane sikhanyisiwe",
+    "flashlight2": "Isibane",
+    "cameraUnavailableOpen": "Ikhamera ayifumaneki. Vula eli phepha ku-HTTPS okanye ihostele yendawo kwaye uvumele ufikelelo kwikhamera.",
+    "cameraPreviewUnavailable": "Ujongo lwangaphambili lwekhamera alufumaneki. Vala kwaye uvule kwakhona iskena.",
+    "cameraReadyPoint": "Ikhamera ilungile - yikhomba kwikhowudi epheleleyo QR.",
+    "browserCannotProcess": "Esi sikhangeli asikwazi ukuqhubela phambili izakhelo zekhamera.",
+    "qrCodeDetected": "QR ikhowudi ichongiwe.",
+    "couldnTRead": "Ayikwazanga ukufunda izakhelo zekhamera. Jonga iimvume zekhamera kwaye uphinde ulayishe eli phepha.",
+    "cameraPermissionDenied": "Imvume yekhamera yaliwe. Vumela ukufikelela kwikhamera kwiisethingi zebrawuza, emva koko uvule iskena kwakhona.",
+    "noCameraWas": "Akukho khamera ifunyenweyo kwesi sixhobo.",
+    "cameraBusyAnother": "Ikhamera ixakekile kwenye i-app okanye i-browser tab.",
+    "startCameraHttps": "Ayikwazanga ukuqalisa ikhamera. Sebenzisa HTTPS okanye inginginya yasekhaya kwaye ujonge iimvume zebrawuza.",
+    "qrScannerCamera": "QR umboniso wekhamera yesikena",
+    "cameraUnavailableCheck": "Ikhamera ayifumaneki. Jonga imvume yekhamera kwaye uzame kwakhona.",
+    "pointCameraAuthenticator": "Yalatha ikhamera yakho kulungiselelo lwesiqinisekisi QR ikhowudi esuka kwinkonzo oyongezayo.",
+    "backAddAccount": "Buyela ukongeza iakhawunti",
+    "secureSetup": "USEKO NGOKUKHUSELEKILEYO",
+    "enterDetailsManually": "Faka iinkcukacha ngesandla endaweni yoko"
+  },
+  "accountForm": {
+    "hideManualEntry": "Fihla ungeniso lwesandla",
+    "secretKeySupplied": "Sebenzisa iqhosha eliyimfihlo elinikezelwe yinkonzo oyiqwalaselayo. Ungaze ufake igama lokugqithisa leakhawunti yakho apha. Tshatisa i-algorithm, ukubalwa kwamanani, kunye nekhefu kwimiyalelo yokuseta yenkonzo.",
+    "updateServiceAccount": "Hlaziya inkonzo, igama le-akhawunti, okanye iqhosha eliyimfihlo.",
+    "secretKeyRead": "Iqhosha eliyimfihlo, funda kuphela ngelixa uhlela",
+    "secretKeyBase32": "Isitshixo esiyimfihlo kwi Base32",
+    "digits": "amanani",
+    "seconds": "imizuzwana",
+    "enterDetailsManually": "OKANYE UFAKA IINKCUKACHA NGESELELE",
+    "enterDetailsManually2": "Faka iinkcukacha ngesandla",
+    "serviceAccountName": "Inkonzo, igama le-akhawunti kunye nesitshixo esiyimfihlo",
+    "saveChangesSecurely": "Gcina utshintsho ngokukhuselekileyo",
+    "saveAccountSecurely": "Gcina i-akhawunti ngokukhuselekileyo",
+    "serviceIssuer": "Inkonzo okanye umniki",
+    "accountName": "Igama leakhawunti",
+    "secretKey": "Isitshixo esiyimfihlo",
+    "serviceIssuer2": "INKONZO / ISSUER",
+    "eGGoogle": "umz. Google",
+    "clearServiceIssuer": "Sula inkonzo okanye umniki",
+    "eGExample": "umz. wena@example.com",
+    "clearAccountName": "Cima igama leakhawunti",
+    "secretKeyLocked": "ISIQINISO SEMFIHLO (SITSHINWE)",
+    "secretKeyBase322": "ISIQINISO SEMFIHLO (BASE32)",
+    "enterSetupKey": "Faka iqhosha lakho lokuseta",
+    "clearSecretKey": "Cima iqhosha eliyimfihlo",
+    "otpAlgorithm": "OTP I-ALGORITHM",
+    "otpDigits": "OTP IIDIGITS",
+    "refreshIntervalSeconds": "HLAZIYA UHLAZIYO (IMIZUZWANA)",
+    "otpRefreshInterval": "OTP isithuba sokuhlaziya ngemizuzwana",
+    "closeAccountForm": "Vala ifomu yeakhawunti",
+    "totpSetupUrl": "TOTP ukuseta URL",
+    "importSetupUrl": "Ukuseta ngaphandle URL",
+    "totpSetupUrl2": "TOTP UKUSEKWA URL",
+    "accountName2": "I-AKHAWUNTI IGAMA",
+    "addAccount": "Yongeza iakhawunti"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Skena isiqinisekisi QR ikhowudi",
+    "setupGuidance": "Skena i QR ikhowudi yolona cwangciso lulula, okanye faka iinkcukacha ngesandla.",
+    "cameraAddAccount": "Sebenzisa ikhamera yakho ukongeza iakhawunti ngoko nangoko",
+    "scanQrCode2": "Skena QR ikhowudi",
+    "uploadQrImage": "Layisha QR umfanekiso",
+    "chooseQrScreenshot": "Khetha QR umfanekiso wekhusi kwiGalari, Iifoto, okanye IiFayile",
+    "pasteQr": "Ncamathelisa QR umfanekiso / URL",
+    "pasteCopiedQr": "Ncamathisela ikopi ekhutshiweyo QR umfanekiso okanye useto lwesiqinisekisi URL",
+    "uploadQrImage2": "Layisha QR umfanekiso"
+  },
+  "accountQr": {
+    "close": "Vala",
+    "accountQrCode": "Iakhawunti QR ikhowudi",
+    "revealQrCode": "Tyhila QR ikhowudi",
+    "exportWarning": "Isilumkiso: nabani na ojonga le QR ikhowudi angavelisa iikhowudi zokuqinisekisa kule akhawunti. Yityhile kuphela kwisikrini esithembekileyo.",
+    "privacyHint": "Gcina le QR ikhowudi bucala. Ukuyiskena kukhuphela imfihlo yomqinisekisi weakhawunti."
+  },
+  "productInfo": {
+    "backupRestore": "Gcina kwaye ubuyisele",
+    "backupRestoreDescription": "Gcina idatha yakho yesiqinisekiso kwaye uyibuyisele xa usiya kwesinye isixhobo.",
+    "privacyDescription": "Gcina ii-akhawunti zakho zokuqinisekisa kwindawo enye. Sebenzisa i-backup ye-app, ukubuyisela, kunye neenketho zokutshixa isixhobo ukulawula ukuseta kwakho ngenkathalo.",
+    "timeBasedCodes": "Iikhowudi ezisekelwe kwixesha",
+    "generateOneTimeCodes": "Velisa iikhowudi zokugqitha ezijikelezayo zeakhawunti yakho ukuze ugqibezele ukuqinisekiswa kwamanyathelo amabini.",
+    "quickAccountSetup": "Ukuseta iakhawunti ngokukhawuleza",
+    "quickSetupDescription": "Skena isiqinisekisi QR ikhowudi okanye ngenisa QR umfanekiso wokongeza iakhawunti.",
+    "accountsOnePlace": "Iiakhawunti kwindawo enye",
+    "accountsInOnePlaceDescription": "Gcina iiakhawunti zakho ezigciniweyo kunye kwaye ufumane ingeniso elungileyo xa ilixesha lokungena.",
+    "privateAccountVault": "Indawo yeakhawunti yabucala",
+    "privateVaultDescription": "Lawula amangeno oqinisekiso lwakho ekuhlaleni kwaye usebenzise ukhetho olukhoyo lwesixhobo sokutshixa.",
+    "easyCodeAccess": "Ukufikelela lula kwekhowudi",
+    "easyCodeAccessDescription": "Khuphela ikhowudi yangoku okanye ulawule iinkcukacha ze-akhawunti ngokusebenzisa i-interface ecocekileyo, egxininisekileyo.",
+    "authenticatorTechsivaram": "UMQINISEKISI · NGE-TECHSIVARAM",
+    "mobileAuthenticator": "ISIQINISEKISO SAKHO ESIMELE",
+    "tagline": "Indlela elula yokulawula uqinisekiso lwakho olunamanyathelo amabini.",
+    "heroDescription": "Amava agxininisiweyo okuqinisekisa kwiikhowudi zokuqinisekisa ezisekelwe kwixesha. Gcina iikhowudi ze-akhawunti ezihambelanayo kufutshane neKaalKey ye Android.",
+    "timeBasedCodes2": "IIKHOWUDI EZISEKELWE IXESHA",
+    "privateDesign": "YABUHLUNGU NGOYILO",
+    "builtSimpleAuthenticator": "YAKHELWE UKUSEBENZA OKULULULE KOMQINISEKISO",
+    "qrSetupTimed": "QR CINGA · IIKHOWUDI NGEXESHA · ULAWULO LWE-AKHAWUNTI",
+    "privacyTitle": "Iiakhawunti zakho. Iikhowudi zakho. Ulawulo lwakho.",
+    "authenticator": "KAALKEY UQINISEKISO",
+    "brandBanner": "KaalKey isibhengezo sophawu",
+    "logo": "KaalKey uphawu"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Rhoxisa",
+      "storageInvalidTitle": "Idatha yokugcina ayisebenzi",
+      "storageInvalidBody": "Idatha yeakhawunti egciniweyo ayikwazanga ukufundwa ngokukhuselekileyo.",
+      "storageErrorTitle": "Impazamo yokugcina",
+      "storageErrorBody": "Iiakhawunti ezigciniweyo azikwazanga kulayishwa.",
+      "missingTitle": "Ulwazi olulahlekileyo",
+      "missingEditingBody": "Faka igama lenkonzo kunye negama le-akhawunti.",
+      "missingBody": "Faka igama lenkonzo, igama le-akhawunti, kunye neqhosha eliyimfihlo.",
+      "invalidOtpBody": "Jonga i Base32 imfihlo, i-algorithm, ubalo lwamanani, kunye nexesha lokuhlaziya. Iimfihlo kufuneka ziqulathe amagama Base32 asebenzayo; amasuntswana kufuneka abe {digits} kwaye ixesha kufuneka libe {minPeriod}–{maxPeriod} imizuzwana.",
+      "duplicateBody": "I-akhawunti enale nkonzo kunye negama le-akhawunti sele ligciniwe.",
+      "updatedBody": "Iakhawunti yakho iye yahlaziywa.",
+      "addedBody": "Iakhawunti yakho yongezwa ngokukhuselekileyo.",
+      "invalidOtpTitle": "Iisetingi ezingasebenziyo OTP",
+      "duplicateTitle": "Iakhawunti sele ikhona",
+      "savedTitle": "Iakhawunti igciniwe",
+      "invalidSecretTitle": "Iqhosha eliyimfihlo elingasebenziyo",
+      "invalidSecretBody": "Nceda ujonge ukuba ufake imfihlo esebenzayo Base32.",
+      "removedTitle": "I-akhawunti isusiwe",
+      "removedBody": "Iakhawunti kunye nemfihlo zayo zisusiwe kwesi sixhobo.",
+      "clearedTitle": "Iiakhawunti zicinyiwe",
+      "clearedBody": "Zonke ii-akhawunti zoqinisekiso kunye neemfihlo zisusiwe kwesi sixhobo.",
+      "someSavedAccountsNeedAttentionTitle": "Ezinye iiakhawunti ezigciniweyo zifuna ukuhoywa",
+      "someSavedAccountsNeedAttentionBody": "{count} ingxelo ye-akhawunti engasebenziyo ayizange ilayishwe. Iiakhawunti ezisebenzayo zihlala zikhona. Cinga ngokwenza i-backup ngaphambi kokwenza utshintsho olongezelelweyo.",
+      "removeConfirmTitle": "Susa iakhawunti?",
+      "removeConfirmWebTitle": "Susa iakhawunti?",
+      "removeButton": "Susa",
+      "clearButton": "Sula konke",
+      "clearConfirmTitle": "Susa zonke ii-akhawunti?",
+      "saveErrorBody": "Iiakhawunti azikwazanga kugcinwa. Jonga ubukho bogcino lwesikhangeli kwaye uzame kwakhona.",
+      "notFoundTitle": "Iakhawunti ayifunyenwanga",
+      "notFoundBody": "Le akhawunti ayifunyenwanga. Vala umhleli kwaye uzame kwakhona.",
+      "removeConfirmBody": "Oku kususa i-akhawunti kunye nemfihlo yayo kwesi sixhobo.",
+      "clearConfirmBody": "Oku kususa ngokusisigxina zonke ii-akhawunti zokunyanisekisa kunye neemfihlo zazo kwesi sixhobo. Yenza ugcino olufihliweyo kuqala ukuba unokufuna ezi akhawunti kamva.",
+      "clearConfirmUndoBody": "Oku akunakwenziwa kwakhona."
+    },
+    "biometric": {
+      "cancelButton": "Rhoxisa",
+      "saveErrorTitle": "Ayikwazanga ukugcina useto",
+      "unlockPrompt": "Vula KaalKey uMqinisekisi",
+      "promptSubtitle": "Sebenzisa i-biometrics okanye isitshixo sesikrini sesixhobo sakho",
+      "disableConfirmPrompt": "Qinisekisa ukucima KaalKey isitshixo sosetyenziso",
+      "enablePrompt": "Vula i-app lock ye KaalKey",
+      "deviceLockTitle": "Seta isitshixo sesikrini sesixhobo sakho",
+      "deviceLockBody": "KaalKey usebenzisa isiqinisekiso esakhelwe-ngaphakathi sefowuni yakho. Cwangcisa isixhobo PIN, ipatheni, okanye igama lokugqithisa kwisetingi zokhuseleko lwefowuni yakho, emva koko uzame kwakhona. Ibhayometriki azinyanzelekanga.",
+      "unavailableTitle": "Ungqinisiso lwesixhobo alufumaneki",
+      "unavailableBody": "Ifowuni yakho ayikwazanga ukuqalisa uqinisekiso olukhuselekileyo. Jonga ukuba isitshixo sesikrini siqwalaselwe na, uze uzame kwakhona.",
+      "lockedTitle": "Uqinisekiso lutshixiwe okwethutyana",
+      "lockedBody": "Ifowuni yakho iye yacima uqinisekiso okwethutyana emva kwemizamo emininzi. Yima kwaye uzame kwakhona.",
+      "promptErrorTitle": "Ungqinisiso alufumaneki",
+      "promptErrorBody": "KaalKey ayikwazanga ukuqalisa uqinisekiso olukhuselekileyo lwefowuni. Nceda zama kwakhona.",
+      "webLock": "Isitshixo soqinisekiso lwesixhobo alukabikho kushicilelo lwewebhu okwangoku. Ivault yewebhu ihlala ingatshixwanga; sebenzisa i Android app yoqinisekiso lwesixhobo somthonyama.",
+      "disabledTitle": "Isitshixo se-App sivaliwe",
+      "disabledBody": "KaalKey isitshixo se-app sicinyiwe.",
+      "disableSaveError": "Isitshixo se-app sihlala sivuliwe. Nceda zama kwakhona.",
+      "enabledTitle": "Isitshixo sosetyenziso sivuliwe",
+      "enabledBody": "KaalKey uyakucela uqinisekiso lwefowuni eyakhelwe-ngaphakathi xa ivulwa naxa ubuyela kuyo.",
+      "enableSaveError": "Isitshixo se-App asikwazanga kuvuleleka. Nceda zama kwakhona."
+    },
+    "qr": {
+      "startingCamera": "Iqala ikhamera...",
+      "unsupportedTitle": "Ayixhaswanga QR ikhowudi",
+      "unsupportedBody": "Skena useto lwesiqinisekiso QR ikhowudi enikezelwe yinkonzo. Oku kufuneka kube yi TOTP ikhowudi, hayi indlela yokungena eqhelekileyo QR ikhowudi.",
+      "unsupportedDiagnostic": "Loo QR ayiyo TOTP ikhowudi yokuseta. Jolisa kulungiselelo lwesiqinisekisi QR.",
+      "detectedDiagnostic": "QR ichongiwe. Iyahlalutya...",
+      "analyzing": "Ihlalutya QR ikhowudi...",
+      "duplicateTitle": "Iakhawunti sele yongeziwe",
+      "duplicateBody": "{issuer}: {account} sele ikhona KaalKey.",
+      "addedTitle": "Iakhawunti yongeziwe",
+      "addedBody": "{issuer}: {account} yongezwe ngempumelelo.",
+      "saveFailedDiagnostic": "Ayikwazanga ukugcina iakhawunti. Ungaskena kwakhona.",
+      "invalidTitle": "Ayisebenziseki QR ikhowudi",
+      "invalidBody": "KaalKey ayikwazanga ukwahlula esi siqinisekisi QR ikhowudi. {detail}. Sebenzisa TOTP useto lwenkonzo QR ikhowudi (idla ngokuqala ngo {prefix}).",
+      "parseFailedDiagnostic": "QR ayikwazanga kuqhubekeka. Jonga kulungiselelo QR kwaye uzame kwakhona.",
+      "invalidUrlTitle": "Ayisebenziseki TOTP URL",
+      "invalidUrlBody": "Ncamathelisa isiqinisekisi esipheleleyo URL eqala ngo {prefix}.",
+      "clipboardEmptyTitle": "Ibhodi eqhotyoshwayo ayinanto",
+      "clipboardEmptyBody": "Khuphela i {prefix} URL kuqala, emva koko ucinezele Cola TOTP URL.",
+      "clipboardErrorTitle": "Ayikwazanga ukufunda ibhodi eqhotyoshwayo",
+      "clipboardErrorBody": "Khuphela TOTP useto URL kwaye uzame kwakhona."
+    },
+    "haptics": {
+      "saveFailedTitle": "Ayikwazanga ukugcina useto",
+      "saveFailedBody": "Ukhetho lwempendulo yeHaptic ayikwazanga kugcinwa. Nceda zama kwakhona."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Ayikwazanga ukugcina ukwamkelwa",
+      "saveFailedBody": "Nceda uzame kwakhona. Kufuneka wamkele isaziso somthetho phambi kokuba usebenzise KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Kufuneka imvume yekhamera",
+      "body": "Vumela ukufikelela kwikhamera ukuskena useto lweziqinisekisi QR ikhowudi."
+    },
+    "storage": {
+      "browserUnavailable": "Ugcino lwebhrawuza alukho.",
+      "browserFilePickerUnavailable": "Isichongi sefayile yesikhangeli asifumaneki."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Ifayile engaxhaswanga",
+      "unsupportedFileBody": "Khetha QR umfanekiso wekhowudi onje PNG okanye JPEG.",
+      "browserDecoderUnavailable": "Ukuguqulwa kwemifanekiso yebhrawuza akufumaneki",
+      "imageLoadFailed": "Umfanekiso awukwazanga kulayishwa",
+      "unreadableDimensions": "Umfanekiso awunamlinganiselo ofundekayo",
+      "noQrCodeFoundTitle": "Akukho QR ikhowudi efunyenweyo",
+      "noQrCodeFoundBody": "KaalKey ayikwazanga ukukhupha ikhowudi QR ikhowudi kulo mfanekiso. Zama umfanekiso weskrini okanye isisombululo esiphezulu PNG/JPEG.",
+      "couldNotReadImageTitle": "Ayikwazanga ukufunda umfanekiso",
+      "couldNotReadImageBody": "Zama ecacileyo PNG okanye JPEG umfanekiso oqulathe ukuseta umqinisekisi QR ikhowudi.",
+      "couldNotOpenPickerTitle": "Ayikwazanga ukuvula isikhethi somfanekiso",
+      "couldNotOpenPickerBody": "Nceda uzame uFaka QR kwakhona.",
+      "normalizedDecodeFailed": "Umfanekiso oqhelekileyo awukwazanga ukuchazwa",
+      "clipboardImageLoadFailed": "Umfanekiso webhodi eqhotyoshwayo awukwazanga kulayishwa",
+      "imageProcessingUnavailable": "Ukulungiswa komfanekiso akukho",
+      "imageProcessingUnavailableAlt": "Inkqubo yomfanekiso ayifumaneki",
+      "noImageInClipboardTitle": "Akukho mfanekiso kwibhodi eqhotyoshwayo",
+      "noImageInClipboardBody": "Khuphela QR umfanekiso wekhowudi, emva koko ucofe Cola QR Umfanekiso kwakhona.",
+      "clipboardUnavailableTitle": "Ibhodi eqhotyoshwayo ayifumaneki",
+      "clipboardUnavailableBody": "Umbhalo webhodi eqhotyoshwayo ayilolungiselelo loqinisekiso olusebenzayo URL. Khuphela i otpauth:// URL okanye QR umfanekiso kwaye uzame kwakhona.",
+      "clipboardAccessBody": "KaalKey akakwazanga ukufunda umbhalo okanye umfanekiso kwibhodi eqhotyoshwayo. Vumela ufikelelo lwebhodi eqhotyoshwayo, emva koko ukope QR umfanekiso okanye otpauth:// URL kwaye ucinezele Cola QR Umfanekiso / URL kwakhona.",
+      "couldNotPasteImageTitle": "Ayikwazanga kuncamathelisa umfanekiso",
+      "couldNotPasteImageBody": "Uncamathiselo lomfanekiso aluxhaswa yilebhodi eqhotyoshwayo kwesi sixhobo. Sebenzisa ngaphandle QR umfanekiso endaweni yoko.",
+      "sourceImageDecodeFailure": "Zama owahlukileyo QR umfanekiso.",
+      "pastedImportFailureBody": "Zama owahlukileyo QR umfanekiso.",
+      "sourceImageReadFailure": "Zama ukukopa umfanekiso wekhusi ocacileyo QR.",
+      "importFailedTitle": "QR ukungeniswa komfanekiso akuphumelelanga",
+      "importFailedBody": "KaalKey akakwazanga ukuwufunda lo mfanekiso. Nceda uzame omnye QR umfanekiso wekhowudi.",
+      "notFoundBody": "Umfanekiso okhutshelweyo awuqulathanga ikhowudi efundekayo QR.",
+      "pastedNotFoundBody": "Umfanekiso oncamathisiweyo awuqulathanga ikhowudi efundekayo QR.",
+      "pastedReadFailureBody": "Zama ukukopa umfanekiso ocacileyo PNG okanye JPEG umfanekiso oqulethe ikhowudi epheleleyo QR.",
+      "noQrCodeTextBody": "KaalKey uguqule umfanekiso okhethiweyo kodwa akawufumananga QR ikhowudi. Zama isisombululo esicacileyo, esipheleleyo PNG okanye JPEG kunye nekhowudi yonke ebonakalayo."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Le QR ikhowudi asiyo khowudi yokuseta isiqinisekisi esisekwe kwixesha.",
+      "missingAccountDetails": "I QR ikhowudi ayinazo iinkcukacha zeakhawunti.",
+      "unsupportedAlgorithm": "I QR ikhowudi isebenzisa ialgorithm engaxhaswanga.",
+      "unsupportedDigits": "Le QR ikhowudi kufuneka isebenzise 6, 7, okanye 8 amanani.",
+      "unsupportedPeriod": "Le QR ikhowudi isebenzisa ixesha elingaxhaswanga.",
+      "invalidAccount": "I QR ikhowudi ayikwazanga kuqinisekiswa."
+    },
+    "backup": {
+      "invalidJson": "Ifayile yogcino ayisebenzi JSON.",
+      "unsupportedFormat": "Oku akuxhaswanga KaalKey ugcino olufihliweyo.",
+      "invalidPasswordOrDamaged": "Igama eligqithisiweyo logcino alichanekanga okanye ifayile yogcino yonakele.",
+      "invalidContents": "Imixholo yogcino ayisebenzi okanye ayigqibekanga.",
+      "secureRandomUnavailableDetailed": "Isizukulwana esikhuselekileyo asifumaneki. Yakha kwakhona kwaye ufake kwakhona i- Android i-app nge expo-crypto ibandakanyiwe, uze uzame kwakhona.",
+      "invalidAccountDataForBackup": "I-akhawunti enye okanye ngaphezulu ayisebenzi. Lungisa idatha yeakhawunti phambi kokuba wenze i-backup.",
+      "invalidPasswordOrModified": "Igama eligqithisiweyo logcino alichanekanga okanye ifayile egciniweyo ilungisiwe.",
+      "invalidPasswordOrFileDamaged": "Igama lokugqitha alichanekanga okanye ifayile yonakalisiwe.",
+      "passwordCopiedTitle": "Igama lokugqithisa likhutshelwe",
+      "enterPasswordTitle": "Faka igama eliyimfihlo eliyimfihlo",
+      "enterPasswordBody": "Ngenisa igama eligqithisiweyo elisetyenziswe xa le backup yenziwe.",
+      "passwordCopiedBody": "Yigcine kwindawo ekhuselekileyo, efana WhatsApp.",
+      "copyFailedTitle": "Ukukopa akuphumelelanga",
+      "copyFailedBody": "Khetha kwaye ukope igama lokugqitha ngesandla.",
+      "generatingPassword": "Ivelisa igama eliyimfihlo elikhuselekileyo...",
+      "encrypting": "NONE",
+      "decrypting": "Isusa ukuntsonkotha kogcino...",
+      "restoring": "Kubuyiselwa ii-akhawunti...",
+      "backupCreatedTitle": "Ugcino lwenziwe",
+      "restoreCompleteTitle": "Ukubuyisela kugqityiwe",
+      "mergeConfirmTitle": "Dibanisa iiakhawunti zokugcina?",
+      "mergeConfirmButton": "Dibanisa iiakhawunti",
+      "backupSavedTemporary": "Ugcino oluntsonkothileyo lugcinwe okwexeshana apha:\n{uri}",
+      "generatePasswordErrorTitle": "Ayikwazanga ukwenza igama eliyimfihlo eliyimfihlo",
+      "secureRandomUnavailable": "Isizukulwana esikhuselekileyo asifumaneki.",
+      "passwordUnavailableTitle": "Igama lokugqitha alikho",
+      "passwordUnavailableBody": "Vala le ncoko yababini kwaye wenze ugcino olutsha ukwenza igama eliyimfihlo elikhuselekileyo.",
+      "backupDownloadedBody": "Ugcino lwakho olufihliweyo KaalKey lukhutshiwe. Gcina ifayile kunye negama lokugqitha ngasese.",
+      "backupFailedTitle": "Ugcino aluphumelelanga",
+      "backupCreateErrorBody": "KaalKey ayikwazanga ukwenza ugcino.",
+      "restoreFailedTitle": "Ukubuyisela akuphumelelanga",
+      "backupReadErrorBody": "Ugcino alukwazanga kufundeka okanye lugcinwe.",
+      "browserDownloadUnsupported": "Isikhangeli sakho asikuxhasi ukukhuphela iifayile zogcino.",
+      "localFileUnavailable": "Indawo yefayile yasekuhlaleni ayifumaneki kwesi sixhobo.",
+      "saveBackupTitle": "Gcina ikopi efihliweyo KaalKey yakho"
+    },
+    "clipboard": {
+      "copiedTitle": "Ikhowudi ikopishiwe",
+      "copiedBody": "Ikhowudi yakho yokuqinisekisa ikotshiwe.",
+      "errorTitle": "Impazamo",
+      "errorBody": "Ayikwazanga ukukopa ikhowudi yokuqinisekisa."
+    },
+    "activity": {
+      "cameraReady": "Ikhamera ilungile. Yalathe kumqinisekisi QR ikhowudi.",
+      "readingQrImage": "Ukufunda QR umfanekiso...",
+      "importingQrImage": "Kuthathwa ngaphandle QR umfanekiso...",
+      "importingAccount": "Ithatha ngaphandle i-akhawunti yomqinisekisi...",
+      "importingPastedImage": "Ingenisa ngaphandle incamathisele QR umfanekiso..."
+    }
+  },
+  "activity": {
+    "working": "Ukusebenza",
+    "wait": "Nceda ulinde...",
+    "donTClose": "Nceda ungavali okanye unxibelelane no KaalKey.",
+    "loadingLanguages": "Ilayisha iilwimi ezifumanekayo...",
+    "loadingTranslation": "Ilayisha inguqulelo..."
+  }
+}

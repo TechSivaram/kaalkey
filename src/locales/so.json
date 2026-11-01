@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Luuqad",
+      "description": "Dooro luqadda lagu isticmaalo KaalKey.",
+      "english": "Ingiriis",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "LUQADDA",
+      "searchLanguageName": "Raadi luqadda (magaca ama koodka)",
+      "searchSupportedLanguages": "Raadi luqadaha la taageeray",
+      "closeLanguageDropdown": "Hoos-u-dhaca luqadda xidh",
+      "noTranslatedLanguage": "Lama helin luqad la turjumay",
+      "serverUrl": "Adeegga turjumaada URL",
+      "serverUrlDescription": "KaalKey waxa uu ka soo dejiyaa liiska luqadda iyo tarjumaada serfarkan.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Keydi serverka turjumaada"
+    },
+    "title": "Dejinta abka",
+    "eyebrow": "KAALKEY Dookhyada",
+    "experience": {
+      "section": "Khibrad"
+    },
+    "security": {
+      "section": "AMNIGA"
+    },
+    "backup": {
+      "section": "KEYBKA & SOO kabsashada"
+    },
+    "danger": {
+      "section": "Aagga Khatarta",
+      "clearAccounts": "Nadiifi dhammaan xisaabaadka",
+      "clearAccountsDescription": "Si joogto ah uga saar akoon kasta iyo sirta qalabkan. Soo celi marka hore.",
+      "clearAccountsAccessibilityLabel": "Nadiifi dhammaan xisaabaadka xaqiijiyaha"
+    },
+    "appearance": {
+      "section": "MUUQAALKA",
+      "title": "Muuqaal iftiin leh",
+      "description": "KaalKey hadda waxay isticmaashaa dulucdeeda iftiinka nadiifka ah."
+    },
+    "haptics": {
+      "title": "Jawaab celinta haptic",
+      "description": "Jawaab-celinta dabacsan ee qasabadaha iyo ficillada la dhammaystiray."
+    },
+    "deviceLock": {
+      "title": "Qalabka aqoonsiga quful",
+      "description": "Qasnaddaadu way qufulaysaa marka KaalKey ka baxo fagaaraha hore.",
+      "requirement": "U baahan biometrics-ka taleefankaaga ama shaashadda qufulka PIN, qaabka, ama erayga sirta ah.",
+      "accessibilityLabel": "Qufulka qalabka aqoonsiga"
+    },
+    "privacy": {
+      "title": "Sharci & sir",
+      "description": "Dib u eeg Siyaasadda Qarsoonnimada iyo Shuruudaha Isticmaalka",
+      "storageNote": "Siraha xaqiijinahaagu waxay ku sii jiraan khasnadda badbaadsan ee qalabka. Dookhyada waxaa lagu kaydiyaa gudaha."
+    }
+  },
+  "accounts": {
+    "edit": "Wax ka beddel",
+    "sortAccountName": "Ku kala sooc magaca akoon",
+    "loadingSecureVault": "Soodejinaya khasnada badbaadsan...",
+    "tapCopy": "TABAD SI AAD U NUUQISO",
+    "noAccountsMatch": "Ma jiro akoon u dhigma raadintaada.",
+    "viewQrCode": "Eeg QR koodka koontada",
+    "removeAccount": "Ka saar akoontiga",
+    "copyVerificationCode": "Koobiga koodhka xaqiijinta",
+    "active": "FIKIR",
+    "sort": "U SOO QOR",
+    "account": "Xisaab",
+    "clearSearch": "Nadiifi raadinta",
+    "sortServiceName": "Ku kala sooc magaca adeegga",
+    "addFirstAccount": "Ku dar akoonkaaga ugu horreeya",
+    "searchAccounts": "Raadi akoonnada",
+    "searchServiceAccount": "Raadi adeeg ama akoon",
+    "accounts": "Xisaabaadkaaga",
+    "add": "+ Ku dar",
+    "vaultStartsHere": "Qasnaddaadu waxay ka bilaabataa halkan",
+    "service": "Adeegga",
+    "emptyHint": "Ku dar akoon addoo isticmaalaya furihiisa sirta ah si aad u soo saarto summadaada xaqiijinta ee ugu horreysa."
+  },
+  "common": {
+    "done": "La sameeyay",
+    "doneButton": "La sameeyay",
+    "closeSettings": "Xir dejinta",
+    "separator": "-",
+    "article": "a",
+    "save": "Badbaadin",
+    "delete": "Tirtir",
+    "resizeAppBrand": "Wax ka beddel cabbirka abka iyo baararka summada"
+  },
+  "qrImport": {
+    "readPastedImage": "Waa la akhriyi waayay sawirka la dhejiyay"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Xisaabaadka kaydkan: {count}. KaalKey ayaa hayn doona akoonnadaada jira oo ku dari doona wixii xisaabaad ah ee aan hore u jirin. Xisaabaadka nuqulka ah waa laga boodi doonaa",
+    "restoreCompletionBody": "Xisaabaadka ayaa lagu daray: {added}. Xisaabaadka nuqul ka mid ah waa la booday: {skipped}. akoonnadaadii hore waa la hayay",
+    "copyPassword": "Nuqul ka samee erayga sirta ah",
+    "passwordSafety": "Keydi erayga sirta ah si gaar ah (tusaale, gudaha WhatsApp). Qof kasta oo labadaba leh",
+    "importAction": "Dooro faylka oo soo deji",
+    "cryptoDependency": "[[200005]",
+    "secureVault": "VAULT SECURE",
+    "createBackup": "Samee gurmad",
+    "encryptedFile": "Fayl sir ah",
+    "restoreBackup": "Soo celi kaydinta",
+    "safetyNote": "Kaydka waxaa ku jira sirta xaqiijintaada. KaalKey waxay abuurtaa furaha sirta ah ee kayd kasta. gooni u dhig; KaalKey ma soo kaban karo",
+    "generatingSecurePassword": "Samaynta erayga sirta ah ee sugan…",
+    "importFile": "Soo rar faylka",
+    "backupPassword": "BACKUP PASSWORD",
+    "account": "xisaabta",
+    "accounts": "xisaabaadka",
+    "exportDescription": "Sir dhammaan {count} ee la keydiyey {accountLabel} geli faylka kaydinta KaalKey waxay abuurtaa furaha sirta ah ee gaarka ah; koobbi oo si gooni ah u kaydi faylka.",
+    "restoreDescription": "Dooro KaalKey ee kaydka ah iyo eraygaaga sirta ah. Akoonada cusub ayaa lagu dari doonaa liiska akoonkaaga jira; xisaabaadka jira waxay ahaan doonaan siday yihiin.",
+    "enterBackupPassword": "Geli erayga sirta ah ee kaydka ah",
+    "closeBackup": "Kaabta xidh",
+    "copyGeneratedBackup": "Nuqul ka mid ah erayga kaydka ah ee la sameeyay",
+    "backupPassword2": "Kalsoonida sirta ah",
+    "clearBackupPassword": "Nadiifi erayga kaydka ah",
+    "backupFilePassword": "kaydinta faylka iyo erayga sirta ah waxay soo celin karaan akoonnada xaqiijintaada.",
+    "encryptShareBackup": "Sir oo wadaag kaydinta"
+  },
+  "home": {
+    "unlockSecurely": "Si ammaan ah u fur",
+    "disableAppLock": "Dami qufulka abka",
+    "enableAppLock": "Daar quful app",
+    "checkingSecureLock": "Hubinta dejinta qufulkaaga sugan. Koodhadhkaagu waa qarsoon yihiin",
+    "waitingVerification": "Sugitaanka xaqiijinta…",
+    "secretsStayStored": "Sirtaadu waxay ku kaydsan tahay qalabkan.",
+    "openAppSettings": "Fur goobaha abka",
+    "versionLabel": "VERSION",
+    "unlockRequirement": "Isticmaal biometrics-ka taleefankaaga ama shaashadda qufulka PIN, qaabka, ama erayga sirta ah si aad u gasho koodka xaqiijinta ee hal mar ah.",
+    "localVault": "Kharashka deegaankaaga",
+    "codesDeviceControl": "Koodhadhkaaga Qalabkaaga Xakamayntaada.",
+    "securingVault": "Xaqiijinta khasnaddaada…",
+    "vaultProtected": "Qasnaddaada waa la ilaaliyaa",
+    "lock": "quful",
+    "localVault2": "KOOXAHA DEEGAANKA",
+    "authenticator": "KAALKEY AUTHENTICATOR",
+    "tricolourLockEmblem": "KaalKey Astaanta quful tricolor",
+    "authenticator2": "AUTHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Haddii aad doorato inaad sawirto QR koodka, KaalKey waxay u isticmaashaa ogolaanshaha kamarada falkaas. Xaqiijinta aaladaha ikhtiyaariga ah iyo jawaab celinta haptic-ga waxay isticmaalaan astaamaha aaladda ku habboon. Waxaad ku maareyn kartaa oggolaanshaha gudaha qalabkaaga.",
+        "heading": "2. Ogolaanshaha iyo sifooyinka qalabka"
+      },
+      "backups": {
+        "body": "Markaad samaysato kayd, KaalKey waxay siraysaa kaydka adoo isticmaalaya erayga sirta ah ee aad doorato. Labada feylka iyo erayga sirta ah ku xafid oo si ammaan ah u kaydi. Qof kasta oo hela faylka iyo erayga sirta ah waxa laga yaabaa inuu dib u soo celiyo akoonnada xaqiijiyahaaga. KaalKey ma soo celin karo erayga kaydka ah ee la illoobay.",
+        "heading": "3. Backups"
+      },
+      "security": {
+        "body": "Qalabkaaga ha cusboonaysiiyo, ku ilaali quful shaashadda, hana wadaagin OTP siraha ama furaha sirta ah ee kaydka ah. Ka saarida abka, nadiifinta xogtiisa, ama luminta aaladda waxay ka dhigi kartaa xisaabaha gudaha ku kaydsan inaan la heli karin. Hayso kayd sugan haddii aad u baahan tahay soo kabasho.",
+        "heading": "5. Amniga iyo ilaalinta"
+      },
+      "information": {
+        "heading": "1. Xogta iyo siraha",
+        "body": "KaalKey waa abka xaqiijinta Calaamadaha akoonnada iyo qiyamka sirta ah ee loo baahan yahay si loo soo saaro kood hal mar ah waa xasaasi. Abka waxa loogu talagalay in lagu kaydiyo diiwaannada akoonnada ee kaydinta badbaadsan ee qalabka. Qof kasta oo haysta qalab aan qufulin ama kayd la dhoofiyay ayaa laga yaabaa inuu awoodo inuu galo macluumaadka xasaasiga ah."
+      },
+      "sharing": {
+        "heading": "4. Wadaagista iyo qolo saddexaad",
+        "body": "Socodka gurmadku waxa uu isticmaali karaa xaashida wadaaga ee qalabkaaga ama fayl-qaadahaaga si uu u kaydiyo, u wareejiyo, ama u doorto faylasha. Hab-dhaqanka gaarka ah ee abka dhinac saddexaad ama adeeg kasta oo aad doorato waxaa maamula bixiyahaas. Ogeysiiskani kama dhigayo sheegasho buste ah in qalabkaaga, nidaamka qalliinka, ama adeegyada wadaagga ee aad dooratay ay weligood habeeyaan xogta."
+      },
+      "changes": {
+        "heading": "6. Isbeddelka iyo xidhiidhka",
+        "body": "Ogeysiiskan ku lifaaqan waxa laga yaabaa in dib loo eego siidaynta abka mustaqbalka. Su'aalaha gaarka ah, kala xidhiidh daabacaha abka kanaalka taageerada rasmiga ah ee abka."
+      },
+      "title": "Siyaasadda Qarsoonnimada"
+    },
+    "terms": {
+      "use": {
+        "body": "Waxaad isticmaali kartaa KaalKey si aad u abuurto koodka xaqiijinta akoonnada laguu oggolaaday inaad gasho. Adiga ayaa mas'uul ka ah u hoggaansanaanta sharciyada lagu dabaqi karo iyo xeerarka adeegyada aad u isticmaasho furaha aqoonsiga.",
+        "heading": "1. Isticmaalkaaga"
+      },
+      "protectAccounts": {
+        "body": "Adiga ayaa mas'uul ka ah inaad sugto qalabkaaga, sirta xaqiijiyaha, hababka soo kabashada, kaydka la dhoofiyo, iyo furaha kaydinta Ha la wadaagin kood ama siraha dadka aadan aaminsanayn.",
+        "heading": "2. Ilaali xisaabaadkaaga"
+      },
+      "availability": {
+        "body": "Sifooyinku way is beddeli karaan inta u dhaxaysa sii daynta. Waa in aad abka cusboonaysiisay oo aad xaqiijisaa in kaydintaada iyo habaynta soo kabashadaadu shaqaynayso.",
+        "heading": "5. Isbeddelka iyo helitaanka"
+      },
+      "recovery": {
+        "body": "KaalKey ma dammaanad qaadi karo in akoon kasta dib loo soo celin karo, in QR kood kasta ama qaabayntu ay noqon doonto mid la jaan qaada, ama abka uu ku shaqayn doono carqalad iyo khalad. Hayso habab kale oo soo kabasho ah oo ay bixiso adeega ay khusayso.",
+        "heading": "3. Ma jiro dammaanad soo kabsasho"
+      },
+      "advice": {
+        "heading": "4. La-talin xirfad leh",
+        "body": "Appku waa utility mana bixiyo sharci, maaliyadeed, ama talobixin ka jawaab shil amni. Haddii koontada la jabiyo, raac adeegga rasmiga ah ee soo kabashada iyo hagidda amniga."
+      },
+      "liability": {
+        "heading": "6. Mas'uuliyadda iyo sharciga lagu dabaqi karo",
+        "body": "Ilaa inta uu ogolyahay sharciga lagu dabaqi karo, abka waxa la bixiyaa iyada oo aan dammaanad qaadin hawlgal aan kala go' lahayn ama khalad la'aan ah. Ma jiro wax ereyadan ah oo ka saaraya xuquuqaha ama dawooyinka aan si sharci ah looga saari karin. Wax kasta oo xaddidan ama shuruudaha sharciga waa in uu dib u eego qareen u qalma awoodda daabacaha ka hor inta aan la sii deyn."
+      },
+      "title": "Shuruudaha Isticmaalka"
+    },
+    "version": "Nooca",
+    "saving": "Keydinaya…",
+    "acceptContinue": "Aqbal oo sii wad",
+    "appliesAuthenticator": "Waxay qusaysaa KaalKey Xaqiijiye",
+    "reviewBothDocuments": "Fadlan dib u eeg labada dukumeenti ka hor inta aanad isticmaalin KaalKey. Waxay ku jiraan abka oo la heli karo offline.",
+    "originalMulticolourAuthenticator": "Asalka midabada badan KaalKey astaanta xaqiijinta",
+    "legalPrivacyNotice": "Ogeysiiska Sharci & Qarsoodi",
+    "legalInformation": "Xogta sharciga ah",
+    "reviewSPrivacy": "Dib u eeg KaalKey macluumaadka gaarka ah iyo shuruudaha isticmaalka.",
+    "iReadAgree": "Waan akhriyay oo aqbalay Siyaasadda Qarsoonnimada iyo Shuruudaha Isticmaalka."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Ka dhig dhammaan koodka QR mid muuqda. Sirtaadu waxay ku sii jirtaa qalabkan.",
+    "back": "Dib u noqo",
+    "turnFlashlightOff": "Tooshka dami",
+    "turnFlashlight": "Tooshka shid",
+    "flashlight": "Toosh shid",
+    "flashlight2": "Toosh",
+    "cameraUnavailableOpen": "Kamarada lama heli karo Ka fur boggan HTTPS ama localhost oo oggolow gelida kamarada.",
+    "cameraPreviewUnavailable": "Aragtida kamarada lama heli karo Xir oo dib u fur iskaanka",
+    "cameraReadyPoint": "Kaameerada diyaarsan - ku fiiq koodka buuxa QR",
+    "browserCannotProcess": "Barrawsarkan ma farsamayn karo fareemada kamaradaha",
+    "qrCodeDetected": "QR code waa la helay.",
+    "couldnTRead": "Ma akhrin kari waayay xargaha kamaradaha Hubi ogolaanshaha kamarada oo dib u soo deji boggan.",
+    "cameraPermissionDenied": "Oggolaanshaha kamarada waa la diiday. Oggolow inay kamarada galaan goobaha browserka, ka dibna dib u fur iskaanka",
+    "noCameraWas": "Wax kamarad ah lagama helin qalabkan",
+    "cameraBusyAnother": "Kamaradu waxay ku mashquulsan tahay barnaamij kale ama tab browser.",
+    "startCameraHttps": "Ma bilaabi karayn kamarada Isticmaal HTTPS ama localhost oo hubi oggolaanshaha browserka.",
+    "qrScannerCamera": "QR horu-u-eegidda kamarada iskaanka",
+    "cameraUnavailableCheck": "Kamarada lama heli karo Hubi ogolaanshaha kamarada oo isku day mar kale.",
+    "pointCameraAuthenticator": "Ku fiiq kamaradaada goobta xaqiijinta QR ee adeega aad ku darayso.",
+    "backAddAccount": "Ku laabo si aad ugu darto akoon",
+    "secureSetup": "SAMEYNTA SUGAN",
+    "enterDetailsManually": "Taa beddelkeeda geli faahfaahinta gacanta"
+  },
+  "accountForm": {
+    "hideManualEntry": "Qari gelida gacanta",
+    "secretKeySupplied": "Isticmaal furaha sirta ah ee uu bixiyo adeega aad habaynayso. Waligaa halkan ha galin eraygaaga sirta ah Iswaafaji algorithmamka, tirinta nambarka, iyo inta u dhaxaysa tilmaamaha dejinta adeegga.",
+    "updateServiceAccount": "Cusbooneysii adeegga, magaca akoonka, ama furaha sirta ah.",
+    "secretKeyRead": "Furaha sirta ah, akhri-kaliya marka aad tafatirayso",
+    "secretKeyBase32": "Furaha sirta ah ee [[200005]",
+    "digits": "nambaro",
+    "seconds": "ilbiriqsi",
+    "enterDetailsManually": "AMA FAAHFAAHINKA GII GAAR AH",
+    "enterDetailsManually2": "Geli faahfaahinta gacanta",
+    "serviceAccountName": "Adeegga, magaca akoonka iyo furaha sirta ah",
+    "saveChangesSecurely": "Si badbaado leh u keydi isbedelada",
+    "saveAccountSecurely": "Si ammaan ah u keydi akoontada",
+    "serviceIssuer": "Adeeg ama bixiye",
+    "accountName": "Magaca xisaabta",
+    "secretKey": "Furaha sirta ah",
+    "serviceIssuer2": "ADEEGA / SOO SAARE",
+    "eGGoogle": "tusaale. Google",
+    "clearServiceIssuer": "Nadiifi adeegga ama soo saaraha",
+    "eGExample": "tusaale. you@example.com",
+    "clearAccountName": "Nadiifi magaca xisaabta",
+    "secretKeyLocked": "FURAHA SIRTA (XIRSAN)",
+    "secretKeyBase322": "FURAHA SIRTA ([200006])",
+    "enterSetupKey": "Geli furaha dejinta",
+    "clearSecretKey": "Nadiifi furaha sirta ah",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP DIGITS",
+    "refreshIntervalSeconds": "NIISO DHEXGAL (ILIBAAD)",
+    "otpRefreshInterval": "OTP dib u soo kicinta ilbidhiqsiyo gudahood",
+    "closeAccountForm": "Xir foomka akoonka",
+    "totpSetupUrl": "TOTP habaynta URL",
+    "importSetupUrl": "dejinta soo dejinta URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "MAGACA XISAABTA",
+    "addAccount": "Ku dar akoon"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Sawirka xaqiijinta QR koodka",
+    "setupGuidance": "Sawirka QR koodka habaynta ugu fudud, ama faahfaahinta gacanta ku geli.",
+    "cameraAddAccount": "Isticmaal kamaradaada si aad ugu darto akoon isla markiiba",
+    "scanQrCode2": "Sawirka QR koodka",
+    "uploadQrImage": "Soo rar QR sawirka",
+    "chooseQrScreenshot": "Ka dooro sawirka QR ee Gallery, Sawirro, ama faylal",
+    "pasteQr": "Ku dheji QR sawirka / URL",
+    "pasteCopiedQr": "Ku dheji sawir la naqilay QR ama habaynta xaqiijinta URL",
+    "uploadQrImage2": "Soo rar [[200009] sawirka"
+  },
+  "accountQr": {
+    "close": "Xir",
+    "accountQrCode": "Koodhka QR",
+    "revealQrCode": "Muujin QR code",
+    "exportWarning": "Digniin: qof kasta oo sawira koodkan QR wuxuu u soo saari karaa koodka xaqiijinta akoonkan. Kaliya ku muuji shaashad la aamini karo.",
+    "privacyHint": "Koodhkan QR ka dhig mid gaar ah. Baadhitaanka waxa ay koobiyaysaa sirta xaqiijiyaha akoontiga."
+  },
+  "productInfo": {
+    "backupRestore": "Soo-celinta & soo celinta",
+    "backupRestoreDescription": "Kaydi xogta xaqiijinta oo soo celi marka aad u guurto qalab kale.",
+    "privacyDescription": "Ku xafid akoonkaaga xaqiijinta hal meel. Adeegso kaydka abka, soo celinta, iyo ikhtiyaarka qufulka qalabka si aad u maamusho habayntaada si masuuliyadi ku jirto.",
+    "timeBasedCodes": "Koodhadhka wakhtiga ku salaysan",
+    "generateOneTimeCodes": "U samee koontooyinka sirta ah ee hal mar ah akoonnadaada si aad u dhammaystirto xaqiijinta laba-tallaabo ah.",
+    "quickAccountSetup": "Dejinta akoonnada degdega ah",
+    "quickSetupDescription": "Sawir bixiyaha koodka QR ama soo deji sawirka QR si aad ugu darto akoon",
+    "accountsOnePlace": "Xisaabaadka hal meel",
+    "accountsInOnePlaceDescription": "Hayso akoonnadaada kaydsan oo hel gelitaanka saxda ah marka la gaadho wakhtiga la saxeexo.",
+    "privateAccountVault": "Koontada gaarka ah",
+    "privateVaultDescription": "Maamul galitaankaaga xaqiijinta gudaha oo isticmaal abka ikhtiyaarka qufulka ee la heli karo.",
+    "easyCodeAccess": "Helitaanka kood fudud",
+    "easyCodeAccessDescription": "Nuqul kood hadda jira ama ku maamul faahfaahinta akoonnada iyada oo loo marayo is-dhexgal nadiif ah oo diiradda saaraya.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · BY TECHSIVARAM",
+    "mobileAuthenticator": "xaqiijiyaha mobilkaaga",
+    "tagline": "Hab ka fudud oo lagu maareeyo xaqiijinta laba-tallaabo.",
+    "heroDescription": "Waayo-aragnimada xaqiijinta diiradda saaraysa summada xaqiijinta wakhtiga. Gacanta ku hay koodka akoonnada ku habboon KaalKey ee Android.",
+    "timeBasedCodes2": "XEERKA WAQTIGA KU SALAYSAN",
+    "privateDesign": "GAAR AH NAQLI",
+    "builtSimpleAuthenticator": "LOO DHISAY HAWL SHAQEEYAHA FUDUD",
+    "qrSetupTimed": "QR Dejinta · XEERARKA WAQTIGA AH · Maamulka Xisaabaadka",
+    "privacyTitle": "Xisaabaadkaaga. Koodhadhkaaga Xakamayntaada.",
+    "authenticator": "[[200019]] AQOONYAHAN",
+    "brandBanner": "KaalKey calanka summada",
+    "logo": "KaalKey astaanta"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Jooji",
+      "storageInvalidTitle": "Xogta kaydinta waa sax",
+      "storageInvalidBody": "Xogta akoontada la kaydiyay looma akhrin karin si badbaado leh.",
+      "storageErrorTitle": "Cilad kaydinta",
+      "storageErrorBody": "Xisaabaadka la kaydiyay lama rari karo",
+      "missingTitle": "Xog maqan",
+      "missingEditingBody": "Geli magaca adeega iyo magaca xisaabta",
+      "missingBody": "Geli magaca adeega, magaca akoontiga, iyo furaha sirta ah.",
+      "invalidOtpBody": "Hubi Base32 sirta, algorithm, tirinta lambar, iyo muddada dib u soo kicinta. Sirtu waa inay ka kooban tahay xuruuf ansax ah Base32; nambaradu waa inay ahaadaan {digits} mudadaduna waa inay noqotaa {minPeriod} -{maxPeriod} ilbiriqsi.",
+      "duplicateBody": "Koontada adeegan leh iyo magaca akoontiga mar hore ayaa la kaydiyay.",
+      "updatedBody": "Koontadaada waa la cusboonaysiiyay",
+      "addedBody": "Koontadaada si ammaan ah ayaa loogu daray",
+      "invalidOtpTitle": "Habayn OTP aan ansax ahayn",
+      "duplicateTitle": "Akoonka hore ayaa u jiray",
+      "savedTitle": "Koontada waa la keydiyay",
+      "invalidSecretTitle": "Furaha sirta ah ee aan saxda ahayn",
+      "invalidSecretBody": "Fadlan hubi inaad gashay sir ansax ah [[200008]",
+      "removedTitle": "Akoonka waa laga saaray",
+      "removedBody": "Akoonka iyo sirta ayaa laga saaray qalabkan.",
+      "clearedTitle": "Xisaabaadka waa la nadiifiyay",
+      "clearedBody": "Dhammaan xisaabaadka xaqiijinta iyo siraha waa laga saaray qalabkan.",
+      "someSavedAccountsNeedAttentionTitle": "Qaar ka mid ah akoonnada kaydsan waxay u baahan yihiin fiiro gaar ah",
+      "someSavedAccountsNeedAttentionBody": "{count} diiwaanka akoonnada aan shaqaynayn lama rarin Koontooyin sax ah ayaa weli diyaar ah Tixgeli abuurista kayd ka hor intaadan samayn isbeddello kale.",
+      "removeConfirmTitle": "Ka saar akoontiga?",
+      "removeConfirmWebTitle": "Ka saar akoontiga?",
+      "removeButton": "Ka saar",
+      "clearButton": "Nadiifi dhammaan",
+      "clearConfirmTitle": "Ma tirtir dhammaan xisaabaadka?",
+      "saveErrorBody": "Xisaabaadka waa la keydin waayay Hubi kaydinta browserka oo isku day mar kale.",
+      "notFoundTitle": "Akoonka lama helin",
+      "notFoundBody": "Xisaabtan waa la heli waayay Xir tafatiraha oo isku day mar kale.",
+      "removeConfirmBody": "Tani waxay ka saartaa akoontiga iyo sirta ku jirta qalabkan.",
+      "clearConfirmBody": "Tani waxay si joogto ah uga saartaa dhammaan akoonada xaqiijinta iyo sirtooda qalabkan. Marka hore samee kayd sir ah haddii aad u baahato akoonnadan hadhow.",
+      "clearConfirmUndoBody": "Tan lama celin karo."
+    },
+    "biometric": {
+      "cancelButton": "Jooji",
+      "saveErrorTitle": "Ma kaydin kari waayay dejinta",
+      "unlockPrompt": "Fur KaalKey Xaqiijiye",
+      "promptSubtitle": "Isticmaal biometrics ama quful shaashadda qalabkaaga",
+      "disableConfirmPrompt": "Xaqiiji inaad damiso qufulka abka KaalKey",
+      "enablePrompt": "Daar qufulka abka KaalKey",
+      "deviceLockTitle": "Deji qufulka shaashadda qalabkaaga",
+      "deviceLockBody": "KaalKey waxay isticmaashaa aqoonsiga ku dhexjira taleefankaaga. Deji qalab PIN, qaab, ama erayga sirta ah ee telefoonkaaga Settings ammaanka, ka dibna isku day mar kale. Biometrics waa ikhtiyaari.",
+      "unavailableTitle": "Xaqiijinta aaladda lama heli karo",
+      "unavailableBody": "Taleefankaagu wuu bilaabi waayay xaqiijinta sugan. Hubi in qufulka shaashadda qalabku habaysan yahay, ka dibna isku day mar kale.",
+      "lockedTitle": "Xaqiijinta ayaa si ku meel gaar ah u xiran",
+      "lockedBody": "Taleefankaagu si ku meel gaar ah ayuu u joojiyay xaqiijinta isku dayo badan ka dib. Sug oo isku day markale",
+      "promptErrorTitle": "Xaqiijinta lama heli karo",
+      "promptErrorBody": "KaalKey waxa uu bilaabi kari waayay telefoonka sugida degdega ah. Fadlan isku day mar kale",
+      "webLock": "Qalabka xaqiijinta qufulka lagama heli karo nooca shabakada weli. Qasnadda shabakadda ayaa weli furan; isticmaal abka Android si aad u hubiso qalabka hooyo.",
+      "disabledTitle": "Qufulka App-ka waa la joojiyay",
+      "disabledBody": "KaalKey Qufulka abka waa la damiyay",
+      "disableSaveError": "Qufulka abka waa uu shaqayn Fadlan isku day mar kale",
+      "enabledTitle": "Quful App waa la furay",
+      "enabledBody": "KaalKey ayaa ku codsan doona aqoonsiga ku dhexjira taleefankaaga marka la furo iyo marka aad ku noqoto.",
+      "enableSaveError": "Qufulka App-ka waa la hawlgelin waayay Fadlan isku day mar kale"
+    },
+    "qr": {
+      "startingCamera": "Bilaabida kamarada…",
+      "unsupportedTitle": "Aan la taageerin QR code",
+      "unsupportedBody": "Baadh dejinta xaqiijinta QR koodka uu bixiyo adeeggu. Kani waa inuu noqdaa TOTP kood, ma aha soo gelid caadi ah QR.",
+      "unsupportedDiagnostic": "Taasi QR maaha TOTP koodka dejinta. Ujeedo habaynta xaqiijinta QR.",
+      "detectedDiagnostic": "QR la ogaaday. Falanqaynta…",
+      "analyzing": "Falanqaynta koodka QR",
+      "duplicateTitle": "Akoonka horay loogu daray",
+      "duplicateBody": "{issuer}: {account} waa horeba KaalKey).",
+      "addedTitle": "Xisaab ayaa lagu daray",
+      "addedBody": "{issuer}: {account} si guul leh ayaa loogu daray.",
+      "saveFailedDiagnostic": "Ma kaydsan karo akoontada Mar kale baad iskaan kartaa",
+      "invalidTitle": "Nambar QR aan ansax ahayn",
+      "invalidBody": "KaalKey wuu kala saari kari waayay xaqiijinta [[200022]] koodka. {detail}. Adeegso koodka TOTP dejinta QR (badanaa wuxuu ka bilaabmaa {prefix}).",
+      "parseFailedDiagnostic": "QR lama farsamayn karo Ujeedo dejinta QR oo isku day mar kale.",
+      "invalidUrlTitle": "Ansax ahayn TOTP URL",
+      "invalidUrlBody": "Ku dheji suge dhammaystiran URL oo ka bilaabmaya {prefix}.",
+      "clipboardEmptyTitle": "Boodhadhku waa madhan",
+      "clipboardEmptyBody": "Koobiye {prefix} URL marka hore, dabadeed taabo Ku dheji TOTP URL.",
+      "clipboardErrorTitle": "Waan akhriyi kari waayay sabuuradda",
+      "clipboardErrorBody": "Nuqul ka samee TOTP URL oo isku day mar kale."
+    },
+    "haptics": {
+      "saveFailedTitle": "Ma kaydin kari waayay dejinta",
+      "saveFailedBody": "Dookhyada jawaab celinta haptic waa la badbaadin kari waayay. Fadlan isku day mar kale"
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Ma badbaadin karin qirashada",
+      "saveFailedBody": "Fadlan isku day mar kale Waa inaad aqbashaa ogeysiiska sharciga ah ka hor intaadan isticmaalin KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Ogolaanshaha kamarada ayaa loo baahan yahay",
+      "body": "Oggolow gelitaanka kamarada si ay u sawirto koodka dejinta QR."
+    },
+    "storage": {
+      "browserUnavailable": "Kaydinta browserka lama heli karo",
+      "browserFilePickerUnavailable": "Xulashada faylka browserka lama heli karo"
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Fayl aan la taageerin",
+      "unsupportedFileBody": "Dooro sawirka QR sida PNG ama JPEG.",
+      "browserDecoderUnavailable": "Sawirka daalacashada lama heli karo",
+      "imageLoadFailed": "Sawirka lama rari karo",
+      "unreadableDimensions": "Sawirku ma laha cabbir la akhriyi karo",
+      "noQrCodeFoundTitle": "Maya QR kood la helay",
+      "noQrCodeFoundBody": "KaalKey ma dejin karo nambarka QR sawirkan Isku day sawir-qaadis ama qaraar sare PNG/JPEG.",
+      "couldNotReadImageTitle": "Ma akhrin karin sawirka",
+      "couldNotReadImageBody": "Isku day PNG ama JPEG sawir cad oo ka kooban koodka dejinta QR",
+      "couldNotOpenPickerTitle": "Ma furi karo sawir qaade",
+      "couldNotOpenPickerBody": "Fadlan isku day Upload QR mar labaad.",
+      "normalizedDecodeFailed": "Sawirka caadiga ah lama damin karo",
+      "clipboardImageLoadFailed": "Sawirka sabuuradda lama rari karo",
+      "imageProcessingUnavailable": "Habaynta sawirka lama heli karo",
+      "imageProcessingUnavailableAlt": "Habaynta sawirka lama heli karo",
+      "noImageInClipboardTitle": "Wax sawir ah kuma jiro kilib-boodhka",
+      "noImageInClipboardBody": "Nuqul QR sawirka koodka ah, dabadeed taabo Sawirka QR mar kale.",
+      "clipboardUnavailableTitle": "Boodhka boodhka lama heli karo",
+      "clipboardUnavailableBody": "Qoraalka sabuuradda ma aha habayn xaqiijin sax ah URL. Nuqul ka samee otpauth:// URL ama [[200020]] oo isku day mar kale.",
+      "clipboardAccessBody": "KaalKey wuu akhriyi kari waayay qoraalka ama sawirka sabuuradda. Oggolow gelitaanka sabuuradda, dabadeed koobiyi sawirka QR ama otpauth:// URL oo taabo Ku dheji QR Sawirka / URL markale.",
+      "couldNotPasteImageTitle": "Lama soo dhejin karo sawirka",
+      "couldNotPasteImageBody": "Ku dhejinta sawirka kuma taageerto kaboodhkan qalabkan. Isticmaal sawirka soo dejinta QR beddelkeeda.",
+      "sourceImageDecodeFailure": "Isku day muuqaal ka duwan QR",
+      "pastedImportFailureBody": "Isku day muuqaal ka duwan QR",
+      "sourceImageReadFailure": "Isku day inaad koobiyayso sawir cad QR",
+      "importFailedTitle": "QR soo dejinta sawirku waa guul daraystay",
+      "importFailedBody": "KaalKey wuu akhriyi kari waayay sawirkaas. Fadlan isku day muuqaal kale QR",
+      "notFoundBody": "Sawirka la guuriyay kuma jiro kood la akhriyi karo QR",
+      "pastedNotFoundBody": "Sawirka la dhejiyay kuma jiro kood la akhriyi karo QR",
+      "pastedReadFailureBody": "Isku day inaad nuqul ka sameyso sawir cad PNG ama JPEG ka kooban kood QR buuxa",
+      "noQrCodeTextBody": "KaalKey waxay dejisay sawirka la doortay laakiin ma helin QR koodh. Isku day cad, qaraar buuxa PNG ama JPEG oo leh koodka oo dhan la arki karo."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Koodhkan QR maaha koodka dejinta sugida wakhtiga.",
+      "missingAccountDetails": "Koodhka QR ayaa ka maqan faahfaahinta akoonnada.",
+      "unsupportedAlgorithm": "Koodhka QR wuxuu adeegsadaa algorithm aan la taageerin.",
+      "unsupportedDigits": "Koodhkan QR waa inuu adeegsadaa 6, 7, ama 8 lambar.",
+      "unsupportedPeriod": "Koodhkan QR wuxuu isticmaalaa wakhti aan la taageerin.",
+      "invalidAccount": "Koodhka QR lama ansaxin karo"
+    },
+    "backup": {
+      "invalidJson": "Faylka kaydku ma shaqaynayo JSON.",
+      "unsupportedFormat": "Kani maaha mid la taageeray KaalKey kayd sir ah.",
+      "invalidPasswordOrDamaged": "Kalsoonida sirta ah ee kaabta waa khalad ama faylka kaydka ayaa dhaawacmay.",
+      "invalidContents": "Waxa ku jira kaydku waa kuwo aan sax ahayn ama aan dhamaystirnayn.",
+      "secureRandomUnavailableDetailed": "Jiil sugan oo random ah lama heli karo Dib u dhis oo dib u rakib Android abka [[200016]] ku jira, ka dibna isku day mar kale.",
+      "invalidAccountDataForBackup": "Hal ama in ka badan oo akoonno ah ayaa jira. Hagaaji xogta koontada ka hor inta aanad samayn gurmad",
+      "invalidPasswordOrModified": "Kalsoonida sirta ah ee kaabta waa khalad ama faylka kaydka waa la bedelay.",
+      "invalidPasswordOrFileDamaged": "Kalsoonida sirta ah waa khalad ama faylka ayaa dhaawacmay.",
+      "passwordCopiedTitle": "Furaha sirta ah waa la guuriyay",
+      "enterPasswordTitle": "Geli furahaaga kaydka ah",
+      "enterPasswordBody": "Geli erayga sirta ah ee la isticmaalay markii kaydkan la sameeyay.",
+      "passwordCopiedBody": "Ku keydi meel nabdoon, sida WhatsApp.",
+      "copyFailedTitle": "nuqulku wuu fashilmay",
+      "copyFailedBody": "Dooro oo koobi gareeya erayga sirta ah gacanta",
+      "generatingPassword": "Soo saarista erayga sirta ah ee kaydka ah ee sugan…",
+      "encrypting": "Sirinaya kaabta…",
+      "decrypting": "Dejinta kaydinta…",
+      "restoring": "Soo celinta akoonnada…",
+      "backupCreatedTitle": "Kaabta ayaa la sameeyay",
+      "restoreCompleteTitle": "Soo celinta oo dhamaystiran",
+      "mergeConfirmTitle": "Isku biir xisaabaadka kaydka ah?",
+      "mergeConfirmButton": "Isku dar xisaabaadka",
+      "backupSavedTemporary": "Kaabta sir ah ayaa lagu keydiyay si ku meel gaar ah:\n{uri}",
+      "generatePasswordErrorTitle": "Ma dhalin kara furaha sirta ah",
+      "secureRandomUnavailable": "Jiil sugan oo random ah lama heli karo",
+      "passwordUnavailableTitle": "Kalsoonida sirta ah lama heli karo",
+      "passwordUnavailableBody": "Xir wadahadalkan oo samee gurmad cusub si aad u abuurto furaha sirta ah ee sugan.",
+      "backupDownloadedBody": "Kaydkaagii sir ahaa KaalKey waa la soo dejiyay. Ku xafid faylka iyo erayga sirta ah mid gaar ah.",
+      "backupFailedTitle": "Kaabta ayaa fashilantay",
+      "backupCreateErrorBody": "KaalKey wuu samayn kari waayay kaydka",
+      "restoreFailedTitle": "Soo celinta waa fashilantay",
+      "backupReadErrorBody": "Kaydka lama akhrin karo lamana kaydin karo",
+      "browserDownloadUnsupported": "Barowsarkaaga ma taageerayo soo dejinta faylasha kaydinta.",
+      "localFileUnavailable": "Goobta faylka maxaliga ah lagama heli karo qalabkan.",
+      "saveBackupTitle": "Keydi kaydkaaga sir ah KaalKey"
+    },
+    "clipboard": {
+      "copiedTitle": "Koodhka waa la guuriyay",
+      "copiedBody": "Koodhkaaga xaqiijinta waa la naqilay",
+      "errorTitle": "Khalad",
+      "errorBody": "Waa la koobi kari waayay summada xaqiijinta"
+    },
+    "activity": {
+      "cameraReady": "Kamarada diyaarsan Ku tilmaan suugida QR code.",
+      "readingQrImage": "Akhrinta [[200002]] sawirka…",
+      "importingQrImage": "Soo dejinaya QR sawirka…",
+      "importingAccount": "Soo dejinta koontada xaqiijiyaha…",
+      "importingPastedImage": "Soo dejinaya sawirka la dhejiyay QR"
+    }
+  },
+  "activity": {
+    "working": "shaqaynaysa",
+    "wait": "Fadlan sug…",
+    "donTClose": "Fadlan ha xidhin hana la macaamilin [[200005]].",
+    "loadingLanguages": "Soo dejinaya luqadaha la heli karo…",
+    "loadingTranslation": "Soo dejinaya turjumaada…"
+  }
+}

@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Nyelv",
+      "description": "Válassza ki a KaalKey nyelvet.",
+      "english": "angolul",
+      "telugu": "telugu",
+      "hindi": "hindi",
+      "section": "NYELV",
+      "searchLanguageName": "Keresés nyelve (név vagy kód)",
+      "searchSupportedLanguages": "Keresés a támogatott nyelveken",
+      "closeLanguageDropdown": "Nyelv legördülő menü bezárása",
+      "noTranslatedLanguage": "Nem található lefordított nyelv.",
+      "serverUrl": "Fordítószerver URL",
+      "serverUrlDescription": "A KaalKey letölti a nyelvi listát és a fordításokat erről a szerverről.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Fordítószerver mentése"
+    },
+    "title": "Alkalmazásbeállítások",
+    "eyebrow": "KAALKEY BEÁLLÍTÁSOK",
+    "experience": {
+      "section": "TAPASZTALAT"
+    },
+    "security": {
+      "section": "BIZTONSÁG"
+    },
+    "backup": {
+      "section": "BIZTONSÁGI MENTÉS ÉS HELYREÁLLÍTÁS"
+    },
+    "danger": {
+      "section": "VESZÉLYZÓNA",
+      "clearAccounts": "Törölje az összes fiókot",
+      "clearAccountsDescription": "Véglegesen távolítson el minden fiókot és titkot erről az eszközről. Először vissza.",
+      "clearAccountsAccessibilityLabel": "Törölje az összes hitelesítő fiókot"
+    },
+    "appearance": {
+      "section": "MEGJELENÉS",
+      "title": "Könnyű megjelenés",
+      "description": "A KaalKey jelenleg a tiszta fény témáját használja."
+    },
+    "haptics": {
+      "title": "Haptikus visszajelzés",
+      "description": "Gyengéd visszajelzés az érintésekről és a végrehajtott műveletekről."
+    },
+    "deviceLock": {
+      "title": "Eszköz hitelesítési zár",
+      "description": "A trezor zárol, amikor KaalKey elhagyja az előteret.",
+      "requirement": "Kérje meg telefonja biometrikus adatait vagy képernyőzárat PIN, mintát vagy jelszót.",
+      "accessibilityLabel": "Eszközhitelesítési alkalmazás zárolása"
+    },
+    "privacy": {
+      "title": "Jogi és adatvédelem",
+      "description": "Tekintse át az Adatvédelmi szabályzatot és a használati feltételeket.",
+      "storageNote": "A hitelesítő titkai az eszközön lévő biztonságos tárolóban maradnak. A beállítások helyben tárolódnak."
+    }
+  },
+  "accounts": {
+    "edit": "Szerkesztés",
+    "sortAccountName": "Rendezés fióknév szerint",
+    "loadingSecureVault": "Biztonságos tároló betöltése...",
+    "tapCopy": "Érintse meg a MÁSOLÁSHOZ",
+    "noAccountsMatch": "Egyetlen fiók sem felel meg a keresésnek.",
+    "viewQrCode": "Tekintse meg a fiókhoz tartozó QR kódot",
+    "removeAccount": "Fiók eltávolítása",
+    "copyVerificationCode": "Ellenőrző kód másolása",
+    "active": "AKTÍV",
+    "sort": "RENDEZÉS SZERINT",
+    "account": "fiók",
+    "clearSearch": "Keresés törlése",
+    "sortServiceName": "Rendezés szolgáltatás neve szerint",
+    "addFirstAccount": "Adja hozzá első fiókját",
+    "searchAccounts": "Fiókok keresése",
+    "searchServiceAccount": "Keressen szolgáltatást vagy fiókot",
+    "accounts": "Az Ön fiókjai",
+    "add": "+ Hozzáadás",
+    "vaultStartsHere": "A trezorod itt kezdődik",
+    "service": "Szolgáltatás",
+    "emptyHint": "Adjon hozzá egy fiókot a titkos kulcsával az első ellenőrző kód létrehozásához."
+  },
+  "common": {
+    "done": "Kész",
+    "doneButton": "Kész",
+    "closeSettings": "Zárja be a beállításokat",
+    "separator": "-",
+    "article": "a",
+    "save": "Mentés",
+    "delete": "Törölje",
+    "resizeAppBrand": "Alkalmazás- és márkapanelek átméretezése"
+  },
+  "qrImport": {
+    "readPastedImage": "Nem sikerült beolvasni a beillesztett képet"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Fiókok ebben a biztonsági mentésben: {count}. A KaalKey megtartja a meglévő fiókokat, és hozzáad minden olyan fiókot, amely még nincs jelen. Az ismétlődő fiókok kimaradnak.",
+    "restoreCompletionBody": "Hozzáadott fiókok: {added}. Ismétlődő fiókok kihagyva: {skipped}. Meglévő fiókjai megmaradtak.",
+    "copyPassword": "Másolja a generált jelszót",
+    "passwordSafety": "Mentse el ezt a jelszót külön (például a WhatsApp mappában). Bárki, akinek mindkettő",
+    "importAction": "Válassza ki a fájlt és importálja",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "BIZTONSÁGOS TARTOZÉK",
+    "createBackup": "Készítsen biztonsági másolatot",
+    "encryptedFile": "Titkosított fájl",
+    "restoreBackup": "Biztonsági másolat visszaállítása",
+    "safetyNote": "A biztonsági másolatok tartalmazzák a hitelesítő titkait. A KaalKey minden biztonsági mentéshez egyedi jelszót generál. Mentse el külön; KaalKey nem tudja visszaállítani.",
+    "generatingSecurePassword": "Biztonságos jelszó generálása…",
+    "importFile": "Fájl importálása",
+    "backupPassword": "BIZTONSÁGI JELSZÓ",
+    "account": "fiókot",
+    "accounts": "számlák",
+    "exportDescription": "Az összes mentett {count} {accountLabel} titkosítása biztonsági másolatba. A KaalKey egyedi jelszót generál; másolja és mentse a fájltól elkülönítve.",
+    "restoreDescription": "Válassza ki a KaalKey biztonsági mentési fájlját és jelszavát. Az új fiókok felkerülnek a meglévő fiókok listájára; a meglévő fiókok változatlanok maradnak.",
+    "enterBackupPassword": "Írja be a biztonsági jelszót",
+    "closeBackup": "Biztonsági mentés bezárása",
+    "copyGeneratedBackup": "Másolja a generált biztonsági jelszót",
+    "backupPassword2": "Biztonsági jelszó",
+    "clearBackupPassword": "Törölje a biztonsági jelszót",
+    "backupFilePassword": "biztonsági másolat fájl és jelszó visszaállíthatja a hitelesítő fiókokat.",
+    "encryptShareBackup": "Biztonsági másolat titkosítása és megosztása"
+  },
+  "home": {
+    "unlockSecurely": "Nyissa ki biztonságosan",
+    "disableAppLock": "Alkalmazászár kikapcsolása",
+    "enableAppLock": "Alkalmazászár engedélyezése",
+    "checkingSecureLock": "A biztonságos zár beállításainak ellenőrzése. A kódok rejtve maradnak.",
+    "waitingVerification": "Várakozás az ellenőrzésre…",
+    "secretsStayStored": "Titkai ezen az eszközön maradnak.",
+    "openAppSettings": "Nyissa meg az alkalmazás beállításait",
+    "versionLabel": "VERZIÓ",
+    "unlockRequirement": "Használja telefonja biometrikus adatait vagy képernyőzárat PIN, mintát vagy jelszavát az egyszeri ellenőrző kódok eléréséhez.",
+    "localVault": "AZ ÖN HELYI TARTOZÉKA",
+    "codesDeviceControl": "A kódjaid. Az Ön készüléke. A te irányításod.",
+    "securingVault": "A páncélszekrény biztosítása…",
+    "vaultProtected": "A trezorod védett",
+    "lock": "LOCK ON",
+    "localVault2": "HELYI TARTOZÉK",
+    "authenticator": "KAALKEY HITELESÍTŐ",
+    "tricolourLockEmblem": "KaalKey háromszínű zár emblémája",
+    "authenticator2": "HITELESÍTŐ"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Ha úgy dönt, hogy beolvas egy QR kódot, a KaalKey kameraengedélyt használ ehhez a művelethez. Az opcionális eszközhitelesítés és a tapintható visszajelzés a megfelelő eszközfunkciókat használja. Az engedélyeket az eszköz beállításaiban kezelheti.",
+        "heading": "2. Engedélyek és eszközfunkciók"
+      },
+      "backups": {
+        "body": "Amikor biztonsági másolatot készít, a KaalKey titkosítja a biztonsági másolatot az Ön által választott jelszóval. A fájlt és a jelszót is tartsa titokban, és tárolja biztonságosan. Bárki, aki megszerzi a fájlt és annak jelszavát, vissza tudja állítani a hitelesítő fiókokat. A KaalKey nem tudja visszaállítani az elfelejtett biztonsági jelszót.",
+        "heading": "3. Biztonsági mentések"
+      },
+      "security": {
+        "body": "Tartsa naprakészen eszközét, védje képernyőzárral, és ne ossza meg OTP titkokat vagy biztonsági jelszavakat. Az alkalmazás eltávolítása, adatainak törlése vagy az eszköz elvesztése elérhetetlenné teheti a helyileg tárolt fiókokat. Ha helyreállításra van szüksége, készítsen biztonságos biztonsági másolatot.",
+        "heading": "5. Biztonság és megőrzés"
+      },
+      "information": {
+        "heading": "1. Információk és titkok",
+        "body": "A KaalKey egy hitelesítő alkalmazás. A fiókcímkék és az egyszeri kódok generálásához szükséges titkos értékek érzékenyek. Az alkalmazást úgy tervezték, hogy a fiókrekordokat az eszköz biztonságos tárhelyén tárolja. Bárki, aki hozzáfér egy feloldott eszközhöz vagy egy exportált biztonsági másolathoz, hozzáférhet bizalmas információkhoz."
+      },
+      "sharing": {
+        "heading": "4. Megosztás és harmadik felek",
+        "body": "A biztonsági mentési folyamat az eszköz megosztási lapját vagy fájlválasztóját használhatja a fájlok mentéséhez, átviteléhez vagy kiválasztásához. Az Ön által választott bármely harmadik féltől származó alkalmazás vagy szolgáltatás adatvédelmi gyakorlatát az adott szolgáltató szabályozza. Ez a közlemény nem jelenti azt az általános állítást, hogy az Ön eszköze, operációs rendszere vagy választott megosztási szolgáltatásai soha nem dolgoznak fel adatokat."
+      },
+      "changes": {
+        "heading": "6. Változások és kapcsolatfelvétel",
+        "body": "Ez a beágyazott értesítés egy későbbi alkalmazáskiadásban módosulhat. Adatvédelmi kérdéseivel forduljon az alkalmazás kiadójához az alkalmazáshoz biztosított hivatalos támogatási csatornán keresztül."
+      },
+      "title": "Adatvédelmi szabályzat"
+    },
+    "terms": {
+      "use": {
+        "body": "A KaalKey segítségével ellenőrző kódokat generálhat azokhoz a fiókokhoz, amelyekhez hozzáféréssel rendelkezik. Ön felelős azért, hogy betartsa a vonatkozó jogszabályokat és azon szolgáltatások szabályait, amelyekhez hitelesítési kódokat használ.",
+        "heading": "1. Az Ön használata"
+      },
+      "protectAccounts": {
+        "body": "Ön felelős az eszköz, a hitelesítő titkok, a helyreállítási módszerek, az exportált biztonsági másolatok és a biztonsági jelszavak biztonságáért. Ne ossza meg kódjait vagy titkait olyan emberekkel, akikben nem bízik.",
+        "heading": "2. Védje fiókját"
+      },
+      "availability": {
+        "body": "A funkciók a kiadások között változhatnak. Frissítse az alkalmazást, és rendszeresen ellenőrizze, hogy a biztonsági mentési és helyreállítási intézkedések működnek.",
+        "heading": "5. Változások és elérhetőség"
+      },
+      "recovery": {
+        "body": "A KaalKey nem tudja garantálni, hogy minden fiók helyreállítható, minden QR kód vagy konfiguráció kompatibilis lesz, vagy hogy az alkalmazás megszakítás vagy hiba nélkül fog működni. Tartsa meg a megfelelő szolgáltatás által biztosított alternatív helyreállítási módszereket.",
+        "heading": "3. Nincs visszaszerzési garancia"
+      },
+      "advice": {
+        "heading": "4. Nincs szakmai tanács",
+        "body": "Az alkalmazás egy segédprogram, és nem ad jogi, pénzügyi vagy biztonsági incidensekre adott választ. Ha egy fiókot feltörtek, kövesse az érintett szolgáltatás hivatalos helyreállítási és biztonsági útmutatásait."
+      },
+      "liability": {
+        "heading": "6. Felelősség és az alkalmazandó jog",
+        "body": "A vonatkozó jogszabályok által megengedett mértékben az alkalmazást a zavartalan és hibamentes működés garantálása nélkül biztosítjuk. A jelen feltételekben semmi sem zár ki olyan jogokat vagy jogorvoslatokat, amelyek jogilag nem zárhatók ki. Minden további korlátozást vagy irányadó jogi feltételt a kiadó joghatósága szerinti képzett jogásznak kell felülvizsgálnia a kiadás előtt."
+      },
+      "title": "Felhasználási feltételek"
+    },
+    "version": "Verzió",
+    "saving": "Mentés…",
+    "acceptContinue": "Elfogadás és folytatás",
+    "appliesAuthenticator": "A KaalKey Authenticatorra vonatkozik",
+    "reviewBothDocuments": "Kérjük, tekintse át mindkét dokumentumot a KaalKey használata előtt. Szerepelnek az alkalmazásban, és offline is elérhetők.",
+    "originalMulticolourAuthenticator": "Eredeti többszínű KaalKey hitelesítő embléma",
+    "legalPrivacyNotice": "Jogi és adatvédelmi nyilatkozat",
+    "legalInformation": "Jogi információk",
+    "reviewSPrivacy": "Tekintse át a KaalKey adatvédelmi információit és használati feltételeit.",
+    "iReadAgree": "Elolvastam és elfogadom az Adatvédelmi szabályzatot és a Felhasználási feltételeket."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Tartsa láthatóan a teljes QR kódot. A titkod ezen az eszközön marad.",
+    "back": "Vissza",
+    "turnFlashlightOff": "Kapcsolja ki a zseblámpát",
+    "turnFlashlight": "Kapcsolja be a zseblámpát",
+    "flashlight": "Zseblámpa bekapcsolva",
+    "flashlight2": "Zseblámpa",
+    "cameraUnavailableOpen": "A kamera nem elérhető. Nyissa meg ezt az oldalt HTTPS vagy localhost oldalon, és engedélyezze a kamera elérését.",
+    "cameraPreviewUnavailable": "A kamera előnézete nem érhető el. Zárja be, majd nyissa meg újra a szkennert.",
+    "cameraReadyPoint": "A fényképezőgép készen áll – mutasson a teljes QR kódra.",
+    "browserCannotProcess": "Ez a böngésző nem tudja feldolgozni a kamerakockákat.",
+    "qrCodeDetected": "QR kód észlelve.",
+    "couldnTRead": "Nem sikerült beolvasni a kamera képkockáit. Ellenőrizze a kamera engedélyeit, és töltse be újra ezt az oldalt.",
+    "cameraPermissionDenied": "Kameraengedély megtagadva. Engedélyezze a kamera hozzáférését a böngésző beállításaiban, majd nyissa meg újra a szkennert.",
+    "noCameraWas": "Nem található kamera ezen az eszközön.",
+    "cameraBusyAnother": "A kamera egy másik alkalmazásban vagy böngészőlapon foglalt.",
+    "startCameraHttps": "Nem sikerült elindítani a kamerát. Használja a HTTPS vagy localhost programot, és ellenőrizze a böngésző engedélyeit.",
+    "qrScannerCamera": "QR szkenner kamera előnézete",
+    "cameraUnavailableCheck": "A kamera nem elérhető. Ellenőrizze a kamera engedélyét, és próbálja újra.",
+    "pointCameraAuthenticator": "Irányítsa kameráját a hozzáadni kívánt szolgáltatás hitelesítő beállítási QR kódjára.",
+    "backAddAccount": "Vissza a fiók hozzáadásához",
+    "secureSetup": "BIZTONSÁGOS BEÁLLÍTÁS",
+    "enterDetailsManually": "Ehelyett manuálisan adja meg az adatokat"
+  },
+  "accountForm": {
+    "hideManualEntry": "A kézi bevitel elrejtése",
+    "secretKeySupplied": "Használja a konfigurálandó szolgáltatás által biztosított titkos kulcsot. Soha ne adja meg a fiók jelszavát itt. Párosítsa az algoritmust, a számjegyek számát és az intervallumot a szolgáltatás beállítási utasításaival.",
+    "updateServiceAccount": "Frissítse a szolgáltatást, a fiók nevét vagy a titkos kulcsot.",
+    "secretKeyRead": "Titkos kulcs, csak olvasható szerkesztés közben",
+    "secretKeyBase32": "Titkos kulcs itt: Base32",
+    "digits": "számjegyek",
+    "seconds": "másodpercig",
+    "enterDetailsManually": "VAGY MEGADJA A RÉSZLETEKET KÉZI",
+    "enterDetailsManually2": "Adja meg manuálisan az adatokat",
+    "serviceAccountName": "Szolgáltatás, fióknév és titkos kulcs",
+    "saveChangesSecurely": "Mentse biztonságosan a változtatásokat",
+    "saveAccountSecurely": "Mentse el a fiókot biztonságosan",
+    "serviceIssuer": "Szolgáltatás vagy kibocsátó",
+    "accountName": "Fiók neve",
+    "secretKey": "Titkos kulcs",
+    "serviceIssuer2": "SZOLGÁLTATÁS / KIADÓ",
+    "eGGoogle": "pl. Google",
+    "clearServiceIssuer": "Tiszta szolgáltatás vagy kibocsátó",
+    "eGExample": "pl. te@example.com",
+    "clearAccountName": "Törölje a fiók nevét",
+    "secretKeyLocked": "TITKOS KULCS (ZÁRVA)",
+    "secretKeyBase322": "TITKOS KULCS (BASE32)",
+    "enterSetupKey": "Írja be a beállítási kulcsot",
+    "clearSecretKey": "Törölje a titkos kulcsot",
+    "otpAlgorithm": "OTP ALGORITMUS",
+    "otpDigits": "OTP SZÁMJEGYEK",
+    "refreshIntervalSeconds": "FRISSÍTÉSI INTERVALLUM (MÁSODPERC)",
+    "otpRefreshInterval": "OTP frissítési időköz másodpercben",
+    "closeAccountForm": "Számla bezárása űrlap",
+    "totpSetupUrl": "TOTP beállítás URL",
+    "importSetupUrl": "Beállítás importálása URL",
+    "totpSetupUrl2": "TOTP BEÁLLÍTÁS URL",
+    "accountName2": "FIÓKNÉV",
+    "addAccount": "Fiók hozzáadása lehetőségre"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "A hitelesítő QR kód beolvasása",
+    "setupGuidance": "Olvassa be a QR kódot a legegyszerűbb beállítás érdekében, vagy adja meg manuálisan a részleteket.",
+    "cameraAddAccount": "Használja kameráját fiók azonnali hozzáadásához",
+    "scanQrCode2": "Olvassa be a QR kódot",
+    "uploadQrImage": "Töltsön fel QR képet",
+    "chooseQrScreenshot": "Válasszon egy QR képernyőképet a Galéria, a Fényképek vagy a Fájlok közül",
+    "pasteQr": "QR kép beillesztése / URL",
+    "pasteCopiedQr": "Illesszen be egy másolt QR képet vagy hitelesítő beállítást URL",
+    "uploadQrImage2": "Töltsön fel QR képet"
+  },
+  "accountQr": {
+    "close": "Bezárás",
+    "accountQrCode": "fiók QR kódja",
+    "revealQrCode": "Mutasd fel a QR kódot",
+    "exportWarning": "Figyelmeztetés: bárki, aki beolvassa ezt a QR kódot, ellenőrző kódokat generálhat ehhez a fiókhoz. Csak megbízható képernyőn fedje fel.",
+    "privacyHint": "Tartsa privátban ezt a QR kódot. A beolvasása lemásolja a fiók hitelesítő titkát."
+  },
+  "productInfo": {
+    "backupRestore": "Biztonsági mentés és visszaállítás",
+    "backupRestoreDescription": "Készítsen biztonsági másolatot a hitelesítő adatairól, és állítsa vissza azokat, amikor másik eszközre költözik.",
+    "privacyDescription": "Tartsa az ellenőrző fiókokat egy helyen. Használja az alkalmazás biztonsági mentési, visszaállítási és eszközzárolási lehetőségeit a beállítás felelősségteljes kezeléséhez.",
+    "timeBasedCodes": "Időalapú kódok",
+    "generateOneTimeCodes": "A kétlépcsős azonosítás végrehajtásához forgó, egyszeri jelkódokat generálhat fiókjaihoz.",
+    "quickAccountSetup": "Gyors fiókbeállítás",
+    "quickSetupDescription": "Szkenneljen be egy hitelesítő QR kódot, vagy importáljon egy QR képet fiók hozzáadásához.",
+    "accountsOnePlace": "Számlák egy helyen",
+    "accountsInOnePlaceDescription": "Tartsa együtt mentett fiókjait, és keresse meg a megfelelő bejegyzést, amikor eljött a bejelentkezés ideje.",
+    "privateAccountVault": "Privát fióktároló",
+    "privateVaultDescription": "Helyben kezelheti hitelesítő bejegyzéseit, és használja az alkalmazásban elérhető eszközzár opciót.",
+    "easyCodeAccess": "Könnyű kód hozzáférés",
+    "easyCodeAccessDescription": "Másoljon át egy aktuális kódot vagy kezelje a fiók adatait egy tiszta, fókuszált felületen keresztül.",
+    "authenticatorTechsivaram": "HITELESÍTŐ · A TECHSIVARAM ÁLTAL",
+    "mobileAuthenticator": "A MOBILHITELESÍTŐ",
+    "tagline": "A kétlépcsős azonosítás kezelésének egyszerűbb módja.",
+    "heroDescription": "Koncentrált hitelesítési élmény az időalapú ellenőrző kódokhoz. A Android KaalKey segítségével tartsa kéznél a kompatibilis fiókkódokat.",
+    "timeBasedCodes2": "IDŐALAPÚ KÓDOK",
+    "privateDesign": "PRIVÁT TERVEZÉSRE",
+    "builtSimpleAuthenticator": "EGYSZERŰ HITELESÍTÉSI MUNKAFOLYAMHOZ ÉPÍTETT",
+    "qrSetupTimed": "QR BEÁLLÍTÁS · IDŐZÍTETT KÓDOK · FIÓK KEZELÉS",
+    "privacyTitle": "Az Ön fiókjai. A kódjaid. A te irányításod.",
+    "authenticator": "KAALKEY · HITELESÍTŐ",
+    "brandBanner": "KaalKey márka szalaghirdetése",
+    "logo": "KaalKey logó"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Mégsem",
+      "storageInvalidTitle": "A tárolási adatok érvénytelenek",
+      "storageInvalidBody": "A mentett fiókadatok nem olvashatók biztonságosan.",
+      "storageErrorTitle": "Tárolási hiba",
+      "storageErrorBody": "A mentett fiókokat nem lehetett betölteni.",
+      "missingTitle": "Hiányzó információ",
+      "missingEditingBody": "Adja meg a szolgáltatás nevét és a fiók nevét.",
+      "missingBody": "Adja meg a szolgáltatás nevét, a fiók nevét és a titkos kulcsot.",
+      "invalidOtpBody": "Ellenőrizze a Base32 titkát, az algoritmust, a számjegyek számát és a frissítési időszakot. A titkoknak érvényes Base32 karaktereket kell tartalmazniuk; a számjegyeknek {digits}, a periódusnak pedig {minPeriod}–{maxPeriod} másodpercnek kell lennie.",
+      "duplicateBody": "Egy fiók ezzel a szolgáltatással és fióknévvel már mentve van.",
+      "updatedBody": "Fiókja frissítve lett.",
+      "addedBody": "Fiókja biztonságosan lett hozzáadva.",
+      "invalidOtpTitle": "Érvénytelen OTP beállítások",
+      "duplicateTitle": "A fiók már létezik",
+      "savedTitle": "Fiók mentve",
+      "invalidSecretTitle": "Érvénytelen titkos kulcs",
+      "invalidSecretBody": "Kérjük, ellenőrizze, hogy érvényes Base32 titkos adatot adott-e meg.",
+      "removedTitle": "Fiók eltávolítva",
+      "removedBody": "A fiókot és annak titkát eltávolítottuk erről az eszközről.",
+      "clearedTitle": "Számlák törölve",
+      "clearedBody": "Minden hitelesítő fiók és titok eltávolítva erről az eszközről.",
+      "someSavedAccountsNeedAttentionTitle": "Néhány mentett fiók figyelmet igényel",
+      "someSavedAccountsNeedAttentionBody": "{count} érvénytelen számlarekord(ok) nem lettek betöltve. Az érvényes fiókok továbbra is rendelkezésre állnak. A további módosítások előtt fontolja meg egy biztonsági másolat létrehozását.",
+      "removeConfirmTitle": "Eltávolítja a fiókot?",
+      "removeConfirmWebTitle": "Eltávolítja a fiókot?",
+      "removeButton": "Távolítsa el",
+      "clearButton": "Minden törlése",
+      "clearConfirmTitle": "Törli az összes fiókot?",
+      "saveErrorBody": "A fiókokat nem sikerült menteni. Ellenőrizze a böngésző tárhelyének elérhetőségét, és próbálja újra.",
+      "notFoundTitle": "Fiók nem található",
+      "notFoundBody": "Ez a fiók nem található. Zárja be a szerkesztőt, és próbálja újra.",
+      "removeConfirmBody": "Ezzel eltávolítja a fiókot és annak titkát erről az eszközről.",
+      "clearConfirmBody": "Ezzel véglegesen eltávolítja az összes hitelesítő fiókot és azok titkait erről az eszközről. Először hozzon létre egy titkosított biztonsági másolatot, ha később szüksége lehet ezekre a fiókokra.",
+      "clearConfirmUndoBody": "Ezt nem lehet visszavonni."
+    },
+    "biometric": {
+      "cancelButton": "Mégsem",
+      "saveErrorTitle": "Nem sikerült menteni a beállítást",
+      "unlockPrompt": "Oldja fel a KaalKey Hitelesítőt",
+      "promptSubtitle": "Használjon biometrikus adatokat vagy eszköze képernyőzárát",
+      "disableConfirmPrompt": "Erősítse meg a KaalKey alkalmazászár kikapcsolását",
+      "enablePrompt": "Alkalmazászár engedélyezése a következőhöz: KaalKey",
+      "deviceLockTitle": "Állítsa be az eszköz képernyőzárát",
+      "deviceLockBody": "A KaalKey a telefon beépített hitelesítését használja. Állítsa be az eszközt PIN, mintát vagy jelszót a telefon biztonsági beállításaiban, majd próbálkozzon újra. A biometrikus adatok nem kötelezőek.",
+      "unavailableTitle": "Az eszköz hitelesítése nem érhető el",
+      "unavailableBody": "A telefon nem tudta elindítani a biztonságos hitelesítést. Ellenőrizze, hogy be van-e állítva az eszköz képernyőzára, majd próbálja újra.",
+      "lockedTitle": "A hitelesítés átmenetileg zárolva",
+      "lockedBody": "Telefonja túl sok próbálkozás után ideiglenesen letiltotta a hitelesítést. Várjon, és próbálja újra.",
+      "promptErrorTitle": "A hitelesítés nem érhető el",
+      "promptErrorBody": "KaalKey nem tudta elindítani a telefon biztonságos hitelesítési promptját. Kérjük, próbálja újra.",
+      "webLock": "Az eszközhitelesítési zár még nem érhető el a webes verzióban. A webtároló zárolva marad; használja a Android alkalmazást a natív eszközhitelesítéshez.",
+      "disabledTitle": "Alkalmazászár letiltva",
+      "disabledBody": "A KaalKey alkalmazászárolás ki van kapcsolva.",
+      "disableSaveError": "Az alkalmazás zárolása engedélyezve marad. Kérjük, próbálja újra.",
+      "enabledTitle": "Alkalmazászár engedélyezve",
+      "enabledBody": "A KaalKey a telefon beépített hitelesítését kéri, amikor kinyitja, és amikor visszatér hozzá.",
+      "enableSaveError": "Az alkalmazászárat nem sikerült engedélyezni. Kérjük, próbálja újra."
+    },
+    "qr": {
+      "startingCamera": "Kamera indítása…",
+      "unsupportedTitle": "Nem támogatott QR kód",
+      "unsupportedBody": "Olvassa be a szolgáltatás által biztosított hitelesítő beállítási QR kódot. Ennek egy TOTP kódnak kell lennie, nem egy normál bejelentkezési QR kódnak.",
+      "unsupportedDiagnostic": "Ez a QR nem TOTP beállítási kód. Célozzon egy hitelesítő beállítást QR.",
+      "detectedDiagnostic": "QR észlelve. Elemzés…",
+      "analyzing": "A QR kód elemzése…",
+      "duplicateTitle": "A fiók már hozzáadva",
+      "duplicateBody": "{issuer}: A {account} már a KaalKey fájlban van.",
+      "addedTitle": "Fiók hozzáadva",
+      "addedBody": "{issuer}: {account} sikeresen hozzáadva.",
+      "saveFailedDiagnostic": "Nem sikerült menteni a fiókot. Újra beolvashatja.",
+      "invalidTitle": "Érvénytelen QR kód",
+      "invalidBody": "A KaalKey nem tudta elemezni ezt a hitelesítő QR kódot. {detail}. Használja a szolgáltatás TOTP beállítási QR kódját (általában a következővel kezdődik: {prefix}).",
+      "parseFailedDiagnostic": "A QR feldolgozása nem sikerült. Irányítsa a beállítást QR, és próbálja újra.",
+      "invalidUrlTitle": "Érvénytelen TOTP URL",
+      "invalidUrlBody": "Illesszen be egy teljes hitelesítőt URL a következővel kezdődően: {prefix}.",
+      "clipboardEmptyTitle": "A vágólap üres",
+      "clipboardEmptyBody": "Először másoljon át egy {prefix} URL, majd koppintson a Beillesztés TOTP URL elemre.",
+      "clipboardErrorTitle": "Nem sikerült beolvasni a vágólapot",
+      "clipboardErrorBody": "Másolja át a TOTP beállítást URL, és próbálkozzon újra."
+    },
+    "haptics": {
+      "saveFailedTitle": "Nem sikerült menteni a beállítást",
+      "saveFailedBody": "A haptikus visszajelzési beállításokat nem sikerült elmenteni. Kérjük, próbálja újra."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Nem sikerült menteni a nyugtát",
+      "saveFailedBody": "Kérjük, próbálja újra. A KaalKey használata előtt el kell fogadnia a jogi nyilatkozatot."
+    },
+    "cameraPermission": {
+      "title": "Kameraengedély szükséges",
+      "body": "Engedélyezze a kamera hozzáférését a hitelesítő beállítási QR kód beolvasásához."
+    },
+    "storage": {
+      "browserUnavailable": "A böngésző tárhelye nem érhető el.",
+      "browserFilePickerUnavailable": "A böngésző fájlválasztó nem érhető el."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Nem támogatott fájl",
+      "unsupportedFileBody": "Válasszon egy QR kódképet, például PNG vagy JPEG.",
+      "browserDecoderUnavailable": "A böngésző képének dekódolása nem érhető el",
+      "imageLoadFailed": "A képet nem sikerült betölteni",
+      "unreadableDimensions": "A képnek nincsenek olvasható méretei",
+      "noQrCodeFoundTitle": "Nem található QR kód",
+      "noQrCodeFoundBody": "A KaalKey nem tudott dekódolni egy QR kódot ezen a képen. Próbáljon ki egy képernyőképet vagy egy nagyobb felbontású PNG/JPEG.",
+      "couldNotReadImageTitle": "Nem sikerült beolvasni a képet",
+      "couldNotReadImageBody": "Próbáljon meg egy tiszta PNG vagy JPEG képet, amely a hitelesítő beállítási QR kódot tartalmazza.",
+      "couldNotOpenPickerTitle": "Nem sikerült megnyitni a képválasztót",
+      "couldNotOpenPickerBody": "Kérjük, próbálja meg újra feltölteni QR.",
+      "normalizedDecodeFailed": "A normalizált kép nem dekódolható",
+      "clipboardImageLoadFailed": "A vágólap képét nem sikerült betölteni",
+      "imageProcessingUnavailable": "A képfeldolgozás nem érhető el",
+      "imageProcessingUnavailableAlt": "A képfeldolgozás nem érhető el",
+      "noImageInClipboardTitle": "Nincs kép a vágólapon",
+      "noImageInClipboardBody": "Másoljon ki egy QR kódképet, majd koppintson ismét a Paste QR Kép beillesztése lehetőségre.",
+      "clipboardUnavailableTitle": "A vágólap nem érhető el",
+      "clipboardUnavailableBody": "A vágólap szövege nem érvényes hitelesítő beállítás URL. Másoljon egy otpauth:// URL vagy QR képet, és próbálkozzon újra.",
+      "clipboardAccessBody": "A KaalKey nem tudott szöveget vagy képet olvasni a vágólapról. Engedélyezze a vágólap elérését, majd másolja ki a QR képet vagy az otpauth:// URL elemet, és koppintson ismét a Paste QR Kép / URL elemre.",
+      "couldNotPasteImageTitle": "Nem sikerült beilleszteni a képet",
+      "couldNotPasteImageBody": "Ez a vágólap nem támogatja a képbeillesztést ezen az eszközön. Ehelyett használja a QR kép importálását.",
+      "sourceImageDecodeFailure": "Próbáljon ki egy másik QR képet.",
+      "pastedImportFailureBody": "Próbáljon ki egy másik QR képet.",
+      "sourceImageReadFailure": "Próbáljon meg tiszta QR képernyőképet másolni.",
+      "importFailedTitle": "QR képimportálás sikertelen",
+      "importFailedBody": "KaalKey nem tudta beolvasni a képet. Kérjük, próbáljon ki egy másik QR kódképet.",
+      "notFoundBody": "A másolt kép nem tartalmaz olvasható QR kódot.",
+      "pastedNotFoundBody": "A beillesztett kép nem tartalmaz olvasható QR kódot.",
+      "pastedReadFailureBody": "Próbáljon meg másolni egy tiszta PNG vagy JPEG képet, amely tartalmazza a teljes QR kódot.",
+      "noQrCodeTextBody": "KaalKey dekódolta a kiválasztott képet, de nem talált QR kódot. Próbáljon meg egy tiszta, teljes felbontású PNG vagy JPEG kódot a teljes kóddal."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Ez a QR kód nem időalapú hitelesítő beállítási kód.",
+      "missingAccountDetails": "A QR kódból hiányoznak a fiókadatok.",
+      "unsupportedAlgorithm": "A QR kód nem támogatott algoritmust használ.",
+      "unsupportedDigits": "Ennek a QR kódnak 6, 7 vagy 8 számjegyből kell állnia.",
+      "unsupportedPeriod": "Ez a QR kód nem támogatott időtartamot használ.",
+      "invalidAccount": "A QR kód nem érvényesíthető."
+    },
+    "backup": {
+      "invalidJson": "A biztonsági másolat fájl nem érvényes JSON.",
+      "unsupportedFormat": "Ez nem támogatott KaalKey titkosított biztonsági másolat.",
+      "invalidPasswordOrDamaged": "A biztonsági mentési jelszó helytelen, vagy a biztonsági másolat fájl sérült.",
+      "invalidContents": "A biztonsági másolat tartalma érvénytelen vagy hiányos.",
+      "secureRandomUnavailableDetailed": "A biztonságos véletlenszerű generálás nem érhető el. Építse újra, majd telepítse újra a Android alkalmazást a expo-crypto alkalmazással, majd próbálkozzon újra.",
+      "invalidAccountDataForBackup": "Egy vagy több fiók érvénytelen. Biztonsági másolat létrehozása előtt javítsa ki a fiókadatokat.",
+      "invalidPasswordOrModified": "A biztonsági mentési jelszó helytelen, vagy a biztonsági mentési fájl módosult.",
+      "invalidPasswordOrFileDamaged": "A biztonsági mentési jelszó helytelen, vagy a fájl sérült.",
+      "passwordCopiedTitle": "Jelszó másolva",
+      "enterPasswordTitle": "Írja be a biztonsági jelszót",
+      "enterPasswordBody": "Adja meg a biztonsági mentés létrehozásakor használt jelszót.",
+      "passwordCopiedBody": "Mentse el egy biztonságos helyre, például WhatsApp.",
+      "copyFailedTitle": "A másolás nem sikerült",
+      "copyFailedBody": "Válassza ki és másolja ki a jelszót manuálisan.",
+      "generatingPassword": "Biztonságos biztonsági jelszó generálása…",
+      "encrypting": "Biztonsági mentés titkosítása…",
+      "decrypting": "Biztonsági mentés visszafejtése…",
+      "restoring": "Fiókok visszaállítása…",
+      "backupCreatedTitle": "Biztonsági másolat létrehozva",
+      "restoreCompleteTitle": "A visszaállítás kész",
+      "mergeConfirmTitle": "Egyesíti a biztonsági mentési fiókokat?",
+      "mergeConfirmButton": "Fiókok egyesítése",
+      "backupSavedTemporary": "A titkosított biztonsági másolat ideiglenesen mentve: \n{uri}",
+      "generatePasswordErrorTitle": "Nem sikerült biztonsági jelszót létrehozni",
+      "secureRandomUnavailable": "A biztonságos véletlenszerű generálás nem érhető el.",
+      "passwordUnavailableTitle": "A biztonsági mentési jelszó nem érhető el",
+      "passwordUnavailableBody": "Zárja be ezt a párbeszédpanelt, és hozzon létre egy új biztonsági másolatot a biztonságos jelszó létrehozásához.",
+      "backupDownloadedBody": "A titkosított KaalKey biztonsági másolat letöltése megtörtént. Tartsa privátban a fájlt és a jelszót.",
+      "backupFailedTitle": "A biztonsági mentés nem sikerült",
+      "backupCreateErrorBody": "KaalKey nem tudta létrehozni a biztonsági másolatot.",
+      "restoreFailedTitle": "A visszaállítás nem sikerült",
+      "backupReadErrorBody": "A biztonsági másolat nem olvasható vagy menthető.",
+      "browserDownloadUnsupported": "Az Ön böngészője nem támogatja a biztonsági mentési fájlok letöltését.",
+      "localFileUnavailable": "A helyi fájl helye nem érhető el ezen az eszközön.",
+      "saveBackupTitle": "Mentse el a titkosított KaalKey biztonsági másolatot"
+    },
+    "clipboard": {
+      "copiedTitle": "Kód másolva",
+      "copiedBody": "Az ellenőrző kódot kimásoltuk.",
+      "errorTitle": "Hiba",
+      "errorBody": "Nem sikerült másolni az ellenőrző kódot."
+    },
+    "activity": {
+      "cameraReady": "A fényképezőgép készen áll. Irányítsa a hitelesítő QR kódra.",
+      "readingQrImage": "QR kép olvasása…",
+      "importingQrImage": "QR kép importálása…",
+      "importingAccount": "Hitelesítő fiók importálása…",
+      "importingPastedImage": "Beillesztett QR kép importálása…"
+    }
+  },
+  "activity": {
+    "working": "Dolgozik",
+    "wait": "Kérjük, várjon…",
+    "donTClose": "Kérjük, ne zárja be, és ne lépjen kapcsolatba vele KaalKey.",
+    "loadingLanguages": "Elérhető nyelvek betöltése…",
+    "loadingTranslation": "Fordítás betöltése…"
+  }
+}

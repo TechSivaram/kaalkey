@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Limba",
+      "description": "Alegeți limba folosită în KaalKey.",
+      "english": "engleză",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "LIMBAJUL",
+      "searchLanguageName": "Limba de căutare (nume sau cod)",
+      "searchSupportedLanguages": "Căutați limbi acceptate",
+      "closeLanguageDropdown": "Închideți meniul derulant pentru limbă",
+      "noTranslatedLanguage": "Nu a fost găsită nicio limbă tradusă.",
+      "serverUrl": "Server de traducere URL",
+      "serverUrlDescription": "KaalKey descarcă lista de limbi și traducerile de pe acest server.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Salvați serverul de traducere"
+    },
+    "title": "Setările aplicației",
+    "eyebrow": "KAALKEY PREFERINȚE",
+    "experience": {
+      "section": "EXPERIENTA"
+    },
+    "security": {
+      "section": "SECURITATE"
+    },
+    "backup": {
+      "section": "BACKUP & RECUPERARE"
+    },
+    "danger": {
+      "section": "ZONA PERICOLĂ",
+      "clearAccounts": "Ștergeți toate conturile",
+      "clearAccountsDescription": "Eliminați definitiv fiecare cont și secret de pe acest dispozitiv. Mai întâi faceți backup.",
+      "clearAccountsAccessibilityLabel": "Ștergeți toate conturile de autentificare"
+    },
+    "appearance": {
+      "section": "APARIȚIA",
+      "title": "Aspect ușor",
+      "description": "KaalKey folosește în prezent tema sa de lumină curată."
+    },
+    "haptics": {
+      "title": "Feedback haptic",
+      "description": "Feedback blând pentru atingeri și acțiuni finalizate."
+    },
+    "deviceLock": {
+      "title": "Blocare autentificare dispozitiv",
+      "description": "Seiful tău se blochează când KaalKey părăsește primul plan.",
+      "requirement": "Solicitați datele biometrice ale telefonului dvs. sau blocarea ecranului PIN, modelul sau parola.",
+      "accessibilityLabel": "Blocarea aplicației de autentificare a dispozitivului"
+    },
+    "privacy": {
+      "title": "Legal și confidențialitate",
+      "description": "Consultați Politica de confidențialitate și Termenii de utilizare.",
+      "storageNote": "Secretele dvs. de autentificare rămân în seiful securizat al dispozitivului. Preferințele sunt stocate local."
+    }
+  },
+  "accounts": {
+    "edit": "Editați",
+    "sortAccountName": "Sortați după numele contului",
+    "loadingSecureVault": "Se încarcă seiful securizat...",
+    "tapCopy": "Atingeți pentru a copia",
+    "noAccountsMatch": "Niciun cont nu corespunde căutării dvs.",
+    "viewQrCode": "Vedeți codul QR pentru cont",
+    "removeAccount": "Eliminați contul",
+    "copyVerificationCode": "Copiați codul de verificare",
+    "active": "ACTIV",
+    "sort": "SORTAȚI DUPĂ",
+    "account": "Cont",
+    "clearSearch": "Ștergeți căutarea",
+    "sortServiceName": "Sortați după numele serviciului",
+    "addFirstAccount": "Adăugați primul cont",
+    "searchAccounts": "Căutați conturi",
+    "searchServiceAccount": "Căutați un serviciu sau un cont",
+    "accounts": "Conturile dvs",
+    "add": "+ Adăugați",
+    "vaultStartsHere": "Seiful tău începe aici",
+    "service": "Serviciu",
+    "emptyHint": "Adăugați un cont folosind cheia secretă pentru a genera primul cod de verificare."
+  },
+  "common": {
+    "done": "Gata",
+    "doneButton": "Gata",
+    "closeSettings": "Închideți setările",
+    "separator": "-",
+    "article": "a",
+    "save": "Salvați",
+    "delete": "Ștergeți",
+    "resizeAppBrand": "Redimensionați panourile aplicației și ale mărcii"
+  },
+  "qrImport": {
+    "readPastedImage": "Nu s-a putut citi imaginea lipită"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Conturi din această copie de rezervă: {count}. KaalKey vă va păstra conturile existente și va adăuga orice conturi care nu sunt deja prezente. Conturile duplicate vor fi ignorate.",
+    "restoreCompletionBody": "Conturi adăugate: {added}. Conturi duplicate ignorate: {skipped}. Conturile dvs. existente au fost păstrate.",
+    "copyPassword": "Copiați parola generată",
+    "passwordSafety": "Salvați această parolă separat (de exemplu, în WhatsApp). Oricine cu ambele",
+    "importAction": "Alegeți fișierul și importați",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "VOLTĂ SIGURĂ",
+    "createBackup": "Creați o copie de rezervă",
+    "encryptedFile": "Fișier criptat",
+    "restoreBackup": "Restaurați backupul",
+    "safetyNote": "Backup-urile conțin secretele dvs. de autentificare. KaalKey generează o parolă unică pentru fiecare copie de rezervă. Salvați-l separat; KaalKey nu-l poate recupera.",
+    "generatingSecurePassword": "Se generează parola sigură...",
+    "importFile": "Importați fișierul",
+    "backupPassword": "PAROLA DE BACKUP",
+    "account": "cont",
+    "accounts": "conturi",
+    "exportDescription": "Criptați toate {count} salvate {accountLabel} într-un fișier de rezervă. KaalKey generează o parolă unică; copiați și salvați-l separat de fișier.",
+    "restoreDescription": "Alegeți fișierul și parola de rezervă KaalKey. Conturi noi vor fi adăugate la lista de conturi existente; conturile existente vor rămâne așa cum sunt.",
+    "enterBackupPassword": "Introduceți parola de rezervă",
+    "closeBackup": "Închideți backupul",
+    "copyGeneratedBackup": "Copiați parola de rezervă generată",
+    "backupPassword2": "Parola de rezervă",
+    "clearBackupPassword": "Ștergeți parola de rezervă",
+    "backupFilePassword": "fișierul de rezervă și parola vă pot restaura conturile de autentificare.",
+    "encryptShareBackup": "Criptați și partajați backup"
+  },
+  "home": {
+    "unlockSecurely": "Deblocați în siguranță",
+    "disableAppLock": "Dezactivați blocarea aplicației",
+    "enableAppLock": "Activați blocarea aplicației",
+    "checkingSecureLock": "Verificarea setărilor de blocare sigură. Codurile tale rămân ascunse.",
+    "waitingVerification": "Se așteaptă verificarea...",
+    "secretsStayStored": "Secretele tale rămân stocate pe acest dispozitiv.",
+    "openAppSettings": "Deschideți setările aplicației",
+    "versionLabel": "VERSIUNEA",
+    "unlockRequirement": "Folosiți datele biometrice ale telefonului dvs. sau blocarea ecranului PIN, modelul sau parola pentru a vă accesa codurile de verificare unice.",
+    "localVault": "SEIFUL DVS. LOCAL",
+    "codesDeviceControl": "Codurile tale. Dispozitivul dvs. Controlul tău.",
+    "securingVault": "Securizarea seifului dvs....",
+    "vaultProtected": "Seiful tău este protejat",
+    "lock": "BLOCARE PORNIT",
+    "localVault2": "VOLTĂ LOCALĂ",
+    "authenticator": "KAALKEY AUTENTICATOR",
+    "tricolourLockEmblem": "KaalKey emblemă de lacăt tricolor",
+    "authenticator2": "AUTENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Dacă alegeți să scanați un cod QR, KaalKey folosește permisiunea camerei pentru acea acțiune. Autentificarea opțională a dispozitivului și feedback-ul haptic utilizează caracteristicile relevante ale dispozitivului. Puteți gestiona permisiunile în setările dispozitivului dvs.",
+        "heading": "2. Permisiuni și caracteristici ale dispozitivului"
+      },
+      "backups": {
+        "body": "Când creați o copie de rezervă, KaalKey criptează copia de rezervă folosind o parolă pe care o alegeți. Păstrați atât fișierul, cât și parola private și stocați-le în siguranță. Oricine obține fișierul și parola acestuia poate să vă restaureze conturile de autentificare. KaalKey nu poate recupera o parolă de rezervă uitată.",
+        "heading": "3. Backup-uri"
+      },
+      "security": {
+        "body": "Țineți-vă dispozitivul la zi, protejați-l cu o blocare a ecranului și nu împărtășiți secretele OTP sau parolele de rezervă. Eliminarea aplicației, ștergerea datelor sau pierderea dispozitivului poate face ca conturile stocate local să nu fie disponibile. Mențineți o copie de rezervă sigură dacă aveți nevoie de recuperare.",
+        "heading": "5. Securitate și păstrare"
+      },
+      "information": {
+        "heading": "1. Informații și secrete",
+        "body": "KaalKey este o aplicație de autentificare. Etichetele conturilor și valorile secrete necesare pentru a genera coduri unice sunt sensibile. Aplicația este concepută pentru a stoca înregistrările contului în spațiul de stocare securizat al dispozitivului. Oricine are acces la un dispozitiv deblocat sau la o copie de rezervă exportată poate avea acces la informații sensibile."
+      },
+      "sharing": {
+        "heading": "4. Partajare și terți",
+        "body": "Fluxul de rezervă poate folosi foaia de partajare a dispozitivului sau selectorul de fișiere pentru a salva, transfera sau selecta fișiere. Practicile de confidențialitate ale oricărei aplicații sau serviciu terță parte pe care o alegeți sunt guvernate de furnizorul respectiv. Această notificare nu face o afirmație generală că dispozitivul, sistemul de operare sau serviciile de partajare alese nu procesează niciodată date."
+      },
+      "changes": {
+        "heading": "6. Modificări și contact",
+        "body": "Această notificare încorporată poate fi revizuită într-o versiune viitoare a aplicației. Pentru întrebări privind confidențialitatea, contactați editorul aplicației prin canalul de asistență oficial furnizat împreună cu aplicația."
+      },
+      "title": "Politica de confidențialitate"
+    },
+    "terms": {
+      "use": {
+        "body": "Puteți folosi KaalKey pentru a genera coduri de verificare pentru conturile pe care sunteți autorizat să le accesați. Sunteți responsabil pentru respectarea legilor aplicabile și a regulilor serviciilor pentru care utilizați coduri de autentificare.",
+        "heading": "1. Utilizarea dvs"
+      },
+      "protectAccounts": {
+        "body": "Sunteți responsabil pentru securizarea dispozitivului, secretele autentificatorului, metodele de recuperare, backup-urile exportate și parolele de rezervă. Nu împărtăși coduri sau secrete cu persoane în care nu ai încredere.",
+        "heading": "2. Protejați-vă conturile"
+      },
+      "availability": {
+        "body": "Caracteristicile se pot schimba între versiuni. Ar trebui să păstrați aplicația actualizată și să verificați periodic dacă aranjamentele de backup și recuperare funcționează.",
+        "heading": "5. Modificări și disponibilitate"
+      },
+      "recovery": {
+        "body": "KaalKey nu poate garanta că fiecare cont poate fi recuperat, că fiecare cod sau configurație QR va fi compatibil sau că aplicația va funcționa fără întrerupere sau eroare. Păstrați metode alternative de recuperare oferite de serviciul relevant.",
+        "heading": "3. Fără garanție de recuperare"
+      },
+      "advice": {
+        "heading": "4. Nici un sfat profesional",
+        "body": "Aplicația este o utilitate și nu oferă sfaturi juridice, financiare sau de securitate privind răspunsul la incidente. Dacă un cont este compromis, urmați instrucțiunile oficiale de recuperare și securitate ale serviciului afectat."
+      },
+      "liability": {
+        "heading": "6. Răspunderea și legea aplicabilă",
+        "body": "În măsura permisă de legislația în vigoare, aplicația este furnizată fără garanția de funcționare neîntreruptă sau fără erori. Nimic din acești termeni nu exclude drepturile sau remediile care nu pot fi excluse din punct de vedere legal. Orice limitări suplimentare sau termenii legii în vigoare ar trebui să fie revizuiți de un avocat calificat pentru jurisdicția editorului înainte de eliberare."
+      },
+      "title": "Termeni de utilizare"
+    },
+    "version": "Versiune",
+    "saving": "Se salvează…",
+    "acceptContinue": "Acceptați și continuați",
+    "appliesAuthenticator": "Se aplică pentru KaalKey Authenticator",
+    "reviewBothDocuments": "Vă rugăm să examinați ambele documente înainte de a utiliza KaalKey. Sunt incluse în aplicație și disponibile offline.",
+    "originalMulticolourAuthenticator": "Emblema de autentificare originală multicoloră KaalKey.",
+    "legalPrivacyNotice": "Notă juridică și de confidențialitate",
+    "legalInformation": "Informații juridice",
+    "reviewSPrivacy": "Consultați informațiile de confidențialitate și termenii de utilizare ai KaalKey.",
+    "iReadAgree": "Am citit și sunt de acord cu Politica de confidențialitate și Termenii de utilizare."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Păstrați întregul cod QR vizibil. Secretul tău rămâne pe acest dispozitiv.",
+    "back": "Înapoi",
+    "turnFlashlightOff": "Opriți lanterna",
+    "turnFlashlight": "Porniți lanterna",
+    "flashlight": "Lanterna aprinsă",
+    "flashlight2": "Lanterna",
+    "cameraUnavailableOpen": "Camera foto nu este disponibilă. Deschideți această pagină pe HTTPS sau localhost și permiteți accesul camerei.",
+    "cameraPreviewUnavailable": "Previzualizarea camerei nu este disponibilă. Închideți și redeschideți scanerul.",
+    "cameraReadyPoint": "Camera gata — îndreptați-o către codul complet QR.",
+    "browserCannotProcess": "Acest browser nu poate procesa cadrele camerei.",
+    "qrCodeDetected": "Cod QR detectat.",
+    "couldnTRead": "Nu am putut citi cadrele camerei. Verificați permisiunile camerei și reîncărcați această pagină.",
+    "cameraPermissionDenied": "Permisiunea camerei a fost refuzată. Permiteți accesul camerei în setările browserului, apoi redeschideți scanerul.",
+    "noCameraWas": "Nu a fost găsită nicio cameră pe acest dispozitiv.",
+    "cameraBusyAnother": "Camera este ocupată în altă aplicație sau filă de browser.",
+    "startCameraHttps": "Camera nu a putut porni. Utilizați HTTPS sau localhost și verificați permisiunile browserului.",
+    "qrScannerCamera": "QR previzualizarea camerei scanerului",
+    "cameraUnavailableCheck": "Camera foto nu este disponibilă. Verificați permisiunea camerei și încercați din nou.",
+    "pointCameraAuthenticator": "Îndreptați camera către codul de configurare a autentificatorului QR de la serviciul pe care îl adăugați.",
+    "backAddAccount": "Înapoi pentru a adăuga cont",
+    "secureSetup": "INSTALARE SECURĂ",
+    "enterDetailsManually": "În schimb, introduceți manual detaliile"
+  },
+  "accountForm": {
+    "hideManualEntry": "Ascundeți introducerea manuală",
+    "secretKeySupplied": "Utilizați cheia secretă furnizată de serviciul pe care îl configurați. Nu introduceți niciodată parola contului dvs. aici. Potriviți algoritmul, numărul de cifre și intervalul cu instrucțiunile de configurare ale serviciului.",
+    "updateServiceAccount": "Actualizați serviciul, numele contului sau cheia secretă.",
+    "secretKeyRead": "Cheie secretă, numai pentru citire în timpul editării",
+    "secretKeyBase32": "Cheie secretă în Base32",
+    "digits": "cifre",
+    "seconds": "secunde",
+    "enterDetailsManually": "SAU INTRODUCEȚI MANUAL DETALII",
+    "enterDetailsManually2": "Introduceți manual detaliile",
+    "serviceAccountName": "Serviciul, numele contului și cheia secretă",
+    "saveChangesSecurely": "Salvați modificările în siguranță",
+    "saveAccountSecurely": "Salvați contul în siguranță",
+    "serviceIssuer": "Serviciul sau emitentul",
+    "accountName": "Numele contului",
+    "secretKey": "Cheie secretă",
+    "serviceIssuer2": "SERVICIU / EMITENT",
+    "eGGoogle": "de ex. Google",
+    "clearServiceIssuer": "Ștergeți serviciul sau emitentul",
+    "eGExample": "de ex. tu@example.com",
+    "clearAccountName": "Ștergeți numele contului",
+    "secretKeyLocked": "CHEIE SECRETĂ (BLOCATĂ)",
+    "secretKeyBase322": "CHEIE SECRETĂ (BASE32)",
+    "enterSetupKey": "Introduceți cheia de configurare",
+    "clearSecretKey": "Ștergeți cheia secretă",
+    "otpAlgorithm": "OTP ALGORITM",
+    "otpDigits": "OTP CIFRE",
+    "refreshIntervalSeconds": "INTERVALUL DE ACTUALIZARE (SECONDELE)",
+    "otpRefreshInterval": "OTP interval de reîmprospătare în secunde",
+    "closeAccountForm": "Formularul de închidere a contului",
+    "totpSetupUrl": "TOTP configurare URL",
+    "importSetupUrl": "Configurare import URL",
+    "totpSetupUrl2": "TOTP SETUP URL",
+    "accountName2": "NUMELE CONTULUI",
+    "addAccount": "Adăugați cont"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Scanați codul de autentificare QR.",
+    "setupGuidance": "Scanați un cod QR pentru cea mai ușoară configurare sau introduceți manual detaliile.",
+    "cameraAddAccount": "Utilizați camera pentru a adăuga un cont instantaneu",
+    "scanQrCode2": "Scanați codul QR.",
+    "uploadQrImage": "Încărcați imaginea QR.",
+    "chooseQrScreenshot": "Alegeți o captură de ecran QR din Galerie, Fotografii sau Fișiere",
+    "pasteQr": "Lipiți imaginea QR / URL",
+    "pasteCopiedQr": "Lipiți o imagine QR copiată sau o configurație de autentificare URL",
+    "uploadQrImage2": "Încărcați imaginea QR."
+  },
+  "accountQr": {
+    "close": "Închide",
+    "accountQrCode": "Codul contului QR.",
+    "revealQrCode": "Dezvăluie codul QR.",
+    "exportWarning": "Avertisment: oricine scanează acest cod QR poate genera coduri de verificare pentru acest cont. Dezvăluie-l doar pe un ecran de încredere.",
+    "privacyHint": "Păstrați acest cod QR privat. Scanarea acestuia copiază secretul de autentificare al contului."
+  },
+  "productInfo": {
+    "backupRestore": "Backup și restaurare",
+    "backupRestoreDescription": "Faceți o copie de rezervă a datelor dvs. de autentificare și restaurați-le atunci când vă mutați pe alt dispozitiv.",
+    "privacyDescription": "Păstrați-vă conturile de verificare într-un singur loc. Utilizați opțiunile de backup, restaurare și blocare a dispozitivului ale aplicației pentru a vă gestiona configurarea în mod responsabil.",
+    "timeBasedCodes": "Coduri bazate pe timp",
+    "generateOneTimeCodes": "Generați coduri de acces rotative unice pentru conturile dvs. pentru a finaliza verificarea în doi pași.",
+    "quickAccountSetup": "Configurare rapidă a contului",
+    "quickSetupDescription": "Scanați un cod de autentificare QR sau importați o imagine QR pentru a adăuga un cont.",
+    "accountsOnePlace": "Conturi într-un singur loc",
+    "accountsInOnePlaceDescription": "Păstrați-vă conturile salvate împreună și găsiți intrarea potrivită când este timpul să vă conectați.",
+    "privateAccountVault": "Seif pentru cont privat",
+    "privateVaultDescription": "Gestionați-vă intrările de autentificare local și utilizați opțiunea de blocare a dispozitivului disponibilă a aplicației.",
+    "easyCodeAccess": "Acces ușor la cod",
+    "easyCodeAccessDescription": "Copiați un cod curent sau gestionați detaliile contului printr-o interfață curată și concentrată.",
+    "authenticatorTechsivaram": "AUTENTICATOR · DE TECHSIVARAM",
+    "mobileAuthenticator": "AUTENTICATORUL DVS. MOBIL",
+    "tagline": "O modalitate mai simplă de a vă gestiona verificarea în doi pași.",
+    "heroDescription": "O experiență de autentificare concentrată pentru codurile de verificare bazate pe timp. Păstrați codurile de cont compatibile la îndemână cu KaalKey pentru Android.",
+    "timeBasedCodes2": "CODURI BAZATE PE TIMP",
+    "privateDesign": "PRIVAT PRIN DESIGN",
+    "builtSimpleAuthenticator": "CONSTRUIT PENTRU UN FLUJ DE LUCRU SIMPLU DE AUTENTICATOR",
+    "qrSetupTimed": "QR CONFIGURARE · CODURI TEMPORIZATE · GESTIONAREA CONTULUI",
+    "privacyTitle": "Conturile dvs. Codurile tale. Controlul tău.",
+    "authenticator": "KAALKEY · AUTENTICATOR",
+    "brandBanner": "KaalKey banner de marcă",
+    "logo": "sigla KaalKey."
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Anulează",
+      "storageInvalidTitle": "Datele de stocare nu sunt valide",
+      "storageInvalidBody": "Datele salvate ale contului nu au putut fi citite în siguranță.",
+      "storageErrorTitle": "Eroare de stocare",
+      "storageErrorBody": "Conturile salvate nu au putut fi încărcate.",
+      "missingTitle": "Informații lipsă",
+      "missingEditingBody": "Introduceți numele serviciului și numele contului.",
+      "missingBody": "Introduceți numele serviciului, numele contului și cheia secretă.",
+      "invalidOtpBody": "Verificați secretul Base32, algoritmul, numărul de cifre și perioada de reîmprospătare. Secretele trebuie să conțină Base32 caractere valide; cifrele trebuie să fie {digits}, iar perioada trebuie să fie {minPeriod}–{maxPeriod} secunde.",
+      "duplicateBody": "Un cont cu acest serviciu și numele contului este deja salvat.",
+      "updatedBody": "Contul dvs. a fost actualizat.",
+      "addedBody": "Contul dvs. a fost adăugat în siguranță.",
+      "invalidOtpTitle": "Setări nevalide pentru OTP.",
+      "duplicateTitle": "Contul există deja",
+      "savedTitle": "Cont salvat",
+      "invalidSecretTitle": "Cheie secretă nevalidă",
+      "invalidSecretBody": "Vă rugăm să verificați dacă ați introdus un secret valid Base32.",
+      "removedTitle": "Contul a fost eliminat",
+      "removedBody": "Contul și secretul acestuia au fost eliminate de pe acest dispozitiv.",
+      "clearedTitle": "Conturi șterse",
+      "clearedBody": "Toate conturile și secretele de autentificare au fost eliminate de pe acest dispozitiv.",
+      "someSavedAccountsNeedAttentionTitle": "Unele conturi salvate necesită atenție",
+      "someSavedAccountsNeedAttentionBody": "{count} nu au fost încărcate înregistrări de cont nevalide. Conturile valide rămân disponibile. Luați în considerare crearea unei copii de rezervă înainte de a face modificări ulterioare.",
+      "removeConfirmTitle": "Eliminați contul?",
+      "removeConfirmWebTitle": "Eliminați contul?",
+      "removeButton": "Eliminați",
+      "clearButton": "Ștergeți totul",
+      "clearConfirmTitle": "Ștergeți toate conturile?",
+      "saveErrorBody": "Conturile nu au putut fi salvate. Verificați disponibilitatea stocării în browser și încercați din nou.",
+      "notFoundTitle": "Contul nu a fost găsit",
+      "notFoundBody": "Acest cont nu a putut fi găsit. Închide editorul și încearcă din nou.",
+      "removeConfirmBody": "Acest lucru elimină contul și secretul acestuia de pe acest dispozitiv.",
+      "clearConfirmBody": "Acest lucru elimină definitiv toate conturile de autentificare și secretele acestora de pe acest dispozitiv. Creați mai întâi o copie de rezervă criptată dacă este posibil să aveți nevoie de aceste conturi mai târziu.",
+      "clearConfirmUndoBody": "Acest lucru nu poate fi anulat."
+    },
+    "biometric": {
+      "cancelButton": "Anulează",
+      "saveErrorTitle": "Nu s-a putut salva setarea",
+      "unlockPrompt": "Deblocați KaalKey Authenticator",
+      "promptSubtitle": "Utilizați datele biometrice sau blocarea ecranului dispozitivului",
+      "disableConfirmPrompt": "Confirmați pentru a dezactiva blocarea aplicației KaalKey.",
+      "enablePrompt": "Activați blocarea aplicației pentru KaalKey",
+      "deviceLockTitle": "Configurați blocarea ecranului dispozitivului",
+      "deviceLockBody": "KaalKey utilizează autentificarea încorporată a telefonului dvs. Setați un dispozitiv PIN, un model sau o parolă în setările de securitate ale telefonului, apoi încercați din nou. Biometria sunt opționale.",
+      "unavailableTitle": "Autentificarea dispozitivului nu este disponibilă",
+      "unavailableBody": "Telefonul dvs. nu a putut începe autentificarea securizată. Verificați dacă este configurată blocarea ecranului dispozitivului, apoi încercați din nou.",
+      "lockedTitle": "Autentificare blocată temporar",
+      "lockedBody": "Telefonul dvs. a dezactivat temporar autentificarea după prea multe încercări. Așteptați și încercați din nou.",
+      "promptErrorTitle": "Autentificare indisponibilă",
+      "promptErrorBody": "KaalKey nu a putut porni solicitarea de autentificare securizată a telefonului. Vă rugăm să încercați din nou.",
+      "webLock": "Blocarea autentificării dispozitivului nu este încă disponibilă în versiunea web. Seiful web rămâne deblocat; utilizați aplicația Android pentru autentificarea nativă a dispozitivului.",
+      "disabledTitle": "Blocarea aplicației este dezactivată",
+      "disabledBody": "Blocarea aplicației KaalKey a fost dezactivată.",
+      "disableSaveError": "Blocarea aplicației rămâne activată. Vă rugăm să încercați din nou.",
+      "enabledTitle": "Blocarea aplicației este activată",
+      "enabledBody": "KaalKey va solicita autentificarea încorporată a telefonului dvs. când este deschis și când veți reveni la acesta.",
+      "enableSaveError": "Blocarea aplicației nu a putut fi activată. Vă rugăm să încercați din nou."
+    },
+    "qr": {
+      "startingCamera": "Se pornește camera...",
+      "unsupportedTitle": "Cod QR neacceptat",
+      "unsupportedBody": "Scanați codul de configurare a autentificatorului QR furnizat de serviciu. Acesta trebuie să fie un cod TOTP, nu un cod de conectare normal QR.",
+      "unsupportedDiagnostic": "Acel QR nu este un cod de configurare TOTP. Vizează o configurare a autentificatorului QR.",
+      "detectedDiagnostic": "QR a fost detectat. Se analizează…",
+      "analyzing": "Se analizează codul QR...",
+      "duplicateTitle": "Cont deja adăugat",
+      "duplicateBody": "{issuer}: {account} este deja în KaalKey.",
+      "addedTitle": "Cont adăugat",
+      "addedBody": "{issuer}: {account} a fost adăugat cu succes.",
+      "saveFailedDiagnostic": "Nu s-a putut salva contul. Puteți scana din nou.",
+      "invalidTitle": "Cod QR nevalid",
+      "invalidBody": "KaalKey nu a putut analiza acest cod de autentificare QR. {detail}. Utilizați codul de configurare TOTP al serviciului (de obicei începe cu {prefix}).",
+      "parseFailedDiagnostic": "QR nu a putut fi procesat. Îndreptați spre configurarea QR și încercați din nou.",
+      "invalidUrlTitle": "TOTP URL nevalid",
+      "invalidUrlBody": "Lipiți un autentificator complet URL începând cu {prefix}.",
+      "clipboardEmptyTitle": "Clipboard-ul este gol",
+      "clipboardEmptyBody": "Copiați mai întâi un {prefix} URL, apoi atingeți Lipiți TOTP URL.",
+      "clipboardErrorTitle": "Clipboard-ul nu a putut fi citit",
+      "clipboardErrorBody": "Copiați configurația TOTP URL și încercați din nou."
+    },
+    "haptics": {
+      "saveFailedTitle": "Nu s-a putut salva setarea",
+      "saveFailedBody": "Preferința de feedback haptic nu a putut fi salvată. Vă rugăm să încercați din nou."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Nu s-a putut salva confirmarea",
+      "saveFailedBody": "Vă rugăm să încercați din nou. Trebuie să acceptați notificarea legală înainte de a utiliza KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Este necesară permisiunea camerei",
+      "body": "Permiteți accesul camerei pentru a scana un cod de configurare a autentificatorului QR."
+    },
+    "storage": {
+      "browserUnavailable": "Spațiul de stocare în browser nu este disponibil.",
+      "browserFilePickerUnavailable": "Selectorul de fișiere din browser nu este disponibil."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Fișier neacceptat",
+      "unsupportedFileBody": "Alegeți o imagine de cod QR, cum ar fi PNG sau JPEG.",
+      "browserDecoderUnavailable": "Decodificarea imaginilor din browser nu este disponibilă",
+      "imageLoadFailed": "Imaginea nu a putut fi încărcată",
+      "unreadableDimensions": "Imaginea nu are dimensiuni care pot fi citite",
+      "noQrCodeFoundTitle": "Nu a fost găsit niciun cod QR.",
+      "noQrCodeFoundBody": "KaalKey nu a putut decoda un cod QR în această imagine. Încercați o captură de ecran sau o rezoluție mai mare PNG/JPEG.",
+      "couldNotReadImageTitle": "Nu s-a putut citi imaginea",
+      "couldNotReadImageBody": "Încercați o imagine clară PNG sau JPEG care conține codul de configurare a autentificatorului QR.",
+      "couldNotOpenPickerTitle": "Nu s-a putut deschide selectorul de imagini",
+      "couldNotOpenPickerBody": "Vă rugăm să încercați să încărcați QR din nou.",
+      "normalizedDecodeFailed": "Imaginea normalizată nu a putut fi decodificată",
+      "clipboardImageLoadFailed": "Imaginea clipboard nu a putut fi încărcată",
+      "imageProcessingUnavailable": "Procesarea imaginii este indisponibilă",
+      "imageProcessingUnavailableAlt": "Procesarea imaginii nu este disponibilă",
+      "noImageInClipboardTitle": "Nicio imagine în clipboard",
+      "noImageInClipboardBody": "Copiați o imagine de cod QR, apoi atingeți din nou Lipiți QR imagine.",
+      "clipboardUnavailableTitle": "Clipboard indisponibil",
+      "clipboardUnavailableBody": "Textul din clipboard nu este o configurare validă a autentificatorului URL. Copiați o imagine otpauth:// URL sau QR și încercați din nou.",
+      "clipboardAccessBody": "KaalKey nu a putut citi textul sau o imagine din clipboard. Permiteți accesul la clipboard, apoi copiați imaginea QR sau otpauth:// URL și atingeți din nou Lipiți QR imagine / URL.",
+      "couldNotPasteImageTitle": "Nu s-a putut lipi imaginea",
+      "couldNotPasteImageBody": "Lipirea imaginilor nu este acceptată de acest clipboard pe acest dispozitiv. Utilizați în schimb imaginea Import QR.",
+      "sourceImageDecodeFailure": "Încercați o altă imagine QR.",
+      "pastedImportFailureBody": "Încercați o altă imagine QR.",
+      "sourceImageReadFailure": "Încercați să copiați o captură de ecran clară QR.",
+      "importFailedTitle": "Importarea imaginii QR a eșuat",
+      "importFailedBody": "KaalKey nu a putut citi acea imagine. Vă rugăm să încercați o altă imagine de cod QR.",
+      "notFoundBody": "Imaginea copiată nu conține un cod QR care poate fi citit.",
+      "pastedNotFoundBody": "Imaginea lipită nu conține un cod QR care poate fi citit.",
+      "pastedReadFailureBody": "Încercați să copiați o imagine clară PNG sau JPEG care conține codul complet QR.",
+      "noQrCodeTextBody": "KaalKey a decodat imaginea selectată, dar nu a găsit un cod QR. Încercați un PNG sau un JPEG clar, cu rezoluție completă, cu întregul cod vizibil."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Acest cod QR nu este un cod de configurare a autentificatorului bazat pe timp.",
+      "missingAccountDetails": "Din codul QR lipsesc detaliile contului.",
+      "unsupportedAlgorithm": "Codul QR folosește un algoritm neacceptat.",
+      "unsupportedDigits": "Acest cod QR trebuie să utilizeze 6, 7 sau 8 cifre.",
+      "unsupportedPeriod": "Acest cod QR folosește o perioadă de timp neacceptată.",
+      "invalidAccount": "Codul QR nu a putut fi validat."
+    },
+    "backup": {
+      "invalidJson": "Fișierul de rezervă nu este valid JSON.",
+      "unsupportedFormat": "Aceasta nu este o copie de rezervă criptată KaalKey acceptată.",
+      "invalidPasswordOrDamaged": "Parola de backup este incorectă sau fișierul de rezervă este deteriorat.",
+      "invalidContents": "Conținutul copiei de rezervă este invalid sau incomplet.",
+      "secureRandomUnavailableDetailed": "Generarea aleatorie securizată nu este disponibilă. Reconstruiți și reinstalați aplicația Android cu expo-crypto inclus, apoi încercați din nou.",
+      "invalidAccountDataForBackup": "Unul sau mai multe conturi sunt nevalide. Remediați datele contului înainte de a crea o copie de rezervă.",
+      "invalidPasswordOrModified": "Parola de backup este incorectă sau fișierul de rezervă a fost modificat.",
+      "invalidPasswordOrFileDamaged": "Parola de backup este incorectă sau fișierul este deteriorat.",
+      "passwordCopiedTitle": "Parola a fost copiată",
+      "enterPasswordTitle": "Introduceți parola de rezervă",
+      "enterPasswordBody": "Introduceți parola folosită când a fost creată această copie de rezervă.",
+      "passwordCopiedBody": "Salvați-l într-un loc sigur, cum ar fi WhatsApp.",
+      "copyFailedTitle": "Copierea eșuată",
+      "copyFailedBody": "Selectați și copiați manual parola.",
+      "generatingPassword": "Se generează parola de rezervă sigură...",
+      "encrypting": "Se criptează backupul...",
+      "decrypting": "Se decriptează backupul...",
+      "restoring": "Se restabilesc conturile...",
+      "backupCreatedTitle": "Backup creat",
+      "restoreCompleteTitle": "Restaurare completă",
+      "mergeConfirmTitle": "Îmbinați conturile de rezervă?",
+      "mergeConfirmButton": "Îmbinați conturile",
+      "backupSavedTemporary": "Backup criptat salvat temporar la:\n{uri}",
+      "generatePasswordErrorTitle": "Nu s-a putut genera parola de rezervă",
+      "secureRandomUnavailable": "Generarea aleatorie securizată nu este disponibilă.",
+      "passwordUnavailableTitle": "Parola de rezervă indisponibilă",
+      "passwordUnavailableBody": "Închideți acest dialog și creați o nouă copie de rezervă pentru a genera o parolă sigură.",
+      "backupDownloadedBody": "Copia de rezervă criptată KaalKey a fost descărcată. Păstrați fișierul și parola private.",
+      "backupFailedTitle": "Copierea de rezervă a eșuat",
+      "backupCreateErrorBody": "KaalKey nu a putut crea copia de rezervă.",
+      "restoreFailedTitle": "Restaurarea a eșuat",
+      "backupReadErrorBody": "Copia de rezervă nu a putut fi citită sau salvată.",
+      "browserDownloadUnsupported": "Browserul dvs. nu acceptă descărcarea fișierelor de rezervă.",
+      "localFileUnavailable": "O locație locală a fișierului nu este disponibilă pe acest dispozitiv.",
+      "saveBackupTitle": "Salvați copia de rezervă criptată KaalKey."
+    },
+    "clipboard": {
+      "copiedTitle": "Cod copiat",
+      "copiedBody": "Codul dvs. de verificare a fost copiat.",
+      "errorTitle": "Eroare",
+      "errorBody": "Nu s-a putut copia codul de verificare."
+    },
+    "activity": {
+      "cameraReady": "Camera gata. Îndreptați-l către codul de autentificare QR.",
+      "readingQrImage": "Se citește imaginea QR...",
+      "importingQrImage": "Se importă imaginea QR...",
+      "importingAccount": "Se importă contul de autentificare...",
+      "importingPastedImage": "Se importă imaginea QR lipită..."
+    }
+  },
+  "activity": {
+    "working": "De lucru",
+    "wait": "Vă rugăm să așteptați…",
+    "donTClose": "Vă rugăm să nu închideți și să nu interacționați cu KaalKey.",
+    "loadingLanguages": "Se încarcă limbile disponibile...",
+    "loadingTranslation": "Se încarcă traducerea..."
+  }
+}

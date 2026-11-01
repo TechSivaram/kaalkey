@@ -1,0 +1,508 @@
+{
+  "settings": {
+    "language": {
+      "name": "Asụsụ",
+      "description": "Họrọ asụsụ eji na KaalKey.",
+      "english": "Bekee",
+      "telugu": "Telugu",
+      "hindi": "Hindi",
+      "section": "ASUSU",
+      "searchLanguageName": "Chọọ asụsụ (aha ma ọ bụ koodu)",
+      "searchSupportedLanguages": "Chọọ asụsụ ndị akwadoro",
+      "closeLanguageDropdown": "Mechie ndọpụta asụsụ",
+      "noTranslatedLanguage": "Ọnweghị asụsụ atụgharịrị ahụrụ.",
+      "serverUrl": "Ihe nkesa ntụgharị asụsụ URL",
+      "serverUrlDescription": "KaalKey na-ebudata ndepụta asụsụ yana ntụgharị asụsụ site na sava a.",
+      "serverUrlPlaceholder": "https://example.com/kaalkey/i18n",
+      "saveServerUrl": "Chekwaa ihe nkesa ntụgharị asụsụ"
+    },
+    "title": "Ntọala ngwa",
+    "eyebrow": "KAALKEY Mmasị",
+    "experience": {
+      "section": "Ahụmahụ"
+    },
+    "security": {
+      "section": "Nchekwa"
+    },
+    "backup": {
+      "section": "Ndabere & Nweghachi"
+    },
+    "danger": {
+      "section": "Mpaghara egwu",
+      "clearAccounts": "Hichapụ akaụntụ niile",
+      "clearAccountsDescription": "Wepu akaụntụ na nzuzo ọ bụla na ngwaọrụ a kpamkpam. ndabere mbụ.",
+      "clearAccountsAccessibilityLabel": "Kpochapụ akaụntụ ndị nyocha niile"
+    },
+    "appearance": {
+      "section": "Mpụta",
+      "title": "Ọdịdị ọkụ",
+      "description": "KaalKey na-eji isiokwu ọkụ ya dị ọcha ugbu a."
+    },
+    "haptics": {
+      "title": "Nzaghachi obi ụtọ",
+      "description": "Nzaghachi dị nro maka mgbata na omume emechara."
+    },
+    "deviceLock": {
+      "title": "Mkpọchi njirimara ngwaọrụ",
+      "description": "Vault gị na-akpọchi mgbe KaalKey ga-apụ n'ihu.",
+      "requirement": "Chọrọ biometrics ekwentị gị ma ọ bụ mkpọchi ihuenyo PIN, ụkpụrụ ma ọ bụ paswọọdụ.",
+      "accessibilityLabel": "Mkpọchi ngwa ngwa ngwaọrụ"
+    },
+    "privacy": {
+      "title": "Iwu & nzuzo",
+      "description": "Nyochaa amụma nzuzo na Usoro ojiji.",
+      "storageNote": "Ihe nzuzo onye nyocha gị na-anọ n'ụlọ nchekwa ngwaọrụ. A na-echekwa mmasị na mpaghara."
+    }
+  },
+  "accounts": {
+    "edit": "Dezie",
+    "sortAccountName": "Hazie site na aha akaụntụ",
+    "loadingSecureVault": "Na-ebunye vault echedoro...",
+    "tapCopy": "Kpatụ ka iṅomi",
+    "noAccountsMatch": "Ọ nweghị akaụntụ dabara na nchọ gị.",
+    "viewQrCode": "Lelee koodu QR maka akaụntụ",
+    "removeAccount": "Wepu akaụntụ",
+    "copyVerificationCode": "Detuo koodu nkwenye",
+    "active": "NA-eme ihe",
+    "sort": "Họpụta site na",
+    "account": "Akaụntụ",
+    "clearSearch": "Kpochapụ ọchụchọ",
+    "sortServiceName": "Hazie site na aha ọrụ",
+    "addFirstAccount": "Tinye akaụntụ mbụ gị",
+    "searchAccounts": "Chọọ akaụntụ",
+    "searchServiceAccount": "Chọọ ọrụ ma ọ bụ akaụntụ",
+    "accounts": "Akaụntụ gị",
+    "add": "+ Tinye",
+    "vaultStartsHere": "Vault gị na-amalite ebe a",
+    "service": "Ọrụ",
+    "emptyHint": "Tinye akaụntụ site na iji igodo nzuzo iji mepụta koodu nkwenye mbụ gị."
+  },
+  "common": {
+    "done": "Emechaala",
+    "doneButton": "Emechaala",
+    "closeSettings": "Mechie ntọala",
+    "separator": "-",
+    "article": "a",
+    "save": "Chekwa",
+    "delete": "Hichapụ",
+    "resizeAppBrand": "Hagharịa nha ngwa na ogwe ika"
+  },
+  "qrImport": {
+    "readPastedImage": "Enweghị ike ịgụ onyonyo mado"
+  },
+  "backupRestore": {
+    "mergeConfirmationBody": "Akaụntụ dị na ndabere a: {count}. KaalKey ga-edobe akaụntụ gị dị ma gbakwunye akaụntụ ọ bụla na-adịbeghị. A ga-amafe akaụntụ oyiri.",
+    "restoreCompletionBody": "Akaụntụ kwukwara: {added}. Akaụntụ oyiri mafere: {skipped}. Edebere akaụntụ gị dị ugbu a.",
+    "copyPassword": "Detuo paswọọdụ emepụtara",
+    "passwordSafety": "Chekwa paswọọdụ a iche iche (dịka ọmụmaatụ, na WhatsApp). Onye ọ bụla nwere ma",
+    "importAction": "Họrọ faịlụ wee bubata",
+    "cryptoDependency": "expo-crypto",
+    "secureVault": "ỤLỌ NKE echekwabara",
+    "createBackup": "Mepụta ndabere",
+    "encryptedFile": "faịlụ ezoro ezo",
+    "restoreBackup": "Weghachite ndabere",
+    "safetyNote": "Ndabere nwere ihe nzuzo ndị nyocha gị. KaalKey na-ewepụta paswọọdụ pụrụ iche maka nkwado ndabere na mpaghara ọ bụla. Chekwaa ya iche; KaalKey enweghị ike iweghachi ya.",
+    "generatingSecurePassword": "Na-emepụta paswọọdụ echedoro…",
+    "importFile": "Bubata faịlụ",
+    "backupPassword": "PASSWORD ndabere",
+    "account": "akaụntụ",
+    "accounts": "akaụntụ",
+    "exportDescription": "Debe ihe niile {count} echekwara {accountLabel} n'ime faịlụ ndabere. KaalKey na-ewepụta paswọọdụ pụrụ iche; detuo ma chekwaa ya iche na faịlụ ahụ.",
+    "restoreDescription": "Họrọ faịlụ ndabere na paswọọdụ gị KaalKey. A ga-atụkwasị akaụntụ ọhụrụ na ndetu akaụntụ gị dị; Akaụntụ ndị dị adị ga-adị ka ha dị.",
+    "enterBackupPassword": "Tinye ndabere paswọọdụ",
+    "closeBackup": "Mechie ndabere",
+    "copyGeneratedBackup": "Detuo paswọọdụ ndabere ewepụtara",
+    "backupPassword2": "Ndabere paswọọdụ",
+    "clearBackupPassword": "Kpochapụ paswọọdụ ndabere",
+    "backupFilePassword": "faịlụ ndabere na okwuntughe nwere ike iweghachi akaụntụ ndị nyocha gị.",
+    "encryptShareBackup": "Encrypt wee kesaa ndabere"
+  },
+  "home": {
+    "unlockSecurely": "Mepee nke ọma",
+    "disableAppLock": "Gbanyụọ mkpọchi ngwa",
+    "enableAppLock": "Kwado mkpọchi ngwa",
+    "checkingSecureLock": "Na-elele ntọala mkpọchi echekwabara gị. Koodu gị ka ezoro ezo.",
+    "waitingVerification": "Na-eche nkwenye…",
+    "secretsStayStored": "A na-echekwa ihe nzuzo gị na ngwaọrụ a.",
+    "openAppSettings": "Mepee ntọala ngwa",
+    "versionLabel": "Ụdị",
+    "unlockRequirement": "Jiri biometrics ekwentị gị ma ọ bụ mkpọchi ihuenyo PIN, ụkpụrụ ma ọ bụ paswọọdụ iji nweta koodu nkwenye otu oge gị.",
+    "localVault": "ỤLỌ NKE GI",
+    "codesDeviceControl": "Koodu gị. Ngwaọrụ gị. njikwa gị.",
+    "securingVault": "Na-echekwa vault gị…",
+    "vaultProtected": "A na-echekwa oghere gị",
+    "lock": "Kpọchie",
+    "localVault2": "ỤBỌCHỊ ógbè",
+    "authenticator": "KAALKEY AUTHENTICATOR",
+    "tricolourLockEmblem": "KaalKey akara mgbachi tricolor",
+    "authenticator2": "AUTHENTICATOR"
+  },
+  "legal": {
+    "privacy": {
+      "permissions": {
+        "body": "Ọ bụrụ n’ịhọrọ inyocha koodu QR, KaalKey na-eji ikike igwefoto maka mmemme ahụ. Nyocha ngwaọrụ nhọrọ na nzaghachi haptic na-eji njirimara ngwaọrụ dị mkpa. Ị nwere ike ijikwa ikike na ntọala ngwaọrụ gị.",
+        "heading": "2. Ikikere na njirimara ngwaọrụ"
+      },
+      "backups": {
+        "body": "Mgbe ị mepụtara nkwado ndabere na mpaghara, KaalKey na-ezochi nkwado ndabere na mpaghara site na iji paswọọdụ ị họọrọ. Debe ma faịlụ na paswọọdụ nzuzo ma chekwaa ha na nchekwa. Onye ọ bụla nwetara faịlụ na paswọọdụ ya nwere ike iweghachi akaụntụ ndị nyocha gị. KaalKey enweghị ike weghachite okwuntughe ndabere echefuru.",
+        "heading": "3. Ndabere"
+      },
+      "security": {
+        "body": "Debe ngwaọrụ gị ka emelitere, jiri mkpọchi ihuenyo chebe ya, ma ekekọrịtala OTP nzuzo ma ọ bụ okwuntughe ndabere. Iwepụ ngwa ahụ, ihichapụ data ya, ma ọ bụ tufuo ngwaọrụ ahụ nwere ike ime ka enweghị akaụntụ echekwara na mpaghara. Jikwaa nchekwa nchekwa ma ọ bụrụ na ịchọrọ mgbake.",
+        "heading": "5. Nchekwa na njigide"
+      },
+      "information": {
+        "heading": "1. Ozi na nzuzo",
+        "body": "KaalKey bụ ngwa nyocha. Mpempe akaụntụ na ụkpụrụ nzuzo dị mkpa iji wepụta koodu otu oge nwere mmetụta dị nro. Emebere ngwa ahụ iji chekwaa ndekọ akaụntụ na nchekwa nchekwa ngwaọrụ ahụ. Onye ọ bụla nwere ohere ịnweta ngwaọrụ emechiri emechi ma ọ bụ nkwado ndabere na mpaghara mbupụ nwere ike ịnweta ozi dị nro."
+      },
+      "sharing": {
+        "heading": "4. Ịkekọrịta na ndị ọzọ",
+        "body": "Mgbasa nkwado ahụ nwere ike iji mpempe akwụkwọ nkesa ngwaọrụ gị ma ọ bụ onye na-ahọrọ faịlụ iji chekwaa, nyefee ma ọ bụ họrọ faịlụ. Omume nzuzo nke ngwa ma ọ bụ ọrụ ndị ọzọ ọ bụla ị họọrọ bụ nke onye na-eweta ahụ na-achịkwa. Ọkwa a anaghị eme ka ihe mkpuchi na-ekwu na ngwaọrụ gị, sistemụ arụmọrụ ma ọ bụ ọrụ nkekọrịta ahọpụtara anaghị edozi data."
+      },
+      "changes": {
+        "heading": "6. Mgbanwe na kọntaktị",
+        "body": "Enwere ike idegharị ọkwa a agbakwunyere na mwepụta ngwa n'ọdịnihu. Maka ajụjụ nzuzo, kpọtụrụ onye nrụpụta ngwa site na ọwa nkwado gọọmentị nyere na ngwa ahụ."
+      },
+      "title": "Amụma nzuzo"
+    },
+    "terms": {
+      "use": {
+        "body": "Ị nwere ike iji KaalKey iji mepụta koodu nkwenye maka akaụntụ enyere ikike ịnweta. Ọ bụ gị na-ahụ maka irube isi na iwu ndị dị na iwu nke ọrụ ndị ị na-eji koodu nyocha maka ya.",
+        "heading": "1. Ojiji gi"
+      },
+      "protectAccounts": {
+        "body": "Ọ bụ gị na-ahụ maka ichekwa ngwaọrụ gị, ihe nzuzo onye nyocha, ụzọ mgbake, nkwado ndabere na mpaghara mbupụ na okwuntughe ndabere. Ekekọrịtala koodu ma ọ bụ nzuzo n'etiti ndị ị na-atụkwasịghị obi.",
+        "heading": "2. Chebe akaụntụ gị"
+      },
+      "availability": {
+        "body": "Atụmatụ nwere ike ịgbanwe n'etiti mwepụta. Ị ga-emelite ngwa ahụ wee chọpụta kwa oge na nkwado ndabere na mpaghara gị na-arụ ọrụ.",
+        "heading": "5. Mgbanwe na nnweta"
+      },
+      "recovery": {
+        "body": "KaalKey enweghị ike ikwe nkwa na enwere ike nwetaghachi akaụntụ ọ bụla, na koodu QR ọ bụla ga-adakọ, ma ọ bụ na ngwa ahụ ga-arụ ọrụ na-enweghị nkwụsị ma ọ bụ njehie. Debe ụzọ mgbake ọzọ nke ọrụ dị mkpa nyere.",
+        "heading": "3. Enweghị nkwa mgbake"
+      },
+      "advice": {
+        "heading": "4. Enweghị ndụmọdụ ọkachamara",
+        "body": "Ngwa a bụ ihe bara uru na anaghị enye ndụmọdụ nzaghachi gbasara iwu, ego ma ọ bụ nchekwa. Ọ bụrụ na emebighị akaụntụ, soro ntuziaka mgbake na nchekwa gọọmentị nke ọrụ emetụtara."
+      },
+      "liability": {
+        "heading": "6. Ọrụ na ọdabara iwu",
+        "body": "Ruo n'ókè iwu nwere ike, a na-enye ngwa ahụ na-enweghị nkwa nke ọrụ anaghị akwụsị akwụsị ma ọ bụ na-enweghị njehie. Ọ nweghị ihe dị na usoro ndị a na-ewepu ikike ma ọ bụ ọgwụgwọ enweghị ike iwepụ n'ụzọ iwu. Mmachi ọ bụla ọzọ ma ọ bụ usoro iwu ọchịchị kwesịrị ka onye ọkaiwu tozuru etozu nyochaa ya maka ikike onye mbipụta tupu ahapụ ya."
+      },
+      "title": "Usoro ojiji"
+    },
+    "version": "Ụdị",
+    "saving": "Na-echekwa…",
+    "acceptContinue": "Nabata & Gaa n'ihu",
+    "appliesAuthenticator": "Na-emetụta KaalKey Onye nyocha",
+    "reviewBothDocuments": "Biko nyochaa akwụkwọ abụọ ahụ tupu i jiri KaalKey. Agụnyere ha na ngwa ma dị na anọghị n'ịntanetị.",
+    "originalMulticolourAuthenticator": "Multicolor izizi KaalKey akara ngosi",
+    "legalPrivacyNotice": "Akwụkwọ Iwu & Nzuzo",
+    "legalInformation": "Ozi gbasara iwu",
+    "reviewSPrivacy": "Nyochaa ozi nzuzo na usoro ojiji KaalKey.",
+    "iReadAgree": "Agụọla m ma kwenye na amụma nzuzo na Usoro ojiji."
+  },
+  "qrScanner": {
+    "keepEntireQr": "Debe koodu QR niile ka anya. Ihe nzuzo gị dị na ngwaọrụ a.",
+    "back": "Azu",
+    "turnFlashlightOff": "Gbanyụọ ọkụ ọkụ",
+    "turnFlashlight": "Gbanwuo ọkụ ọkụ",
+    "flashlight": "Ọkụ ọkụ agbanwuru",
+    "flashlight2": "Igwe ọkụ",
+    "cameraUnavailableOpen": "Igwefoto adịghị. Mepee ibe a na HTTPS ma ọ bụ localhost ma kwe ka ịnweta igwefoto.",
+    "cameraPreviewUnavailable": "Ọhụhụ igwefoto adịghị. Mechie ma mepee nyocha ahụ.",
+    "cameraReadyPoint": "Igwefoto dị njikere - tụọ ya na koodu QR zuru ezu.",
+    "browserCannotProcess": "Ihe nchọgharị a enweghị ike ịhazi fremu igwefoto.",
+    "qrCodeDetected": "Achọpụtara koodu QR.",
+    "couldnTRead": "Enweghị ike ịgụ fremu igwefoto. Lelee ikike igwefoto wee bugharịa ibe a.",
+    "cameraPermissionDenied": "Ajụrụ ikike igwefoto. Kwe ka ịnweta igwefoto na ntọala ihe nchọgharị, wee mepee nyocha ọzọ.",
+    "noCameraWas": "Enweghị igwefoto ahụrụ na ngwaọrụ a.",
+    "cameraBusyAnother": "Igwefoto na-arụ ọrụ na ngwa ọzọ ma ọ bụ taabụ ihe nchọgharị.",
+    "startCameraHttps": "Enweghị ike ịmalite igwefoto. Jiri HTTPS ma ọ bụ localhost wee lelee ikike ihe nchọgharị.",
+    "qrScannerCamera": "QR nlele igwefoto nyocha",
+    "cameraUnavailableCheck": "Igwefoto adịghị. Lelee ikike igwefoto wee nwaa ọzọ.",
+    "pointCameraAuthenticator": "Tụnye igwefoto gị na koodu ntọala QR sitere na ọrụ ị na-agbakwunye.",
+    "backAddAccount": "Laghachi ka ịgbakwunye akaụntụ",
+    "secureSetup": "Nhazi echekwabara",
+    "enterDetailsManually": "Jiri aka tinye nkọwa kama"
+  },
+  "accountForm": {
+    "hideManualEntry": "Zoo ntinye akwụkwọ ntuziaka",
+    "secretKeySupplied": "Jiri igodo nzuzo nke ọrụ ị na-ahazi wetara. Etinyekwala paswọọdụ akaụntụ gị ebe a. Dakọtara algọridim, ọnụọgụ ọnụọgụ, na etiti oge na ntuziaka ntọlite ​​​​ọrụ ahụ.",
+    "updateServiceAccount": "Melite ọrụ, aha akaụntụ, ma ọ bụ igodo nzuzo.",
+    "secretKeyRead": "Igodo nzuzo, naanị ọgụgụ mgbe ị na-edezi",
+    "secretKeyBase32": "Igodo nzuzo na Base32",
+    "digits": "ọnụọgụgụ",
+    "seconds": "sekọnd",
+    "enterDetailsManually": "MA ọ bụ jiri aka tinye nkọwa",
+    "enterDetailsManually2": "Jiri aka tinye nkọwa",
+    "serviceAccountName": "Ọrụ, aha akaụntụ na igodo nzuzo",
+    "saveChangesSecurely": "Chekwa mgbanwe na nchekwa",
+    "saveAccountSecurely": "Chekwaa akaụntụ na nchekwa",
+    "serviceIssuer": "Ọrụ ma ọ bụ onye na-enye ihe",
+    "accountName": "Aha akaụntụ",
+    "secretKey": "Igodo nzuzo",
+    "serviceIssuer2": "Ọrụ / Onye na-enye",
+    "eGGoogle": "eg. Google",
+    "clearServiceIssuer": "Kpochapụ ọrụ ma ọ bụ onye na-enye ya",
+    "eGExample": "eg. ị@example.com",
+    "clearAccountName": "Kpochapụ aha akaụntụ",
+    "secretKeyLocked": "Igodo nzuzo (akpọchiri)",
+    "secretKeyBase322": "Igodo nzuzo (BASE32)",
+    "enterSetupKey": "Tinye igodo nhazi gị",
+    "clearSecretKey": "Kpochapụ igodo nzuzo",
+    "otpAlgorithm": "OTP ALGORITHM",
+    "otpDigits": "OTP ọnụọgụgụ",
+    "refreshIntervalSeconds": "MKWUO OGE (SEKỌNỌỌ)",
+    "otpRefreshInterval": "OTP weghachi oge n'ime sekọnd",
+    "closeAccountForm": "Mechie ụdị akaụntụ",
+    "totpSetupUrl": "TOTP ntọlite URL",
+    "importSetupUrl": "Nhazi mbubata URL",
+    "totpSetupUrl2": "TOTP Nhazi URL",
+    "accountName2": "Aha akaụntụ",
+    "addAccount": "Tinye akaụntụ"
+  },
+  "addAccount": {
+    "scanAuthenticatorQr": "Nyochaa koodu QR.",
+    "setupGuidance": "Nyochaa koodu QR maka nhazi kacha mfe, ma ọ bụ jiri aka tinye nkọwa.",
+    "cameraAddAccount": "Jiri igwefoto gị ka ịgbakwunye akaụntụ ozugbo",
+    "scanQrCode2": "Nyochaa koodu QR",
+    "uploadQrImage": "Bulite onyonyo QR",
+    "chooseQrScreenshot": "Họrọ nseta ihuenyo QR sitere na osisi, foto, ma ọ bụ faịlụ",
+    "pasteQr": "Tapawa foto QR / URL",
+    "pasteCopiedQr": "Tapawa onyonyo QR ma ọ bụ ntọlite ​​onye nyocha URL",
+    "uploadQrImage2": "Bulite foto QR"
+  },
+  "accountQr": {
+    "close": "Mechie",
+    "accountQrCode": "Koodu akaụntụ QR",
+    "revealQrCode": "Mkpughe QR koodu",
+    "exportWarning": "Ịdọ aka ná ntị: onye ọ bụla nke nyochara koodu a QR nwere ike ịmepụta koodu nkwenye maka akaụntụ a. Naanị kpughee ya na ihuenyo ntụkwasị obi.",
+    "privacyHint": "Debe koodu a QR na nzuzo. Inyocha ya na-eṅomi nzuzo nzuzo nke akaụntụ ahụ."
+  },
+  "productInfo": {
+    "backupRestore": "Ndabere & weghachite",
+    "backupRestoreDescription": "Kwado data nyocha gị wee weghachi ya mgbe ịkwaga na ngwaọrụ ọzọ.",
+    "privacyDescription": "Debe akaụntụ nkwenye gị n'otu ebe. Jiri nkwado ndabere, weghachi, na nhọrọ mkpọchi ngwaọrụ iji jikwaa ntọlite ​​gị nke ọma.",
+    "timeBasedCodes": "Koodu ndị dabere na oge",
+    "generateOneTimeCodes": "Mepụta koodu passcode na-atụgharị otu oge maka akaụntụ gị iji mechaa nkwenye nzọụkwụ abụọ.",
+    "quickAccountSetup": "Ntọala akaụntụ ngwa ngwa",
+    "quickSetupDescription": "Nyochaa koodu QR ma ọ bụ bubata onyonyo QR iji tinye akaụntụ.",
+    "accountsOnePlace": "Akaụntụ n'otu ebe",
+    "accountsInOnePlaceDescription": "Debe akaụntụ gị echekwara ọnụ wee chọta ntinye ziri ezi mgbe oge ịbanye.",
+    "privateAccountVault": "Akaụntụ nkeonwe",
+    "privateVaultDescription": "Jikwaa ndenye nyocha gị na mpaghara wee jiri nhọrọ mkpọchi ngwaọrụ dị na ngwa ahụ.",
+    "easyCodeAccess": "Nweta koodu dị mfe",
+    "easyCodeAccessDescription": "Detuo koodu dị ugbu a ma ọ bụ jikwaa nkọwa akaụntụ site na interface dị ọcha, lekwasịrị anya.",
+    "authenticatorTechsivaram": "AUTHENTICATOR · BY TECHSIVARAM",
+    "mobileAuthenticator": "Onye nyocha ekwentị gị",
+    "tagline": "Ụzọ dị mfe iji jikwaa nkwenye nzọụkwụ abụọ gị.",
+    "heroDescription": "Ahụmịhe nyocha lekwasịrị anya maka koodu nkwenye dabere na oge. Debe koodu akaụntụ dakọtara na KaalKey maka Android.",
+    "timeBasedCodes2": "KỌDỤ ndị dabeere na oge",
+    "privateDesign": "N'onwe site na imewe",
+    "builtSimpleAuthenticator": "Ewubere maka usoro ọrụ nyocha dị mfe",
+    "qrSetupTimed": "QR Nhazi · Koodu oge · njikwa akaụntụ.",
+    "privacyTitle": "Akaụntụ gị. Koodu gị. njikwa gị.",
+    "authenticator": "KAALKEY · AUTHENTICATOR",
+    "brandBanner": "KaalKey ọkọlọtọ ọkọlọtọ",
+    "logo": "KaalKey akara ngosi"
+  },
+  "messages": {
+    "account": {
+      "cancelButton": "Kagbuo",
+      "storageInvalidTitle": "Data nchekwa ezighi ezi",
+      "storageInvalidBody": "Enweghị ike ịgụ data akaụntụ echekwara na nchekwa.",
+      "storageErrorTitle": "Njehie nchekwa",
+      "storageErrorBody": "Enweghị ike ibunye akaụntụ echekwara.",
+      "missingTitle": "Ozi efu",
+      "missingEditingBody": "Tinye aha ọrụ na aha akaụntụ.",
+      "missingBody": "Tinye aha ọrụ, aha akaụntụ, na igodo nzuzo.",
+      "invalidOtpBody": "Lelee Base32 nzuzo, algọridim, ọnụọgụ ọnụọgụ na oge ume ọhụrụ. Ihe nzuzo ga-enwerịrị mkpụrụedemede Base32 bara uru; ọnụọgụ ga-abụrịrị {digits} na oge ga-abụrịrị {minPeriod}-{maxPeriod} sekọnd.",
+      "duplicateBody": "Echekwala akaụntụ nwere ọrụ a na aha akaụntụ.",
+      "updatedBody": "Emelitere akaụntụ gị.",
+      "addedBody": "Agbakwunyere akaụntụ gị na nchekwa.",
+      "invalidOtpTitle": "Ntọala OTP na adịghị mma",
+      "duplicateTitle": "Akaụntụ adịlarị",
+      "savedTitle": "echekwara akaụntụ",
+      "invalidSecretTitle": "Igodo nzuzo ezighi ezi",
+      "invalidSecretBody": "Biko lelee na ị debanyere nzuzo Base32 bara uru.",
+      "removedTitle": "Ewepụrụ akaụntụ",
+      "removedBody": "Ewepụrụ akaụntụ ahụ na ihe nzuzo ya na ngwaọrụ a.",
+      "clearedTitle": "Ewepula akaụntụ",
+      "clearedBody": "Ewepula akaụntụ niile na nzuzo na ngwaọrụ a.",
+      "someSavedAccountsNeedAttentionTitle": "Ụfọdụ akaụntụ echekwara chọrọ nlebara anya",
+      "someSavedAccountsNeedAttentionBody": "Ebukwaghị {count} ndekọ(s) akaụntụ ezighi ezi. Akaụntụ ziri ezi ka dị. Tụlee ịmepụta ndabere tupu ime mgbanwe ndị ọzọ.",
+      "removeConfirmTitle": "Wepu akaụntụ?",
+      "removeConfirmWebTitle": "Wepu akaụntụ?",
+      "removeButton": "Wepu",
+      "clearButton": "Kpochapụ ihe niile",
+      "clearConfirmTitle": "Hichapụ akaụntụ niile?",
+      "saveErrorBody": "Enweghị ike ịchekwa akaụntụ. Lelee ohere nchekwa ihe nchọgharị wee nwaa ọzọ.",
+      "notFoundTitle": "Ahụghị akaụntụ",
+      "notFoundBody": "Enweghị ike ịchọta akaụntụ a. Mechie nchịkọta akụkọ wee nwaa ọzọ.",
+      "removeConfirmBody": "Nke a na-ewepụ akaụntụ na nzuzo ya na ngwaọrụ a.",
+      "clearConfirmBody": "Nke a na-ewepụ akaụntụ ndị nyocha na ihe nzuzo ha na ngwaọrụ a kpamkpam. Mepụta ndabere ezoro ezo buru ụzọ ma ọ bụrụ na ị nwere ike chọọ akaụntụ ndị a ma emechaa.",
+      "clearConfirmUndoBody": "Enweghị ike imegharị nke a."
+    },
+    "biometric": {
+      "cancelButton": "Kagbuo",
+      "saveErrorTitle": "Enweghị ike ịchekwa ntọala",
+      "unlockPrompt": "Kpọghe KaalKey Onye nyocha",
+      "promptSubtitle": "Jiri biometrics ma ọ bụ mkpọchi ihuenyo ngwaọrụ gị",
+      "disableConfirmPrompt": "Kwenye na ịgbanyụ KaalKey mkpọchi ngwa",
+      "enablePrompt": "Kwado mkpọchi ngwa maka KaalKey",
+      "deviceLockTitle": "Hazie mkpọchi ihuenyo ngwaọrụ gị",
+      "deviceLockBody": "KaalKey na-eji njirimara arụnyere n'ime ekwentị gị. Tọọ ngwaọrụ PIN, ụkpụrụ, ma ọ bụ paswọọdụ na ntọala nchekwa ekwentị gị, wee nwaa ọzọ. Biometrics bụ nhọrọ.",
+      "unavailableTitle": "Nyocha ngwaọrụ adịghị",
+      "unavailableBody": "Ekwentị gị enweghị ike ịmalite nyocha echedoro. Lelee na ahaziri mkpọchi ihuenyo ngwaọrụ, wee nwaa ọzọ.",
+      "lockedTitle": "Akpọchiela nyocha nwa oge",
+      "lockedBody": "Ekwentị gị ewepụla nyocha nwa oge ka ọtụtụ mbọ gachara. Chere wee nwaa ọzọ.",
+      "promptErrorTitle": "Nyocha adịghị",
+      "promptErrorBody": "KaalKey enweghị ike ịmalite ngwa ngwa nyocha ekwentị echekwabara. Biko nwaa ọzọ.",
+      "webLock": "Mkpọchi njirimara ngwaọrụ adịghị na ụdị webụ ma. A na-emeghe oghere webụ ahụ; jiri ngwa Android maka nyocha ngwaọrụ ala.",
+      "disabledTitle": "Agbanyụrụ mkpọchi ngwa",
+      "disabledBody": "KaalKey agbanyụrụ mkpọchi ngwa.",
+      "disableSaveError": "A ka gbanyere mkpọchi ngwa ahụ. Biko nwaa ọzọ.",
+      "enabledTitle": "Agbanyere mkpọchi ngwa",
+      "enabledBody": "KaalKey ga-arịọ nkwenye arụnyere n'ime ekwentị gị mgbe emepere ya na mgbe ịlaghachi na ya.",
+      "enableSaveError": "Enweghị ike ịgbanwu mkpọchi ngwa. Biko nwaa ọzọ."
+    },
+    "qr": {
+      "startingCamera": "Na-amalite igwefoto…",
+      "unsupportedTitle": "Koodu QR anaghị akwado",
+      "unsupportedBody": "Nyochaa koodu ntọala QR nke ọrụ ahụ wetara. Nke a ga-abụrịrị koodu TOTP, ọ bụghị koodu nbanye QR nkịtị.",
+      "unsupportedDiagnostic": "Na QR abụghị koodu ntọala TOTP. Ebumnuche na ntọala onye nyocha QR.",
+      "detectedDiagnostic": "QR achọpụtara. Na-enyocha…",
+      "analyzing": "Na-enyocha koodu QR…",
+      "duplicateTitle": "Agbakwunyela akaụntụ",
+      "duplicateBody": "{issuer}: {account} abanyela na KaalKey.",
+      "addedTitle": "Agbakwunyere akaụntụ",
+      "addedBody": "{issuer}: {account} atụkwasịkwara nke ọma.",
+      "saveFailedDiagnostic": "Enweghị ike ịchekwa akaụntụ ahụ. Ị nwere ike iṅomi ọzọ.",
+      "invalidTitle": "Koodu QR na adịghị mma",
+      "invalidBody": "KaalKey enweghị ike ịkọwapụta koodu QR a. {detail}. Jiri koodu nhazi TOTP QR (na-amalite na {prefix}).",
+      "parseFailedDiagnostic": "QR enweghị ike ịhazi ya. Buru n'uche na nhazi QR wee nwaa ọzọ.",
+      "invalidUrlTitle": "ezighi ezi TOTP URL",
+      "invalidUrlBody": "Tapawa onye nyocha zuru oke URL na-amalite na {prefix}.",
+      "clipboardEmptyTitle": "Klipbọọdụ efu",
+      "clipboardEmptyBody": "Detuo {prefix} URL mbụ, wee pịa Tapawa TOTP URL.",
+      "clipboardErrorTitle": "Enweghị ike ịgụ klipbọọdụ",
+      "clipboardErrorBody": "Detuo ntọala TOTP URL wee nwaa ọzọ."
+    },
+    "haptics": {
+      "saveFailedTitle": "Enweghị ike ịchekwa ntọala",
+      "saveFailedBody": "Enweghị ike ịchekwa mmasị nzaghachi obi ụtọ. Biko nwaa ọzọ."
+    },
+    "legalAcceptance": {
+      "saveFailedTitle": "Enweghị ike ịchekwa nkwenye",
+      "saveFailedBody": "Biko nwaa ọzọ. Ị ga-anabatarịrị ọkwa iwu tupu i jiri KaalKey."
+    },
+    "cameraPermission": {
+      "title": "Achọrọ ikike igwefoto",
+      "body": "Nye ohere igwefoto ka o nyochaa koodu ntọlite ​​QR."
+    },
+    "storage": {
+      "browserUnavailable": "Nchekwa ihe nchọgharị adịghị.",
+      "browserFilePickerUnavailable": "Nhọrọ faịlụ ihe nchọgharị adịghị."
+    },
+    "qrImport": {
+      "unsupportedFileTitle": "Faịlụ anaghị akwado",
+      "unsupportedFileBody": "Họrọ onyonyo QR dị ka PNG ma ọ bụ JPEG.",
+      "browserDecoderUnavailable": "Ndozi onyonyo ihe nchọgharị adịghị",
+      "imageLoadFailed": "Enweghị ike ibunye onyonyo",
+      "unreadableDimensions": "Onyonyo enweghị akụkụ enwere ike ịgụ",
+      "noQrCodeFoundTitle": "Enweghị koodu QR ahụrụ",
+      "noQrCodeFoundBody": "KaalKey enweghị ike imezi koodu QR na foto a. Gbalịa nseta ihuenyo ma ọ bụ mkpebi dị elu PNG/JPEG.",
+      "couldNotReadImageTitle": "Enweghị ike ịgụ foto",
+      "couldNotReadImageBody": "Nwalee onyonyo doro anya PNG ma ọ bụ JPEG nwere koodu ntọlite ​​QR.",
+      "couldNotOpenPickerTitle": "Enweghị ike imeghe ihe oyiyi",
+      "couldNotOpenPickerBody": "Biko nwaa bulite QR ọzọ.",
+      "normalizedDecodeFailed": "Enweghị ike ịmegharị onyonyo ahaziri ahazi",
+      "clipboardImageLoadFailed": "Enweghị ike ibunye onyonyo klipbọọdụ",
+      "imageProcessingUnavailable": "Nhazi onyonyo adịghị",
+      "imageProcessingUnavailableAlt": "Nhazi onyonyo adịghị",
+      "noImageInClipboardTitle": "Enweghị onyonyo na klipbọọdụ",
+      "noImageInClipboardBody": "Detuo onyonyo QR, wee pịa Tapawa QR onyonyo ọzọ.",
+      "clipboardUnavailableTitle": "Klipbọọdụ adịghị",
+      "clipboardUnavailableBody": "Ederede klipbọọdụ abụghị ezigbo ntọala ntọala URL. Detuo ihe onyonyo otpauth:// URL ma ọ bụ QR wee nwaa ọzọ.",
+      "clipboardAccessBody": "KaalKey enweghị ike ịgụ ederede ma ọ bụ onyonyo sitere na bọọdụ ahụ. Nye ohere ịnweta klipbọọdụ, wee detuo QR onyonyo ma ọ bụ otpauth:// URL wee pịa Tapawa QR Oyiyi / URL ọzọ.",
+      "couldNotPasteImageTitle": "Enweghị ike mado onyonyo",
+      "couldNotPasteImageBody": "Mpempe akwụkwọ a anaghị akwado tapawa onyonyo na ngwaọrụ a. Jiri onyonyo mbubata QR kama.",
+      "sourceImageDecodeFailure": "Nwalee onyonyo QR dị iche.",
+      "pastedImportFailureBody": "Nwalee onyonyo QR dị iche.",
+      "sourceImageReadFailure": "Gbalịa iṅomi nseta ihuenyo QR doro anya.",
+      "importFailedTitle": "QR mbubata onyonyo dara",
+      "importFailedBody": "KaalKey enweghị ike ịgụ foto ahụ. Biko nwaa onyonyo koodu QR ọzọ.",
+      "notFoundBody": "Onyonyo edegharịghị enweghị koodu QR enwere ike ịgụ.",
+      "pastedNotFoundBody": "Ihe onyonyo a mado enweghị koodu QR enwere ike ịgụ.",
+      "pastedReadFailureBody": "Gbalịa iṅomi PNG ma ọ bụ JPEG oyiyi nwere koodu QR zuru ezu.",
+      "noQrCodeTextBody": "KaalKey depụtara foto ahọpụtara mana ọ hụghị koodu QR. Gbalịa mee mkpebi doro anya PNG ma ọ bụ JPEG na koodu niile a na-ahụ anya."
+    },
+    "totpImport": {
+      "invalidTotpCode": "Nke a QR koodu abụghị koodu nhazi ntọala dabere na oge.",
+      "missingAccountDetails": "Koodu QR na-efu nkọwa akaụntụ.",
+      "unsupportedAlgorithm": "Koodu QR na-eji algọridim anaghị akwado.",
+      "unsupportedDigits": "Koodu a QR ga-ejirịrị nkeji 6, 7 ma ọ bụ 8.",
+      "unsupportedPeriod": "Koodu QR na-eji oge oge anaghị akwado.",
+      "invalidAccount": "Enweghị ike ịkwado koodu QR."
+    },
+    "backup": {
+      "invalidJson": "Faịlụ ndabere adịghị arụ ọrụ JSON.",
+      "unsupportedFormat": "Nke a abụghị nkwado ezoro ezo KaalKey.",
+      "invalidPasswordOrDamaged": "Okwuntughe ndabere ezighi ezi ma ọ bụ mebie faịlụ ndabere.",
+      "invalidContents": "Ọdịnaya ndabere ezighi ezi ma ọ bụ ezughi oke.",
+      "secureRandomUnavailableDetailed": "Ọgbọ enweghị usoro echekwabara adịghị. Megharịa ma tinyegharịa ngwa Android yana expo-crypto gụnyere, wee nwaa ọzọ.",
+      "invalidAccountDataForBackup": "Otu akaụntụ ma ọ bụ karịa abaghị uru. Idozi data akaụntụ tupu ịmepụta ndabere.",
+      "invalidPasswordOrModified": "Okwuntughe ndabere ezighi ezi ma ọ bụ gbanwee faịlụ ndabere.",
+      "invalidPasswordOrFileDamaged": "Okwuntughe ndabere ezighi ezi ma ọ bụ mebie faịlụ ahụ.",
+      "passwordCopiedTitle": "Eṅomiri okwuntughe",
+      "enterPasswordTitle": "Tinye paswọọdụ ndabere gị",
+      "enterPasswordBody": "Tinye paswọọdụ eji mgbe emepụtara nkwado ndabere a.",
+      "passwordCopiedBody": "Chekwaa ya ebe nchekwa, dị ka WhatsApp.",
+      "copyFailedTitle": "Iṅomi dara",
+      "copyFailedBody": "Họrọ ma jiri aka detuo paswọọdụ.",
+      "generatingPassword": "Na-emepụta paswọọdụ ndabere echekwara…",
+      "encrypting": "Na-ezobe ndabere…",
+      "decrypting": "Na-ewepụ ndabere…",
+      "restoring": "Na-eweghachi akaụntụ…",
+      "backupCreatedTitle": "Emebere ndabere",
+      "restoreCompleteTitle": "Weghachi zuru ezu",
+      "mergeConfirmTitle": "Jikọta akaụntụ ndabere?",
+      "mergeConfirmButton": "Jikọta akaụntụ",
+      "backupSavedTemporary": "echekwara nchekwa ezoro ezo nwa oge na:\n{uri}",
+      "generatePasswordErrorTitle": "Enweghị ike ịmepụta paswọọdụ ndabere",
+      "secureRandomUnavailable": "Ọgbọ enweghị usoro echekwabara adịghị.",
+      "passwordUnavailableTitle": "Okwuntughe ndabere adịghị",
+      "passwordUnavailableBody": "Mechie mkparịta ụka a wee mepụta nkwado ndabere ọhụrụ iji mepụta paswọọdụ echekwara.",
+      "backupDownloadedBody": "Ebudatala ndabere gị ezoro ezo KaalKey. Debe faịlụ na paswọọdụ nzuzo.",
+      "backupFailedTitle": "Ndabere ada ada",
+      "backupCreateErrorBody": "KaalKey enweghị ike ịmepụta ndabere.",
+      "restoreFailedTitle": "Iweghachi agaghị",
+      "backupReadErrorBody": "Enweghị ike ịgụ ma ọ bụ chekwaa ndabere ahụ.",
+      "browserDownloadUnsupported": "Ihe nchọgharị gị anaghị akwado nbudata faịlụ ndabere.",
+      "localFileUnavailable": "Ọnọdụ faịlụ mpaghara adịghị na ngwaọrụ a.",
+      "saveBackupTitle": "Chekwaa ndabere KaalKey ezoro ezo"
+    },
+    "clipboard": {
+      "copiedTitle": "Eṅomiri koodu",
+      "copiedBody": "Eṅomila koodu nkwenye gị.",
+      "errorTitle": "Njehie",
+      "errorBody": "Enweghị ike iṅomi koodu nkwenye."
+    },
+    "activity": {
+      "cameraReady": "Igwefoto dị njikere. Tụnye ya na koodu njirimara QR.",
+      "readingQrImage": "Ọgụgụ QR onyonyo…",
+      "importingQrImage": "Na-ebubata onyonyo QR…",
+      "importingAccount": "Na-ebubata akaụntụ nyocha…",
+      "importingPastedImage": "Na-ebubata onyonyo QR…"
+    }
+  },
+  "activity": {
+    "working": "Na-arụ ọrụ",
+    "wait": "Biko chere…",
+    "donTClose": "Biko emechila ma ọ bụ meekọrịta ihe na KaalKey.",
+    "loadingLanguages": "Na-ebunye asụsụ ndị dị…",
+    "loadingTranslation": "Na-ebu ntụgharị asụsụ…"
+  }
+}
