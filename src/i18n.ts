@@ -3,26 +3,9 @@ import en from "./locales/en.json";
 import hi from "./locales/hi.json";
 import te from "./locales/te.json";
 import { useCallback, useEffect, useState } from "react";
-
-export type AppLanguage = "en" | "te" | "hi";
-export type LanguageOption = {
-  code: AppLanguage;
-  name: string;
-  nativeName: string;
-  searchTerms: string;
-};
-// Only languages with bundled, reviewed UI translations are selectable.
-export const SUPPORTED_LANGUAGES: LanguageOption[] = [
-  { code: "en", name: "English", nativeName: "English", searchTerms: "english en" },
-  { code: "te", name: "Telugu", nativeName: "తెలుగు", searchTerms: "telugu te తెలుగు" },
-  { code: "hi", name: "Hindi", nativeName: "हिन्दी", searchTerms: "hindi hi हिंदी हिन्दी" },
-];
+import { AppLanguage } from "./i18n/languages";
+export { AppLanguage, LanguageOption, SUPPORTED_LANGUAGES, LANGUAGE_NAMES } from "./i18n/languages";
 export const LANGUAGE_STORAGE_KEY = "kaalkey.language";
-export const LANGUAGE_NAMES: Record<AppLanguage, string> = {
-  en: "English",
-  te: "తెలుగు",
-  hi: "हिन्दी",
-};
 
 type TranslationNode = string | { [key: string]: TranslationNode };
 

@@ -5,6 +5,7 @@ import LegalDocumentScrollPanel from "./LegalDocumentScrollPanel";
 import LegalDocumentTabs from "./LegalDocumentTabs";
 import LegalNoticeFooter from "./LegalNoticeFooter";
 import LegalNoticeHeader from "./LegalNoticeHeader";
+import LegalLanguageTypeahead from "./LegalLanguageTypeahead";
 import type { LegalDocument } from "../types/legalDocument";
 import { legalNoticeScreenStyles } from "../styles/component.styles";
 
@@ -34,6 +35,7 @@ export default function LegalNoticeScreen({
     <SafeAreaView style={legalNoticeScreenStyles.screen} edges={["top", "right", "bottom", "left"]}>
       <View style={legalNoticeScreenStyles.content}>
         <LegalNoticeHeader firstLaunch={firstLaunch} />
+        <LegalLanguageTypeahead />
         <LegalDocumentTabs legalDocument={legalDocument} setLegalDocument={setLegalDocument} />
         <LegalDocumentScrollPanel legalDocument={legalDocument} />
         <LegalNoticeFooter

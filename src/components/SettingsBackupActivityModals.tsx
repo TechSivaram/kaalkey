@@ -1,5 +1,5 @@
 import * as Clipboard from "expo-clipboard";
-import { useMemo, useState, type Dispatch, type SetStateAction } from "react";
+import { useState, type Dispatch, type SetStateAction } from "react";
 import {
   KeyboardAvoidingView,
   Modal,
@@ -18,7 +18,7 @@ import {
 } from "../constants/ui";
 import { USER_MESSAGES } from "../constants/userMessages";
 import type { AppLanguage } from "../i18n";
-import { SUPPORTED_LANGUAGES, translate } from "../i18n";
+import { translate } from "../i18n";
 import {
   getSettingsBackdropStyles,
   settingsBackupActivityStyles as inlineStyles,
@@ -29,6 +29,8 @@ import type { BackupMode } from "../types/backupMode";
 import { getBackupModalDescription } from "../utils/backupModalDescription";
 import { showUserMessage } from "../utils/user-message";
 import ActivityOverlayModal from "./ActivityOverlayModal";
+import LanguageSelector from "./LanguageSelector";
+import { settingsLanguageStyles } from "./settings-language.styles";
 
 type Props = {
   insets: { top: number; bottom: number };
@@ -85,22 +87,11 @@ export default function SettingsBackupActivityModals(props: Props) {
   } = props;
   const [languageSearch, setLanguageSearch] = useState("");
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
-  const openLanguageDropdown = () => setLanguageDropdownOpen(true);
   const handleLanguageSelect = (selectedLanguage: AppLanguage) => {
-    // Close the dropdown immediately, before updating the app language.
     setLanguageDropdownOpen(false);
     setLanguageSearch("");
     setLanguage(selectedLanguage);
   };
-  const matchingLanguages = useMemo(() => {
-    const query = languageSearch.trim().toLocaleLowerCase();
-    if (!query) return SUPPORTED_LANGUAGES.slice(0, 5);
-    return SUPPORTED_LANGUAGES.filter((item) =>
-      `${item.name} ${item.nativeName} ${item.code} ${item.searchTerms}`
-        .toLocaleLowerCase()
-        .includes(query),
-    );
-  }, [languageSearch]);
   return (
     <>
       <Modal
@@ -138,7 +129,9 @@ export default function SettingsBackupActivityModals(props: Props) {
               <Text style={styles.settingsSectionLabel}>
                 {translate(language, "settings.language.section")}
               </Text>
-              <View style={[styles.settingRow, languageDropdownOpen && { zIndex: 30 }]}>
+              <View
+                style={[styles.settingRow, languageDropdownOpen && settingsLanguageStyles.rowOpen]}
+              >
                 <View style={styles.settingIconBox}>
                   <Text style={styles.settingIcon}>🌐</Text>
                 </View>
@@ -149,145 +142,18 @@ export default function SettingsBackupActivityModals(props: Props) {
                   <Text style={styles.settingDescription}>
                     {translate(language, "settings.language.description")}
                   </Text>
-                  <View
-                    style={{
-                      position: "relative",
-                      zIndex: languageDropdownOpen ? 30 : 0,
-                    }}
-                  >
-                    <TextInput
-                      value={languageSearch}
-                      onFocus={openLanguageDropdown}
-                      onChangeText={(value) => {
-                        setLanguageSearch(value);
-                        openLanguageDropdown();
-                      }}
-                      placeholder={translate(language, "settings.language.searchLanguageName")}
-                      placeholderTextColor="#718096"
-                      accessibilityLabel={translate(
-                        language,
-                        "settings.language.searchSupportedLanguages",
-                      )}
-                      autoCapitalize="none"
-                      autoCorrect={false}
-                      style={{
-                        marginTop: 10,
-                        marginBottom: 8,
-                        borderWidth: 1,
-                        borderColor: "#D6DEE7",
-                        borderRadius: 10,
-                        paddingHorizontal: 12,
-                        paddingVertical: 9,
-                        color: "#243447",
-                        backgroundColor: "#FFFFFF",
-                        elevation: 0,
-                        shadowColor: "transparent",
-                        shadowOpacity: 0,
-                        shadowRadius: 0,
-                        shadowOffset: { width: 0, height: 0 },
-                      }}
-                    />
-                    {languageDropdownOpen ? (
-                      <View
-                        style={{
-                          position: "absolute",
-                          top: 56,
-                          left: 0,
-                          right: 0,
-                          maxHeight: 260,
-                          padding: 6,
-                          gap: 6,
-                          backgroundColor: "#FFFFFF",
-                          borderWidth: 1,
-                          borderColor: "#D6DEE7",
-                          borderRadius: 12,
-                          zIndex: 10000,
-                          elevation: 8,
-                          shadowColor: "#000000",
-                          shadowOpacity: 0.12,
-                          shadowRadius: 8,
-                          shadowOffset: { width: 0, height: 3 },
-                        }}
-                      >
-                        <View
-                          style={{
-                            flexDirection: "row",
-                            justifyContent: "flex-end",
-                            paddingHorizontal: 4,
-                          }}
-                        >
-                          <TouchableOpacity
-                            onPress={() => setLanguageDropdownOpen(false)}
-                            accessibilityRole="button"
-                            accessibilityLabel={translate(
-                              language,
-                              "settings.language.closeLanguageDropdown",
-                            )}
-                            hitSlop={12}
-                          >
-                            <Text
-                              style={{
-                                color: "#243447",
-                                fontWeight: "800",
-                                fontSize: 18,
-                                paddingHorizontal: 8,
-                                paddingVertical: 4,
-                              }}
-                            >
-                              ✕
-                            </Text>
-                          </TouchableOpacity>
-                        </View>
-                        <ScrollView keyboardShouldPersistTaps="always" style={{ maxHeight: 208 }}>
-                          {matchingLanguages.map((item) => (
-                            <TouchableOpacity
-                              key={item.code}
-                              onPress={() => handleLanguageSelect(item.code)}
-                              accessibilityRole="button"
-                              accessibilityState={{ selected: language === item.code }}
-                              style={{
-                                flexDirection: "row",
-                                alignItems: "center",
-                                justifyContent: "space-between",
-                                paddingVertical: 9,
-                                paddingHorizontal: 12,
-                                borderRadius: 10,
-                                backgroundColor:
-                                  language === item.code ? COLORS.indiaGreen : "#E8EDF2",
-                              }}
-                            >
-                              <View>
-                                <Text
-                                  style={{
-                                    color: language === item.code ? "#FFFFFF" : "#243447",
-                                    fontWeight: "700",
-                                  }}
-                                >
-                                  {item.nativeName}
-                                </Text>
-                                <Text
-                                  style={{
-                                    color: language === item.code ? "#EAF7EF" : "#536477",
-                                    fontSize: 12,
-                                  }}
-                                >
-                                  {item.name} · {item.code}
-                                </Text>
-                              </View>
-                              {language === item.code ? (
-                                <Text style={{ color: "#FFFFFF", fontWeight: "800" }}>✓</Text>
-                              ) : null}
-                            </TouchableOpacity>
-                          ))}
-                          {matchingLanguages.length === 0 ? (
-                            <Text style={{ color: "#536477", paddingVertical: 8 }}>
-                              {translate(language, "settings.language.noTranslatedLanguage")}
-                            </Text>
-                          ) : null}
-                        </ScrollView>
-                      </View>
-                    ) : null}
-                  </View>
+                  <LanguageSelector
+                    language={language}
+                    onSelect={handleLanguageSelect}
+                    search={languageSearch}
+                    onSearchChange={setLanguageSearch}
+                    open={languageDropdownOpen}
+                    onOpen={() => setLanguageDropdownOpen(true)}
+                    onClose={() => setLanguageDropdownOpen(false)}
+                    noResultsText={translate(language, "settings.language.noTranslatedLanguage")}
+                    placeholder={translate(language, "settings.language.searchLanguageName")}
+                    label={translate(language, "settings.language.name")}
+                  />
                 </View>
               </View>
 
