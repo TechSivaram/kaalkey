@@ -97,12 +97,18 @@ export default function SettingsBackupActivityModals(props: Props) {
   } = props;
   const [languageSearch, setLanguageSearch] = useState("");
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
+  const [languageSelectionLoading, setLanguageSelectionLoading] = useState(false);
   const [translationServerDraft, setTranslationServerDraft] = useState(translationServerUrl);
 
-  const handleLanguageSelect = (selectedLanguage: AppLanguage) => {
+  const handleLanguageSelect = async (selectedLanguage: AppLanguage) => {
     setLanguageDropdownOpen(false);
     setLanguageSearch("");
-    setLanguage(selectedLanguage);
+    setLanguageSelectionLoading(true);
+    try {
+      await setLanguage(selectedLanguage);
+    } finally {
+      setLanguageSelectionLoading(false);
+    }
   };
   return (
     <>
@@ -160,7 +166,9 @@ export default function SettingsBackupActivityModals(props: Props) {
                     search={languageSearch}
                     onSearchChange={setLanguageSearch}
                     open={languageDropdownOpen}
-                    onOpen={() => setLanguageDropdownOpen(true)}
+                    onOpen={() => {
+                      setLanguageDropdownOpen(true);
+                    }}
                     onClose={() => setLanguageDropdownOpen(false)}
                     noResultsText={translate(language, "settings.language.noTranslatedLanguage")}
                     placeholder={translate(language, "settings.language.searchLanguageName")}
@@ -545,11 +553,16 @@ export default function SettingsBackupActivityModals(props: Props) {
         activityMessage={
           languageLoading
             ? translate(language, "activity.loadingLanguages")
-            : translationLoading
+            : translationLoading || languageSelectionLoading
               ? translate(language, "activity.loadingTranslation")
               : activityMessage
         }
-        visible={activityMessage !== null || languageLoading || translationLoading}
+        visible={
+          activityMessage !== null ||
+          languageLoading ||
+          translationLoading ||
+          languageSelectionLoading
+        }
       />
     </>
   );

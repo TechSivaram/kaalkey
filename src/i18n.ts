@@ -274,12 +274,14 @@ async function loadCachedManifest(serverUrl: string): Promise<TranslationManifes
 async function fetchManifest(serverUrl: string): Promise<TranslationManifest> {
   const response = await fetch(manifestUrl(serverUrl), {
     headers: { Accept: "application/json" },
+    cache: "no-store",
   });
   if (response.ok) return normalizeManifest(await response.json());
 
   // Also accept a server URL that serves the manifest directly.
   const directResponse = await fetch(normalizeServerUrl(serverUrl), {
     headers: { Accept: "application/json" },
+    cache: "no-store",
   });
   if (!directResponse.ok) {
     throw new Error(`Translation manifest request failed: ${response.status}`);
@@ -336,6 +338,7 @@ async function loadTranslation(language: AppLanguage): Promise<boolean> {
   try {
     const response = await fetch(resolveTranslationUrl(configuredServerUrl, remoteLanguage), {
       headers: { Accept: "application/json" },
+      cache: "no-store",
     });
     if (!response.ok) throw new Error(`Translation request failed: ${response.status}`);
     const dictionary = await response.json();

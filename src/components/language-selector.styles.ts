@@ -49,4 +49,5 @@ export const languageSelectorStyles = StyleSheet.create({
     minHeight: 30,
   },
   empty: { color: "#536477", paddingVertical: 8 },
+  loadingRow: { flexDirection: "row", alignItems: "center", gap: 8, paddingHorizontal: 8 },
 });
