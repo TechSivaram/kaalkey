@@ -389,13 +389,6 @@ export default function HomeScreen() {
             restoreEncryptedBackup={restoreEncryptedBackup}
             activityMessage={activityMessage}
             clearAllAccounts={clearAllAccounts}
-            language={language}
-            setLanguage={setLanguage}
-            languages={languages}
-            languageLoading={languageLoading}
-            translationLoading={translationLoading}
-            translationServerUrl={translationServerUrl}
-            setTranslationServerUrl={setTranslationServerUrl}
           />
         </View>
       </SafeAreaView>

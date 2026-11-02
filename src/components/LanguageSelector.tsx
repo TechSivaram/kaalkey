@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  ActivityIndicator,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { ActivityIndicator, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import type { AppLanguage, LanguageOption as LanguageOptionType } from "../i18n/languages";
 import { translate } from "../i18n";
 import { useLanguageSearch } from "../hooks/useLanguageSearch";
@@ -26,6 +19,7 @@ type Props = {
   label: string;
   languages: LanguageOptionType[];
   loading?: boolean;
+  showLabel?: boolean;
 };
 
 export default function LanguageSelector(p: Props) {
@@ -36,7 +30,7 @@ export default function LanguageSelector(p: Props) {
   return (
     <View style={[s.container, p.open && s.containerOpen]}>
       <View style={s.headingRow}>
-        <Text style={s.label}>{p.label}</Text>
+        {p.showLabel !== false ? <Text style={s.label}>{p.label}</Text> : null}
         <Text style={s.selectedLanguage}>{selectedName} ▾</Text>
       </View>
       <TextInput

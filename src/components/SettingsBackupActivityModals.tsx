@@ -1,5 +1,6 @@
 import * as Clipboard from "expo-clipboard";
 import { useState, type Dispatch, type SetStateAction } from "react";
+import { useAppLanguage } from "../i18n";
 import {
   KeyboardAvoidingView,
   Modal,
@@ -17,7 +18,6 @@ import {
   BUTTON_ACTIVE_OPACITY_STRONG,
 } from "../constants/ui";
 import { USER_MESSAGES } from "../constants/userMessages";
-import type { AppLanguage } from "../i18n";
 import { translate } from "../i18n";
 import {
   getSettingsBackdropStyles,
@@ -54,13 +54,6 @@ type Props = {
   restoreEncryptedBackup: () => Promise<void>;
   activityMessage: string | null;
   clearAllAccounts: () => void;
-  language: AppLanguage;
-  setLanguage: (language: AppLanguage) => void;
-  languages: import("../i18n/languages").LanguageOption[];
-  languageLoading: boolean;
-  translationLoading: boolean;
-  translationServerUrl: string;
-  setTranslationServerUrl: (url: string) => Promise<void>;
 };
 
 /** Settings, backup, and blocking activity dialogs for the vault screen. */
@@ -87,6 +80,8 @@ export default function SettingsBackupActivityModals(props: Props) {
     restoreEncryptedBackup,
     activityMessage,
     clearAllAccounts,
+  } = props;
+  const {
     language,
     setLanguage,
     languages,
@@ -94,7 +89,7 @@ export default function SettingsBackupActivityModals(props: Props) {
     translationLoading,
     translationServerUrl,
     setTranslationServerUrl,
-  } = props;
+  } = useAppLanguage();
   const [languageSearch, setLanguageSearch] = useState("");
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
   const [languageSelectionLoading, setLanguageSelectionLoading] = useState(false);
@@ -147,19 +142,17 @@ export default function SettingsBackupActivityModals(props: Props) {
               <Text style={styles.settingsSectionLabel}>
                 {translate(language, "settings.language.section")}
               </Text>
-              <View
-                style={[styles.settingRow, languageDropdownOpen && settingsLanguageStyles.rowOpen]}
-              >
+              <View style={[styles.settingRow, { borderBottomWidth: 0, paddingBottom: 8 }]}>
                 <View style={styles.settingIconBox}>
                   <Text style={styles.settingIcon}>🌐</Text>
                 </View>
                 <View style={styles.settingCopy}>
-                  <Text style={styles.settingTitleText}>
-                    {translate(language, "settings.language.name")}
-                  </Text>
                   <Text style={styles.settingDescription}>
                     {translate(language, "settings.language.description")}
                   </Text>
+                </View>
+              </View>
+              <View style={[settingsLanguageStyles.controlsContainer, languageDropdownOpen && settingsLanguageStyles.rowOpen]}>
                   <LanguageSelector
                     language={language}
                     onSelect={handleLanguageSelect}
@@ -173,6 +166,7 @@ export default function SettingsBackupActivityModals(props: Props) {
                     noResultsText={translate(language, "settings.language.noTranslatedLanguage")}
                     placeholder={translate(language, "settings.language.searchLanguageName")}
                     label={translate(language, "settings.language.name")}
+                    showLabel={false}
                     languages={languages}
                     loading={languageLoading}
                   />
@@ -201,7 +195,6 @@ export default function SettingsBackupActivityModals(props: Props) {
                       {translate(language, "settings.language.saveServerUrl")}
                     </Text>
                   </TouchableOpacity>
-                </View>
               </View>
 
               <Text style={styles.settingsSectionLabel}>

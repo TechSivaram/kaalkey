@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 export const languageSelectorStyles = StyleSheet.create({
-  container: { position: "relative", zIndex: 0 },
-  containerOpen: { zIndex: 30 },
+  container: { position: "relative", zIndex: 1, overflow: "visible" },
+  containerOpen: { zIndex: 1000, elevation: 20, overflow: "visible" },
   headingRow: { flexDirection: "row", alignItems: "center", justifyContent: "space-between" },
   label: { color: "#243447", fontWeight: "800" },
   selectedLanguage: { color: "#536477", fontWeight: "700" },
