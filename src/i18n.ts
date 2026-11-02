@@ -1,4 +1,4 @@
-import * as SecureStore from "expo-secure-store";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import en from "./locales/en.json";
 import { useCallback, useEffect, useState } from "react";
 import { AppLanguage, ENGLISH_LANGUAGE, LanguageOption } from "./i18n/languages";
@@ -64,9 +64,12 @@ function manifestUrl(serverUrl: string): string {
 }
 
 function resolveTranslationUrl(serverUrl: string, language: RemoteLanguage): string {
-  if (language.url) return new URL(language.url, `${normalizeServerUrl(serverUrl)}/`).toString();
-  const file = language.file || `${language.code}.json`;
-  return new URL(file, `${normalizeServerUrl(serverUrl)}/`).toString();
+  const base = `${normalizeServerUrl(serverUrl)}/`;
+  const file = language.url || language.file || `${language.code}.json`;
+
+  // Keep manifest paths such as "/te.json" inside the configured i18n folder.
+  if (/^https?:\/\//i.test(file)) return file;
+  return new URL(file.replace(/^\/+/, ""), base).toString();
 }
 
 function parseLanguageList(value: unknown): RemoteLanguage[] {
@@ -135,50 +138,19 @@ function normalizeManifest(value: unknown): TranslationManifest {
 }
 
 async function getStoredValue(key: string): Promise<string | null> {
-  if (typeof window !== "undefined") {
-    try {
-      return window.localStorage.getItem(key);
-    } catch {
-      return null;
-    }
-  }
-
   try {
-    return await SecureStore.getItemAsync(key);
+    return await AsyncStorage.getItem(key);
   } catch {
     return null;
   }
 }
 
 async function setStoredValue(key: string, value: string): Promise<void> {
-  if (typeof window !== "undefined") {
-    window.localStorage.setItem(key, value);
-    return;
-  }
-  await SecureStore.setItemAsync(key, value);
+  await AsyncStorage.setItem(key, value);
 }
 
-// SecureStore has small-value limits on some native versions. Translation JSON
-// can be larger, so native cache entries are stored in small numbered chunks.
-const NATIVE_CACHE_CHUNK_SIZE = 1500;
-
 async function cacheTranslation(code: string, serverUrl: string, value: string): Promise<void> {
-  if (typeof window !== "undefined") {
-    await setStoredValue(`${TRANSLATION_CACHE_PREFIX}${cacheScope(serverUrl)}.${code}`, value);
-    return;
-  }
-
-  const chunkCount = Math.ceil(value.length / NATIVE_CACHE_CHUNK_SIZE);
-  for (let index = 0; index < chunkCount; index += 1) {
-    await setStoredValue(
-      `${TRANSLATION_CACHE_PREFIX}${cacheScope(serverUrl)}.${code}.${index}`,
-      value.slice(index * NATIVE_CACHE_CHUNK_SIZE, (index + 1) * NATIVE_CACHE_CHUNK_SIZE),
-    );
-  }
-  await setStoredValue(
-    `${TRANSLATION_CACHE_PREFIX}${cacheScope(serverUrl)}.${code}.chunks`,
-    String(chunkCount),
-  );
+  await setStoredValue(`${TRANSLATION_CACHE_PREFIX}${cacheScope(serverUrl)}.${code}`, value);
 }
 
 function setLanguageOptions(remoteLanguages: RemoteLanguage[]) {
@@ -333,6 +305,24 @@ async function loadTranslation(language: AppLanguage): Promise<boolean> {
   const remoteLanguage = remoteLanguageMetadata[language];
   if (!remoteLanguage) return false;
 
+  // Check AsyncStorage first. Cached translations should load without showing
+  // the network activity overlay or making a remote request.
+  const cacheKey = `${TRANSLATION_CACHE_PREFIX}${cacheScope(configuredServerUrl)}.${language}`;
+  const cached = await getStoredValue(cacheKey);
+  if (cached) {
+    try {
+      const dictionary = JSON.parse(cached);
+      if (dictionary && typeof dictionary === "object" && !Array.isArray(dictionary)) {
+        remoteDictionaries[language] = dictionary as TranslationDictionary;
+        return true;
+      }
+    } catch {
+      // Invalid cache: fetch a fresh copy below.
+    }
+  }
+
+  // This state drives ActivityOverlayModal, blocking taps while the remote
+  // dictionary is being downloaded so the user cannot repeatedly retry.
   translationLoading = true;
   notifyState();
   try {
@@ -342,7 +332,9 @@ async function loadTranslation(language: AppLanguage): Promise<boolean> {
     });
     if (!response.ok) throw new Error(`Translation request failed: ${response.status}`);
     const dictionary = await response.json();
-    if (!dictionary || typeof dictionary !== "object") throw new Error("Invalid translation file");
+    if (!dictionary || typeof dictionary !== "object" || Array.isArray(dictionary)) {
+      throw new Error("Invalid translation file");
+    }
 
     remoteDictionaries[language] = dictionary as TranslationDictionary;
     await cacheTranslation(language, configuredServerUrl, JSON.stringify(dictionary));
@@ -351,6 +343,9 @@ async function loadTranslation(language: AppLanguage): Promise<boolean> {
     console.warn(`Could not load translation for ${language}.`, error);
     return false;
   } finally {
+    // Keep the blocking overlay visible long enough to render even when the
+    // static JSON responds very quickly; still cover fetch and cache writes.
+    await new Promise((resolve) => setTimeout(resolve, 350));
     translationLoading = false;
     notifyState();
   }

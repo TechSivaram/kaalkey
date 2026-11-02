@@ -1,6 +1,6 @@
 import * as Clipboard from "expo-clipboard";
 import { useState, type Dispatch, type SetStateAction } from "react";
-import { useAppLanguage } from "../i18n";
+import { type AppLanguage, translate, useAppLanguage } from "../i18n";
 import {
   KeyboardAvoidingView,
   Modal,
@@ -18,7 +18,6 @@ import {
   BUTTON_ACTIVE_OPACITY_STRONG,
 } from "../constants/ui";
 import { USER_MESSAGES } from "../constants/userMessages";
-import { translate } from "../i18n";
 import {
   getSettingsBackdropStyles,
   settingsBackupActivityStyles as inlineStyles,
@@ -92,18 +91,12 @@ export default function SettingsBackupActivityModals(props: Props) {
   } = useAppLanguage();
   const [languageSearch, setLanguageSearch] = useState("");
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
-  const [languageSelectionLoading, setLanguageSelectionLoading] = useState(false);
   const [translationServerDraft, setTranslationServerDraft] = useState(translationServerUrl);
 
   const handleLanguageSelect = async (selectedLanguage: AppLanguage) => {
     setLanguageDropdownOpen(false);
     setLanguageSearch("");
-    setLanguageSelectionLoading(true);
-    try {
-      await setLanguage(selectedLanguage);
-    } finally {
-      setLanguageSelectionLoading(false);
-    }
+    await setLanguage(selectedLanguage);
   };
   return (
     <>
@@ -152,49 +145,52 @@ export default function SettingsBackupActivityModals(props: Props) {
                   </Text>
                 </View>
               </View>
-              <View style={[settingsLanguageStyles.controlsContainer, languageDropdownOpen && settingsLanguageStyles.rowOpen]}>
-                  <LanguageSelector
-                    language={language}
-                    onSelect={handleLanguageSelect}
-                    search={languageSearch}
-                    onSearchChange={setLanguageSearch}
-                    open={languageDropdownOpen}
-                    onOpen={() => {
-                      setLanguageDropdownOpen(true);
-                    }}
-                    onClose={() => setLanguageDropdownOpen(false)}
-                    noResultsText={translate(language, "settings.language.noTranslatedLanguage")}
-                    placeholder={translate(language, "settings.language.searchLanguageName")}
-                    label={translate(language, "settings.language.name")}
-                    showLabel={false}
-                    languages={languages}
-                    loading={languageLoading}
-                  />
-                  <Text style={styles.settingDescription}>
-                    {translate(language, "settings.language.serverUrlDescription")}
+              <View
+                style={[
+                  settingsLanguageStyles.controlsContainer,
+                  languageDropdownOpen && settingsLanguageStyles.rowOpen,
+                ]}
+              >
+                <LanguageSelector
+                  language={language}
+                  onSelect={handleLanguageSelect}
+                  search={languageSearch}
+                  onSearchChange={setLanguageSearch}
+                  open={languageDropdownOpen}
+                  onOpen={() => {
+                    setLanguageDropdownOpen(true);
+                  }}
+                  onClose={() => setLanguageDropdownOpen(false)}
+                  noResultsText={translate(language, "settings.language.noTranslatedLanguage")}
+                  placeholder={translate(language, "settings.language.searchLanguageName")}
+                  label={translate(language, "settings.language.name")}
+                  showLabel={false}
+                  languages={languages}
+                  loading={languageLoading}
+                />
+                <Text style={styles.settingDescription}>
+                  {translate(language, "settings.language.serverUrlDescription")}
+                </Text>
+                <TextInput
+                  value={translationServerDraft}
+                  onChangeText={setTranslationServerDraft}
+                  placeholder={translate(language, "settings.language.serverUrlPlaceholder")}
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  keyboardType="url"
+                  style={styles.input}
+                  accessibilityLabel={translate(language, "settings.language.serverUrl")}
+                />
+                <TouchableOpacity
+                  style={styles.primaryButton}
+                  onPress={() => void setTranslationServerUrl(translationServerDraft)}
+                  disabled={languageLoading || translationLoading || !translationServerDraft.trim()}
+                  activeOpacity={BUTTON_ACTIVE_OPACITY}
+                >
+                  <Text style={styles.primaryButtonText}>
+                    {translate(language, "settings.language.saveServerUrl")}
                   </Text>
-                  <TextInput
-                    value={translationServerDraft}
-                    onChangeText={setTranslationServerDraft}
-                    placeholder={translate(language, "settings.language.serverUrlPlaceholder")}
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    keyboardType="url"
-                    style={styles.input}
-                    accessibilityLabel={translate(language, "settings.language.serverUrl")}
-                  />
-                  <TouchableOpacity
-                    style={styles.primaryButton}
-                    onPress={() => void setTranslationServerUrl(translationServerDraft)}
-                    disabled={
-                      languageLoading || translationLoading || !translationServerDraft.trim()
-                    }
-                    activeOpacity={BUTTON_ACTIVE_OPACITY}
-                  >
-                    <Text style={styles.primaryButtonText}>
-                      {translate(language, "settings.language.saveServerUrl")}
-                    </Text>
-                  </TouchableOpacity>
+                </TouchableOpacity>
               </View>
 
               <Text style={styles.settingsSectionLabel}>
@@ -546,16 +542,11 @@ export default function SettingsBackupActivityModals(props: Props) {
         activityMessage={
           languageLoading
             ? translate(language, "activity.loadingLanguages")
-            : translationLoading || languageSelectionLoading
+            : translationLoading
               ? translate(language, "activity.loadingTranslation")
               : activityMessage
         }
-        visible={
-          activityMessage !== null ||
-          languageLoading ||
-          translationLoading ||
-          languageSelectionLoading
-        }
+        visible={activityMessage !== null || languageLoading || translationLoading}
       />
     </>
   );

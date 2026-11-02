@@ -86,16 +86,7 @@ export default function HomeScreen() {
   };
 
   const insets = useSafeAreaInsets();
-  const {
-    language,
-    setLanguage,
-    t,
-    languages,
-    languageLoading,
-    translationLoading,
-    translationServerUrl,
-    setTranslationServerUrl,
-  } = useAppLanguage();
+  const { language, t } = useAppLanguage();
   const scannerCameraHeight = useScannerCameraHeight();
   const { now, showBrandSplash } = useHomeLifecycle();
   const {

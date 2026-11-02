@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { ActivityIndicator, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  ActivityIndicator,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import type { AppLanguage, LanguageOption as LanguageOptionType } from "../i18n/languages";
 import { translate } from "../i18n";
 import { useLanguageSearch } from "../hooks/useLanguageSearch";
