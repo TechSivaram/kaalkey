@@ -2,6 +2,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import en from "./locales/en.json";
 import { useCallback, useEffect, useState } from "react";
 import { AppLanguage, ENGLISH_LANGUAGE, LanguageOption } from "./i18n/languages";
+import { appFetch } from "./utils/appFetch";
+import { beginGlobalActivity } from "./utils/globalActivity";
 
 export type { AppLanguage, LanguageOption } from "./i18n/languages";
 export { ENGLISH_LANGUAGE } from "./i18n/languages";
@@ -244,14 +246,14 @@ async function loadCachedManifest(serverUrl: string): Promise<TranslationManifes
 }
 
 async function fetchManifest(serverUrl: string): Promise<TranslationManifest> {
-  const response = await fetch(manifestUrl(serverUrl), {
+  const response = await appFetch(manifestUrl(serverUrl), {
     headers: { Accept: "application/json" },
     cache: "no-store",
   });
   if (response.ok) return normalizeManifest(await response.json());
 
   // Also accept a server URL that serves the manifest directly.
-  const directResponse = await fetch(normalizeServerUrl(serverUrl), {
+  const directResponse = await appFetch(normalizeServerUrl(serverUrl), {
     headers: { Accept: "application/json" },
     cache: "no-store",
   });
@@ -262,6 +264,7 @@ async function fetchManifest(serverUrl: string): Promise<TranslationManifest> {
 }
 
 async function loadManifest(serverUrl: string): Promise<void> {
+  const finishActivity = beginGlobalActivity();
   manifestLoading = true;
   notifyState();
   try {
@@ -297,6 +300,7 @@ async function loadManifest(serverUrl: string): Promise<void> {
   } finally {
     manifestLoading = false;
     notifyState();
+    finishActivity();
   }
 }
 
@@ -323,10 +327,11 @@ async function loadTranslation(language: AppLanguage): Promise<boolean> {
 
   // This state drives ActivityOverlayModal, blocking taps while the remote
   // dictionary is being downloaded so the user cannot repeatedly retry.
+  const finishActivity = beginGlobalActivity();
   translationLoading = true;
   notifyState();
   try {
-    const response = await fetch(resolveTranslationUrl(configuredServerUrl, remoteLanguage), {
+    const response = await appFetch(resolveTranslationUrl(configuredServerUrl, remoteLanguage), {
       headers: { Accept: "application/json" },
       cache: "no-store",
     });
@@ -348,6 +353,7 @@ async function loadTranslation(language: AppLanguage): Promise<boolean> {
     await new Promise((resolve) => setTimeout(resolve, 350));
     translationLoading = false;
     notifyState();
+    finishActivity();
   }
 }
 

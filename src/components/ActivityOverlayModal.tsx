@@ -28,8 +28,7 @@ export default function ActivityOverlayModal({ insets, activityMessage, visible 
       <View
         accessibilityRole="progressbar"
         accessibilityLabel={activityMessage ?? t("activity.working")}
-        // Keep the activity layer above every app dialog on web and native.
-        // The Modal is rendered last in this screen so it also wins portal order.
+        // This single modal is mounted in the root layout, above the app navigator.
         pointerEvents="auto"
         style={inlineStyles.overlay}
       >

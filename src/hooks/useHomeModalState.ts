@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import { setGlobalActivityMessage } from "../utils/globalActivity";
 import type { BackupMode } from "../types/backupMode";
 
 /** Owns the home screen's settings, backup, and activity modal state. */
@@ -8,7 +9,11 @@ export function useHomeModalState() {
   const [backupMode, setBackupMode] = useState<BackupMode>("export");
   const [backupPassword, setBackupPassword] = useState("");
   const [backupBusy, setBackupBusy] = useState(false);
-  const [activityMessage, setActivityMessage] = useState<string | null>(null);
+  const [activityMessage, setActivityMessageState] = useState<string | null>(null);
+  const setActivityMessage = useCallback((message: string | null) => {
+    setActivityMessageState(message);
+    setGlobalActivityMessage(message);
+  }, []);
 
   return {
     settingsVisible,

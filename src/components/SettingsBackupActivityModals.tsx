@@ -27,7 +27,6 @@ import type { Account } from "../types/account";
 import type { BackupMode } from "../types/backupMode";
 import { getBackupModalDescription } from "../utils/backupModalDescription";
 import { showUserMessage } from "../utils/user-message";
-import ActivityOverlayModal from "./ActivityOverlayModal";
 import LanguageSelector from "./LanguageSelector";
 import { settingsLanguageStyles } from "./settings-language.styles";
 
@@ -51,7 +50,6 @@ type Props = {
   backupBusy: boolean;
   exportEncryptedBackup: () => Promise<void>;
   restoreEncryptedBackup: () => Promise<void>;
-  activityMessage: string | null;
   clearAllAccounts: () => void;
 };
 
@@ -77,7 +75,6 @@ export default function SettingsBackupActivityModals(props: Props) {
     backupBusy,
     exportEncryptedBackup,
     restoreEncryptedBackup,
-    activityMessage,
     clearAllAccounts,
   } = props;
   const {
@@ -537,17 +534,6 @@ export default function SettingsBackupActivityModals(props: Props) {
           </KeyboardAvoidingView>
         </View>
       </Modal>
-      <ActivityOverlayModal
-        insets={insets}
-        activityMessage={
-          languageLoading
-            ? translate(language, "activity.loadingLanguages")
-            : translationLoading
-              ? translate(language, "activity.loadingTranslation")
-              : activityMessage
-        }
-        visible={activityMessage !== null || languageLoading || translationLoading}
-      />
     </>
   );
 }

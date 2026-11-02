@@ -100,7 +100,6 @@ export default function HomeScreen() {
     setBackupPassword,
     backupBusy,
     setBackupBusy,
-    activityMessage,
     setActivityMessage,
   } = useHomeModalState();
   const { hapticsEnabled, hapticFeedback, toggleHaptics } = useHaptics();
@@ -378,7 +377,6 @@ export default function HomeScreen() {
             backupBusy={backupBusy}
             exportEncryptedBackup={exportEncryptedBackup}
             restoreEncryptedBackup={restoreEncryptedBackup}
-            activityMessage={activityMessage}
             clearAllAccounts={clearAllAccounts}
           />
         </View>

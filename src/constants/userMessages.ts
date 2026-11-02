@@ -227,18 +227,14 @@ const getFunctionTemplate = (value: (...args: unknown[]) => string) => {
     .replace(/\$\{([^}]+)\}/g, (_, expr: string) => `{${expr.trim()}}`);
 };
 
-const getFunctionValues = (value: (...args: unknown[]) => string, args: unknown[]) => {
-  const source = value.toString();
-  const paramsMatch = source.match(/\(([^)]*)\)/);
-  if (!paramsMatch) return {} as Record<string, string | number>;
-
-  const entries = paramsMatch[1]
-    .split(",")
-    .map((param) => param.trim())
-    .filter(Boolean)
-    .map((name, index) => [name, args[index]] as const);
-
-  return Object.fromEntries(entries) as Record<string, string | number>;
+const getFunctionValues = (template: string, args: unknown[]) => {
+  // Derive interpolation names from the actual template, not Function#toString().
+  // This works consistently for TypeScript-transpiled Android and Web builds.
+  const names = Array.from(template.matchAll(/\{([A-Za-z_$][\w$]*)\}/g), (match) => match[1]);
+  const uniqueNames = Array.from(new Set(names));
+  return Object.fromEntries(
+    uniqueNames.map((name, index) => [name, args[index] ?? ""]),
+  ) as Record<string, string | number>;
 };
 
 const localizeUserMessages = (messages: typeof userMessages) => {
@@ -249,7 +245,7 @@ const localizeUserMessages = (messages: typeof userMessages) => {
         const template = getFunctionTemplate(value as (...args: unknown[]) => string);
         if (!template) return localize(key);
 
-        const values = getFunctionValues(value as (...args: unknown[]) => string, args);
+        const values = getFunctionValues(template, args);
         return localize(key, values);
       }) as unknown as T;
     }
