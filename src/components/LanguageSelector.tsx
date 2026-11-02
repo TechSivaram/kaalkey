@@ -42,6 +42,9 @@ export default function LanguageSelector(p: Props) {
       </View>
       <TextInput
         value={p.search}
+        // onFocus only fires once while the input stays focused. Re-open the
+        // typeahead on every tap so it can be dismissed and opened repeatedly.
+        onTouchStart={p.onOpen}
         onFocus={p.onOpen}
         onChangeText={(value) => {
           p.onSearchChange(value);
