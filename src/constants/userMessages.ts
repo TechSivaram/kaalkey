@@ -27,19 +27,21 @@ const userMessages = {
     analyzing: "Analyzing QR code…",
     duplicateTitle: "Account already added",
     duplicateBody: (issuer: string, account: string) =>
-      `${issuer}: ${account} is already in KaalKey.`,
+      localize("messages.qr.duplicateBody", { issuer, account }),
     addedTitle: "Account added",
-    addedBody: (issuer: string, account: string) => `${issuer}: ${account} was added successfully.`,
+    addedBody: (issuer: string, account: string) =>
+      localize("messages.qr.addedBody", { issuer, account }),
     saveFailedDiagnostic: "Could not save the account. You can scan again.",
     invalidTitle: "Invalid QR code",
     invalidBody: (detail: string, prefix: string) =>
-      `KaalKey could not parse this authenticator QR code. ${detail}. Use the service's TOTP setup QR code (usually starts with ${prefix}).`,
+      localize("messages.qr.invalidBody", { detail, prefix }),
     parseFailedDiagnostic: "QR could not be processed. Aim at the setup QR and try again.",
     invalidUrlTitle: "Invalid TOTP URL",
     invalidUrlBody: (prefix: string) =>
-      `Paste a complete authenticator URL beginning with ${prefix}.`,
+      localize("messages.qr.invalidUrlBody", { prefix }),
     clipboardEmptyTitle: "Clipboard is empty",
-    clipboardEmptyBody: (prefix: string) => `Copy an ${prefix} URL first, then tap Paste TOTP URL.`,
+    clipboardEmptyBody: (prefix: string) =>
+      localize("messages.qr.clipboardEmptyBody", { prefix }),
     clipboardErrorTitle: "Could not read clipboard",
     clipboardErrorBody: "Copy the TOTP setup URL and try again.",
   },
@@ -103,7 +105,7 @@ const userMessages = {
     missingEditingBody: "Enter the service name and account name.",
     missingBody: "Enter the service name, account name, and secret key.",
     invalidOtpBody: (digits: string, minPeriod: number, maxPeriod: number) =>
-      `Check the Base32 secret, algorithm, digit count, and refresh period. Secrets must contain valid Base32 characters; digits must be ${digits} and the period must be ${minPeriod}–${maxPeriod} seconds.`,
+      localize("messages.account.invalidOtpBody", { digits, minPeriod, maxPeriod }),
     duplicateBody: "An account with this service and account name is already saved.",
     updatedBody: "Your account was updated.",
     addedBody: "Your account was added securely.",
@@ -118,7 +120,7 @@ const userMessages = {
     clearedBody: "All authenticator accounts and secrets were removed from this device.",
     someSavedAccountsNeedAttentionTitle: "Some saved accounts need attention",
     someSavedAccountsNeedAttentionBody: (count: number) =>
-      `${count} invalid account record(s) were not loaded. Valid accounts remain available. Consider creating a backup before making further changes.`,
+      localize("messages.account.someSavedAccountsNeedAttentionBody", { count }),
     removeConfirmTitle: "Remove account?",
     removeConfirmWebTitle: "Remove account?",
     cancelButton: "Cancel",
@@ -158,7 +160,8 @@ const userMessages = {
     restoreCompleteTitle: "Restore complete",
     mergeConfirmTitle: "Merge backup accounts?",
     mergeConfirmButton: "Merge accounts",
-    backupSavedTemporary: (uri: string) => `Encrypted backup saved temporarily at:\n${uri}`,
+    backupSavedTemporary: (uri: string) =>
+      localize("messages.backup.backupSavedTemporary", { uri }),
     generatePasswordErrorTitle: "Could not generate backup password",
     secureRandomUnavailable: "Secure random generation is unavailable.",
     passwordUnavailableTitle: "Backup password unavailable",
@@ -218,36 +221,13 @@ const userMessages = {
   },
 } as const;
 
-const getFunctionTemplate = (value: (...args: unknown[]) => string) => {
-  const source = value.toString();
-  const templateMatch = source.match(/=>\s*`([\s\S]*?)`/);
-  if (!templateMatch) return null;
-  return templateMatch[1]
-    .replace(/\\n/g, "\n")
-    .replace(/\$\{([^}]+)\}/g, (_, expr: string) => `{${expr.trim()}}`);
-};
-
-const getFunctionValues = (template: string, args: unknown[]) => {
-  // Derive interpolation names from the actual template, not Function#toString().
-  // This works consistently for TypeScript-transpiled Android and Web builds.
-  const names = Array.from(template.matchAll(/\{([A-Za-z_$][\w$]*)\}/g), (match) => match[1]);
-  const uniqueNames = Array.from(new Set(names));
-  return Object.fromEntries(
-    uniqueNames.map((name, index) => [name, args[index] ?? ""]),
-  ) as Record<string, string | number>;
-};
-
 const localizeUserMessages = (messages: typeof userMessages) => {
   const walk = <T>(value: T, path: string[]): T => {
     const key = `messages.${path.join(".")}`;
     if (typeof value === "function") {
-      return ((...args: unknown[]) => {
-        const template = getFunctionTemplate(value as (...args: unknown[]) => string);
-        if (!template) return localize(key);
-
-        const values = getFunctionValues(template, args);
-        return localize(key, values);
-      }) as unknown as T;
+      // Dynamic messages interpolate explicitly named values. Avoid inspecting
+      // function source because Android transpilation can alter it.
+      return value as T;
     }
     if (value && typeof value === "object") {
       return new Proxy(value, {
