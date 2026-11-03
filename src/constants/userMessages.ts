@@ -37,11 +37,9 @@ const userMessages = {
       localize("messages.qr.invalidBody", { detail, prefix }),
     parseFailedDiagnostic: "QR could not be processed. Aim at the setup QR and try again.",
     invalidUrlTitle: "Invalid TOTP URL",
-    invalidUrlBody: (prefix: string) =>
-      localize("messages.qr.invalidUrlBody", { prefix }),
+    invalidUrlBody: (prefix: string) => localize("messages.qr.invalidUrlBody", { prefix }),
     clipboardEmptyTitle: "Clipboard is empty",
-    clipboardEmptyBody: (prefix: string) =>
-      localize("messages.qr.clipboardEmptyBody", { prefix }),
+    clipboardEmptyBody: (prefix: string) => localize("messages.qr.clipboardEmptyBody", { prefix }),
     clipboardErrorTitle: "Could not read clipboard",
     clipboardErrorBody: "Copy the TOTP setup URL and try again.",
   },

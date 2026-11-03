@@ -28,6 +28,7 @@ import type { BackupMode } from "../types/backupMode";
 import { getBackupModalDescription } from "../utils/backupModalDescription";
 import { showUserMessage } from "../utils/user-message";
 import LanguageSelector from "./LanguageSelector";
+import { useGlobalActivity } from "../utils/globalActivity";
 import { settingsLanguageStyles } from "./settings-language.styles";
 
 type Props = {
@@ -86,6 +87,8 @@ export default function SettingsBackupActivityModals(props: Props) {
     translationServerUrl,
     setTranslationServerUrl,
   } = useAppLanguage();
+  const globalActivity = useGlobalActivity();
+  const globalLoading = languageLoading || translationLoading || globalActivity.active;
   const [languageSearch, setLanguageSearch] = useState("");
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
   const [translationServerDraft, setTranslationServerDraft] = useState(translationServerUrl);
@@ -98,7 +101,7 @@ export default function SettingsBackupActivityModals(props: Props) {
   return (
     <>
       <Modal
-        visible={settingsVisible}
+        visible={settingsVisible && !globalLoading}
         animationType="slide"
         transparent
         onRequestClose={() => setSettingsVisible(false)}
@@ -381,7 +384,7 @@ export default function SettingsBackupActivityModals(props: Props) {
       </Modal>
 
       <Modal
-        visible={backupVisible}
+        visible={backupVisible && !globalLoading}
         transparent
         animationType="slide"
         onRequestClose={() => {
