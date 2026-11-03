@@ -33,13 +33,14 @@ function GlobalActivityLoader() {
       ? t("activity.loadingTranslation")
       : activity.message;
 
-  return (
-    <ActivityOverlayModal
-      insets={insets}
-      activityMessage={message}
-      visible={languageLoading || translationLoading || activity.active}
-    />
-  );
+  const visible = languageLoading || translationLoading || activity.active;
+
+  // Mount the native Modal only when activity starts. If it is kept mounted
+  // while hidden, an already-open Settings/Legal Modal can remain above it.
+  // Conditional mounting presents this single root loader after the active dialog.
+  return visible ? (
+    <ActivityOverlayModal insets={insets} activityMessage={message} visible />
+  ) : null;
 }
 
 export default function RootLayout() {

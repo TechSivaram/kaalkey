@@ -1,5 +1,6 @@
 import * as Clipboard from "expo-clipboard";
 import { useState, type Dispatch, type SetStateAction } from "react";
+import { type AppLanguage, translate, useAppLanguage } from "../i18n";
 import {
   KeyboardAvoidingView,
   Modal,
@@ -17,7 +18,6 @@ import {
   BUTTON_ACTIVE_OPACITY_STRONG,
 } from "../constants/ui";
 import { USER_MESSAGES } from "../constants/userMessages";
-import { translate, useAppLanguage, type AppLanguage } from "../i18n";
 import {
   getSettingsBackdropStyles,
   settingsBackupActivityStyles as inlineStyles,
@@ -26,7 +26,6 @@ import { styles } from "../styles/home.styles";
 import type { Account } from "../types/account";
 import type { BackupMode } from "../types/backupMode";
 import { getBackupModalDescription } from "../utils/backupModalDescription";
-import { useGlobalActivity } from "../utils/globalActivity";
 import { showUserMessage } from "../utils/user-message";
 import LanguageSelector from "./LanguageSelector";
 import { settingsLanguageStyles } from "./settings-language.styles";
@@ -87,8 +86,6 @@ export default function SettingsBackupActivityModals(props: Props) {
     translationServerUrl,
     setTranslationServerUrl,
   } = useAppLanguage();
-  const globalActivity = useGlobalActivity();
-  const globalLoading = languageLoading || translationLoading || globalActivity.active;
   const [languageSearch, setLanguageSearch] = useState("");
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
   const [translationServerDraft, setTranslationServerDraft] = useState(translationServerUrl);
@@ -101,7 +98,7 @@ export default function SettingsBackupActivityModals(props: Props) {
   return (
     <>
       <Modal
-        visible={settingsVisible && !globalLoading}
+        visible={settingsVisible}
         animationType="slide"
         transparent
         onRequestClose={() => setSettingsVisible(false)}
@@ -384,7 +381,7 @@ export default function SettingsBackupActivityModals(props: Props) {
       </Modal>
 
       <Modal
-        visible={backupVisible && !globalLoading}
+        visible={backupVisible}
         transparent
         animationType="slide"
         onRequestClose={() => {
