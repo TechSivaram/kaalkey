@@ -5,6 +5,9 @@ import type { AccountSortBy } from "../utils/accountList";
 
 export type { AccountSortBy } from "../utils/accountList";
 
+// Reuse the locale-aware comparator instead of constructing it on each search.
+const ACCOUNT_COLLATOR = new Intl.Collator(undefined, { sensitivity: "base" });
+
 /** Owns account-list search, sort preference, and derived visible rows. */
 export function useAccountList(accounts: Account[]) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -24,12 +27,10 @@ export function useAccountList(accounts: Account[]) {
 
   const visibleAccounts = useMemo(() => {
     const query = normalizeAccountText(searchQuery, true);
-    const collator = new Intl.Collator(undefined, { sensitivity: "base" });
-
     return normalizedAccounts
       .filter(({ issuer, name }) => !query || issuer.includes(query) || name.includes(query))
       .sort((a, b) =>
-        collator.compare(
+        ACCOUNT_COLLATOR.compare(
           sortBy === "service" ? a.issuer : a.name,
           sortBy === "service" ? b.issuer : b.name,
         ),
