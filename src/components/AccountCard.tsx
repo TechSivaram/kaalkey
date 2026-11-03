@@ -1,12 +1,9 @@
-import { memo, useEffect, useMemo, useState } from "react";
+import { memo } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import type { Account } from "../types/account";
-import { generateCode } from "../services/otp";
-import CountdownRing from "./CountdownRing";
 import { styles } from "../styles/home.styles";
-import { BUTTON_ACTIVE_OPACITY_CODE, TOTP_CLOCK_REFRESH_INTERVAL_MS } from "../constants/ui";
-import { getTotpCountdown } from "../services/totp-time";
 import { useAppLanguage } from "../i18n";
+import AccountTotp from "./AccountTotp";
 
 type Props = {
   account: Account;
@@ -19,18 +16,6 @@ type Props = {
 /** Renders one authenticator account and its current one-time code. */
 function AccountCard({ account, onCopyCode, onViewQr, onEdit, onDelete }: Props) {
   const { t } = useAppLanguage();
-  const [now, setNow] = useState(() => Date.now());
-
-  useEffect(() => {
-    const timer = setInterval(() => setNow(Date.now()), TOTP_CLOCK_REFRESH_INTERVAL_MS);
-    return () => clearInterval(timer);
-  }, []);
-  const timeStep = Math.floor(now / (Math.max(1, account.period) * 1000));
-  const code = useMemo(
-    () => generateCode(account, timeStep * Math.max(1, account.period) * 1000),
-    [account, timeStep],
-  );
-  const { period, secondsRemaining } = getTotpCountdown(now, account.period);
 
   return (
     <View style={styles.accountCard}>
@@ -80,22 +65,7 @@ function AccountCard({ account, onCopyCode, onViewQr, onEdit, onDelete }: Props)
         </View>
       </View>
 
-      <View style={styles.codeRow}>
-        <TouchableOpacity
-          style={styles.codeArea}
-          activeOpacity={BUTTON_ACTIVE_OPACITY_CODE}
-          onPress={() => void onCopyCode(code)}
-          accessibilityRole="button"
-          accessibilityLabel={`${t("accounts.copyVerificationCode")} ${account.issuer}`}
-        >
-          <Text style={styles.code}>
-            {code.slice(0, 3)} {code.slice(3)}
-          </Text>
-          <Text style={styles.copyHint}>{t("accounts.tapCopy")}</Text>
-        </TouchableOpacity>
-
-        <CountdownRing secondsRemaining={secondsRemaining} period={period} />
-      </View>
+      <AccountTotp account={account} onCopyCode={onCopyCode} />
     </View>
   );
 }
