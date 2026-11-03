@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { FlatList, Platform, Text, View, useWindowDimensions } from "react-native";
 
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
@@ -34,6 +34,7 @@ import AccountCard from "../components/AccountCard";
 import EmptyVaultState from "../components/EmptyVaultState";
 import DesktopProductInfo from "../components/DesktopProductInfo";
 import { useAppLanguage } from "../i18n";
+import type { Account } from "../types/account";
 
 export default function HomeScreen() {
   const { width: windowWidth } = useWindowDimensions();
@@ -217,6 +218,61 @@ export default function HomeScreen() {
   const { searchQuery, setSearchQuery, sortBy, setSortBy, visibleAccounts } =
     useAccountList(accounts);
 
+  // Keep FlatList's item callbacks stable across unrelated HomeScreen updates.
+  const keyExtractor = useCallback((account: Account) => account.id, []);
+  const renderAccount = useCallback(
+    ({ item }: { item: Account }) => (
+      <AccountCard
+        account={item}
+        onCopyCode={copyCode}
+        onViewQr={openAccountQr}
+        onEdit={openEditAccount}
+        onDelete={deleteAccount}
+      />
+    ),
+    [copyCode, openAccountQr, openEditAccount, deleteAccount],
+  );
+
+  const accountListHeader = useMemo(
+    () => (
+      <>
+        <AccountSectionHeader accountCount={accounts.length} onAddAccount={openAddAccount} />
+        {accounts.length > 0 && (
+          <AccountListToolbar
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            sortBy={sortBy}
+            setSortBy={setSortBy}
+            hapticFeedback={hapticFeedback}
+          />
+        )}
+      </>
+    ),
+    [
+      accounts.length,
+      openAddAccount,
+      searchQuery,
+      setSearchQuery,
+      sortBy,
+      setSortBy,
+      hapticFeedback,
+    ],
+  );
+
+  const accountListEmpty = useMemo(
+    () =>
+      !loaded ? (
+        <Text style={styles.emptyText}>{t("accounts.loadingSecureVault")}</Text>
+      ) : accounts.length === 0 ? (
+        <EmptyVaultState onAddAccount={openAddAccount} />
+      ) : (
+        <Text style={styles.emptyText}>{t("accounts.noAccountsMatch")}</Text>
+      ),
+    [loaded, accounts.length, t, openAddAccount],
+  );
+
+  const accountListFooter = useMemo(() => <HomeFooter />, []);
+
   // Keep startup branding separate from the main screen implementation.
   if (showBrandSplash || !legalLoaded) return <SplashScreen />;
 
@@ -275,43 +331,11 @@ export default function HomeScreen() {
               { paddingBottom: Math.max(insets.bottom + 24, 48) },
             ]}
             data={loaded && accounts.length > 0 ? visibleAccounts : []}
-            keyExtractor={(account) => account.id}
-            renderItem={({ item }) => (
-              <AccountCard
-                account={item}
-                onCopyCode={copyCode}
-                onViewQr={openAccountQr}
-                onEdit={openEditAccount}
-                onDelete={deleteAccount}
-              />
-            )}
-            ListHeaderComponent={
-              <>
-                <AccountSectionHeader
-                  accountCount={accounts.length}
-                  onAddAccount={openAddAccount}
-                />
-                {accounts.length > 0 && (
-                  <AccountListToolbar
-                    searchQuery={searchQuery}
-                    setSearchQuery={setSearchQuery}
-                    sortBy={sortBy}
-                    setSortBy={setSortBy}
-                    hapticFeedback={hapticFeedback}
-                  />
-                )}
-              </>
-            }
-            ListEmptyComponent={
-              !loaded ? (
-                <Text style={styles.emptyText}>{t("accounts.loadingSecureVault")}</Text>
-              ) : accounts.length === 0 ? (
-                <EmptyVaultState onAddAccount={openAddAccount} />
-              ) : (
-                <Text style={styles.emptyText}>{t("accounts.noAccountsMatch")}</Text>
-              )
-            }
-            ListFooterComponent={<HomeFooter />}
+            keyExtractor={keyExtractor}
+            renderItem={renderAccount}
+            ListHeaderComponent={accountListHeader}
+            ListEmptyComponent={accountListEmpty}
+            ListFooterComponent={accountListFooter}
             showsVerticalScrollIndicator={false}
             keyboardShouldPersistTaps="handled"
             initialNumToRender={8}
