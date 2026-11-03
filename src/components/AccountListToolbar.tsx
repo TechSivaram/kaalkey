@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useAppLanguage } from "../i18n";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { styles } from "../styles/home.styles";
@@ -14,7 +15,7 @@ type Props = {
 };
 
 /** Search and sort controls for the account list. */
-export default function AccountListToolbar({
+function AccountListToolbar({
   searchQuery,
   setSearchQuery,
   sortBy,
@@ -84,3 +85,5 @@ export default function AccountListToolbar({
     </View>
   );
 }
+
+export default memo(AccountListToolbar);
