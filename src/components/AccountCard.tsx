@@ -1,5 +1,5 @@
+import { memo, useEffect, useMemo, useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
-import { useEffect, useMemo, useState } from "react";
 import type { Account } from "../types/account";
 import { generateCode } from "../services/otp";
 import CountdownRing from "./CountdownRing";
@@ -17,7 +17,7 @@ type Props = {
 };
 
 /** Renders one authenticator account and its current one-time code. */
-export default function AccountCard({ account, onCopyCode, onViewQr, onEdit, onDelete }: Props) {
+function AccountCard({ account, onCopyCode, onViewQr, onEdit, onDelete }: Props) {
   const { t } = useAppLanguage();
   const [now, setNow] = useState(() => Date.now());
 
@@ -99,3 +99,5 @@ export default function AccountCard({ account, onCopyCode, onViewQr, onEdit, onD
     </View>
   );
 }
+
+export default memo(AccountCard);
