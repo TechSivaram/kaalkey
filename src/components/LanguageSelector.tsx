@@ -1,14 +1,6 @@
 import { useState } from "react";
-import {
-  ActivityIndicator,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import type { AppLanguage, LanguageOption as LanguageOptionType } from "../i18n/languages";
-import { translate } from "../i18n";
 import { useLanguageSearch } from "../hooks/useLanguageSearch";
 import LanguageOption from "./LanguageOption";
 import { languageSelectorStyles as s } from "./language-selector.styles";
@@ -65,12 +57,6 @@ export default function LanguageSelector(p: Props) {
             <Text style={s.close}>✕</Text>
           </TouchableOpacity>
           <ScrollView keyboardShouldPersistTaps="always">
-            {p.loading && matches.length === 0 ? (
-              <View style={s.loadingRow}>
-                <ActivityIndicator size="small" />
-                <Text style={s.empty}>{translate(p.language, "activity.loadingLanguages")}</Text>
-              </View>
-            ) : null}
             {matches.map((item) => (
               <LanguageOption
                 key={item.code}

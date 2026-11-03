@@ -1,6 +1,5 @@
 import * as Clipboard from "expo-clipboard";
 import { useState, type Dispatch, type SetStateAction } from "react";
-import { type AppLanguage, translate, useAppLanguage } from "../i18n";
 import {
   KeyboardAvoidingView,
   Modal,
@@ -18,6 +17,7 @@ import {
   BUTTON_ACTIVE_OPACITY_STRONG,
 } from "../constants/ui";
 import { USER_MESSAGES } from "../constants/userMessages";
+import { translate, useAppLanguage, type AppLanguage } from "../i18n";
 import {
   getSettingsBackdropStyles,
   settingsBackupActivityStyles as inlineStyles,
@@ -26,9 +26,9 @@ import { styles } from "../styles/home.styles";
 import type { Account } from "../types/account";
 import type { BackupMode } from "../types/backupMode";
 import { getBackupModalDescription } from "../utils/backupModalDescription";
+import { useGlobalActivity } from "../utils/globalActivity";
 import { showUserMessage } from "../utils/user-message";
 import LanguageSelector from "./LanguageSelector";
-import { useGlobalActivity } from "../utils/globalActivity";
 import { settingsLanguageStyles } from "./settings-language.styles";
 
 type Props = {

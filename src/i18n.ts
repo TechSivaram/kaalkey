@@ -264,7 +264,9 @@ async function fetchManifest(serverUrl: string): Promise<TranslationManifest> {
 }
 
 async function loadManifest(serverUrl: string): Promise<void> {
-  const finishActivity = beginGlobalActivity();
+  const finishActivity = beginGlobalActivity(
+    translate(currentLanguage, "activity.loadingLanguages"),
+  );
   manifestLoading = true;
   notifyState();
   try {
@@ -327,7 +329,9 @@ async function loadTranslation(language: AppLanguage): Promise<boolean> {
 
   // This state drives ActivityOverlayModal, blocking taps while the remote
   // dictionary is being downloaded so the user cannot repeatedly retry.
-  const finishActivity = beginGlobalActivity();
+  const finishActivity = beginGlobalActivity(
+    translate(currentLanguage, "activity.loadingTranslation"),
+  );
   translationLoading = true;
   notifyState();
   try {
