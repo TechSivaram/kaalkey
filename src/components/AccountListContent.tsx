@@ -9,7 +9,6 @@ type AccountListContentProps = {
   loaded: boolean;
   accounts: Account[];
   visibleAccounts: Account[];
-  now: number;
   onAddAccount: () => void;
   onCopyCode: (code: string) => void | Promise<void>;
   onViewQr: (account: Account) => void;
@@ -22,7 +21,6 @@ export default function AccountListContent({
   loaded,
   accounts,
   visibleAccounts,
-  now,
   onAddAccount,
   onCopyCode,
   onViewQr,
@@ -47,7 +45,6 @@ export default function AccountListContent({
     <AccountCard
       key={account.id}
       account={account}
-      now={now}
       onCopyCode={onCopyCode}
       onViewQr={onViewQr}
       onEdit={onEdit}

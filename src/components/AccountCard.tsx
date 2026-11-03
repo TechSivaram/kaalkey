@@ -1,15 +1,15 @@
 import { Text, TouchableOpacity, View } from "react-native";
+import { useEffect, useMemo, useState } from "react";
 import type { Account } from "../types/account";
 import { generateCode } from "../services/otp";
 import CountdownRing from "./CountdownRing";
 import { styles } from "../styles/home.styles";
-import { BUTTON_ACTIVE_OPACITY_CODE } from "../constants/ui";
+import { BUTTON_ACTIVE_OPACITY_CODE, TOTP_CLOCK_REFRESH_INTERVAL_MS } from "../constants/ui";
 import { getTotpCountdown } from "../services/totp-time";
 import { useAppLanguage } from "../i18n";
 
 type Props = {
   account: Account;
-  now: number;
   onCopyCode: (code: string) => void | Promise<void>;
   onViewQr: (account: Account) => void;
   onEdit: (account: Account) => void;
@@ -17,16 +17,19 @@ type Props = {
 };
 
 /** Renders one authenticator account and its current one-time code. */
-export default function AccountCard({
-  account,
-  now,
-  onCopyCode,
-  onViewQr,
-  onEdit,
-  onDelete,
-}: Props) {
+export default function AccountCard({ account, onCopyCode, onViewQr, onEdit, onDelete }: Props) {
   const { t } = useAppLanguage();
-  const code = generateCode(account);
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    const timer = setInterval(() => setNow(Date.now()), TOTP_CLOCK_REFRESH_INTERVAL_MS);
+    return () => clearInterval(timer);
+  }, []);
+  const timeStep = Math.floor(now / (Math.max(1, account.period) * 1000));
+  const code = useMemo(
+    () => generateCode(account, timeStep * Math.max(1, account.period) * 1000),
+    [account, timeStep],
+  );
   const { period, secondsRemaining } = getTotpCountdown(now, account.period);
 
   return (

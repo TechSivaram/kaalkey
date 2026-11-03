@@ -2,7 +2,7 @@ import * as OTPAuth from "otpauth";
 import type { Account } from "../types/account";
 import { normalizeBase32Secret } from "../utils/base32";
 
-export function generateCode(account: Account): string {
+export function generateCode(account: Account, timestamp?: number): string {
   try {
     const totp = new OTPAuth.TOTP({
       issuer: account.issuer,
@@ -13,7 +13,7 @@ export function generateCode(account: Account): string {
       secret: normalizeBase32Secret(account.secret),
     });
 
-    return totp.generate();
+    return totp.generate(timestamp === undefined ? undefined : { timestamp });
   } catch {
     return "------";
   }

@@ -88,7 +88,7 @@ export default function HomeScreen() {
   const insets = useSafeAreaInsets();
   const { language, t } = useAppLanguage();
   const scannerCameraHeight = useScannerCameraHeight();
-  const { now, showBrandSplash } = useHomeLifecycle();
+  const { showBrandSplash } = useHomeLifecycle();
   const {
     settingsVisible,
     setSettingsVisible,
@@ -292,7 +292,6 @@ export default function HomeScreen() {
               loaded={loaded}
               accounts={accounts}
               visibleAccounts={visibleAccounts}
-              now={now}
               onAddAccount={openAddAccount}
               onCopyCode={copyCode}
               onViewQr={openAccountQr}
