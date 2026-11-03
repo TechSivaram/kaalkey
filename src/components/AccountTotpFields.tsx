@@ -115,17 +115,30 @@ export default function AccountTotpFields({
       </View>
 
       <Text style={styles.inputLabel}>{t("accountForm.refreshIntervalSeconds")}</Text>
-      <TextInput
-        style={styles.input}
-        value={otpPeriod}
-        onChangeText={(value) =>
-          setOtpPeriod(value.replace(/[^0-9]/g, "").slice(0, TOTP_PERIOD_INPUT_MAX_LENGTH))
-        }
-        keyboardType="number-pad"
-        placeholder={`${MIN_TOTP_PERIOD_SECONDS}–${MAX_TOTP_PERIOD_SECONDS} ${t("accountForm.seconds")}`}
-        placeholderTextColor={COLORS.textMuted}
-        accessibilityLabel={t("accountForm.otpRefreshInterval")}
-      />
+      <View style={styles.inputClearWrapper}>
+        <TextInput
+          style={[styles.input, styles.inputWithClearSpace]}
+          value={otpPeriod}
+          onChangeText={(value) =>
+            setOtpPeriod(value.replace(/[^0-9]/g, "").slice(0, TOTP_PERIOD_INPUT_MAX_LENGTH))
+          }
+          keyboardType="number-pad"
+          placeholder={`${MIN_TOTP_PERIOD_SECONDS}–${MAX_TOTP_PERIOD_SECONDS} ${t("accountForm.seconds")}`}
+          placeholderTextColor={COLORS.textMuted}
+          accessibilityLabel={t("accountForm.otpRefreshInterval")}
+        />
+        {otpPeriod.length > 0 ? (
+          <TouchableOpacity
+            style={styles.clearInputButton}
+            onPress={() => setOtpPeriod("")}
+            accessibilityRole="button"
+            accessibilityLabel={t("accounts.clearSearch")}
+            hitSlop={6}
+          >
+            <Text style={styles.clearInputButtonText}>×</Text>
+          </TouchableOpacity>
+        ) : null}
+      </View>
       <View style={styles.optionRow}>
         {TOTP_PERIOD_PRESETS.map((period) => (
           <TouchableOpacity

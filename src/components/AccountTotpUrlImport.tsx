@@ -30,6 +30,17 @@ export default function AccountTotpUrlImport({ value, setValue, onImport, onPast
           autoCorrect={false}
           accessibilityLabel={t("accountForm.totpSetupUrl")}
         />
+        {value.length > 0 ? (
+          <TouchableOpacity
+            style={inlineStyles.clearUrlButton}
+            onPress={() => setValue("")}
+            accessibilityRole="button"
+            accessibilityLabel={t("accounts.clearSearch")}
+            hitSlop={8}
+          >
+            <Text style={inlineStyles.clearUrlText}>×</Text>
+          </TouchableOpacity>
+        ) : null}
         <TouchableOpacity
           style={inlineStyles.inlineImportButton}
           onPress={() => void onImport(value)}

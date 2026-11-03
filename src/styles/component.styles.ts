@@ -28,8 +28,8 @@ export const accountQrModalStyles = StyleSheet.create({
   fullWidth: { width: "100%" },
   privacyHint: {
     color: COLORS.textMuted,
-    fontSize: 12,
-    lineHeight: 18,
+    fontSize: 14,
+    lineHeight: 21,
     textAlign: "center",
     marginTop: 14,
     marginBottom: 12,
@@ -45,9 +45,9 @@ export const homeHeaderAccentStyles = StyleSheet.create({
 
 export const legalDocumentContentStyles = StyleSheet.create({
   privacyTitle: { fontSize: 19, fontWeight: "800", color: COLORS.navy, marginBottom: 5 },
-  privacySubtitle: { fontSize: 12, color: COLORS.legalMutedText, marginBottom: 14 },
+  privacySubtitle: { fontSize: 14, color: "#475467", marginBottom: 14 },
   termsTitle: { fontSize: 19, fontWeight: "800", color: COLORS.navy, marginBottom: 5 },
-  termsSubtitle: { fontSize: 12, color: COLORS.legalMutedText, marginBottom: 14 },
+  termsSubtitle: { fontSize: 14, color: "#475467", marginBottom: 14 },
   heading: {
     fontSize: 14,
     lineHeight: 20,
@@ -56,7 +56,7 @@ export const legalDocumentContentStyles = StyleSheet.create({
     marginTop: 13,
     marginBottom: 4,
   },
-  body: { fontSize: 13, lineHeight: 20, color: "#45556D" },
+  body: { fontSize: 15, lineHeight: 23, color: "#344054" },
 });
 
 export const legalDocumentScrollPanelStyles = StyleSheet.create({
@@ -270,7 +270,17 @@ export const getCountdownDynamicStyles = (pulse: any, numberColor: string) =>
 export const accountTotpUrlImportStyles = StyleSheet.create({
   fieldGroup: { marginBottom: 12 },
   urlInputRow: { flexDirection: "row", alignItems: "center", position: "relative" },
-  urlInput: { flex: 1, paddingRight: 54 },
+  urlInput: { flex: 1, paddingRight: 94 },
+  clearUrlButton: {
+    position: "absolute",
+    right: 50,
+    top: 6,
+    bottom: 6,
+    width: 38,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  clearUrlText: { color: COLORS.amberDark, fontSize: 23, fontWeight: "500" },
   inlineImportButton: {
     position: "absolute",
     right: 6,

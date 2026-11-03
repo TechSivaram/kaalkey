@@ -113,7 +113,7 @@ export const styles = StyleSheet.create({
     minWidth: 0,
   },
   settingsEyebrow: {
-    fontSize: 10,
+    fontSize: 12,
     letterSpacing: 1.8,
     fontWeight: "800",
     color: COLORS.indiaGreen,
@@ -136,8 +136,8 @@ export const styles = StyleSheet.create({
   },
   settingsCloseText: { fontSize: 16, fontWeight: "800", color: COLORS.slateDark },
   settingsSectionLabel: {
-    color: "#7A8698",
-    fontSize: 10,
+    color: "#475467",
+    fontSize: 12,
     fontWeight: "900",
     letterSpacing: 1.5,
     marginBottom: 9,
@@ -161,8 +161,8 @@ export const styles = StyleSheet.create({
   },
   settingIcon: { fontSize: 20 },
   settingCopy: { flex: 1 },
-  settingTitleText: { fontSize: 14, fontWeight: "800", color: COLORS.textPrimary, marginBottom: 3 },
-  settingDescription: { fontSize: 11, lineHeight: 16, color: "#697586" },
+  settingTitleText: { fontSize: 16, fontWeight: "800", color: COLORS.textPrimary, marginBottom: 3 },
+  settingDescription: { fontSize: 13, lineHeight: 19, color: "#475467" },
   settingSwitch: {
     width: 46,
     height: 27,
@@ -188,7 +188,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 6,
   },
   appearanceBadgeText: {
-    fontSize: 9,
+    fontSize: 11,
     fontWeight: "900",
     color: COLORS.indiaGreen,
     letterSpacing: 0.6,

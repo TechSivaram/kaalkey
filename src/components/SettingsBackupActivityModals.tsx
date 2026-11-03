@@ -168,16 +168,30 @@ export default function SettingsBackupActivityModals(props: Props) {
                 <Text style={styles.settingDescription}>
                   {translate(language, "settings.language.serverUrlDescription")}
                 </Text>
-                <TextInput
-                  value={translationServerDraft}
-                  onChangeText={setTranslationServerDraft}
-                  placeholder={translate(language, "settings.language.serverUrlPlaceholder")}
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  keyboardType="url"
-                  style={styles.input}
-                  accessibilityLabel={translate(language, "settings.language.serverUrl")}
-                />
+                <View style={styles.inputClearWrapper}>
+                  <TextInput
+                    value={translationServerDraft}
+                    onChangeText={setTranslationServerDraft}
+                    placeholder={translate(language, "settings.language.serverUrlPlaceholder")}
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    keyboardType="url"
+                    style={[styles.input, styles.inputWithClearSpace]}
+                    accessibilityLabel={translate(language, "settings.language.serverUrl")}
+                  />
+                  {translationServerDraft.length > 0 ? (
+                    <TouchableOpacity
+                      style={styles.clearInputButton}
+                      onPress={() => setTranslationServerDraft("")}
+                      activeOpacity={BUTTON_ACTIVE_OPACITY}
+                      accessibilityRole="button"
+                      accessibilityLabel={translate(language, "accounts.clearSearch")}
+                      hitSlop={6}
+                    >
+                      <Text style={styles.clearInputButtonText}>×</Text>
+                    </TouchableOpacity>
+                  ) : null}
+                </View>
                 <TouchableOpacity
                   style={styles.primaryButton}
                   onPress={() => void setTranslationServerUrl(translationServerDraft)}
