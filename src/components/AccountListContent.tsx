@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Text } from "react-native";
 import { useAppLanguage } from "../i18n";
 import type { Account } from "../types/account";
@@ -17,7 +18,7 @@ type AccountListContentProps = {
 };
 
 /** Renders the loading, empty, filtered, or populated account-list state. */
-export default function AccountListContent({
+function AccountListContent({
   loaded,
   accounts,
   visibleAccounts,
@@ -52,3 +53,5 @@ export default function AccountListContent({
     />
   ));
 }
+
+export default memo(AccountListContent);
