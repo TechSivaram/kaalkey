@@ -273,6 +273,15 @@ export default function HomeScreen() {
 
   const accountListFooter = useMemo(() => <HomeFooter />, []);
 
+  const handleToggleBiometricLock = useCallback(
+    () => void toggleBiometricLock(),
+    [toggleBiometricLock],
+  );
+  const handleOpenSettings = useCallback(() => {
+    hapticFeedback("selection");
+    setSettingsVisible(true);
+  }, [hapticFeedback, setSettingsVisible]);
+
   // Keep startup branding separate from the main screen implementation.
   if (showBrandSplash || !legalLoaded) return <SplashScreen />;
 
@@ -318,11 +327,8 @@ export default function HomeScreen() {
         <View style={Platform.OS === "web" ? styles.webAppShell : styles.nativeAppShell}>
           <HomeHeader
             biometricEnabled={biometricEnabled}
-            onToggleBiometricLock={() => void toggleBiometricLock()}
-            onOpenSettings={() => {
-              hapticFeedback("selection");
-              setSettingsVisible(true);
-            }}
+            onToggleBiometricLock={handleToggleBiometricLock}
+            onOpenSettings={handleOpenSettings}
           />
 
           <FlatList

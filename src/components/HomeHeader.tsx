@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { BUTTON_ACTIVE_OPACITY_STANDARD } from "../constants/ui";
 import { styles } from "../styles/home.styles";
@@ -11,11 +12,7 @@ type HomeHeaderProps = {
 };
 
 /** Renders the brand header, security control, settings button, and tricolour stripe. */
-export default function HomeHeader({
-  biometricEnabled,
-  onToggleBiometricLock,
-  onOpenSettings,
-}: HomeHeaderProps) {
+function HomeHeader({ biometricEnabled, onToggleBiometricLock, onOpenSettings }: HomeHeaderProps) {
   const { t } = useAppLanguage();
   return (
     <>
@@ -80,3 +77,5 @@ export default function HomeHeader({
     </>
   );
 }
+
+export default memo(HomeHeader);
