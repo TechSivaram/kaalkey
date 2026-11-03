@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Platform, ScrollView, View, useWindowDimensions } from "react-native";
+import { FlatList, Platform, Text, View, useWindowDimensions } from "react-native";
 
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import { createAccountOtpAuthUrl } from "../services/otp-auth-uri";
@@ -30,7 +30,8 @@ import AccountSectionHeader from "../components/AccountSectionHeader";
 import HomeHeader from "../components/HomeHeader";
 import HomeFooter from "../components/HomeFooter";
 import AccountListToolbar from "../components/AccountListToolbar";
-import AccountListContent from "../components/AccountListContent";
+import AccountCard from "../components/AccountCard";
+import EmptyVaultState from "../components/EmptyVaultState";
 import DesktopProductInfo from "../components/DesktopProductInfo";
 import { useAppLanguage } from "../i18n";
 
@@ -268,39 +269,56 @@ export default function HomeScreen() {
             }}
           />
 
-          <ScrollView
+          <FlatList
             contentContainerStyle={[
               styles.content,
               { paddingBottom: Math.max(insets.bottom + 24, 48) },
             ]}
-            showsVerticalScrollIndicator={false}
-            keyboardShouldPersistTaps="handled"
-          >
-            <AccountSectionHeader accountCount={accounts.length} onAddAccount={openAddAccount} />
-
-            {accounts.length > 0 && (
-              <AccountListToolbar
-                searchQuery={searchQuery}
-                setSearchQuery={setSearchQuery}
-                sortBy={sortBy}
-                setSortBy={setSortBy}
-                hapticFeedback={hapticFeedback}
+            data={loaded && accounts.length > 0 ? visibleAccounts : []}
+            keyExtractor={(account) => account.id}
+            renderItem={({ item }) => (
+              <AccountCard
+                account={item}
+                onCopyCode={copyCode}
+                onViewQr={openAccountQr}
+                onEdit={openEditAccount}
+                onDelete={deleteAccount}
               />
             )}
-
-            <AccountListContent
-              loaded={loaded}
-              accounts={accounts}
-              visibleAccounts={visibleAccounts}
-              onAddAccount={openAddAccount}
-              onCopyCode={copyCode}
-              onViewQr={openAccountQr}
-              onEdit={openEditAccount}
-              onDelete={deleteAccount}
-            />
-
-            <HomeFooter />
-          </ScrollView>
+            ListHeaderComponent={
+              <>
+                <AccountSectionHeader
+                  accountCount={accounts.length}
+                  onAddAccount={openAddAccount}
+                />
+                {accounts.length > 0 && (
+                  <AccountListToolbar
+                    searchQuery={searchQuery}
+                    setSearchQuery={setSearchQuery}
+                    sortBy={sortBy}
+                    setSortBy={setSortBy}
+                    hapticFeedback={hapticFeedback}
+                  />
+                )}
+              </>
+            }
+            ListEmptyComponent={
+              !loaded ? (
+                <Text style={styles.emptyText}>{t("accounts.loadingSecureVault")}</Text>
+              ) : accounts.length === 0 ? (
+                <EmptyVaultState onAddAccount={openAddAccount} />
+              ) : (
+                <Text style={styles.emptyText}>{t("accounts.noAccountsMatch")}</Text>
+              )
+            }
+            ListFooterComponent={<HomeFooter />}
+            showsVerticalScrollIndicator={false}
+            keyboardShouldPersistTaps="handled"
+            initialNumToRender={8}
+            maxToRenderPerBatch={8}
+            windowSize={7}
+            removeClippedSubviews={Platform.OS !== "web"}
+          />
 
           <AccountQrModal
             qrAccount={qrAccount}
