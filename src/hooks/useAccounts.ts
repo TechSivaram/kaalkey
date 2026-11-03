@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Alert, Platform } from "react-native";
 import { USER_MESSAGES } from "../constants/userMessages";
 import { showUserMessage } from "../utils/user-message";
@@ -44,7 +44,7 @@ export function useAccounts({
   const [otpDigits, setOtpDigits] = useState<number>(formDefaults.otpDigits);
   const [otpPeriod, setOtpPeriod] = useState<string>(formDefaults.otpPeriod);
 
-  function resetAccountForm() {
+  const resetAccountForm = useCallback(() => {
     const defaults = getDefaultAccountFormValues();
     setIssuer(defaults.issuer);
     setAccountName(defaults.accountName);
@@ -54,7 +54,7 @@ export function useAccounts({
     setOtpAlgorithm(defaults.otpAlgorithm);
     setOtpDigits(defaults.otpDigits);
     setOtpPeriod(defaults.otpPeriod);
-  }
+  }, []);
 
   useEffect(() => {
     let mounted = true;
@@ -95,37 +95,53 @@ export function useAccounts({
     };
   }, []);
 
-  async function saveAccounts(updated: Account[]): Promise<boolean> {
-    try {
-      await writeAccountRecords(updated);
-      setAccounts(updated);
-      return true;
-    } catch {
-      showMessage(USER_MESSAGES.account.storageErrorTitle, USER_MESSAGES.account.saveErrorBody);
-      return false;
-    }
-  }
+  const saveAccounts = useCallback(
+    async (updated: Account[]): Promise<boolean> => {
+      try {
+        await writeAccountRecords(updated);
+        setAccounts(updated);
+        return true;
+      } catch {
+        showMessage(USER_MESSAGES.account.storageErrorTitle, USER_MESSAGES.account.saveErrorBody);
+        return false;
+      }
+    },
+    [showMessage],
+  );
 
-  function openAddAccount() {
+  const openAddAccount = useCallback(() => {
     hapticFeedback("selection");
     setEditingId(null);
     resetAccountForm();
     setModalVisible(true);
-  }
+  }, [hapticFeedback, resetAccountForm, setEditingId, setModalVisible]);
 
-  function openEditAccount(account: Account) {
-    hapticFeedback("selection");
-    setEditingId(account.id);
-    setIssuer(account.issuer);
-    setAccountName(account.name);
-    setSecret(account.secret);
-    setOtpAlgorithm(account.algorithm);
-    setOtpDigits(account.digits);
-    setOtpPeriod(String(account.period));
-    setModalVisible(true);
-  }
+  const openEditAccount = useCallback(
+    (account: Account) => {
+      hapticFeedback("selection");
+      setEditingId(account.id);
+      setIssuer(account.issuer);
+      setAccountName(account.name);
+      setSecret(account.secret);
+      setOtpAlgorithm(account.algorithm);
+      setOtpDigits(account.digits);
+      setOtpPeriod(String(account.period));
+      setModalVisible(true);
+    },
+    [
+      hapticFeedback,
+      setEditingId,
+      setIssuer,
+      setAccountName,
+      setSecret,
+      setOtpAlgorithm,
+      setOtpDigits,
+      setOtpPeriod,
+      setModalVisible,
+    ],
+  );
 
-  async function saveAccount() {
+  const saveAccount = useCallback(async () => {
     const currentEditingId = editingId;
     const originalAccount = currentEditingId
       ? accounts.find((account) => account.id === currentEditingId)
@@ -201,43 +217,65 @@ export function useAccounts({
         USER_MESSAGES.account.invalidSecretBody,
       );
     }
-  }
+  }, [
+    editingId,
+    accounts,
+    issuer,
+    accountName,
+    secret,
+    otpAlgorithm,
+    otpDigits,
+    otpPeriod,
+    showMessage,
+    saveAccounts,
+    hapticFeedback,
+    resetAccountForm,
+    setEditingId,
+    setScannerVisible,
+    setModalVisible,
+  ]);
 
-  async function removeAccountConfirmed(id: string) {
-    hapticFeedback("warning");
-    const updated = accounts.filter((account) => account.id !== id);
-    const saved = await saveAccounts(updated);
-    if (saved) {
-      showMessage(USER_MESSAGES.account.removedTitle, USER_MESSAGES.account.removedBody);
-    }
-  }
+  const removeAccountConfirmed = useCallback(
+    async (id: string) => {
+      hapticFeedback("warning");
+      const updated = accounts.filter((account) => account.id !== id);
+      const saved = await saveAccounts(updated);
+      if (saved) {
+        showMessage(USER_MESSAGES.account.removedTitle, USER_MESSAGES.account.removedBody);
+      }
+    },
+    [hapticFeedback, accounts, saveAccounts, showMessage],
+  );
 
-  function deleteAccount(id: string) {
-    const message = USER_MESSAGES.account.removeConfirmBody;
-    if (Platform.OS === "web" && typeof window !== "undefined") {
-      if (window.confirm(`${USER_MESSAGES.account.removeConfirmWebTitle}\n\n${message}`))
-        void removeAccountConfirmed(id);
-      return;
-    }
-    Alert.alert(USER_MESSAGES.account.removeConfirmTitle, message, [
-      { text: USER_MESSAGES.account.cancelButton, style: "cancel" },
-      {
-        text: USER_MESSAGES.account.removeButton,
-        style: "destructive",
-        onPress: () => void removeAccountConfirmed(id),
-      },
-    ]);
-  }
+  const deleteAccount = useCallback(
+    (id: string) => {
+      const message = USER_MESSAGES.account.removeConfirmBody;
+      if (Platform.OS === "web" && typeof window !== "undefined") {
+        if (window.confirm(`${USER_MESSAGES.account.removeConfirmWebTitle}\n\n${message}`))
+          void removeAccountConfirmed(id);
+        return;
+      }
+      Alert.alert(USER_MESSAGES.account.removeConfirmTitle, message, [
+        { text: USER_MESSAGES.account.cancelButton, style: "cancel" },
+        {
+          text: USER_MESSAGES.account.removeButton,
+          style: "destructive",
+          onPress: () => void removeAccountConfirmed(id),
+        },
+      ]);
+    },
+    [removeAccountConfirmed],
+  );
 
-  async function clearAllAccountsConfirmed() {
+  const clearAllAccountsConfirmed = useCallback(async () => {
     hapticFeedback("warning");
     const saved = await saveAccounts([]);
     if (saved) {
       showMessage(USER_MESSAGES.account.clearedTitle, USER_MESSAGES.account.clearedBody);
     }
-  }
+  }, [hapticFeedback, saveAccounts, showMessage]);
 
-  function clearAllAccounts() {
+  const clearAllAccounts = useCallback(() => {
     const message = USER_MESSAGES.account.clearConfirmBody;
     const undoNote = USER_MESSAGES.account.clearConfirmUndoBody;
     if (Platform.OS === "web" && typeof window !== "undefined") {
@@ -256,7 +294,7 @@ export function useAccounts({
         onPress: () => void clearAllAccountsConfirmed(),
       },
     ]);
-  }
+  }, [clearAllAccountsConfirmed]);
 
   return {
     accounts,
