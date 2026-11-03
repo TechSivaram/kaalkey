@@ -44,48 +44,51 @@ export default function HomeScreen() {
   const currentAppPanelWidth = appPanelWidth || initialAppPanelWidth;
   const splitterDragStart = useRef<{ pointerX: number; panelWidth: number } | null>(null);
 
-  const onSplitterMouseDown = (event: any) => {
-    // React Native Web exposes DOM coordinates on nativeEvent; fall back to the
-    // synthetic event for browser builds that expose them directly.
-    const nativeEvent = event?.nativeEvent ?? event;
-    const pointerX = nativeEvent?.clientX ?? nativeEvent?.pageX;
-    if (typeof pointerX !== "number" || (nativeEvent?.button != null && nativeEvent.button !== 0))
-      return;
+  const onSplitterMouseDown = useCallback(
+    (event: any) => {
+      // React Native Web exposes DOM coordinates on nativeEvent; fall back to the
+      // synthetic event for browser builds that expose them directly.
+      const nativeEvent = event?.nativeEvent ?? event;
+      const pointerX = nativeEvent?.clientX ?? nativeEvent?.pageX;
+      if (typeof pointerX !== "number" || (nativeEvent?.button != null && nativeEvent.button !== 0))
+        return;
 
-    event?.preventDefault?.();
-    nativeEvent?.preventDefault?.();
-    splitterDragStart.current = { pointerX, panelWidth: currentAppPanelWidth };
+      event?.preventDefault?.();
+      nativeEvent?.preventDefault?.();
+      splitterDragStart.current = { pointerX, panelWidth: currentAppPanelWidth };
 
-    const onMove = (moveEvent: MouseEvent) => {
-      const drag = splitterDragStart.current;
-      if (!drag) return;
-      const moveX = moveEvent.clientX;
-      if (typeof moveX !== "number") return;
-      const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
-      const splitterWidth = 14;
-      const brandMinimumWidth = 320;
-      const maxAppWidth = Math.max(400, viewportWidth - brandMinimumWidth - splitterWidth);
-      const nextWidth = Math.max(
-        400,
-        Math.min(maxAppWidth, drag.panelWidth + moveX - drag.pointerX),
-      );
-      setAppPanelWidth(nextWidth);
-      moveEvent.preventDefault();
-    };
+      const onMove = (moveEvent: MouseEvent) => {
+        const drag = splitterDragStart.current;
+        if (!drag) return;
+        const moveX = moveEvent.clientX;
+        if (typeof moveX !== "number") return;
+        const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+        const splitterWidth = 14;
+        const brandMinimumWidth = 320;
+        const maxAppWidth = Math.max(400, viewportWidth - brandMinimumWidth - splitterWidth);
+        const nextWidth = Math.max(
+          400,
+          Math.min(maxAppWidth, drag.panelWidth + moveX - drag.pointerX),
+        );
+        setAppPanelWidth(nextWidth);
+        moveEvent.preventDefault();
+      };
 
-    const stopDragging = () => {
-      splitterDragStart.current = null;
-      document.removeEventListener("mousemove", onMove, true);
-      document.removeEventListener("mouseup", stopDragging, true);
-      window.removeEventListener("blur", stopDragging);
-    };
+      const stopDragging = () => {
+        splitterDragStart.current = null;
+        document.removeEventListener("mousemove", onMove, true);
+        document.removeEventListener("mouseup", stopDragging, true);
+        window.removeEventListener("blur", stopDragging);
+      };
 
-    // Capture at document level so dragging continues even when the pointer
-    // leaves the narrow splitter surface.
-    document.addEventListener("mousemove", onMove, true);
-    document.addEventListener("mouseup", stopDragging, true);
-    window.addEventListener("blur", stopDragging);
-  };
+      // Capture at document level so dragging continues even when the pointer
+      // leaves the narrow splitter surface.
+      document.addEventListener("mousemove", onMove, true);
+      document.addEventListener("mouseup", stopDragging, true);
+      window.addEventListener("blur", stopDragging);
+    },
+    [currentAppPanelWidth],
+  );
 
   const insets = useSafeAreaInsets();
   const { language, t } = useAppLanguage();
