@@ -25,18 +25,26 @@ export function useAccountList(accounts: Account[]) {
     [accounts],
   );
 
-  const visibleAccounts = useMemo(() => {
-    const query = normalizeAccountText(searchQuery, true);
-    return normalizedAccounts
-      .filter(({ issuer, name }) => !query || issuer.includes(query) || name.includes(query))
-      .sort((a, b) =>
+  // Sorting depends on the account collection and selected sort field, not the
+  // search query. Cache it so typing filters an already ordered list instead
+  // of sorting the entire collection on every keystroke.
+  const sortedAccounts = useMemo(
+    () =>
+      [...normalizedAccounts].sort((a, b) =>
         ACCOUNT_COLLATOR.compare(
           sortBy === "service" ? a.issuer : a.name,
           sortBy === "service" ? b.issuer : b.name,
         ),
-      )
+      ),
+    [normalizedAccounts, sortBy],
+  );
+
+  const visibleAccounts = useMemo(() => {
+    const query = normalizeAccountText(searchQuery, true);
+    return sortedAccounts
+      .filter(({ issuer, name }) => !query || issuer.includes(query) || name.includes(query))
       .map(({ account }) => account);
-  }, [normalizedAccounts, searchQuery, sortBy]);
+  }, [sortedAccounts, searchQuery]);
 
   return { searchQuery, setSearchQuery, sortBy, setSortBy, visibleAccounts };
 }
