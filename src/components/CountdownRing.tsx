@@ -81,27 +81,56 @@ export default function CountdownRing({ secondsRemaining, period }: CountdownRin
     }).start();
   }, [secondsRemaining, pulse]);
 
+  // Split progress into completed dots and one fractional dot. The completed
+  // dot layout changes only when progress crosses a segment boundary, not on
+  // every one-second countdown update.
+  const segmentPosition = Math.max(0, Math.min(SEGMENT_COUNT, progress * SEGMENT_COUNT));
+  const completedSegments = Math.floor(segmentPosition);
+  const partialProgress = segmentPosition - completedSegments;
+  const hasPartialSegment = partialProgress > 0;
+  const partialSegment =
+    completedSegments < SEGMENT_COUNT ? RING_SEGMENTS[completedSegments] : undefined;
+
+  // Keep the 23 unaffected SVG elements (plus the inactive partial slot when
+  // needed) stable between ticks. React receives the same children array until
+  // a segment boundary or warning-color change occurs.
+  const staticSegments = useMemo(
+    () =>
+      RING_SEGMENTS.map(({ x, y }, index) => {
+        const isPartialSegment = index === completedSegments && hasPartialSegment;
+        if (isPartialSegment) return null;
+
+        const active = index < completedSegments;
+        return (
+          <RingSegment
+            key={index}
+            x={x}
+            y={y}
+            radius={DOT_RADIUS * (active ? 1 : 0.82)}
+            fill={active ? countdownColor : "#CBD3DE"}
+            opacity={active ? 1 : 0.58}
+          />
+        );
+      }),
+    [completedSegments, hasPartialSegment, countdownColor],
+  );
+
   return (
     <Animated.View
       style={[styles.countdownRing, dynamicStyles.pulse, RING_CONTAINER_ALIGNMENT_STYLE]}
       accessibilityLabel={`${secondsRemaining} seconds until code refreshes`}
     >
       <Svg width={54} height={54} viewBox="0 0 54 54">
-        {RING_SEGMENTS.map(({ x, y }, index) => {
-          const segmentProgress = Math.max(0, Math.min(1, progress * SEGMENT_COUNT - index));
-          const active = segmentProgress > 0;
-
-          return (
-            <RingSegment
-              key={index}
-              x={x}
-              y={y}
-              radius={DOT_RADIUS * (active ? 0.82 + segmentProgress * 0.18 : 0.82)}
-              fill={active ? countdownColor : "#CBD3DE"}
-              opacity={active ? 0.35 + segmentProgress * 0.65 : 0.58}
-            />
-          );
-        })}
+        {staticSegments}
+        {partialSegment && hasPartialSegment ? (
+          <RingSegment
+            x={partialSegment.x}
+            y={partialSegment.y}
+            radius={DOT_RADIUS * (0.82 + partialProgress * 0.18)}
+            fill={countdownColor}
+            opacity={0.35 + partialProgress * 0.65}
+          />
+        ) : null}
       </Svg>
       <Animated.Text
         style={[
