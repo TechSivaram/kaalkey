@@ -1,3 +1,4 @@
+import { memo } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import { KeyboardAvoidingView, Modal, Platform, ScrollView, View } from "react-native";
 import type { Account } from "../types/account";
@@ -39,7 +40,7 @@ type Props = {
 };
 
 /** Add/edit account dialog, including QR and TOTP-URL import entry points. */
-export default function AccountEditorModal(props: Props) {
+function AccountEditorModal(props: Props) {
   const {
     modalVisible,
     setModalVisible,
@@ -141,3 +142,5 @@ export default function AccountEditorModal(props: Props) {
     </Modal>
   );
 }
+
+export default memo(AccountEditorModal);

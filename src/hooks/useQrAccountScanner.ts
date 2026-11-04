@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
 import { Alert, Platform } from "react-native";
 import { useCameraPermissions } from "expo-camera";
@@ -39,7 +39,7 @@ export function useQrAccountScanner({
   const qrProcessingRef = useRef(false);
   const cameraViewRef = useRef<any>(null);
 
-  async function openQrScanner() {
+  const openQrScanner = useCallback(async () => {
     if (Platform.OS === "web") {
       setScanned(false);
       qrProcessingRef.current = false;
@@ -64,106 +64,134 @@ export function useQrAccountScanner({
     setScanned(false);
     setModalVisible(false);
     setScannerVisible(true);
-  }
+  }, [
+    cameraPermission,
+    requestCameraPermission,
+    setModalVisible,
+    setScannerVisible,
+    setScannerDiagnostic,
+    USER_MESSAGES,
+  ]);
 
-  async function handleQrScanned(data: string, fromCamera = true) {
-    // Image decoders can include surrounding whitespace or invisible Unicode
-    // characters. Normalize only the outer payload/protocol; preserve encoded values.
-    const qrPayload = normalizeTotpQrPayload(data);
+  const handleQrScanned = useCallback(
+    async (data: string, fromCamera = true) => {
+      // Image decoders can include surrounding whitespace or invisible Unicode
+      // characters. Normalize only the outer payload/protocol; preserve encoded values.
+      const qrPayload = normalizeTotpQrPayload(data);
 
-    // `scanned` debounces repeated live-camera frames. Image imports remain available.
-    if (fromCamera) {
-      if (qrProcessingRef.current || scanned) return;
-      qrProcessingRef.current = true;
-      setScanned(true);
-      setScannerDiagnostic(USER_MESSAGES.qr.detectedDiagnostic);
-    }
-    setActivityMessage(USER_MESSAGES.qr.analyzing);
-    await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+      // `scanned` debounces repeated live-camera frames. Image imports remain available.
+      if (fromCamera) {
+        if (qrProcessingRef.current || scanned) return;
+        qrProcessingRef.current = true;
+        setScanned(true);
+        setScannerDiagnostic(USER_MESSAGES.qr.detectedDiagnostic);
+      }
+      setActivityMessage(USER_MESSAGES.qr.analyzing);
+      await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
 
-    try {
-      if (!isTotpQrPayload(qrPayload)) {
-        showMessage(USER_MESSAGES.qr.unsupportedTitle, USER_MESSAGES.qr.unsupportedBody);
+      try {
+        if (!isTotpQrPayload(qrPayload)) {
+          showMessage(USER_MESSAGES.qr.unsupportedTitle, USER_MESSAGES.qr.unsupportedBody);
+          if (fromCamera) {
+            qrProcessingRef.current = false;
+            setScanned(false);
+            setScannerDiagnostic(USER_MESSAGES.qr.unsupportedDiagnostic);
+          }
+          return;
+        }
+
+        const account = parseTotpAccountFromUri(qrPayload, t);
+
+        const duplicate = hasDuplicateAccount(accounts, account.issuer, account.name);
+        if (duplicate) {
+          setScannerVisible(false);
+          showMessage(
+            USER_MESSAGES.qr.duplicateTitle,
+            USER_MESSAGES.qr.duplicateBody(account.issuer, account.name),
+          );
+          return;
+        }
+
+        const saved = await saveAccounts([...accounts, account]);
+        if (saved) {
+          hapticFeedback("success");
+          setScannerVisible(false);
+          setModalVisible(false);
+          setEditingId(null);
+          qrProcessingRef.current = false;
+          showMessage(
+            USER_MESSAGES.qr.addedTitle,
+            USER_MESSAGES.qr.addedBody(account.issuer, account.name),
+          );
+        } else if (fromCamera) {
+          qrProcessingRef.current = false;
+          setScanned(false);
+          setScannerDiagnostic(USER_MESSAGES.qr.saveFailedDiagnostic);
+        }
+      } catch (error) {
+        const detail = error instanceof Error ? error.message : "Unknown QR parsing error";
+        showMessage(
+          USER_MESSAGES.qr.invalidTitle,
+          USER_MESSAGES.qr.invalidBody(detail, TOTP_URI_PREFIX),
+        );
         if (fromCamera) {
           qrProcessingRef.current = false;
           setScanned(false);
-          setScannerDiagnostic(USER_MESSAGES.qr.unsupportedDiagnostic);
+          setScannerDiagnostic(USER_MESSAGES.qr.parseFailedDiagnostic);
         }
-        return;
+      } finally {
+        setActivityMessage(null);
       }
+    },
+    [
+      scanned,
+      USER_MESSAGES,
+      setActivityMessage,
+      showMessage,
+      t,
+      accounts,
+      setScannerVisible,
+      saveAccounts,
+      hapticFeedback,
+      setModalVisible,
+      setEditingId,
+    ],
+  );
 
-      const account = parseTotpAccountFromUri(qrPayload, t);
-
-      const duplicate = hasDuplicateAccount(accounts, account.issuer, account.name);
-      if (duplicate) {
-        setScannerVisible(false);
+  const importTotpUrl = useCallback(
+    async (value: string) => {
+      const payload = normalizeTotpQrPayload(value);
+      if (!isTotpQrPayload(payload)) {
         showMessage(
-          USER_MESSAGES.qr.duplicateTitle,
-          USER_MESSAGES.qr.duplicateBody(account.issuer, account.name),
+          USER_MESSAGES.qr.invalidUrlTitle,
+          USER_MESSAGES.qr.invalidUrlBody(TOTP_URI_PREFIX),
         );
         return;
       }
+      await handleQrScanned(payload, false);
+    },
+    [USER_MESSAGES, showMessage, handleQrScanned],
+  );
 
-      const saved = await saveAccounts([...accounts, account]);
-      if (saved) {
-        hapticFeedback("success");
-        setScannerVisible(false);
-        setModalVisible(false);
-        setEditingId(null);
-        qrProcessingRef.current = false;
-        showMessage(
-          USER_MESSAGES.qr.addedTitle,
-          USER_MESSAGES.qr.addedBody(account.issuer, account.name),
-        );
-      } else if (fromCamera) {
-        qrProcessingRef.current = false;
-        setScanned(false);
-        setScannerDiagnostic(USER_MESSAGES.qr.saveFailedDiagnostic);
+  const pasteTotpUrl = useCallback(
+    async (setTotpUrlInput: (value: string) => void) => {
+      try {
+        const pasted = (await Clipboard.getStringAsync()).trim();
+        if (!pasted) {
+          showMessage(
+            USER_MESSAGES.qr.clipboardEmptyTitle,
+            USER_MESSAGES.qr.clipboardEmptyBody(TOTP_URI_PREFIX),
+          );
+          return;
+        }
+        setTotpUrlInput(pasted);
+        await importTotpUrl(pasted);
+      } catch {
+        showMessage(USER_MESSAGES.qr.clipboardErrorTitle, USER_MESSAGES.qr.clipboardErrorBody);
       }
-    } catch (error) {
-      const detail = error instanceof Error ? error.message : "Unknown QR parsing error";
-      showMessage(
-        USER_MESSAGES.qr.invalidTitle,
-        USER_MESSAGES.qr.invalidBody(detail, TOTP_URI_PREFIX),
-      );
-      if (fromCamera) {
-        qrProcessingRef.current = false;
-        setScanned(false);
-        setScannerDiagnostic(USER_MESSAGES.qr.parseFailedDiagnostic);
-      }
-    } finally {
-      setActivityMessage(null);
-    }
-  }
-
-  async function importTotpUrl(value: string) {
-    const payload = normalizeTotpQrPayload(value);
-    if (!isTotpQrPayload(payload)) {
-      showMessage(
-        USER_MESSAGES.qr.invalidUrlTitle,
-        USER_MESSAGES.qr.invalidUrlBody(TOTP_URI_PREFIX),
-      );
-      return;
-    }
-    await handleQrScanned(payload, false);
-  }
-
-  async function pasteTotpUrl(setTotpUrlInput: (value: string) => void) {
-    try {
-      const pasted = (await Clipboard.getStringAsync()).trim();
-      if (!pasted) {
-        showMessage(
-          USER_MESSAGES.qr.clipboardEmptyTitle,
-          USER_MESSAGES.qr.clipboardEmptyBody(TOTP_URI_PREFIX),
-        );
-        return;
-      }
-      setTotpUrlInput(pasted);
-      await importTotpUrl(pasted);
-    } catch {
-      showMessage(USER_MESSAGES.qr.clipboardErrorTitle, USER_MESSAGES.qr.clipboardErrorBody);
-    }
-  }
+    },
+    [USER_MESSAGES, showMessage, importTotpUrl],
+  );
 
   return {
     scanned,

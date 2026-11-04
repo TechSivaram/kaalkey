@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 import { Modal, Platform, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { createUserMessages } from "../constants/userMessages";
 import { useAppLanguage } from "../i18n";
@@ -26,7 +26,7 @@ type Props = {
 };
 
 /** Live QR scanner dialog, separated from the main vault screen. */
-export default function QrScannerModal({
+function QrScannerModal({
   scannerVisible,
   setScannerVisible,
   setModalVisible,
@@ -156,3 +156,5 @@ export default function QrScannerModal({
     </Modal>
   );
 }
+
+export default memo(QrScannerModal);

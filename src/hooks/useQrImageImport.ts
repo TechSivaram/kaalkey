@@ -1,4 +1,4 @@
-import { useMemo, useEffect, useRef } from "react";
+import { useMemo, useEffect, useRef, useCallback } from "react";
 import { useAppLanguage } from "../i18n";
 import { Platform } from "react-native";
 import { createUserMessages } from "../constants/userMessages";
@@ -61,7 +61,7 @@ export function useQrImageImport({
     showUserMessage(title, message);
   }
 
-  async function importQrImage() {
+  const importQrImage = useCallback(async () => {
     try {
       if (Platform.OS === "web") {
         // Use the browser's native file picker; no image is uploaded anywhere.
@@ -173,7 +173,7 @@ export function useQrImageImport({
               );
               return;
             }
-            await onQrScanned(qrText, false);
+            await onQrScannedRef.current(qrText, false);
           } catch {
             showQrImportMessage(
               USER_MESSAGES.qrImport.couldNotReadImageTitle,
@@ -224,7 +224,7 @@ export function useQrImageImport({
         const nativeResults = await Camera.scanFromURLAsync(imageUri, ["qr"]);
         const nativeQr = nativeResults.find((item) => item.data)?.data;
         if (nativeQr) {
-          await onQrScanned(nativeQr, false);
+          await onQrScannedRef.current(nativeQr, false);
           setActivityMessage(null);
           return;
         }
@@ -286,7 +286,7 @@ export function useQrImageImport({
           );
           return;
         }
-        await onQrScanned(qrData, false);
+        await onQrScannedRef.current(qrData, false);
       } catch {
         showQrImportMessage(
           USER_MESSAGES.qrImport.couldNotReadImageTitle,
@@ -309,9 +309,9 @@ export function useQrImageImport({
     } finally {
       if (Platform.OS !== "web") setActivityMessage(null);
     }
-  }
+  }, [USER_MESSAGES, setActivityMessage]);
 
-  async function pasteQrImage() {
+  const pasteQrImage = useCallback(async () => {
     try {
       // Clipboard may contain either an authenticator setup URL or a QR image.
       // Prefer text when it is a supported otpauth URI; otherwise continue to image.
@@ -447,7 +447,7 @@ export function useQrImageImport({
           );
           return;
         }
-        await onQrScanned(qrData, false);
+        await onQrScannedRef.current(qrData, false);
       } finally {
         try {
           await FileSystem.deleteAsync(sourceUri, { idempotent: true });
@@ -466,7 +466,7 @@ export function useQrImageImport({
         USER_MESSAGES.qrImport.couldNotPasteImageBody,
       );
     }
-  }
+  }, [USER_MESSAGES, setActivityMessage]);
 
   useEffect(() => {
     if (Platform.OS !== "web" || !modalVisible || editingId) return;

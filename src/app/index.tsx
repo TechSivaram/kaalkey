@@ -36,6 +36,9 @@ import DesktopProductInfo from "../components/DesktopProductInfo";
 import { useAppLanguage } from "../i18n";
 import type { Account } from "../types/account";
 
+// Keep FlatList data stable while the vault is loading or has no accounts.
+const EMPTY_ACCOUNT_LIST: Account[] = [];
+
 export default function HomeScreen() {
   const { width: windowWidth } = useWindowDimensions();
   const showDesktopBranding = Platform.OS === "web" && windowWidth >= 900;
@@ -215,9 +218,10 @@ export default function HomeScreen() {
   const { qrAccount, qrRevealed, setQrRevealed, openAccountQr, closeAccountQr } =
     useAccountQrModal(hapticFeedback);
 
-  async function pasteTotpUrl() {
-    await pasteTotpUrlFromClipboard(setTotpUrlInput);
-  }
+  const pasteTotpUrl = useCallback(
+    () => pasteTotpUrlFromClipboard(setTotpUrlInput),
+    [pasteTotpUrlFromClipboard, setTotpUrlInput],
+  );
 
   // Android uses CameraView.onBarcodeScanned directly, matching the earlier working scanner.
   // Do not capture still images periodically; keep the live preview uninterrupted.
@@ -340,7 +344,7 @@ export default function HomeScreen() {
 
           <FlatList
             contentContainerStyle={contentContainerStyle}
-            data={loaded && accounts.length > 0 ? visibleAccounts : []}
+            data={loaded && accounts.length > 0 ? visibleAccounts : EMPTY_ACCOUNT_LIST}
             keyExtractor={keyExtractor}
             renderItem={renderAccount}
             ListHeaderComponent={accountListHeader}

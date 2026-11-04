@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useAppLanguage } from "../i18n";
 import { Modal, Text, TouchableOpacity, View } from "react-native";
 import QRCode from "react-native-qrcode-svg";
@@ -19,7 +20,7 @@ type Props = {
 };
 
 /** Confirmation and display dialog for exporting an account as a QR code. */
-export default function AccountQrModal({
+function AccountQrModal({
   qrAccount,
   qrRevealed,
   setQrRevealed,
@@ -76,3 +77,5 @@ export default function AccountQrModal({
     </Modal>
   );
 }
+
+export default memo(AccountQrModal);
