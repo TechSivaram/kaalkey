@@ -26,7 +26,7 @@ const RING_SEGMENTS = Array.from({ length: SEGMENT_COUNT }, (_, index) => {
   };
 });
 
-// Static layout styles are shared across countdown renders.
+// Static styles are shared across countdown renders.
 const RING_CONTAINER_ALIGNMENT_STYLE = {
   alignItems: "center",
   justifyContent: "center",
