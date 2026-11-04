@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Animated, Easing } from "react-native";
 import Svg, { Circle } from "react-native-svg";
 import { styles } from "../styles/home.styles";
@@ -30,9 +30,12 @@ export default function CountdownRing({ secondsRemaining, period }: CountdownRin
   const [pulse] = useState(() => new Animated.Value(1));
   const progress = secondsRemaining / Math.max(1, period);
   const countdownColor = secondsRemaining <= 5 ? COLORS.danger : COLORS.indiaGreen;
-  const dynamicStyles = getCountdownDynamicStyles(
-    pulse,
-    secondsRemaining <= 5 ? COLORS.danger : COLORS.textPrimary,
+  const numberColor = secondsRemaining <= 5 ? COLORS.danger : COLORS.textPrimary;
+  // StyleSheet creation is avoided on every countdown tick; only recreate when
+  // the pulse instance or warning color changes.
+  const dynamicStyles = useMemo(
+    () => getCountdownDynamicStyles(pulse, numberColor),
+    [pulse, numberColor],
   );
 
   useEffect(() => {
