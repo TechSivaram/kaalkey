@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { Alert, Platform } from "react-native";
 import { USER_MESSAGES } from "../constants/userMessages";
 import * as DocumentPicker from "expo-document-picker";
@@ -50,7 +51,7 @@ export function useBackupManager({
   showBackupMessage,
   hapticFeedback,
 }: UseBackupManagerOptions) {
-  async function openBackup(mode: BackupMode) {
+  const openBackup = useCallback(async (mode: BackupMode) => {
     hapticFeedback("selection");
     setBackupMode(mode);
     setBackupPassword("");
@@ -72,9 +73,9 @@ export function useBackupManager({
       return;
     }
     setBackupVisible(true);
-  }
+  }, [hapticFeedback, setBackupMode, setBackupPassword, setBackupBusy, setActivityMessage, setBackupVisible, showBackupMessage]);
 
-  async function exportEncryptedBackup() {
+  const exportEncryptedBackup = useCallback(async () => {
     if (!/^KK-\d{14}-[a-f0-9]{64}$/.test(backupPassword)) {
       showBackupMessage(
         USER_MESSAGES.backup.passwordUnavailableTitle,
@@ -148,9 +149,9 @@ export function useBackupManager({
       setBackupBusy(false);
       setActivityMessage(null);
     }
-  }
+  }, [backupPassword, accounts, setBackupBusy, setActivityMessage, setBackupVisible, setBackupPassword, showBackupMessage]);
 
-  async function pickBackupText(): Promise<string | null> {
+  const pickBackupText = useCallback(async (): Promise<string | null> => {
     if (Platform.OS !== "web") {
       const finishExternalActivity = beginExternalActivity();
       try {
@@ -204,9 +205,9 @@ export function useBackupManager({
       document.body.appendChild(input);
       input.click();
     });
-  }
+  }, []);
 
-  async function restoreEncryptedBackup() {
+  const restoreEncryptedBackup = useCallback(async () => {
     if (!backupPassword) {
       showBackupMessage(
         USER_MESSAGES.backup.enterPasswordTitle,
@@ -267,7 +268,7 @@ export function useBackupManager({
       setBackupBusy(false);
       setActivityMessage(null);
     }
-  }
+  }, [backupPassword, language, accounts, setAccounts, setBackupBusy, setActivityMessage, setBackupVisible, setSettingsVisible, setBackupPassword, showBackupMessage, pickBackupText]);
 
   return { openBackup, exportEncryptedBackup, restoreEncryptedBackup };
 }

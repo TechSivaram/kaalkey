@@ -69,7 +69,11 @@ export default function CountdownRing({ secondsRemaining, period }: CountdownRin
 
   return (
     <Animated.View
-      style={[styles.countdownRing, dynamicStyles.pulse, RING_CONTAINER_ALIGNMENT_STYLE]}
+      style={[
+        styles.countdownRing,
+        dynamicStyles.pulse,
+        RING_CONTAINER_ALIGNMENT_STYLE,
+      ]}
       accessibilityLabel={`${secondsRemaining} seconds until code refreshes`}
     >
       <Svg width={54} height={54} viewBox="0 0 54 54">
