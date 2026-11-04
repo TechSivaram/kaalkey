@@ -31,7 +31,9 @@ function subscribe(listener: ClockListener) {
 }
 
 function getSnapshot() {
-  return currentTime;
+  // Countdown and OTP display are second-granular; retain the 250ms clock
+  // cadence while avoiding subscriber updates for unchanged displayed seconds.
+  return Math.floor(currentTime / 1000) * 1000;
 }
 
 /** Shared TOTP clock. Subscribers rerender independently; no account-list parent state. */

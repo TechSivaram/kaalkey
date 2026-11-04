@@ -16,26 +16,6 @@ const CENTER = 27;
 const RING_RADIUS = 23;
 const DOT_RADIUS = 2;
 
-// Static layout styles are shared across countdown renders.
-const RING_CONTAINER_ALIGNMENT_STYLE = {
-  alignItems: "center" as const,
-  justifyContent: "center" as const,
-};
-
-const COUNTDOWN_TEXT_LAYOUT_STYLE = {
-  position: "absolute" as const,
-  top: 0,
-  right: 0,
-  bottom: 0,
-  left: 0,
-  textAlign: "center" as const,
-  textAlignVertical: "center" as const,
-  includeFontPadding: false,
-  alignSelf: "center" as const,
-  lineHeight: 20,
-  transform: [{ translateY: 0 }],
-};
-
 // Ring geometry is static; calculate trigonometry once instead of on every
 // countdown tick for every account card.
 const RING_SEGMENTS = Array.from({ length: SEGMENT_COUNT }, (_, index) => {
@@ -45,6 +25,25 @@ const RING_SEGMENTS = Array.from({ length: SEGMENT_COUNT }, (_, index) => {
     y: CENTER + Math.sin(angle) * RING_RADIUS,
   };
 });
+
+// Static layout styles are shared across countdown renders.
+const RING_CONTAINER_ALIGNMENT_STYLE = {
+  alignItems: "center",
+  justifyContent: "center",
+} as const;
+
+const COUNTDOWN_TEXT_LAYOUT_STYLE = {
+  position: "absolute",
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: 0,
+  textAlign: "center",
+  textAlignVertical: "center",
+  includeFontPadding: false,
+  alignSelf: "center",
+  lineHeight: 20,
+} as const;
 
 export default function CountdownRing({ secondsRemaining, period }: CountdownRingProps) {
   const [pulse] = useState(() => new Animated.Value(1));
@@ -99,6 +98,7 @@ export default function CountdownRing({ secondsRemaining, period }: CountdownRin
           styles.countdownNumber,
           dynamicStyles.countdownNumber,
           COUNTDOWN_TEXT_LAYOUT_STYLE,
+          { transform: [{ translateY: 0 }] },
         ]}
       >
         {secondsRemaining}
