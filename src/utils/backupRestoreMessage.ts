@@ -15,8 +15,3 @@ export function getRestoreCompletionMessage(
 export function getRestoreConfirmationMessage(accountCount: number, language: AppLanguage): string {
   return translate(language, "backupRestore.mergeConfirmationBody", { count: accountCount });
 }
-
-/** Returns the password-length validation copy shown before backup encryption. */
-export function getBackupPasswordValidationMessage(minLength: number): string {
-  return `Choose at least ${minLength} characters. You will need this password to restore the backup.`;
-}

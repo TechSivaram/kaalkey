@@ -1,9 +1,7 @@
 import { useMemo, useState } from "react";
 import type { Account } from "../types/account";
 import { normalizeAccountText } from "../utils/accountText";
-import type { AccountSortBy } from "../utils/accountList";
-
-export type { AccountSortBy } from "../utils/accountList";
+export type AccountSortBy = "service" | "account";
 
 // Reuse the locale-aware comparator instead of constructing it on each search.
 const ACCOUNT_COLLATOR = new Intl.Collator(undefined, { sensitivity: "base" });

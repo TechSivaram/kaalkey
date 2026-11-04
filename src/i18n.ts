@@ -169,22 +169,6 @@ function setLanguageOptions(remoteLanguages: RemoteLanguage[]) {
   notifyState();
 }
 
-export function getLanguageOptions(): LanguageOption[] {
-  return languageOptions;
-}
-
-export function isLanguageManifestLoading(): boolean {
-  return manifestLoading;
-}
-
-export function isTranslationLoading(): boolean {
-  return translationLoading;
-}
-
-export function getTranslationServerUrl(): string {
-  return configuredServerUrl;
-}
-
 let configuredServerUrl = DEFAULT_TRANSLATION_SERVER_URL;
 
 export function detectLanguage(): AppLanguage {

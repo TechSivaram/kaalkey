@@ -1,4 +1,3 @@
-import React from "react";
 import { Image, ScrollView, Text, View } from "react-native";
 import { styles } from "../styles/home.styles";
 import { useAppLanguage } from "../i18n";

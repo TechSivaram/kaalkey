@@ -75,9 +75,6 @@ export const legalNoticeScreenStyles = StyleSheet.create({
   content: { flex: 1, paddingHorizontal: 20, paddingTop: 12, paddingBottom: 12 },
 });
 
-export const qrScannerModalStyles = StyleSheet.create({
-  cameraFrame: { flex: 1 },
-});
 export const getQrScannerCameraFrameStyle = (height: number) => ({ height });
 
 export const settingsBackupActivityStyles = StyleSheet.create({
@@ -328,19 +325,3 @@ export const getSettingsBackdropStyles = (
 export const getQrScannerScrollContentStyle = (insets: { top: number; bottom: number }) => [
   { paddingTop: Math.max(insets.top + 12, 24), paddingBottom: Math.max(insets.bottom + 24, 36) },
 ];
-export const getCountdownSegmentStyle = (
-  index: number,
-  progress: number,
-  countdownColor: string,
-) => {
-  const angle = (index / 24) * Math.PI * 2 - Math.PI / 2;
-  const radius = 23;
-  const segmentProgress = Math.max(0, Math.min(1, progress * 24 - index));
-  return {
-    left: 27 + Math.cos(angle) * radius - 2,
-    top: 27 + Math.sin(angle) * radius - 2,
-    backgroundColor: segmentProgress > 0 ? countdownColor : "#CBD3DE",
-    opacity: segmentProgress > 0 ? 0.35 + segmentProgress * 0.65 : 0.58,
-    transform: [{ scale: segmentProgress > 0 ? 0.82 + segmentProgress * 0.18 : 0.82 }],
-  };
-};
