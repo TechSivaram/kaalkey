@@ -6,6 +6,8 @@ import { appFetch } from "./utils/appFetch";
 import { beginGlobalActivity } from "./utils/globalActivity";
 
 export type { AppLanguage, LanguageOption } from "./i18n/languages";
+
+export type TranslationFunction = (key: string, values?: Record<string, string | number>) => string;
 export { ENGLISH_LANGUAGE } from "./i18n/languages";
 
 export const LANGUAGE_STORAGE_KEY = "kaalkey.language";
@@ -466,10 +468,18 @@ export function useAppLanguage() {
     await setTranslationServerUrl(next);
   }, []);
 
+  // Keep the translator reference stable while the active language is unchanged.
+  // This prevents consumers' memoized callbacks and derived UI from invalidating
+  // on unrelated translation-loading state updates.
+  const t = useCallback(
+    (key: string, values?: Record<string, string | number>) => translate(language, key, values),
+    [language],
+  );
+
   return {
     language,
     setLanguage,
-    t: (key: string, values?: Record<string, string | number>) => translate(language, key, values),
+    t,
     languages: languageOptions,
     languageLoading: manifestLoading,
     translationLoading,

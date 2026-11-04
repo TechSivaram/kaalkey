@@ -1,17 +1,19 @@
-import type { AppLanguage } from "../i18n";
-import { translate } from "../i18n";
+import type { TranslationFunction } from "../i18n";
 
 /** Returns the completion copy shown after a backup restore. */
 export function getRestoreCompletionMessage(
   added: number,
   restored: number,
-  language: AppLanguage,
+  t: TranslationFunction,
 ): string {
   const skipped = restored - added;
-  return translate(language, "backupRestore.restoreCompletionBody", { added, skipped });
+  return t("backupRestore.restoreCompletionBody", { added, skipped });
 }
 
 /** Returns the confirmation copy shown before merging restored accounts. */
-export function getRestoreConfirmationMessage(accountCount: number, language: AppLanguage): string {
-  return translate(language, "backupRestore.mergeConfirmationBody", { count: accountCount });
+export function getRestoreConfirmationMessage(
+  accountCount: number,
+  t: TranslationFunction,
+): string {
+  return t("backupRestore.mergeConfirmationBody", { count: accountCount });
 }

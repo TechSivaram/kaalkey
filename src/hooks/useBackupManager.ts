@@ -16,14 +16,14 @@ import {
   BACKUP_WEB_FILE_ACCEPT,
 } from "../constants/backup";
 import type { BackupMode } from "../types/backupMode";
-import type { AppLanguage } from "../i18n";
+import type { TranslationFunction } from "../i18n";
 import {
   getRestoreCompletionMessage,
   getRestoreConfirmationMessage,
 } from "../utils/backupRestoreMessage";
 
 type UseBackupManagerOptions = {
-  language: AppLanguage;
+  t: TranslationFunction;
   accounts: Account[];
   setAccounts: (accounts: Account[]) => void;
   backupPassword: string;
@@ -38,7 +38,7 @@ type UseBackupManagerOptions = {
 };
 
 export function useBackupManager({
-  language,
+  t,
   accounts,
   setAccounts,
   backupPassword,
@@ -241,7 +241,7 @@ export function useBackupManager({
       setActivityMessage(USER_MESSAGES.backup.decrypting);
       const restored = await decryptBackup(raw, backupPassword);
       setActivityMessage(null);
-      const message = getRestoreConfirmationMessage(restored.length, language);
+      const message = getRestoreConfirmationMessage(restored.length, t);
       let shouldMerge = false;
       if (Platform.OS === "web") {
         shouldMerge =
@@ -276,7 +276,7 @@ export function useBackupManager({
       setBackupPassword("");
       showBackupMessage(
         USER_MESSAGES.backup.restoreCompleteTitle,
-        getRestoreCompletionMessage(added, restored.length, language),
+        getRestoreCompletionMessage(added, restored.length, t),
       );
     } catch (error) {
       showBackupMessage(
@@ -289,7 +289,7 @@ export function useBackupManager({
     }
   }, [
     backupPassword,
-    language,
+    t,
     accounts,
     setAccounts,
     setBackupBusy,

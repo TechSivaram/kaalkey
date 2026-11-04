@@ -91,7 +91,7 @@ export default function HomeScreen() {
   );
 
   const insets = useSafeAreaInsets();
-  const { language, t } = useAppLanguage();
+  const { t } = useAppLanguage();
   const scannerCameraHeight = useScannerCameraHeight();
   const { showBrandSplash } = useHomeLifecycle();
   const {
@@ -195,7 +195,7 @@ export default function HomeScreen() {
     setActivityMessage,
   });
   const { openBackup, exportEncryptedBackup, restoreEncryptedBackup } = useBackupManager({
-    language,
+    t,
     accounts,
     setAccounts,
     backupPassword,

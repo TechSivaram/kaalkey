@@ -1,6 +1,6 @@
 import { getWebQrCameraErrorMessage } from "../utils/webQrScanner";
-import { translate, useAppLanguage } from "../i18n";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useAppLanguage } from "../i18n";
+import { useEffect, useRef, useState } from "react";
 import { Platform, Text, View } from "react-native";
 import jsQR from "jsqr";
 import { WEB_QR_SCAN_THROTTLE_MS } from "../constants/ui";
@@ -20,8 +20,7 @@ type Props = {
 /** Browser-only camera scanner. Uses jsQR directly so a stalled experimental
  * BarcodeDetector cannot block frame decoding. */
 export default function WebQrScanner({ active, onDetected }: Props) {
-  const { language } = useAppLanguage();
-  const t = useCallback((key: string) => translate(language, key), [language]);
+  const { t } = useAppLanguage();
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const frameRef = useRef<number | null>(null);
@@ -144,7 +143,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
       disposed = true;
       stop();
     };
-  }, [active, language, t]);
+  }, [active, t]);
 
   return (
     <View style={styles.container}>
