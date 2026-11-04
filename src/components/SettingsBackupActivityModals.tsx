@@ -1,5 +1,5 @@
 import * as Clipboard from "expo-clipboard";
-import { useMemo, useState, type Dispatch, type SetStateAction } from "react";
+import { memo, useMemo, useState, type Dispatch, type SetStateAction } from "react";
 import { type AppLanguage, useAppLanguage } from "../i18n";
 import {
   KeyboardAvoidingView,
@@ -54,7 +54,7 @@ type Props = {
 };
 
 /** Settings, backup, and blocking activity dialogs for the vault screen. */
-export default function SettingsBackupActivityModals(props: Props) {
+function SettingsBackupActivityModals(props: Props) {
   const {
     insets,
     settingsVisible,
@@ -502,3 +502,5 @@ export default function SettingsBackupActivityModals(props: Props) {
     </>
   );
 }
+
+export default memo(SettingsBackupActivityModals);

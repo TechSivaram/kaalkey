@@ -55,7 +55,7 @@ export function useQrImageImport({
 
   useEffect(() => {
     onQrScannedRef.current = onQrScanned;
-  });
+  }, [onQrScanned]);
 
   function showQrImportMessage(title: string, message: string) {
     showUserMessage(title, message);
