@@ -3,9 +3,10 @@ import { Text, View } from "react-native";
 import Svg, { Circle, Path } from "react-native-svg";
 import { styles } from "../styles/home.styles";
 import { COLORS } from "../constants/colors";
+import { useTotpClock } from "../services/totp-clock";
+import { getTotpCountdown } from "../services/totp-time";
 
 type CountdownRingProps = {
-  secondsRemaining: number;
   period: number;
 };
 
@@ -65,7 +66,9 @@ const INACTIVE_DOT_PATHS = Array.from({ length: SEGMENT_COUNT + 1 }, (_, complet
   createDotPath(Math.min(SEGMENT_COUNT, completed + 1), SEGMENT_COUNT, DOT_RADIUS * 0.82),
 ]);
 
-export default function CountdownRing({ secondsRemaining, period }: CountdownRingProps) {
+export default function CountdownRing({ period }: CountdownRingProps) {
+  const now = useTotpClock();
+  const { secondsRemaining } = getTotpCountdown(now, period);
   const progress = secondsRemaining / Math.max(1, period);
   const countdownColor = secondsRemaining <= 5 ? COLORS.danger : COLORS.indiaGreen;
   const numberColor = secondsRemaining <= 5 ? COLORS.danger : COLORS.textPrimary;
@@ -107,13 +110,7 @@ export default function CountdownRing({ secondsRemaining, period }: CountdownRin
           />
         ) : null}
       </Svg>
-      <Text
-        style={[
-          styles.countdownNumber,
-          numberColorStyle,
-          COUNTDOWN_TEXT_LAYOUT_STYLE,
-        ]}
-      >
+      <Text style={[styles.countdownNumber, numberColorStyle, COUNTDOWN_TEXT_LAYOUT_STYLE]}>
         {secondsRemaining}
       </Text>
     </View>

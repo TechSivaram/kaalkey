@@ -2,8 +2,7 @@ import { memo, useCallback, useMemo } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import type { Account } from "../types/account";
 import { generateCode } from "../services/otp";
-import { getTotpCountdown } from "../services/totp-time";
-import { useTotpClock } from "../services/totp-clock";
+import { useTotpTimeStep } from "../services/totp-clock";
 import { styles } from "../styles/home.styles";
 import { BUTTON_ACTIVE_OPACITY_CODE } from "../constants/ui";
 import CountdownRing from "./CountdownRing";
@@ -47,14 +46,12 @@ const AccountCodeButton = memo(function AccountCodeButton({
 /** Clock-driven TOTP display isolated from static account-card UI. */
 function AccountTotp({ account, onCopyCode }: Props) {
   const { t } = useAppLanguage();
-  const now = useTotpClock();
   const periodSeconds = Math.max(1, account.period);
-  const timeStep = Math.floor(now / (periodSeconds * 1000));
+  const timeStep = useTotpTimeStep(periodSeconds);
   const code = useMemo(
     () => generateCode(account, timeStep * periodSeconds * 1000),
     [account, timeStep, periodSeconds],
   );
-  const { period, secondsRemaining } = getTotpCountdown(now, account.period);
   const handleCopy = useCallback(() => void onCopyCode(code), [onCopyCode, code]);
 
   return (
@@ -65,7 +62,7 @@ function AccountTotp({ account, onCopyCode }: Props) {
         copyHint={t("accounts.tapCopy")}
         onCopy={handleCopy}
       />
-      <CountdownRing secondsRemaining={secondsRemaining} period={period} />
+      <CountdownRing period={periodSeconds} />
     </View>
   );
 }

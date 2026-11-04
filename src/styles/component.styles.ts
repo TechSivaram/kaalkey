@@ -258,7 +258,6 @@ export const legalNoticeHeaderStyles = StyleSheet.create({
   description: { fontSize: 13, lineHeight: 19, color: COLORS.legalSecondaryText, marginBottom: 12 },
 });
 
-
 export const accountTotpUrlImportStyles = StyleSheet.create({
   fieldGroup: { marginBottom: 12 },
   urlInputRow: { flexDirection: "row", alignItems: "center", position: "relative" },

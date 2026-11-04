@@ -86,3 +86,9 @@ function getSnapshot() {
 export function useTotpClock() {
   return useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
 }
+
+/** Subscribe to a TOTP time-step instead of every displayed clock second. */
+export function useTotpTimeStep(periodSeconds: number) {
+  const getTimeStep = () => Math.floor(currentTime / (Math.max(1, periodSeconds) * 1000));
+  return useSyncExternalStore(subscribe, getTimeStep, getTimeStep);
+}
