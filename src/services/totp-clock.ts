@@ -1,6 +1,5 @@
 import { AppState, type AppStateStatus } from "react-native";
 import { useCallback, useSyncExternalStore } from "react";
-import { TOTP_CLOCK_REFRESH_INTERVAL_MS } from "../constants/ui";
 
 type ClockListener = () => void;
 type TimeStepGroup = {
@@ -9,7 +8,7 @@ type TimeStepGroup = {
 };
 
 let currentTime = Date.now();
-let intervalId: ReturnType<typeof setInterval> | undefined;
+let timeoutId: ReturnType<typeof setTimeout> | undefined;
 let appStateSubscription: ReturnType<typeof AppState.addEventListener> | undefined;
 const listeners = new Set<ClockListener>();
 const timeStepGroups = new Map<number, TimeStepGroup>();
@@ -29,10 +28,26 @@ function getTimeStep(periodSeconds: number) {
 }
 
 function stopClock() {
-  if (intervalId !== undefined) {
-    clearInterval(intervalId);
-    intervalId = undefined;
+  if (timeoutId !== undefined) {
+    clearTimeout(timeoutId);
+    timeoutId = undefined;
   }
+}
+
+// Schedule one update at the next wall-clock second boundary instead of
+// polling four times per second. This keeps countdown labels accurate while
+// reducing idle timer wakeups by 75% when the vault is visible.
+function scheduleNextTick() {
+  if (timeoutId !== undefined || !hasSubscribers() || !isForeground(AppState.currentState)) {
+    return;
+  }
+
+  const delay = Math.max(16, 1000 - (Date.now() % 1000));
+  timeoutId = setTimeout(() => {
+    timeoutId = undefined;
+    notifyListeners();
+    scheduleNextTick();
+  }, delay);
 }
 
 function notifyTimeStepGroups() {
@@ -51,8 +66,7 @@ function notifyListeners() {
   currentTime = Date.now();
   const currentSecond = Math.floor(currentTime / 1000);
 
-  // The 250ms cadence keeps boundary timing accurate, but React subscribers
-  // only need a notification when the displayed second changes.
+  // Subscribers only need a notification when the displayed second changes.
   if (currentSecond === lastNotifiedSecond) return;
   lastNotifiedSecond = currentSecond;
   listeners.forEach((listener) => listener());
@@ -60,7 +74,7 @@ function notifyListeners() {
 }
 
 function startClock() {
-  if (intervalId !== undefined || !hasSubscribers() || !isForeground(AppState.currentState)) {
+  if (timeoutId !== undefined || !hasSubscribers() || !isForeground(AppState.currentState)) {
     return;
   }
 
@@ -71,7 +85,7 @@ function startClock() {
   for (const [periodSeconds, group] of timeStepGroups) {
     group.lastStep = getTimeStep(periodSeconds);
   }
-  intervalId = setInterval(notifyListeners, TOTP_CLOCK_REFRESH_INTERVAL_MS);
+  scheduleNextTick();
 }
 
 function ensureClock() {
@@ -100,7 +114,7 @@ function handleAppStateChange(nextState: AppStateStatus) {
   lastNotifiedSecond = Math.floor(currentTime / 1000);
   listeners.forEach((listener) => listener());
   notifyTimeStepGroups();
-  startClock();
+  scheduleNextTick();
 }
 
 function subscribe(listener: ClockListener) {
