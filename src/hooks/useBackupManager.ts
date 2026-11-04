@@ -51,29 +51,40 @@ export function useBackupManager({
   showBackupMessage,
   hapticFeedback,
 }: UseBackupManagerOptions) {
-  const openBackup = useCallback(async (mode: BackupMode) => {
-    hapticFeedback("selection");
-    setBackupMode(mode);
-    setBackupPassword("");
-    if (mode === "export") {
-      setBackupBusy(true);
-      setActivityMessage(USER_MESSAGES.backup.generatingPassword);
-      try {
-        setBackupPassword(await generateBackupPassword());
-        setBackupVisible(true);
-      } catch (error) {
-        showBackupMessage(
-          USER_MESSAGES.backup.generatePasswordErrorTitle,
-          error instanceof Error ? error.message : USER_MESSAGES.backup.secureRandomUnavailable,
-        );
-      } finally {
-        setBackupBusy(false);
-        setActivityMessage(null);
+  const openBackup = useCallback(
+    async (mode: BackupMode) => {
+      hapticFeedback("selection");
+      setBackupMode(mode);
+      setBackupPassword("");
+      if (mode === "export") {
+        setBackupBusy(true);
+        setActivityMessage(USER_MESSAGES.backup.generatingPassword);
+        try {
+          setBackupPassword(await generateBackupPassword());
+          setBackupVisible(true);
+        } catch (error) {
+          showBackupMessage(
+            USER_MESSAGES.backup.generatePasswordErrorTitle,
+            error instanceof Error ? error.message : USER_MESSAGES.backup.secureRandomUnavailable,
+          );
+        } finally {
+          setBackupBusy(false);
+          setActivityMessage(null);
+        }
+        return;
       }
-      return;
-    }
-    setBackupVisible(true);
-  }, [hapticFeedback, setBackupMode, setBackupPassword, setBackupBusy, setActivityMessage, setBackupVisible, showBackupMessage]);
+      setBackupVisible(true);
+    },
+    [
+      hapticFeedback,
+      setBackupMode,
+      setBackupPassword,
+      setBackupBusy,
+      setActivityMessage,
+      setBackupVisible,
+      showBackupMessage,
+    ],
+  );
 
   const exportEncryptedBackup = useCallback(async () => {
     if (!/^KK-\d{14}-[a-f0-9]{64}$/.test(backupPassword)) {
@@ -149,7 +160,15 @@ export function useBackupManager({
       setBackupBusy(false);
       setActivityMessage(null);
     }
-  }, [backupPassword, accounts, setBackupBusy, setActivityMessage, setBackupVisible, setBackupPassword, showBackupMessage]);
+  }, [
+    backupPassword,
+    accounts,
+    setBackupBusy,
+    setActivityMessage,
+    setBackupVisible,
+    setBackupPassword,
+    showBackupMessage,
+  ]);
 
   const pickBackupText = useCallback(async (): Promise<string | null> => {
     if (Platform.OS !== "web") {
@@ -268,7 +287,19 @@ export function useBackupManager({
       setBackupBusy(false);
       setActivityMessage(null);
     }
-  }, [backupPassword, language, accounts, setAccounts, setBackupBusy, setActivityMessage, setBackupVisible, setSettingsVisible, setBackupPassword, showBackupMessage, pickBackupText]);
+  }, [
+    backupPassword,
+    language,
+    accounts,
+    setAccounts,
+    setBackupBusy,
+    setActivityMessage,
+    setBackupVisible,
+    setSettingsVisible,
+    setBackupPassword,
+    showBackupMessage,
+    pickBackupText,
+  ]);
 
   return { openBackup, exportEncryptedBackup, restoreEncryptedBackup };
 }

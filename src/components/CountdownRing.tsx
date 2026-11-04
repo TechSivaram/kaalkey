@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 import { Animated, Easing } from "react-native";
 import Svg, { Circle } from "react-native-svg";
 import { styles } from "../styles/home.styles";
@@ -45,6 +45,20 @@ const COUNTDOWN_TEXT_LAYOUT_STYLE = {
   lineHeight: 20,
 } as const;
 
+type RingSegmentProps = {
+  x: number;
+  y: number;
+  radius: number;
+  fill: string;
+  opacity: number;
+};
+
+// Most ring dots keep identical visual props between one-second updates.
+// Memoization lets React Native SVG skip those unchanged Circle components.
+const RingSegment = memo(function RingSegment({ x, y, radius, fill, opacity }: RingSegmentProps) {
+  return <Circle cx={x} cy={y} r={radius} fill={fill} opacity={opacity} />;
+});
+
 export default function CountdownRing({ secondsRemaining, period }: CountdownRingProps) {
   const [pulse] = useState(() => new Animated.Value(1));
   const progress = secondsRemaining / Math.max(1, period);
@@ -69,11 +83,7 @@ export default function CountdownRing({ secondsRemaining, period }: CountdownRin
 
   return (
     <Animated.View
-      style={[
-        styles.countdownRing,
-        dynamicStyles.pulse,
-        RING_CONTAINER_ALIGNMENT_STYLE,
-      ]}
+      style={[styles.countdownRing, dynamicStyles.pulse, RING_CONTAINER_ALIGNMENT_STYLE]}
       accessibilityLabel={`${secondsRemaining} seconds until code refreshes`}
     >
       <Svg width={54} height={54} viewBox="0 0 54 54">
@@ -82,11 +92,11 @@ export default function CountdownRing({ secondsRemaining, period }: CountdownRin
           const active = segmentProgress > 0;
 
           return (
-            <Circle
+            <RingSegment
               key={index}
-              cx={x}
-              cy={y}
-              r={DOT_RADIUS * (active ? 0.82 + segmentProgress * 0.18 : 0.82)}
+              x={x}
+              y={y}
+              radius={DOT_RADIUS * (active ? 0.82 + segmentProgress * 0.18 : 0.82)}
               fill={active ? countdownColor : "#CBD3DE"}
               opacity={active ? 0.35 + segmentProgress * 0.65 : 0.58}
             />
