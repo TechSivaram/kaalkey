@@ -1,6 +1,6 @@
-import { memo, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Animated, Easing } from "react-native";
-import Svg, { Circle } from "react-native-svg";
+import Svg, { Circle, Path } from "react-native-svg";
 import { styles } from "../styles/home.styles";
 import { COUNTDOWN_RING_ANIMATION_DURATION_MS } from "../constants/ui";
 import { COLORS } from "../constants/colors";
@@ -45,19 +45,27 @@ const COUNTDOWN_TEXT_LAYOUT_STYLE = {
   lineHeight: 20,
 } as const;
 
-type RingSegmentProps = {
-  x: number;
-  y: number;
-  radius: number;
-  fill: string;
-  opacity: number;
-};
+// Each dot is encoded as a subpath in one SVG Path. Precompute every possible
+// completed/inactive arrangement once so countdown renders create at most two
+// compound paths plus the single fractional Circle, rather than 24 Circle nodes.
+function createDotPath(start: number, end: number, radius: number) {
+  let path = "";
+  for (let index = start; index < end; index += 1) {
+    const { x, y } = RING_SEGMENTS[index];
+    const diameter = radius * 2;
+    path += `M ${x - radius} ${y} a ${radius} ${radius} 0 1 0 ${diameter} 0 a ${radius} ${radius} 0 1 0 ${-diameter} 0 `;
+  }
+  return path.trim();
+}
 
-// Most ring dots keep identical visual props between one-second updates.
-// Memoization lets React Native SVG skip those unchanged Circle components.
-const RingSegment = memo(function RingSegment({ x, y, radius, fill, opacity }: RingSegmentProps) {
-  return <Circle cx={x} cy={y} r={radius} fill={fill} opacity={opacity} />;
-});
+const ACTIVE_DOT_PATHS = Array.from({ length: SEGMENT_COUNT + 1 }, (_, completed) =>
+  createDotPath(0, completed, DOT_RADIUS),
+);
+
+const INACTIVE_DOT_PATHS = Array.from({ length: SEGMENT_COUNT + 1 }, (_, completed) => [
+  createDotPath(completed, SEGMENT_COUNT, DOT_RADIUS * 0.82),
+  createDotPath(Math.min(SEGMENT_COUNT, completed + 1), SEGMENT_COUNT, DOT_RADIUS * 0.82),
+]);
 
 export default function CountdownRing({ secondsRemaining, period }: CountdownRingProps) {
   const [pulse] = useState(() => new Animated.Value(1));
@@ -91,29 +99,11 @@ export default function CountdownRing({ secondsRemaining, period }: CountdownRin
   const partialSegment =
     completedSegments < SEGMENT_COUNT ? RING_SEGMENTS[completedSegments] : undefined;
 
-  // Keep the 23 unaffected SVG elements (plus the inactive partial slot when
-  // needed) stable between ticks. React receives the same children array until
-  // a segment boundary or warning-color change occurs.
-  const staticSegments = useMemo(
-    () =>
-      RING_SEGMENTS.map(({ x, y }, index) => {
-        const isPartialSegment = index === completedSegments && hasPartialSegment;
-        if (isPartialSegment) return null;
-
-        const active = index < completedSegments;
-        return (
-          <RingSegment
-            key={index}
-            x={x}
-            y={y}
-            radius={DOT_RADIUS * (active ? 1 : 0.82)}
-            fill={active ? countdownColor : "#CBD3DE"}
-            opacity={active ? 1 : 0.58}
-          />
-        );
-      }),
-    [completedSegments, hasPartialSegment, countdownColor],
-  );
+  // The compound path strings are precomputed at module initialization. A
+  // countdown render only selects the appropriate strings; it never maps 24
+  // segments or creates 24 individual SVG Circle elements.
+  const activeDotPath = ACTIVE_DOT_PATHS[completedSegments];
+  const inactiveDotPath = INACTIVE_DOT_PATHS[completedSegments][hasPartialSegment ? 1 : 0];
 
   return (
     <Animated.View
@@ -121,12 +111,13 @@ export default function CountdownRing({ secondsRemaining, period }: CountdownRin
       accessibilityLabel={`${secondsRemaining} seconds until code refreshes`}
     >
       <Svg width={54} height={54} viewBox="0 0 54 54">
-        {staticSegments}
+        {activeDotPath ? <Path d={activeDotPath} fill={countdownColor} /> : null}
+        {inactiveDotPath ? <Path d={inactiveDotPath} fill="#CBD3DE" opacity={0.58} /> : null}
         {partialSegment && hasPartialSegment ? (
-          <RingSegment
-            x={partialSegment.x}
-            y={partialSegment.y}
-            radius={DOT_RADIUS * (0.82 + partialProgress * 0.18)}
+          <Circle
+            cx={partialSegment.x}
+            cy={partialSegment.y}
+            r={DOT_RADIUS * (0.82 + partialProgress * 0.18)}
             fill={countdownColor}
             opacity={0.35 + partialProgress * 0.65}
           />

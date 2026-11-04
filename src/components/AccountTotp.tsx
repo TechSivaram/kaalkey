@@ -1,4 +1,4 @@
-import { memo, useMemo } from "react";
+import { memo, useCallback, useMemo } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import type { Account } from "../types/account";
 import { generateCode } from "../services/otp";
@@ -14,6 +14,36 @@ type Props = {
   onCopyCode: (code: string) => void | Promise<void>;
 };
 
+type AccountCodeButtonProps = {
+  code: string;
+  accessibilityLabel: string;
+  copyHint: string;
+  onCopy: () => void;
+};
+
+/** The code-copy control only changes when the OTP or its labels change. */
+const AccountCodeButton = memo(function AccountCodeButton({
+  code,
+  accessibilityLabel,
+  copyHint,
+  onCopy,
+}: AccountCodeButtonProps) {
+  return (
+    <TouchableOpacity
+      style={styles.codeArea}
+      activeOpacity={BUTTON_ACTIVE_OPACITY_CODE}
+      onPress={onCopy}
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
+    >
+      <Text style={styles.code}>
+        {code.slice(0, 3)} {code.slice(3)}
+      </Text>
+      <Text style={styles.copyHint}>{copyHint}</Text>
+    </TouchableOpacity>
+  );
+});
+
 /** Clock-driven TOTP display isolated from static account-card UI. */
 function AccountTotp({ account, onCopyCode }: Props) {
   const { t } = useAppLanguage();
@@ -25,21 +55,16 @@ function AccountTotp({ account, onCopyCode }: Props) {
     [account, timeStep, periodSeconds],
   );
   const { period, secondsRemaining } = getTotpCountdown(now, account.period);
+  const handleCopy = useCallback(() => void onCopyCode(code), [onCopyCode, code]);
 
   return (
     <View style={styles.codeRow}>
-      <TouchableOpacity
-        style={styles.codeArea}
-        activeOpacity={BUTTON_ACTIVE_OPACITY_CODE}
-        onPress={() => void onCopyCode(code)}
-        accessibilityRole="button"
+      <AccountCodeButton
+        code={code}
         accessibilityLabel={`${t("accounts.copyVerificationCode")} ${account.issuer}`}
-      >
-        <Text style={styles.code}>
-          {code.slice(0, 3)} {code.slice(3)}
-        </Text>
-        <Text style={styles.copyHint}>{t("accounts.tapCopy")}</Text>
-      </TouchableOpacity>
+        copyHint={t("accounts.tapCopy")}
+        onCopy={handleCopy}
+      />
       <CountdownRing secondsRemaining={secondsRemaining} period={period} />
     </View>
   );
