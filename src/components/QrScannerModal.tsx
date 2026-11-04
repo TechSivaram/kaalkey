@@ -1,7 +1,7 @@
-import { useAppLanguage } from "../i18n";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Modal, Platform, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import { USER_MESSAGES } from "../constants/userMessages";
+import { createUserMessages } from "../constants/userMessages";
+import { useAppLanguage } from "../i18n";
 import { styles } from "../styles/home.styles";
 import WebQrScanner from "./WebQrScanner";
 import NativeQrCamera from "./qr-scanner/NativeQrCamera";
@@ -41,6 +41,7 @@ export default function QrScannerModal({
   handleQrScanned,
 }: Props) {
   const { t } = useAppLanguage();
+  const USER_MESSAGES = useMemo(() => createUserMessages(t), [t]);
   const [torchEnabled, setTorchEnabled] = useState(false);
 
   // Reset torch when scanner closes so it never remains on after leaving.

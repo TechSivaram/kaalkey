@@ -1,5 +1,6 @@
 import CryptoJS from "crypto-js";
-import { USER_MESSAGES } from "../constants/userMessages";
+import { createUserMessages } from "../constants/userMessages";
+import type { TranslationFunction } from "../i18n";
 import type { Account } from "../types/account";
 import { validateAccounts } from "./account-validation";
 
@@ -18,7 +19,8 @@ type BackupEnvelope = {
   mac: string;
 };
 
-function parseBackupEnvelope(raw: string): BackupEnvelope {
+function parseBackupEnvelope(raw: string, t: TranslationFunction): BackupEnvelope {
+  const USER_MESSAGES = createUserMessages(t);
   let envelope: unknown;
   try {
     envelope = JSON.parse(raw);
@@ -48,7 +50,8 @@ function parseBackupEnvelope(raw: string): BackupEnvelope {
   return envelope as BackupEnvelope;
 }
 
-function parseBackupPayload(text: string): Account[] {
+function parseBackupPayload(text: string, t: TranslationFunction): Account[] {
+  const USER_MESSAGES = createUserMessages(t);
   let payload: unknown;
   try {
     payload = JSON.parse(text);
@@ -79,7 +82,8 @@ function hexToWordArray(hex: string): CryptoJS.lib.WordArray {
   return CryptoJS.enc.Hex.parse(hex);
 }
 
-async function secureRandomBytes(length: number): Promise<Uint8Array> {
+async function secureRandomBytes(length: number, t: TranslationFunction): Promise<Uint8Array> {
+  const USER_MESSAGES = createUserMessages(t);
   if (typeof globalThis.crypto?.getRandomValues === "function") {
     const bytes = new Uint8Array(length);
     globalThis.crypto.getRandomValues(bytes);
@@ -97,18 +101,23 @@ async function secureRandomBytes(length: number): Promise<Uint8Array> {
 }
 
 /** Generate a portable KaalKey backup password: KK-UTC_TIMESTAMP-256_BIT_RANDOM_HEX. */
-export async function generateBackupPassword(): Promise<string> {
+export async function generateBackupPassword(t: TranslationFunction): Promise<string> {
   const timestamp = new Date().toISOString().replace(/\D/g, "").slice(0, 14);
-  const randomSecret = bytesToHex(await secureRandomBytes(32));
+  const randomSecret = bytesToHex(await secureRandomBytes(32, t));
   return `KK-${timestamp}-${randomSecret}`;
 }
 
-export async function encryptBackup(accounts: Account[], password: string): Promise<string> {
+export async function encryptBackup(
+  accounts: Account[],
+  password: string,
+  t: TranslationFunction,
+): Promise<string> {
+  const USER_MESSAGES = createUserMessages(t);
   if (!validateAccounts(accounts)) {
     throw new Error(USER_MESSAGES.backup.invalidAccountDataForBackup);
   }
-  const salt = bytesToHex(await secureRandomBytes(16));
-  const iv = bytesToHex(await secureRandomBytes(16));
+  const salt = bytesToHex(await secureRandomBytes(16, t));
+  const iv = bytesToHex(await secureRandomBytes(16, t));
   const key = CryptoJS.PBKDF2(password, hexToWordArray(salt), {
     keySize: 256 / 32,
     iterations: BACKUP_KDF_ITERATIONS,
@@ -150,8 +159,13 @@ export async function encryptBackup(accounts: Account[], password: string): Prom
   );
 }
 
-export async function decryptBackup(raw: string, password: string): Promise<Account[]> {
-  const envelope = parseBackupEnvelope(raw);
+export async function decryptBackup(
+  raw: string,
+  password: string,
+  t: TranslationFunction,
+): Promise<Account[]> {
+  const USER_MESSAGES = createUserMessages(t);
+  const envelope = parseBackupEnvelope(raw, t);
   const macKey = CryptoJS.PBKDF2(password, hexToWordArray(envelope.salt + "01"), {
     keySize: 256 / 32,
     iterations: BACKUP_KDF_ITERATIONS,
@@ -174,5 +188,5 @@ export async function decryptBackup(raw: string, password: string): Promise<Acco
   );
   const text = decrypted.toString(CryptoJS.enc.Utf8);
   if (!text) throw new Error(USER_MESSAGES.backup.invalidPasswordOrFileDamaged);
-  return parseBackupPayload(text);
+  return parseBackupPayload(text, t);
 }

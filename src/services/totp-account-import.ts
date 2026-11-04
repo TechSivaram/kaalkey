@@ -1,5 +1,6 @@
 import * as OTPAuth from "otpauth";
-import { USER_MESSAGES } from "../constants/userMessages";
+import { createUserMessages } from "../constants/userMessages";
+import type { TranslationFunction } from "../i18n";
 import type { Account } from "../types/account";
 import { validateAccount } from "./account-validation";
 import {
@@ -10,7 +11,8 @@ import {
 } from "../constants/totp";
 
 /** Parse and validate an authenticator TOTP URI into a KaalKey account. */
-export function parseTotpAccountFromUri(uri: string): Account {
+export function parseTotpAccountFromUri(uri: string, t: TranslationFunction): Account {
+  const USER_MESSAGES = createUserMessages(t);
   const parsedUri = OTPAuth.URI.parse(uri);
   if (!(parsedUri instanceof OTPAuth.TOTP)) {
     throw new Error(USER_MESSAGES.totpImport.invalidTotpCode);

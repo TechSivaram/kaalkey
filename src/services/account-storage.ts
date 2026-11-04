@@ -2,7 +2,8 @@ import { Platform } from "react-native";
 import * as SecureStore from "expo-secure-store";
 
 import { ACCOUNTS_STORAGE_KEY } from "../constants/storage";
-import { USER_MESSAGES } from "../constants/userMessages";
+import { createUserMessages } from "../constants/userMessages";
+import type { TranslationFunction } from "../i18n";
 import type { Account } from "../types/account";
 import { validateAccount } from "./account-validation";
 
@@ -15,7 +16,8 @@ export async function readAccountsStorage(): Promise<string | null> {
   return SecureStore.getItemAsync(ACCOUNTS_STORAGE_KEY);
 }
 
-export async function writeAccountsStorage(value: string): Promise<void> {
+export async function writeAccountsStorage(value: string, t: TranslationFunction): Promise<void> {
+  const USER_MESSAGES = createUserMessages(t);
   if (Platform.OS === "web") {
     if (typeof window === "undefined") {
       throw new Error(USER_MESSAGES.storage.browserUnavailable);
@@ -52,6 +54,9 @@ export function parseStoredAccounts(value: string): {
 }
 
 /** Persist account records through the platform-specific storage adapter. */
-export async function writeAccountRecords(accounts: Account[]): Promise<void> {
-  await writeAccountsStorage(JSON.stringify(accounts));
+export async function writeAccountRecords(
+  accounts: Account[],
+  t: TranslationFunction,
+): Promise<void> {
+  await writeAccountsStorage(JSON.stringify(accounts), t);
 }

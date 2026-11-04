@@ -1,6 +1,6 @@
-import { useCallback } from "react";
+import { useMemo, useCallback } from "react";
 import { Alert, Platform } from "react-native";
-import { USER_MESSAGES } from "../constants/userMessages";
+import { createUserMessages } from "../constants/userMessages";
 import * as DocumentPicker from "expo-document-picker";
 import { beginExternalActivity } from "../utils/externalActivity";
 import * as FileSystem from "expo-file-system/legacy";
@@ -51,6 +51,7 @@ export function useBackupManager({
   showBackupMessage,
   hapticFeedback,
 }: UseBackupManagerOptions) {
+  const USER_MESSAGES = useMemo(() => createUserMessages(t), [t]);
   const openBackup = useCallback(
     async (mode: BackupMode) => {
       hapticFeedback("selection");
@@ -60,7 +61,7 @@ export function useBackupManager({
         setBackupBusy(true);
         setActivityMessage(USER_MESSAGES.backup.generatingPassword);
         try {
-          setBackupPassword(await generateBackupPassword());
+          setBackupPassword(await generateBackupPassword(t));
           setBackupVisible(true);
         } catch (error) {
           showBackupMessage(
@@ -83,6 +84,8 @@ export function useBackupManager({
       setActivityMessage,
       setBackupVisible,
       showBackupMessage,
+      USER_MESSAGES,
+      t,
     ],
   );
 
@@ -97,7 +100,7 @@ export function useBackupManager({
     setBackupBusy(true);
     setActivityMessage(USER_MESSAGES.backup.encrypting);
     try {
-      const encrypted = await encryptBackup(accounts, backupPassword);
+      const encrypted = await encryptBackup(accounts, backupPassword, t);
       // Reuse the timestamp embedded in the generated password so the password
       // and backup filename identify the same backup creation time.
       const passwordTimestamp = backupPassword.split("-")[1];
@@ -168,6 +171,8 @@ export function useBackupManager({
     setBackupVisible,
     setBackupPassword,
     showBackupMessage,
+    USER_MESSAGES,
+    t,
   ]);
 
   const pickBackupText = useCallback(async (): Promise<string | null> => {
@@ -224,7 +229,7 @@ export function useBackupManager({
       document.body.appendChild(input);
       input.click();
     });
-  }, []);
+  }, [USER_MESSAGES]);
 
   const restoreEncryptedBackup = useCallback(async () => {
     if (!backupPassword) {
@@ -239,7 +244,7 @@ export function useBackupManager({
       const raw = await pickBackupText();
       if (raw === null) return;
       setActivityMessage(USER_MESSAGES.backup.decrypting);
-      const restored = await decryptBackup(raw, backupPassword);
+      const restored = await decryptBackup(raw, backupPassword, t);
       setActivityMessage(null);
       const message = getRestoreConfirmationMessage(restored.length, t);
       let shouldMerge = false;
@@ -269,7 +274,7 @@ export function useBackupManager({
 
       // Merge by account identity; keep existing local accounts unchanged.
       const { accounts: merged, added } = mergeRestoredAccounts(accounts, restored);
-      await writeAccountRecords(merged);
+      await writeAccountRecords(merged, t);
       setAccounts(merged);
       setBackupVisible(false);
       setSettingsVisible(false);
@@ -299,6 +304,7 @@ export function useBackupManager({
     setBackupPassword,
     showBackupMessage,
     pickBackupText,
+    USER_MESSAGES,
   ]);
 
   return { openBackup, exportEncryptedBackup, restoreEncryptedBackup };

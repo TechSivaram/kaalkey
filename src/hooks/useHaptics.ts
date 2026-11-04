@@ -1,15 +1,18 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useMemo, useCallback, useEffect, useRef, useState } from "react";
+import { useAppLanguage } from "../i18n";
 import { Platform, Vibration } from "react-native";
 import { showUserMessage } from "../utils/user-message";
 import * as SecureStore from "expo-secure-store";
 
 import { HAPTICS_ENABLED_STORAGE_KEY } from "../constants/storage";
-import { USER_MESSAGES } from "../constants/userMessages";
+import { createUserMessages } from "../constants/userMessages";
 
 type HapticKind = "selection" | "success" | "warning";
 
 /** Loads and persists the haptic preference and exposes best-effort feedback. */
 export function useHaptics() {
+  const { t } = useAppLanguage();
+  const USER_MESSAGES = useMemo(() => createUserMessages(t), [t]);
   const [hapticsEnabled, setHapticsEnabled] = useState(true);
   const enabledRef = useRef(true);
 
@@ -32,7 +35,7 @@ export function useHaptics() {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [USER_MESSAGES]);
 
   const hapticFeedback = useCallback((kind: HapticKind = "selection") => {
     if (!enabledRef.current) return;
@@ -61,7 +64,7 @@ export function useHaptics() {
     } catch {
       showUserMessage(USER_MESSAGES.haptics.saveFailedTitle, USER_MESSAGES.haptics.saveFailedBody);
     }
-  }, [hapticFeedback]);
+  }, [hapticFeedback, USER_MESSAGES]);
 
   return { hapticsEnabled, toggleHaptics, hapticFeedback };
 }

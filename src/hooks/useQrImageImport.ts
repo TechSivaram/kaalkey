@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useMemo, useEffect, useRef } from "react";
+import { useAppLanguage } from "../i18n";
 import { Platform } from "react-native";
-import { USER_MESSAGES } from "../constants/userMessages";
+import { createUserMessages } from "../constants/userMessages";
 import { showUserMessage } from "../utils/user-message";
 import { Camera } from "expo-camera";
 import * as Clipboard from "expo-clipboard";
@@ -27,6 +28,8 @@ export function useQrImageImport({
   editingId,
   setActivityMessage,
 }: UseQrImageImportOptions) {
+  const { t } = useAppLanguage();
+  const USER_MESSAGES = useMemo(() => createUserMessages(t), [t]);
   const onQrScannedRef = useRef(onQrScanned);
 
   useEffect(() => {
@@ -530,7 +533,7 @@ export function useQrImageImport({
     };
     window.addEventListener("paste", onPaste);
     return () => window.removeEventListener("paste", onPaste);
-  }, [modalVisible, editingId, setActivityMessage]);
+  }, [modalVisible, editingId, setActivityMessage, USER_MESSAGES]);
 
   return { importQrImage, pasteQrImage };
 }

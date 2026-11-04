@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useState } from "react";
+import { useMemo, useCallback, useEffect, useState } from "react";
+import { useAppLanguage } from "../i18n";
 import { Alert, Platform } from "react-native";
-import { USER_MESSAGES } from "../constants/userMessages";
+import { createUserMessages } from "../constants/userMessages";
 import { showUserMessage } from "../utils/user-message";
 import type { Account } from "../types/account";
 import {
@@ -35,6 +36,8 @@ export function useAccounts({
   setScannerVisible,
   setModalVisible,
 }: UseAccountsOptions) {
+  const { t } = useAppLanguage();
+  const USER_MESSAGES = useMemo(() => createUserMessages(t), [t]);
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -98,12 +101,12 @@ export function useAccounts({
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [USER_MESSAGES]);
 
   const saveAccounts = useCallback(
     async (updated: Account[]): Promise<boolean> => {
       try {
-        await writeAccountRecords(updated);
+        await writeAccountRecords(updated, t);
         setAccounts(updated);
         return true;
       } catch {
@@ -111,7 +114,7 @@ export function useAccounts({
         return false;
       }
     },
-    [showMessage],
+    [showMessage, USER_MESSAGES, t],
   );
 
   const openAddAccount = useCallback(() => {
@@ -160,7 +163,7 @@ export function useAccounts({
     if (!normalizedIssuer || !normalizedName || !normalizedSecret) {
       showMessage(
         USER_MESSAGES.account.missingTitle,
-        getMissingAccountInfoMessage(Boolean(currentEditingId)),
+        getMissingAccountInfoMessage(Boolean(currentEditingId), t),
       );
       return;
     }
@@ -183,7 +186,7 @@ export function useAccounts({
     });
 
     if (!validateAccount(candidate)) {
-      showMessage(USER_MESSAGES.account.invalidOtpTitle, getInvalidOtpSettingsMessage());
+      showMessage(USER_MESSAGES.account.invalidOtpTitle, getInvalidOtpSettingsMessage(t));
       return;
     }
 
@@ -196,7 +199,7 @@ export function useAccounts({
           currentEditingId ?? undefined,
         )
       ) {
-        showMessage(USER_MESSAGES.account.duplicateTitle, getDuplicateAccountMessage());
+        showMessage(USER_MESSAGES.account.duplicateTitle, getDuplicateAccountMessage(t));
         return;
       }
 
@@ -213,7 +216,7 @@ export function useAccounts({
         setModalVisible(false);
         showMessage(
           USER_MESSAGES.account.savedTitle,
-          getAccountSavedMessage(Boolean(currentEditingId)),
+          getAccountSavedMessage(Boolean(currentEditingId), t),
         );
       }
     } catch {
@@ -238,6 +241,8 @@ export function useAccounts({
     setEditingId,
     setScannerVisible,
     setModalVisible,
+    USER_MESSAGES,
+    t,
   ]);
 
   const removeAccountConfirmed = useCallback(
@@ -249,7 +254,7 @@ export function useAccounts({
         showMessage(USER_MESSAGES.account.removedTitle, USER_MESSAGES.account.removedBody);
       }
     },
-    [hapticFeedback, accounts, saveAccounts, showMessage],
+    [hapticFeedback, accounts, saveAccounts, showMessage, USER_MESSAGES],
   );
 
   const deleteAccount = useCallback(
@@ -269,7 +274,7 @@ export function useAccounts({
         },
       ]);
     },
-    [removeAccountConfirmed],
+    [removeAccountConfirmed, USER_MESSAGES],
   );
 
   const clearAllAccountsConfirmed = useCallback(async () => {
@@ -278,7 +283,7 @@ export function useAccounts({
     if (saved) {
       showMessage(USER_MESSAGES.account.clearedTitle, USER_MESSAGES.account.clearedBody);
     }
-  }, [hapticFeedback, saveAccounts, showMessage]);
+  }, [hapticFeedback, saveAccounts, showMessage, USER_MESSAGES]);
 
   const clearAllAccounts = useCallback(() => {
     const message = USER_MESSAGES.account.clearConfirmBody;
@@ -299,7 +304,7 @@ export function useAccounts({
         onPress: () => void clearAllAccountsConfirmed(),
       },
     ]);
-  }, [clearAllAccountsConfirmed]);
+  }, [clearAllAccountsConfirmed, USER_MESSAGES]);
 
   return {
     accounts,

@@ -1,5 +1,5 @@
 import * as Clipboard from "expo-clipboard";
-import { useState, type Dispatch, type SetStateAction } from "react";
+import { useMemo, useState, type Dispatch, type SetStateAction } from "react";
 import { type AppLanguage, useAppLanguage } from "../i18n";
 import {
   KeyboardAvoidingView,
@@ -17,7 +17,7 @@ import {
   BUTTON_ACTIVE_OPACITY_SOFT,
   BUTTON_ACTIVE_OPACITY_STRONG,
 } from "../constants/ui";
-import { USER_MESSAGES } from "../constants/userMessages";
+import { createUserMessages } from "../constants/userMessages";
 import {
   getSettingsBackdropStyles,
   settingsBackupActivityStyles as inlineStyles,
@@ -87,6 +87,7 @@ export default function SettingsBackupActivityModals(props: Props) {
     translationServerUrl,
     setTranslationServerUrl,
   } = useAppLanguage();
+  const USER_MESSAGES = useMemo(() => createUserMessages(t), [t]);
   const [languageSearch, setLanguageSearch] = useState("");
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
   const [translationServerDraft, setTranslationServerDraft] = useState(translationServerUrl);

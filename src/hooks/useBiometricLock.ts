@@ -1,14 +1,17 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useMemo, useCallback, useEffect, useRef, useState } from "react";
+import { useAppLanguage } from "../i18n";
 import { Alert, AppState, BackHandler, Platform } from "react-native";
 import * as LocalAuthentication from "expo-local-authentication";
 import * as SecureStore from "expo-secure-store";
 
 import { BIOMETRIC_ENABLED_STORAGE_KEY } from "../constants/storage";
-import { USER_MESSAGES } from "../constants/userMessages";
+import { createUserMessages } from "../constants/userMessages";
 import { showUserMessage } from "../utils/user-message";
 import { shouldIgnoreExternalActivityTransition } from "../utils/externalActivity";
 
 export function useBiometricLock() {
+  const { t } = useAppLanguage();
+  const USER_MESSAGES = useMemo(() => createUserMessages(t), [t]);
   const [biometricEnabled, setBiometricEnabled] = useState(false);
   const [biometricReady, setBiometricReady] = useState(false);
   const [isUnlocked, setIsUnlocked] = useState(false);
@@ -52,7 +55,7 @@ export function useBiometricLock() {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [USER_MESSAGES]);
 
   const authenticateUser = useCallback(
     async (
@@ -105,7 +108,7 @@ export function useBiometricLock() {
         setAuthenticating(false);
       }
     },
-    [],
+    [USER_MESSAGES],
   );
 
   const toggleBiometricLock = useCallback(async () => {
@@ -154,7 +157,7 @@ export function useBiometricLock() {
     } catch {
       Alert.alert(USER_MESSAGES.biometric.saveErrorTitle, USER_MESSAGES.biometric.enableSaveError);
     }
-  }, [authenticateUser, biometricEnabled]);
+  }, [authenticateUser, biometricEnabled, USER_MESSAGES]);
 
   useEffect(() => {
     if (!biometricReady || !biometricEnabled || isUnlocked) return;
@@ -167,7 +170,7 @@ export function useBiometricLock() {
 
     return () => clearTimeout(promptTimer);
     // Prompt once when the saved lock setting requires authentication.
-  }, [biometricReady, biometricEnabled, isUnlocked, authenticateUser]);
+  }, [biometricReady, biometricEnabled, isUnlocked, authenticateUser, USER_MESSAGES]);
 
   useEffect(() => {
     const subscription = AppState.addEventListener("change", (nextState) => {
@@ -186,14 +189,14 @@ export function useBiometricLock() {
       }
     });
     return () => subscription.remove();
-  }, [biometricEnabled, authenticateUser]);
+  }, [biometricEnabled, authenticateUser, USER_MESSAGES]);
 
   // While locked, Android Back must never uncover the underlying vault.
   useEffect(() => {
     if (!biometricReady || !biometricEnabled || isUnlocked) return;
     const subscription = BackHandler.addEventListener("hardwareBackPress", () => true);
     return () => subscription.remove();
-  }, [biometricReady, biometricEnabled, isUnlocked]);
+  }, [biometricReady, biometricEnabled, isUnlocked, USER_MESSAGES]);
 
   return {
     biometricEnabled,

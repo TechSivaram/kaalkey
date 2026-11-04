@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { useAppLanguage } from "../i18n";
 import { Alert, Platform } from "react-native";
 import { useCameraPermissions } from "expo-camera";
 import * as Clipboard from "expo-clipboard";
@@ -7,7 +8,7 @@ import { parseTotpAccountFromUri } from "../services/totp-account-import";
 import { hasDuplicateAccount } from "../services/account-duplicates";
 import { TOTP_URI_PREFIX } from "../constants/totp";
 import { isTotpQrPayload, normalizeTotpQrPayload } from "../utils/totpQrPayload";
-import { USER_MESSAGES } from "../constants/userMessages";
+import { createUserMessages } from "../constants/userMessages";
 
 type UseQrAccountScannerOptions = {
   accounts: Account[];
@@ -30,6 +31,8 @@ export function useQrAccountScanner({
   showMessage,
   hapticFeedback,
 }: UseQrAccountScannerOptions) {
+  const { t } = useAppLanguage();
+  const USER_MESSAGES = useMemo(() => createUserMessages(t), [t]);
   const [scanned, setScanned] = useState(false);
   const [scannerDiagnostic, setScannerDiagnostic] = useState("Point your camera at the QR code.");
   const [cameraPermission, requestCameraPermission] = useCameraPermissions();
@@ -89,7 +92,7 @@ export function useQrAccountScanner({
         return;
       }
 
-      const account = parseTotpAccountFromUri(qrPayload);
+      const account = parseTotpAccountFromUri(qrPayload, t);
 
       const duplicate = hasDuplicateAccount(accounts, account.issuer, account.name);
       if (duplicate) {

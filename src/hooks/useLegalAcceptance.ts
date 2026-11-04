@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
+import { useMemo, useEffect, useState } from "react";
+import { useAppLanguage } from "../i18n";
 import { Platform } from "react-native";
 import { showUserMessage } from "../utils/user-message";
 import * as SecureStore from "expo-secure-store";
 
 import { LEGAL_ACCEPTANCE_STORAGE_KEY } from "../constants/storage";
 import { LEGAL_VERSION } from "../constants/legal";
-import { USER_MESSAGES } from "../constants/userMessages";
+import { createUserMessages } from "../constants/userMessages";
 
 export function useLegalAcceptance() {
+  const { t } = useAppLanguage();
+  const USER_MESSAGES = useMemo(() => createUserMessages(t), [t]);
   const [legalLoaded, setLegalLoaded] = useState(false);
   const [legalAccepted, setLegalAccepted] = useState(false);
   const [legalChecked, setLegalChecked] = useState(false);
@@ -40,7 +43,7 @@ export function useLegalAcceptance() {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [USER_MESSAGES]);
 
   async function acceptLegalNotice() {
     if (!legalChecked || legalSaving) return;
