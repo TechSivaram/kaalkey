@@ -1,5 +1,5 @@
 /** Shared UI timing and responsive sizing values. Keep values stable unless intentionally changing behavior. */
-export const BRAND_SPLASH_DURATION_MS = 5000;
+export const BRAND_SPLASH_DURATION_MS = 1500;
 export const TOTP_CLOCK_REFRESH_INTERVAL_MS = 250;
 
 export const ACCOUNT_SCANNER_HEIGHT_MIN = 180;
