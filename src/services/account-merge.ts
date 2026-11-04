@@ -7,8 +7,15 @@ export function mergeRestoredAccounts(
   restored: Account[],
 ): { accounts: Account[]; added: number } {
   const merged = [...existing];
-  const identities = new Set(merged.map(getAccountIdentity));
-  const ids = new Set(merged.map((account) => account.id));
+  const identities = new Set<string>();
+  const ids = new Set<string>();
+
+  // Build both lookup sets in one pass without allocating intermediate arrays.
+  for (const account of existing) {
+    identities.add(getAccountIdentity(account));
+    ids.add(account.id);
+  }
+
   let added = 0;
 
   for (const account of restored) {
