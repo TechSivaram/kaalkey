@@ -228,7 +228,11 @@ export function useQrImageImport({
         // jsQR works directly on RGBA pixel data. Retry the full image at several
         // scales and on the center crop, which helps with small QR codes.
         let qrData: string | undefined;
-        const attempts = [
+        const attempts: {
+          data: Uint8Array | Uint8ClampedArray;
+          width: number;
+          height: number;
+        }[] = [
           { data: decodedImage.data, width: decodedImage.width, height: decodedImage.height },
         ];
         const centerX = Math.floor(decodedImage.width * 0.1);
@@ -244,11 +248,11 @@ export function useQrImageImport({
               row * centerWidth * 4,
             );
           }
-          attempts.push({ data: new Uint8Array(crop), width: centerWidth, height: centerHeight });
+          attempts.push({ data: crop, width: centerWidth, height: centerHeight });
         }
         for (const attempt of attempts) {
           const qrDataFromPixels = decodeQrPixels(
-            new Uint8ClampedArray(attempt.data),
+            attempt.data,
             attempt.width,
             attempt.height,
           );
