@@ -9,8 +9,12 @@ export function decodeQrPixels(
   if (width <= 0 || height <= 0 || data.length < width * height * 4) return undefined;
 
   // Canvas ImageData and the cropped fallback are already clamped arrays.
-  // Reuse them directly; copying full-resolution RGBA buffers can be expensive.
-  const pixels = data instanceof Uint8ClampedArray ? data : new Uint8ClampedArray(data);
+  // For jpeg-js Uint8Array output, create a clamped view over the same buffer
+  // instead of copying every RGBA byte into a second full-resolution allocation.
+  const pixels =
+    data instanceof Uint8ClampedArray
+      ? data
+      : new Uint8ClampedArray(data.buffer, data.byteOffset, data.byteLength);
 
   return jsQR(pixels, width, height, {
     inversionAttempts: "attemptBoth",
