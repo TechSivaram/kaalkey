@@ -830,7 +830,7 @@ export const styles = StyleSheet.create({
   },
 
   clearSearchButton: {
-    width: 40,
+    width: 38,
     minHeight: 44,
     alignItems: "center",
     justifyContent: "center",
@@ -838,9 +838,11 @@ export const styles = StyleSheet.create({
 
   clearSearchButtonText: {
     color: COLORS.amberDark,
-    fontSize: 25,
+    fontSize: 23,
     lineHeight: 29,
-    fontWeight: "400",
+    fontWeight: "500",
+    textAlign: "center",
+    includeFontPadding: false,
   },
 
   sortRow: {
@@ -1287,7 +1289,7 @@ export const styles = StyleSheet.create({
 
   clearInputButtonText: {
     color: COLORS.amberDark,
-    fontSize: 25,
+    fontSize: 23,
     lineHeight: 29,
     fontWeight: "500",
     textAlign: "center",

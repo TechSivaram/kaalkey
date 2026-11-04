@@ -280,7 +280,14 @@ export const accountTotpUrlImportStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  clearUrlText: { color: COLORS.amberDark, fontSize: 23, fontWeight: "500" },
+  clearUrlText: {
+    color: COLORS.amberDark,
+    fontSize: 23,
+    lineHeight: 29,
+    fontWeight: "500",
+    textAlign: "center",
+    includeFontPadding: false,
+  },
   inlineImportButton: {
     position: "absolute",
     right: 6,

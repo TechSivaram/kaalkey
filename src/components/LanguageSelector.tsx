@@ -33,7 +33,12 @@ export default function LanguageSelector(p: Props) {
         <Text style={s.selectedLanguage}>{selectedName} ▾</Text>
       </View>
       {Platform.OS === "web" ? (
-        <View style={s.mobileSearchRow}>
+        <View
+          style={s.mobileSearchRow}
+          onLayout={(event) =>
+            setInputBottom(event.nativeEvent.layout.y + event.nativeEvent.layout.height)
+          }
+        >
           <TextInput
             value={p.search}
             onFocus={p.onOpen}
@@ -46,9 +51,6 @@ export default function LanguageSelector(p: Props) {
             autoCapitalize="none"
             autoCorrect={false}
             style={[s.input, s.mobileSearchInput]}
-            onLayout={(event) =>
-              setInputBottom(event.nativeEvent.layout.y + event.nativeEvent.layout.height)
-            }
           />
           {p.search.length > 0 ? (
             <TouchableOpacity
@@ -58,7 +60,7 @@ export default function LanguageSelector(p: Props) {
               accessibilityLabel="Clear language search"
               hitSlop={8}
             >
-              <Text style={s.clearSearchText}>✕</Text>
+              <Text style={s.clearSearchText}>×</Text>
             </TouchableOpacity>
           ) : null}
         </View>
@@ -76,7 +78,10 @@ export default function LanguageSelector(p: Props) {
       )}
       {p.open ? (
         Platform.OS === "web" ? (
-          <View style={s.dropdown}>
+          <View style={[s.dropdown, { top: inputBottom }]}>
+            <TouchableOpacity onPress={p.onClose} accessibilityRole="button">
+              <Text style={s.close}>✕</Text>
+            </TouchableOpacity>
             <ScrollView keyboardShouldPersistTaps="always">
               {matches.map((item) => (
                 <LanguageOption
@@ -123,7 +128,7 @@ export default function LanguageSelector(p: Props) {
                       accessibilityLabel="Clear language search"
                       hitSlop={8}
                     >
-                      <Text style={s.clearSearchText}>✕</Text>
+                      <Text style={s.clearSearchText}>×</Text>
                     </TouchableOpacity>
                   ) : null}
                 </View>
