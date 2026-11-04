@@ -91,6 +91,10 @@ export default function HomeScreen() {
   );
 
   const insets = useSafeAreaInsets();
+  const contentContainerStyle = useMemo(
+    () => [styles.content, { paddingBottom: Math.max(insets.bottom + 24, 48) }],
+    [insets.bottom],
+  );
   const { t } = useAppLanguage();
   const scannerCameraHeight = useScannerCameraHeight();
   const { showBrandSplash } = useHomeLifecycle();
@@ -335,10 +339,7 @@ export default function HomeScreen() {
           />
 
           <FlatList
-            contentContainerStyle={[
-              styles.content,
-              { paddingBottom: Math.max(insets.bottom + 24, 48) },
-            ]}
+            contentContainerStyle={contentContainerStyle}
             data={loaded && accounts.length > 0 ? visibleAccounts : []}
             keyExtractor={keyExtractor}
             renderItem={renderAccount}
