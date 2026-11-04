@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useAppLanguage } from "../i18n";
 import { Text, TouchableOpacity, View } from "react-native";
 import { BUTTON_ACTIVE_OPACITY_STANDARD } from "../constants/ui";
@@ -10,10 +11,7 @@ type AccountSectionHeaderProps = {
 };
 
 /** Header for the account list, including the count and add-account action. */
-export default function AccountSectionHeader({
-  accountCount,
-  onAddAccount,
-}: AccountSectionHeaderProps) {
+function AccountSectionHeader({ accountCount, onAddAccount }: AccountSectionHeaderProps) {
   const { t } = useAppLanguage();
   return (
     <View style={styles.sectionHeader}>
@@ -36,3 +34,5 @@ export default function AccountSectionHeader({
     </View>
   );
 }
+
+export default memo(AccountSectionHeader);
