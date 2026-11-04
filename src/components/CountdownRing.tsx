@@ -16,6 +16,16 @@ const CENTER = 27;
 const RING_RADIUS = 23;
 const DOT_RADIUS = 2;
 
+// Ring geometry is static; calculate trigonometry once instead of on every
+// countdown tick for every account card.
+const RING_SEGMENTS = Array.from({ length: SEGMENT_COUNT }, (_, index) => {
+  const angle = (index / SEGMENT_COUNT) * Math.PI * 2 - Math.PI / 2;
+  return {
+    x: CENTER + Math.cos(angle) * RING_RADIUS,
+    y: CENTER + Math.sin(angle) * RING_RADIUS,
+  };
+});
+
 export default function CountdownRing({ secondsRemaining, period }: CountdownRingProps) {
   const [pulse] = useState(() => new Animated.Value(1));
   const progress = secondsRemaining / Math.max(1, period);
@@ -45,16 +55,15 @@ export default function CountdownRing({ secondsRemaining, period }: CountdownRin
       accessibilityLabel={`${secondsRemaining} seconds until code refreshes`}
     >
       <Svg width={54} height={54} viewBox="0 0 54 54">
-        {Array.from({ length: SEGMENT_COUNT }, (_, index) => {
-          const angle = (index / SEGMENT_COUNT) * Math.PI * 2 - Math.PI / 2;
+        {RING_SEGMENTS.map(({ x, y }, index) => {
           const segmentProgress = Math.max(0, Math.min(1, progress * SEGMENT_COUNT - index));
           const active = segmentProgress > 0;
 
           return (
             <Circle
               key={index}
-              cx={CENTER + Math.cos(angle) * RING_RADIUS}
-              cy={CENTER + Math.sin(angle) * RING_RADIUS}
+              cx={x}
+              cy={y}
               r={DOT_RADIUS * (active ? 0.82 + segmentProgress * 0.18 : 0.82)}
               fill={active ? countdownColor : "#CBD3DE"}
               opacity={active ? 0.35 + segmentProgress * 0.65 : 0.58}
