@@ -28,7 +28,10 @@ export function validateAccount(value: unknown): value is Account {
   }
 
   try {
-    const totp = new OTPAuth.TOTP({
+    // Construction validates the OTPAuth configuration and Base32 secret.
+    // Generating a real OTP here adds an unnecessary HMAC operation for every
+    // saved account during startup and backup validation.
+    new OTPAuth.TOTP({
       issuer: account.issuer,
       label: account.name,
       algorithm: account.algorithm as Account["algorithm"],
@@ -36,7 +39,7 @@ export function validateAccount(value: unknown): value is Account {
       period: account.period as number,
       secret: normalizeBase32Secret(account.secret),
     });
-    return /^\d+$/.test(totp.generate());
+    return true;
   } catch {
     return false;
   }
