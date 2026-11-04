@@ -419,7 +419,11 @@ export function useQrImageImport({
       const sourceUri = `${FileSystem.cacheDirectory}kaalkey-clipboard-${Date.now()}.${extension}`;
       let normalizedUri: string | undefined;
       try {
-        await FileSystem.writeAsStringAsync(sourceUri, image.data, {
+        // Expo Clipboard returns image data with a data-URI prefix
+        // (for example, data:image/png;base64,...). FileSystem expects only
+        // the Base64 payload when using the Base64 encoding option.
+        const imageBase64 = image.data.replace(/^data:image\/[^;]+;base64,/i, "");
+        await FileSystem.writeAsStringAsync(sourceUri, imageBase64, {
           encoding: FileSystem.EncodingType.Base64,
         });
         const normalized = await ImageManipulator.manipulateAsync(
@@ -436,7 +440,7 @@ export function useQrImageImport({
           formatAsRGBA: true,
         });
         const qrData = decodeQrPixels(
-          new Uint8ClampedArray(decodedImage.data),
+          decodedImage.data,
           decodedImage.width,
           decodedImage.height,
         );
