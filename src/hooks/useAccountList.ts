@@ -21,11 +21,7 @@ const NORMALIZED_ACCOUNT_TEXT = new WeakMap<Account, NormalizedAccountText>();
 
 function getNormalizedAccountText(account: Account) {
   const cached = NORMALIZED_ACCOUNT_TEXT.get(account);
-  if (
-    cached &&
-    cached.issuerValue === account.issuer &&
-    cached.nameValue === account.name
-  ) {
+  if (cached && cached.issuerValue === account.issuer && cached.nameValue === account.name) {
     return cached;
   }
 
