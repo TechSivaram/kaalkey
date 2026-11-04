@@ -25,6 +25,10 @@ type UseAccountsOptions = {
   setModalVisible: (visible: boolean) => void;
 };
 
+// Initial form defaults are immutable primitives; keep the defaults object
+// outside the hook so HomeScreen rerenders do not recreate it.
+const INITIAL_FORM_DEFAULTS = getDefaultAccountFormValues();
+
 export function useAccounts({
   showMessage,
   hapticFeedback,
@@ -39,10 +43,11 @@ export function useAccounts({
   const [secret, setSecret] = useState("");
   const [totpUrlInput, setTotpUrlInput] = useState("");
   const [manualExpanded, setManualExpanded] = useState(false);
-  const formDefaults = getDefaultAccountFormValues();
-  const [otpAlgorithm, setOtpAlgorithm] = useState<Account["algorithm"]>(formDefaults.otpAlgorithm);
-  const [otpDigits, setOtpDigits] = useState<number>(formDefaults.otpDigits);
-  const [otpPeriod, setOtpPeriod] = useState<string>(formDefaults.otpPeriod);
+  const [otpAlgorithm, setOtpAlgorithm] = useState<Account["algorithm"]>(
+    INITIAL_FORM_DEFAULTS.otpAlgorithm,
+  );
+  const [otpDigits, setOtpDigits] = useState<number>(INITIAL_FORM_DEFAULTS.otpDigits);
+  const [otpPeriod, setOtpPeriod] = useState<string>(INITIAL_FORM_DEFAULTS.otpPeriod);
 
   const resetAccountForm = useCallback(() => {
     const defaults = getDefaultAccountFormValues();
