@@ -7,7 +7,6 @@ export const ACCOUNT_SCANNER_HEIGHT_MAX = 300;
 export const ACCOUNT_SCANNER_HEIGHT_RATIO = 0.34;
 
 /** Animation and browser QR-scanning cadence values. */
-export const COUNTDOWN_RING_ANIMATION_DURATION_MS = 220;
 export const WEB_QR_SCAN_THROTTLE_MS = 180;
 
 /** Press feedback opacity shared by interactive buttons. */

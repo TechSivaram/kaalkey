@@ -258,11 +258,6 @@ export const legalNoticeHeaderStyles = StyleSheet.create({
   description: { fontSize: 13, lineHeight: 19, color: COLORS.legalSecondaryText, marginBottom: 12 },
 });
 
-export const getCountdownDynamicStyles = (pulse: any, numberColor: string) =>
-  StyleSheet.create({
-    pulse: { transform: [{ scale: pulse }] },
-    countdownNumber: { color: numberColor },
-  });
 
 export const accountTotpUrlImportStyles = StyleSheet.create({
   fieldGroup: { marginBottom: 12 },

@@ -1,10 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
-import { Animated, Easing } from "react-native";
+import { useMemo } from "react";
+import { Text, View } from "react-native";
 import Svg, { Circle, Path } from "react-native-svg";
 import { styles } from "../styles/home.styles";
-import { COUNTDOWN_RING_ANIMATION_DURATION_MS } from "../constants/ui";
 import { COLORS } from "../constants/colors";
-import { getCountdownDynamicStyles } from "../styles/component.styles";
 
 type CountdownRingProps = {
   secondsRemaining: number;
@@ -68,26 +66,12 @@ const INACTIVE_DOT_PATHS = Array.from({ length: SEGMENT_COUNT + 1 }, (_, complet
 ]);
 
 export default function CountdownRing({ secondsRemaining, period }: CountdownRingProps) {
-  const [pulse] = useState(() => new Animated.Value(1));
   const progress = secondsRemaining / Math.max(1, period);
   const countdownColor = secondsRemaining <= 5 ? COLORS.danger : COLORS.indiaGreen;
   const numberColor = secondsRemaining <= 5 ? COLORS.danger : COLORS.textPrimary;
-  // StyleSheet creation is avoided on every countdown tick; only recreate when
-  // the pulse instance or warning color changes.
-  const dynamicStyles = useMemo(
-    () => getCountdownDynamicStyles(pulse, numberColor),
-    [pulse, numberColor],
-  );
-
-  useEffect(() => {
-    pulse.setValue(0.94);
-    Animated.timing(pulse, {
-      toValue: 1,
-      duration: COUNTDOWN_RING_ANIMATION_DURATION_MS,
-      easing: Easing.out(Easing.cubic),
-      useNativeDriver: true,
-    }).start();
-  }, [secondsRemaining, pulse]);
+  // Keep the countdown's color style stable between ticks. The ring itself
+  // does not need a per-second native animation to display accurate progress.
+  const numberColorStyle = useMemo(() => ({ color: numberColor }), [numberColor]);
 
   // Split progress into completed dots and one fractional dot. The completed
   // dot layout changes only when progress crosses a segment boundary, not on
@@ -106,8 +90,8 @@ export default function CountdownRing({ secondsRemaining, period }: CountdownRin
   const inactiveDotPath = INACTIVE_DOT_PATHS[completedSegments][hasPartialSegment ? 1 : 0];
 
   return (
-    <Animated.View
-      style={[styles.countdownRing, dynamicStyles.pulse, RING_CONTAINER_ALIGNMENT_STYLE]}
+    <View
+      style={[styles.countdownRing, RING_CONTAINER_ALIGNMENT_STYLE]}
       accessibilityLabel={`${secondsRemaining} seconds until code refreshes`}
     >
       <Svg width={54} height={54} viewBox="0 0 54 54">
@@ -123,16 +107,15 @@ export default function CountdownRing({ secondsRemaining, period }: CountdownRin
           />
         ) : null}
       </Svg>
-      <Animated.Text
+      <Text
         style={[
           styles.countdownNumber,
-          dynamicStyles.countdownNumber,
+          numberColorStyle,
           COUNTDOWN_TEXT_LAYOUT_STYLE,
-          { transform: [{ translateY: 0 }] },
         ]}
       >
         {secondsRemaining}
-      </Animated.Text>
-    </Animated.View>
+      </Text>
+    </View>
   );
 }
