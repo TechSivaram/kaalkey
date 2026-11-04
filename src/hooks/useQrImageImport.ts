@@ -15,6 +15,27 @@ import { decodeBase64ToBytes } from "../services/base64";
 import { QR_IMAGE_MAX_WIDTH } from "../constants/qr";
 import { isTotpQrPayload, normalizeTotpQrPayload } from "../utils/totpQrPayload";
 
+// Bound canvas memory for pasted screenshots while preserving native resolution
+// for ordinary images. Large clipboard images otherwise allocate full-size RGBA
+// buffers before jsQR begins decoding.
+function decodeQrImageElement(image: HTMLImageElement): string | undefined {
+  const maxDimension = 1800;
+  const sourceWidth = image.naturalWidth;
+  const sourceHeight = image.naturalHeight;
+  if (!sourceWidth || !sourceHeight) return undefined;
+
+  const scale = Math.min(1, maxDimension / Math.max(sourceWidth, sourceHeight));
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.max(1, Math.round(sourceWidth * scale));
+  canvas.height = Math.max(1, Math.round(sourceHeight * scale));
+  const context = canvas.getContext("2d", { willReadFrequently: true });
+  if (!context) return undefined;
+  context.imageSmoothingEnabled = scale < 1;
+  context.drawImage(image, 0, 0, canvas.width, canvas.height);
+  const pixels = context.getImageData(0, 0, canvas.width, canvas.height);
+  return decodeQrPixels(pixels.data, pixels.width, pixels.height);
+}
+
 type UseQrImageImportOptions = {
   onQrScanned: (data: string, fromCamera?: boolean) => Promise<void>;
   modalVisible: boolean;
@@ -352,14 +373,10 @@ export function useQrImageImport({
                 reject(new Error(USER_MESSAGES.qrImport.clipboardImageLoadFailed));
               image.src = objectUrl!;
             });
-            const canvas = document.createElement("canvas");
-            canvas.width = image.naturalWidth;
-            canvas.height = image.naturalHeight;
-            const context = canvas.getContext("2d", { willReadFrequently: true });
-            if (!context) throw new Error(USER_MESSAGES.qrImport.imageProcessingUnavailable);
-            context.drawImage(image, 0, 0);
-            const pixels = context.getImageData(0, 0, canvas.width, canvas.height);
-            const qrData = decodeQrPixels(pixels.data, pixels.width, pixels.height);
+            const qrData = decodeQrImageElement(image);
+            if (!qrData && (!image.naturalWidth || !image.naturalHeight)) {
+              throw new Error(USER_MESSAGES.qrImport.imageProcessingUnavailable);
+            }
             if (!qrData) {
               showQrImportMessage(
                 USER_MESSAGES.qrImport.noQrCodeFoundTitle,
@@ -495,14 +512,10 @@ export function useQrImageImport({
         const objectUrl = URL.createObjectURL(file);
         image.onload = () => {
           try {
-            const canvas = document.createElement("canvas");
-            canvas.width = image.naturalWidth;
-            canvas.height = image.naturalHeight;
-            const ctx = canvas.getContext("2d", { willReadFrequently: true });
-            if (!ctx) throw new Error(USER_MESSAGES.qrImport.imageProcessingUnavailableAlt);
-            ctx.drawImage(image, 0, 0);
-            const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const qrData = decodeQrPixels(pixels.data, pixels.width, pixels.height);
+            const qrData = decodeQrImageElement(image);
+            if (!qrData && (!image.naturalWidth || !image.naturalHeight)) {
+              throw new Error(USER_MESSAGES.qrImport.imageProcessingUnavailableAlt);
+            }
             if (qrData) void onQrScannedRef.current(qrData, false);
             else
               showQrImportMessage(
