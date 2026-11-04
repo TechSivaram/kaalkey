@@ -39,9 +39,17 @@ export function useAccountList(accounts: Account[]) {
 
   const visibleAccounts = useMemo(() => {
     const query = normalizeAccountText(searchQuery, true);
-    return sortedAccounts
-      .filter(({ issuer, name }) => !query || issuer.includes(query) || name.includes(query))
-      .map(({ account }) => account);
+    const visible: Account[] = [];
+
+    // Build the final array in one pass instead of allocating an intermediate
+    // filtered array and then a second mapped array on every search change.
+    for (const { account, issuer, name } of sortedAccounts) {
+      if (!query || issuer.includes(query) || name.includes(query)) {
+        visible.push(account);
+      }
+    }
+
+    return visible;
   }, [sortedAccounts, searchQuery]);
 
   return { searchQuery, setSearchQuery, sortBy, setSortBy, visibleAccounts };
