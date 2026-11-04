@@ -1,5 +1,5 @@
 import * as OTPAuth from "otpauth";
-import { isValidBase32Secret, normalizeBase32Secret } from "../utils/base32";
+import { isValidNormalizedBase32Secret, normalizeBase32Secret } from "../utils/base32";
 import type { Account } from "../types/account";
 import {
   isSupportedTotpAlgorithm,
@@ -18,7 +18,6 @@ export function validateAccount(value: unknown): value is Account {
     typeof account.name !== "string" ||
     !account.name.trim() ||
     typeof account.secret !== "string" ||
-    !isValidBase32Secret(account.secret) ||
     !isSupportedTotpAlgorithm(account.algorithm) ||
     !isSupportedTotpDigits(account.digits) ||
     !isSupportedTotpPeriod(account.period) ||
@@ -26,6 +25,9 @@ export function validateAccount(value: unknown): value is Account {
   ) {
     return false;
   }
+
+  const normalizedSecret = normalizeBase32Secret(account.secret);
+  if (!isValidNormalizedBase32Secret(normalizedSecret)) return false;
 
   try {
     // Construction validates the OTPAuth configuration and Base32 secret.
@@ -37,7 +39,7 @@ export function validateAccount(value: unknown): value is Account {
       algorithm: account.algorithm as Account["algorithm"],
       digits: account.digits as number,
       period: account.period as number,
-      secret: normalizeBase32Secret(account.secret),
+      secret: normalizedSecret,
     });
     return true;
   } catch {
