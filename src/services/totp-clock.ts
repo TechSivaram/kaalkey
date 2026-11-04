@@ -1,13 +1,18 @@
 import { AppState, type AppStateStatus } from "react-native";
-import { useSyncExternalStore } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 import { TOTP_CLOCK_REFRESH_INTERVAL_MS } from "../constants/ui";
 
 type ClockListener = () => void;
+type TimeStepGroup = {
+  listeners: Set<ClockListener>;
+  lastStep: number;
+};
 
 let currentTime = Date.now();
 let intervalId: ReturnType<typeof setInterval> | undefined;
 let appStateSubscription: ReturnType<typeof AppState.addEventListener> | undefined;
 const listeners = new Set<ClockListener>();
+const timeStepGroups = new Map<number, TimeStepGroup>();
 let lastNotifiedSecond = Math.floor(currentTime / 1000);
 
 function isForeground(state: AppStateStatus | null) {
@@ -15,10 +20,30 @@ function isForeground(state: AppStateStatus | null) {
   return state === null || state === "active" || state === "unknown";
 }
 
+function hasSubscribers() {
+  return listeners.size > 0 || timeStepGroups.size > 0;
+}
+
+function getTimeStep(periodSeconds: number) {
+  return Math.floor(currentTime / (periodSeconds * 1000));
+}
+
 function stopClock() {
   if (intervalId !== undefined) {
     clearInterval(intervalId);
     intervalId = undefined;
+  }
+}
+
+function notifyTimeStepGroups() {
+  // Check each distinct period once, then notify only accounts whose OTP step
+  // actually changed. A vault with many accounts on the same period therefore
+  // has one clock-level check instead of one React subscription callback per account.
+  for (const [periodSeconds, group] of timeStepGroups) {
+    const nextStep = getTimeStep(periodSeconds);
+    if (nextStep === group.lastStep) continue;
+    group.lastStep = nextStep;
+    group.listeners.forEach((listener) => listener());
   }
 }
 
@@ -31,16 +56,36 @@ function notifyListeners() {
   if (currentSecond === lastNotifiedSecond) return;
   lastNotifiedSecond = currentSecond;
   listeners.forEach((listener) => listener());
+  notifyTimeStepGroups();
 }
 
 function startClock() {
-  if (intervalId !== undefined || listeners.size === 0 || !isForeground(AppState.currentState)) {
+  if (intervalId !== undefined || !hasSubscribers() || !isForeground(AppState.currentState)) {
     return;
   }
 
   currentTime = Date.now();
   lastNotifiedSecond = Math.floor(currentTime / 1000);
+  // Establish a fresh baseline when the clock starts; the post-subscribe
+  // snapshot check in useSyncExternalStore observes the current step.
+  for (const [periodSeconds, group] of timeStepGroups) {
+    group.lastStep = getTimeStep(periodSeconds);
+  }
   intervalId = setInterval(notifyListeners, TOTP_CLOCK_REFRESH_INTERVAL_MS);
+}
+
+function ensureClock() {
+  if (!appStateSubscription) {
+    appStateSubscription = AppState.addEventListener("change", handleAppStateChange);
+  }
+  startClock();
+}
+
+function cleanupClockIfUnused() {
+  if (hasSubscribers()) return;
+  stopClock();
+  appStateSubscription?.remove();
+  appStateSubscription = undefined;
 }
 
 function handleAppStateChange(nextState: AppStateStatus) {
@@ -54,27 +99,36 @@ function handleAppStateChange(nextState: AppStateStatus) {
   currentTime = Date.now();
   lastNotifiedSecond = Math.floor(currentTime / 1000);
   listeners.forEach((listener) => listener());
+  notifyTimeStepGroups();
   startClock();
 }
 
 function subscribe(listener: ClockListener) {
   listeners.add(listener);
-
-  if (listeners.size === 1) {
-    currentTime = Date.now();
-    lastNotifiedSecond = Math.floor(currentTime / 1000);
-    appStateSubscription = AppState.addEventListener("change", handleAppStateChange);
-    startClock();
-  }
+  ensureClock();
 
   return () => {
     listeners.delete(listener);
+    cleanupClockIfUnused();
+  };
+}
 
-    if (listeners.size === 0) {
-      stopClock();
-      appStateSubscription?.remove();
-      appStateSubscription = undefined;
+function subscribeToTimeStep(periodSeconds: number, listener: ClockListener) {
+  let group = timeStepGroups.get(periodSeconds);
+  if (!group) {
+    group = { listeners: new Set(), lastStep: getTimeStep(periodSeconds) };
+    timeStepGroups.set(periodSeconds, group);
+  }
+  group.listeners.add(listener);
+  ensureClock();
+
+  return () => {
+    const currentGroup = timeStepGroups.get(periodSeconds);
+    if (currentGroup) {
+      currentGroup.listeners.delete(listener);
+      if (currentGroup.listeners.size === 0) timeStepGroups.delete(periodSeconds);
     }
+    cleanupClockIfUnused();
   };
 }
 
@@ -87,8 +141,13 @@ export function useTotpClock() {
   return useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
 }
 
-/** Subscribe to a TOTP time-step instead of every displayed clock second. */
+/** Subscribe by period so OTP displays update only when their code can change. */
 export function useTotpTimeStep(periodSeconds: number) {
-  const getTimeStep = () => Math.floor(currentTime / (Math.max(1, periodSeconds) * 1000));
-  return useSyncExternalStore(subscribe, getTimeStep, getTimeStep);
+  const normalizedPeriod = Math.max(1, periodSeconds);
+  const subscribeForPeriod = useCallback(
+    (listener: ClockListener) => subscribeToTimeStep(normalizedPeriod, listener),
+    [normalizedPeriod],
+  );
+  const getPeriodSnapshot = useCallback(() => getTimeStep(normalizedPeriod), [normalizedPeriod]);
+  return useSyncExternalStore(subscribeForPeriod, getPeriodSnapshot, getPeriodSnapshot);
 }

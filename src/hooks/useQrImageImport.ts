@@ -232,9 +232,7 @@ export function useQrImageImport({
           data: Uint8Array | Uint8ClampedArray;
           width: number;
           height: number;
-        }[] = [
-          { data: decodedImage.data, width: decodedImage.width, height: decodedImage.height },
-        ];
+        }[] = [{ data: decodedImage.data, width: decodedImage.width, height: decodedImage.height }];
         const centerX = Math.floor(decodedImage.width * 0.1);
         const centerY = Math.floor(decodedImage.height * 0.1);
         const centerWidth = Math.max(1, decodedImage.width - centerX * 2);
@@ -251,11 +249,7 @@ export function useQrImageImport({
           attempts.push({ data: crop, width: centerWidth, height: centerHeight });
         }
         for (const attempt of attempts) {
-          const qrDataFromPixels = decodeQrPixels(
-            attempt.data,
-            attempt.width,
-            attempt.height,
-          );
+          const qrDataFromPixels = decodeQrPixels(attempt.data, attempt.width, attempt.height);
           if (qrDataFromPixels) {
             qrData = qrDataFromPixels;
             break;
