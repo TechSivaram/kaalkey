@@ -23,7 +23,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
   const { t } = useAppLanguage();
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
-  const frameRef = useRef<number | null>(null);
+  const scanTimerRef = useRef<number | null>(null);
   const onDetectedRef = useRef(onDetected);
   useEffect(() => {
     onDetectedRef.current = onDetected;
@@ -36,8 +36,8 @@ export default function WebQrScanner({ active, onDetected }: Props) {
     let lastScan = 0;
 
     const stop = () => {
-      if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
-      frameRef.current = null;
+      if (scanTimerRef.current !== null) window.clearTimeout(scanTimerRef.current);
+      scanTimerRef.current = null;
       streamRef.current?.getTracks().forEach((track) => track.stop());
       streamRef.current = null;
       if (videoRef.current) videoRef.current.srcObject = null;
@@ -135,9 +135,11 @@ export default function WebQrScanner({ active, onDetected }: Props) {
               setMessage(t("qrScanner.couldnTRead"));
             }
           }
-          if (!disposed) frameRef.current = requestAnimationFrame(scanFrame);
+          if (!disposed) {
+            scanTimerRef.current = window.setTimeout(scanFrame, WEB_QR_SCAN_THROTTLE_MS);
+          }
         };
-        frameRef.current = requestAnimationFrame(scanFrame);
+        scanFrame();
       } catch (error) {
         setMessage(t(getWebQrCameraErrorMessage(error)));
       }
