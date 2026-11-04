@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { memo, useMemo } from "react";
 import { Text, View } from "react-native";
 import Svg, { Circle, Path } from "react-native-svg";
 import { styles } from "../styles/home.styles";
@@ -66,7 +66,7 @@ const INACTIVE_DOT_PATHS = Array.from({ length: SEGMENT_COUNT + 1 }, (_, complet
   createDotPath(Math.min(SEGMENT_COUNT, completed + 1), SEGMENT_COUNT, DOT_RADIUS * 0.82),
 ]);
 
-export default function CountdownRing({ period }: CountdownRingProps) {
+function CountdownRing({ period }: CountdownRingProps) {
   const now = useTotpClock();
   const { secondsRemaining } = getTotpCountdown(now, period);
   const progress = secondsRemaining / Math.max(1, period);
@@ -116,3 +116,5 @@ export default function CountdownRing({ period }: CountdownRingProps) {
     </View>
   );
 }
+
+export default memo(CountdownRing);
