@@ -439,11 +439,7 @@ export function useQrImageImport({
           useTArray: true,
           formatAsRGBA: true,
         });
-        const qrData = decodeQrPixels(
-          decodedImage.data,
-          decodedImage.width,
-          decodedImage.height,
-        );
+        const qrData = decodeQrPixels(decodedImage.data, decodedImage.width, decodedImage.height);
         if (!qrData) {
           showQrImportMessage(
             USER_MESSAGES.qrImport.noQrCodeFoundTitle,
@@ -503,53 +499,132 @@ export function useQrImageImport({
         return;
       }
 
+      // ClipboardItem lists are the standard path. Some browsers expose copied
+      // image data through clipboardData.files instead, so check both surfaces.
+      let pastedImage: File | null = null;
       const items = clipboard.items;
-      if (!items) return;
-      for (let i = 0; i < items.length; i++) {
-        const item = items[i];
-        if (!item.type.startsWith("image/")) continue;
-        const file = item.getAsFile();
-        if (!file) continue;
-        event.preventDefault();
-        setActivityMessage(USER_MESSAGES.activity.importingPastedImage);
-        const image = document.createElement("img");
-        const objectUrl = URL.createObjectURL(file);
-        image.onload = () => {
-          try {
-            const qrData = decodeQrImageElement(image);
-            if (!qrData && (!image.naturalWidth || !image.naturalHeight)) {
-              throw new Error(USER_MESSAGES.qrImport.imageProcessingUnavailableAlt);
-            }
-            if (qrData) void onQrScannedRef.current(qrData, false);
-            else
-              showQrImportMessage(
-                USER_MESSAGES.qrImport.noQrCodeFoundTitle,
-                USER_MESSAGES.qrImport.pastedNotFoundBody,
-              );
-          } catch {
-            showQrImportMessage(
-              USER_MESSAGES.qrImport.couldNotReadImageTitle,
-              USER_MESSAGES.qrImport.pastedReadFailureBody,
-            );
-          } finally {
-            URL.revokeObjectURL(objectUrl);
-            setActivityMessage(null);
+      if (items) {
+        for (let i = 0; i < items.length; i++) {
+          const item = items[i];
+          if (!item.type.startsWith("image/")) continue;
+          pastedImage = item.getAsFile();
+          if (pastedImage) break;
+        }
+      }
+      if (!pastedImage && clipboard.files?.length) {
+        pastedImage =
+          Array.from(clipboard.files).find((file) => file.type.startsWith("image/")) ?? null;
+      }
+      if (!pastedImage) return;
+
+      event.preventDefault();
+      setActivityMessage(USER_MESSAGES.activity.importingPastedImage);
+      const image = document.createElement("img");
+      const objectUrl = URL.createObjectURL(pastedImage);
+      image.onload = () => {
+        try {
+          const qrData = decodeQrImageElement(image);
+          if (!qrData && (!image.naturalWidth || !image.naturalHeight)) {
+            throw new Error(USER_MESSAGES.qrImport.imageProcessingUnavailableAlt);
           }
-        };
-        image.onerror = () => {
-          URL.revokeObjectURL(objectUrl);
-          setActivityMessage(null);
+          if (qrData) void onQrScannedRef.current(qrData, false);
+          else
+            showQrImportMessage(
+              USER_MESSAGES.qrImport.noQrCodeFoundTitle,
+              USER_MESSAGES.qrImport.pastedNotFoundBody,
+            );
+        } catch {
           showQrImportMessage(
             USER_MESSAGES.qrImport.couldNotReadImageTitle,
-            USER_MESSAGES.qrImport.pastedImportFailureBody,
+            USER_MESSAGES.qrImport.pastedReadFailureBody,
           );
-        };
-        image.src = objectUrl;
+        } finally {
+          URL.revokeObjectURL(objectUrl);
+          setActivityMessage(null);
+        }
+      };
+      image.onerror = () => {
+        URL.revokeObjectURL(objectUrl);
+        setActivityMessage(null);
+        showQrImportMessage(
+          USER_MESSAGES.qrImport.couldNotReadImageTitle,
+          USER_MESSAGES.qrImport.pastedImportFailureBody,
+        );
+      };
+      image.src = objectUrl;
+    };
+    const onDragOver = (event: DragEvent) => {
+      // Only claim file drags while the Add Account modal is active. This also
+      // prevents the browser from navigating to the dropped image file.
+      if (!event.dataTransfer?.types.includes("Files")) return;
+      event.preventDefault();
+      event.dataTransfer.dropEffect = "copy";
+    };
+
+    const onDrop = (event: DragEvent) => {
+      const files = event.dataTransfer?.files;
+      if (!files?.length) return;
+      event.preventDefault();
+
+      const droppedImage = Array.from(files).find(
+        (file) => file.type.startsWith("image/") || /\.(png|jpe?g|webp|gif|bmp)$/i.test(file.name),
+      );
+      if (!droppedImage) {
+        showQrImportMessage(
+          USER_MESSAGES.qrImport.unsupportedFileTitle,
+          USER_MESSAGES.qrImport.unsupportedFileBody,
+        );
         return;
       }
+
+      setActivityMessage(USER_MESSAGES.activity.importingPastedImage);
+      const objectUrl = URL.createObjectURL(droppedImage);
+      const image = new globalThis.Image();
+      image.onload = () => {
+        try {
+          const qrData = decodeQrImageElement(image);
+          if (!qrData && (!image.naturalWidth || !image.naturalHeight)) {
+            throw new Error(USER_MESSAGES.qrImport.imageProcessingUnavailableAlt);
+          }
+          if (qrData) {
+            void onQrScannedRef.current(qrData, false);
+          } else {
+            showQrImportMessage(
+              USER_MESSAGES.qrImport.noQrCodeFoundTitle,
+              USER_MESSAGES.qrImport.pastedNotFoundBody,
+            );
+          }
+        } catch {
+          showQrImportMessage(
+            USER_MESSAGES.qrImport.couldNotReadImageTitle,
+            USER_MESSAGES.qrImport.pastedReadFailureBody,
+          );
+        } finally {
+          URL.revokeObjectURL(objectUrl);
+          setActivityMessage(null);
+        }
+      };
+      image.onerror = () => {
+        URL.revokeObjectURL(objectUrl);
+        setActivityMessage(null);
+        showQrImportMessage(
+          USER_MESSAGES.qrImport.couldNotReadImageTitle,
+          USER_MESSAGES.qrImport.pastedImportFailureBody,
+        );
+      };
+      image.src = objectUrl;
     };
-    window.addEventListener("paste", onPaste);
-    return () => window.removeEventListener("paste", onPaste);
+
+    // Capture phase ensures the app receives files before nested React
+    // components or browser widgets can stop these events from bubbling.
+    window.addEventListener("paste", onPaste, true);
+    window.addEventListener("dragover", onDragOver, true);
+    window.addEventListener("drop", onDrop, true);
+    return () => {
+      window.removeEventListener("paste", onPaste, true);
+      window.removeEventListener("dragover", onDragOver, true);
+      window.removeEventListener("drop", onDrop, true);
+    };
   }, [modalVisible, editingId, setActivityMessage, USER_MESSAGES]);
 
   return { importQrImage, pasteQrImage };
