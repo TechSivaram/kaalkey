@@ -190,9 +190,22 @@ export function interpolateTemplate(
   });
 }
 
+// Translation keys are static throughout the UI. Cache their path segments so
+// repeated renders do not allocate a new array with key.split(".") each time.
+const translationKeyPaths = new Map<string, string[]>();
+
+function getTranslationKeyPath(key: string): string[] {
+  let path = translationKeyPaths.get(key);
+  if (!path) {
+    path = key.split(".");
+    translationKeyPaths.set(key, path);
+  }
+  return path;
+}
+
 function findTranslation(dictionary: TranslationNode, key: string): string | undefined {
   let node: TranslationNode = dictionary;
-  for (const part of key.split(".")) {
+  for (const part of getTranslationKeyPath(key)) {
     if (typeof node === "string" || !(part in node)) return undefined;
     node = node[part];
   }
