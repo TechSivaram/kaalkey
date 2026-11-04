@@ -100,6 +100,8 @@ export function useBackupManager({
     setBackupBusy(true);
     setActivityMessage(USER_MESSAGES.backup.encrypting);
     try {
+      // Let React Native/Web paint the activity overlay before synchronous CryptoJS work.
+      await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
       const encrypted = await encryptBackup(accounts, backupPassword, t);
       // Reuse the timestamp embedded in the generated password so the password
       // and backup filename identify the same backup creation time.
@@ -244,6 +246,8 @@ export function useBackupManager({
       const raw = await pickBackupText();
       if (raw === null) return;
       setActivityMessage(USER_MESSAGES.backup.decrypting);
+      // Decryption and payload validation are CPU-bound; yield so the loader is visible first.
+      await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
       const restored = await decryptBackup(raw, backupPassword, t);
       setActivityMessage(null);
       const message = getRestoreConfirmationMessage(restored.length, t);
