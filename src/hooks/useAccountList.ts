@@ -6,6 +6,39 @@ export type AccountSortBy = "service" | "account";
 // Reuse the locale-aware comparator instead of constructing it on each search.
 const ACCOUNT_COLLATOR = new Intl.Collator(undefined, { sensitivity: "base" });
 
+type NormalizedAccountText = {
+  issuerValue: string;
+  nameValue: string;
+  issuer: string;
+  name: string;
+};
+
+// Account arrays are replaced when the collection changes, but most account
+// objects remain identical. Cache normalized identity text by object so an
+// edit/add/remove does not force normalization of every unchanged account.
+// WeakMap keys allow removed account objects to be garbage-collected.
+const NORMALIZED_ACCOUNT_TEXT = new WeakMap<Account, NormalizedAccountText>();
+
+function getNormalizedAccountText(account: Account) {
+  const cached = NORMALIZED_ACCOUNT_TEXT.get(account);
+  if (
+    cached &&
+    cached.issuerValue === account.issuer &&
+    cached.nameValue === account.name
+  ) {
+    return cached;
+  }
+
+  const normalized = {
+    issuerValue: account.issuer,
+    nameValue: account.name,
+    issuer: normalizeAccountText(account.issuer),
+    name: normalizeAccountText(account.name),
+  };
+  NORMALIZED_ACCOUNT_TEXT.set(account, normalized);
+  return normalized;
+}
+
 /** Owns account-list search, sort preference, and derived visible rows. */
 export function useAccountList(accounts: Account[]) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,8 +50,7 @@ export function useAccountList(accounts: Account[]) {
     () =>
       accounts.map((account) => ({
         account,
-        issuer: normalizeAccountText(account.issuer),
-        name: normalizeAccountText(account.name),
+        ...getNormalizedAccountText(account),
       })),
     [accounts],
   );
