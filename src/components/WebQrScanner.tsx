@@ -99,12 +99,16 @@ export default function WebQrScanner({ active, onDetected }: Props) {
               canvas.height = Math.max(1, Math.round(video.videoHeight * scale));
               context.drawImage(video, 0, 0, canvas.width, canvas.height);
               let pixels = context.getImageData(0, 0, canvas.width, canvas.height);
+              // Most authenticator QR codes use the standard dark-on-light
+              // format. Try that inexpensive path first instead of asking jsQR
+              // to test both polarities on every frame.
               let result = jsQR(pixels.data, pixels.width, pixels.height, {
-                inversionAttempts: "attemptBoth",
+                inversionAttempts: "dontInvert",
               });
 
               // If the full frame misses, retry the central region; this helps
-              // when a QR is small in a wide webcam frame.
+              // when a QR is small in a wide webcam frame. The cropped retry
+              // checks both polarities so inverted QR codes remain supported.
               if (!result) {
                 const cropWidth = Math.max(
                   1,
