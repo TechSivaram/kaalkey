@@ -195,7 +195,7 @@ export default function HomeScreen() {
     hapticFeedback,
   });
 
-  const { importQrImage, pasteQrImage } = useQrImageImport({
+  const { importQrImage, pasteQrImage, isDraggingImage } = useQrImageImport({
     onQrScanned: handleQrScanned,
     modalVisible,
     editingId,
@@ -369,6 +369,7 @@ export default function HomeScreen() {
 
           <AccountEditorModal
             modalVisible={modalVisible}
+            isDraggingImage={isDraggingImage}
             setModalVisible={setModalVisible}
             editingId={editingId}
             setEditingId={setEditingId}

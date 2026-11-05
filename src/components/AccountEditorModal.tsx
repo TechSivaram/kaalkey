@@ -1,6 +1,6 @@
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
-import { KeyboardAvoidingView, Modal, Platform, ScrollView, View } from "react-native";
+import { Animated, KeyboardAvoidingView, Modal, Platform, ScrollView, Text, View } from "react-native";
 import type { Account } from "../types/account";
 import AccountImportActions from "./AccountImportActions";
 import AccountManualEntryFields from "./AccountManualEntryFields";
@@ -11,6 +11,7 @@ import { getAccountEditorBackdropStyles } from "../styles/component.styles";
 
 type Props = {
   modalVisible: boolean;
+  isDraggingImage: boolean;
   setModalVisible: Dispatch<SetStateAction<boolean>>;
   editingId: string | null;
   setEditingId: Dispatch<SetStateAction<string | null>>;
@@ -43,6 +44,7 @@ type Props = {
 function AccountEditorModal(props: Props) {
   const {
     modalVisible,
+    isDraggingImage,
     setModalVisible,
     editingId,
     setEditingId,
@@ -70,6 +72,17 @@ function AccountEditorModal(props: Props) {
     pasteTotpUrl,
     saveAccount,
   } = props;
+  const [dropOverlayOpacity] = useState(() => new Animated.Value(0));
+
+  useEffect(() => {
+    if (Platform.OS !== "web") return;
+    Animated.timing(dropOverlayOpacity, {
+      toValue: isDraggingImage ? 1 : 0,
+      duration: isDraggingImage ? 160 : 120,
+      useNativeDriver: true,
+    }).start();
+  }, [dropOverlayOpacity, isDraggingImage]);
+
   return (
     <Modal
       visible={modalVisible}
@@ -138,6 +151,114 @@ function AccountEditorModal(props: Props) {
             />
           </View>
         </ScrollView>
+        {Platform.OS === "web" && (
+          <Animated.View
+            pointerEvents="none"
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+              zIndex: 10000,
+              opacity: dropOverlayOpacity,
+              alignItems: "center",
+              justifyContent: "center",
+              paddingHorizontal: 24,
+              paddingVertical: 32,
+              backgroundColor: "rgba(15, 28, 23, 0.68)",
+            }}
+          >
+            <Animated.View
+              style={{
+                width: "100%",
+                maxWidth: 390,
+                padding: 8,
+                borderRadius: 22,
+                borderWidth: 1.5,
+                borderStyle: "dashed",
+                borderColor: "rgba(190, 224, 203, 0.9)",
+                backgroundColor: "rgba(255, 255, 255, 0.08)",
+                transform: [
+                  {
+                    scale: dropOverlayOpacity.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [0.96, 1],
+                    }),
+                  },
+                ],
+              }}
+            >
+              <View
+                style={{
+                  alignItems: "center",
+                  paddingHorizontal: 24,
+                  paddingVertical: 30,
+                  borderRadius: 15,
+                  backgroundColor: "#FFFFFF",
+                }}
+              >
+                <View
+                  style={{
+                    width: 58,
+                    height: 58,
+                    marginBottom: 17,
+                    borderRadius: 18,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "#E8F1EB",
+                    borderWidth: 1,
+                    borderColor: "#D4E5D9",
+                  }}
+                >
+                  <Text style={{ color: "#164C35", fontSize: 29, fontWeight: "600" }}>↥</Text>
+                </View>
+                <Text
+                  style={{
+                    color: "#142B23",
+                    fontSize: 19,
+                    fontWeight: "700",
+                    letterSpacing: 0.1,
+                    textAlign: "center",
+                  }}
+                >
+                  Import QR code
+                </Text>
+                <Text
+                  style={{
+                    marginTop: 7,
+                    color: "#66756D",
+                    fontSize: 13,
+                    lineHeight: 19,
+                    textAlign: "center",
+                  }}
+                >
+                  Drop your QR image here to add it to KaalKey
+                </Text>
+                <View
+                  style={{
+                    marginTop: 18,
+                    paddingHorizontal: 11,
+                    paddingVertical: 6,
+                    borderRadius: 20,
+                    backgroundColor: "#F1F5F2",
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: "#53665A",
+                      fontSize: 10,
+                      fontWeight: "700",
+                      letterSpacing: 1.1,
+                    }}
+                  >
+                    PNG  ·  JPG  ·  WEBP
+                  </Text>
+                </View>
+              </View>
+            </Animated.View>
+          </Animated.View>
+        )}
       </KeyboardAvoidingView>
     </Modal>
   );
