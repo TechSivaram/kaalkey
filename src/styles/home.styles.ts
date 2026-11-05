@@ -1450,6 +1450,23 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.homeDarkSurface,
   },
 
+  webCameraFrame: {
+    width: "100%",
+    maxWidth: 1100,
+    height: 480,
+    alignSelf: "center",
+  },
+
+  webScannerContent: {
+    alignItems: "center",
+  },
+
+  webScannerIntro: {
+    width: "100%",
+    maxWidth: 1100,
+    alignSelf: "center",
+  },
+
   cameraPreview: {
     width: "100%",
     height: "100%",

@@ -1,5 +1,13 @@
 import { memo, useMemo, useState } from "react";
-import { Modal, Platform, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import {
+  Modal,
+  Platform,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+  useWindowDimensions,
+} from "react-native";
 import { createUserMessages } from "../constants/userMessages";
 import { useAppLanguage } from "../i18n";
 import { styles } from "../styles/home.styles";
@@ -40,6 +48,8 @@ function QrScannerModal({
   cameraViewRef,
   handleQrScanned,
 }: Props) {
+  const { width: windowWidth } = useWindowDimensions();
+  const isDesktopWeb = Platform.OS === "web" && windowWidth >= 900;
   const { t } = useAppLanguage();
   const USER_MESSAGES = useMemo(() => createUserMessages(t), [t]);
   const [torchEnabled, setTorchEnabled] = useState(false);
@@ -65,6 +75,7 @@ function QrScannerModal({
         contentContainerStyle={[
           styles.scannerScrollContent,
           ...getQrScannerScrollContentStyle(insets),
+          ...(isDesktopWeb ? [styles.webScannerContent] : []),
         ]}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
@@ -84,12 +95,18 @@ function QrScannerModal({
           <Text style={styles.scannerStep}>{t("qrScanner.secureSetup")}</Text>
         </View>
 
-        <View style={styles.scannerIntro}>
+        <View style={[styles.scannerIntro, ...(isDesktopWeb ? [styles.webScannerIntro] : [])]}>
           <Text style={styles.scannerTitle}>{t("addAccount.scanQrCode2")}</Text>
           <Text style={styles.scannerSubtitle}>{t("qrScanner.pointCameraAuthenticator")}</Text>
         </View>
 
-        <View style={[styles.cameraFrame, getQrScannerCameraFrameStyle(scannerCameraHeight)]}>
+        <View
+          style={[
+            styles.cameraFrame,
+            getQrScannerCameraFrameStyle(scannerCameraHeight),
+            ...(isDesktopWeb ? [styles.webCameraFrame] : []),
+          ]}
+        >
           {scannerVisible && Platform.OS === "web" ? (
             <WebQrScanner
               active={scannerVisible && !scanned}
