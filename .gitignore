@@ -44,3 +44,4 @@ example
 
 # Electron desktop output
 /release/
+/dist-desktop/
