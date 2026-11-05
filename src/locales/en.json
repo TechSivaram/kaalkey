@@ -272,7 +272,8 @@
     "chooseQrScreenshot": "Choose a QR screenshot from Gallery, Photos, or Files",
     "pasteQr": "Paste QR image / URL",
     "pasteCopiedQr": "Paste a copied QR image or authenticator setup URL",
-    "uploadQrImage2": "Upload QR image"
+    "uploadQrImage2": "Upload QR image",
+    "webQrImportHint": "Upload a QR image, drag and drop it here, or press Ctrl+V (⌘V on Mac)."
   },
   "accountQr": {
     "close": "Close",

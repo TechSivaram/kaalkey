@@ -1,5 +1,5 @@
 import { useAppLanguage } from "../i18n";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Platform, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "../styles/home.styles";
 
 type Props = {
@@ -53,6 +53,21 @@ export default function AccountQrImportActions({ onScan, onImportImage, onPasteI
         </View>
         <Text style={styles.scanButtonArrow}>›</Text>
       </TouchableOpacity>
+      {Platform.OS === "web" && (
+        <Text
+          style={{
+            marginTop: 9,
+            marginBottom: 4,
+            paddingHorizontal: 4,
+            color: "#718078",
+            fontSize: 12,
+            lineHeight: 18,
+            textAlign: "center",
+          }}
+        >
+          {t("addAccount.webQrImportHint")}
+        </Text>
+      )}
     </>
   );
 }

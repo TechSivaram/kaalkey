@@ -1,6 +1,14 @@
 import { memo, useEffect, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
-import { Animated, KeyboardAvoidingView, Modal, Platform, ScrollView, Text, View } from "react-native";
+import {
+  Animated,
+  KeyboardAvoidingView,
+  Modal,
+  Platform,
+  ScrollView,
+  Text,
+  View,
+} from "react-native";
 import type { Account } from "../types/account";
 import AccountImportActions from "./AccountImportActions";
 import AccountManualEntryFields from "./AccountManualEntryFields";
@@ -252,7 +260,7 @@ function AccountEditorModal(props: Props) {
                       letterSpacing: 1.1,
                     }}
                   >
-                    PNG  ·  JPG  ·  WEBP
+                    PNG · JPG · WEBP
                   </Text>
                 </View>
               </View>
