@@ -1,8 +1,5 @@
 import * as LocalAuthentication from "expo-local-authentication";
-import type {
-  BiometricAuthenticator,
-  BiometricPromptOptions,
-} from "./types";
+import type { BiometricAuthenticator, BiometricPromptOptions } from "./types";
 
 /**
  * Shared native implementation for Android and iOS.
@@ -13,7 +10,5 @@ export const authenticateWithDevice: BiometricAuthenticator = async (
 ) => {
   const result = await LocalAuthentication.authenticateAsync(options);
 
-  return result.success
-    ? { success: true }
-    : { success: false, error: result.error };
+  return result.success ? { success: true } : { success: false, error: result.error };
 };
