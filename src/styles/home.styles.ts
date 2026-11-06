@@ -1450,21 +1450,68 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.homeDarkSurface,
   },
 
-  webCameraFrame: {
-    width: "100%",
-    maxWidth: 1100,
-    height: 480,
-    alignSelf: "center",
-  },
-
   webScannerContent: {
     alignItems: "center",
+    paddingHorizontal: 48,
+    paddingTop: 32,
+  },
+
+  webScannerHeader: {
+    width: "100%",
+    maxWidth: 1100,
+    alignSelf: "center",
+    minHeight: 42,
+    marginBottom: 22,
   },
 
   webScannerIntro: {
     width: "100%",
     maxWidth: 1100,
     alignSelf: "center",
+    marginTop: 10,
+    marginBottom: 28,
+  },
+
+  webScannerBody: {
+    width: "100%",
+    maxWidth: 1100,
+    alignSelf: "center",
+    flexDirection: "row",
+    alignItems: "stretch",
+    gap: 28,
+  },
+
+  webScannerCameraColumn: {
+    flex: 1.8,
+    minWidth: 0,
+  },
+
+  webCameraFrame: {
+    width: "100%",
+    height: 430,
+    alignSelf: "stretch",
+  },
+
+  webScannerManualPanel: {
+    flex: 1,
+    minWidth: 230,
+    justifyContent: "center",
+    alignItems: "center",
+    borderLeftWidth: 1,
+    borderLeftColor: "#263449",
+    paddingLeft: 28,
+    paddingRight: 8,
+  },
+
+  webScannerManualButton: {
+    width: "100%",
+    maxWidth: 280,
+    borderWidth: 1.5,
+    borderColor: COLORS.saffron,
+    borderRadius: 14,
+    paddingHorizontal: 18,
+    paddingVertical: 14,
+    marginTop: 0,
   },
 
   cameraPreview: {
