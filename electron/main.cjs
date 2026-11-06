@@ -42,7 +42,7 @@ console.log("[KaalKey] App name:", app.getName());
 
 const lockFile = path.join(userDataPath, "vault-lock.json");
 const windowStateFile = path.join(userDataPath, "desktop-window.json");
-const SIDEBAR_MIN_WIDTH = 393; // Matches the web splitter's minWidth.
+const SIDEBAR_MIN_WIDTH = 400; // Matches the web splitter's minWidth.
 const SIDEBAR_DEFAULT_WIDTH = 480;
 const SIDEBAR_MAX_WIDTH = 560;
 const WINDOW_MIN_HEIGHT = 500;

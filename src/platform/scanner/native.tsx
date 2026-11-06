@@ -9,12 +9,13 @@ export default function NativeScannerCamera({
   onMountError,
   onBarcodeScanned,
   enableTorch,
+  facing = "back",
 }: ScannerCameraProps) {
   return (
     <CameraView
       ref={cameraRef}
       style={style}
-      facing="back"
+      facing={facing}
       enableTorch={enableTorch}
       barcodeScannerSettings={{ barcodeTypes: ["qr"] }}
       onCameraReady={onCameraReady}

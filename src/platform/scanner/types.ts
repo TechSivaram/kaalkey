@@ -12,4 +12,11 @@ export type ScannerCameraProps = {
   onMountError: (event: { message: string }) => void;
   onBarcodeScanned?: (event: { data: string }) => void;
   enableTorch?: boolean;
+  facing?: "front" | "back";
+  /** Web camera selection. Native implementations ignore these optional props. */
+  selectedCameraDeviceId?: string | null;
+  onCameraDevicesChange?: (
+    devices: { deviceId: string; label: string }[],
+    activeDeviceId?: string | null,
+  ) => void;
 };

@@ -1619,6 +1619,17 @@ export const styles = StyleSheet.create({
     fontWeight: "700",
   },
 
+  scannerSwitchCameraButton: {
+    position: "absolute",
+    left: 14,
+    bottom: 14,
+    width: 42,
+    height: 42,
+    borderRadius: 21,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgba(0,0,0,0.68)",
+  },
   scannerTorchButton: {
     position: "absolute",
     right: 14,

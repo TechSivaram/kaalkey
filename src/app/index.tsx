@@ -94,9 +94,9 @@ export default function HomeScreen() {
         const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
         const splitterWidth = 14;
         const brandMinimumWidth = 320;
-        const maxAppWidth = Math.max(393, viewportWidth - brandMinimumWidth - splitterWidth);
+        const maxAppWidth = Math.max(400, viewportWidth - brandMinimumWidth - splitterWidth);
         const nextWidth = Math.max(
-          393,
+          400,
           Math.min(maxAppWidth, drag.panelWidth + moveX - drag.pointerX),
         );
         setAppPanelWidth(nextWidth);
@@ -374,22 +374,12 @@ export default function HomeScreen() {
           isWeb
             ? showDesktopBranding
               ? [styles.webRoot, getWebRootPanelStyle(currentAppPanelWidth)]
-              : isDesktopRuntime
-                ? [styles.webMobileRoot, { maxWidth: "none" }]
-                : styles.webMobileRoot
+              : styles.webMobileRoot
             : styles.container
         }
         edges={["top", "left", "right", "bottom"]}
       >
-        <View
-          style={
-            isWeb
-              ? isDesktopRuntime
-                ? [styles.webAppShell, { maxWidth: "none" }]
-                : styles.webAppShell
-              : styles.nativeAppShell
-          }
-        >
+        <View style={isWeb ? styles.webAppShell : styles.nativeAppShell}>
           <HomeHeader
             biometricEnabled={biometricEnabled}
             onToggleBiometricLock={handleToggleBiometricLock}

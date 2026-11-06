@@ -1,7 +1,7 @@
 import { getWebQrCameraErrorMessage } from "../../utils/webQrScanner";
 import { useAppLanguage } from "../../i18n";
-import { useEffect, useRef, useState } from "react";
-import { Text, View } from "react-native";
+import { useEffect, useRef } from "react";
+import { View } from "react-native";
 import jsQR from "jsqr";
 import { WEB_QR_SCAN_THROTTLE_MS } from "../../constants/ui";
 import { webQrScannerStyles as styles, webQrVideoStyle } from "../../styles/component.styles";
@@ -16,16 +16,31 @@ import type { ScannerCameraProps } from "./types";
 
 /** Browser-only camera scanner. Uses jsQR directly so a stalled experimental
  * BarcodeDetector cannot block frame decoding. */
-export default function WebScannerCamera({ active, onDetected }: ScannerCameraProps) {
+export default function WebScannerCamera({
+  active,
+  onDetected,
+  facing = "back",
+  selectedCameraDeviceId,
+  onCameraDevicesChange,
+  onCameraReady,
+  onMountError,
+}: ScannerCameraProps) {
   const { t } = useAppLanguage();
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const scanTimerRef = useRef<number | null>(null);
   const onDetectedRef = useRef(onDetected);
+  const onCameraReadyRef = useRef(onCameraReady);
+  const onMountErrorRef = useRef(onMountError);
+
   useEffect(() => {
     onDetectedRef.current = onDetected;
   }, [onDetected]);
-  const [message, setMessage] = useState("Starting camera…");
+
+  useEffect(() => {
+    onCameraReadyRef.current = onCameraReady;
+    onMountErrorRef.current = onMountError;
+  }, [onCameraReady, onMountError]);
 
   useEffect(() => {
     if (!active) return;
@@ -43,25 +58,71 @@ export default function WebScannerCamera({ active, onDetected }: ScannerCameraPr
     const start = async () => {
       try {
         if (!navigator.mediaDevices?.getUserMedia) {
-          setMessage(t("qrScanner.cameraUnavailableOpen"));
+          onMountErrorRef.current({ message: t("qrScanner.cameraUnavailableOpen") });
           return;
         }
-        const stream = await navigator.mediaDevices.getUserMedia({
-          audio: false,
-          video: {
-            facingMode: { ideal: "environment" },
-            width: { ideal: WEB_QR_CAMERA_IDEAL_WIDTH },
-            height: { ideal: WEB_QR_CAMERA_IDEAL_HEIGHT },
-          },
-        });
+        // Prefer an explicitly selected device. On first launch, use facingMode
+        // as a hint because browsers may hide camera labels until permission is granted.
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        let cameras = devices.filter((device) => device.kind === "videoinput");
+        const frontLabel = /front|user|facetime|selfie/i;
+        const backLabel = /back|rear|environment|world/i;
+        const wantedLabel = facing === "front" ? frontLabel : backLabel;
+        let selectedCamera = selectedCameraDeviceId
+          ? cameras.find((camera) => camera.deviceId === selectedCameraDeviceId)
+          : cameras.find((camera) => wantedLabel.test(camera.label));
+
+        const videoConstraints: MediaTrackConstraints = {
+          width: { ideal: WEB_QR_CAMERA_IDEAL_WIDTH },
+          height: { ideal: WEB_QR_CAMERA_IDEAL_HEIGHT },
+          ...(selectedCamera
+            ? { deviceId: { exact: selectedCamera.deviceId } }
+            : { facingMode: { ideal: facing === "front" ? "user" : "environment" } }),
+        };
+        let stream: MediaStream;
+        try {
+          stream = await navigator.mediaDevices.getUserMedia({
+            audio: false,
+            video: videoConstraints,
+          });
+        } catch (error) {
+          // A device may disappear between enumeration and acquisition. Retry
+          // with facingMode so scanning can still start on the remaining camera.
+          if (!selectedCamera) throw error;
+          stream = await navigator.mediaDevices.getUserMedia({
+            audio: false,
+            video: {
+              facingMode: { ideal: facing === "front" ? "user" : "environment" },
+              width: { ideal: WEB_QR_CAMERA_IDEAL_WIDTH },
+              height: { ideal: WEB_QR_CAMERA_IDEAL_HEIGHT },
+            },
+          });
+        }
         if (disposed) {
           stream.getTracks().forEach((track) => track.stop());
           return;
         }
         streamRef.current = stream;
+        // Permission has now been granted, so browsers generally expose camera labels.
+        try {
+          cameras = (await navigator.mediaDevices.enumerateDevices()).filter(
+            (device) => device.kind === "videoinput",
+          );
+          const activeDeviceId =
+            stream.getVideoTracks()[0]?.getSettings().deviceId ?? selectedCamera?.deviceId ?? null;
+          onCameraDevicesChange?.(
+            cameras.map((camera, index) => ({
+              deviceId: camera.deviceId,
+              label: camera.label.trim() || `Camera ${index + 1}`,
+            })),
+            activeDeviceId,
+          );
+        } catch {
+          // Camera enumeration is optional; scanning can continue without the picker.
+        }
         const video = videoRef.current;
         if (!video) {
-          setMessage(t("qrScanner.cameraPreviewUnavailable"));
+          onMountErrorRef.current({ message: t("qrScanner.cameraPreviewUnavailable") });
           stop();
           return;
         }
@@ -70,12 +131,12 @@ export default function WebScannerCamera({ active, onDetected }: ScannerCameraPr
         video.playsInline = true;
         video.autoplay = true;
         await video.play();
-        setMessage(t("qrScanner.cameraReadyPoint"));
+        onCameraReadyRef.current();
 
         const canvas = document.createElement("canvas");
         const context = canvas.getContext("2d", { willReadFrequently: true });
         if (!context) {
-          setMessage(t("qrScanner.browserCannotProcess"));
+          onMountErrorRef.current({ message: t("qrScanner.browserCannotProcess") });
           stop();
           return;
         }
@@ -130,14 +191,11 @@ export default function WebScannerCamera({ active, onDetected }: ScannerCameraPr
                 });
               }
               if (result?.data && !disposed) {
-                setMessage(t("qrScanner.qrCodeDetected"));
                 stop();
                 onDetectedRef.current(result.data);
                 return;
               }
-            } catch {
-              setMessage(t("qrScanner.couldnTRead"));
-            }
+            } catch {}
           }
           if (!disposed) {
             scanTimerRef.current = window.setTimeout(scanFrame, WEB_QR_SCAN_THROTTLE_MS);
@@ -145,7 +203,7 @@ export default function WebScannerCamera({ active, onDetected }: ScannerCameraPr
         };
         scanFrame();
       } catch (error) {
-        setMessage(t(getWebQrCameraErrorMessage(error)));
+        onMountErrorRef.current({ message: t(getWebQrCameraErrorMessage(error)) });
       }
     };
     void start();
@@ -153,7 +211,7 @@ export default function WebScannerCamera({ active, onDetected }: ScannerCameraPr
       disposed = true;
       stop();
     };
-  }, [active, t]);
+  }, [active, facing, selectedCameraDeviceId, onCameraDevicesChange, t]);
 
   return (
     <View style={styles.container}>
@@ -165,7 +223,6 @@ export default function WebScannerCamera({ active, onDetected }: ScannerCameraPr
         aria-label={t("qrScanner.qrScannerCamera")}
         style={webQrVideoStyle}
       />
-      <Text style={styles.message}>{message}</Text>
     </View>
   );
 }
