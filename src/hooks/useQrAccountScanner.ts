@@ -2,7 +2,7 @@ import { isWeb } from "../platform/runtime";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
 import { Alert } from "react-native";
-import { useCameraPermissions } from "expo-camera";
+import { useCameraPermission } from "../platform/permissions/permissions";
 import { clipboard } from "../platform/clipboard/clipboard";
 import type { Account } from "../types/account";
 import { parseTotpAccountFromUri } from "../services/totp-account-import";
@@ -36,7 +36,8 @@ export function useQrAccountScanner({
   const USER_MESSAGES = useMemo(() => createUserMessages(t), [t]);
   const [scanned, setScanned] = useState(false);
   const [scannerDiagnostic, setScannerDiagnostic] = useState("Point your camera at the QR code.");
-  const [cameraPermission, requestCameraPermission] = useCameraPermissions();
+  const { permission: cameraPermission, requestPermission: requestCameraPermission } =
+    useCameraPermission();
   const qrProcessingRef = useRef(false);
   const cameraViewRef = useRef<any>(null);
 
