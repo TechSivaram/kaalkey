@@ -1,6 +1,6 @@
 import * as ImagePicker from "expo-image-picker";
 import * as Clipboard from "expo-clipboard";
-import { beginExternalActivity } from "../../utils/externalActivity";
+import { beginExternalActivity } from "../../platform/lifecycle/externalActivity";
 import {
   decodeNativeClipboardQrImage,
   decodeNativeQrImage,

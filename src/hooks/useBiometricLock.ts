@@ -2,12 +2,13 @@ import { isWeb } from "../platform/runtime";
 import { getStorageItem, setStorageItem } from "../platform/storage";
 import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
-import { Alert, AppState, BackHandler } from "react-native";
+import { Alert, BackHandler } from "react-native";
 import { authenticateWithDevice } from "../platform/biometric/biometric";
 import { BIOMETRIC_ENABLED_STORAGE_KEY } from "../constants/storage";
 import { createUserMessages } from "../constants/userMessages";
 import { showUserMessage } from "../utils/user-message";
-import { shouldIgnoreExternalActivityTransition } from "../utils/externalActivity";
+import { shouldIgnoreExternalActivityTransition } from "../platform/lifecycle/externalActivity";
+import { getCurrentAppState, subscribeToAppState } from "../platform/lifecycle/lifecycle";
 
 export function useBiometricLock() {
   const { t } = useAppLanguage();
@@ -17,7 +18,7 @@ export function useBiometricLock() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [authenticating, setAuthenticating] = useState(false);
   const authenticatingRef = useRef(false);
-  const appStateRef = useRef(AppState.currentState);
+  const appStateRef = useRef(getCurrentAppState());
 
   useEffect(() => {
     let mounted = true;
@@ -176,7 +177,7 @@ export function useBiometricLock() {
   }, [biometricReady, biometricEnabled, isUnlocked, authenticateUser, USER_MESSAGES]);
 
   useEffect(() => {
-    const subscription = AppState.addEventListener("change", (nextState) => {
+    return subscribeToAppState((nextState) => {
       const wasBackgrounded = /inactive|background/.test(appStateRef.current ?? "");
       appStateRef.current = nextState;
 
@@ -191,7 +192,6 @@ export function useBiometricLock() {
         setIsUnlocked(false);
       }
     });
-    return () => subscription.remove();
   }, [biometricEnabled, authenticateUser, USER_MESSAGES]);
 
   // While locked, Android Back must never uncover the underlying vault.

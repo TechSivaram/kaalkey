@@ -1,4 +1,5 @@
-import { AppState, type AppStateStatus } from "react-native";
+import { getCurrentAppState, subscribeToAppState } from "../platform/lifecycle/lifecycle";
+import type { AppLifecycleState } from "../platform/lifecycle/types";
 import { useCallback, useSyncExternalStore } from "react";
 
 type ClockListener = () => void;
@@ -9,12 +10,12 @@ type TimeStepGroup = {
 
 let currentTime = Date.now();
 let timeoutId: ReturnType<typeof setTimeout> | undefined;
-let appStateSubscription: ReturnType<typeof AppState.addEventListener> | undefined;
+let unsubscribeAppState: (() => void) | undefined;
 const listeners = new Set<ClockListener>();
 const timeStepGroups = new Map<number, TimeStepGroup>();
 let lastNotifiedSecond = Math.floor(currentTime / 1000);
 
-function isForeground(state: AppStateStatus | null) {
+function isForeground(state: AppLifecycleState) {
   // A null initial state is treated as foreground (notably during web startup).
   return state === null || state === "active" || state === "unknown";
 }
@@ -38,7 +39,7 @@ function stopClock() {
 // polling four times per second. This keeps countdown labels accurate while
 // reducing idle timer wakeups by 75% when the vault is visible.
 function scheduleNextTick() {
-  if (timeoutId !== undefined || !hasSubscribers() || !isForeground(AppState.currentState)) {
+  if (timeoutId !== undefined || !hasSubscribers() || !isForeground(getCurrentAppState())) {
     return;
   }
 
@@ -74,7 +75,7 @@ function notifyListeners() {
 }
 
 function startClock() {
-  if (timeoutId !== undefined || !hasSubscribers() || !isForeground(AppState.currentState)) {
+  if (timeoutId !== undefined || !hasSubscribers() || !isForeground(getCurrentAppState())) {
     return;
   }
 
@@ -89,8 +90,8 @@ function startClock() {
 }
 
 function ensureClock() {
-  if (!appStateSubscription) {
-    appStateSubscription = AppState.addEventListener("change", handleAppStateChange);
+  if (!unsubscribeAppState) {
+    unsubscribeAppState = subscribeToAppState(handleAppStateChange);
   }
   startClock();
 }
@@ -98,11 +99,11 @@ function ensureClock() {
 function cleanupClockIfUnused() {
   if (hasSubscribers()) return;
   stopClock();
-  appStateSubscription?.remove();
-  appStateSubscription = undefined;
+  unsubscribeAppState?.();
+  unsubscribeAppState = undefined;
 }
 
-function handleAppStateChange(nextState: AppStateStatus) {
+function handleAppStateChange(nextState: AppLifecycleState) {
   if (nextState !== "active") {
     stopClock();
     return;

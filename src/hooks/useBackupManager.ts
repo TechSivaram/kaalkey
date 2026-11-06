@@ -3,7 +3,7 @@ import { useMemo, useCallback } from "react";
 import { Alert } from "react-native";
 import { createUserMessages } from "../constants/userMessages";
 import * as DocumentPicker from "expo-document-picker";
-import { beginExternalActivity } from "../utils/externalActivity";
+import { beginExternalActivity } from "../platform/lifecycle/externalActivity";
 import * as FileSystem from "expo-file-system/legacy";
 import * as Sharing from "expo-sharing";
 import type { Account } from "../types/account";
