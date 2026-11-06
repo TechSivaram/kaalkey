@@ -1,13 +1,11 @@
-import { isAndroid, isIOS } from "../platform/runtime";
 import { getStorageItem, setStorageItem } from "../platform/storage";
 import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
-import { Vibration } from "react-native";
 import { showUserMessage } from "../utils/user-message";
 import { HAPTICS_ENABLED_STORAGE_KEY } from "../constants/storage";
 import { createUserMessages } from "../constants/userMessages";
-
-type HapticKind = "selection" | "success" | "warning";
+import { triggerHapticFeedback } from "../platform/haptics/haptics";
+import type { HapticKind } from "../platform/haptics/types";
 
 /** Loads and persists the haptic preference and exposes best-effort feedback. */
 export function useHaptics() {
@@ -41,13 +39,7 @@ export function useHaptics() {
     if (!enabledRef.current) return;
 
     try {
-      if (isAndroid) {
-        const pattern =
-          kind === "success" ? [0, 22, 45, 28] : kind === "warning" ? [0, 38, 55, 38] : 12;
-        Vibration.vibrate(pattern);
-      } else if (isIOS) {
-        Vibration.vibrate(kind === "success" ? 35 : kind === "warning" ? 45 : 15);
-      }
+      triggerHapticFeedback(kind);
     } catch {
       // Haptic feedback is optional and must never interrupt account actions.
     }
