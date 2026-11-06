@@ -15,4 +15,7 @@ export const runtimePlatform: RuntimePlatform =
 export const isAndroid = runtimePlatform === "android";
 export const isIOS = runtimePlatform === "ios";
 export const isWeb = runtimePlatform === "web";
+/** Electron renders through React Native Web, so keep it distinct from a normal browser. */
+export const isDesktop =
+  isWeb && typeof navigator !== "undefined" && /Electron\//i.test(navigator.userAgent);
 export const isNative = isAndroid || isIOS;

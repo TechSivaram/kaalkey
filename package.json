@@ -64,7 +64,39 @@
     "lint": "expo lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "android:release": "expo run:android --variant release"
+    "android:release": "expo run:android --variant release",
+    "desktop:dev": "concurrently -k \"expo start --web --host localhost\" \"wait-on http://localhost:8081 && npx electron --disable-gpu electron/main.cjs\"",
+    "desktop:export": "expo export --platform web",
+    "desktop:build": "npm run desktop:export && electron-builder"
   },
-  "private": true
+  "private": true,
+  "build": {
+    "appId": "com.techsivaram.kaalkey.desktop",
+    "productName": "KaalKey Authenticator",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "build/icon.ico",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "icon": "build"
+    },
+    "extraMetadata": {
+      "main": "electron/main.cjs"
+    }
+  }
 }

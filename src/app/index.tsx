@@ -1,4 +1,4 @@
-import { isWeb } from "../platform/runtime";
+import { isDesktop, isWeb } from "../platform/runtime";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { FlatList, Text, View, useWindowDimensions } from "react-native";
 
@@ -8,6 +8,7 @@ import { styles, getWebRootPanelStyle } from "../styles/home.styles";
 import SplashScreen from "../components/SplashScreen";
 import LegalNoticeScreen from "../components/LegalNoticeScreen";
 import VaultLockScreen from "../components/VaultLockScreen";
+import DesktopVaultLockScreen from "../components/DesktopVaultLockScreen";
 import AccountQrModal from "../components/AccountQrModal";
 import AccountEditorModal from "../components/AccountEditorModal";
 import QrScannerModal from "../components/QrScannerModal";
@@ -136,6 +137,9 @@ export default function HomeScreen() {
     authenticating,
     authenticateUser,
     toggleBiometricLock,
+    desktopPinConfigured,
+    setDesktopVaultPin,
+    unlockDesktopVault,
   } = useBiometricLock();
 
   const { modalVisible, setModalVisible, scannerVisible, setScannerVisible } =
@@ -313,8 +317,23 @@ export default function HomeScreen() {
     );
   }
 
-  // Do not render the account screen beneath the lock overlay.
-  if (!biometricReady || (biometricEnabled && !isUnlocked)) {
+  // Do not render the account screen beneath the lock overlay. Desktop has its own
+  // persistent PIN-backed lock; native platforms continue using OS authentication.
+  if (
+    !biometricReady ||
+    (isDesktop && !desktopPinConfigured) ||
+    (biometricEnabled && !isUnlocked)
+  ) {
+    if (isDesktop) {
+      return (
+        <DesktopVaultLockScreen
+          setup={!desktopPinConfigured}
+          authenticating={authenticating}
+          onSetPin={setDesktopVaultPin}
+          onUnlock={unlockDesktopVault}
+        />
+      );
+    }
     return (
       <VaultLockScreen
         biometricReady={biometricReady}

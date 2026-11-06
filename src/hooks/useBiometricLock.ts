@@ -1,4 +1,5 @@
-import { isWeb } from "../platform/runtime";
+import { isDesktop, isWeb } from "../platform/runtime";
+import { getDesktopLockStatus, setDesktopPin, verifyDesktopPin } from "../platform/desktop/desktop";
 import { getStorageItem, setStorageItem } from "../platform/storage";
 import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
@@ -18,13 +19,37 @@ export function useBiometricLock() {
   const [biometricReady, setBiometricReady] = useState(false);
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [authenticating, setAuthenticating] = useState(false);
+  const [desktopPinConfigured, setDesktopPinConfigured] = useState(false);
+  const desktopTimeoutRef = useRef(300_000);
   const authenticatingRef = useRef(false);
   const appStateRef = useRef(getCurrentAppState());
 
   useEffect(() => {
     let mounted = true;
 
+    async function loadDesktopLock() {
+      if (!isDesktop) return false;
+      try {
+        const status = await getDesktopLockStatus();
+        if (!mounted) return true;
+        setDesktopPinConfigured(status.configured);
+        desktopTimeoutRef.current = status.timeoutMs || 300_000;
+        setBiometricEnabled(true);
+        setIsUnlocked(!status.configured);
+      } catch {
+        if (mounted) {
+          setDesktopPinConfigured(false);
+          setBiometricEnabled(true);
+          setIsUnlocked(false);
+        }
+      } finally {
+        if (mounted) setBiometricReady(true);
+      }
+      return true;
+    }
+
     async function loadBiometricPreference() {
+      if (await loadDesktopLock()) return;
       try {
         const enabled = await getStorageItem(BIOMETRIC_ENABLED_STORAGE_KEY);
         if (!mounted) return;
@@ -71,6 +96,9 @@ export function useBiometricLock() {
       authenticatingRef.current = true;
       setAuthenticating(true);
       try {
+        if (isDesktop) {
+          return false;
+        }
         // Use the platform's native authentication prompt with device-credential fallback.
         // This allows biometrics when available and the OS screen-lock credential (PIN,
         // pattern, or password) when supported. Never unlock unless the native API succeeds.
@@ -116,7 +144,37 @@ export function useBiometricLock() {
     [USER_MESSAGES],
   );
 
+  const setDesktopVaultPin = useCallback(async (pin: string): Promise<boolean> => {
+    if (!isDesktop) return false;
+    setAuthenticating(true);
+    try {
+      const result = await setDesktopPin(pin);
+      if (!result.success) return false;
+      setDesktopPinConfigured(true);
+      setIsUnlocked(true);
+      return true;
+    } finally {
+      setAuthenticating(false);
+    }
+  }, []);
+
+  const unlockDesktopVault = useCallback(async (pin: string): Promise<boolean> => {
+    if (!isDesktop) return false;
+    setAuthenticating(true);
+    try {
+      const result = await verifyDesktopPin(pin);
+      if (result.success) {
+        setIsUnlocked(true);
+        return true;
+      }
+      return false;
+    } finally {
+      setAuthenticating(false);
+    }
+  }, []);
+
   const toggleBiometricLock = useCallback(async () => {
+    if (isDesktop) return;
     // Do not expose a non-working native-auth switch on web. The web build currently
     // has no implemented browser-authentication flow, so keep its app-level lock OFF.
     if (isWeb) {
@@ -165,7 +223,7 @@ export function useBiometricLock() {
   }, [authenticateUser, biometricEnabled, USER_MESSAGES]);
 
   useEffect(() => {
-    if (!biometricReady || !biometricEnabled || isUnlocked) return;
+    if (isDesktop || !biometricReady || !biometricEnabled || isUnlocked) return;
 
     // Defer the native authentication prompt until after the effect has committed.
     // This avoids synchronously triggering React state updates inside the effect.
@@ -178,6 +236,30 @@ export function useBiometricLock() {
   }, [biometricReady, biometricEnabled, isUnlocked, authenticateUser, USER_MESSAGES]);
 
   useEffect(() => {
+    if (!isDesktop || !biometricReady || !desktopPinConfigured) return;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const reset = () => {
+      if (!isUnlocked) return;
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => setIsUnlocked(false), desktopTimeoutRef.current);
+    };
+    const events = ["mousemove", "mousedown", "keydown", "wheel", "touchstart"];
+    events.forEach((event) => window.addEventListener(event, reset, { passive: true }));
+    const onVisibility = () => {
+      if (document.visibilityState !== "visible") setIsUnlocked(false);
+      else reset();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    reset();
+    return () => {
+      if (timer) clearTimeout(timer);
+      events.forEach((event) => window.removeEventListener(event, reset));
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, [biometricReady, desktopPinConfigured, isUnlocked]);
+
+  useEffect(() => {
+    if (isDesktop) return;
     return subscribeToAppState((nextState) => {
       const wasBackgrounded = /inactive|background/.test(appStateRef.current ?? "");
       appStateRef.current = nextState;
@@ -197,7 +279,7 @@ export function useBiometricLock() {
 
   // While locked, Android Back must never uncover the underlying vault.
   useEffect(() => {
-    if (!biometricReady || !biometricEnabled || isUnlocked) return;
+    if (isDesktop || !biometricReady || !biometricEnabled || isUnlocked) return;
     return subscribeToHardwareBackPress(() => true);
   }, [biometricReady, biometricEnabled, isUnlocked, USER_MESSAGES]);
 
@@ -208,5 +290,8 @@ export function useBiometricLock() {
     authenticating,
     authenticateUser,
     toggleBiometricLock,
+    desktopPinConfigured,
+    setDesktopVaultPin,
+    unlockDesktopVault,
   };
 }

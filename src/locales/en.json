@@ -367,7 +367,19 @@
       "disableSaveError": "The app lock remains enabled. Please try again.",
       "enabledTitle": "App lock enabled",
       "enabledBody": "KaalKey will request your phone's built-in authentication when opened and when you return to it.",
-      "enableSaveError": "App lock could not be enabled. Please try again."
+      "enableSaveError": "App lock could not be enabled. Please try again.",
+      "desktopPinSetupTitle": "Protect your desktop vault",
+      "desktopPinSetupBody": "Create a PIN to protect KaalKey when it starts or after 5 minutes of inactivity.",
+      "desktopPinTitle": "Enter your KaalKey PIN",
+      "desktopPinBody": "Your vault is locked. Enter your PIN to continue.",
+      "desktopPinConfirm": "Confirm PIN",
+      "desktopPinMismatch": "The PINs do not match.",
+      "desktopPinInvalid": "Use a 6–12 digit PIN.",
+      "desktopPinIncorrect": "Incorrect PIN. Please try again.",
+      "desktopPinLockout": "Too many attempts. Try again in a few seconds.",
+      "desktopPinSaveError": "KaalKey could not save your desktop lock. Please try again.",
+      "desktopPinSetButton": "Set PIN",
+      "desktopPinUnlockButton": "Unlock"
     },
     "qr": {
       "startingCamera": "Starting camera…",
