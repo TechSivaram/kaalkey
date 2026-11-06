@@ -9,9 +9,7 @@ export function useHomeModalState() {
   const [backupMode, setBackupMode] = useState<BackupMode>("export");
   const [backupPassword, setBackupPassword] = useState("");
   const [backupBusy, setBackupBusy] = useState(false);
-  const [activityMessage, setActivityMessageState] = useState<string | null>(null);
   const setActivityMessage = useCallback((message: string | null) => {
-    setActivityMessageState(message);
     setGlobalActivityMessage(message);
   }, []);
 
@@ -26,7 +24,6 @@ export function useHomeModalState() {
     setBackupPassword,
     backupBusy,
     setBackupBusy,
-    activityMessage,
     setActivityMessage,
   };
 }

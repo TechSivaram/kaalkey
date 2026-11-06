@@ -1,7 +1,7 @@
 import { isIOS } from "../platform/runtime";
 import { clipboard } from "../platform/clipboard/clipboard";
 import { memo, useMemo, useState, type Dispatch, type SetStateAction } from "react";
-import { type AppLanguage, useAppLanguage } from "../i18n";
+import { type AppLanguage, useAppLanguage, useTranslationStatus } from "../i18n";
 import {
   KeyboardAvoidingView,
   Modal,
@@ -77,16 +77,14 @@ function SettingsBackupActivityModals(props: Props) {
     restoreEncryptedBackup,
     clearAllAccounts,
   } = props;
+  const { language, t, setLanguage } = useAppLanguage();
   const {
-    language,
-    t,
-    setLanguage,
     languages,
     languageLoading,
     translationLoading,
     translationServerUrl,
     setTranslationServerUrl,
-  } = useAppLanguage();
+  } = useTranslationStatus();
   const USER_MESSAGES = useMemo(() => createUserMessages(t), [t]);
   const [languageSearch, setLanguageSearch] = useState("");
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);

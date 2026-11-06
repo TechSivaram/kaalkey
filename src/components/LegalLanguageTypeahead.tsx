@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useAppLanguage } from "../i18n";
+import { useAppLanguage, useTranslationStatus } from "../i18n";
 import LanguageSelector from "./LanguageSelector";
 export default function LegalLanguageTypeahead() {
-  const { language, setLanguage, t, languages, languageLoading } = useAppLanguage();
+  const { language, setLanguage, t } = useAppLanguage();
+  const { languages, languageLoading } = useTranslationStatus();
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
   const selectLanguage = (code: typeof language) => {

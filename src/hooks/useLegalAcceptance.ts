@@ -35,7 +35,7 @@ export function useLegalAcceptance() {
     return () => {
       mounted = false;
     };
-  }, [USER_MESSAGES]);
+  }, []);
 
   async function acceptLegalNotice() {
     if (!legalChecked || legalSaving) return;

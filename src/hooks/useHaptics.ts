@@ -33,7 +33,7 @@ export function useHaptics() {
     return () => {
       mounted = false;
     };
-  }, [USER_MESSAGES]);
+  }, []);
 
   const hapticFeedback = useCallback((kind: HapticKind = "selection") => {
     if (!enabledRef.current) return;

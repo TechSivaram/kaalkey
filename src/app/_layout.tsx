@@ -5,7 +5,7 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider, useSafeAreaInsets } from "react-native-safe-area-context";
 import * as ScreenCapture from "expo-screen-capture";
 import ActivityOverlayModal from "../components/ActivityOverlayModal";
-import { useAppLanguage } from "../i18n";
+import { useAppLanguage, useTranslationStatus } from "../i18n";
 import { useGlobalActivity } from "../utils/globalActivity";
 
 function NativeScreenCaptureGuard() {
@@ -24,7 +24,8 @@ function NativeScreenCaptureGuard() {
 
 function GlobalActivityLoader() {
   const insets = useSafeAreaInsets();
-  const { t, languageLoading, translationLoading } = useAppLanguage();
+  const { t } = useAppLanguage();
+  const { languageLoading, translationLoading } = useTranslationStatus();
   const activity = useGlobalActivity();
 
   const message = languageLoading

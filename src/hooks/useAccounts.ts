@@ -1,5 +1,5 @@
 import { isWeb } from "../platform/runtime";
-import { useMemo, useCallback, useEffect, useState } from "react";
+import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
 import { Alert } from "react-native";
 import { createUserMessages } from "../constants/userMessages";
@@ -39,6 +39,10 @@ export function useAccounts({
 }: UseAccountsOptions) {
   const { t } = useAppLanguage();
   const USER_MESSAGES = useMemo(() => createUserMessages(t), [t]);
+  const userMessagesRef = useRef(USER_MESSAGES);
+  useEffect(() => {
+    userMessagesRef.current = USER_MESSAGES;
+  }, [USER_MESSAGES]);
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -75,23 +79,25 @@ export function useAccounts({
           const result = parseStoredAccounts(saved);
           if (result.invalidContainer) {
             showUserMessage(
-              USER_MESSAGES.account.storageInvalidTitle,
-              USER_MESSAGES.account.storageInvalidBody,
+              userMessagesRef.current.account.storageInvalidTitle,
+              userMessagesRef.current.account.storageInvalidBody,
             );
           } else {
             if (mounted) setAccounts(result.accounts);
             if (result.invalidCount > 0) {
               showUserMessage(
-                USER_MESSAGES.account.someSavedAccountsNeedAttentionTitle,
-                USER_MESSAGES.account.someSavedAccountsNeedAttentionBody(result.invalidCount),
+                userMessagesRef.current.account.someSavedAccountsNeedAttentionTitle,
+                userMessagesRef.current.account.someSavedAccountsNeedAttentionBody(
+                  result.invalidCount,
+                ),
               );
             }
           }
         }
       } catch {
         showUserMessage(
-          USER_MESSAGES.account.storageErrorTitle,
-          USER_MESSAGES.account.storageErrorBody,
+          userMessagesRef.current.account.storageErrorTitle,
+          userMessagesRef.current.account.storageErrorBody,
         );
       } finally {
         if (mounted) setLoaded(true);
@@ -102,7 +108,7 @@ export function useAccounts({
     return () => {
       mounted = false;
     };
-  }, [USER_MESSAGES]);
+  }, []);
 
   const saveAccounts = useCallback(
     async (updated: Account[]): Promise<boolean> => {

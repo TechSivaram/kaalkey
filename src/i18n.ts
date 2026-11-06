@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import en from "./locales/en.json";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import { AppLanguage, ENGLISH_LANGUAGE, LanguageOption } from "./i18n/languages";
 import { appFetch } from "./utils/appFetch";
 import { beginGlobalActivity } from "./utils/globalActivity";
@@ -47,15 +47,27 @@ let manifestLoading = false;
 
 const languageListeners = new Set<(language: AppLanguage) => void>();
 const stateListeners = new Set<() => void>();
+let translationStatusVersion = 0;
 
 function notifyState() {
+  translationStatusVersion += 1;
   stateListeners.forEach((listener) => listener());
+}
+
+function subscribeTranslationStatus(listener: () => void) {
+  stateListeners.add(listener);
+  return () => {
+    stateListeners.delete(listener);
+  };
+}
+
+function getTranslationStatusVersion() {
+  return translationStatusVersion;
 }
 
 function publishLanguage(language: AppLanguage) {
   currentLanguage = languageOptions.some((item) => item.code === language) ? language : "en";
   languageListeners.forEach((listener) => listener(currentLanguage));
-  notifyState();
 }
 
 function normalizeServerUrl(value: string): string {
@@ -429,14 +441,11 @@ export async function initializeTranslations(): Promise<void> {
 }
 
 export function useAppLanguage() {
-  const [, forceUpdate] = useState(0);
   const [language, setLanguageState] = useState<AppLanguage>(currentLanguage);
 
   useEffect(() => {
     const onLanguage = (next: AppLanguage) => setLanguageState(next);
-    const onState = () => forceUpdate((value) => value + 1);
     languageListeners.add(onLanguage);
-    stateListeners.add(onState);
 
     if (!languageInitialized) {
       languageInitialized = true;
@@ -450,7 +459,6 @@ export function useAppLanguage() {
 
     return () => {
       languageListeners.delete(onLanguage);
-      stateListeners.delete(onState);
     };
   }, []);
 
@@ -464,13 +472,7 @@ export function useAppLanguage() {
     }
   }, []);
 
-  const updateServerUrl = useCallback(async (next: string) => {
-    await setTranslationServerUrl(next);
-  }, []);
-
   // Keep the translator reference stable while the active language is unchanged.
-  // This prevents consumers' memoized callbacks and derived UI from invalidating
-  // on unrelated translation-loading state updates.
   const t = useCallback(
     (key: string, values?: Record<string, string | number>) => translate(language, key, values),
     [language],
@@ -480,6 +482,22 @@ export function useAppLanguage() {
     language,
     setLanguage,
     t,
+  };
+}
+
+/** Subscribe only to translation configuration/loading changes, not every language consumer. */
+export function useTranslationStatus() {
+  useSyncExternalStore(
+    subscribeTranslationStatus,
+    getTranslationStatusVersion,
+    getTranslationStatusVersion,
+  );
+
+  const updateServerUrl = useCallback(async (next: string) => {
+    await setTranslationServerUrl(next);
+  }, []);
+
+  return {
     languages: languageOptions,
     languageLoading: manifestLoading,
     translationLoading,
