@@ -1,5 +1,6 @@
+import { isWeb } from "../platform/runtime";
 import { useState } from "react";
-import { Modal, Platform, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Modal, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import type { AppLanguage, LanguageOption as LanguageOptionType } from "../i18n/languages";
 import { useLanguageSearch } from "../hooks/useLanguageSearch";
 import LanguageOption from "./LanguageOption";
@@ -32,7 +33,7 @@ export default function LanguageSelector(p: Props) {
         {p.showLabel !== false ? <Text style={s.label}>{p.label}</Text> : null}
         <Text style={s.selectedLanguage}>{selectedName} ▾</Text>
       </View>
-      {Platform.OS === "web" ? (
+      {isWeb ? (
         <View
           style={s.mobileSearchRow}
           onLayout={(event) =>
@@ -77,7 +78,7 @@ export default function LanguageSelector(p: Props) {
         </TouchableOpacity>
       )}
       {p.open ? (
-        Platform.OS === "web" ? (
+        isWeb ? (
           <View style={[s.dropdown, { top: inputBottom }]}>
             <TouchableOpacity onPress={p.onClose} accessibilityRole="button">
               <Text style={s.close}>✕</Text>

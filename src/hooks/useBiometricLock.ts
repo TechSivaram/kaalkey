@@ -1,6 +1,7 @@
+import { isWeb } from "../platform/runtime";
 import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
-import { Alert, AppState, BackHandler, Platform } from "react-native";
+import { Alert, AppState, BackHandler } from "react-native";
 import * as LocalAuthentication from "expo-local-authentication";
 import * as SecureStore from "expo-secure-store";
 
@@ -29,12 +30,12 @@ export function useBiometricLock() {
         // Native device authentication is not available through this web build.
         // Keep the web vault unlocked by default rather than showing a dead-end prompt.
         // Native platforms continue to respect the user's saved switch preference.
-        const shouldEnable = Platform.OS !== "web" && enabled === "true";
+        const shouldEnable = !isWeb && enabled === "true";
         setBiometricEnabled(shouldEnable);
         setIsUnlocked(!shouldEnable);
       } catch {
         if (mounted) {
-          if (Platform.OS === "web") {
+          if (isWeb) {
             // Web has no native authentication flow, so it must not get trapped behind
             // an authentication prompt that cannot run.
             setBiometricEnabled(false);
@@ -51,11 +52,14 @@ export function useBiometricLock() {
       }
     }
 
+    // Load the persisted lock preference only once when the lock controller mounts.
+    // USER_MESSAGES changes whenever the app language changes; depending on it here
+    // would reinitialize the lock and force an already-unlocked vault back to locked.
     void loadBiometricPreference();
     return () => {
       mounted = false;
     };
-  }, [USER_MESSAGES]);
+  }, []);
 
   const authenticateUser = useCallback(
     async (
@@ -66,7 +70,7 @@ export function useBiometricLock() {
       authenticatingRef.current = true;
       setAuthenticating(true);
       try {
-        // Use Android's native BiometricPrompt with device-credential fallback enabled.
+        // Use the platform's native authentication prompt with device-credential fallback.
         // This allows biometrics when available and the OS screen-lock credential (PIN,
         // pattern, or password) when supported. Never unlock unless the native API succeeds.
         const result = await LocalAuthentication.authenticateAsync({
@@ -114,7 +118,7 @@ export function useBiometricLock() {
   const toggleBiometricLock = useCallback(async () => {
     // Do not expose a non-working native-auth switch on web. The web build currently
     // has no implemented browser-authentication flow, so keep its app-level lock OFF.
-    if (Platform.OS === "web") {
+    if (isWeb) {
       const message = USER_MESSAGES.biometric.webLock;
       showUserMessage(USER_MESSAGES.biometric.unavailableTitle, message);
       setBiometricEnabled(false);
@@ -177,7 +181,7 @@ export function useBiometricLock() {
       const wasBackgrounded = /inactive|background/.test(appStateRef.current ?? "");
       appStateRef.current = nextState;
 
-      // Android's system image/document picker temporarily backgrounds KaalKey.
+      // A native system image/document picker can temporarily background KaalKey.
       // Keep the current unlock state while one of these trusted activities is open.
       if (shouldIgnoreExternalActivityTransition(nextState)) return;
 

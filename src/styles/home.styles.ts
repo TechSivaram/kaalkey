@@ -1,4 +1,5 @@
-import { Platform, StyleSheet } from "react-native";
+import { isAndroid } from "../platform/runtime";
+import { StyleSheet } from "react-native";
 import type { ViewStyle } from "react-native";
 import { COLORS } from "../constants/colors";
 
@@ -1397,7 +1398,7 @@ export const styles = StyleSheet.create({
   scannerScrollContent: {
     flexGrow: 1,
     paddingHorizontal: 22,
-    paddingTop: Platform.OS === "android" ? 42 : 58,
+    paddingTop: isAndroid ? 42 : 58,
     paddingBottom: 28,
   },
 

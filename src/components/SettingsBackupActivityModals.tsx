@@ -1,10 +1,10 @@
+import { isIOS } from "../platform/runtime";
 import * as Clipboard from "expo-clipboard";
 import { memo, useMemo, useState, type Dispatch, type SetStateAction } from "react";
 import { type AppLanguage, useAppLanguage } from "../i18n";
 import {
   KeyboardAvoidingView,
   Modal,
-  Platform,
   ScrollView,
   Text,
   TextInput,
@@ -366,7 +366,7 @@ function SettingsBackupActivityModals(props: Props) {
       >
         <View style={[styles.settingsBackdrop, ...getSettingsBackdropStyles(insets, true)]}>
           <KeyboardAvoidingView
-            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            behavior={isIOS ? "padding" : "height"}
             style={styles.backupModalWrap}
           >
             <ScrollView

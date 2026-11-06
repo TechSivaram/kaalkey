@@ -1,5 +1,5 @@
+import { isWeb } from "../platform/runtime";
 import { useMemo, useEffect, useRef, useCallback, useState } from "react";
-import { Platform } from "react-native";
 import * as Clipboard from "expo-clipboard";
 import * as ImagePicker from "expo-image-picker";
 import { useAppLanguage } from "../i18n";
@@ -47,7 +47,7 @@ export function useQrImageImport({
   }, []);
 
   const importQrImage = useCallback(async () => {
-    if (Platform.OS === "web") {
+    if (isWeb) {
       // Use the browser's native file picker; image data stays on-device.
       const input = document.createElement("input");
       input.type = "file";
@@ -149,7 +149,7 @@ export function useQrImageImport({
 
   const pasteQrImage = useCallback(async () => {
     try {
-      if (Platform.OS !== "web") {
+      if (!isWeb) {
         const clipboardText = (await Clipboard.getStringAsync()).trim();
         if (isTotpQrPayload(clipboardText)) {
           await onQrScannedRef.current(clipboardText, false);
@@ -157,7 +157,7 @@ export function useQrImageImport({
         }
       }
 
-      if (Platform.OS === "web") {
+      if (isWeb) {
         const { text, image } = await readWebClipboard();
         const normalizedText = normalizeClipboardTotpText(text);
         if (normalizedText) {
@@ -219,7 +219,7 @@ export function useQrImageImport({
   }, [USER_MESSAGES, setActivityMessage, showQrImportMessage]);
 
   useEffect(() => {
-    if (Platform.OS !== "web" || !modalVisible || editingId) return;
+    if (!isWeb || !modalVisible || editingId) return;
 
     const onPaste = (event: ClipboardEvent) => {
       // Preserve normal paste behavior in text fields and editable controls.

@@ -10,7 +10,7 @@ type Props = {
   enableTorch?: boolean;
 };
 
-/** iOS-only camera component, isolated from Android's fallback frame scanning. */
+/** iOS-only camera component using the native CameraView barcode callback. */
 export default function NativeQrCamera({
   cameraRef,
   style,

@@ -1,6 +1,6 @@
+import { isWeb } from "../platform/runtime";
 import { useMemo, useEffect, useState } from "react";
 import { useAppLanguage } from "../i18n";
-import { Platform } from "react-native";
 import { showUserMessage } from "../utils/user-message";
 import * as SecureStore from "expo-secure-store";
 
@@ -24,12 +24,11 @@ export function useLegalAcceptance() {
     async function loadLegalAcceptance() {
       try {
         // expo-secure-store is native-only; use browser localStorage on web.
-        const saved =
-          Platform.OS === "web"
-            ? typeof window !== "undefined"
-              ? window.localStorage.getItem(LEGAL_ACCEPTANCE_STORAGE_KEY)
-              : null
-            : await SecureStore.getItemAsync(LEGAL_ACCEPTANCE_STORAGE_KEY);
+        const saved = isWeb
+          ? typeof window !== "undefined"
+            ? window.localStorage.getItem(LEGAL_ACCEPTANCE_STORAGE_KEY)
+            : null
+          : await SecureStore.getItemAsync(LEGAL_ACCEPTANCE_STORAGE_KEY);
         if (mounted) setLegalAccepted(saved === LEGAL_VERSION);
       } catch {
         // If the saved decision cannot be read, require acknowledgment again.
@@ -50,7 +49,7 @@ export function useLegalAcceptance() {
     setLegalSaving(true);
     try {
       // Persist acceptance with a web-compatible store in browsers.
-      if (Platform.OS === "web") {
+      if (isWeb) {
         if (typeof window === "undefined")
           throw new Error(USER_MESSAGES.storage.browserUnavailable);
         window.localStorage.setItem(LEGAL_ACCEPTANCE_STORAGE_KEY, LEGAL_VERSION);

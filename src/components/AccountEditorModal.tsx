@@ -1,14 +1,7 @@
+import { isIOS, isWeb } from "../platform/runtime";
 import { memo, useEffect, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
-import {
-  Animated,
-  KeyboardAvoidingView,
-  Modal,
-  Platform,
-  ScrollView,
-  Text,
-  View,
-} from "react-native";
+import { Animated, KeyboardAvoidingView, Modal, ScrollView, Text, View } from "react-native";
 import type { Account } from "../types/account";
 import AccountImportActions from "./AccountImportActions";
 import AccountManualEntryFields from "./AccountManualEntryFields";
@@ -83,7 +76,7 @@ function AccountEditorModal(props: Props) {
   const [dropOverlayOpacity] = useState(() => new Animated.Value(0));
 
   useEffect(() => {
-    if (Platform.OS !== "web") return;
+    if (!isWeb) return;
     Animated.timing(dropOverlayOpacity, {
       toValue: isDraggingImage ? 1 : 0,
       duration: isDraggingImage ? 160 : 120,
@@ -103,7 +96,7 @@ function AccountEditorModal(props: Props) {
     >
       <KeyboardAvoidingView
         style={[styles.modalBackdrop, ...getAccountEditorBackdropStyles(insets)]}
-        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        behavior={isIOS ? "padding" : undefined}
       >
         <ScrollView
           contentContainerStyle={styles.modalScroll}
@@ -159,7 +152,7 @@ function AccountEditorModal(props: Props) {
             />
           </View>
         </ScrollView>
-        {Platform.OS === "web" && (
+        {isWeb && (
           <Animated.View
             pointerEvents="none"
             style={{

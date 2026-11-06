@@ -1,13 +1,6 @@
+import { isAndroid, isWeb } from "../platform/runtime";
 import { memo, useMemo, useState } from "react";
-import {
-  Modal,
-  Platform,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-  useWindowDimensions,
-} from "react-native";
+import { Modal, ScrollView, Text, TouchableOpacity, View, useWindowDimensions } from "react-native";
 import { createUserMessages } from "../constants/userMessages";
 import { useAppLanguage } from "../i18n";
 import { styles } from "../styles/home.styles";
@@ -49,7 +42,7 @@ function QrScannerModal({
   handleQrScanned,
 }: Props) {
   const { width: windowWidth } = useWindowDimensions();
-  const isDesktopWeb = Platform.OS === "web" && windowWidth >= 900;
+  const isDesktopWeb = isWeb && windowWidth >= 900;
   const { t } = useAppLanguage();
   const USER_MESSAGES = useMemo(() => createUserMessages(t), [t]);
   const [torchEnabled, setTorchEnabled] = useState(false);
@@ -109,7 +102,7 @@ function QrScannerModal({
                 ...(isDesktopWeb ? [styles.webCameraFrame] : []),
               ]}
             >
-              {scannerVisible && Platform.OS === "web" ? (
+              {scannerVisible && isWeb ? (
                 <WebQrScanner
                   active={scannerVisible && !scanned}
                   onDetected={(data) => void handleQrScanned(data)}
@@ -138,7 +131,7 @@ function QrScannerModal({
               <View pointerEvents="none" style={styles.scanCornerTR} />
               <View pointerEvents="none" style={styles.scanCornerBL} />
               <View pointerEvents="none" style={styles.scanCornerBR} />
-              {Platform.OS !== "web" && cameraPermission?.granted ? (
+              {!isWeb && cameraPermission?.granted ? (
                 <TouchableOpacity
                   onPress={() => setTorchEnabled((enabled) => !enabled)}
                   accessibilityRole="button"
@@ -157,7 +150,7 @@ function QrScannerModal({
             </View>
 
             <Text style={styles.scannerHint}>{t("qrScanner.keepEntireQr")}</Text>
-            {Platform.OS === "android" ? (
+            {isAndroid ? (
               <Text accessibilityLiveRegion="polite" style={styles.scannerHint}>
                 {scannerDiagnostic}
               </Text>

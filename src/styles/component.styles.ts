@@ -1,4 +1,5 @@
-import { Platform, StyleSheet } from "react-native";
+import { isAndroid } from "../platform/runtime";
+import { StyleSheet } from "react-native";
 import type { CSSProperties } from "react";
 import { COLORS } from "../constants/colors";
 
@@ -133,7 +134,7 @@ export const getActivityOverlayStyles = (insets: { top: number; bottom: number }
       alignItems: "center",
       justifyContent: "center",
       padding: 24,
-      ...(Platform.OS === "android"
+      ...(isAndroid
         ? {
             paddingTop: Math.max(insets.top + 24, 36),
             paddingBottom: Math.max(insets.bottom + 24, 36),
@@ -306,12 +307,12 @@ export const accountTotpUrlImportStyles = StyleSheet.create({
 });
 export const getAccountQrOverlayStyles = (insets: { top: number; bottom: number }) => [
   accountQrModalStyles.overlay,
-  Platform.OS === "android"
+  isAndroid
     ? { paddingTop: Math.max(insets.top + 22, 34), paddingBottom: Math.max(insets.bottom + 22, 34) }
     : null,
 ];
 export const getAccountEditorBackdropStyles = (insets: { top: number; bottom: number }) => [
-  Platform.OS === "android"
+  isAndroid
     ? { paddingTop: Math.max(insets.top + 16, 32), paddingBottom: Math.max(insets.bottom + 16, 32) }
     : null,
 ];
@@ -322,7 +323,7 @@ export const getSettingsBackdropStyles = (
   backup
     ? settingsBackupActivityStyles.backupContent
     : settingsBackupActivityStyles.settingsContent,
-  Platform.OS === "android"
+  isAndroid
     ? { paddingTop: Math.max(insets.top + 12, 28), paddingBottom: Math.max(insets.bottom + 12, 28) }
     : null,
 ];

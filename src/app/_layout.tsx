@@ -1,5 +1,5 @@
+import { isIOS, isWeb } from "../platform/runtime";
 import { useEffect } from "react";
-import { Platform } from "react-native";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider, useSafeAreaInsets } from "react-native-safe-area-context";
@@ -13,7 +13,7 @@ function NativeScreenCaptureGuard() {
   // mounted on web because preventScreenCaptureAsync is unsupported there.
   ScreenCapture.usePreventScreenCapture("kaalkey-sensitive-vault");
   useEffect(() => {
-    if (Platform.OS === "ios") {
+    if (isIOS) {
       void ScreenCapture.enableAppSwitcherProtectionAsync(0.9).catch(() => {
         // Best-effort iOS privacy overlay.
       });
@@ -46,7 +46,7 @@ function GlobalActivityLoader() {
 export default function RootLayout() {
   return (
     <SafeAreaProvider>
-      {Platform.OS !== "web" ? <NativeScreenCaptureGuard /> : null}
+      {!isWeb ? <NativeScreenCaptureGuard /> : null}
       <StatusBar hidden={false} style="dark" />
       <Stack screenOptions={{ headerShown: false }} />
       <GlobalActivityLoader />

@@ -1,4 +1,4 @@
-import { Platform } from "react-native";
+import { isWeb } from "../platform/runtime";
 import * as SecureStore from "expo-secure-store";
 
 import { ACCOUNTS_STORAGE_KEY } from "../constants/storage";
@@ -10,7 +10,7 @@ import { validateAccount } from "./account-validation";
 // Account records use SecureStore on native and origin-scoped localStorage on web.
 // Keep this helper limited to account data so native storage behavior stays unchanged.
 export async function readAccountsStorage(): Promise<string | null> {
-  if (Platform.OS === "web") {
+  if (isWeb) {
     return typeof window !== "undefined" ? window.localStorage.getItem(ACCOUNTS_STORAGE_KEY) : null;
   }
   return SecureStore.getItemAsync(ACCOUNTS_STORAGE_KEY);
@@ -18,7 +18,7 @@ export async function readAccountsStorage(): Promise<string | null> {
 
 export async function writeAccountsStorage(value: string, t: TranslationFunction): Promise<void> {
   const USER_MESSAGES = createUserMessages(t);
-  if (Platform.OS === "web") {
+  if (isWeb) {
     if (typeof window === "undefined") {
       throw new Error(USER_MESSAGES.storage.browserUnavailable);
     }

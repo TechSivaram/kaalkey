@@ -1,7 +1,8 @@
+import { isWeb } from "../platform/runtime";
 import { getWebQrCameraErrorMessage } from "../utils/webQrScanner";
 import { useAppLanguage } from "../i18n";
 import { useEffect, useRef, useState } from "react";
-import { Platform, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import jsQR from "jsqr";
 import { WEB_QR_SCAN_THROTTLE_MS } from "../constants/ui";
 import { webQrScannerStyles as styles, webQrVideoStyle } from "../styles/component.styles";
@@ -31,7 +32,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
   const [message, setMessage] = useState("Starting camera…");
 
   useEffect(() => {
-    if (Platform.OS !== "web" || !active) return;
+    if (!isWeb || !active) return;
     let disposed = false;
     let lastScan = 0;
 
@@ -160,7 +161,7 @@ export default function WebQrScanner({ active, onDetected }: Props) {
 
   return (
     <View style={styles.container}>
-      {Platform.OS === "web" ? (
+      {isWeb ? (
         <>
           <video
             ref={videoRef}

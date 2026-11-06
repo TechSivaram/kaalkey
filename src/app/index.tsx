@@ -1,5 +1,6 @@
+import { isWeb } from "../platform/runtime";
 import { useCallback, useMemo, useRef, useState } from "react";
-import { FlatList, Platform, Text, View, useWindowDimensions } from "react-native";
+import { FlatList, Text, View, useWindowDimensions } from "react-native";
 
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import { createAccountOtpAuthUrl } from "../services/otp-auth-uri";
@@ -41,7 +42,7 @@ const EMPTY_ACCOUNT_LIST: Account[] = [];
 
 export default function HomeScreen() {
   const { width: windowWidth } = useWindowDimensions();
-  const showDesktopBranding = Platform.OS === "web" && windowWidth >= 900;
+  const showDesktopBranding = isWeb && windowWidth >= 900;
   const [appPanelWidth, setAppPanelWidth] = useState(0);
   const initialAppPanelWidth = Math.max(400, Math.min(windowWidth * 0.27, windowWidth - 334));
   const currentAppPanelWidth = appPanelWidth || initialAppPanelWidth;
@@ -327,7 +328,7 @@ export default function HomeScreen() {
     <View style={showDesktopBranding ? styles.webDesktopLayout : styles.webMobileLayout}>
       <SafeAreaView
         style={
-          Platform.OS === "web"
+          isWeb
             ? showDesktopBranding
               ? [styles.webRoot, getWebRootPanelStyle(currentAppPanelWidth)]
               : styles.webMobileRoot
@@ -335,7 +336,7 @@ export default function HomeScreen() {
         }
         edges={["top", "left", "right", "bottom"]}
       >
-        <View style={Platform.OS === "web" ? styles.webAppShell : styles.nativeAppShell}>
+        <View style={isWeb ? styles.webAppShell : styles.nativeAppShell}>
           <HomeHeader
             biometricEnabled={biometricEnabled}
             onToggleBiometricLock={handleToggleBiometricLock}
@@ -355,7 +356,7 @@ export default function HomeScreen() {
             initialNumToRender={8}
             maxToRenderPerBatch={8}
             windowSize={7}
-            removeClippedSubviews={Platform.OS !== "web"}
+            removeClippedSubviews={!isWeb}
           />
 
           <AccountQrModal

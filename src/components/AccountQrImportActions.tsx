@@ -1,5 +1,6 @@
+import { isWeb } from "../platform/runtime";
 import { useAppLanguage } from "../i18n";
-import { Platform, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { styles } from "../styles/home.styles";
 
 type Props = {
@@ -53,7 +54,7 @@ export default function AccountQrImportActions({ onScan, onImportImage, onPasteI
         </View>
         <Text style={styles.scanButtonArrow}>›</Text>
       </TouchableOpacity>
-      {Platform.OS === "web" && (
+      {isWeb && (
         <Text
           style={{
             marginTop: 9,

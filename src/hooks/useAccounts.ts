@@ -1,6 +1,7 @@
+import { isWeb } from "../platform/runtime";
 import { useMemo, useCallback, useEffect, useState } from "react";
 import { useAppLanguage } from "../i18n";
-import { Alert, Platform } from "react-native";
+import { Alert } from "react-native";
 import { createUserMessages } from "../constants/userMessages";
 import { showUserMessage } from "../utils/user-message";
 import type { Account } from "../types/account";
@@ -260,7 +261,7 @@ export function useAccounts({
   const deleteAccount = useCallback(
     (id: string) => {
       const message = USER_MESSAGES.account.removeConfirmBody;
-      if (Platform.OS === "web" && typeof window !== "undefined") {
+      if (isWeb && typeof window !== "undefined") {
         if (window.confirm(`${USER_MESSAGES.account.removeConfirmWebTitle}\n\n${message}`))
           void removeAccountConfirmed(id);
         return;
@@ -288,7 +289,7 @@ export function useAccounts({
   const clearAllAccounts = useCallback(() => {
     const message = USER_MESSAGES.account.clearConfirmBody;
     const undoNote = USER_MESSAGES.account.clearConfirmUndoBody;
-    if (Platform.OS === "web" && typeof window !== "undefined") {
+    if (isWeb && typeof window !== "undefined") {
       if (
         window.confirm(`${USER_MESSAGES.account.clearConfirmTitle}\n\n${message}\n\n${undoNote}`)
       ) {

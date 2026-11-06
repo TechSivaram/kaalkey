@@ -1,6 +1,7 @@
+import { isWeb } from "../platform/runtime";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
-import { Alert, Platform } from "react-native";
+import { Alert } from "react-native";
 import { useCameraPermissions } from "expo-camera";
 import * as Clipboard from "expo-clipboard";
 import type { Account } from "../types/account";
@@ -40,7 +41,7 @@ export function useQrAccountScanner({
   const cameraViewRef = useRef<any>(null);
 
   const openQrScanner = useCallback(async () => {
-    if (Platform.OS === "web") {
+    if (isWeb) {
       setScanned(false);
       qrProcessingRef.current = false;
       setModalVisible(false);
@@ -48,7 +49,7 @@ export function useQrAccountScanner({
       return;
     }
 
-    // Use the same visible live preview on Android in Expo Go and standalone builds.
+    // Use the same visible live preview on native platforms in Expo Go and standalone builds.
     // The native Google Code Scanner opens a separate UI and is not our primary path.
     if (!cameraPermission?.granted) {
       const permission = await requestCameraPermission();

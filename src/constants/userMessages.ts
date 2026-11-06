@@ -142,7 +142,7 @@ export function createUserMessages(t: TranslationFunction) {
       invalidPasswordOrDamaged: "Backup password is incorrect or the backup file is damaged.",
       invalidContents: "The backup contents are invalid or incomplete.",
       secureRandomUnavailableDetailed:
-        "Secure random generation is unavailable. Rebuild and reinstall the Android app with expo-crypto included, then try again.",
+        "Secure random generation is unavailable. Rebuild and reinstall the app with expo-crypto included, then try again.",
       invalidAccountDataForBackup:
         "One or more accounts are invalid. Fix the account data before creating a backup.",
       invalidPasswordOrModified:
@@ -211,7 +211,7 @@ export function createUserMessages(t: TranslationFunction) {
       promptErrorBody:
         "KaalKey could not start the phone's secure authentication prompt. Please try again.",
       webLock:
-        "Device authentication lock is not available in the web version yet. The web vault remains unlocked; use the Android app for native device authentication.",
+        "Device authentication lock is not available in the web version yet. The web vault remains unlocked; use a supported native app for device authentication.",
       disabledTitle: "App lock disabled",
       disabledBody: "KaalKey app lock has been turned off.",
       saveErrorTitle: "Could not save setting",

@@ -1,5 +1,6 @@
+import { isWeb } from "../platform/runtime";
 import { useMemo, useCallback } from "react";
-import { Alert, Platform } from "react-native";
+import { Alert } from "react-native";
 import { createUserMessages } from "../constants/userMessages";
 import * as DocumentPicker from "expo-document-picker";
 import { beginExternalActivity } from "../utils/externalActivity";
@@ -108,7 +109,7 @@ export function useBackupManager({
       const passwordTimestamp = backupPassword.split("-")[1];
       const filename = `${BACKUP_FILENAME_PREFIX}${passwordTimestamp}${BACKUP_FILE_EXTENSION}`;
 
-      if (Platform.OS === "web") {
+      if (isWeb) {
         if (typeof document === "undefined" || typeof URL === "undefined") {
           throw new Error(USER_MESSAGES.backup.browserDownloadUnsupported);
         }
@@ -178,7 +179,7 @@ export function useBackupManager({
   ]);
 
   const pickBackupText = useCallback(async (): Promise<string | null> => {
-    if (Platform.OS !== "web") {
+    if (!isWeb) {
       const finishExternalActivity = beginExternalActivity();
       try {
         const picked = await DocumentPicker.getDocumentAsync({
@@ -252,7 +253,7 @@ export function useBackupManager({
       setActivityMessage(null);
       const message = getRestoreConfirmationMessage(restored.length, t);
       let shouldMerge = false;
-      if (Platform.OS === "web") {
+      if (isWeb) {
         shouldMerge =
           typeof window !== "undefined" &&
           window.confirm(`${USER_MESSAGES.backup.mergeConfirmTitle}\n\n${message}`);

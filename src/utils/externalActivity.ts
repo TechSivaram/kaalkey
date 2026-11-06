@@ -1,6 +1,6 @@
 /**
  * Tracks native system UI launched by KaalKey (photo/document pickers and share
- * sheets). Android can background the host Activity while this UI is visible.
+ * sheets). A native platform can background the host app while this UI is visible.
  */
 let activeExternalActivities = 0;
 let externalActivityBackgrounded = false;

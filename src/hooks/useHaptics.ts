@@ -1,6 +1,7 @@
+import { isAndroid, isIOS } from "../platform/runtime";
 import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
-import { Platform, Vibration } from "react-native";
+import { Vibration } from "react-native";
 import { showUserMessage } from "../utils/user-message";
 import * as SecureStore from "expo-secure-store";
 
@@ -41,11 +42,11 @@ export function useHaptics() {
     if (!enabledRef.current) return;
 
     try {
-      if (Platform.OS === "android") {
+      if (isAndroid) {
         const pattern =
           kind === "success" ? [0, 22, 45, 28] : kind === "warning" ? [0, 38, 55, 38] : 12;
         Vibration.vibrate(pattern);
-      } else if (Platform.OS === "ios") {
+      } else if (isIOS) {
         Vibration.vibrate(kind === "success" ? 35 : kind === "warning" ? 45 : 15);
       }
     } catch {
