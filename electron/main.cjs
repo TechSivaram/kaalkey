@@ -1,8 +1,24 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, protocol } = require("electron");
 
 const path = require("path");
 const fs = require("fs");
 const crypto = require("crypto");
+const { pathToFileURL } = require("url");
+
+// Register a secure, standard custom scheme before app readiness.
+// This gives the packaged renderer a stable origin instead of file://.
+protocol.registerSchemesAsPrivileged([
+  {
+    scheme: "kaalkey",
+    privileges: {
+      standard: true,
+      secure: true,
+      supportFetchAPI: true,
+      corsEnabled: true,
+      stream: true,
+    },
+  },
+]);
 
 // ==================================================
 // 1. KaalKey application identity
@@ -161,7 +177,101 @@ function attachRendererDiagnostics(win) {
 }
 
 // ==================================================
-// 4. Create desktop window
+// 4. Packaged application protocol
+// ==================================================
+
+const APP_SCHEME = "kaalkey";
+const APP_HOST = "bundle";
+const DIST_DIR = path.resolve(__dirname, "../dist");
+
+const MIME_TYPES = {
+  ".html": "text/html; charset=utf-8",
+  ".js": "text/javascript; charset=utf-8",
+  ".mjs": "text/javascript; charset=utf-8",
+  ".css": "text/css; charset=utf-8",
+  ".json": "application/json; charset=utf-8",
+  ".map": "application/json; charset=utf-8",
+  ".svg": "image/svg+xml",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".webp": "image/webp",
+  ".gif": "image/gif",
+  ".ico": "image/x-icon",
+  ".woff": "font/woff",
+  ".woff2": "font/woff2",
+  ".ttf": "font/ttf",
+  ".otf": "font/otf",
+  ".wasm": "application/wasm",
+  ".txt": "text/plain; charset=utf-8",
+  ".xml": "application/xml; charset=utf-8",
+};
+
+async function registerKaalKeyProtocol() {
+  if (!app.isPackaged) return;
+
+  await protocol.handle(APP_SCHEME, async (request) => {
+    try {
+      const url = new URL(request.url);
+
+      if (url.hostname !== APP_HOST) {
+        return new Response("Not found", { status: 404 });
+      }
+
+      let requestPath = decodeURIComponent(url.pathname || "/");
+      if (requestPath === "/" || requestPath.endsWith("/")) {
+        requestPath += "index.html";
+      }
+
+      // Resolve only within the packaged dist directory.
+      const filePath = path.resolve(DIST_DIR, `.${requestPath}`);
+      const relativePath = path.relative(DIST_DIR, filePath);
+
+      if (relativePath.startsWith("..") || path.isAbsolute(relativePath)) {
+        return new Response("Forbidden", { status: 403 });
+      }
+
+      let resolvedPath = filePath;
+
+      // Expo Router may request a client-side route directly. Serve the
+      // exported entry document for extensionless navigation paths only.
+      if (!path.extname(resolvedPath) && request.method === "GET") {
+        try {
+          const stat = await fs.promises.stat(resolvedPath);
+          if (stat.isDirectory()) {
+            resolvedPath = path.join(resolvedPath, "index.html");
+          }
+        } catch {
+          resolvedPath = path.join(DIST_DIR, "index.html");
+        }
+      }
+
+      const body = await fs.promises.readFile(resolvedPath);
+      const contentType =
+        MIME_TYPES[path.extname(resolvedPath).toLowerCase()] || "application/octet-stream";
+
+      return new Response(request.method === "HEAD" ? null : body, {
+        status: 200,
+        headers: {
+          "Content-Type": contentType,
+          "X-Content-Type-Options": "nosniff",
+          "Cache-Control":
+            path.extname(resolvedPath) === ".html"
+              ? "no-cache"
+              : "public, max-age=31536000, immutable",
+        },
+      });
+    } catch (error) {
+      console.error("[KaalKey] Protocol request failed:", request.url, error);
+      return new Response("Not found", { status: 404 });
+    }
+  });
+
+  console.log("[KaalKey] Custom protocol registered:", `${APP_SCHEME}://${APP_HOST}/`);
+}
+
+// ==================================================
+// 5. Create desktop window
 // ==================================================
 
 let mainWindow;
@@ -193,9 +303,7 @@ function createWindow() {
     mainWindow = null;
   });
 
-  const startUrl = app.isPackaged
-    ? `file://${path.join(__dirname, "../dist/index.html")}`
-    : "http://localhost:8081";
+  const startUrl = app.isPackaged ? `${APP_SCHEME}://${APP_HOST}/` : "http://localhost:8081";
 
   console.log("[KaalKey] Loading:", startUrl);
 
@@ -210,9 +318,10 @@ function createWindow() {
 
 app
   .whenReady()
-  .then(() => {
+  .then(async () => {
     console.log("[KaalKey] Electron ready");
 
+    await registerKaalKeyProtocol();
     createWindow();
 
     app.on("activate", () => {
