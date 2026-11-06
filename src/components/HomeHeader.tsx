@@ -9,13 +9,101 @@ type HomeHeaderProps = {
   biometricEnabled: boolean;
   onToggleBiometricLock: () => void;
   onOpenSettings: () => void;
+  desktopWindowMode?: "sidebar" | "expanded";
+  onToggleDesktopWindowMode?: () => void;
+  onMinimizeDesktopWindow?: () => void;
+  onCloseDesktopWindow?: () => void;
 };
 
 /** Renders the brand header, security control, settings button, and tricolour stripe. */
-function HomeHeader({ biometricEnabled, onToggleBiometricLock, onOpenSettings }: HomeHeaderProps) {
+function HomeHeader({
+  biometricEnabled,
+  onToggleBiometricLock,
+  onOpenSettings,
+  desktopWindowMode,
+  onToggleDesktopWindowMode,
+  onMinimizeDesktopWindow,
+  onCloseDesktopWindow,
+}: HomeHeaderProps) {
   const { t } = useAppLanguage();
   return (
     <>
+      {onCloseDesktopWindow && (
+        <View
+          style={{
+            height: 34,
+            flexDirection: "row",
+            alignItems: "center",
+            paddingLeft: 12,
+            paddingRight: 8,
+            backgroundColor: "#f4f5f7",
+          }}
+        >
+          <View
+            style={
+              { flex: 1, height: "100%", justifyContent: "center", WebkitAppRegion: "drag" } as any
+            }
+            // Electron treats this strip as the draggable window region.
+            {...({} as any)}
+          >
+            <Text style={{ color: "#667085", fontSize: 12, fontWeight: "600" }}>
+              KaalKey Authenticator
+            </Text>
+          </View>
+          <TouchableOpacity
+            onPress={onMinimizeDesktopWindow}
+            style={
+              {
+                width: 38,
+                height: 32,
+                alignItems: "center",
+                justifyContent: "center",
+                WebkitAppRegion: "no-drag",
+              } as any
+            }
+            accessibilityRole="button"
+            accessibilityLabel="Minimize window"
+          >
+            <Text style={{ color: "#344054", fontSize: 18 }}>−</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={onToggleDesktopWindowMode}
+            style={
+              {
+                width: 38,
+                height: 32,
+                alignItems: "center",
+                justifyContent: "center",
+                WebkitAppRegion: "no-drag",
+              } as any
+            }
+            accessibilityRole="button"
+            accessibilityLabel={
+              desktopWindowMode === "expanded" ? "Restore sidebar" : "Expand window"
+            }
+          >
+            <Text style={{ color: "#344054", fontSize: 15 }}>
+              {desktopWindowMode === "expanded" ? "▢" : "□"}
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={onCloseDesktopWindow}
+            style={
+              {
+                width: 38,
+                height: 32,
+                alignItems: "center",
+                justifyContent: "center",
+                WebkitAppRegion: "no-drag",
+              } as any
+            }
+            accessibilityRole="button"
+            accessibilityLabel="Close window"
+          >
+            <Text style={{ color: "#344054", fontSize: 18 }}>×</Text>
+          </TouchableOpacity>
+        </View>
+      )}
       <View style={styles.header}>
         <View style={styles.brandRow}>
           <View style={styles.brandMarkFrame}>

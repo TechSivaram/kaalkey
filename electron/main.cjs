@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, protocol } = require("electron");
+const { app, BrowserWindow, ipcMain, protocol, screen } = require("electron");
 
 const path = require("path");
 const fs = require("fs");
@@ -41,6 +41,11 @@ console.log("[KaalKey] App name:", app.getName());
 // ==================================================
 
 const lockFile = path.join(userDataPath, "vault-lock.json");
+const windowStateFile = path.join(userDataPath, "desktop-window.json");
+const SIDEBAR_MIN_WIDTH = 393; // Matches the web splitter's minWidth.
+const SIDEBAR_DEFAULT_WIDTH = 480;
+const SIDEBAR_MAX_WIDTH = 560;
+const WINDOW_MIN_HEIGHT = 500;
 
 let failedAttempts = 0;
 let blockedUntil = 0;
@@ -271,28 +276,103 @@ async function registerKaalKeyProtocol() {
 }
 
 // ==================================================
-// 5. Create desktop window
+// 5. Desktop window modes
 // ==================================================
 
 let mainWindow;
+let windowMode = "sidebar";
+
+function readWindowState() {
+  try {
+    const state = JSON.parse(fs.readFileSync(windowStateFile, "utf8"));
+    return state?.mode === "expanded" ? "expanded" : "sidebar";
+  } catch {
+    return "sidebar";
+  }
+}
+
+function saveWindowState() {
+  try {
+    fs.writeFileSync(windowStateFile, JSON.stringify({ mode: windowMode }), {
+      encoding: "utf8",
+      mode: 0o600,
+    });
+  } catch (error) {
+    console.error("[KaalKey] Could not save window state:", error);
+  }
+}
+
+function getSidebarBounds(display = screen.getPrimaryDisplay()) {
+  const { x, y, width, height } = display.workArea;
+  const minWidth = Math.min(SIDEBAR_MIN_WIDTH, width);
+  const maxWidth = Math.max(minWidth, Math.min(SIDEBAR_MAX_WIDTH, width));
+  const desiredWidth = Math.max(minWidth, Math.min(SIDEBAR_DEFAULT_WIDTH, maxWidth));
+  return {
+    x: x + width - desiredWidth,
+    y,
+    width: desiredWidth,
+    height,
+  };
+}
+
+function getExpandedBounds(display = screen.getPrimaryDisplay()) {
+  return { ...display.workArea };
+}
+
+function applyWindowMode(mode, persist = true) {
+  if (!mainWindow || mainWindow.isDestroyed()) return;
+
+  const display = screen.getDisplayMatching(mainWindow.getBounds());
+  windowMode = mode === "expanded" ? "expanded" : "sidebar";
+  const bounds = windowMode === "expanded" ? getExpandedBounds(display) : getSidebarBounds(display);
+
+  if (mainWindow.isMaximized()) mainWindow.unmaximize();
+  mainWindow.setMinimumSize(
+    Math.min(SIDEBAR_MIN_WIDTH, display.workArea.width),
+    Math.min(WINDOW_MIN_HEIGHT, display.workArea.height),
+  );
+  mainWindow.setBounds(bounds, true);
+
+  if (persist) saveWindowState();
+  console.log(`[KaalKey] Window mode: ${windowMode}`, bounds);
+}
+
+ipcMain.handle("desktop-window:minimize", () => {
+  if (mainWindow && !mainWindow.isDestroyed()) mainWindow.minimize();
+  return true;
+});
+ipcMain.handle("desktop-window:close", () => {
+  if (mainWindow && !mainWindow.isDestroyed()) mainWindow.close();
+  return true;
+});
+ipcMain.handle("desktop-window:get-mode", () => windowMode);
+ipcMain.handle("desktop-window:toggle-mode", () => {
+  const nextMode = windowMode === "sidebar" ? "expanded" : "sidebar";
+  applyWindowMode(nextMode);
+  return windowMode;
+});
 
 function createWindow() {
   console.log("[KaalKey] Creating desktop window");
+  windowMode = readWindowState();
+  const display = screen.getPrimaryDisplay();
+  const initialBounds =
+    windowMode === "expanded" ? getExpandedBounds(display) : getSidebarBounds(display);
 
   mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 800,
-    minWidth: 800,
-    minHeight: 600,
+    ...initialBounds,
+    frame: false,
+    autoHideMenuBar: true,
+    minWidth: Math.min(SIDEBAR_MIN_WIDTH, display.workArea.width),
+    minHeight: Math.min(WINDOW_MIN_HEIGHT, display.workArea.height),
     show: false,
     backgroundColor: "#ffffff",
-
+    resizable: true,
+    maximizable: true,
     webPreferences: {
       preload: path.join(__dirname, "preload.cjs"),
       contextIsolation: true,
       nodeIntegration: false,
-
-      // Temporarily disabled for diagnostics.
       sandbox: false,
     },
   });
@@ -303,17 +383,39 @@ function createWindow() {
     mainWindow = null;
   });
 
+  // Keep sidebar mode full-height and right-aligned if the display work area changes.
+  const repositionSidebar = () => {
+    if (!mainWindow || mainWindow.isDestroyed() || windowMode !== "sidebar") return;
+    const currentDisplay = screen.getDisplayMatching(mainWindow.getBounds());
+    const current = mainWindow.getBounds();
+    const sidebar = getSidebarBounds(currentDisplay);
+    // Preserve a user-adjusted width while respecting the web splitter minimum.
+    const width = Math.max(
+      Math.min(SIDEBAR_MIN_WIDTH, currentDisplay.workArea.width),
+      Math.min(current.width, Math.min(SIDEBAR_MAX_WIDTH, currentDisplay.workArea.width)),
+    );
+    mainWindow.setBounds({
+      x: currentDisplay.workArea.x + currentDisplay.workArea.width - width,
+      y: currentDisplay.workArea.y,
+      width,
+      height: currentDisplay.workArea.height,
+    });
+  };
+  screen.on("display-metrics-changed", repositionSidebar);
+  mainWindow.on("closed", () =>
+    screen.removeListener("display-metrics-changed", repositionSidebar),
+  );
+
   const startUrl = app.isPackaged ? `${APP_SCHEME}://${APP_HOST}/` : "http://localhost:8081";
 
   console.log("[KaalKey] Loading:", startUrl);
-
   mainWindow.loadURL(startUrl).catch((error) => {
     console.error("[KaalKey] loadURL rejected:", error);
   });
 }
 
 // ==================================================
-// 5. Electron lifecycle
+// 6. Electron lifecycle
 // ==================================================
 
 app
@@ -322,6 +424,9 @@ app
     console.log("[KaalKey] Electron ready");
 
     await registerKaalKeyProtocol();
+    // KaalKey uses its own compact window controls; remove the native menu.
+    const { Menu } = require("electron");
+    Menu.setApplicationMenu(null);
     createWindow();
 
     app.on("activate", () => {
@@ -341,7 +446,7 @@ app.on("window-all-closed", () => {
 });
 
 // ==================================================
-// 6. Process-level diagnostics
+// 7. Process-level diagnostics
 // ==================================================
 
 process.on("uncaughtException", (error) => {

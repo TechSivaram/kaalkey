@@ -1,5 +1,5 @@
 import { isDesktop, isWeb } from "../platform/runtime";
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { FlatList, Text, View, useWindowDimensions } from "react-native";
 
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
@@ -43,6 +43,30 @@ const EMPTY_ACCOUNT_LIST: Account[] = [];
 
 export default function HomeScreen() {
   const { width: windowWidth } = useWindowDimensions();
+  const [desktopWindowMode, setDesktopWindowMode] = useState<"sidebar" | "expanded">("sidebar");
+  const isDesktopRuntime = typeof window !== "undefined" && !!window.kaalkeyDesktop;
+
+  useEffect(() => {
+    if (!isDesktopRuntime) return;
+    window
+      .kaalkeyDesktop!.window.getMode()
+      .then(setDesktopWindowMode)
+      .catch(() => {});
+  }, [isDesktopRuntime]);
+
+  const toggleDesktopWindowMode = useCallback(() => {
+    if (!window.kaalkeyDesktop) return;
+    window.kaalkeyDesktop.window
+      .toggleMode()
+      .then(setDesktopWindowMode)
+      .catch(() => {});
+  }, []);
+  const minimizeDesktopWindow = useCallback(() => {
+    window.kaalkeyDesktop?.window.minimize().catch(() => {});
+  }, []);
+  const closeDesktopWindow = useCallback(() => {
+    window.kaalkeyDesktop?.window.close().catch(() => {});
+  }, []);
   const showDesktopBranding = isWeb && windowWidth >= 900;
   const [appPanelWidth, setAppPanelWidth] = useState(0);
   const initialAppPanelWidth = Math.max(400, Math.min(windowWidth * 0.27, windowWidth - 334));
@@ -70,9 +94,9 @@ export default function HomeScreen() {
         const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
         const splitterWidth = 14;
         const brandMinimumWidth = 320;
-        const maxAppWidth = Math.max(400, viewportWidth - brandMinimumWidth - splitterWidth);
+        const maxAppWidth = Math.max(393, viewportWidth - brandMinimumWidth - splitterWidth);
         const nextWidth = Math.max(
-          400,
+          393,
           Math.min(maxAppWidth, drag.panelWidth + moveX - drag.pointerX),
         );
         setAppPanelWidth(nextWidth);
@@ -350,16 +374,30 @@ export default function HomeScreen() {
           isWeb
             ? showDesktopBranding
               ? [styles.webRoot, getWebRootPanelStyle(currentAppPanelWidth)]
-              : styles.webMobileRoot
+              : isDesktopRuntime
+                ? [styles.webMobileRoot, { maxWidth: "none" }]
+                : styles.webMobileRoot
             : styles.container
         }
         edges={["top", "left", "right", "bottom"]}
       >
-        <View style={isWeb ? styles.webAppShell : styles.nativeAppShell}>
+        <View
+          style={
+            isWeb
+              ? isDesktopRuntime
+                ? [styles.webAppShell, { maxWidth: "none" }]
+                : styles.webAppShell
+              : styles.nativeAppShell
+          }
+        >
           <HomeHeader
             biometricEnabled={biometricEnabled}
             onToggleBiometricLock={handleToggleBiometricLock}
             onOpenSettings={handleOpenSettings}
+            desktopWindowMode={desktopWindowMode}
+            onToggleDesktopWindowMode={isDesktopRuntime ? toggleDesktopWindowMode : undefined}
+            onMinimizeDesktopWindow={isDesktopRuntime ? minimizeDesktopWindow : undefined}
+            onCloseDesktopWindow={isDesktopRuntime ? closeDesktopWindow : undefined}
           />
 
           <FlatList

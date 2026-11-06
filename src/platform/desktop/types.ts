@@ -7,6 +7,12 @@ export type DesktopBridge = {
     setPin(pin: string): Promise<DesktopLockResult>;
     verifyPin(pin: string): Promise<DesktopLockResult>;
   };
+  window: {
+    getMode(): Promise<"sidebar" | "expanded">;
+    toggleMode(): Promise<"sidebar" | "expanded">;
+    minimize(): Promise<boolean>;
+    close(): Promise<boolean>;
+  };
 };
 
 declare global {
