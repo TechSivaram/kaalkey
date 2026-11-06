@@ -4,8 +4,7 @@ import { Modal, ScrollView, Text, TouchableOpacity, View, useWindowDimensions } 
 import { createUserMessages } from "../constants/userMessages";
 import { useAppLanguage } from "../i18n";
 import { styles } from "../styles/home.styles";
-import WebQrScanner from "./WebQrScanner";
-import NativeQrCamera from "./qr-scanner/NativeQrCamera";
+import ScannerCamera from "../platform/scanner/scanner";
 import {
   getQrScannerCameraFrameStyle,
   getQrScannerScrollContentStyle,
@@ -102,13 +101,10 @@ function QrScannerModal({
                 ...(isDesktopWeb ? [styles.webCameraFrame] : []),
               ]}
             >
-              {scannerVisible && isWeb ? (
-                <WebQrScanner
+              {scannerVisible && (isWeb || cameraPermission?.granted) ? (
+                <ScannerCamera
                   active={scannerVisible && !scanned}
                   onDetected={(data) => void handleQrScanned(data)}
-                />
-              ) : scannerVisible && cameraPermission?.granted ? (
-                <NativeQrCamera
                   cameraRef={cameraViewRef}
                   style={styles.cameraPreview}
                   enableTorch={torchEnabled}
