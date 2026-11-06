@@ -2,13 +2,14 @@ import { isWeb } from "../platform/runtime";
 import { getStorageItem, setStorageItem } from "../platform/storage";
 import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
-import { Alert, BackHandler } from "react-native";
+import { Alert } from "react-native";
 import { authenticateWithDevice } from "../platform/biometric/biometric";
 import { BIOMETRIC_ENABLED_STORAGE_KEY } from "../constants/storage";
 import { createUserMessages } from "../constants/userMessages";
 import { showUserMessage } from "../utils/user-message";
 import { shouldIgnoreExternalActivityTransition } from "../platform/lifecycle/externalActivity";
 import { getCurrentAppState, subscribeToAppState } from "../platform/lifecycle/lifecycle";
+import { subscribeToHardwareBackPress } from "../platform/navigation/back-handler";
 
 export function useBiometricLock() {
   const { t } = useAppLanguage();
@@ -197,8 +198,7 @@ export function useBiometricLock() {
   // While locked, Android Back must never uncover the underlying vault.
   useEffect(() => {
     if (!biometricReady || !biometricEnabled || isUnlocked) return;
-    const subscription = BackHandler.addEventListener("hardwareBackPress", () => true);
-    return () => subscription.remove();
+    return subscribeToHardwareBackPress(() => true);
   }, [biometricReady, biometricEnabled, isUnlocked, USER_MESSAGES]);
 
   return {
