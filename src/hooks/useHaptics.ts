@@ -1,10 +1,9 @@
 import { isAndroid, isIOS } from "../platform/runtime";
+import { getStorageItem, setStorageItem } from "../platform/storage";
 import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
 import { Vibration } from "react-native";
 import { showUserMessage } from "../utils/user-message";
-import * as SecureStore from "expo-secure-store";
-
 import { HAPTICS_ENABLED_STORAGE_KEY } from "../constants/storage";
 import { createUserMessages } from "../constants/userMessages";
 
@@ -22,7 +21,7 @@ export function useHaptics() {
 
     async function loadHapticPreference() {
       try {
-        const saved = await SecureStore.getItemAsync(HAPTICS_ENABLED_STORAGE_KEY);
+        const saved = await getStorageItem(HAPTICS_ENABLED_STORAGE_KEY);
         const enabled = saved !== "false";
         enabledRef.current = enabled;
         if (mounted) setHapticsEnabled(enabled);
@@ -58,7 +57,7 @@ export function useHaptics() {
     const next = !enabledRef.current;
 
     try {
-      await SecureStore.setItemAsync(HAPTICS_ENABLED_STORAGE_KEY, String(next));
+      await setStorageItem(HAPTICS_ENABLED_STORAGE_KEY, String(next));
       enabledRef.current = next;
       setHapticsEnabled(next);
       if (next) hapticFeedback("success");

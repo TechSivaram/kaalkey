@@ -1,10 +1,9 @@
 import { isWeb } from "../platform/runtime";
+import { getStorageItem, setStorageItem } from "../platform/storage";
 import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
 import { Alert, AppState, BackHandler } from "react-native";
 import * as LocalAuthentication from "expo-local-authentication";
-import * as SecureStore from "expo-secure-store";
-
 import { BIOMETRIC_ENABLED_STORAGE_KEY } from "../constants/storage";
 import { createUserMessages } from "../constants/userMessages";
 import { showUserMessage } from "../utils/user-message";
@@ -25,7 +24,7 @@ export function useBiometricLock() {
 
     async function loadBiometricPreference() {
       try {
-        const enabled = await SecureStore.getItemAsync(BIOMETRIC_ENABLED_STORAGE_KEY);
+        const enabled = await getStorageItem(BIOMETRIC_ENABLED_STORAGE_KEY);
         if (!mounted) return;
         // Native device authentication is not available through this web build.
         // Keep the web vault unlocked by default rather than showing a dead-end prompt.
@@ -135,7 +134,7 @@ export function useBiometricLock() {
       );
       if (!authenticated) return;
       try {
-        await SecureStore.setItemAsync(BIOMETRIC_ENABLED_STORAGE_KEY, "false");
+        await setStorageItem(BIOMETRIC_ENABLED_STORAGE_KEY, "false");
         setBiometricEnabled(false);
         setIsUnlocked(true);
         Alert.alert(USER_MESSAGES.biometric.disabledTitle, USER_MESSAGES.biometric.disabledBody);
@@ -154,7 +153,7 @@ export function useBiometricLock() {
     const authenticated = await authenticateUser(USER_MESSAGES.biometric.enablePrompt, false);
     if (!authenticated) return;
     try {
-      await SecureStore.setItemAsync(BIOMETRIC_ENABLED_STORAGE_KEY, "true");
+      await setStorageItem(BIOMETRIC_ENABLED_STORAGE_KEY, "true");
       setBiometricEnabled(true);
       setIsUnlocked(true);
       Alert.alert(USER_MESSAGES.biometric.enabledTitle, USER_MESSAGES.biometric.enabledBody);

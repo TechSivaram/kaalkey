@@ -1,6 +1,5 @@
 import { isWeb } from "../platform/runtime";
-import * as SecureStore from "expo-secure-store";
-
+import { getStorageItem, setStorageItem } from "../platform/storage";
 import { ACCOUNTS_STORAGE_KEY } from "../constants/storage";
 import { createUserMessages } from "../constants/userMessages";
 import type { TranslationFunction } from "../i18n";
@@ -10,10 +9,7 @@ import { validateAccount } from "./account-validation";
 // Account records use SecureStore on native and origin-scoped localStorage on web.
 // Keep this helper limited to account data so native storage behavior stays unchanged.
 export async function readAccountsStorage(): Promise<string | null> {
-  if (isWeb) {
-    return typeof window !== "undefined" ? window.localStorage.getItem(ACCOUNTS_STORAGE_KEY) : null;
-  }
-  return SecureStore.getItemAsync(ACCOUNTS_STORAGE_KEY);
+  return getStorageItem(ACCOUNTS_STORAGE_KEY);
 }
 
 export async function writeAccountsStorage(value: string, t: TranslationFunction): Promise<void> {
@@ -22,10 +18,8 @@ export async function writeAccountsStorage(value: string, t: TranslationFunction
     if (typeof window === "undefined") {
       throw new Error(USER_MESSAGES.storage.browserUnavailable);
     }
-    window.localStorage.setItem(ACCOUNTS_STORAGE_KEY, value);
-    return;
   }
-  await SecureStore.setItemAsync(ACCOUNTS_STORAGE_KEY, value);
+  await setStorageItem(ACCOUNTS_STORAGE_KEY, value);
 }
 
 /** Parse persisted account JSON without allowing malformed records into app state. */
