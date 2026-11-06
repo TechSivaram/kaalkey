@@ -95,9 +95,16 @@ export default function WebQrScanner({ active, onDetected }: Props) {
             try {
               // Limit the frame dimensions for consistent performance.
               const scale = Math.min(1, WEB_QR_SCAN_MAX_FRAME_WIDTH / video.videoWidth);
-              canvas.width = Math.max(1, Math.round(video.videoWidth * scale));
-              canvas.height = Math.max(1, Math.round(video.videoHeight * scale));
-              context.drawImage(video, 0, 0, canvas.width, canvas.height);
+              const frameWidth = Math.max(1, Math.round(video.videoWidth * scale));
+              const frameHeight = Math.max(1, Math.round(video.videoHeight * scale));
+
+              // Assigning canvas dimensions clears its bitmap and resets the
+              // context. Avoid doing that on every scan when the camera size
+              // has not changed.
+              if (canvas.width !== frameWidth) canvas.width = frameWidth;
+              if (canvas.height !== frameHeight) canvas.height = frameHeight;
+
+              context.drawImage(video, 0, 0, frameWidth, frameHeight);
               let pixels = context.getImageData(0, 0, canvas.width, canvas.height);
               // Most authenticator QR codes use the standard dark-on-light
               // format. Try that inexpensive path first instead of asking jsQR

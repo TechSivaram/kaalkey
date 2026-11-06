@@ -64,10 +64,7 @@
     "lint": "expo lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "android:release": "expo run:android --variant release",
-    "desktop:web": "expo export --platform web --output-dir dist-desktop && node scripts/apply-desktop-csp.cjs",
-    "desktop:dev": "concurrently -k \"expo start --web\" \"wait-on http://localhost:8081 && electron electron/main.cjs\"",
-    "desktop:win": "npm run desktop:web && electron-builder --win nsis --x64"
+    "android:release": "expo run:android --variant release"
   },
   "private": true
 }
