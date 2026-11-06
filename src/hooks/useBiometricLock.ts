@@ -3,7 +3,7 @@ import { getStorageItem, setStorageItem } from "../platform/storage";
 import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
 import { Alert, AppState, BackHandler } from "react-native";
-import * as LocalAuthentication from "expo-local-authentication";
+import { authenticateWithDevice } from "../platform/biometric/biometric";
 import { BIOMETRIC_ENABLED_STORAGE_KEY } from "../constants/storage";
 import { createUserMessages } from "../constants/userMessages";
 import { showUserMessage } from "../utils/user-message";
@@ -72,7 +72,7 @@ export function useBiometricLock() {
         // Use the platform's native authentication prompt with device-credential fallback.
         // This allows biometrics when available and the OS screen-lock credential (PIN,
         // pattern, or password) when supported. Never unlock unless the native API succeeds.
-        const result = await LocalAuthentication.authenticateAsync({
+        const result = await authenticateWithDevice({
           promptMessage,
           promptSubtitle: USER_MESSAGES.biometric.promptSubtitle,
           cancelLabel: USER_MESSAGES.biometric.cancelButton,
