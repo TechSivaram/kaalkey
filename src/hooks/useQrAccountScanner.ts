@@ -3,7 +3,7 @@ import { useCallback, useMemo, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
 import { Alert } from "react-native";
 import { useCameraPermissions } from "expo-camera";
-import * as Clipboard from "expo-clipboard";
+import { clipboard } from "../platform/clipboard/clipboard";
 import type { Account } from "../types/account";
 import { parseTotpAccountFromUri } from "../services/totp-account-import";
 import { hasDuplicateAccount } from "../services/account-duplicates";
@@ -177,7 +177,7 @@ export function useQrAccountScanner({
   const pasteTotpUrl = useCallback(
     async (setTotpUrlInput: (value: string) => void) => {
       try {
-        const pasted = (await Clipboard.getStringAsync()).trim();
+        const pasted = (await clipboard.getText()).trim();
         if (!pasted) {
           showMessage(
             USER_MESSAGES.qr.clipboardEmptyTitle,

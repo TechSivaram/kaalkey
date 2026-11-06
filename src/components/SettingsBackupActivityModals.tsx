@@ -1,5 +1,5 @@
 import { isIOS } from "../platform/runtime";
-import * as Clipboard from "expo-clipboard";
+import { clipboard } from "../platform/clipboard/clipboard";
 import { memo, useMemo, useState, type Dispatch, type SetStateAction } from "react";
 import { type AppLanguage, useAppLanguage } from "../i18n";
 import {
@@ -413,7 +413,8 @@ function SettingsBackupActivityModals(props: Props) {
                       style={[styles.cancelButton, styles.backupCopyButton]}
                       disabled={!backupPassword || backupBusy}
                       onPress={() => {
-                        void Clipboard.setStringAsync(backupPassword)
+                        void clipboard
+                          .setText(backupPassword)
                           .then(() => {
                             showUserMessage(
                               USER_MESSAGES.backup.passwordCopiedTitle,

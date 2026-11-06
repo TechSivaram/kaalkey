@@ -1,6 +1,6 @@
 import { useMemo, useCallback } from "react";
 import { useAppLanguage } from "../i18n";
-import * as Clipboard from "expo-clipboard";
+import { clipboard } from "../platform/clipboard/clipboard";
 import { showUserMessage } from "../utils/user-message";
 import { createUserMessages } from "../constants/userMessages";
 
@@ -17,7 +17,7 @@ export function useCodeClipboard(hapticFeedback: HapticFeedback) {
       }
 
       try {
-        await Clipboard.setStringAsync(code);
+        await clipboard.setText(code);
         hapticFeedback("success");
         showUserMessage(USER_MESSAGES.clipboard.copiedTitle, USER_MESSAGES.clipboard.copiedBody);
       } catch {
