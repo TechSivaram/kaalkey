@@ -18,3 +18,8 @@ export async function verifyDesktopPin(pin: string): Promise<DesktopLockResult> 
   if (!window.kaalkeyDesktop) return { success: false, error: "not_available" };
   return window.kaalkeyDesktop.lock.verifyPin(pin);
 }
+
+export async function resetDesktopPin(): Promise<DesktopLockResult> {
+  if (!window.kaalkeyDesktop) return { success: false, error: "not_available" };
+  return window.kaalkeyDesktop.lock.resetPin();
+}

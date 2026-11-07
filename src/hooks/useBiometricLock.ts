@@ -1,5 +1,10 @@
 import { isDesktop, isWeb } from "../platform/runtime";
-import { getDesktopLockStatus, setDesktopPin, verifyDesktopPin } from "../platform/desktop/desktop";
+import {
+  getDesktopLockStatus,
+  resetDesktopPin,
+  setDesktopPin,
+  verifyDesktopPin,
+} from "../platform/desktop/desktop";
 import { getStorageItem, setStorageItem } from "../platform/storage";
 import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
@@ -33,7 +38,9 @@ export function useBiometricLock() {
         if (!mounted) return true;
         setDesktopPinConfigured(status.configured);
         desktopTimeoutRef.current = status.timeoutMs || 300_000;
-        setBiometricEnabled(true);
+        setBiometricEnabled(status.configured);
+        // A configured PIN must lock the app on every fresh Electron launch.
+        // If no PIN exists, allow access and let the user enable it from Settings.
         setIsUnlocked(!status.configured);
       } catch {
         if (mounted) {
@@ -173,7 +180,33 @@ export function useBiometricLock() {
   }, []);
 
   const toggleBiometricLock = useCallback(async () => {
-    if (isDesktop) return;
+    if (isDesktop) {
+      if (biometricEnabled) {
+        // The vault is already unlocked when Settings is available. Remove only the
+        // desktop PIN credential; account storage is not modified.
+        setAuthenticating(true);
+        try {
+          const result = await resetDesktopPin();
+          if (!result.success) {
+            showUserMessage(
+              USER_MESSAGES.biometric.saveErrorTitle,
+              USER_MESSAGES.biometric.desktopPinSaveError,
+            );
+            return;
+          }
+          setDesktopPinConfigured(false);
+          setBiometricEnabled(false);
+          setIsUnlocked(true);
+        } finally {
+          setAuthenticating(false);
+        }
+      } else {
+        // Enabling the desktop lock opens the PIN setup screen.
+        setBiometricEnabled(true);
+        setIsUnlocked(false);
+      }
+      return;
+    }
     // Do not expose a non-working native-auth switch on web. The web build currently
     // has no implemented browser-authentication flow, so keep its app-level lock OFF.
     if (isWeb) {

@@ -5,6 +5,7 @@ contextBridge.exposeInMainWorld("kaalkeyDesktop", {
     getStatus: () => ipcRenderer.invoke("desktop-lock:status"),
     setPin: (pin) => ipcRenderer.invoke("desktop-lock:set-pin", pin),
     verifyPin: (pin) => ipcRenderer.invoke("desktop-lock:verify-pin", pin),
+    resetPin: () => ipcRenderer.invoke("desktop-lock:reset-pin"),
   },
   window: {
     getMode: () => ipcRenderer.invoke("desktop-window:get-mode"),

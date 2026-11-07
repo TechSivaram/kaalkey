@@ -6,6 +6,7 @@ export type DesktopBridge = {
     getStatus(): Promise<DesktopLockStatus>;
     setPin(pin: string): Promise<DesktopLockResult>;
     verifyPin(pin: string): Promise<DesktopLockResult>;
+    resetPin(): Promise<DesktopLockResult>;
   };
   window: {
     getMode(): Promise<"sidebar" | "expanded">;

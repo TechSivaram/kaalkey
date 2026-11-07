@@ -43,7 +43,7 @@ console.log("[KaalKey] App name:", app.getName());
 const lockFile = path.join(userDataPath, "vault-lock.json");
 const windowStateFile = path.join(userDataPath, "desktop-window.json");
 const SIDEBAR_MIN_WIDTH = 393; // Matches the web splitter's minWidth.
-const SIDEBAR_DEFAULT_WIDTH = 393;
+const SIDEBAR_DEFAULT_WIDTH = 450;
 const SIDEBAR_MAX_WIDTH = 560;
 const WINDOW_MIN_HEIGHT = 500;
 
@@ -93,6 +93,19 @@ ipcMain.handle("desktop-lock:set-pin", (_, pin) => {
   blockedUntil = 0;
 
   return { success: true };
+});
+
+// Reset only the desktop PIN. Authenticator account storage is not touched.
+ipcMain.handle("desktop-lock:reset-pin", () => {
+  try {
+    if (fs.existsSync(lockFile)) fs.unlinkSync(lockFile);
+    failedAttempts = 0;
+    blockedUntil = 0;
+    return { success: true };
+  } catch (error) {
+    console.error("[KaalKey] Failed to reset desktop PIN:", error);
+    return { success: false, error: "reset_failed" };
+  }
 });
 
 // Verify PIN

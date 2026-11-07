@@ -345,8 +345,8 @@ export default function HomeScreen() {
   // persistent PIN-backed lock; native platforms continue using OS authentication.
   if (
     !biometricReady ||
-    (isDesktop && !desktopPinConfigured) ||
-    (biometricEnabled && !isUnlocked)
+    (isDesktop && biometricEnabled && (!desktopPinConfigured || !isUnlocked)) ||
+    (!isDesktop && biometricEnabled && !isUnlocked)
   ) {
     if (isDesktop) {
       return (
