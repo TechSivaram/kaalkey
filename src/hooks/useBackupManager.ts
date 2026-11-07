@@ -1,4 +1,5 @@
-import { isWeb } from "../platform/runtime";
+import { isDesktop, isWeb } from "../platform/runtime";
+import { showUserConfirmation } from "../utils/user-message";
 import { useMemo, useCallback } from "react";
 import { Alert } from "react-native";
 import { createUserMessages } from "../constants/userMessages";
@@ -253,7 +254,14 @@ export function useBackupManager({
       setActivityMessage(null);
       const message = getRestoreConfirmationMessage(restored.length, t);
       let shouldMerge = false;
-      if (isWeb) {
+      if (isDesktop) {
+        shouldMerge = await showUserConfirmation(
+          USER_MESSAGES.backup.mergeConfirmTitle,
+          message,
+          USER_MESSAGES.backup.mergeConfirmButton,
+          USER_MESSAGES.account.cancelButton,
+        );
+      } else if (isWeb) {
         shouldMerge =
           typeof window !== "undefined" &&
           window.confirm(`${USER_MESSAGES.backup.mergeConfirmTitle}\n\n${message}`);

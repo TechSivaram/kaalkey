@@ -3,7 +3,6 @@ import { getDesktopLockStatus, setDesktopPin, verifyDesktopPin } from "../platfo
 import { getStorageItem, setStorageItem } from "../platform/storage";
 import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
-import { Alert } from "react-native";
 import { authenticateWithDevice } from "../platform/biometric/biometric";
 import { BIOMETRIC_ENABLED_STORAGE_KEY } from "../constants/storage";
 import { createUserMessages } from "../constants/userMessages";
@@ -116,22 +115,22 @@ export function useBiometricLock() {
 
         // A missing device screen lock must not create a fallback or bypass.
         if (result.error === "not_enrolled" || result.error === "passcode_not_set") {
-          Alert.alert(
+          showUserMessage(
             USER_MESSAGES.biometric.deviceLockTitle,
             USER_MESSAGES.biometric.deviceLockBody,
           );
         } else if (result.error === "not_available") {
-          Alert.alert(
+          showUserMessage(
             USER_MESSAGES.biometric.unavailableTitle,
             USER_MESSAGES.biometric.unavailableBody,
           );
         } else if (result.error === "lockout") {
-          Alert.alert(USER_MESSAGES.biometric.lockedTitle, USER_MESSAGES.biometric.lockedBody);
+          showUserMessage(USER_MESSAGES.biometric.lockedTitle, USER_MESSAGES.biometric.lockedBody);
         }
         // Cancellation, failed verification, and every other error leave the vault locked.
         return false;
       } catch {
-        Alert.alert(
+        showUserMessage(
           USER_MESSAGES.biometric.promptErrorTitle,
           USER_MESSAGES.biometric.promptErrorBody,
         );
@@ -197,10 +196,13 @@ export function useBiometricLock() {
         await setStorageItem(BIOMETRIC_ENABLED_STORAGE_KEY, "false");
         setBiometricEnabled(false);
         setIsUnlocked(true);
-        Alert.alert(USER_MESSAGES.biometric.disabledTitle, USER_MESSAGES.biometric.disabledBody);
+        showUserMessage(
+          USER_MESSAGES.biometric.disabledTitle,
+          USER_MESSAGES.biometric.disabledBody,
+        );
       } catch {
         setIsUnlocked(false);
-        Alert.alert(
+        showUserMessage(
           USER_MESSAGES.biometric.saveErrorTitle,
           USER_MESSAGES.biometric.disableSaveError,
         );
@@ -216,9 +218,12 @@ export function useBiometricLock() {
       await setStorageItem(BIOMETRIC_ENABLED_STORAGE_KEY, "true");
       setBiometricEnabled(true);
       setIsUnlocked(true);
-      Alert.alert(USER_MESSAGES.biometric.enabledTitle, USER_MESSAGES.biometric.enabledBody);
+      showUserMessage(USER_MESSAGES.biometric.enabledTitle, USER_MESSAGES.biometric.enabledBody);
     } catch {
-      Alert.alert(USER_MESSAGES.biometric.saveErrorTitle, USER_MESSAGES.biometric.enableSaveError);
+      showUserMessage(
+        USER_MESSAGES.biometric.saveErrorTitle,
+        USER_MESSAGES.biometric.enableSaveError,
+      );
     }
   }, [authenticateUser, biometricEnabled, USER_MESSAGES]);
 

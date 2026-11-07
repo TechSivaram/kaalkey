@@ -1,7 +1,7 @@
 import { isWeb } from "../platform/runtime";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
-import { Alert } from "react-native";
+import { showUserMessage } from "../utils/user-message";
 import { useCameraPermission } from "../platform/permissions/permissions";
 import { clipboard } from "../platform/clipboard/clipboard";
 import type { Account } from "../types/account";
@@ -56,7 +56,7 @@ export function useQrAccountScanner({
       const permission = await requestCameraPermission();
       if (!permission.granted) {
         setModalVisible(true);
-        Alert.alert(USER_MESSAGES.cameraPermission.title, USER_MESSAGES.cameraPermission.body);
+        showUserMessage(USER_MESSAGES.cameraPermission.title, USER_MESSAGES.cameraPermission.body);
         return;
       }
     }

@@ -1,9 +1,9 @@
-import { isWeb } from "../platform/runtime";
+import { isDesktop, isWeb } from "../platform/runtime";
 import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 import { useAppLanguage } from "../i18n";
 import { Alert } from "react-native";
 import { createUserMessages } from "../constants/userMessages";
-import { showUserMessage } from "../utils/user-message";
+import { showUserMessage, showUserConfirmation } from "../utils/user-message";
 import type { Account } from "../types/account";
 import {
   readAccountsStorage,
@@ -267,6 +267,18 @@ export function useAccounts({
   const deleteAccount = useCallback(
     (id: string) => {
       const message = USER_MESSAGES.account.removeConfirmBody;
+      if (isDesktop) {
+        void showUserConfirmation(
+          USER_MESSAGES.account.removeConfirmTitle,
+          message,
+          USER_MESSAGES.account.removeButton,
+          USER_MESSAGES.account.cancelButton,
+          true,
+        ).then((confirmed) => {
+          if (confirmed) void removeAccountConfirmed(id);
+        });
+        return;
+      }
       if (isWeb && typeof window !== "undefined") {
         if (window.confirm(`${USER_MESSAGES.account.removeConfirmWebTitle}\n\n${message}`))
           void removeAccountConfirmed(id);
@@ -295,6 +307,18 @@ export function useAccounts({
   const clearAllAccounts = useCallback(() => {
     const message = USER_MESSAGES.account.clearConfirmBody;
     const undoNote = USER_MESSAGES.account.clearConfirmUndoBody;
+    if (isDesktop) {
+      void showUserConfirmation(
+        USER_MESSAGES.account.clearConfirmTitle,
+        `${message}\n\n${undoNote}`,
+        USER_MESSAGES.account.clearButton,
+        USER_MESSAGES.account.cancelButton,
+        true,
+      ).then((confirmed) => {
+        if (confirmed) void clearAllAccountsConfirmed();
+      });
+      return;
+    }
     if (isWeb && typeof window !== "undefined") {
       if (
         window.confirm(`${USER_MESSAGES.account.clearConfirmTitle}\n\n${message}\n\n${undoNote}`)

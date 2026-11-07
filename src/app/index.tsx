@@ -69,7 +69,7 @@ export default function HomeScreen() {
   }, []);
   const showDesktopBranding = isWeb && windowWidth >= 900;
   const [appPanelWidth, setAppPanelWidth] = useState(0);
-  const initialAppPanelWidth = Math.max(400, Math.min(windowWidth * 0.27, windowWidth - 334));
+  const initialAppPanelWidth = Math.max(393, Math.min(windowWidth * 0.27, windowWidth - 334));
   const currentAppPanelWidth = appPanelWidth || initialAppPanelWidth;
   const splitterDragStart = useRef<{ pointerX: number; panelWidth: number } | null>(null);
 
@@ -94,9 +94,9 @@ export default function HomeScreen() {
         const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
         const splitterWidth = 14;
         const brandMinimumWidth = 320;
-        const maxAppWidth = Math.max(400, viewportWidth - brandMinimumWidth - splitterWidth);
+        const maxAppWidth = Math.max(393, viewportWidth - brandMinimumWidth - splitterWidth);
         const nextWidth = Math.max(
-          400,
+          393,
           Math.min(maxAppWidth, drag.panelWidth + moveX - drag.pointerX),
         );
         setAppPanelWidth(nextWidth);
