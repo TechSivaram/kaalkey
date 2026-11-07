@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { styles } from "../styles/home.styles";
+import { vaultLockStyles as styles } from "../styles/vault-lock.styles";
 import { BUTTON_ACTIVE_OPACITY_SOFT } from "../constants/ui";
 import { useAppLanguage } from "../i18n";
 

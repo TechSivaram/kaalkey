@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useAppLanguage } from "../i18n";
-import { styles } from "../styles/home.styles";
+import { vaultLockStyles as styles } from "../styles/vault-lock.styles";
 import { BUTTON_ACTIVE_OPACITY_SOFT } from "../constants/ui";
 
 type Props = {
@@ -74,17 +74,7 @@ export default function DesktopVaultLockScreen({
           maxLength={12}
           editable={!authenticating}
           autoFocus
-          style={{
-            width: "100%",
-            borderWidth: 1,
-            borderColor: "#c7c7c7",
-            borderRadius: 12,
-            padding: 14,
-            marginTop: 18,
-            fontSize: 20,
-            textAlign: "center",
-            letterSpacing: 4,
-          }}
+          style={[styles.pinInput, styles.pinInputFirst]}
           onSubmitEditing={submit}
         />
         {setup && (
@@ -96,23 +86,11 @@ export default function DesktopVaultLockScreen({
             keyboardType="number-pad"
             maxLength={12}
             editable={!authenticating}
-            style={{
-              width: "100%",
-              borderWidth: 1,
-              borderColor: "#c7c7c7",
-              borderRadius: 12,
-              padding: 14,
-              marginTop: 10,
-              fontSize: 20,
-              textAlign: "center",
-              letterSpacing: 4,
-            }}
+            style={[styles.pinInput, styles.pinInputConfirm]}
             onSubmitEditing={submit}
           />
         )}
-        {!!error && (
-          <Text style={{ color: "#b42318", marginTop: 10, textAlign: "center" }}>{error}</Text>
-        )}
+        {!!error && <Text style={styles.errorText}>{error}</Text>}
         <TouchableOpacity
           style={styles.unlockButton}
           onPress={() => void submit()}

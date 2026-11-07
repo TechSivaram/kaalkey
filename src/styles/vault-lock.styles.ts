@@ -1,0 +1,95 @@
+import { StyleSheet } from "react-native";
+import { COLORS } from "../constants/colors";
+
+export const vaultLockStyles = StyleSheet.create({
+  lockScreen: {
+    ...StyleSheet.absoluteFill,
+    zIndex: 1000,
+    elevation: 1000,
+    backgroundColor: COLORS.homeSoftSurface,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 24,
+  },
+  lockCard: {
+    width: "100%",
+    maxWidth: 380,
+    alignItems: "center",
+    backgroundColor: COLORS.white,
+    borderRadius: 26,
+    borderWidth: 1,
+    borderColor: COLORS.homeCardBorder,
+    paddingHorizontal: 26,
+    paddingTop: 32,
+    paddingBottom: 28,
+  },
+  lockIconCircle: {
+    width: 76,
+    height: 76,
+    borderRadius: 24,
+    backgroundColor: "#FFF2E2",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 18,
+  },
+  lockIcon: { fontSize: 34 },
+  lockBrand: {
+    color: COLORS.textPrimary,
+    fontSize: 25,
+    fontWeight: "900",
+    marginBottom: 10,
+  },
+  lockTitle: {
+    color: COLORS.textPrimary,
+    fontSize: 19,
+    fontWeight: "800",
+    textAlign: "center",
+  },
+  lockDescription: {
+    color: COLORS.homeSecondaryText,
+    fontSize: 13,
+    lineHeight: 20,
+    textAlign: "center",
+    marginTop: 10,
+    marginBottom: 24,
+  },
+  unlockButton: {
+    width: "100%",
+    backgroundColor: COLORS.saffron,
+    borderRadius: 14,
+    paddingVertical: 15,
+    alignItems: "center",
+  },
+  unlockButtonText: {
+    color: COLORS.darkText,
+    fontSize: 13,
+    fontWeight: "900",
+  },
+  lockFootnote: {
+    color: COLORS.placeholder,
+    fontSize: 10,
+    marginTop: 18,
+    textAlign: "center",
+  },
+  pinInput: {
+    width: "100%",
+    borderWidth: 1,
+    borderColor: "#c7c7c7",
+    borderRadius: 12,
+    padding: 14,
+    fontSize: 20,
+    textAlign: "center",
+    letterSpacing: 4,
+  },
+  pinInputFirst: {
+    marginTop: 18,
+  },
+  pinInputConfirm: {
+    marginTop: 10,
+  },
+  errorText: {
+    color: "#b42318",
+    marginTop: 10,
+    textAlign: "center",
+  },
+});
