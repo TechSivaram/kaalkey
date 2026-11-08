@@ -67,7 +67,8 @@
     "android:release": "expo run:android --variant release",
     "desktop:dev": "concurrently -k \"expo start --web --host localhost\" \"wait-on http://localhost:8081 && npx electron --disable-gpu electron/main.cjs\"",
     "desktop:export": "expo export --platform web",
-    "desktop:build": "npm run desktop:export && electron-builder"
+    "desktop:build": "npm run desktop:export && electron-builder",
+    "desktop:build:linux": "npm run desktop:export && electron-builder --linux"
   },
   "private": true,
   "build": {
@@ -80,7 +81,8 @@
       "dist/**/*",
       "electron/**/*",
       "build/icon.ico",
-      "package.json"
+      "package.json",
+      "assets/images/kaalkey-logo-opaque.png"
     ],
     "win": {
       "target": [
@@ -91,9 +93,15 @@
     },
     "linux": {
       "target": [
-        "AppImage"
+        "AppImage",
+        "deb"
       ],
-      "icon": "build"
+      "icon": "assets/images/kaalkey-logo-opaque.png",
+      "category": "Utility",
+      "synopsis": "Cross-platform authenticator",
+      "description": "KaalKey Authenticator generates and manages time-based one-time passwords.",
+      "maintainer": "TechSivaram <sivaram@techsivaram.com>",
+      "desktopName": "KaalKey Authenticator"
     },
     "extraMetadata": {
       "main": "electron/main.cjs"
