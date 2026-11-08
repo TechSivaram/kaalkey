@@ -5,6 +5,7 @@ import {
   readWebClipboard,
   normalizeClipboardTotpText,
 } from "../../services/web-qr-image-import";
+import { isDesktopRuntime } from "../desktop/desktop";
 import type { QrImportService, WebQrImportEventHandlers } from "./types";
 
 function isImageFile(file: File): boolean {
@@ -151,6 +152,18 @@ function subscribeToBrowserEvents(handlers: WebQrImportEventHandlers): () => voi
 
 export const qrImport: QrImportService = {
   async pickImage() {
+    if (isDesktopRuntime()) {
+      const selected = await window.kaalkeyDesktop?.qrImport.pickImage();
+      if (!selected) return undefined;
+
+      // Copy IPC bytes into an ArrayBuffer accepted by the browser Blob API.
+      const bytes = new Uint8Array(selected.data);
+      const buffer = new ArrayBuffer(bytes.byteLength);
+      new Uint8Array(buffer).set(bytes);
+      const file = new Blob([buffer], { type: selected.mimeType });
+      return { kind: "web", file };
+    }
+
     const file = await pickBrowserImage();
     return file ? { kind: "web", file } : undefined;
   },
