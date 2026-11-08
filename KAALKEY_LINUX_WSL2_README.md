@@ -138,10 +138,10 @@ npx electron-builder --linux
 
 The configured Linux targets are:
 
-| Package | Purpose |
-| --- | --- |
-| `.AppImage` | Portable Linux application package |
-| `.deb` | Installable package for Debian-based distributions such as Ubuntu |
+| Package     | Purpose                                                           |
+| ----------- | ----------------------------------------------------------------- |
+| `.AppImage` | Portable Linux application package                                |
+| `.deb`      | Installable package for Debian-based distributions such as Ubuntu |
 
 Build output is written to the configured release directory (in this setup, `release/`).
 
@@ -332,15 +332,15 @@ The WSL2 test setup successfully scanned a TOTP QR code using the Logitech C270 
 
 ## 🛠️ Troubleshooting
 
-| Symptom | Likely cause | What to try |
-| --- | --- | --- |
-| App window does not appear | WSLg unavailable or app launch failed | Confirm WSLg works with another Linux GUI app; launch KaalKey from the terminal and inspect errors |
-| AppImage reports missing FUSE | FUSE 2 compatibility library missing | Install `libfuse2t64` |
-| AppImage is not executable | Execute permission missing | Run `chmod +x` on the AppImage |
-| No `/dev/video*` devices | Webcam is not attached to WSL | Check `usbipd list`, then bind and attach the USB webcam |
-| Camera access is denied | User lacks video-device permissions | Add the user to the `video` group and start a shell with `newgrp video` |
-| Camera is visible but QR scan fails | Wrong video node, camera permission, focus, lighting, or QR presentation issue | Inspect the device with `v4l2-ctl`; test a clear, well-lit QR code |
-| Linux package build fails on Windows | Linux packaging tools or symlink behavior differ on Windows | Run the Linux build inside Ubuntu on WSL2 |
+| Symptom                              | Likely cause                                                                   | What to try                                                                                        |
+| ------------------------------------ | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| App window does not appear           | WSLg unavailable or app launch failed                                          | Confirm WSLg works with another Linux GUI app; launch KaalKey from the terminal and inspect errors |
+| AppImage reports missing FUSE        | FUSE 2 compatibility library missing                                           | Install `libfuse2t64`                                                                              |
+| AppImage is not executable           | Execute permission missing                                                     | Run `chmod +x` on the AppImage                                                                     |
+| No `/dev/video*` devices             | Webcam is not attached to WSL                                                  | Check `usbipd list`, then bind and attach the USB webcam                                           |
+| Camera access is denied              | User lacks video-device permissions                                            | Add the user to the `video` group and start a shell with `newgrp video`                            |
+| Camera is visible but QR scan fails  | Wrong video node, camera permission, focus, lighting, or QR presentation issue | Inspect the device with `v4l2-ctl`; test a clear, well-lit QR code                                 |
+| Linux package build fails on Windows | Linux packaging tools or symlink behavior differ on Windows                    | Run the Linux build inside Ubuntu on WSL2                                                          |
 
 ## 🔁 Repeatable build checklist
 

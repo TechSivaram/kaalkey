@@ -16,7 +16,23 @@ function pickBrowserImage(): Promise<File | undefined> {
     const input = document.createElement("input");
     input.type = "file";
     input.accept = "image/png,image/jpeg,image/webp,image/gif,.png,.jpg,.jpeg,.webp,.gif";
-    input.hidden = true;
+    // Keep the input rendered but visually hidden. Chromium/Electron on some
+    // Linux desktop environments may ignore programmatic clicks on inputs
+    // marked with the HTML hidden attribute.
+    Object.assign(input.style, {
+      position: "fixed",
+      width: "1px",
+      height: "1px",
+      padding: "0",
+      margin: "-1px",
+      overflow: "hidden",
+      clip: "rect(0, 0, 0, 0)",
+      whiteSpace: "nowrap",
+      border: "0",
+      opacity: "0",
+      pointerEvents: "none",
+    });
+    input.tabIndex = -1;
     document.body.appendChild(input);
 
     const cleanup = () => input.remove();

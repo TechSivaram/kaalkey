@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, protocol, screen } = require("electron");
+const { app, BrowserWindow, dialog, ipcMain, protocol, screen } = require("electron");
 
 const path = require("path");
 const fs = require("fs");
@@ -391,6 +391,35 @@ function createWindow() {
   });
 
   attachRendererDiagnostics(mainWindow);
+
+  // Temporary F6 diagnostic: test Electron's native Linux file chooser directly.
+  // This does not change the QR image upload implementation.
+  mainWindow.webContents.on("before-input-event", async (event, input) => {
+    if (input.type !== "keyDown" || input.key !== "F6" || input.isAutoRepeat) return;
+
+    event.preventDefault();
+    console.log("[KaalKey] F6 native dialog diagnostic started");
+
+    try {
+      const result = await dialog.showOpenDialog(mainWindow, {
+        title: "KaalKey file dialog diagnostic",
+        properties: ["openFile"],
+        filters: [
+          {
+            name: "Images",
+            extensions: ["png", "jpg", "jpeg", "webp", "gif"],
+          },
+        ],
+      });
+
+      console.log("[KaalKey] Native dialog result:", {
+        canceled: result.canceled,
+        selectedCount: result.filePaths.length,
+      });
+    } catch (error) {
+      console.error("[KaalKey] Native dialog failed:", error);
+    }
+  });
 
   mainWindow.on("closed", () => {
     mainWindow = null;

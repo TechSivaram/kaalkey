@@ -101,10 +101,17 @@
       "synopsis": "Cross-platform authenticator",
       "description": "KaalKey Authenticator generates and manages time-based one-time passwords.",
       "maintainer": "TechSivaram <sivaram@techsivaram.com>",
-      "desktopName": "KaalKey Authenticator"
+      "syncDesktopName": true
     },
     "extraMetadata": {
       "main": "electron/main.cjs"
     }
-  }
+  },
+  "description": "KaalKey Authenticator generates and manages time-based one-time passwords.",
+  "author": {
+    "name": "TechSivaram",
+    "email": "sivaram@techsivaram.com"
+  },
+  "homepage": "https://github.com/TechSivaram/kaalkey",
+  "desktopName": "com.techsivaram.kaalkey.desktop"
 }
