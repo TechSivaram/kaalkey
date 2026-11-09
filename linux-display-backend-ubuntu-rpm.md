@@ -10,12 +10,12 @@ The Linux startup code therefore detects the current graphical session and passe
 
 The shared detection logic is in `electron/display-backend.cjs`:
 
-| Environment | Selected backend | Electron argument |
-|---|---|---|
-| Linux with `WAYLAND_DISPLAY` set | Wayland | `--ozone-platform=wayland` |
-| Linux without Wayland, with `DISPLAY` set | X11 | `--ozone-platform=x11` |
-| Linux with neither variable set | Electron default | No Ozone argument |
-| Windows / macOS | Electron default | No Ozone argument |
+| Environment                               | Selected backend | Electron argument          |
+| ----------------------------------------- | ---------------- | -------------------------- |
+| Linux with `WAYLAND_DISPLAY` set          | Wayland          | `--ozone-platform=wayland` |
+| Linux without Wayland, with `DISPLAY` set | X11              | `--ozone-platform=x11`     |
+| Linux with neither variable set           | Electron default | No Ozone argument          |
+| Windows / macOS                           | Electron default | No Ozone argument          |
 
 Wayland takes priority when both `WAYLAND_DISPLAY` and `DISPLAY` are set. This is important for WSLg, which commonly exposes both variables while providing a working Wayland session.
 
@@ -215,7 +215,6 @@ The AppImage does not use the system package manager. Some distributions may req
 - If RPM packaging reports that the RPM build tool is missing, install the RPM build utilities for the build distribution (for example, `rpm` on Ubuntu/Debian or `rpm-build` on Fedora).
 - Building an RPM does not require running Fedora, but the resulting package should be installed and tested on a supported RPM-based distribution before release.
 - Test the installed RPM's normal desktop/menu launch, UI rendering, and drag-and-drop. The packaged Linux bootstrap should select Wayland or X11 at startup based on the session environment.
-
 
 #### Ubuntu / WSL: install the RPM build dependency
 
