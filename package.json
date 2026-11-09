@@ -81,7 +81,8 @@
       "electron/**/*",
       "build/icon.ico",
       "package.json",
-      "assets/images/kaalkey-logo-opaque.png"
+      "assets/images/kaalkey-logo-opaque.png",
+      "build/icons/**/*"
     ],
     "win": {
       "target": [
@@ -96,8 +97,11 @@
         "deb",
         "rpm"
       ],
-      "icon": "assets/images/kaalkey-logo-opaque.png",
+      "icon": "build/icons",
       "category": "Utility",
+      "executableArgs": [
+        "--ozone-platform=wayland"
+      ],
       "synopsis": "Cross-platform authenticator",
       "description": "KaalKey Authenticator generates and manages time-based one-time passwords.",
       "maintainer": "TechSivaram <sivaram@techsivaram.com>",
@@ -113,5 +117,5 @@
     "email": "sivaram@techsivaram.com"
   },
   "homepage": "https://github.com/TechSivaram/kaalkey",
-  "desktopName": "com.techsivaram.kaalkey.desktop"
+  "desktopName": "com.techsivaram.kaalkey"
 }

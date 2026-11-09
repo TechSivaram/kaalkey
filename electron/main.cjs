@@ -25,6 +25,11 @@ protocol.registerSchemesAsPrivileged([
 // ==================================================
 
 app.setName("KaalKey");
+app.setDesktopName("kaalkey");
+
+if (process.platform === "linux") {
+  app.setDesktopName("kaalkey");
+}
 
 const appDataPath = app.getPath("appData");
 const userDataPath = path.join(appDataPath, "KaalKey");
@@ -380,6 +385,11 @@ function createWindow() {
     minHeight: Math.min(WINDOW_MIN_HEIGHT, display.workArea.height),
     show: false,
     backgroundColor: "#ffffff",
+    // Linux/WSL task switchers use the PNG window icon. Windows continues
+    // to use the packaged .ico configured by electron-builder.
+    ...(process.platform === "linux"
+      ? { icon: path.join(__dirname, "../build/icons/512x512.png") }
+      : {}),
     resizable: true,
     maximizable: true,
     webPreferences: {
