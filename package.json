@@ -67,8 +67,7 @@
     "android:release": "expo run:android --variant release",
     "desktop:dev": "concurrently -k \"expo start --web --host localhost\" \"wait-on http://localhost:8081 && node electron/launch.cjs\"",
     "desktop:export": "expo export --platform web",
-    "desktop:build": "npm run desktop:export && electron-builder",
-    "desktop:build:linux": "npm run desktop:export && electron-builder --linux"
+    "desktop:build": "npm run desktop:export && electron-builder"
   },
   "private": true,
   "build": {
