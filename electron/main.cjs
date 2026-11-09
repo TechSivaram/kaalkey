@@ -1,4 +1,4 @@
-const { app, BrowserWindow, dialog, ipcMain, protocol, screen } = require("electron");
+const { app, BrowserWindow, ipcMain, protocol, screen } = require("electron");
 
 const path = require("path");
 const fs = require("fs");
@@ -61,48 +61,6 @@ function readLockData() {
 function hashPin(pin, salt) {
   return crypto.scryptSync(pin, salt, 32).toString("hex");
 }
-
-// Open QR images through Electron's native file chooser.
-// Keep the selected filesystem path in the main process; return only image bytes.
-ipcMain.handle("desktop-qr-import:pick-image", async () => {
-  const owner = BrowserWindow.getFocusedWindow() || mainWindow;
-  const options = {
-    title: "Select QR image",
-    properties: ["openFile"],
-    filters: [
-      {
-        name: "QR images",
-        extensions: ["png", "jpg", "jpeg", "webp", "gif", "bmp"],
-      },
-    ],
-  };
-
-  const result = owner
-    ? await dialog.showOpenDialog(owner, options)
-    : await dialog.showOpenDialog(options);
-
-  if (result.canceled || result.filePaths.length === 0) return null;
-
-  const selectedPath = result.filePaths[0];
-  const extension = path.extname(selectedPath).toLowerCase();
-  const mimeTypes = {
-    ".png": "image/png",
-    ".jpg": "image/jpeg",
-    ".jpeg": "image/jpeg",
-    ".webp": "image/webp",
-    ".gif": "image/gif",
-    ".bmp": "image/bmp",
-  };
-  const mimeType = mimeTypes[extension];
-  if (!mimeType) throw new Error("unsupported_file");
-
-  const data = await fs.promises.readFile(selectedPath);
-  return {
-    name: path.basename(selectedPath),
-    mimeType,
-    data: new Uint8Array(data),
-  };
-});
 
 // Check PIN configuration
 ipcMain.handle("desktop-lock:status", () => ({

@@ -5,7 +5,6 @@ import {
   readWebClipboard,
   normalizeClipboardTotpText,
 } from "../../services/web-qr-image-import";
-import { isDesktopRuntime } from "../desktop/desktop";
 import type { QrImportService, WebQrImportEventHandlers } from "./types";
 
 function isImageFile(file: File): boolean {
@@ -17,23 +16,7 @@ function pickBrowserImage(): Promise<File | undefined> {
     const input = document.createElement("input");
     input.type = "file";
     input.accept = "image/png,image/jpeg,image/webp,image/gif,.png,.jpg,.jpeg,.webp,.gif";
-    // Keep the input rendered but visually hidden. Chromium/Electron on some
-    // Linux desktop environments may ignore programmatic clicks on inputs
-    // marked with the HTML hidden attribute.
-    Object.assign(input.style, {
-      position: "fixed",
-      width: "1px",
-      height: "1px",
-      padding: "0",
-      margin: "-1px",
-      overflow: "hidden",
-      clip: "rect(0, 0, 0, 0)",
-      whiteSpace: "nowrap",
-      border: "0",
-      opacity: "0",
-      pointerEvents: "none",
-    });
-    input.tabIndex = -1;
+    input.hidden = true;
     document.body.appendChild(input);
 
     const cleanup = () => input.remove();
@@ -152,18 +135,6 @@ function subscribeToBrowserEvents(handlers: WebQrImportEventHandlers): () => voi
 
 export const qrImport: QrImportService = {
   async pickImage() {
-    if (isDesktopRuntime()) {
-      const selected = await window.kaalkeyDesktop?.qrImport.pickImage();
-      if (!selected) return undefined;
-
-      // Copy IPC bytes into an ArrayBuffer accepted by the browser Blob API.
-      const bytes = new Uint8Array(selected.data);
-      const buffer = new ArrayBuffer(bytes.byteLength);
-      new Uint8Array(buffer).set(bytes);
-      const file = new Blob([buffer], { type: selected.mimeType });
-      return { kind: "web", file };
-    }
-
     const file = await pickBrowserImage();
     return file ? { kind: "web", file } : undefined;
   },
