@@ -115,9 +115,7 @@
         "confinement": "strict",
         "remoteBuild": {
           "enabled": true,
-          "buildFor": [
-            "amd64"
-          ],
+          "buildFor": "amd64",
           "acceptPublicUpload": true
         }
       }
