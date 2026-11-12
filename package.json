@@ -1,6 +1,6 @@
 {
   "name": "kaalkey-authenticator",
-  "version": "1.1.23",
+  "version": "1.1.24",
   "main": "expo-router/entry",
   "dependencies": {
     "@expo/ui": "~57.0.9",
@@ -68,8 +68,8 @@
     "desktop:dev": "concurrently -k \"expo start --web --host localhost\" \"wait-on http://localhost:8081 && node electron/launch.cjs\"",
     "desktop:export": "expo export --platform web",
     "desktop:build": "npm run desktop:export && electron-builder && node scripts/fix-linux-packages.cjs",
-    "desktop:snap": "npm run desktop:export && electron-builder --linux snap",
-    "desktop:release": "npm run desktop:export && electron-builder --linux AppImage deb rpm snap && node scripts/fix-linux-packages.cjs"
+    "desktop:snap": "npm run desktop:export && node scripts/build-snap.cjs",
+    "desktop:release": "npm run desktop:export && electron-builder --linux AppImage deb rpm && node scripts/build-snap.cjs && node scripts/fix-linux-packages.cjs"
   },
   "private": true,
   "build": {
@@ -113,11 +113,11 @@
       "base": "core24",
       "core24": {
         "confinement": "strict",
-        "useDestructiveMode": true,
         "plugs": [
           "default",
           "camera"
-        ]
+        ],
+        "useLXD": true
       }
     }
   },

@@ -327,8 +327,7 @@ function configureMediaPermissions() {
     const requestingUrl = details?.requestingUrl || webContents?.getURL?.() || "";
     const requestedMedia = Array.isArray(details?.mediaTypes) ? details.mediaTypes : [];
     const cameraOnly = requestedMedia.length === 1 && requestedMedia[0] === "video";
-    const allowed =
-      permission === "media" && cameraOnly && isTrustedCameraOrigin(requestingUrl);
+    const allowed = permission === "media" && cameraOnly && isTrustedCameraOrigin(requestingUrl);
 
     console.log("[KaalKey] Media permission request:", {
       permission,

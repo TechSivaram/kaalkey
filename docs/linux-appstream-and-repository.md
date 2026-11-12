@@ -26,7 +26,6 @@ The post-build DEB step requires `dpkg-deb` on the build machine. It deliberatel
 does not claim to modify RPM packages; RPM payload integration needs its own
 packaging step and validation.
 
-
 ## Debian copyright file
 
 The DEB post-build integration also writes the complete MIT license to

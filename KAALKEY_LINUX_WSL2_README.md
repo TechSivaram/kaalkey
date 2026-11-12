@@ -145,11 +145,11 @@ The configured Linux targets are:
 
 Build output is written to the configured release directory (in this setup, `release/`).
 
-Example output for version `1.1.23`:
+Example output for version `1.1.24`:
 
 ```text
 release/
-├── KaalKey Authenticator-1.1.23.AppImage
+├── KaalKey Authenticator-1.1.24.AppImage
 └── kaalkeyauthenticator_1.1.22_amd64.deb
 ```
 

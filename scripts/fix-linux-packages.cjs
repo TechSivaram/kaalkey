@@ -13,7 +13,7 @@ const sourceMeta = path.join(
   "build",
   "linux",
   "metainfo",
-  "com.techsivaram.kaalkey.metainfo.xml"
+  "com.techsivaram.kaalkey.metainfo.xml",
 );
 const componentId = "com.techsivaram.kaalkey";
 const targetRelative = path.join("usr", "share", "metainfo", `${componentId}.metainfo.xml`);
@@ -30,17 +30,22 @@ if (!fs.existsSync(sourceMeta)) {
   throw new Error(`AppStream metadata not found: ${sourceMeta}`);
 }
 const metadataText = fs.readFileSync(sourceMeta, "utf8");
-if (!metadataText.includes("<id>com.techsivaram.kaalkey</id>") ||
-    !metadataText.includes("<pkgname>kaalkeyauthenticator</pkgname>") ||
-    !metadataText.includes("<project_license>MIT</project_license>")) {
-  throw new Error("AppStream metadata must declare the KaalKey component ID, Debian package name, and MIT project license.");
+if (
+  !metadataText.includes("<id>com.techsivaram.kaalkey</id>") ||
+  !metadataText.includes("<pkgname>kaalkeyauthenticator</pkgname>") ||
+  !metadataText.includes("<project_license>MIT</project_license>")
+) {
+  throw new Error(
+    "AppStream metadata must declare the KaalKey component ID, Debian package name, and MIT project license.",
+  );
 }
 
 if (!fs.existsSync(releaseDir)) {
   throw new Error(`Release directory not found: ${releaseDir}`);
 }
 
-const debs = fs.readdirSync(releaseDir)
+const debs = fs
+  .readdirSync(releaseDir)
   .filter((name) => name.endsWith(".deb"))
   .map((name) => path.join(releaseDir, name));
 

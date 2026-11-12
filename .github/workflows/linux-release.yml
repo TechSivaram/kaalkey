@@ -1,18 +1,30 @@
-name: Linux release packages
+name: Production Linux release
 
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: linux-release-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   build-linux:
-    name: Build DEB, RPM and AppImage
-    runs-on: ubuntu-24.04
+    name: Build ${{ matrix.arch }} DEB, RPM and AppImage
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: x64
+            runner: ubuntu-22.04
+          - arch: arm64
+            runner: ubuntu-22.04-arm
+    runs-on: ${{ matrix.runner }}
     steps:
       - name: Check out source
         uses: actions/checkout@v4
@@ -23,106 +35,226 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Verify release version
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          expected="v$(node -p "require('./package.json').version")"
+          test "$GITHUB_REF_NAME" = "$expected" || {
+            echo "Tag $GITHUB_REF_NAME does not match package.json version $expected"
+            exit 1
+          }
+
+      - name: Install packaging tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y dpkg-dev rpm file binutils
+
       - name: Install dependencies
         run: npm ci
 
       - name: Export web application
         run: npm run desktop:export
 
-      - name: Build DEB, RPM and AppImage
-        run: npx electron-builder --linux AppImage deb rpm --publish never
+      - name: Build Linux packages
+        run: |
+          case "${{ matrix.arch }}" in
+            x64) arch_flag="--x64" ;;
+            arm64) arch_flag="--arm64" ;;
+            *) echo "Unsupported architecture"; exit 1 ;;
+          esac
+          npx electron-builder --linux AppImage deb rpm "$arch_flag" --publish never
 
-      - name: Integrate Debian AppStream metadata
+      - name: Integrate AppStream metadata into DEB packages
         run: node scripts/fix-linux-packages.cjs
 
-      - name: Upload Linux packages
+      - name: Validate package architecture and contents
+        env:
+          EXPECTED_ARCH: ${{ matrix.arch }}
+        run: |
+          set -euo pipefail
+          case "$EXPECTED_ARCH" in
+            x64) deb_arch="amd64"; rpm_arch="x86_64"; appimage_pattern="*x86_64*.AppImage" ;;
+            arm64) deb_arch="arm64"; rpm_arch="aarch64"; appimage_pattern="*arm64*.AppImage" ;;
+          esac
+
+          deb_count=0
+          for f in release/*.deb; do
+            [ -e "$f" ] || continue
+            actual="$(dpkg-deb -f "$f" Architecture)"
+            test "$actual" = "$deb_arch" || { echo "Wrong DEB architecture: $f ($actual)"; exit 1; }
+            dpkg-deb --info "$f" >/dev/null
+            deb_count=$((deb_count + 1))
+          done
+          test "$deb_count" -ge 1
+
+          rpm_count=0
+          for f in release/*.rpm; do
+            [ -e "$f" ] || continue
+            actual="$(rpm -qp --qf '%{ARCH}' "$f")"
+            test "$actual" = "$rpm_arch" || { echo "Wrong RPM architecture: $f ($actual)"; exit 1; }
+            rpm -qpi "$f" >/dev/null
+            rpm_count=$((rpm_count + 1))
+          done
+          test "$rpm_count" -ge 1
+
+          appimage_count=0
+          for f in release/*.AppImage; do
+            [ -e "$f" ] || continue
+            file "$f"
+            machine="$(readelf -h "$f" | awk -F: '/Machine:/ { gsub(/^[[:space:]]+/, "", $2); print $2 }')"
+            if [ "$EXPECTED_ARCH" = "x64" ]; then
+              echo "$machine" | grep -qi 'x86-64'
+            else
+              echo "$machine" | grep -qi 'AArch64'
+            fi
+            appimage_count=$((appimage_count + 1))
+          done
+          test "$appimage_count" -ge 1
+
+      - name: Upload architecture packages
         uses: actions/upload-artifact@v4
         with:
-          name: kaalkey-linux-packages
+          name: linux-${{ matrix.arch }}
           path: |
             release/*.deb
             release/*.rpm
             release/*.AppImage
           if-no-files-found: error
+          retention-days: 30
 
   build-snap:
-    name: Build Snap locally using Snapcraft container
-    runs-on: ubuntu-24.04
-    container:
-      image: ghcr.io/canonical/snapcraft:8_core24
-      # The image's default entrypoint is the snapcraft CLI; GitHub Actions
-      # needs a normal shell to execute checkout, setup-node, npm, and build steps.
-      options: --entrypoint ""
+    name: Build Core24 Snap ${{ matrix.arch }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: x64
+            runner: ubuntu-24.04
+          - arch: arm64
+            runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
     steps:
       - name: Check out source
         uses: actions/checkout@v4
+
+      - name: Verify Snap build configuration
+        run: |
+          node - <<'NODE'
+          const core = require('./package.json').build.snapcraft.core24;
+          if (core.useDestructiveMode) throw new Error('Snap destructive mode must be disabled');
+          if (core.useLXD !== true) throw new Error('Core24 Snap builds must use LXD');
+          if (core.stagePackages) throw new Error('Do not maintain a manual desktop runtime package list');
+          console.log('Core24 GNOME extension defaults retained; LXD enabled; no manual stagePackages.');
+          NODE
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
 
+      - name: Install Snapcraft and LXD
+        run: |
+          sudo snap install snapcraft --classic
+          sudo snap install lxd
+          sudo lxd waitready
+          sudo lxd init --minimal
+          sudo usermod -aG lxd "$USER"
+
       - name: Export web application
         run: npm run desktop:export
 
-      - name: Verify local Snap build configuration
-        run: |
-          snapcraft --version
-          node -e "const b=require('./package.json').build.snapcraft; if (b.core24?.useDestructiveMode !== true) process.exit(1); if (b.core24?.remoteBuild) process.exit(2); console.log('Local destructive-mode Snap build enabled; remote build disabled.')"
+      - name: Build Snap
+        run: sg lxd -c 'node scripts/build-snap.cjs --publish never'
 
-      - name: Build Snap locally
-        run: npx electron-builder --linux snap --publish never
+      - name: Validate Snap architecture
+        env:
+          EXPECTED_ARCH: ${{ matrix.arch }}
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y squashfs-tools
+          count=0
+          for f in release/*.snap; do
+            [ -e "$f" ] || continue
+            snap_yaml="$(unsquashfs -cat "$f" meta/snap.yaml)"
+            if [ "$EXPECTED_ARCH" = "x64" ]; then
+              echo "$snap_yaml" | grep -Eq '(^|[[:space:]])amd64([[:space:]]|$)'
+            else
+              echo "$snap_yaml" | grep -Eq '(^|[[:space:]])arm64([[:space:]]|$)'
+            fi
+            count=$((count + 1))
+          done
+          test "$count" -eq 1
 
       - name: Upload Snap package
         uses: actions/upload-artifact@v4
         with:
-          name: kaalkey-snap-package
+          name: snap-${{ matrix.arch }}
           path: release/*.snap
           if-no-files-found: error
+          retention-days: 30
 
-  publish-release:
-    name: Attach packages to GitHub Release
+  publish-github-release:
+    name: Publish production GitHub Release
     if: startsWith(github.ref, 'refs/tags/')
     needs:
       - build-linux
       - build-snap
     runs-on: ubuntu-24.04
     steps:
-      - name: Download all package artifacts
+      - name: Download all architecture artifacts
         uses: actions/download-artifact@v4
         with:
+          pattern: "*"
           path: release
           merge-multiple: true
 
-      - name: Publish release assets
+      - name: Verify release artifact set and generate checksums
+        run: |
+          set -euo pipefail
+          for ext in deb rpm AppImage snap; do
+            count="$(find release -maxdepth 1 -type f -name "*.$ext" | wc -l)"
+            test "$count" -ge 2 || { echo "Expected x64 and ARM64 .$ext artifacts; found $count"; exit 1; }
+          done
+          (cd release && sha256sum *.deb *.rpm *.AppImage *.snap > SHA256SUMS)
+          cat release/SHA256SUMS
+
+      - name: Publish GitHub Release assets
         uses: softprops/action-gh-release@v2
         with:
+          generate_release_notes: true
           files: |
             release/*.deb
             release/*.rpm
             release/*.AppImage
             release/*.snap
+            release/SHA256SUMS
 
   collect-manual-artifacts:
-    name: Collect packages for manual workflow run
+    name: Collect packages from manual build
     if: github.event_name == 'workflow_dispatch'
     needs:
       - build-linux
       - build-snap
     runs-on: ubuntu-24.04
     steps:
-      - name: Download all package artifacts
+      - name: Download all architecture artifacts
         uses: actions/download-artifact@v4
         with:
+          pattern: "*"
           path: release
           merge-multiple: true
 
-      - name: Upload combined package bundle
+      - name: Generate checksums
+        run: (cd release && sha256sum *.deb *.rpm *.AppImage *.snap > SHA256SUMS)
+
+      - name: Upload combined release bundle
         uses: actions/upload-artifact@v4
         with:
-          name: kaalkey-all-linux-packages
+          name: kaalkey-production-linux-all-architectures
           path: release/*
           if-no-files-found: error

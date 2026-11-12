@@ -1,0 +1,154 @@
+name: Publish signed Linux package repositories
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Existing GitHub Release tag, for example v1.1.24"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Download release packages
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          set -euo pipefail
+          mkdir -p release
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
+            --pattern '*.deb' --pattern '*.rpm' --dir release
+          test -n "$(find release -name '*.deb' -print -quit)"
+          test -n "$(find release -name '*.rpm' -print -quit)"
+
+      - name: Install repository tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y apt-utils dpkg-dev rpm createrepo-c gnupg
+
+      - name: Build and sign multi-architecture repositories
+        env:
+          REPO_SIGNING_KEY: ${{ secrets.REPO_SIGNING_KEY }}
+          REPO_SIGNING_KEY_PASSPHRASE: ${{ secrets.REPO_SIGNING_KEY_PASSPHRASE }}
+        run: |
+          set -euo pipefail
+          test -n "$REPO_SIGNING_KEY" || {
+            echo "Missing REPO_SIGNING_KEY repository secret"
+            exit 1
+          }
+
+          mkdir -p repo/apt/pool/main/k/kaalkeyauthenticator/amd64
+          mkdir -p repo/apt/pool/main/k/kaalkeyauthenticator/arm64
+          mkdir -p repo/apt/dists/stable/main/binary-amd64
+          mkdir -p repo/apt/dists/stable/main/binary-arm64
+          mkdir -p repo/rpm/x86_64 repo/rpm/aarch64
+
+          for f in release/*.deb; do
+            arch="$(dpkg-deb -f "$f" Architecture)"
+            case "$arch" in
+              amd64|arm64) cp "$f" "repo/apt/pool/main/k/kaalkeyauthenticator/$arch/" ;;
+              *) echo "Unsupported DEB architecture $arch in $f"; exit 1 ;;
+            esac
+          done
+
+          for f in release/*.rpm; do
+            arch="$(rpm -qp --qf '%{ARCH}' "$f")"
+            case "$arch" in
+              x86_64) cp "$f" repo/rpm/x86_64/ ;;
+              aarch64) cp "$f" repo/rpm/aarch64/ ;;
+              *) echo "Unsupported RPM architecture $arch in $f"; exit 1 ;;
+            esac
+          done
+
+          test -n "$(find repo/apt/pool/main/k/kaalkeyauthenticator/amd64 -name '*.deb' -print -quit)"
+          test -n "$(find repo/apt/pool/main/k/kaalkeyauthenticator/arm64 -name '*.deb' -print -quit)"
+          test -n "$(find repo/rpm/x86_64 -name '*.rpm' -print -quit)"
+          test -n "$(find repo/rpm/aarch64 -name '*.rpm' -print -quit)"
+
+          # Import the repository signing key once. The same public key verifies
+          # signed APT Release metadata and signed RPM repomd metadata.
+          printf '%s' "$REPO_SIGNING_KEY" | gpg --batch --import
+          gpg --batch --armor --export > repo/apt/kaalkey-archive-keyring.asc
+          cp repo/apt/kaalkey-archive-keyring.asc repo/rpm/RPM-GPG-KEY-kaalkey
+
+          for arch in amd64 arm64; do
+            pool="pool/main/k/kaalkeyauthenticator/$arch"
+            (cd repo/apt && apt-ftparchive packages "$pool") > "repo/apt/dists/stable/main/binary-$arch/Packages"
+            gzip -9kf "repo/apt/dists/stable/main/binary-$arch/Packages"
+          done
+
+          cat > repo/apt/apt-release.conf <<'CONFIG'
+          APT::FTPArchive::Release::Origin "TechSivaram";
+          APT::FTPArchive::Release::Label "KaalKey";
+          APT::FTPArchive::Release::Suite "stable";
+          APT::FTPArchive::Release::Codename "stable";
+          APT::FTPArchive::Release::Architectures "amd64 arm64";
+          APT::FTPArchive::Release::Components "main";
+          APT::FTPArchive::Release::Description "KaalKey Authenticator signed APT repository";
+          CONFIG
+          (cd repo/apt && apt-ftparchive -c apt-release.conf release dists/stable > dists/stable/Release)
+
+          if [ -n "$REPO_SIGNING_KEY_PASSPHRASE" ]; then
+            printf '%s' "$REPO_SIGNING_KEY_PASSPHRASE" > "$RUNNER_TEMP/gpg-passphrase"
+            gpg --batch --yes --pinentry-mode loopback --passphrase-file "$RUNNER_TEMP/gpg-passphrase" \
+              --clearsign -o repo/apt/dists/stable/InRelease repo/apt/dists/stable/Release
+            gpg --batch --yes --pinentry-mode loopback --passphrase-file "$RUNNER_TEMP/gpg-passphrase" \
+              -abs -o repo/apt/dists/stable/Release.gpg repo/apt/dists/stable/Release
+            for arch in x86_64 aarch64; do
+              createrepo_c --database "repo/rpm/$arch"
+              gpg --batch --yes --pinentry-mode loopback --passphrase-file "$RUNNER_TEMP/gpg-passphrase" \
+                --armor --detach-sign --output "repo/rpm/$arch/repodata/repomd.xml.asc" \
+                "repo/rpm/$arch/repodata/repomd.xml"
+            done
+            rm -f "$RUNNER_TEMP/gpg-passphrase"
+          else
+            gpg --batch --yes --clearsign -o repo/apt/dists/stable/InRelease repo/apt/dists/stable/Release
+            gpg --batch --yes -abs -o repo/apt/dists/stable/Release.gpg repo/apt/dists/stable/Release
+            for arch in x86_64 aarch64; do
+              createrepo_c --database "repo/rpm/$arch"
+              gpg --batch --yes --armor --detach-sign \
+                --output "repo/rpm/$arch/repodata/repomd.xml.asc" \
+                "repo/rpm/$arch/repodata/repomd.xml"
+            done
+          fi
+
+          rm -f repo/apt/apt-release.conf
+          cat > repo/index.html <<'HTML'
+          <!doctype html>
+          <html><head><meta charset="utf-8"><title>KaalKey Linux repositories</title></head>
+          <body><h1>KaalKey Linux repositories</h1>
+          <p>Official signed APT and RPM repositories for KaalKey Authenticator.</p>
+          <p>Architectures: amd64 and arm64.</p>
+          <p>APT: /apt · RPM: /rpm/x86_64 and /rpm/aarch64</p>
+          </body></html>
+          HTML
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: repo
+
+      - name: Deploy repositories to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
