@@ -25,10 +25,11 @@ protocol.registerSchemesAsPrivileged([
 // ==================================================
 
 app.setName("KaalKey");
-app.setDesktopName("kaalkey");
 
+// Must match the Linux desktop file ID and StartupWMClass so GNOME can
+// associate the running window with the installed application launcher.
 if (process.platform === "linux") {
-  app.setDesktopName("kaalkey");
+  app.setDesktopName("com.techsivaram.kaalkey");
 }
 
 const appDataPath = app.getPath("appData");

@@ -67,11 +67,11 @@
     "android:release": "expo run:android --variant release",
     "desktop:dev": "concurrently -k \"expo start --web --host localhost\" \"wait-on http://localhost:8081 && node electron/launch.cjs\"",
     "desktop:export": "expo export --platform web",
-    "desktop:build": "npm run desktop:export && electron-builder"
+    "desktop:build": "npm run desktop:export && electron-builder && node scripts/fix-linux-packages.cjs"
   },
   "private": true,
   "build": {
-    "appId": "com.techsivaram.kaalkey.desktop",
+    "appId": "com.techsivaram.kaalkey",
     "productName": "KaalKey Authenticator",
     "directories": {
       "output": "release"
@@ -99,9 +99,6 @@
       ],
       "icon": "build/icons",
       "category": "Utility",
-      "executableArgs": [
-        "--ozone-platform=wayland"
-      ],
       "synopsis": "Cross-platform authenticator",
       "description": "KaalKey Authenticator generates and manages time-based one-time passwords.",
       "maintainer": "TechSivaram <sivaram@techsivaram.com>",
@@ -117,5 +114,6 @@
     "email": "sivaram@techsivaram.com"
   },
   "homepage": "https://github.com/TechSivaram/kaalkey",
-  "desktopName": "com.techsivaram.kaalkey"
+  "desktopName": "com.techsivaram.kaalkey",
+  "license": "MIT"
 }
