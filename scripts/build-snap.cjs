@@ -8,6 +8,7 @@ const outputDir = path.resolve(projectRoot, packageJson.build?.directories?.outp
 const snapArch = process.arch === "arm64" ? "arm64" : "amd64";
 const snapProjectDir = path.join(outputDir, `__snap-${snapArch}`);
 const snapcraftYaml = path.join(snapProjectDir, "snap", "snapcraft.yaml");
+const primeGuiDir = path.join(snapProjectDir, "prime", "meta", "gui");
 
 // Use the already-controlled Ubuntu/Docker build environment. This prevents
 // Snapcraft from selecting LXD or Multipass for any subprocess.
@@ -30,11 +31,10 @@ function run(command, args, cwd = projectRoot) {
 }
 
 // electron-builder 26's Core24 target writes its generated launcher to
-// snap/gui, but also adds an apps.<name>.desktop reference to meta/gui.
+// snap/gui, but may also add an apps.<name>.desktop reference to meta/gui.
 // Snapcraft expects that explicit desktop reference to exist in prime already,
-// so it fails before it can perform its normal snap/gui -> meta/gui copy.
-// Remove only that redundant reference; leave the generated launcher in
-// snap/gui so Snapcraft can install it using its standard desktop integration.
+// so it can fail before completing the normal snap/gui -> meta/gui copy.
+// Remove only that redundant reference; keep the actual launcher in snap/gui.
 function repairCore24DesktopReference() {
   if (!fs.existsSync(snapcraftYaml)) return false;
 
@@ -43,28 +43,71 @@ function repairCore24DesktopReference() {
   const matches = [...yaml.matchAll(desktopReference)];
   if (matches.length !== 1) return false;
 
-  const desktopFile = path.join(
-    snapProjectDir,
-    "snap",
-    "gui",
-    path.basename(
-      matches[0][0]
-        .trim()
-        .replace(/^desktop:[\t ]*/, "")
-        .trim(),
-    ),
-  );
+  const referencedPath = matches[0][0]
+    .trim()
+    .replace(/^desktop:[\t ]*/, "")
+    .trim();
+  const desktopFile = path.join(snapProjectDir, "snap", "gui", path.basename(referencedPath));
+
   if (!fs.existsSync(desktopFile)) {
     console.error(`[KaalKey] Expected generated desktop launcher was not found: ${desktopFile}`);
     return false;
   }
 
-  const repaired = yaml.replace(desktopReference, "");
-  fs.writeFileSync(snapcraftYaml, repaired);
+  fs.writeFileSync(snapcraftYaml, yaml.replace(desktopReference, ""));
   console.log(
     "[KaalKey] Repaired electron-builder Core24 desktop path; Snapcraft will use snap/gui.",
   );
   return true;
+}
+
+// Keep the application-specific desktop file and icon. The published 1.1.25
+// Snap contained a second, generic launcher using icon.png. Removing that
+// generic icon prevents Snap's generated fallback launcher from duplicating
+// the explicit com.techsivaram.kaalkey.desktop entry. Also remove the generic
+// desktop file if a Snapcraft/electron-builder version has already generated it.
+function removeDuplicateSnapDesktopLauncher() {
+  const canonicalDesktop = path.join(primeGuiDir, "com.techsivaram.kaalkey.desktop");
+  const duplicateDesktop = path.join(primeGuiDir, "kaalkey-authenticator.desktop");
+  const genericIcon = path.join(primeGuiDir, "icon.png");
+
+  if (!fs.existsSync(canonicalDesktop)) {
+    console.error(`[KaalKey] Expected application desktop file is missing: ${canonicalDesktop}`);
+    return false;
+  }
+
+  if (fs.existsSync(duplicateDesktop)) {
+    fs.unlinkSync(duplicateDesktop);
+    console.log("[KaalKey] Removed duplicate Snap desktop launcher.");
+  }
+
+  if (fs.existsSync(genericIcon)) {
+    fs.unlinkSync(genericIcon);
+    console.log("[KaalKey] Removed generic Snap icon that creates a fallback launcher.");
+  }
+
+  // Verify the staged GUI directory contains exactly the intended desktop file.
+  const desktopFiles = fs
+    .readdirSync(primeGuiDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".desktop"))
+    .map((entry) => entry.name);
+
+  if (desktopFiles.length !== 1 || desktopFiles[0] !== "com.techsivaram.kaalkey.desktop") {
+    console.error(
+      `[KaalKey] Unexpected desktop files in prime/meta/gui: ${desktopFiles.join(", ") || "(none)"}`,
+    );
+    return false;
+  }
+
+  return true;
+}
+
+function removeExistingPackedSnaps() {
+  for (const entry of fs.readdirSync(snapProjectDir, { withFileTypes: true })) {
+    if (entry.isFile() && entry.name.endsWith(".snap")) {
+      fs.unlinkSync(path.join(snapProjectDir, entry.name));
+    }
+  }
 }
 
 function publishBuiltSnapToOutput() {
@@ -94,7 +137,9 @@ function publishBuiltSnapToOutput() {
 // npm's node_modules/.bin PATH, so spawning the bare command can fail with ENOENT.
 let electronBuilderCli;
 try {
-  electronBuilderCli = require.resolve("electron-builder/cli.js", { paths: [projectRoot] });
+  electronBuilderCli = require.resolve("electron-builder/cli.js", {
+    paths: [projectRoot],
+  });
 } catch (error) {
   console.error(
     "[KaalKey] electron-builder is not installed. Run `npm ci` from the project root before building the Snap.",
@@ -108,16 +153,28 @@ const electronBuilderStatus = run(process.execPath, [
   "snap",
   ...process.argv.slice(2),
 ]);
-if (electronBuilderStatus === 0) process.exit(0);
 
-// Do not hide unrelated electron-builder/Snapcraft failures. Recover only
-// when the known Core24 desktop-file mismatch is present in the generated tree.
-if (!repairCore24DesktopReference()) process.exit(electronBuilderStatus);
+if (electronBuilderStatus !== 0) {
+  // Recover only from the known Core24 desktop-file mismatch. Do not hide
+  // unrelated electron-builder/Snapcraft failures.
+  if (!repairCore24DesktopReference()) process.exit(electronBuilderStatus);
 
-let status = run("snapcraft", ["prime", "--destructive-mode"], snapProjectDir);
-if (status !== 0) process.exit(status);
+  const primeStatus = run("snapcraft", ["prime", "--destructive-mode"], snapProjectDir);
+  if (primeStatus !== 0) process.exit(primeStatus);
+} else if (!fs.existsSync(primeGuiDir)) {
+  console.error(
+    `[KaalKey] electron-builder succeeded but Snapcraft prime directory is missing: ${primeGuiDir}`,
+  );
+  process.exit(1);
+}
 
-status = run("snapcraft", ["pack", "--destructive-mode"], snapProjectDir);
-if (status !== 0) process.exit(status);
+// Apply the same launcher cleanup to both the normal electron-builder path and
+// the Core24 recovery path. Repack from prime so the published .snap includes it.
+if (!removeDuplicateSnapDesktopLauncher()) process.exit(1);
+
+removeExistingPackedSnaps();
+
+const packStatus = run("snapcraft", ["pack", "--destructive-mode"], snapProjectDir);
+if (packStatus !== 0) process.exit(packStatus);
 
 if (!publishBuiltSnapToOutput()) process.exit(1);
