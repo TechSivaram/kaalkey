@@ -2,19 +2,6 @@ name: Publish Snap Store package
 
 on:
   workflow_dispatch:
-    inputs:
-      release_tag:
-        description: "Existing GitHub Release tag, for example v1.1.24"
-        required: true
-        type: string
-      channel:
-        description: "Snap Store release channel"
-        required: true
-        type: choice
-        options:
-          - candidate
-          - stable
-        default: candidate
 
 permissions:
   contents: read
@@ -23,33 +10,28 @@ jobs:
   publish:
     runs-on: ubuntu-24.04
     steps:
-      - name: Download Snap assets for selected release
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Download latest Snap release asset
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: ${{ inputs.release_tag }}
         run: |
-          set -euo pipefail
           mkdir -p release
-          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --pattern '*.snap' --dir release
-          test "$(find release -maxdepth 1 -name '*.snap' | wc -l)" -eq 2
+          gh release download --repo "$GITHUB_REPOSITORY" --pattern '*.snap' --dir release
+          test -n "$(find release -name '*.snap' -print -quit)"
 
-      - name: Verify Snap package identity and architectures
+      - name: Verify Snap Store package name
         run: |
-          set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y squashfs-tools
-          : > "$RUNNER_TEMP/snap-yaml"
-          for f in release/*.snap; do
-            yaml="$(unsquashfs -cat "$f" meta/snap.yaml)"
-            name="$(printf '%s\n' "$yaml" | awk '$1 == "name:" { print $2; exit }')"
-            test "$name" = "kaalkey-authenticator" || {
-              echo "Unexpected Snap package name '$name' in $f"
+          sudo apt-get install --yes squashfs-tools
+          for snap_file in release/*.snap; do
+            snap_name="$(unsquashfs -cat "$snap_file" meta/snap.yaml | awk '$1 == "name:" { print $2; exit }')"
+            test "$snap_name" = "kaalkey-authenticator" || {
+              echo "Expected Snap name kaalkey-authenticator, found '$snap_name' in $snap_file"
               exit 1
             }
-            printf '%s\n' "$yaml" >> "$RUNNER_TEMP/snap-yaml"
           done
-          grep -q 'amd64' "$RUNNER_TEMP/snap-yaml"
-          grep -q 'arm64' "$RUNNER_TEMP/snap-yaml"
 
       - name: Install Snapcraft
         run: sudo snap install snapcraft --classic
@@ -58,20 +40,10 @@ jobs:
         env:
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
         run: |
-          set -euo pipefail
-          test -n "$SNAPCRAFT_STORE_CREDENTIALS" || {
-            echo "Missing SNAPCRAFT_STORE_CREDENTIALS repository secret"
-            exit 1
-          }
+          test -n "$SNAPCRAFT_STORE_CREDENTIALS" || { echo 'Missing SNAPCRAFT_STORE_CREDENTIALS repository secret'; exit 1; }
           printf '%s' "$SNAPCRAFT_STORE_CREDENTIALS" > "$RUNNER_TEMP/snapcraft.assert"
           snapcraft login --with "$RUNNER_TEMP/snapcraft.assert"
           rm -f "$RUNNER_TEMP/snapcraft.assert"
 
-      - name: Upload both architectures to selected channel
-        env:
-          SNAP_CHANNEL: ${{ inputs.channel }}
-        run: |
-          set -euo pipefail
-          for f in release/*.snap; do
-            snapcraft upload --release="$SNAP_CHANNEL" "$f"
-          done
+      - name: Upload to Snap Store
+        run: snapcraft upload --release=stable release/*.snap

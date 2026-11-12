@@ -5,11 +5,13 @@ const { spawnSync } = require("node:child_process");
 const projectRoot = path.resolve(__dirname, "..");
 const packageJson = JSON.parse(fs.readFileSync(path.join(projectRoot, "package.json"), "utf8"));
 const outputDir = path.resolve(projectRoot, packageJson.build?.directories?.output || "release");
-const snapArch = process.arch === "arm64" ? "arm64" : "amd64";
-const snapProjectDir = path.join(outputDir, `__snap-${snapArch}`);
+const snapProjectDir = path.join(outputDir, "__snap-amd64");
 const snapcraftYaml = path.join(snapProjectDir, "snap", "snapcraft.yaml");
-const localBin = path.join(projectRoot, "node_modules", ".bin");
-process.env.PATH = `${localBin}${path.delimiter}${process.env.PATH || ""}`;
+
+// Use the already-controlled Ubuntu/Docker build environment. This prevents
+// Snapcraft from selecting LXD or Multipass for any subprocess.
+process.env.SNAPCRAFT_BUILD_ENVIRONMENT = "host";
+console.log("[KaalKey] Snapcraft build environment: host (destructive mode; no LXD)");
 
 function run(command, args, cwd = projectRoot) {
   const result = spawnSync(command, args, {
@@ -97,10 +99,10 @@ if (electronBuilderStatus === 0) process.exit(0);
 // when the known Core24 desktop-file mismatch is present in the generated tree.
 if (!repairCore24DesktopReference()) process.exit(electronBuilderStatus);
 
-let status = run("snapcraft", ["prime", "--use-lxd"], snapProjectDir);
+let status = run("snapcraft", ["prime", "--destructive-mode"], snapProjectDir);
 if (status !== 0) process.exit(status);
 
-status = run("snapcraft", ["pack", "--use-lxd"], snapProjectDir);
+status = run("snapcraft", ["pack", "--destructive-mode"], snapProjectDir);
 if (status !== 0) process.exit(status);
 
 if (!publishBuiltSnapToOutput()) process.exit(1);
