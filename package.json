@@ -1,5 +1,5 @@
 {
-  "name": "kaalkeyauthenticator",
+  "name": "kaalkey-authenticator",
   "version": "1.1.23",
   "main": "expo-router/entry",
   "dependencies": {
@@ -113,7 +113,11 @@
       "base": "core24",
       "core24": {
         "confinement": "strict",
-        "useDestructiveMode": true
+        "useDestructiveMode": true,
+        "plugs": [
+          "default",
+          "camera"
+        ]
       }
     }
   },

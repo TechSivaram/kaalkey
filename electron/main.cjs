@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, protocol, screen } = require("electron");
+const { app, BrowserWindow, ipcMain, protocol, screen, session } = require("electron");
 
 const path = require("path");
 const fs = require("fs");
@@ -295,7 +295,53 @@ async function registerKaalKeyProtocol() {
 }
 
 // ==================================================
-// 5. Desktop window modes
+// 5. Camera permission handling
+// ==================================================
+
+// The renderer only needs video input for QR scanning. Grant camera access
+// to the packaged KaalKey origin and the local Expo development server; deny
+// microphone, screen capture, and permissions requested by other origins.
+function isTrustedCameraOrigin(value) {
+  try {
+    const url = new URL(value);
+    return (
+      (url.protocol === "kaalkey:" && url.hostname === "bundle") ||
+      (url.protocol === "http:" &&
+        (url.hostname === "localhost" || url.hostname === "127.0.0.1") &&
+        url.port === "8081")
+    );
+  } catch {
+    return false;
+  }
+}
+
+function configureMediaPermissions() {
+  const appSession = session.defaultSession;
+
+  appSession.setPermissionCheckHandler((webContents, permission, requestingOrigin, details) => {
+    if (permission !== "media" || details?.mediaType !== "video") return false;
+    return isTrustedCameraOrigin(requestingOrigin);
+  });
+
+  appSession.setPermissionRequestHandler((webContents, permission, callback, details) => {
+    const requestingUrl = details?.requestingUrl || webContents?.getURL?.() || "";
+    const requestedMedia = Array.isArray(details?.mediaTypes) ? details.mediaTypes : [];
+    const cameraOnly = requestedMedia.length === 1 && requestedMedia[0] === "video";
+    const allowed =
+      permission === "media" && cameraOnly && isTrustedCameraOrigin(requestingUrl);
+
+    console.log("[KaalKey] Media permission request:", {
+      permission,
+      mediaTypes: requestedMedia,
+      requestingUrl,
+      allowed,
+    });
+    callback(allowed);
+  });
+}
+
+// ==================================================
+// 6. Desktop window modes
 // ==================================================
 
 let mainWindow;
@@ -448,6 +494,7 @@ app
     console.log("[KaalKey] Electron ready");
 
     await registerKaalKeyProtocol();
+    configureMediaPermissions();
     // KaalKey uses its own compact window controls; remove the native menu.
     const { Menu } = require("electron");
     Menu.setApplicationMenu(null);
