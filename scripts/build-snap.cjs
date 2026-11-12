@@ -5,7 +5,12 @@ const { spawnSync } = require("node:child_process");
 const projectRoot = path.resolve(__dirname, "..");
 const packageJson = JSON.parse(fs.readFileSync(path.join(projectRoot, "package.json"), "utf8"));
 const outputDir = path.resolve(projectRoot, packageJson.build?.directories?.output || "release");
-const snapProjectDir = path.join(outputDir, "__snap-amd64");
+const snapArch = process.arch === "arm64" ? "arm64" : process.arch === "x64" ? "amd64" : null;
+if (!snapArch) {
+  console.error(`[KaalKey] Unsupported Snap build architecture: ${process.arch}`);
+  process.exit(1);
+}
+const snapProjectDir = path.join(outputDir, `__snap-${snapArch}`);
 const snapcraftYaml = path.join(snapProjectDir, "snap", "snapcraft.yaml");
 
 // Use the already-controlled Ubuntu/Docker build environment. This prevents
@@ -88,7 +93,33 @@ function publishBuiltSnapToOutput() {
   return true;
 }
 
-const electronBuilderStatus = run("electron-builder", [
+// Resolve the electron-builder CLI from this project's local dependencies.
+// Do not rely on npm's node_modules/.bin PATH: direct `node scripts/...` calls
+// do not add that directory automatically.
+function resolveElectronBuilderCli() {
+  const packagePath = path.join(projectRoot, "node_modules", "electron-builder", "package.json");
+  if (!fs.existsSync(packagePath)) return null;
+
+  const metadata = JSON.parse(fs.readFileSync(packagePath, "utf8"));
+  const binEntry =
+    typeof metadata.bin === "string" ? metadata.bin : metadata.bin?.["electron-builder"];
+  if (!binEntry) return null;
+
+  const cliPath = path.resolve(path.dirname(packagePath), binEntry);
+  return fs.existsSync(cliPath) ? cliPath : null;
+}
+
+const electronBuilderCli = resolveElectronBuilderCli();
+if (!electronBuilderCli) {
+  console.error(
+    "[KaalKey] Could not find the local electron-builder CLI. Run `npm ci` from the project root and verify that devDependencies are installed.",
+  );
+  process.exit(1);
+}
+console.log(`[KaalKey] Using local electron-builder: ${electronBuilderCli}`);
+
+const electronBuilderStatus = run(process.execPath, [
+  electronBuilderCli,
   "--linux",
   "snap",
   ...process.argv.slice(2),
