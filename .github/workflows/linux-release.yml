@@ -12,6 +12,10 @@ permissions:
 jobs:
   build-linux:
     runs-on: ubuntu-24.04
+    # Canonical Snapcraft 8 image includes the Snapcraft CLI; avoids installing
+    # Snapcraft from the Snap Store on the GitHub-hosted runner.
+    container:
+      image: ghcr.io/canonical/snapcraft:8_core24
     steps:
       - name: Check out source
         uses: actions/checkout@v4
@@ -25,8 +29,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Snapcraft
-        run: sudo snap install snapcraft --classic
+      - name: Install Linux packaging tools
+        run: apt-get update && apt-get install -y --no-install-recommends rpm xz-utils
 
       - name: Verify Snapcraft
         run: snapcraft --version
@@ -35,6 +39,8 @@ jobs:
         run: npm run desktop:export
 
       - name: Build Linux packages
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
         run: npx electron-builder --linux AppImage deb rpm snap --publish never
 
       - name: Integrate Debian AppStream metadata
