@@ -156,10 +156,46 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Snapcraft and LXD
+      - name: Prepare snapd and verify Snap Store connectivity
         run: |
-          sudo snap install snapcraft --classic
-          sudo snap install lxd
+          set -euo pipefail
+          sudo systemctl start snapd.socket
+          sudo systemctl start snapd.service || true
+          sudo snap wait system seed.loaded
+
+          # A 404 response is acceptable here; this check only verifies DNS,
+          # TLS and network reachability to the Snap Store API.
+          curl --connect-timeout 15 --max-time 30 --silent --show-error \\
+            --output /dev/null --write-out 'Snap Store HTTP status: %{http_code}\\n' \\
+            https://api.snapcraft.io/
+
+      - name: Install Snapcraft and LXD with retries
+        run: |
+          set -euo pipefail
+
+          install_snap_with_retry() {
+            package="$1"
+            shift
+            for attempt in 1 2 3 4 5; do
+              echo "Installing $package (attempt $attempt/5)"
+              if sudo snap install "$package" "$@"; then
+                return 0
+              fi
+              if [ "$attempt" -lt 5 ]; then
+                sleep $((attempt * 10))
+                sudo systemctl restart snapd.service || true
+                sudo snap wait system seed.loaded || true
+              fi
+            done
+            echo "Unable to install $package after five attempts."
+            echo "Check Snap Store reachability at https://api.snapcraft.io/"
+            sudo journalctl -u snapd.service --no-pager -n 100 || true
+            return 1
+          }
+
+          install_snap_with_retry snapcraft --classic
+          install_snap_with_retry lxd
+
           sudo lxd waitready
           sudo lxd init --minimal
           sudo usermod -aG lxd "$USER"
