@@ -1,49 +1,102 @@
 name: Publish Snap Store package
 
 on:
+  workflow_run:
+    workflows: ["Linux release packages"]
+    types: [completed]
   workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "GitHub Release tag to publish manually (for example v1.1.24)"
+        required: true
+        type: string
+      channel:
+        description: "Snap Store channel"
+        required: true
+        type: choice
+        options: [candidate, stable]
+        default: candidate
 
 permissions:
+  actions: read
   contents: read
 
 jobs:
   publish:
+    if: >-
+      (github.event_name == 'workflow_run' &&
+       github.event.workflow_run.conclusion == 'success' &&
+       startsWith(github.event.workflow_run.head_branch, 'v')) ||
+      github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-24.04
     steps:
-      - name: Check out source
-        uses: actions/checkout@v4
+      - name: Download Snap artifact from completed release build
+        if: github.event_name == 'workflow_run'
+        uses: actions/download-artifact@v4
+        with:
+          pattern: kaalkey-snap-package-*
+          path: release
+          merge-multiple: true
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Download latest Snap release asset
+      - name: Download Snap assets from an existing GitHub Release
+        if: github.event_name == 'workflow_dispatch'
         env:
           GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
         run: |
+          set -euo pipefail
           mkdir -p release
-          gh release download --repo "$GITHUB_REPOSITORY" --pattern '*.snap' --dir release
-          test -n "$(find release -name '*.snap' -print -quit)"
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --pattern '*.snap' --dir release
 
-      - name: Verify Snap Store package name
+      - name: Verify Snap package name and architecture
         run: |
+          set -euo pipefail
           sudo apt-get update
           sudo apt-get install --yes squashfs-tools
+          count=0
           for snap_file in release/*.snap; do
+            test -f "$snap_file"
             snap_name="$(unsquashfs -cat "$snap_file" meta/snap.yaml | awk '$1 == "name:" { print $2; exit }')"
             test "$snap_name" = "kaalkey-authenticator" || {
-              echo "Expected Snap name kaalkey-authenticator, found '$snap_name' in $snap_file"
+              echo "Expected kaalkey-authenticator, found '$snap_name' in $snap_file"
               exit 1
             }
+            count=$((count + 1))
           done
+          test "$count" -ge 1
 
-      - name: Install Snapcraft
-        run: sudo snap install snapcraft --classic
-
-      - name: Authenticate with Snap Store
+      - name: Publish Snap packages to Snap Store stable
+        if: github.event_name == 'workflow_run'
         env:
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
         run: |
-          test -n "$SNAPCRAFT_STORE_CREDENTIALS" || { echo 'Missing SNAPCRAFT_STORE_CREDENTIALS repository secret'; exit 1; }
-          printf '%s' "$SNAPCRAFT_STORE_CREDENTIALS" > "$RUNNER_TEMP/snapcraft.assert"
-          snapcraft login --with "$RUNNER_TEMP/snapcraft.assert"
-          rm -f "$RUNNER_TEMP/snapcraft.assert"
+          set -euo pipefail
+          test -n "$SNAPCRAFT_STORE_CREDENTIALS" || {
+            echo "Missing SNAPCRAFT_STORE_CREDENTIALS repository secret"
+            exit 1
+          }
+          for snap_file in release/*.snap; do
+            docker run --rm \
+              -v "$PWD/release:/release:ro" \
+              -e SNAPCRAFT_STORE_CREDENTIALS \
+              ghcr.io/canonical/snapcraft:8_core24 \
+              upload --release=stable "/release/$(basename "$snap_file")"
+          done
 
-      - name: Upload to Snap Store
-        run: snapcraft upload --release=stable release/*.snap
+      - name: Upload Snap packages to selected Snap Store channel
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+          CHANNEL: ${{ inputs.channel }}
+        run: |
+          set -euo pipefail
+          test -n "$SNAPCRAFT_STORE_CREDENTIALS"
+          for snap_file in release/*.snap; do
+            docker run --rm \
+              -v "$PWD/release:/release:ro" \
+              -e SNAPCRAFT_STORE_CREDENTIALS \
+              ghcr.io/canonical/snapcraft:8_core24 \
+              upload --release="$CHANNEL" "/release/$(basename "$snap_file")"
+          done

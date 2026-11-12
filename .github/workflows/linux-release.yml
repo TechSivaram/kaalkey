@@ -11,8 +11,16 @@ permissions:
 
 jobs:
   build-linux:
-    name: Build DEB, RPM and AppImage
-    runs-on: ubuntu-24.04
+    name: Build DEB, RPM and AppImage (${{ matrix.arch }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: amd64
+            runner: ubuntu-22.04
+          - arch: arm64
+            runner: ubuntu-22.04-arm
+    runs-on: ${{ matrix.runner }}
     steps:
       - name: Check out source
         uses: actions/checkout@v4
@@ -35,10 +43,30 @@ jobs:
       - name: Integrate Debian AppStream metadata
         run: node scripts/fix-linux-packages.cjs
 
+      - name: Install RPM inspection tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes rpm
+
+      - name: Verify package architecture
+        run: |
+          set -euo pipefail
+          expected_deb="${{ matrix.arch }}"
+          expected_rpm="${{ matrix.arch == 'amd64' && 'x86_64' || 'aarch64' }}"
+          for f in release/*.deb; do
+            actual="$(dpkg-deb -f "$f" Architecture)"
+            test "$actual" = "$expected_deb"
+          done
+          for f in release/*.rpm; do
+            actual="$(rpm -qp --qf '%{ARCH}' "$f")"
+            test "$actual" = "$expected_rpm"
+          done
+          test -n "$(find release -maxdepth 1 -name '*.AppImage' -print -quit)"
+
       - name: Upload Linux packages
         uses: actions/upload-artifact@v4
         with:
-          name: kaalkey-linux-packages
+          name: kaalkey-linux-packages-${{ matrix.arch }}
           path: |
             release/*.deb
             release/*.rpm
@@ -46,14 +74,20 @@ jobs:
           if-no-files-found: error
 
   build-snap:
-    name: Build Snap in destructive mode (no LXD)
-    runs-on: ubuntu-24.04
+    name: Build Snap (${{ matrix.arch }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: amd64
+            runner: ubuntu-24.04
+          - arch: arm64
+            runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
     env:
       SNAPCRAFT_BUILD_ENVIRONMENT: host
     container:
       image: ghcr.io/canonical/snapcraft:8_core24
-      # The image's default entrypoint is the snapcraft CLI; GitHub Actions
-      # needs a normal shell to execute checkout, setup-node, npm, and build steps.
       options: --entrypoint ""
     steps:
       - name: Check out source
@@ -81,21 +115,20 @@ jobs:
       - name: Upload Snap package
         uses: actions/upload-artifact@v4
         with:
-          name: kaalkey-snap-package
+          name: kaalkey-snap-package-${{ matrix.arch }}
           path: release/*.snap
           if-no-files-found: error
 
   publish-release:
     name: Attach packages to GitHub Release
     if: startsWith(github.ref, 'refs/tags/')
-    needs:
-      - build-linux
-      - build-snap
+    needs: [build-linux, build-snap]
     runs-on: ubuntu-24.04
     steps:
       - name: Download all package artifacts
         uses: actions/download-artifact@v4
         with:
+          pattern: kaalkey-*-*
           path: release
           merge-multiple: true
 
@@ -111,14 +144,13 @@ jobs:
   collect-manual-artifacts:
     name: Collect packages for manual workflow run
     if: github.event_name == 'workflow_dispatch'
-    needs:
-      - build-linux
-      - build-snap
+    needs: [build-linux, build-snap]
     runs-on: ubuntu-24.04
     steps:
       - name: Download all package artifacts
         uses: actions/download-artifact@v4
         with:
+          pattern: kaalkey-*-*
           path: release
           merge-multiple: true
 

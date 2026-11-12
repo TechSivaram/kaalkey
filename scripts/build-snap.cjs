@@ -5,11 +5,7 @@ const { spawnSync } = require("node:child_process");
 const projectRoot = path.resolve(__dirname, "..");
 const packageJson = JSON.parse(fs.readFileSync(path.join(projectRoot, "package.json"), "utf8"));
 const outputDir = path.resolve(projectRoot, packageJson.build?.directories?.output || "release");
-const snapArch = process.arch === "arm64" ? "arm64" : process.arch === "x64" ? "amd64" : null;
-if (!snapArch) {
-  console.error(`[KaalKey] Unsupported Snap build architecture: ${process.arch}`);
-  process.exit(1);
-}
+const snapArch = process.arch === "arm64" ? "arm64" : "amd64";
 const snapProjectDir = path.join(outputDir, `__snap-${snapArch}`);
 const snapcraftYaml = path.join(snapProjectDir, "snap", "snapcraft.yaml");
 
@@ -93,30 +89,18 @@ function publishBuiltSnapToOutput() {
   return true;
 }
 
-// Resolve the electron-builder CLI from this project's local dependencies.
-// Do not rely on npm's node_modules/.bin PATH: direct `node scripts/...` calls
-// do not add that directory automatically.
-function resolveElectronBuilderCli() {
-  const packagePath = path.join(projectRoot, "node_modules", "electron-builder", "package.json");
-  if (!fs.existsSync(packagePath)) return null;
-
-  const metadata = JSON.parse(fs.readFileSync(packagePath, "utf8"));
-  const binEntry =
-    typeof metadata.bin === "string" ? metadata.bin : metadata.bin?.["electron-builder"];
-  if (!binEntry) return null;
-
-  const cliPath = path.resolve(path.dirname(packagePath), binEntry);
-  return fs.existsSync(cliPath) ? cliPath : null;
-}
-
-const electronBuilderCli = resolveElectronBuilderCli();
-if (!electronBuilderCli) {
+// Resolve electron-builder from this project's installed dependencies. A script
+// launched with `node scripts/build-snap.cjs` does not automatically inherit
+// npm's node_modules/.bin PATH, so spawning the bare command can fail with ENOENT.
+let electronBuilderCli;
+try {
+  electronBuilderCli = require.resolve("electron-builder/cli.js", { paths: [projectRoot] });
+} catch (error) {
   console.error(
-    "[KaalKey] Could not find the local electron-builder CLI. Run `npm ci` from the project root and verify that devDependencies are installed.",
+    "[KaalKey] electron-builder is not installed. Run `npm ci` from the project root before building the Snap.",
   );
   process.exit(1);
 }
-console.log(`[KaalKey] Using local electron-builder: ${electronBuilderCli}`);
 
 const electronBuilderStatus = run(process.execPath, [
   electronBuilderCli,

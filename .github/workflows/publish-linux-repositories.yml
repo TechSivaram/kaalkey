@@ -1,6 +1,9 @@
 name: Publish signed Linux package repositories
 
 on:
+  workflow_run:
+    workflows: ["Linux release packages"]
+    types: [completed]
   workflow_dispatch:
     inputs:
       release_tag:
@@ -9,6 +12,7 @@ on:
         type: string
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -19,6 +23,11 @@ concurrency:
 
 jobs:
   publish:
+    if: >-
+      (github.event_name == 'workflow_run' &&
+       github.event.workflow_run.conclusion == 'success' &&
+       startsWith(github.event.workflow_run.head_branch, 'v')) ||
+      github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-24.04
     environment:
       name: github-pages
@@ -27,15 +36,29 @@ jobs:
       - name: Check out source
         uses: actions/checkout@v4
 
-      - name: Download release packages
+      - name: Download DEB and RPM artifacts from completed release build
+        if: github.event_name == 'workflow_run'
+        uses: actions/download-artifact@v4
+        with:
+          pattern: kaalkey-linux-packages-*
+          path: release
+          merge-multiple: true
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download DEB and RPM assets from an existing GitHub Release
+        if: github.event_name == 'workflow_dispatch'
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ inputs.release_tag }}
         run: |
           set -euo pipefail
           mkdir -p release
-          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
-            --pattern '*.deb' --pattern '*.rpm' --dir release
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --pattern '*.deb' --pattern '*.rpm' --dir release
+
+      - name: Verify DEB and RPM assets
+        run: |
+          set -euo pipefail
           test -n "$(find release -name '*.deb' -print -quit)"
           test -n "$(find release -name '*.rpm' -print -quit)"
 
@@ -46,12 +69,12 @@ jobs:
 
       - name: Build and sign multi-architecture repositories
         env:
-          REPO_SIGNING_KEY: ${{ secrets.REPO_SIGNING_KEY }}
-          REPO_SIGNING_KEY_PASSPHRASE: ${{ secrets.REPO_SIGNING_KEY_PASSPHRASE }}
+          APT_SIGNING_KEY: ${{ secrets.APT_SIGNING_KEY }}
+          APT_SIGNING_KEY_PASSPHRASE: ${{ secrets.APT_SIGNING_KEY_PASSPHRASE }}
         run: |
           set -euo pipefail
-          test -n "$REPO_SIGNING_KEY" || {
-            echo "Missing REPO_SIGNING_KEY repository secret"
+          test -n "$APT_SIGNING_KEY" || {
+            echo "Missing APT_SIGNING_KEY repository secret"
             exit 1
           }
 
@@ -85,7 +108,7 @@ jobs:
 
           # Import the repository signing key once. The same public key verifies
           # signed APT Release metadata and signed RPM repomd metadata.
-          printf '%s' "$REPO_SIGNING_KEY" | gpg --batch --import
+          printf '%s' "$APT_SIGNING_KEY" | gpg --batch --import
           gpg --batch --armor --export > repo/apt/kaalkey-archive-keyring.asc
           cp repo/apt/kaalkey-archive-keyring.asc repo/rpm/RPM-GPG-KEY-kaalkey
 
@@ -106,8 +129,8 @@ jobs:
           CONFIG
           (cd repo/apt && apt-ftparchive -c apt-release.conf release dists/stable > dists/stable/Release)
 
-          if [ -n "$REPO_SIGNING_KEY_PASSPHRASE" ]; then
-            printf '%s' "$REPO_SIGNING_KEY_PASSPHRASE" > "$RUNNER_TEMP/gpg-passphrase"
+          if [ -n "$APT_SIGNING_KEY_PASSPHRASE" ]; then
+            printf '%s' "$APT_SIGNING_KEY_PASSPHRASE" > "$RUNNER_TEMP/gpg-passphrase"
             gpg --batch --yes --pinentry-mode loopback --passphrase-file "$RUNNER_TEMP/gpg-passphrase" \
               --clearsign -o repo/apt/dists/stable/InRelease repo/apt/dists/stable/Release
             gpg --batch --yes --pinentry-mode loopback --passphrase-file "$RUNNER_TEMP/gpg-passphrase" \
