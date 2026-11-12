@@ -1,0 +1,80 @@
+name: Publish signed APT repository
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Download latest DEB release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p repo/pool/main/k/kaalkeyauthenticator
+          gh release download --repo "$GITHUB_REPOSITORY" --pattern '*.deb' --dir repo/pool/main/k/kaalkeyauthenticator
+          test -n "$(find repo/pool/main/k/kaalkeyauthenticator -name '*.deb' -print -quit)"
+
+      - name: Build and sign APT repository metadata
+        env:
+          APT_SIGNING_KEY: ${{ secrets.APT_SIGNING_KEY }}
+          APT_SIGNING_KEY_PASSPHRASE: ${{ secrets.APT_SIGNING_KEY_PASSPHRASE }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y apt-utils gnupg
+          test -n "$APT_SIGNING_KEY" || { echo 'Missing APT_SIGNING_KEY repository secret'; exit 1; }
+          printf '%s' "$APT_SIGNING_KEY" | gpg --batch --import
+          mkdir -p repo/dists/stable/main/binary-amd64
+          apt-ftparchive packages repo/pool/main/k/kaalkeyauthenticator > repo/dists/stable/main/binary-amd64/Packages
+          gzip -9kf repo/dists/stable/main/binary-amd64/Packages
+          cat > repo/apt-release.conf <<'CONFIG'
+          APT::FTPArchive::Release::Origin "TechSivaram";
+          APT::FTPArchive::Release::Label "KaalKey";
+          APT::FTPArchive::Release::Suite "stable";
+          APT::FTPArchive::Release::Codename "stable";
+          APT::FTPArchive::Release::Architectures "amd64";
+          APT::FTPArchive::Release::Components "main";
+          APT::FTPArchive::Release::Description "KaalKey Authenticator APT repository";
+          CONFIG
+          (cd repo && apt-ftparchive -c apt-release.conf release dists/stable > dists/stable/Release)
+          if [ -n "$APT_SIGNING_KEY_PASSPHRASE" ]; then
+            printf '%s' "$APT_SIGNING_KEY_PASSPHRASE" > "$RUNNER_TEMP/gpg-passphrase"
+            gpg --batch --yes --pinentry-mode loopback --passphrase-file "$RUNNER_TEMP/gpg-passphrase" --clearsign -o repo/dists/stable/InRelease repo/dists/stable/Release
+            gpg --batch --yes --pinentry-mode loopback --passphrase-file "$RUNNER_TEMP/gpg-passphrase" -abs -o repo/dists/stable/Release.gpg repo/dists/stable/Release
+            rm -f "$RUNNER_TEMP/gpg-passphrase"
+          else
+            gpg --batch --yes --clearsign -o repo/dists/stable/InRelease repo/dists/stable/Release
+            gpg --batch --yes -abs -o repo/dists/stable/Release.gpg repo/dists/stable/Release
+          fi
+          gpg --batch --armor --export > repo/kaalkey-archive-keyring.asc
+          rm repo/apt-release.conf
+          cat > repo/index.html <<'HTML'
+          <!doctype html><html><head><meta charset="utf-8"><title>KaalKey APT Repository</title></head><body><h1>KaalKey APT Repository</h1><p>Official APT repository for KaalKey Authenticator.</p><p>Repository suite: stable · Component: main · Architecture: amd64</p></body></html>
+          HTML
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: repo
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

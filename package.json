@@ -67,7 +67,9 @@
     "android:release": "expo run:android --variant release",
     "desktop:dev": "concurrently -k \"expo start --web --host localhost\" \"wait-on http://localhost:8081 && node electron/launch.cjs\"",
     "desktop:export": "expo export --platform web",
-    "desktop:build": "npm run desktop:export && electron-builder && node scripts/fix-linux-packages.cjs"
+    "desktop:build": "npm run desktop:export && electron-builder && node scripts/fix-linux-packages.cjs",
+    "desktop:snap": "npm run desktop:export && electron-builder --linux snap",
+    "desktop:release": "npm run desktop:export && electron-builder --linux AppImage deb rpm snap && node scripts/fix-linux-packages.cjs"
   },
   "private": true,
   "build": {
@@ -106,6 +108,16 @@
     },
     "extraMetadata": {
       "main": "electron/bootstrap.cjs"
+    },
+    "snapcraft": {
+      "base": "core24",
+      "core24": {
+        "confinement": "strict",
+        "plugs": [
+          "default",
+          "camera"
+        ]
+      }
     }
   },
   "description": "KaalKey Authenticator generates and manages time-based one-time passwords.",
