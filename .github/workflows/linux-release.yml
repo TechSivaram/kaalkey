@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   build-linux:
+    name: Build DEB, RPM and AppImage
     runs-on: ubuntu-24.04
     steps:
       - name: Check out source
@@ -25,26 +26,83 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Snapcraft
-        run: sudo snap install snapcraft --classic
-
-      - name: Verify Snapcraft
-        run: snapcraft --version
-
       - name: Export web application
         run: npm run desktop:export
 
-      - name: Build Linux packages
-        env:
-          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
-        run: npx electron-builder --linux AppImage deb rpm snap --publish never
+      - name: Build DEB, RPM and AppImage
+        run: npx electron-builder --linux AppImage deb rpm --publish never
 
       - name: Integrate Debian AppStream metadata
         run: node scripts/fix-linux-packages.cjs
 
-      - name: Upload release artifacts
+      - name: Upload Linux packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: kaalkey-linux-packages
+          path: |
+            release/*.deb
+            release/*.rpm
+            release/*.AppImage
+          if-no-files-found: error
+
+  build-snap:
+    name: Build Snap using Snapcraft container and Launchpad
+    runs-on: ubuntu-24.04
+    container:
+      image: ghcr.io/canonical/snapcraft:8_core24
+      # The image's default entrypoint is the snapcraft CLI; GitHub Actions
+      # needs a normal shell to execute checkout, setup-node, npm, and build steps.
+      options: --entrypoint ""
+    environment: Production
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Export web application
+        run: npm run desktop:export
+
+      - name: Build Snap through Launchpad
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+        run: |
+          test -n "$SNAPCRAFT_STORE_CREDENTIALS" || {
+            echo "::error::SNAPCRAFT_STORE_CREDENTIALS is empty or unavailable. Check the Production environment secret."
+            exit 1
+          }
+          snapcraft --version
+          npx electron-builder --linux snap --publish never
+
+      - name: Upload Snap package
+        uses: actions/upload-artifact@v4
+        with:
+          name: kaalkey-snap-package
+          path: release/*.snap
+          if-no-files-found: error
+
+  publish-release:
+    name: Attach packages to GitHub Release
+    if: startsWith(github.ref, 'refs/tags/')
+    needs:
+      - build-linux
+      - build-snap
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Download all package artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release
+          merge-multiple: true
+
+      - name: Publish release assets
         uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
             release/*.deb
@@ -52,10 +110,23 @@ jobs:
             release/*.AppImage
             release/*.snap
 
-      - name: Upload packages for manual workflow runs
-        if: github.event_name == 'workflow_dispatch'
+  collect-manual-artifacts:
+    name: Collect packages for manual workflow run
+    if: github.event_name == 'workflow_dispatch'
+    needs:
+      - build-linux
+      - build-snap
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Download all package artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release
+          merge-multiple: true
+
+      - name: Upload combined package bundle
         uses: actions/upload-artifact@v4
         with:
-          name: kaalkey-linux-packages
+          name: kaalkey-all-linux-packages
           path: release/*
           if-no-files-found: error
