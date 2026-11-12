@@ -113,10 +113,13 @@
       "base": "core24",
       "core24": {
         "confinement": "strict",
-        "plugs": [
-          "default",
-          "camera"
-        ]
+        "remoteBuild": {
+          "enabled": true,
+          "buildFor": [
+            "amd64"
+          ],
+          "acceptPublicUpload": true
+        }
       }
     }
   },
