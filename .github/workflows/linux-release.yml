@@ -46,14 +46,13 @@ jobs:
           if-no-files-found: error
 
   build-snap:
-    name: Build Snap using Snapcraft container and Launchpad
+    name: Build Snap locally using Snapcraft container
     runs-on: ubuntu-24.04
     container:
       image: ghcr.io/canonical/snapcraft:8_core24
       # The image's default entrypoint is the snapcraft CLI; GitHub Actions
       # needs a normal shell to execute checkout, setup-node, npm, and build steps.
       options: --entrypoint ""
-    environment: Production
     steps:
       - name: Check out source
         uses: actions/checkout@v4
@@ -69,16 +68,13 @@ jobs:
       - name: Export web application
         run: npm run desktop:export
 
-      - name: Build Snap through Launchpad
-        env:
-          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+      - name: Verify local Snap build configuration
         run: |
-          test -n "$SNAPCRAFT_STORE_CREDENTIALS" || {
-            echo "::error::SNAPCRAFT_STORE_CREDENTIALS is empty or unavailable. Check the Production environment secret."
-            exit 1
-          }
           snapcraft --version
-          npx electron-builder --linux snap --publish never
+          node -e "const b=require('./package.json').build.snapcraft; if (b.core24?.useDestructiveMode !== true) process.exit(1); if (b.core24?.remoteBuild) process.exit(2); console.log('Local destructive-mode Snap build enabled; remote build disabled.')"
+
+      - name: Build Snap locally
+        run: npx electron-builder --linux snap --publish never
 
       - name: Upload Snap package
         uses: actions/upload-artifact@v4
