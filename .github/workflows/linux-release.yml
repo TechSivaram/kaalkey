@@ -165,9 +165,7 @@ jobs:
 
           # A 404 response is acceptable here; this check only verifies DNS,
           # TLS and network reachability to the Snap Store API.
-          curl --connect-timeout 15 --max-time 30 --silent --show-error \\
-            --output /dev/null --write-out 'Snap Store HTTP status: %{http_code}\\n' \\
-            https://api.snapcraft.io/
+          curl --connect-timeout 15 --max-time 30 --silent --show-error --output /dev/null --write-out 'Snap Store HTTP status: %{http_code}\\n' 'https://api.snapcraft.io/'
 
       - name: Install Snapcraft and LXD with retries
         run: |
