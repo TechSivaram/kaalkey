@@ -30,7 +30,7 @@ runtime test proves that the extension/base does not supply a required library.
 ## Create a production release
 
 1. Update `package.json` version and commit the release changes.
-2. Push a matching version tag. For example, if package.json is `1.1.25`:
+2. Push a matching version tag. For example, if package.json is `1.1.26`:
 
    ```bash
    git tag v1.1.24

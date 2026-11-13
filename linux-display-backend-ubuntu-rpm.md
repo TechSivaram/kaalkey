@@ -203,8 +203,8 @@ Uninstalling KaalKey does not necessarily remove user data stored in the user's 
 **AppImage (portable):**
 
 ```bash
-chmod +x "./release/KaalKey Authenticator-1.1.25.AppImage"
-"./release/KaalKey Authenticator-1.1.25.AppImage"
+chmod +x "./release/KaalKey Authenticator-1.1.26.AppImage"
+"./release/KaalKey Authenticator-1.1.26.AppImage"
 ```
 
 The AppImage does not use the system package manager. Some distributions may require FUSE support to run AppImages.
