@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, protocol, screen, session } = require("electron");
+const { app, BrowserWindow, clipboard, ipcMain, protocol, screen, session } = require("electron");
 
 const path = require("path");
 const fs = require("fs");
@@ -151,7 +151,19 @@ ipcMain.handle("desktop-lock:verify-pin", (_, pin) => {
 });
 
 // ==================================================
-// 3. Renderer diagnostics
+// 3. Desktop clipboard bridge
+// ==================================================
+
+// Use Electron’s native clipboard API for reliable packaged desktop copying.
+ipcMain.handle("desktop-clipboard:write-text", (_, value) => {
+  if (typeof value !== "string") throw new TypeError("Clipboard content must be a string.");
+  clipboard.writeText(value);
+  return true;
+});
+ipcMain.handle("desktop-clipboard:read-text", () => clipboard.readText());
+
+// ==================================================
+// 4. Renderer diagnostics
 // ==================================================
 
 function attachRendererDiagnostics(win) {

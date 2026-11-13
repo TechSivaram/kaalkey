@@ -36,8 +36,8 @@
     "react-dom": "19.2.3",
     "react-native": "0.86.3",
     "react-native-gesture-handler": "~2.32.0",
-    "react-native-qrcode-svg": "^6.3.15",
     "react-native-reanimated": "4.5.1",
+    "react-native-qrcode-svg": "^6.3.15",
     "react-native-safe-area-context": "~5.7.0",
     "react-native-screens": "~4.26.0",
     "react-native-svg": "15.15.4",
@@ -84,7 +84,8 @@
       "build/icon.ico",
       "package.json",
       "assets/images/kaalkey-logo-opaque.png",
-      "build/icons/**/*"
+      "build/icons/**/*",
+      "LICENSE"
     ],
     "win": {
       "target": [
@@ -108,66 +109,6 @@
     },
     "extraMetadata": {
       "main": "electron/bootstrap.cjs"
-    },
-    "snapcraft": {
-      "base": "core24",
-      "core24": {
-        "confinement": "strict",
-        "useDestructiveMode": true,
-        "plugs": [
-          "default",
-          "camera"
-        ],
-        "stagePackages": [
-          "libnspr4",
-          "libnss3",
-          "libxss1",
-          "libappindicator3-1",
-          "libsecret-1-0",
-          "libx11-6",
-          "libxau6",
-          "libxcomposite1",
-          "libxcursor1",
-          "libxdamage1",
-          "libxdmcp6",
-          "libxext6",
-          "libxfixes3",
-          "libxi6",
-          "libxinerama1",
-          "libxrandr2",
-          "libxrender1",
-          "libasound2t64",
-          "libatk1.0-0t64",
-          "libatk-bridge2.0-0t64",
-          "libatspi2.0-0t64",
-          "libavahi-client3",
-          "libavahi-common3",
-          "libcairo-gobject2",
-          "libcairo2",
-          "libcups2t64",
-          "libdatrie1",
-          "libepoxy0",
-          "libfontconfig1",
-          "libfribidi0",
-          "libgbm1",
-          "libgtk-3-0t64",
-          "libgdk-pixbuf-2.0-0",
-          "libgraphite2-3",
-          "libharfbuzz0b",
-          "libjpeg-turbo8",
-          "libpango-1.0-0",
-          "libpangocairo-1.0-0",
-          "libpangoft2-1.0-0",
-          "libpixman-1-0",
-          "libthai0",
-          "libwayland-client0",
-          "libwayland-cursor0",
-          "libwayland-egl1",
-          "libxcb-render0",
-          "libxcb-shm0",
-          "libxcb1"
-        ]
-      }
     }
   },
   "description": "KaalKey Authenticator generates and manages time-based one-time passwords.",

@@ -1,6 +1,10 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("kaalkeyDesktop", {
+  clipboard: {
+    writeText: (value) => ipcRenderer.invoke("desktop-clipboard:write-text", value),
+    readText: () => ipcRenderer.invoke("desktop-clipboard:read-text"),
+  },
   lock: {
     getStatus: () => ipcRenderer.invoke("desktop-lock:status"),
     setPin: (pin) => ipcRenderer.invoke("desktop-lock:set-pin", pin),

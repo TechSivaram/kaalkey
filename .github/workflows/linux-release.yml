@@ -84,11 +84,6 @@ jobs:
           - arch: arm64
             runner: ubuntu-24.04-arm
     runs-on: ${{ matrix.runner }}
-    env:
-      SNAPCRAFT_BUILD_ENVIRONMENT: host
-    container:
-      image: ghcr.io/canonical/snapcraft:8_core24
-      options: --entrypoint ""
     steps:
       - name: Check out source
         uses: actions/checkout@v4
@@ -97,6 +92,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+
+      - name: Install Snapcraft and LXD
+        run: |
+          sudo snap install snapcraft --classic
+          sudo snap install lxd
+          sudo lxd waitready --timeout=60
+          sudo lxd init --auto
+          sudo usermod -aG lxd "$USER"
 
       - name: Install dependencies
         run: npm ci
@@ -104,13 +108,13 @@ jobs:
       - name: Export web application
         run: npm run desktop:export
 
-      - name: Verify local Snap build configuration
+      - name: Verify Core24 GNOME/LXD build configuration
         run: |
           snapcraft --version
-          node -e "const b=require('./package.json').build.snapcraft; if (b.core24?.useDestructiveMode !== true) throw Error('useDestructiveMode must be true'); if (b.core24?.useLXD === true || b.core24?.useMultipass === true) throw Error('LXD/Multipass must be disabled'); if (b.core24?.remoteBuild) throw Error('remoteBuild must be disabled'); if (process.env.SNAPCRAFT_BUILD_ENVIRONMENT !== 'host') throw Error('SNAPCRAFT_BUILD_ENVIRONMENT must be host'); console.log('Verified: destructive-mode Snap build; LXD and Multipass disabled.')"
+          node -e "const b=require('./package.json').build.snapcraft; if (b.core24?.useDestructiveMode === true) throw Error('Destructive mode disables the GNOME extension'); if (b.core24?.useLXD !== true) throw Error('useLXD must be true'); if (b.core24?.remoteBuild) throw Error('remoteBuild must be disabled'); console.log('Verified: Core24 GNOME extension with LXD.')"
 
-      - name: Build Snap locally
-        run: node scripts/build-snap.cjs --publish never
+      - name: Build Snap with LXD
+        run: sg lxd -c 'node scripts/build-snap.cjs --publish never'
 
       - name: Upload Snap package
         uses: actions/upload-artifact@v4

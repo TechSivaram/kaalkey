@@ -171,8 +171,10 @@ If testing manual setup, enter the same values from the table above into the cor
 
 ## 🛡️ Storage, privacy, and limitations
 
+See the [Privacy Policy](docs/privacy-policy.md), [Security Policy](SECURITY.md), and [Snap Store listing package](docs/snap-store-listing.md) for release information.
+
 - **No cloud sync is documented as part of this project.** Do not assume accounts automatically synchronize between devices.
-- **Native vs. web storage:** native storage uses Expo SecureStore where supported; the web build uses browser storage and does not provide the same protection guarantees as native secure storage.
+- **Native vs. desktop/web storage:** Android and iOS use Expo SecureStore; the web and Electron desktop builds use origin-scoped browser storage, which does not provide the same protection guarantees as native secure storage.
 - **Browser security:** anyone with access to an unlocked browser profile or its local data may be able to access locally stored information. Use a trusted device and protect your operating-system/browser account.
 - **Camera and clipboard:** QR scanning and clipboard-image paste depend on permissions, secure-context rules, browser support, and device behavior. Clipboard image paste is not universally available.
 - **QR compatibility:** only QR images that can be decoded and contain a supported authenticator setup payload can be imported. Unsupported formats or damaged images may fail.
