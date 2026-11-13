@@ -172,8 +172,10 @@ jobs:
             sleep 2
           done
 
-          echo "=== Verify HTTPS connectivity ==="
-          sudo lxc exec "$test_name" -- python3 -c "import urllib.request; r=urllib.request.urlopen('https://snapcraft.io', timeout=30); print('HTTPS status:', r.status)"
+          echo "=== Verify IPv4 HTTPS connectivity ==="
+          # DNS can return AAAA records even when the LXD bridge has no IPv6
+          # route. Force this preflight check to use an IPv4 address.
+          sudo lxc exec "$test_name" -- python3 -c 'import socket,ssl; host="snapcraft.io"; ip=socket.getaddrinfo(host,443,socket.AF_INET,socket.SOCK_STREAM)[0][4][0]; print("Testing IPv4:",ip); raw=socket.create_connection((ip,443),timeout=20); conn=ssl.create_default_context().wrap_socket(raw,server_hostname=host); conn.sendall(b"HEAD / HTTP/1.1\r\nHost: snapcraft.io\r\nConnection: close\r\n\r\n"); print("IPv4 HTTPS response:",conn.recv(128).splitlines()[0].decode()); conn.close()'
 
           cleanup_lxd_test
           trap - EXIT
