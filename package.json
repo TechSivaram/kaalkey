@@ -57,7 +57,7 @@
     "wait-on": "^8.0.4"
   },
   "scripts": {
-    "start": "expo start",
+    "start": "expo start --clear",
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
@@ -65,8 +65,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "android:release": "expo run:android --variant release",
-    "desktop:dev": "concurrently -k \"expo start --web --host localhost\" \"wait-on http://localhost:8081 && node electron/launch.cjs\"",
-    "desktop:export": "expo export --platform web",
+    "desktop:dev": "concurrently -k \"expo start --web --clear --host localhost\" \"wait-on http://localhost:8081 && node electron/launch.cjs\"",
+    "desktop:export": "expo export --platform web --clear",
     "desktop:build": "npm run desktop:export && electron-builder && node scripts/fix-linux-packages.cjs",
     "desktop:snap": "npm run desktop:export && node scripts/build-snap.cjs",
     "desktop:release": "npm run desktop:export && electron-builder --linux AppImage deb rpm && node scripts/build-snap.cjs && node scripts/fix-linux-packages.cjs"
