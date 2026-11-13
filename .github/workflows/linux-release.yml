@@ -134,6 +134,12 @@ jobs:
             sudo lxc network set lxdbr0 dns.mode managed
             dnsmasq_config="$(printf 'server=1.1.1.1\nserver=8.8.8.8')"
             sudo lxc network set lxdbr0 raw.dnsmasq "$dnsmasq_config"
+
+            echo "=== Ensure IPv4 forwarding and bridge NAT are enabled ==="
+            sudo sysctl -w net.ipv4.ip_forward=1
+            sudo lxc network set lxdbr0 ipv4.nat true
+            sudo lxc network set lxdbr0 ipv4.routing true
+            sudo lxc network set lxdbr0 ipv4.firewall true
             sudo lxc network show lxdbr0
           else
             echo "ERROR: lxdbr0 was not created by lxd init --auto"
@@ -173,9 +179,25 @@ jobs:
           done
 
           echo "=== Verify IPv4 HTTPS connectivity ==="
-          # DNS can return AAAA records even when the LXD bridge has no IPv6
-          # route. Force this preflight check to use an IPv4 address.
-          sudo lxc exec "$test_name" -- python3 -c 'import socket,ssl; host="snapcraft.io"; ip=socket.getaddrinfo(host,443,socket.AF_INET,socket.SOCK_STREAM)[0][4][0]; print("Testing IPv4:",ip); raw=socket.create_connection((ip,443),timeout=20); conn=ssl.create_default_context().wrap_socket(raw,server_hostname=host); conn.sendall(b"HEAD / HTTP/1.1\r\nHost: snapcraft.io\r\nConnection: close\r\n\r\n"); print("IPv4 HTTPS response:",conn.recv(128).splitlines()[0].decode()); conn.close()'
+          # Force IPv4: this runner's LXD guest has no usable IPv6 route.
+          if ! sudo lxc exec "$test_name" -- python3 -c 'import socket,ssl; host="snapcraft.io"; ip=socket.getaddrinfo(host,443,socket.AF_INET,socket.SOCK_STREAM)[0][4][0]; print("Testing IPv4:",ip,flush=True); raw=socket.create_connection((ip,443),timeout=20); conn=ssl.create_default_context().wrap_socket(raw,server_hostname=host); conn.sendall(b"HEAD / HTTP/1.1\r\nHost: snapcraft.io\r\nConnection: close\r\n\r\n"); print("IPv4 HTTPS response:",conn.recv(128).splitlines()[0].decode()); conn.close()'; then
+            echo "ERROR: LXD guest cannot reach snapcraft.io over IPv4. Collecting network diagnostics."
+            echo "=== Host IPv4 forwarding ==="
+            sysctl net.ipv4.ip_forward || true
+            echo "=== Host default route ==="
+            ip -4 route || true
+            echo "=== Host route to Snapcraft ==="
+            ip -4 route get 185.125.190.21 || true
+            echo "=== Container IPv4 addresses ==="
+            sudo lxc exec "$test_name" -- ip -4 addr || true
+            echo "=== Container IPv4 routes ==="
+            sudo lxc exec "$test_name" -- ip -4 route || true
+            echo "=== LXD bridge configuration ==="
+            sudo lxc network show lxdbr0 || true
+            echo "=== NAT and forwarding rules ==="
+            sudo nft list ruleset || true
+            exit 1
+          fi
 
           cleanup_lxd_test
           trap - EXIT
