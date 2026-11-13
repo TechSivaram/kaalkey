@@ -29,9 +29,10 @@ npm ci
 npm run desktop:snap
 ```
 
-The build script verifies that the generated Snapcraft project includes the Core24
-GNOME runtime and the `gtk-3-themes` and `icon-themes` content plugs before packing.
-It also copies the dedicated 256x256 KaalKey icon into the Snap metadata.
+The project configures electron-builder for the Core24 base with LXD isolation.
+The Core24 GNOME extension supplies the GTK runtime, desktop integration, and
+icon-theme content plugs. The build script checks the generated Snap artifact.
+The dedicated 256x256 KaalKey icon is included in Snap metadata.
 
 ## Clipboard integration
 

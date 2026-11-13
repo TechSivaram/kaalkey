@@ -19,8 +19,8 @@ Alpine/musl and 32-bit ARM are not included in this production target.
 GitHub Actions builds on native architecture runners:
 
 - Native Ubuntu 24.04 x64 and ARM64 runners for AppImage/DEB/RPM artifacts.
-- Native Ubuntu 24.04 x64 and ARM64 runners using the Snapcraft Core24 container
-  in destructive mode for Snap artifacts (no LXD or Multipass).
+- Native Ubuntu 24.04 x64 and ARM64 runners using Snapcraft Core24 with LXD
+  isolation for Snap artifacts.
 
 Ubuntu 22.04 is the compatibility baseline for the non-Snap Linux packages.
 Snap uses the Core24 base and its default GNOME extension. Do not add a
@@ -51,8 +51,8 @@ runtime test proves that the extension/base does not supply a required library.
 Pushing a version tag such as `v1.1.25` starts the complete pipeline:
 
 1. Build DEB, RPM and AppImage packages on native amd64 and arm64 runners.
-2. Build Snap packages on native amd64 and arm64 runners using the Snapcraft
-   Core24 container in destructive mode.
+2. Build Snap packages on native amd64 and arm64 runners using Snapcraft
+   Core24 with LXD isolation and the GNOME extension.
 3. Attach all generated packages to the GitHub Release.
 4. After the release workflow succeeds, publish both Snap architectures to
    the Snap Store `stable` channel.

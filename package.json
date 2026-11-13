@@ -109,6 +109,13 @@
     },
     "extraMetadata": {
       "main": "electron/bootstrap.cjs"
+    },
+    "snapcraft": {
+      "base": "core24",
+      "core24": {
+        "useLXD": true,
+        "confinement": "strict"
+      }
     }
   },
   "description": "KaalKey Authenticator generates and manages time-based one-time passwords.",
