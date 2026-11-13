@@ -104,6 +104,11 @@ jobs:
           sudo lxd init --auto
           sudo usermod -aG lxd "$USER"
 
+          # Snapcraft 9 can otherwise select its managed provider. Force LXD
+          # at the Snapcraft configuration level as well as in the build env.
+          sudo snap set snapcraft provider=lxd
+          test "$(snap get snapcraft provider)" = "lxd"
+
       - name: Install dependencies
         run: npm ci
 
@@ -113,10 +118,13 @@ jobs:
       - name: Verify Core24 GNOME/LXD build configuration
         run: |
           snapcraft --version
-          node -e "const b=require('./package.json').build.snapcraft; if (b.core24?.useDestructiveMode === true) throw Error('Destructive mode disables the GNOME extension'); if (b.core24?.useLXD !== true) throw Error('useLXD must be true'); if (b.core24?.remoteBuild) throw Error('remoteBuild must be disabled'); console.log('Verified: Core24 GNOME extension with LXD.')"
+          printf 'Snapcraft provider: '
+          snap get snapcraft provider
+          test "$(snap get snapcraft provider)" = "lxd"
+          node -e "const b=require('./package.json').build.snapcraft; if (b.base !== 'core24') throw Error('Snap base must be core24'); if (b.core24?.useDestructiveMode === true) throw Error('Destructive mode disables the GNOME extension'); if (b.core24?.useLXD !== true) throw Error('useLXD must be true'); if (b.core24?.useMultipass === true) throw Error('useMultipass must be false'); if (b.core24?.remoteBuild) throw Error('remoteBuild must be disabled'); console.log('Verified: Core24 GNOME extension with LXD.')"
 
       - name: Build Snap with LXD
-        run: sg lxd -c 'node scripts/build-snap.cjs --publish never'
+        run: sg lxd -c 'SNAPCRAFT_BUILD_ENVIRONMENT=lxd node scripts/build-snap.cjs --publish never'
 
       - name: Verify Snap has exactly one desktop launcher
         run: |

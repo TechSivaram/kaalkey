@@ -191,7 +191,17 @@ console.log(
   "[KaalKey] Snapcraft handles priming and packing internally; this script will not run snapcraft prime/pack a second time.",
 );
 
-run(process.execPath, [electronBuilderCli, "--linux", "snap", ...process.argv.slice(2)]);
+// Force Snapcraft 9 to use the already initialized LXD provider. This is
+// inherited by electron-builder and the Snapcraft process it launches.
+const snapcraftEnv = {
+  ...process.env,
+  SNAPCRAFT_BUILD_ENVIRONMENT: "lxd",
+};
+
+console.log("[KaalKey] SNAPCRAFT_BUILD_ENVIRONMENT=lxd");
+run(process.execPath, [electronBuilderCli, "--linux", "snap", ...process.argv.slice(2)], {
+  env: snapcraftEnv,
+});
 
 const candidates = findSnapFiles(outputDir).filter((file) => {
   try {
