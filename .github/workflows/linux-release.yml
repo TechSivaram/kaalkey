@@ -127,6 +127,19 @@ jobs:
           echo "=== Verify LXD is ready ==="
           sudo lxc info
 
+          echo "=== Verify LXD can download and launch Ubuntu 24.04 ==="
+          sudo lxc launch ubuntu:24.04 kaalkey-lxd-network-test
+          cleanup_lxd_test() {
+            sudo lxc delete kaalkey-lxd-network-test --force || true
+          }
+          trap cleanup_lxd_test EXIT
+
+          echo "=== Verify DNS and HTTPS from inside the LXD container ==="
+          sudo lxc exec kaalkey-lxd-network-test --             python3 -c "import socket, urllib.request; print('DNS:', socket.gethostbyname('snapcraft.io')); r=urllib.request.urlopen('https://snapcraft.io', timeout=20); print('HTTPS:', r.status)"
+
+          cleanup_lxd_test
+          trap - EXIT
+
       - name: Install dependencies
         run: npm ci
 
@@ -143,7 +156,9 @@ jobs:
           node -e "const b=require('./package.json').build.snapcraft; if (b.base !== 'core24') throw Error('Snap base must be core24'); if (b.core24?.useDestructiveMode === true) throw Error('Destructive mode disables the GNOME extension'); if (b.core24?.useLXD !== true) throw Error('useLXD must be true'); if (b.core24?.useMultipass === true) throw Error('useMultipass must be false'); if (b.core24?.remoteBuild) throw Error('remoteBuild must be disabled'); console.log('Verified: Core24 GNOME extension with LXD.')"
 
       - name: Build Snap with LXD
-        run: sg lxd -c 'SNAPCRAFT_BUILD_ENVIRONMENT=lxd node scripts/build-snap.cjs --publish never'
+        run: |
+          set -euo pipefail
+          sg lxd -c 'SNAPCRAFT_BUILD_ENVIRONMENT=lxd node scripts/build-snap.cjs --publish never'
 
       - name: Verify Snap has exactly one desktop launcher
         run: |
