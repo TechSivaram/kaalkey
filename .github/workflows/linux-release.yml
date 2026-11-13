@@ -127,9 +127,12 @@ jobs:
           echo "=== Verify LXD is ready ==="
           sudo lxc info
 
-          echo "=== Configure explicit DNS forwarders for the LXD bridge ==="
+          echo "=== Configure LXD bridge DNS forwarding ==="
           if sudo lxc network show lxdbr0 >/dev/null 2>&1; then
-            sudo lxc network set lxdbr0 dns.nameservers "1.1.1.1,8.8.8.8"
+            # dns.nameservers is not a supported LXD bridge option.
+            # raw.dnsmasq supplies upstream resolvers to the bridge DNS proxy.
+            sudo lxc network set lxdbr0 dns.mode managed
+            sudo lxc network set lxdbr0 raw.dnsmasq $'server=1.1.1.1\\nserver=8.8.8.8'
             sudo lxc network show lxdbr0
           else
             echo "ERROR: lxdbr0 was not created by lxd init --auto"
