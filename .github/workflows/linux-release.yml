@@ -132,7 +132,8 @@ jobs:
             # dns.nameservers is not a supported LXD bridge option.
             # raw.dnsmasq supplies upstream resolvers to the bridge DNS proxy.
             sudo lxc network set lxdbr0 dns.mode managed
-            sudo lxc network set lxdbr0 raw.dnsmasq $'server=1.1.1.1\\nserver=8.8.8.8'
+            dnsmasq_config="$(printf 'server=1.1.1.1\nserver=8.8.8.8')"
+            sudo lxc network set lxdbr0 raw.dnsmasq "$dnsmasq_config"
             sudo lxc network show lxdbr0
           else
             echo "ERROR: lxdbr0 was not created by lxd init --auto"
