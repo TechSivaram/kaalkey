@@ -127,15 +127,49 @@ jobs:
           echo "=== Verify LXD is ready ==="
           sudo lxc info
 
-          echo "=== Verify LXD can download and launch Ubuntu 24.04 ==="
-          sudo lxc launch ubuntu:24.04 kaalkey-lxd-network-test
+          echo "=== Configure explicit DNS forwarders for the LXD bridge ==="
+          if sudo lxc network show lxdbr0 >/dev/null 2>&1; then
+            sudo lxc network set lxdbr0 dns.nameservers "1.1.1.1,8.8.8.8"
+            sudo lxc network show lxdbr0
+          else
+            echo "ERROR: lxdbr0 was not created by lxd init --auto"
+            sudo lxc network list
+            exit 1
+          fi
+
+      - name: Verify LXD container networking
+        run: |
+          set -euxo pipefail
+
+          test_name="kaalkey-lxd-network-test"
           cleanup_lxd_test() {
-            sudo lxc delete kaalkey-lxd-network-test --force || true
+            sudo lxc delete "$test_name" --force >/dev/null 2>&1 || true
           }
           trap cleanup_lxd_test EXIT
 
-          echo "=== Verify DNS and HTTPS from inside the LXD container ==="
-          sudo lxc exec kaalkey-lxd-network-test --             python3 -c "import socket, urllib.request; print('DNS:', socket.gethostbyname('snapcraft.io')); r=urllib.request.urlopen('https://snapcraft.io', timeout=20); print('HTTPS:', r.status)"
+          echo "=== Launch Ubuntu 24.04 test container ==="
+          sudo lxc launch ubuntu:24.04 "$test_name"
+
+          echo "=== Wait for container network configuration ==="
+          for attempt in $(seq 1 30); do
+            if sudo lxc exec "$test_name" -- getent hosts snapcraft.io; then
+              break
+            fi
+            if [ "$attempt" -eq 30 ]; then
+              echo "DNS lookup failed after 30 attempts"
+              echo "=== Container resolv.conf ==="
+              sudo lxc exec "$test_name" -- cat /etc/resolv.conf || true
+              echo "=== Container routes ==="
+              sudo lxc exec "$test_name" -- ip route || true
+              echo "=== LXD bridge configuration ==="
+              sudo lxc network show lxdbr0 || true
+              exit 1
+            fi
+            sleep 2
+          done
+
+          echo "=== Verify HTTPS connectivity ==="
+          sudo lxc exec "$test_name" -- python3 -c "import urllib.request; r=urllib.request.urlopen('https://snapcraft.io', timeout=30); print('HTTPS status:', r.status)"
 
           cleanup_lxd_test
           trap - EXIT
@@ -156,9 +190,7 @@ jobs:
           node -e "const b=require('./package.json').build.snapcraft; if (b.base !== 'core24') throw Error('Snap base must be core24'); if (b.core24?.useDestructiveMode === true) throw Error('Destructive mode disables the GNOME extension'); if (b.core24?.useLXD !== true) throw Error('useLXD must be true'); if (b.core24?.useMultipass === true) throw Error('useMultipass must be false'); if (b.core24?.remoteBuild) throw Error('remoteBuild must be disabled'); console.log('Verified: Core24 GNOME extension with LXD.')"
 
       - name: Build Snap with LXD
-        run: |
-          set -euo pipefail
-          sg lxd -c 'SNAPCRAFT_BUILD_ENVIRONMENT=lxd node scripts/build-snap.cjs --publish never'
+        run: sg lxd -c 'SNAPCRAFT_BUILD_ENVIRONMENT=lxd node scripts/build-snap.cjs --publish never'
 
       - name: Verify Snap has exactly one desktop launcher
         run: |
