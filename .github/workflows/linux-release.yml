@@ -127,78 +127,96 @@ jobs:
           echo "=== Verify LXD is ready ==="
           sudo lxc info
 
-          echo "=== Configure LXD bridge DNS forwarding ==="
-          if sudo lxc network show lxdbr0 >/dev/null 2>&1; then
-            # dns.nameservers is not a supported LXD bridge option.
-            # raw.dnsmasq supplies upstream resolvers to the bridge DNS proxy.
-            sudo lxc network set lxdbr0 dns.mode managed
-            dnsmasq_config="$(printf 'server=1.1.1.1\nserver=8.8.8.8')"
-            sudo lxc network set lxdbr0 raw.dnsmasq "$dnsmasq_config"
-
-            echo "=== Ensure IPv4 forwarding and bridge NAT are enabled ==="
-            sudo sysctl -w net.ipv4.ip_forward=1
-            sudo lxc network set lxdbr0 ipv4.nat true
-            sudo lxc network set lxdbr0 ipv4.routing true
-            sudo lxc network set lxdbr0 ipv4.firewall true
-            sudo lxc network show lxdbr0
-          else
+          echo "=== Verify default LXD managed bridge ==="
+          if ! sudo lxc network show lxdbr0; then
             echo "ERROR: lxdbr0 was not created by lxd init --auto"
             sudo lxc network list
             exit 1
           fi
 
+          # Keep LXD's default managed DNS, DHCP, routing and NAT settings.
+          # Do not hard-code public DNS resolvers: GitHub-hosted runners may
+          # restrict direct DNS traffic to external resolvers.
+          echo "=== LXD bridge configuration ==="
+          sudo lxc network get lxdbr0 dns.mode
+          sudo lxc network get lxdbr0 ipv4.address
+          sudo lxc network get lxdbr0 ipv4.nat
+          sudo lxc network get lxdbr0 ipv4.routing
+
       - name: Verify LXD container networking
         run: |
-          set -euxo pipefail
+          set -Eeuo pipefail
 
           test_name="kaalkey-lxd-network-test"
           cleanup_lxd_test() {
             sudo lxc delete "$test_name" --force >/dev/null 2>&1 || true
           }
+          collect_network_diagnostics() {
+            echo "=== Host IPv4 routes ==="
+            ip -4 route || true
+            echo "=== Host IPv4 forwarding ==="
+            sysctl net.ipv4.ip_forward || true
+            echo "=== LXD bridge ==="
+            sudo lxc network show lxdbr0 || true
+            echo "=== Container addresses ==="
+            sudo lxc exec "$test_name" -- ip -4 addr || true
+            echo "=== Container routes ==="
+            sudo lxc exec "$test_name" -- ip -4 route || true
+            echo "=== Container DNS configuration ==="
+            sudo lxc exec "$test_name" -- cat /etc/resolv.conf || true
+            echo "=== LXD daemon logs ==="
+            sudo journalctl -u snap.lxd.daemon --no-pager -n 100 || true
+            echo "=== Host nftables rules ==="
+            sudo nft list ruleset || true
+          }
           trap cleanup_lxd_test EXIT
+
+          echo "=== Verify host internet access ==="
+          curl -4 --fail --silent --show-error --head --max-time 20 https://snapcraft.io
 
           echo "=== Launch Ubuntu 24.04 test container ==="
           sudo lxc launch ubuntu:24.04 "$test_name"
 
-          echo "=== Wait for container network configuration ==="
+          echo "=== Wait for container DNS ==="
+          dns_ready=false
           for attempt in $(seq 1 30); do
-            if sudo lxc exec "$test_name" -- getent hosts snapcraft.io; then
+            if sudo lxc exec "$test_name" -- getent ahostsv4 snapcraft.io; then
+              dns_ready=true
               break
-            fi
-            if [ "$attempt" -eq 30 ]; then
-              echo "DNS lookup failed after 30 attempts"
-              echo "=== Container resolv.conf ==="
-              sudo lxc exec "$test_name" -- cat /etc/resolv.conf || true
-              echo "=== Container routes ==="
-              sudo lxc exec "$test_name" -- ip route || true
-              echo "=== LXD bridge configuration ==="
-              sudo lxc network show lxdbr0 || true
-              exit 1
             fi
             sleep 2
           done
 
-          echo "=== Verify IPv4 HTTPS connectivity ==="
-          # Force IPv4: this runner's LXD guest has no usable IPv6 route.
-          if ! sudo lxc exec "$test_name" -- python3 -c 'import socket,ssl; host="snapcraft.io"; ip=socket.getaddrinfo(host,443,socket.AF_INET,socket.SOCK_STREAM)[0][4][0]; print("Testing IPv4:",ip,flush=True); raw=socket.create_connection((ip,443),timeout=20); conn=ssl.create_default_context().wrap_socket(raw,server_hostname=host); conn.sendall(b"HEAD / HTTP/1.1\r\nHost: snapcraft.io\r\nConnection: close\r\n\r\n"); print("IPv4 HTTPS response:",conn.recv(128).splitlines()[0].decode()); conn.close()'; then
-            echo "ERROR: LXD guest cannot reach snapcraft.io over IPv4. Collecting network diagnostics."
-            echo "=== Host IPv4 forwarding ==="
-            sysctl net.ipv4.ip_forward || true
-            echo "=== Host default route ==="
-            ip -4 route || true
-            echo "=== Host route to Snapcraft ==="
-            ip -4 route get 185.125.190.21 || true
-            echo "=== Container IPv4 addresses ==="
-            sudo lxc exec "$test_name" -- ip -4 addr || true
-            echo "=== Container IPv4 routes ==="
-            sudo lxc exec "$test_name" -- ip -4 route || true
-            echo "=== LXD bridge configuration ==="
-            sudo lxc network show lxdbr0 || true
-            echo "=== NAT and forwarding rules ==="
-            sudo nft list ruleset || true
+          if [ "$dns_ready" != true ]; then
+            echo "ERROR: DNS resolution failed inside the LXD container."
+            collect_network_diagnostics
             exit 1
           fi
 
+          echo "=== Verify container can download packages ==="
+          if ! sudo lxc exec "$test_name" -- apt-get update; then
+            echo "ERROR: apt-get update failed inside the LXD container."
+            collect_network_diagnostics
+            exit 1
+          fi
+
+          echo "=== Install curl inside the test container ==="
+          if ! sudo lxc exec "$test_name" -- \
+            env DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends curl ca-certificates; then
+            echo "ERROR: package installation failed inside the LXD container."
+            collect_network_diagnostics
+            exit 1
+          fi
+
+          echo "=== Verify HTTPS access to Snapcraft from the container ==="
+          if ! sudo lxc exec "$test_name" -- \
+            curl -4 --fail --silent --show-error --head --location --max-time 30 https://snapcraft.io; then
+            echo "ERROR: HTTPS access to snapcraft.io failed inside the LXD container."
+            collect_network_diagnostics
+            exit 1
+          fi
+
+          echo "=== LXD container internet connectivity verified ==="
           cleanup_lxd_test
           trap - EXIT
 
