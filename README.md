@@ -14,6 +14,7 @@ A cross-platform authenticator app for generating time-based one-time passwords 
 ![Platforms](https://img.shields.io/badge/Platforms-Android%20%7C%20iOS%20%7C%20Web-3A7D44)
 [![kaalkey-authenticator](https://snapcraft.io/kaalkey-authenticator/badge.svg)](https://snapcraft.io/kaalkey-authenticator)
 [![kaalkey-authenticator](https://snapcraft.io/kaalkey-authenticator/trending.svg?name=0)](https://snapcraft.io/kaalkey-authenticator)
+[![Get it from the Snap Store](https://snapcraft.io/en/dark/install.svg)](https://snapcraft.io/kaalkey-authenticator)
 </div>
 
 ---
