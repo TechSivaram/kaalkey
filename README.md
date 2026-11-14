@@ -30,6 +30,10 @@ A cross-platform authenticator app for generating time-based one-time passwords 
 
 ## 🖼️ Screenshots
 
+### Ubuntu Desktop
+
+<img width="2560" height="1600" alt="Screenshot from 2026-11-14 04-28-43" src="https://github.com/user-attachments/assets/5b1e9292-ada5-4239-8bac-ebaf66b0ce26" />
+
 ### Web
 
 ![KaalKey Authenticator web app](docs/screenshots/kaalkey-web-desktop.png)
