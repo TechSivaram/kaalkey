@@ -143,6 +143,29 @@ jobs:
           sudo lxc network get lxdbr0 ipv4.nat
           sudo lxc network get lxdbr0 ipv4.routing
 
+          echo "=== Allow LXD container traffic through the runner firewall ==="
+          uplink_if="$(ip -4 route show default | awk 'NR==1 {print $5}')"
+          if [ -z "$uplink_if" ]; then
+            echo "ERROR: Could not determine the runner's IPv4 default-route interface."
+            ip -4 route
+            exit 1
+          fi
+          echo "Runner uplink interface: $uplink_if"
+
+          # Docker may set the iptables FORWARD chain policy to DROP.
+          # LXD's separate nftables accept rules do not override a DROP in
+          # another base chain, so explicitly allow LXD bridge forwarding.
+          sudo iptables -C FORWARD -i lxdbr0 -o "$uplink_if" -j ACCEPT 2>/dev/null ||
+            sudo iptables -I FORWARD 1 -i lxdbr0 -o "$uplink_if" -j ACCEPT
+
+          sudo iptables -C FORWARD -i "$uplink_if" -o lxdbr0 \
+            -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT 2>/dev/null ||
+            sudo iptables -I FORWARD 1 -i "$uplink_if" -o lxdbr0 \
+              -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+
+          echo "=== Verify effective iptables FORWARD rules ==="
+          sudo iptables -S FORWARD
+
       - name: Verify LXD container networking
         run: |
           set -Eeuo pipefail
@@ -194,7 +217,7 @@ jobs:
           fi
 
           echo "=== Verify container can download packages ==="
-          if ! sudo lxc exec "$test_name" -- apt-get update; then
+          if ! sudo lxc exec "$test_name" -- apt-get -o Acquire::ForceIPv4=true update; then
             echo "ERROR: apt-get update failed inside the LXD container."
             collect_network_diagnostics
             exit 1
