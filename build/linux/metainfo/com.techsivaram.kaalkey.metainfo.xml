@@ -6,6 +6,10 @@
   <summary>Generate and manage time-based one-time passwords</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>MIT</project_license>
+  <categories>
+  <category>Security</category>
+  <category>Utility</category>
+</categories>
   <description>
     <p>KaalKey Authenticator is a cross-platform application for generating and managing time-based one-time passwords.</p>
     <p>It helps users manage their authenticator accounts from a desktop application.</p>
