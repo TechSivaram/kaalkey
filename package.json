@@ -130,6 +130,8 @@
         "--share=ipc",
         "--socket=wayland",
         "--socket=x11",
+        "--socket=pipewire",
+        "--talk-name=org.freedesktop.portal.Desktop",
         "--device=dri",
         "--filesystem=xdg-download"
       ],
@@ -137,6 +139,10 @@
         [
           "build/linux/metainfo/com.techsivaram.kaalkey.metainfo.xml",
           "/share/metainfo/"
+        ],
+        [
+          "build/icons/256x256.png",
+          "/share/icons/hicolor/256x256/apps/com.techsivaram.kaalkey.png"
         ]
       ],
       "bundleRepoUrl": "https://dl.flathub.org/repo/"

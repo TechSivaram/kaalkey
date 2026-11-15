@@ -16,5 +16,9 @@
   <url type="homepage">https://github.com/TechSivaram/kaalkey</url>
   <url type="bugtracker">https://github.com/TechSivaram/kaalkey/issues</url>
   <launchable type="desktop-id">com.techsivaram.kaalkey.desktop</launchable>
+  <icon type="cached">com.techsivaram.kaalkey</icon>
+  <releases>
+    <release version="1.1.26" date="2026-11-15"/>
+  </releases>
   <content_rating type="oars-1.1"/>
 </component>

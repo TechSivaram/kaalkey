@@ -36,8 +36,8 @@ runtime test proves that the extension/base does not supply a required library.
 2. Push a matching version tag. For example, if package.json is `1.1.26`:
 
    ```bash
-   git tag v1.1.24
-   git push origin v1.1.24
+   git tag v1.1.26
+   git push origin v1.1.26
    ```
 
 3. The `Linux release packages` workflow builds both architectures and attaches
@@ -51,7 +51,7 @@ runtime test proves that the extension/base does not supply a required library.
 
 ## Automatic publishing after a version tag
 
-Pushing a version tag such as `v1.1.25` starts the complete pipeline:
+Pushing a version tag such as `v1.1.26` starts the complete pipeline:
 
 1. Build DEB, RPM and AppImage packages on native amd64 and arm64 runners.
 2. Build Snap packages on native amd64 and arm64 runners using Snapcraft
