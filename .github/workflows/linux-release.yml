@@ -372,6 +372,16 @@ jobs:
             exit 1
           fi
 
+          echo "=== Start system D-Bus for the GUI smoke test ==="
+          sudo install -d -m 0755 /run/dbus
+          if [[ ! -S /run/dbus/system_bus_socket ]]; then
+            sudo dbus-daemon --system --fork --nopidfile
+          fi
+          if [[ ! -S /run/dbus/system_bus_socket ]]; then
+            echo "System D-Bus socket was not created."
+            exit 1
+          fi
+
           echo "=== Run GUI process-survival smoke test ==="
           log_file="$(mktemp)"
           set +e
