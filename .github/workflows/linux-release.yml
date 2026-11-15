@@ -360,12 +360,15 @@ jobs:
 
           echo "=== Verify application metadata ==="
           metadata="$(flatpak info --user --show-metadata "$app_id")"
-          if ! grep -q '^\\[Application\\]$' <<< "$metadata"; then
+          # Use fixed-string matching for literal Flatpak INI metadata lines.
+          if ! grep -Fqx '[Application]' <<< "$metadata"; then
             echo "Installed Flatpak metadata has no [Application] group."
+            printf '%s\n' "$metadata"
             exit 1
           fi
-          if ! grep -q "^name=$app_id$" <<< "$metadata"; then
+          if ! grep -Fqx "name=$app_id" <<< "$metadata"; then
             echo "Installed Flatpak metadata has an unexpected application name."
+            printf '%s\n' "$metadata"
             exit 1
           fi
 
