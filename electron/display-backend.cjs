@@ -1,5 +1,5 @@
 // Shared Linux display-backend detection for development and packaged launches.
-// WSLg commonly exposes both variables, so prefer Wayland when available.
+// Prefer XWayland for positioned windows; keep Wayland for WSLg, where it is tested.
 
 function getExplicitOzoneArgs(args = []) {
   const index = args.findIndex(
@@ -18,6 +18,12 @@ function getExplicitOzoneArgs(args = []) {
 function getDetectedOzoneArgs({ platform = process.platform, env = process.env, args = [] } = {}) {
   if (platform !== "linux" || getExplicitOzoneArgs(args).length > 0) {
     return [];
+  }
+
+  const isWsl = Boolean(env.WSL_DISTRO_NAME || env.WSL_INTEROP);
+
+  if (env.WAYLAND_DISPLAY && env.DISPLAY && !isWsl) {
+    return ["--ozone-platform=x11"];
   }
 
   if (env.WAYLAND_DISPLAY) {

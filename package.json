@@ -67,6 +67,7 @@
     "android:release": "expo run:android --variant release",
     "desktop:dev": "concurrently -k \"expo start --web --clear --host localhost\" \"wait-on http://localhost:8081 && node electron/launch.cjs\"",
     "desktop:export": "expo export --platform web --clear",
+    "test:display-backend": "node --test tests/display-backend.test.cjs",
     "desktop:build": "npm run desktop:export && electron-builder && node scripts/fix-linux-packages.cjs",
     "desktop:snap": "npm run desktop:export && node scripts/build-snap.cjs",
     "desktop:flatpak": "npm run desktop:export && electron-builder --linux flatpak --publish never",
@@ -128,7 +129,7 @@
       "finishArgs": [
         "--share=ipc",
         "--socket=wayland",
-        "--socket=fallback-x11",
+        "--socket=x11",
         "--device=dri",
         "--filesystem=xdg-download"
       ],

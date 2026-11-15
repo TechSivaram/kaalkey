@@ -10,14 +10,15 @@ The Linux startup code therefore detects the current graphical session and passe
 
 The shared detection logic is in `electron/display-backend.cjs`:
 
-| Environment                               | Selected backend | Electron argument          |
-| ----------------------------------------- | ---------------- | -------------------------- |
-| Linux with `WAYLAND_DISPLAY` set          | Wayland          | `--ozone-platform=wayland` |
-| Linux without Wayland, with `DISPLAY` set | X11              | `--ozone-platform=x11`     |
-| Linux with neither variable set           | Electron default | No Ozone argument          |
-| Windows / macOS                           | Electron default | No Ozone argument          |
+| Environment                                      | Selected backend | Electron argument          |
+| ------------------------------------------------ | ---------------- | -------------------------- |
+| Linux Wayland session with XWayland available    | X11              | `--ozone-platform=x11`     |
+| WSLg with both `WAYLAND_DISPLAY` and `DISPLAY`   | Wayland          | `--ozone-platform=wayland` |
+| Linux with only `WAYLAND_DISPLAY`                | Wayland          | `--ozone-platform=wayland` |
+| Linux without Wayland, with `DISPLAY` set        | X11              | `--ozone-platform=x11`     |
+| Linux with neither variable set; Windows / macOS | Electron default | No Ozone argument          |
 
-Wayland takes priority when both `WAYLAND_DISPLAY` and `DISPLAY` are set. This is important for WSLg, which commonly exposes both variables while providing a working Wayland session.
+Native Wayland does not allow applications to choose a top-level window's screen position. KaalKey uses XWayland when both session sockets are available so its default sidebar can be sized and aligned to the right edge. WSLg keeps using Wayland because that path has been tested. If only Wayland is available, the compositor controls the window position.
 
 An explicitly supplied `--ozone-platform` argument is respected rather than overridden by automatic detection.
 
@@ -64,7 +65,7 @@ The relevant Electron Builder setting is:
 }
 ```
 
-The `electron/**/*` files must be included in the packaged application. The Linux package must not force a single backend through a global `executableArgs` setting; the bootstrap chooses Wayland or X11 at runtime instead.
+The `electron/**/*` files must be included in the packaged application. The Linux package must not force a single backend through a global `executableArgs` setting; the bootstrap chooses the backend at runtime instead.
 
 ## Build commands
 
@@ -159,7 +160,7 @@ echo "WAYLAND_DISPLAY=$WAYLAND_DISPLAY"
 echo "DISPLAY=$DISPLAY"
 ```
 
-On WSLg it is normal to see both variables. Because Wayland has priority, the selected backend should be Wayland.
+On Fedora Wayland, both variables should normally be set and KaalKey should choose X11 for reliable window positioning. WSLg also exposes both variables but continues to use Wayland.
 
 ### 2. Verify development startup
 
@@ -185,19 +186,20 @@ Confirm that the UI appears and drag-and-drop works. To compare against the know
 kaalkeyauthenticator --ozone-platform=wayland
 ```
 
-### 4. Verify native X11
+### 4. Verify the default window placement
 
-On a real Linux X11 session, confirm `DISPLAY` is set and `WAYLAND_DISPLAY` is unset, then launch KaalKey normally. Verify the UI and drag-and-drop. A simulated environment-variable test only verifies backend selection; it does not prove that an actual X11 display is available or that the full application works on X11.
+On Fedora Wayland, confirm both `WAYLAND_DISPLAY` and `DISPLAY` are set, then launch KaalKey normally. It should use XWayland and place the sidebar on the right. A simulated environment-variable test only verifies backend selection; it does not prove the full application works on a real Fedora desktop.
 
 ## Verified behavior and remaining coverage
 
 - **Verified by user in WSLg:** Wayland launch, UI rendering, and drag-and-drop work when the packaged application is launched normally through the updated bootstrap.
-- **Expected, not yet independently verified here:** Native Linux X11 operation. Electron/Chromium supports X11, but KaalKey should still be tested on an actual X11 desktop.
+- **Expected, not yet independently verified here:** Fedora Wayland sessions with XWayland available use X11 so the sidebar can be positioned. The packaged app should still be tested on a real Fedora desktop.
 - **Windows and macOS:** The Linux-specific detection helper does not add Ozone arguments on these platforms; continue testing their normal build and launch paths as part of release validation.
 
 ## Troubleshooting
 
 - If the UI or drag-and-drop fails only in the installed package, check that the packaged `package.json` points to `electron/bootstrap.cjs` and that `electron/bootstrap.cjs` plus `electron/display-backend.cjs` are included in the package.
-- If a manual `--ozone-platform=wayland` launch works but a normal launch does not, inspect the bootstrap log and the `WAYLAND_DISPLAY` value in the desktop launch environment.
+- If right-edge placement is unavailable, check whether `DISPLAY` is set and XWayland is installed/enabled. Without XWayland, the Wayland compositor controls app placement.
+- An explicit `--ozone-platform=wayland` argument remains available, but the compositor may ignore KaalKey's requested position.
 - Do not move Ozone selection into `app.commandLine.appendSwitch()` in `main.cjs`; the argument needs to reach Chromium at process startup.
-- Do not add a fixed Linux `executableArgs` value if the package is intended to support both Wayland and X11. Runtime detection is responsible for choosing the backend.
+- Do not add a fixed Linux `executableArgs` value; runtime detection selects the backend.
