@@ -316,7 +316,7 @@ jobs:
           # the bundle's architecture, application ID and deployability.
           flatpak install --user --noninteractive --assumeyes --bundle "$flatpak_file"
           flatpak info --user "$app_id"
-          actual_arch="$(flatpak info --user --show-arch "$app_id")"
+          actual_arch="$(flatpak info --user --arch "$app_id")"
           test "$actual_arch" = "$EXPECTED_ARCH"
           test "$(flatpak info --user --show-metadata "$app_id" | grep -c '^\[Application\]$')" -eq 1
 
