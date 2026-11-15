@@ -12,6 +12,9 @@ A cross-platform authenticator app for generating time-based one-time passwords 
 ![React](https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)
 ![Platforms](https://img.shields.io/badge/Platforms-Android%20%7C%20iOS%20%7C%20Web-3A7D44)
+[![kaalkey-authenticator](https://snapcraft.io/kaalkey-authenticator/badge.svg)](https://snapcraft.io/kaalkey-authenticator)
+[![kaalkey-authenticator](https://snapcraft.io/kaalkey-authenticator/trending.svg?name=0)](https://snapcraft.io/kaalkey-authenticator)
+[![Get it from the Snap Store](https://snapcraft.io/en/dark/install.svg)](https://snapcraft.io/kaalkey-authenticator)
 </div>
 
 ---
@@ -26,6 +29,10 @@ A cross-platform authenticator app for generating time-based one-time passwords 
 > The Render URL above is the **live demo**, not necessarily the marketing portal.
 
 ## 🖼️ Screenshots
+
+### Ubuntu Desktop
+
+<img width="2560" height="1600" alt="Screenshot from 2026-11-14 04-28-43" src="https://github.com/user-attachments/assets/5b1e9292-ada5-4239-8bac-ebaf66b0ce26" />
 
 ### Web
 
