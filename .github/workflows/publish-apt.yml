@@ -37,7 +37,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y apt-utils gnupg
-          test -n "$APT_SIGNING_KEY" || { echo 'Missing APT_SIGNING_KEY repository secret'; exit 1; }
+          test -n "$APT_SIGNING_KEY" || exit 1
           printf '%s' "$APT_SIGNING_KEY" | gpg --batch --import
           mkdir -p repo/dists/stable/main/binary-amd64
           apt-ftparchive packages repo/pool/main/k/kaalkeyauthenticator > repo/dists/stable/main/binary-amd64/Packages

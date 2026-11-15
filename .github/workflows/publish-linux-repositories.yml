@@ -73,10 +73,7 @@ jobs:
           APT_SIGNING_KEY_PASSPHRASE: ${{ secrets.APT_SIGNING_KEY_PASSPHRASE }}
         run: |
           set -euo pipefail
-          test -n "$APT_SIGNING_KEY" || {
-            echo "Missing APT_SIGNING_KEY repository secret"
-            exit 1
-          }
+          test -n "$APT_SIGNING_KEY" || exit 1
 
           mkdir -p repo/apt/pool/main/k/kaalkeyauthenticator/amd64
           mkdir -p repo/apt/pool/main/k/kaalkeyauthenticator/arm64
@@ -88,7 +85,7 @@ jobs:
             arch="$(dpkg-deb -f "$f" Architecture)"
             case "$arch" in
               amd64|arm64) cp "$f" "repo/apt/pool/main/k/kaalkeyauthenticator/$arch/" ;;
-              *) echo "Unsupported DEB architecture $arch in $f"; exit 1 ;;
+              *) exit 1 ;;
             esac
           done
 
@@ -97,7 +94,7 @@ jobs:
             case "$arch" in
               x86_64) cp "$f" repo/rpm/x86_64/ ;;
               aarch64) cp "$f" repo/rpm/aarch64/ ;;
-              *) echo "Unsupported RPM architecture $arch in $f"; exit 1 ;;
+              *) exit 1 ;;
             esac
           done
 

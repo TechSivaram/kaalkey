@@ -15,9 +15,6 @@ app.setPath("sessionData", path.join(profilePath, "session"));
 
 fs.mkdirSync(app.getPath("sessionData"), { recursive: true });
 
-console.log("User data:", app.getPath("userData"));
-console.log("Session data:", app.getPath("sessionData"));
-
 app
   .whenReady()
   .then(async () => {
@@ -28,10 +25,6 @@ app
         contextIsolation: true,
         nodeIntegration: false,
       },
-    });
-
-    win.webContents.on("did-finish-load", () => {
-      console.log("SUCCESS: KaalKey web renderer loaded");
     });
 
     win.webContents.on("render-process-gone", (_, details) => {

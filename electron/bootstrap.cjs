@@ -13,8 +13,6 @@ if (ozoneArgs.length === 0) {
   // this is not Linux. Continue with the normal application entry point.
   require("./main.cjs");
 } else {
-  console.log(`[KaalKey] Re-launching packaged app with ${ozoneArgs.join(" ")}`);
-
   const child = spawn(process.execPath, [...ozoneArgs, ...originalArgs], {
     env: process.env,
     stdio: "inherit",

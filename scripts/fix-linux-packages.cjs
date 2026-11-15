@@ -50,7 +50,6 @@ const debs = fs
   .map((name) => path.join(releaseDir, name));
 
 if (debs.length === 0) {
-  console.warn("No DEB packages found; skipping DEB AppStream payload integration.");
   process.exit(0);
 }
 
@@ -94,10 +93,7 @@ SOFTWARE.
     const rebuilt = `${deb}.new`;
     run("dpkg-deb", ["--build", "--root-owner-group", temp, rebuilt]);
     fs.renameSync(rebuilt, deb);
-    console.log(`Embedded AppStream metadata in ${path.basename(deb)}`);
   } finally {
     fs.rmSync(temp, { recursive: true, force: true });
   }
 }
-
-console.log("DEB AppStream payload integration complete.");

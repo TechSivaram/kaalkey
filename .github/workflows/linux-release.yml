@@ -104,32 +104,15 @@ jobs:
           sudo snap install snapcraft --classic
           sudo snap install lxd
 
-          echo "=== Start LXD service ==="
           sudo snap start lxd.daemon
-
-          echo "=== Wait for LXD daemon ==="
           sudo lxd waitready --timeout=120
-
-          echo "=== Initialize LXD ==="
           sudo lxd init --auto
-
-          echo "=== Add runner to the LXD group ==="
           sudo usermod --append --groups lxd "$USER"
-
-          echo "=== Configure Snapcraft to use LXD ==="
           sudo snap set snapcraft provider=lxd
-
-          echo "=== Verify Snapcraft provider ==="
           provider="$(sudo snap get snapcraft provider)"
-          echo "Snapcraft provider: $provider"
           test "$provider" = "lxd"
-
-          echo "=== Verify LXD is ready ==="
           sudo lxc info
-
-          echo "=== Verify default LXD managed bridge ==="
           if ! sudo lxc network show lxdbr0; then
-            echo "ERROR: lxdbr0 was not created by lxd init --auto"
             sudo lxc network list
             exit 1
           fi
@@ -137,20 +120,16 @@ jobs:
           # Keep LXD's default managed DNS, DHCP, routing and NAT settings.
           # Do not hard-code public DNS resolvers: GitHub-hosted runners may
           # restrict direct DNS traffic to external resolvers.
-          echo "=== LXD bridge configuration ==="
           sudo lxc network get lxdbr0 dns.mode
           sudo lxc network get lxdbr0 ipv4.address
           sudo lxc network get lxdbr0 ipv4.nat
           sudo lxc network get lxdbr0 ipv4.routing
 
-          echo "=== Allow LXD container traffic through the runner firewall ==="
           uplink_if="$(ip -4 route show default | awk 'NR==1 {print $5}')"
           if [ -z "$uplink_if" ]; then
-            echo "ERROR: Could not determine the runner's IPv4 default-route interface."
             ip -4 route
             exit 1
           fi
-          echo "Runner uplink interface: $uplink_if"
 
           # Docker may set the iptables FORWARD chain policy to DROP.
           # LXD's separate nftables accept rules do not override a DROP in
@@ -163,7 +142,6 @@ jobs:
             sudo iptables -I FORWARD 1 -i "$uplink_if" -o lxdbr0 \
               -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
 
-          echo "=== Verify effective iptables FORWARD rules ==="
           sudo iptables -S FORWARD
 
       - name: Verify LXD container networking
@@ -175,32 +153,20 @@ jobs:
             sudo lxc delete "$test_name" --force >/dev/null 2>&1 || true
           }
           collect_network_diagnostics() {
-            echo "=== Host IPv4 routes ==="
             ip -4 route || true
-            echo "=== Host IPv4 forwarding ==="
             sysctl net.ipv4.ip_forward || true
-            echo "=== LXD bridge ==="
             sudo lxc network show lxdbr0 || true
-            echo "=== Container addresses ==="
             sudo lxc exec "$test_name" -- ip -4 addr || true
-            echo "=== Container routes ==="
             sudo lxc exec "$test_name" -- ip -4 route || true
-            echo "=== Container DNS configuration ==="
             sudo lxc exec "$test_name" -- cat /etc/resolv.conf || true
-            echo "=== LXD daemon logs ==="
             sudo journalctl -u snap.lxd.daemon --no-pager -n 100 || true
-            echo "=== Host nftables rules ==="
             sudo nft list ruleset || true
           }
           trap cleanup_lxd_test EXIT
 
-          echo "=== Verify host internet access ==="
           curl -4 --fail --silent --show-error --head --max-time 20 https://snapcraft.io
-
-          echo "=== Launch Ubuntu 24.04 test container ==="
           sudo lxc launch ubuntu:24.04 "$test_name"
 
-          echo "=== Wait for container DNS ==="
           dns_ready=false
           for attempt in $(seq 1 30); do
             if sudo lxc exec "$test_name" -- getent ahostsv4 snapcraft.io; then
@@ -211,35 +177,27 @@ jobs:
           done
 
           if [ "$dns_ready" != true ]; then
-            echo "ERROR: DNS resolution failed inside the LXD container."
             collect_network_diagnostics
             exit 1
           fi
 
-          echo "=== Verify container can download packages ==="
           if ! sudo lxc exec "$test_name" -- apt-get -o Acquire::ForceIPv4=true update; then
-            echo "ERROR: apt-get update failed inside the LXD container."
             collect_network_diagnostics
             exit 1
           fi
 
-          echo "=== Install curl inside the test container ==="
           if ! sudo lxc exec "$test_name" -- \
             env DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends curl ca-certificates; then
-            echo "ERROR: package installation failed inside the LXD container."
             collect_network_diagnostics
             exit 1
           fi
 
-          echo "=== Verify HTTPS access to Snapcraft from the container ==="
           if ! sudo lxc exec "$test_name" -- \
             curl -4 --fail --silent --show-error --head --location --max-time 30 https://snapcraft.io; then
-            echo "ERROR: HTTPS access to snapcraft.io failed inside the LXD container."
             collect_network_diagnostics
             exit 1
           fi
 
-          echo "=== LXD container internet connectivity verified ==="
           cleanup_lxd_test
           trap - EXIT
 
@@ -252,11 +210,9 @@ jobs:
       - name: Verify Core24 GNOME/LXD build configuration
         run: |
           snapcraft --version
-          printf 'Snapcraft provider: '
           provider="$(sudo snap get snapcraft provider)"
-          echo "$provider"
           test "$provider" = "lxd"
-          node -e "const b=require('./package.json').build.snapcraft; if (b.base !== 'core24') throw Error('Snap base must be core24'); if (b.core24?.useDestructiveMode === true) throw Error('Destructive mode disables the GNOME extension'); if (b.core24?.useLXD !== true) throw Error('useLXD must be true'); if (b.core24?.useMultipass === true) throw Error('useMultipass must be false'); if (b.core24?.remoteBuild) throw Error('remoteBuild must be disabled'); console.log('Verified: Core24 GNOME extension with LXD.')"
+          node -e "const b=require('./package.json').build.snapcraft; if (b.base !== 'core24') throw Error('Snap base must be core24'); if (b.core24?.useDestructiveMode === true) throw Error('Destructive mode disables the GNOME extension'); if (b.core24?.useLXD !== true) throw Error('useLXD must be true'); if (b.core24?.useMultipass === true) throw Error('useMultipass must be false'); if (b.core24?.remoteBuild) throw Error('remoteBuild must be disabled');"
 
       - name: Build Snap with LXD
         run: sg lxd -c 'SNAPCRAFT_BUILD_ENVIRONMENT=lxd node scripts/build-snap.cjs --publish never'

@@ -59,9 +59,6 @@ function disableDuplicateCore24DesktopAlias() {
   if (matches.length === 1) {
     const patched = source.replace(desktopPropertyPattern, "");
     fs.writeFileSync(core24Path, patched, "utf8");
-    console.log(
-      "[KaalKey] Disabled Snapcraft's duplicate desktop alias; retaining the Electron-generated launcher.",
-    );
     return;
   }
 
@@ -72,7 +69,6 @@ function disableDuplicateCore24DesktopAlias() {
     source.includes("desktopBaseName") &&
     !/^[ \t]*desktop:[^\r\n]*desktopBaseName/m.test(source)
   ) {
-    console.log("[KaalKey] Duplicate Core24 desktop alias is already disabled.");
     return;
   }
 
@@ -90,7 +86,6 @@ function cleanPreviousSnapBuilds() {
   for (const name of fs.readdirSync(outputDir)) {
     if (name.startsWith("__snap-")) {
       fs.rmSync(path.join(outputDir, name), { recursive: true, force: true });
-      console.log(`[KaalKey] Removed stale Snap staging directory: ${name}`);
     }
   }
 
@@ -100,7 +95,6 @@ function cleanPreviousSnapBuilds() {
   for (const name of fs.readdirSync(outputDir)) {
     if (name.endsWith(".snap")) {
       fs.rmSync(path.join(outputDir, name), { force: true });
-      console.log(`[KaalKey] Removed previous Snap artifact: ${name}`);
     }
   }
 }
@@ -157,8 +151,6 @@ function verifySingleDesktopLauncher(snapPath) {
       `Expected the Electron launcher ${expectedDesktop}, but found ${actualDesktop}. Check the Snap desktop integration.`,
     );
   }
-
-  console.log(`[KaalKey] Verified one desktop launcher: ${actualDesktop}`);
 }
 
 if (!packageJson.build?.snapcraft) {
@@ -186,11 +178,6 @@ cleanPreviousSnapBuilds();
 
 const buildStartedAt = Date.now();
 
-console.log("[KaalKey] Building the Core24 Snap with electron-builder.");
-console.log(
-  "[KaalKey] Snapcraft handles priming and packing internally; this script will not run snapcraft prime/pack a second time.",
-);
-
 // Force Snapcraft 9 to use the already initialized LXD provider. This is
 // inherited by electron-builder and the Snapcraft process it launches.
 const snapcraftEnv = {
@@ -198,7 +185,6 @@ const snapcraftEnv = {
   SNAPCRAFT_BUILD_ENVIRONMENT: "lxd",
 };
 
-console.log("[KaalKey] SNAPCRAFT_BUILD_ENVIRONMENT=lxd");
 run(process.execPath, [electronBuilderCli, "--linux", "snap", ...process.argv.slice(2)], {
   env: snapcraftEnv,
 });
@@ -234,6 +220,3 @@ if (!snapStat.isFile() || snapStat.size === 0) {
 }
 
 verifySingleDesktopLauncher(snapPath);
-
-console.log(`[KaalKey] Snap package ready: ${snapPath}`);
-console.log(`[KaalKey] Size: ${(snapStat.size / (1024 * 1024)).toFixed(1)} MB`);

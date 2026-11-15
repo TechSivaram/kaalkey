@@ -39,9 +39,6 @@ fs.mkdirSync(userDataPath, { recursive: true });
 
 app.setPath("userData", userDataPath);
 
-console.log("[KaalKey] User data:", app.getPath("userData"));
-console.log("[KaalKey] App name:", app.getName());
-
 // ==================================================
 // 2. PIN storage
 // ==================================================
@@ -169,21 +166,7 @@ ipcMain.handle("desktop-clipboard:read-text", () => clipboard.readText());
 function attachRendererDiagnostics(win) {
   const contents = win.webContents;
 
-  contents.on("dom-ready", () => {
-    console.log("[KaalKey] DOM ready");
-  });
-
-  contents.on("did-finish-load", async () => {
-    console.log("[KaalKey] Page loaded successfully");
-
-    try {
-      const bridge = await contents.executeJavaScript("typeof window.kaalkeyDesktop");
-
-      console.log("[KaalKey] Desktop bridge:", bridge);
-    } catch (error) {
-      console.error("[KaalKey] Bridge check failed:", error);
-    }
-
+  contents.on("did-finish-load", () => {
     win.show();
   });
 
@@ -199,16 +182,8 @@ function attachRendererDiagnostics(win) {
     console.error("[KaalKey] Renderer process gone:", details);
   });
 
-  contents.on("console-message", (_, details) => {
-    console.log(`[KaalKey Renderer ${details.level}]:`, details.message);
-  });
-
   contents.on("unresponsive", () => {
     console.error("[KaalKey] Renderer became unresponsive");
-  });
-
-  contents.on("responsive", () => {
-    console.log("[KaalKey] Renderer became responsive");
   });
 }
 
@@ -303,7 +278,6 @@ async function registerKaalKeyProtocol() {
     }
   });
 
-  console.log("[KaalKey] Custom protocol registered:", `${APP_SCHEME}://${APP_HOST}/`);
 }
 
 // ==================================================
@@ -341,12 +315,6 @@ function configureMediaPermissions() {
     const cameraOnly = requestedMedia.length === 1 && requestedMedia[0] === "video";
     const allowed = permission === "media" && cameraOnly && isTrustedCameraOrigin(requestingUrl);
 
-    console.log("[KaalKey] Media permission request:", {
-      permission,
-      mediaTypes: requestedMedia,
-      requestingUrl,
-      allowed,
-    });
     callback(allowed);
   });
 }
@@ -410,7 +378,6 @@ function applyWindowMode(mode, persist = true) {
   mainWindow.setBounds(bounds, true);
 
   if (persist) saveWindowState();
-  console.log(`[KaalKey] Window mode: ${windowMode}`, bounds);
 }
 
 ipcMain.handle("desktop-window:minimize", () => {
@@ -429,7 +396,6 @@ ipcMain.handle("desktop-window:toggle-mode", () => {
 });
 
 function createWindow() {
-  console.log("[KaalKey] Creating desktop window");
   windowMode = readWindowState();
   const display = screen.getPrimaryDisplay();
   const initialBounds =
@@ -489,7 +455,6 @@ function createWindow() {
 
   const startUrl = app.isPackaged ? `${APP_SCHEME}://${APP_HOST}/` : "http://localhost:8081";
 
-  console.log("[KaalKey] Loading:", startUrl);
   mainWindow.loadURL(startUrl).catch((error) => {
     console.error("[KaalKey] loadURL rejected:", error);
   });
@@ -502,8 +467,6 @@ function createWindow() {
 app
   .whenReady()
   .then(async () => {
-    console.log("[KaalKey] Electron ready");
-
     await registerKaalKeyProtocol();
     configureMediaPermissions();
     // KaalKey uses its own compact window controls; remove the native menu.

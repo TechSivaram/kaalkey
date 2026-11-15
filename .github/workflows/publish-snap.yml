@@ -59,10 +59,7 @@ jobs:
           for snap_file in release/*.snap; do
             test -f "$snap_file"
             snap_name="$(unsquashfs -cat "$snap_file" meta/snap.yaml | awk '$1 == "name:" { print $2; exit }')"
-            test "$snap_name" = "kaalkey-authenticator" || {
-              echo "Expected kaalkey-authenticator, found '$snap_name' in $snap_file"
-              exit 1
-            }
+            test "$snap_name" = "kaalkey-authenticator" || exit 1
             count=$((count + 1))
           done
           test "$count" -ge 1
@@ -73,10 +70,7 @@ jobs:
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
         run: |
           set -euo pipefail
-          test -n "$SNAPCRAFT_STORE_CREDENTIALS" || {
-            echo "Missing SNAPCRAFT_STORE_CREDENTIALS repository secret"
-            exit 1
-          }
+          test -n "$SNAPCRAFT_STORE_CREDENTIALS" || exit 1
           for snap_file in release/*.snap; do
             docker run --rm \
               -v "$PWD/release:/release:ro" \

@@ -15,12 +15,6 @@ const appArgs = forwardedArgs.filter((arg, index) => {
   return !arg.startsWith("--ozone-platform=");
 });
 
-if (ozoneArgs.length) {
-  console.log(`[KaalKey] Starting Electron with ${ozoneArgs.join(" ")}`);
-} else {
-  console.log("[KaalKey] No display backend override; using Electron defaults");
-}
-
 const child = spawn(
   electronExecutable,
   [...ozoneArgs, path.join(__dirname, "main.cjs"), ...appArgs],

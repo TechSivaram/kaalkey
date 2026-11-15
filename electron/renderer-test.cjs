@@ -3,8 +3,6 @@ const { app, BrowserWindow } = require("electron");
 app.disableHardwareAcceleration();
 
 app.whenReady().then(async () => {
-  console.log("[Test] Electron ready");
-
   const win = new BrowserWindow({
     width: 1200,
     height: 800,
@@ -13,10 +11,6 @@ app.whenReady().then(async () => {
       nodeIntegration: false,
       sandbox: false,
     },
-  });
-
-  win.webContents.on("did-finish-load", () => {
-    console.log("[Test] Renderer loaded successfully");
   });
 
   win.webContents.on("render-process-gone", (_, details) => {
