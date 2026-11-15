@@ -11,6 +11,7 @@ KaalKey publishes native Linux packages for **x86_64 (amd64)** and
 | DEB + signed APT repository | Ubuntu, Debian, Linux Mint | amd64, arm64    |
 | RPM + signed RPM repository | Fedora, RHEL, openSUSE     | x86_64, aarch64 |
 | Snap + Snap Store           | Snap-enabled distributions | amd64, arm64    |
+| Flatpak bundle              | Flatpak-enabled desktops   | x86_64, aarch64 |
 
 Alpine/musl and 32-bit ARM are not included in this production target.
 
@@ -21,6 +22,8 @@ GitHub Actions builds on native architecture runners:
 - Native Ubuntu 24.04 x64 and ARM64 runners for AppImage/DEB/RPM artifacts.
 - Native Ubuntu 24.04 x64 and ARM64 runners using Snapcraft Core24 with LXD
   isolation for Snap artifacts.
+- Native Ubuntu 24.04 x64 and ARM64 runners for Flatpak bundles using the
+  Freedesktop 25.08 runtime and Electron BaseApp.
 
 Ubuntu 22.04 is the compatibility baseline for the non-Snap Linux packages.
 Snap uses the Core24 base and its default GNOME extension. Do not add a
@@ -38,7 +41,7 @@ runtime test proves that the extension/base does not supply a required library.
    ```
 
 3. The `Linux release packages` workflow builds both architectures and attaches
-   DEB, RPM, AppImage and Snap files to the GitHub Release.
+   DEB, RPM, AppImage, Snap and Flatpak files to the GitHub Release.
 4. After a successful tagged release, GitHub Actions automatically publishes
    the Snap packages to the Snap Store `stable` channel and deploys the signed
    APT and RPM repositories to GitHub Pages.
@@ -58,6 +61,7 @@ Pushing a version tag such as `v1.1.25` starts the complete pipeline:
    the Snap Store `stable` channel.
 5. Deploy the signed multi-architecture APT and RPM repositories to GitHub
    Pages.
+6. Flatpak bundles are attached to the GitHub Release for direct installation.
 
 AppImage is distributed through the GitHub Release assets. No separate
 AppImage Store upload is configured.
@@ -65,6 +69,18 @@ AppImage Store upload is configured.
 The Snap and repository publishing workflows also retain manual dispatch for
 re-publishing an existing release. The Snap manual workflow supports both
 `candidate` and `stable` channels.
+
+Install a GitHub Release Flatpak bundle with:
+
+```bash
+flatpak install --user ./path/to/release-bundle.flatpak
+```
+
+GitHub Release bundles are the direct-download channel. A Flathub listing is a
+separate upstream submission and maintenance process; Flathub builds from a
+reviewed source manifest and does not publish these prebuilt bundles. The
+manifest must be authored and reviewed by the project maintainer in accordance
+with Flathub's current submission and AI-content policies.
 
 The workflow also supports `workflow_dispatch` for test builds. Manual builds
 are uploaded as a combined workflow artifact and are not published as releases.

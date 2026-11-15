@@ -241,10 +241,60 @@ jobs:
           path: release/*.snap
           if-no-files-found: error
 
+  build-flatpak:
+    name: Build Flatpak (${{ matrix.arch }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: amd64
+            runner: ubuntu-24.04
+          - arch: arm64
+            runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install Flatpak build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes flatpak flatpak-builder
+          flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Export web application
+        run: npm run desktop:export
+
+      - name: Build Flatpak bundle
+        run: npx electron-builder --linux flatpak --publish never
+
+      - name: Verify Flatpak bundle
+        run: |
+          set -euo pipefail
+          flatpak_file="$(find release -maxdepth 1 -name '*.flatpak' -print -quit)"
+          test -n "$flatpak_file"
+          test -s "$flatpak_file"
+
+      - name: Upload Flatpak bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: kaalkey-flatpak-${{ matrix.arch }}
+          path: release/*.flatpak
+          if-no-files-found: error
+
   publish-release:
     name: Attach packages to GitHub Release
     if: startsWith(github.ref, 'refs/tags/')
-    needs: [build-linux, build-snap]
+    needs: [build-linux, build-snap, build-flatpak]
     runs-on: ubuntu-24.04
     steps:
       - name: Download all package artifacts
@@ -262,11 +312,12 @@ jobs:
             release/*.rpm
             release/*.AppImage
             release/*.snap
+            release/*.flatpak
 
   collect-manual-artifacts:
     name: Collect packages for manual workflow run
     if: github.event_name == 'workflow_dispatch'
-    needs: [build-linux, build-snap]
+    needs: [build-linux, build-snap, build-flatpak]
     runs-on: ubuntu-24.04
     steps:
       - name: Download all package artifacts

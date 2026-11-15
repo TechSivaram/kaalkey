@@ -69,6 +69,7 @@
     "desktop:export": "expo export --platform web --clear",
     "desktop:build": "npm run desktop:export && electron-builder && node scripts/fix-linux-packages.cjs",
     "desktop:snap": "npm run desktop:export && node scripts/build-snap.cjs",
+    "desktop:flatpak": "npm run desktop:export && electron-builder --linux flatpak --publish never",
     "desktop:release": "npm run desktop:export && electron-builder --linux AppImage deb rpm && node scripts/build-snap.cjs && node scripts/fix-linux-packages.cjs"
   },
   "private": true,
@@ -116,6 +117,28 @@
         "useLXD": true,
         "confinement": "strict"
       }
+    },
+    "flatpak": {
+      "runtime": "org.freedesktop.Platform",
+      "runtimeVersion": "25.08",
+      "sdk": "org.freedesktop.Sdk",
+      "base": "org.electronjs.Electron2.BaseApp",
+      "baseVersion": "25.08",
+      "branch": "stable",
+      "finishArgs": [
+        "--share=ipc",
+        "--socket=wayland",
+        "--socket=fallback-x11",
+        "--device=dri",
+        "--filesystem=xdg-download"
+      ],
+      "files": [
+        [
+          "build/linux/metainfo/com.techsivaram.kaalkey.metainfo.xml",
+          "/share/metainfo/"
+        ]
+      ],
+      "bundleRepoUrl": "https://dl.flathub.org/repo/"
     }
   },
   "description": "KaalKey Authenticator generates and manages time-based one-time passwords.",
