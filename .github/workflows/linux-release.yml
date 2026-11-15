@@ -385,11 +385,14 @@ jobs:
           echo "=== Run GUI process-survival smoke test ==="
           log_file="$(mktemp)"
           set +e
-          timeout --signal=TERM --kill-after=10s 30s dbus-run-session -- xvfb-run -a flatpak run --user "$app_id" >"$log_file" 2>&1
+          timeout --signal=TERM --kill-after=10s 30s dbus-run-session -- xvfb-run -a flatpak run --user "$app_id" --ozone-platform=x11 >"$log_file" 2>&1
           status=$?
           set -e
           cat "$log_file"
 
+          # Pass the backend explicitly: KaalKey's packaged bootstrap otherwise
+          # re-launches Electron when DISPLAY is detected, and the original Flatpak
+          # process exits before the child can keep the sandbox alive.
           # The GUI application is expected to remain running until timeout.
           # An early clean exit is not accepted as proof that startup succeeded.
           if [[ "$status" -ne 124 ]]; then
