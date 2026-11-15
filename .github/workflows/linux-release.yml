@@ -278,7 +278,19 @@ jobs:
         run: npm run desktop:export
 
       - name: Build Flatpak bundle
-        run: npx electron-builder --linux flatpak --publish never
+        shell: bash
+        run: |
+          set -o pipefail
+          npx electron-builder --linux flatpak --publish never 2>&1 | tee flatpak-debug.log
+
+      - name: Upload Flatpak debug log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flatpak-debug-log-${{ matrix.arch }}
+          path: flatpak-debug.log
+          if-no-files-found: warn
+          retention-days: 7
 
       - name: Validate AppStream metadata
         run: |
