@@ -266,7 +266,7 @@ jobs:
         run: |
           set -euxo pipefail
           sudo apt-get update
-          sudo apt-get install --yes flatpak flatpak-builder appstream xvfb
+          sudo apt-get install --yes flatpak flatpak-builder appstream xvfb dbus-daemon
           flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
           appstreamcli --version
           flatpak --version
@@ -375,8 +375,7 @@ jobs:
           echo "=== Run GUI process-survival smoke test ==="
           log_file="$(mktemp)"
           set +e
-          timeout --signal=TERM --kill-after=10s 30s \\
-            xvfb-run -a flatpak run --user "$app_id" >"$log_file" 2>&1
+          timeout --signal=TERM --kill-after=10s 30s dbus-run-session -- xvfb-run -a flatpak run --user "$app_id" >"$log_file" 2>&1
           status=$?
           set -e
           cat "$log_file"
