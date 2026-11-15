@@ -1,4 +1,4 @@
-## 1.1.27
+## 1.2.0
 
 - Added an Expo Camera native still-image QR scan attempt for Android and iOS before the existing JavaScript image decoding fallback.
 - Kept web image import unchanged and preserved shared QR validation/account import handling.

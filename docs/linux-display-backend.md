@@ -138,8 +138,8 @@ sudo dnf remove kaalkeyauthenticator
 **AppImage (portable):**
 
 ```bash
-chmod +x "./release/KaalKey Authenticator-1.1.27.AppImage"
-"./release/KaalKey Authenticator-1.1.27.AppImage"
+chmod +x "./release/KaalKey Authenticator-1.2.0.AppImage"
+"./release/KaalKey Authenticator-1.2.0.AppImage"
 ```
 
 The AppImage does not use the system package manager. Some distributions may require FUSE support to run AppImages.
