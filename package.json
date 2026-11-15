@@ -131,7 +131,6 @@
         "--share=ipc",
         "--socket=wayland",
         "--socket=x11",
-        "--socket=pipewire",
         "--device=dri",
         "--filesystem=xdg-download"
       ],
