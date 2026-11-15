@@ -1,3 +1,4 @@
+import { clipboard } from "../clipboard/clipboard";
 import {
   decodeQrImageFile,
   getImageFileFromClipboard,
@@ -154,7 +155,60 @@ export const qrImport: QrImportService = {
   },
 
   async readClipboard(onImageFound) {
-    const { text, image } = await readWebClipboard();
+    // Start the browser clipboard read immediately, while the Paste button's
+    // user activation is still active. Awaiting Electron IPC first can consume
+    // Chromium's transient user activation and make navigator.clipboard.read()
+    // fail even though the user explicitly clicked Paste.
+    const browserClipboardPromise = readWebClipboard();
+
+    // Electron's native clipboard remains the primary desktop source. Some
+    // Windows providers expose an image to Chromium but not NativeImage, so
+    // retain the browser result as a fallback instead of reporting unavailable.
+    if (typeof window !== "undefined" && window.kaalkeyDesktop) {
+      let text = "";
+      try {
+        text = (await clipboard.getText()).trim();
+      } catch {
+        // Continue to image reads; image-only clipboard providers may reject text.
+      }
+
+      if (text && normalizeClipboardTotpText(text)) {
+        return { text, imageAvailable: false, source: "web" };
+      }
+
+      let nativeImage: Awaited<ReturnType<typeof clipboard.getImage>> = null;
+      try {
+        nativeImage = await clipboard.getImage();
+      } catch {
+        // Use Chromium's user-gesture clipboard read below.
+      }
+
+      if (nativeImage) {
+        onImageFound?.();
+        const response = await fetch(nativeImage.dataUrl);
+        if (!response.ok) throw new Error("Unable to load image from system clipboard.");
+        const blob = await response.blob();
+        if (!blob.type.startsWith("image/")) {
+          throw new Error("System clipboard did not return a supported image.");
+        }
+        const qrData = await decodeQrImageFile(blob);
+        return { text, qrData, imageAvailable: true, source: "web" };
+      }
+
+      const browserClipboard = await browserClipboardPromise;
+      const browserText = browserClipboard.text || text;
+      if (browserText && normalizeClipboardTotpText(browserText)) {
+        return { text: browserText, imageAvailable: false, source: "web" };
+      }
+      if (browserClipboard.image) {
+        onImageFound?.();
+        const qrData = await decodeQrImageFile(browserClipboard.image);
+        return { text: browserText, qrData, imageAvailable: true, source: "web" };
+      }
+      return { text: browserText, imageAvailable: false, source: "web" };
+    }
+
+    const { text, image } = await browserClipboardPromise;
     if (text && normalizeClipboardTotpText(text)) {
       return { text, imageAvailable: false, source: "web" };
     }

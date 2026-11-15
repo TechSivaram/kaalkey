@@ -1,2 +1,2 @@
 export { clipboard } from "./native";
-export type { ClipboardService } from "./types";
+export type { ClipboardImage, ClipboardService } from "./types";

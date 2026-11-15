@@ -1,5 +1,5 @@
 import * as ImagePicker from "expo-image-picker";
-import * as Clipboard from "expo-clipboard";
+import { clipboard } from "../clipboard/clipboard";
 import { beginExternalActivity } from "../../platform/lifecycle/externalActivity";
 import {
   decodeNativeClipboardQrImage,
@@ -34,18 +34,20 @@ export const qrImport: QrImportService = {
   },
 
   async readClipboard(onImageFound) {
-    const text = (await Clipboard.getStringAsync()).trim();
+    const text = (await clipboard.getText()).trim();
     if (isTotpQrPayload(normalizeTotpQrPayload(text))) {
       return { text, imageAvailable: false, source: "native" };
     }
 
     onImageFound?.();
-    const qrData = await decodeNativeClipboardQrImage();
+    const clipboardImage = await clipboard.getImage();
+    const qrData = clipboardImage
+      ? await decodeNativeClipboardQrImage(clipboardImage.dataUrl)
+      : undefined;
     return {
       text,
       qrData,
-      // Native Expo Clipboard exposes decoded image data through this API;
-      // an unavailable image and an undecodable image share the existing UI path.
+      // An unavailable image and an undecodable image share the existing UI path.
       imageAvailable: Boolean(qrData),
       source: "native",
     };

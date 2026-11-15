@@ -72,7 +72,8 @@
     "desktop:win": "npm run desktop:export && electron-builder --win --publish never",
     "desktop:snap": "npm run desktop:export && node scripts/build-snap.cjs",
     "desktop:flatpak": "npm run desktop:export && electron-builder --linux flatpak --publish never",
-    "desktop:release": "npm run desktop:export && electron-builder --linux AppImage deb rpm && node scripts/build-snap.cjs && node scripts/fix-linux-packages.cjs"
+    "desktop:release": "npm run desktop:export && electron-builder --linux AppImage deb rpm && node scripts/build-snap.cjs && node scripts/fix-linux-packages.cjs",
+    "test:clipboard": "node --test tests/clipboard.test.cjs"
   },
   "private": true,
   "build": {

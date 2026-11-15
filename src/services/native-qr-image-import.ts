@@ -1,4 +1,3 @@
-import * as Clipboard from "expo-clipboard";
 import * as ImageManipulator from "expo-image-manipulator";
 import * as FileSystem from "expo-file-system/legacy";
 import { Camera } from "expo-camera";
@@ -69,13 +68,12 @@ export async function decodeNativeQrImage(uri: string): Promise<string | undefin
 }
 
 /** Read and decode a clipboard image, cleaning up both temporary files. */
-export async function decodeNativeClipboardQrImage(): Promise<string | undefined> {
-  const image = await Clipboard.getImageAsync({ format: "png" });
-  if (!image?.data) return undefined;
+export async function decodeNativeClipboardQrImage(dataUrl: string): Promise<string | undefined> {
+  if (!dataUrl.startsWith("data:image/")) return undefined;
 
   const sourceUri = `${FileSystem.cacheDirectory}kaalkey-clipboard-${Date.now()}.png`;
   try {
-    const imageBase64 = image.data.replace(/^data:image\/[^;]+;base64,/i, "");
+    const imageBase64 = dataUrl.replace(/^data:image\/[^;]+;base64,/i, "");
     await FileSystem.writeAsStringAsync(sourceUri, imageBase64, {
       encoding: FileSystem.EncodingType.Base64,
     });

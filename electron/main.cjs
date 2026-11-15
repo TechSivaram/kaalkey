@@ -2,6 +2,7 @@ const {
   app,
   BrowserWindow,
   clipboard,
+  nativeImage,
   dialog,
   ipcMain,
   protocol,
@@ -13,6 +14,7 @@ const path = require("path");
 const fs = require("fs");
 const crypto = require("crypto");
 const { pathToFileURL } = require("url");
+const { registerClipboardHandlers } = require("./clipboard.cjs");
 
 // Register a secure, standard custom scheme before app readiness.
 // This gives the packaged renderer a stable origin instead of file://.
@@ -160,12 +162,8 @@ ipcMain.handle("desktop-lock:verify-pin", (_, pin) => {
 // 3. Desktop clipboard bridge
 // ==================================================
 
-// Use Electron’s native clipboard API for reliable packaged desktop copying.
-ipcMain.handle("desktop-clipboard:write-text", (_, value) => {
-  if (typeof value !== "string") throw new TypeError("Clipboard content must be a string.");
-  return clipboard.writeText(value).then(() => true);
-});
-ipcMain.handle("desktop-clipboard:read-text", () => clipboard.readText());
+// Use Electron’s native clipboard API for text and image operations.
+registerClipboardHandlers(ipcMain, clipboard, nativeImage);
 
 // Use Electron's native file chooser on desktop. This avoids renderer file-input
 // dialogs that can fail with some Linux desktop portal/backend combinations.
@@ -369,17 +367,22 @@ function configureMediaPermissions() {
   const appSession = session.defaultSession;
 
   appSession.setPermissionCheckHandler((webContents, permission, requestingOrigin, details) => {
+    if (permission === "clipboard-read") return isTrustedCameraOrigin(requestingOrigin);
     if (permission !== "media" || details?.mediaType !== "video") return false;
     return isTrustedCameraOrigin(requestingOrigin);
   });
 
   appSession.setPermissionRequestHandler((webContents, permission, callback, details) => {
     const requestingUrl = details?.requestingUrl || webContents?.getURL?.() || "";
+    const trustedOrigin = isTrustedCameraOrigin(requestingUrl);
     const requestedMedia = Array.isArray(details?.mediaTypes) ? details.mediaTypes : [];
     const cameraOnly = requestedMedia.length === 1 && requestedMedia[0] === "video";
-    const allowed = permission === "media" && cameraOnly && isTrustedCameraOrigin(requestingUrl);
+    // Clipboard reads are only granted to KaalKey's own packaged/dev origin.
+    // Chromium still requires a user gesture for navigator.clipboard.read().
+    const allowedClipboardRead = permission === "clipboard-read" && trustedOrigin;
+    const allowedCamera = permission === "media" && cameraOnly && trustedOrigin;
 
-    callback(allowed);
+    callback(allowedClipboardRead || allowedCamera);
   });
 }
 

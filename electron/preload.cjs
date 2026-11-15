@@ -4,6 +4,11 @@ contextBridge.exposeInMainWorld("kaalkeyDesktop", {
   clipboard: {
     writeText: (value) => ipcRenderer.invoke("desktop-clipboard:write-text", value),
     readText: () => ipcRenderer.invoke("desktop-clipboard:read-text"),
+    clear: () => ipcRenderer.invoke("desktop-clipboard:clear"),
+    hasText: () => ipcRenderer.invoke("desktop-clipboard:has-text"),
+    writeImage: (dataUrl) => ipcRenderer.invoke("desktop-clipboard:write-image", dataUrl),
+    readImage: () => ipcRenderer.invoke("desktop-clipboard:read-image"),
+    hasImage: () => ipcRenderer.invoke("desktop-clipboard:has-image"),
   },
   files: {
     pickBackupText: () => ipcRenderer.invoke("desktop-files:pick-backup"),
