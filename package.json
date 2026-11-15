@@ -138,7 +138,7 @@
       "files": [
         [
           "build/linux/metainfo/com.techsivaram.kaalkey.metainfo.xml",
-          "/share/metainfo/"
+          "/share/metainfo/com.techsivaram.kaalkey.metainfo.xml"
         ],
         [
           "build/icons/256x256.png",
