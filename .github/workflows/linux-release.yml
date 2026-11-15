@@ -283,7 +283,7 @@ jobs:
           # electron-builder 26.18.0 uses this debug namespace for Flatpak bundling.
           DEBUG: "@malept/flatpak-bundler"
         run: |
-          set -o pipefail
+          set -Eeuo pipefail
           npx electron-builder --linux flatpak --publish never 2>&1 | tee flatpak-debug.log
 
       - name: Upload Flatpak debug log
@@ -301,38 +301,91 @@ jobs:
           appstreamcli validate build/linux/metainfo/com.techsivaram.kaalkey.metainfo.xml
 
       - name: Verify and install Flatpak bundle
+        shell: bash
         env:
           EXPECTED_ARCH: ${{ matrix.arch == 'amd64' && 'x86_64' || 'aarch64' }}
         run: |
           set -Eeuo pipefail
-          flatpak_file="$(find release -maxdepth 1 -type f -name '*.flatpak' -print -quit)"
-          test -n "$flatpak_file"
+
+          app_id="com.techsivaram.kaalkey"
+
+          echo "=== Locate Flatpak bundle ==="
+          test -d release
+          mapfile -t flatpak_files < <(
+            find release -maxdepth 1 -type f -name '*.flatpak' -print
+          )
+          if [[ "${#flatpak_files[@]}" -ne 1 ]]; then
+            printf 'Expected exactly one Flatpak bundle; found %s\n' "${#flatpak_files[@]}"
+            printf '%s\n' "${flatpak_files[@]}"
+            exit 1
+          fi
+
+          flatpak_file="${flatpak_files[0]}"
           test -s "$flatpak_file"
+          printf 'Bundle: %s\n' "$flatpak_file"
 
-          app_id="$(node -p "require('./package.json').build.appId")"
-          test "$app_id" = "com.techsivaram.kaalkey"
+          echo "=== Verify configured application ID ==="
+          configured_app_id="$(node -p "require('./package.json').build.appId")"
+          if [[ "$configured_app_id" != "$app_id" ]]; then
+            printf 'Unexpected package appId: %s (expected %s)\n' "$configured_app_id" "$app_id"
+            exit 1
+          fi
 
-          # Import the bundle into the local user installation. This checks
-          # the bundle's architecture, application ID and deployability.
+          echo "=== Install Flatpak bundle ==="
           flatpak install --user --noninteractive --assumeyes --bundle "$flatpak_file"
-          flatpak info --user "$app_id"
-          actual_arch="$(flatpak info --user --arch "$app_id")"
-          test "$actual_arch" = "$EXPECTED_ARCH"
-          test "$(flatpak info --user --show-metadata "$app_id" | grep -c '^\[Application\]$')" -eq 1
 
-          # A GUI startup smoke test under a virtual X server catches missing
-          # Electron runtime libraries and broken packaged entry points.
+          echo "=== Verify installed application ==="
+          flatpak info --user "$app_id"
+
+          echo "=== Verify architecture ==="
+          actual_arch="$(
+            flatpak list --user --app --columns=application,arch |
+              awk -v id="$app_id" '$1 == id { print $2; found=1 } END { if (!found) exit 1 }'
+          )"
+          printf 'Expected architecture: %s\nActual architecture: %s\n' "$EXPECTED_ARCH" "$actual_arch"
+          if [[ "$actual_arch" != "$EXPECTED_ARCH" ]]; then
+            echo "Flatpak architecture does not match the build matrix."
+            exit 1
+          fi
+
+          echo "=== Verify runtime and commit ==="
+          runtime_ref="$(flatpak info --user --show-runtime "$app_id")"
+          commit="$(flatpak info --user --show-commit "$app_id")"
+          test -n "$runtime_ref"
+          if [[ ! "$commit" =~ ^[[:xdigit:]]{64}$ ]]; then
+            printf 'Unexpected Flatpak commit value: %s\n' "$commit"
+            exit 1
+          fi
+          printf 'Runtime: %s\nCommit: %s\n' "$runtime_ref" "$commit"
+
+          echo "=== Verify application metadata ==="
+          metadata="$(flatpak info --user --show-metadata "$app_id")"
+          if ! grep -q '^\\[Application\\]$' <<< "$metadata"; then
+            echo "Installed Flatpak metadata has no [Application] group."
+            exit 1
+          fi
+          if ! grep -q "^name=$app_id$" <<< "$metadata"; then
+            echo "Installed Flatpak metadata has an unexpected application name."
+            exit 1
+          fi
+
+          echo "=== Run GUI process-survival smoke test ==="
+          log_file="$(mktemp)"
           set +e
-          timeout --signal=TERM --kill-after=10s 30s xvfb-run -a \
-            flatpak run --user "$app_id" >/tmp/kaalkey-flatpak.log 2>&1
+          timeout --signal=TERM --kill-after=10s 30s \\
+            xvfb-run -a flatpak run --user "$app_id" >"$log_file" 2>&1
           status=$?
           set -e
-          cat /tmp/kaalkey-flatpak.log
-          # timeout=124 is expected for a healthy GUI app that remains open.
-          # Any earlier non-zero exit is a startup failure.
-          if [ "$status" -ne 124 ] && [ "$status" -ne 0 ]; then
-            exit "$status"
+          cat "$log_file"
+
+          # The GUI application is expected to remain running until timeout.
+          # An early clean exit is not accepted as proof that startup succeeded.
+          if [[ "$status" -ne 124 ]]; then
+            printf 'Expected the GUI process to remain alive until timeout (124); got exit code %s.\n' "$status"
+            exit 1
           fi
+
+          echo "Flatpak install, metadata, architecture and process-survival checks passed."
 
       - name: Upload Flatpak bundle
         uses: actions/upload-artifact@v4
