@@ -1,4 +1,13 @@
-const { app, BrowserWindow, clipboard, ipcMain, protocol, screen, session } = require("electron");
+const {
+  app,
+  BrowserWindow,
+  clipboard,
+  dialog,
+  ipcMain,
+  protocol,
+  screen,
+  session,
+} = require("electron");
 
 const path = require("path");
 const fs = require("fs");
@@ -154,10 +163,66 @@ ipcMain.handle("desktop-lock:verify-pin", (_, pin) => {
 // Use Electron’s native clipboard API for reliable packaged desktop copying.
 ipcMain.handle("desktop-clipboard:write-text", (_, value) => {
   if (typeof value !== "string") throw new TypeError("Clipboard content must be a string.");
-  clipboard.writeText(value);
-  return true;
+  return clipboard.writeText(value).then(() => true);
 });
 ipcMain.handle("desktop-clipboard:read-text", () => clipboard.readText());
+
+// Use Electron's native file chooser on desktop. This avoids renderer file-input
+// dialogs that can fail with some Linux desktop portal/backend combinations.
+function showDesktopFileDialog(options) {
+  if (mainWindow && !mainWindow.isDestroyed()) {
+    return dialog.showOpenDialog(mainWindow, options);
+  }
+  return dialog.showOpenDialog(options);
+}
+
+ipcMain.handle("desktop-files:pick-backup", async () => {
+  const result = await showDesktopFileDialog({
+    title: "Select KaalKey backup",
+    properties: ["openFile"],
+    filters: [
+      { name: "KaalKey backup", extensions: ["kkbackup"] },
+      { name: "JSON", extensions: ["json"] },
+    ],
+  });
+  if (result.canceled || result.filePaths.length === 0) return null;
+
+  const selectedPath = result.filePaths[0];
+  const extension = path.extname(selectedPath).toLowerCase();
+  if (extension !== ".kkbackup" && extension !== ".json") {
+    throw new Error("unsupported_backup_file");
+  }
+  return fs.promises.readFile(selectedPath, "utf8");
+});
+
+ipcMain.handle("desktop-files:pick-qr-image", async () => {
+  const result = await showDesktopFileDialog({
+    title: "Select QR image",
+    properties: ["openFile"],
+    filters: [{ name: "Images", extensions: ["png", "jpg", "jpeg", "webp", "gif", "bmp"] }],
+  });
+  if (result.canceled || result.filePaths.length === 0) return null;
+
+  const selectedPath = result.filePaths[0];
+  const extension = path.extname(selectedPath).toLowerCase();
+  const mimeTypes = {
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".webp": "image/webp",
+    ".gif": "image/gif",
+    ".bmp": "image/bmp",
+  };
+  const type = mimeTypes[extension];
+  if (!type) throw new Error("unsupported_image_file");
+
+  const contents = await fs.promises.readFile(selectedPath);
+  return {
+    name: path.basename(selectedPath),
+    type,
+    data: new Uint8Array(contents),
+  };
+});
 
 // ==================================================
 // 4. Renderer diagnostics
@@ -277,7 +342,6 @@ async function registerKaalKeyProtocol() {
       return new Response("Not found", { status: 404 });
     }
   });
-
 }
 
 // ==================================================

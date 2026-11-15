@@ -36,13 +36,16 @@ The dedicated 256x256 KaalKey icon is included in Snap metadata.
 
 ## Clipboard integration
 
-KaalKey retains its shared `expo-clipboard` implementation across desktop, web,
-Android, and iOS. There is no Electron-specific clipboard IPC bridge and no
-Snap-specific clipboard implementation. The Snap package uses the same clipboard
-code as the other desktop packages. No dedicated general-purpose Snap `clipboard`
-plug exists; do not add an invented clipboard plug. If clipboard access fails only
-inside the installed Snap, investigate the confined runtime and desktop session
-rather than replacing the shared clipboard implementation.
+Desktop clipboard access uses Electron's main-process clipboard API through a
+narrow preload bridge. The handler waits for the native write to complete so
+platform errors are returned to the renderer rather than reported as success.
+No dedicated general-purpose Snap `clipboard` plug exists; do not add an
+invented clipboard plug. If clipboard access fails only inside the installed
+Snap, inspect the confined runtime and desktop-session connections.
+
+Desktop backup and QR-image selection use Electron's native file chooser rather
+than Chromium file-input dialogs. Browser and mobile builds retain their existing
+platform-specific pickers.
 
 ## Verify the installed Snap
 

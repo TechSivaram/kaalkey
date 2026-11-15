@@ -180,6 +180,10 @@ export function useBackupManager({
   ]);
 
   const pickBackupText = useCallback(async (): Promise<string | null> => {
+    if (isDesktop && typeof window !== "undefined" && window.kaalkeyDesktop?.files) {
+      return window.kaalkeyDesktop.files.pickBackupText();
+    }
+
     if (!isWeb) {
       const finishExternalActivity = beginExternalActivity();
       try {

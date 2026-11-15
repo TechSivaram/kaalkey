@@ -1,10 +1,15 @@
 export type DesktopLockStatus = { configured: boolean; timeoutMs: number };
 export type DesktopLockResult = { success: boolean; error?: string; retryAfterMs?: number };
+export type DesktopImageFile = { name: string; type: string; data: Uint8Array };
 
 export type DesktopBridge = {
   clipboard: {
     writeText(value: string): Promise<boolean>;
     readText(): Promise<string>;
+  };
+  files: {
+    pickBackupText(): Promise<string | null>;
+    pickQrImage(): Promise<DesktopImageFile | null>;
   };
   lock: {
     getStatus(): Promise<DesktopLockStatus>;

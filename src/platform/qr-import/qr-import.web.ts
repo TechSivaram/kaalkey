@@ -12,6 +12,15 @@ function isImageFile(file: File): boolean {
 }
 
 function pickBrowserImage(): Promise<File | undefined> {
+  if (typeof window !== "undefined" && window.kaalkeyDesktop?.files) {
+    return window.kaalkeyDesktop.files.pickQrImage().then((selected) => {
+      if (!selected) return undefined;
+      const buffer = new ArrayBuffer(selected.data.byteLength);
+      new Uint8Array(buffer).set(selected.data);
+      return new File([buffer], selected.name, { type: selected.type });
+    });
+  }
+
   return new Promise((resolve, reject) => {
     const input = document.createElement("input");
     input.type = "file";

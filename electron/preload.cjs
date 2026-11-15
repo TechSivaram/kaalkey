@@ -5,6 +5,10 @@ contextBridge.exposeInMainWorld("kaalkeyDesktop", {
     writeText: (value) => ipcRenderer.invoke("desktop-clipboard:write-text", value),
     readText: () => ipcRenderer.invoke("desktop-clipboard:read-text"),
   },
+  files: {
+    pickBackupText: () => ipcRenderer.invoke("desktop-files:pick-backup"),
+    pickQrImage: () => ipcRenderer.invoke("desktop-files:pick-qr-image"),
+  },
   lock: {
     getStatus: () => ipcRenderer.invoke("desktop-lock:status"),
     setPin: (pin) => ipcRenderer.invoke("desktop-lock:set-pin", pin),
