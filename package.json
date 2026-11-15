@@ -69,6 +69,7 @@
     "desktop:export": "expo export --platform web --clear",
     "test:display-backend": "node --test tests/display-backend.test.cjs",
     "desktop:build": "npm run desktop:export && electron-builder && node scripts/fix-linux-packages.cjs",
+    "desktop:win": "npm run desktop:build && electron-builder --win",
     "desktop:snap": "npm run desktop:export && node scripts/build-snap.cjs",
     "desktop:flatpak": "npm run desktop:export && electron-builder --linux flatpak --publish never",
     "desktop:release": "npm run desktop:export && electron-builder --linux AppImage deb rpm && node scripts/build-snap.cjs && node scripts/fix-linux-packages.cjs"
