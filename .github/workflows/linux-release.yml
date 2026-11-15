@@ -279,6 +279,9 @@ jobs:
 
       - name: Build Flatpak bundle
         shell: bash
+        env:
+          # electron-builder 26.18.0 uses this debug namespace for Flatpak bundling.
+          DEBUG: "@malept/flatpak-bundler"
         run: |
           set -o pipefail
           npx electron-builder --linux flatpak --publish never 2>&1 | tee flatpak-debug.log
