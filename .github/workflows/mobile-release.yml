@@ -144,7 +144,7 @@ jobs:
       - name: Install CocoaPods dependencies
         run: pod install --project-directory=ios
 
-      - name: Locate Xcode workspace and application scheme
+      - name: Generate explicit Xcode application scheme
         id: xcode
         shell: bash
         run: |
@@ -155,56 +155,100 @@ jobs:
           test -n "$project" || { echo "::error::No Xcode project found under ios/"; exit 1; }
 
           project_name="$(basename "$project" .xcodeproj)"
+          pbxproj="$project/project.pbxproj"
+          test -s "$pbxproj" || { echo "::error::Missing generated project.pbxproj"; exit 1; }
+
+          # Explicitly generate a scheme whose BuildAction includes the actual
+          # PBXNativeTarget with the iOS application product type.
+          python3 - "$pbxproj" "$project" "$project_name" <<'PY'
+          import os, re, sys
+          from xml.sax.saxutils import escape
+
+          pbxproj, project_dir, project_name = sys.argv[1:]
+          source = open(pbxproj, encoding="utf-8").read()
+          targets = []
+          pattern = re.compile(
+              r'(?m)^\s*([A-F0-9]{24}) /\* (.*?) \*/ = \{\n(.*?)^\s*\};',
+              re.S
+          )
+          for match in pattern.finditer(source):
+              uuid, comment, body = match.groups()
+              if not re.search(r'\bisa\s*=\s*PBXNativeTarget\s*;', body):
+                  continue
+              if not re.search(
+                  r'productType\s*=\s*"com\.apple\.product-type\.application"\s*;',
+                  body
+              ):
+                  continue
+              name_match = re.search(r'\bname\s*=\s*([^;]+);', body)
+              product_match = re.search(r'\bproductName\s*=\s*([^;]+);', body)
+              target_name = name_match.group(1).strip().strip('"') if name_match else comment
+              product_name = product_match.group(1).strip().strip('"') if product_match else target_name
+              targets.append((uuid, target_name, product_name))
+
+          if len(targets) != 1:
+              print(
+                  f"::error::Expected exactly one iOS application target; found {len(targets)}: "
+                  f"{[(t[1], t[0]) for t in targets]}",
+                  file=sys.stderr
+              )
+              sys.exit(1)
+
+          uuid, target_name, product_name = targets[0]
+          scheme_name = "KaalKeyCI"
+          scheme_dir = os.path.join(project_dir, "xcshareddata", "xcschemes")
+          os.makedirs(scheme_dir, exist_ok=True)
+          project_ref = escape(f"container:{project_name}.xcodeproj")
+          xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+          <Scheme LastUpgradeVersion="1600" version="1.7">
+             <BuildAction parallelizeBuildables="YES" buildImplicitDependencies="YES">
+                <BuildActionEntries>
+                   <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+                      <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="{uuid}" BuildableName="{escape(product_name)}.app" BlueprintName="{escape(target_name)}" ReferencedContainer="{project_ref}"/>
+                   </BuildActionEntry>
+                </BuildActionEntries>
+             </BuildAction>
+             <TestAction buildConfiguration="Debug" selectedDebuggerIdentifier="Xcode.DebuggerFoundation.Debugger.LLDB" selectedLauncherIdentifier="Xcode.DebuggerFoundation.Launcher.LLDB" shouldUseLaunchSchemeArgs="YES"/>
+             <LaunchAction buildConfiguration="Debug" selectedDebuggerIdentifier="Xcode.DebuggerFoundation.Debugger.LLDB" selectedLauncherIdentifier="Xcode.DebuggerFoundation.Launcher.LLDB" launchStyle="0" useCustomWorkingDirectory="NO" ignoresPersistentStateOnLaunch="NO" debugDocumentVersioning="YES" debugServiceExtension="internal" allowLocationSimulation="YES"/>
+             <ProfileAction buildConfiguration="Release" shouldUseLaunchSchemeArgs="YES" savedToolIdentifier="" useCustomWorkingDirectory="NO" debugDocumentVersioning="YES"/>
+             <AnalyzeAction buildConfiguration="Debug"/>
+             <ArchiveAction buildConfiguration="Release" revealArchiveInOrganizer="NO"/>
+          </Scheme>
+          """
+          scheme_path = os.path.join(scheme_dir, scheme_name + ".xcscheme")
+          with open(scheme_path, "w", encoding="utf-8") as f:
+              f.write(xml)
+          print(f"Generated {scheme_name} for iOS app target {target_name} ({uuid})")
+          PY
+
+          scheme="KaalKeyCI"
           xcodebuild -list -json -workspace "$workspace" > "$RUNNER_TEMP/xcode-list.json"
-          echo "Xcode workspace schemes:"
-          python3 - "$RUNNER_TEMP/xcode-list.json" <<'PY'
+          python3 - "$RUNNER_TEMP/xcode-list.json" "$scheme" <<'PY'
           import json, sys
-          data = json.load(open(sys.argv[1]))
-          for scheme in data.get("workspace", {}).get("schemes", []):
-              print(f" - {scheme}")
+          schemes = json.load(open(sys.argv[1])).get("workspace", {}).get("schemes", [])
+          if sys.argv[2] not in schemes:
+              print(f"::error::Generated scheme {sys.argv[2]} is not visible in workspace. Schemes: {schemes}")
+              sys.exit(1)
+          print("Workspace recognizes generated scheme:", sys.argv[2])
           PY
 
-          # Expo prebuild generates the application project and scheme from the
-          # Expo slug. Select that exact project scheme rather than the first
-          # non-Pods scheme, which can be a framework/aggregate scheme.
-          scheme="$(python3 - "$RUNNER_TEMP/xcode-list.json" "$project_name" <<'PY'
-          import json, sys
-          data = json.load(open(sys.argv[1]))
-          schemes = data.get("workspace", {}).get("schemes", [])
-          project_name = sys.argv[2]
-          if project_name in schemes:
-              print(project_name)
-          else:
-              candidates = [s for s in schemes if s.lower() == project_name.lower()]
-              if len(candidates) == 1:
-                  print(candidates[0])
-          PY
-          )"
-          if [ -z "$scheme" ]; then
-            echo "::error::Could not find an Xcode scheme matching generated app project '$project_name'."
-            echo "Inspect the scheme list above and the generated ios/ project."
-            exit 1
-          fi
-
-          # Fail early unless the selected scheme actually builds an iOS app.
           xcodebuild -showBuildSettings \
             -workspace "$workspace" \
             -scheme "$scheme" \
             -sdk iphonesimulator \
             > "$RUNNER_TEMP/kaalkey-ios-build-settings.txt"
-          if ! grep -q 'PRODUCT_TYPE = com.apple.product-type.application' "$RUNNER_TEMP/kaalkey-ios-build-settings.txt"; then
-            echo "::error::Scheme '$scheme' does not expose an iOS application target."
-            grep -E '(^| )PRODUCT_TYPE =|FULL_PRODUCT_NAME =|TARGET_NAME =' \
-              "$RUNNER_TEMP/kaalkey-ios-build-settings.txt" || true
-            exit 1
-          fi
+          grep -q 'PRODUCT_TYPE = com.apple.product-type.application' \
+            "$RUNNER_TEMP/kaalkey-ios-build-settings.txt" || {
+              echo "::error::Generated CI scheme does not expose an iOS application target."
+              grep -E '(^| )PRODUCT_TYPE =|FULL_PRODUCT_NAME =|TARGET_NAME =' \
+                "$RUNNER_TEMP/kaalkey-ios-build-settings.txt" || true
+              exit 1
+            }
 
           echo "workspace=$workspace" >> "$GITHUB_OUTPUT"
           echo "scheme=$scheme" >> "$GITHUB_OUTPUT"
           echo "project_name=$project_name" >> "$GITHUB_OUTPUT"
-          echo "Using application project: $project_name"
-          echo "Using application scheme: $scheme"
-
+          echo "Using explicit application scheme: $scheme"
       - name: Build iOS Simulator app
         shell: bash
         run: |
@@ -224,7 +268,7 @@ jobs:
           products="$derived_data/Build/Products"
           echo "Xcode build products directory:"
           if [ -d "$products" ]; then
-            find -L "$products" -maxdepth 5 -print | head -n 250
+            find -L "$products" -maxdepth 5 -print | sed -n '1,250p'
           else
             echo "Build/Products directory was not created."
           fi
