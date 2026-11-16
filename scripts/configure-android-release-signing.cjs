@@ -28,7 +28,9 @@ if (!Number.isSafeInteger(versionCode) || versionCode < 1 || versionCode > 21000
 let gradle = fs.readFileSync(gradleFile, "utf8");
 const versionPattern = /(\bversionCode\s+)\d+/;
 if (!versionPattern.test(gradle)) {
-  throw new Error("Could not find a literal versionCode in android/app/build.gradle; refusing to build with an unverified version.");
+  throw new Error(
+    "Could not find a literal versionCode in android/app/build.gradle; refusing to build with an unverified version.",
+  );
 }
 gradle = gradle.replace(versionPattern, `$1${versionCode}`);
 

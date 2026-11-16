@@ -79,7 +79,20 @@ jobs:
 
       - name: Build signed APK and AAB
         working-directory: android
-        run: ./gradlew :app:assembleRelease :app:bundleRelease --no-daemon
+        shell: bash
+        env:
+          # Gradle reads these values when the release tasks execute.
+          # ANDROID_KEYSTORE_FILE is persisted by the earlier GITHUB_ENV step.
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          set -Eeuo pipefail
+          test -n "$ANDROID_KEYSTORE_FILE" || { echo "ANDROID_KEYSTORE_FILE is not set"; exit 1; }
+          test -n "$ANDROID_KEYSTORE_PASSWORD" || { echo "ANDROID_KEYSTORE_PASSWORD is missing"; exit 1; }
+          test -n "$ANDROID_KEY_ALIAS" || { echo "ANDROID_KEY_ALIAS is missing"; exit 1; }
+          test -n "$ANDROID_KEY_PASSWORD" || { echo "ANDROID_KEY_PASSWORD is missing"; exit 1; }
+          ./gradlew :app:assembleRelease :app:bundleRelease --no-daemon
 
       - name: Verify Android outputs
         shell: bash
@@ -159,9 +172,17 @@ jobs:
             -derivedDataPath "$RUNNER_TEMP/kaalkey-ios-simulator" \
             CODE_SIGNING_ALLOWED=NO \
             build
-          app="$(find "$RUNNER_TEMP/kaalkey-ios-simulator/Build/Products/Release-iphonesimulator" -maxdepth 1 -name '*.app' -print -quit)"
-          test -n "$app"
+          products="$RUNNER_TEMP/kaalkey-ios-simulator/Build/Products"
+          echo "Available Xcode build products:"
+          find "$products" -maxdepth 4 \( -name '*.app' -o -name '*.ipa' \) -print || true
+          app="$(find "$products" -type d -name '*.app' -prune -print -quit)"
+          if [ -z "$app" ]; then
+            echo "::error::Xcode reported a successful simulator build but no .app bundle was found under $products"
+            exit 1
+          fi
+          echo "Packaging Simulator app: $app"
           ditto -c -k --sequesterRsrc --keepParent "$app" release/kaalkey-ios-simulator.app.zip
+          test -s release/kaalkey-ios-simulator.app.zip
 
       - name: Create unsigned iOS XCArchive
         run: |

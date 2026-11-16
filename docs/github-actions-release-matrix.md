@@ -4,12 +4,12 @@ This repository uses native GitHub-hosted runners. Expo Application Services (EA
 
 ## Workflows
 
-| Workflow | Runner | Outputs |
-| --- | --- | --- |
-| `mobile-release.yml` | Ubuntu + macOS | Signed Android APK and AAB; unsigned iOS `.xcarchive` ZIP and iOS Simulator `.app` ZIP |
-| `build-macos-desktop.yml` | macOS | Universal Intel + Apple Silicon DMG and ZIP |
-| `build-windows-installer.yml` | Windows | Windows NSIS EXE installer, portable EXE, and MSI |
-| `linux-release.yml` | Ubuntu | DEB, RPM, AppImage, Snap, and Flatpak (amd64 and arm64 jobs) |
+| Workflow                      | Runner         | Outputs                                                                                |
+| ----------------------------- | -------------- | -------------------------------------------------------------------------------------- |
+| `mobile-release.yml`          | Ubuntu + macOS | Signed Android APK and AAB; unsigned iOS `.xcarchive` ZIP and iOS Simulator `.app` ZIP |
+| `build-macos-desktop.yml`     | macOS          | Universal Intel + Apple Silicon DMG and ZIP                                            |
+| `build-windows-installer.yml` | Windows        | Windows NSIS EXE installer, portable EXE, and MSI                                      |
+| `linux-release.yml`           | Ubuntu         | DEB, RPM, AppImage, Snap, and Flatpak (amd64 and arm64 jobs)                           |
 
 The repository also contains separate workflows for publishing Linux repositories and Snap packages. Those are publishing workflows and may require their own store/repository configuration.
 

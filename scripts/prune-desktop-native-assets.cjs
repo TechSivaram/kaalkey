@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-'use strict';
+"use strict";
 
-const fs = require('node:fs');
-const path = require('node:path');
+const fs = require("node:fs");
+const path = require("node:path");
 
-const nodeModules = path.resolve(process.cwd(), 'node_modules');
+const nodeModules = path.resolve(process.cwd(), "node_modules");
 if (!fs.existsSync(nodeModules)) {
   console.error(`[desktop-prune] node_modules not found: ${nodeModules}`);
   process.exit(1);
@@ -16,17 +16,19 @@ function walk(directory) {
   try {
     entries = fs.readdirSync(directory, { withFileTypes: true });
   } catch (error) {
-    if (error && error.code === 'ENOENT') return;
+    if (error && error.code === "ENOENT") return;
     throw error;
   }
 
   for (const entry of entries) {
     if (!entry.isDirectory() || entry.isSymbolicLink()) continue;
     const fullPath = path.join(directory, entry.name);
-    if (entry.name === 'spm-deps') {
+    if (entry.name === "spm-deps") {
       fs.rmSync(fullPath, { recursive: true, force: true });
       removed += 1;
-      console.log(`[desktop-prune] Removed unused native asset directory: ${path.relative(process.cwd(), fullPath)}`);
+      console.log(
+        `[desktop-prune] Removed unused native asset directory: ${path.relative(process.cwd(), fullPath)}`,
+      );
       continue;
     }
     walk(fullPath);
@@ -34,4 +36,6 @@ function walk(directory) {
 }
 
 walk(nodeModules);
-console.log(`[desktop-prune] Complete. Removed ${removed} spm-deps director${removed === 1 ? 'y' : 'ies'}.`);
+console.log(
+  `[desktop-prune] Complete. Removed ${removed} spm-deps director${removed === 1 ? "y" : "ies"}.`,
+);
