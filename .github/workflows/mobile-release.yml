@@ -1,0 +1,211 @@
+name: Mobile release builds
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mobile-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  android:
+    name: Build signed Android APK and AAB
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate native Android project
+        run: npx expo prebuild --platform android --non-interactive --clean
+
+      - name: Restore Android release keystore
+        shell: bash
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+        run: |
+          set -Eeuo pipefail
+          test -n "$ANDROID_KEYSTORE_BASE64" || { echo "ANDROID_KEYSTORE_BASE64 is missing"; exit 1; }
+          test -n "$ANDROID_KEYSTORE_PASSWORD" || { echo "ANDROID_KEYSTORE_PASSWORD is missing"; exit 1; }
+          test -n "$ANDROID_KEY_ALIAS" || { echo "ANDROID_KEY_ALIAS is missing"; exit 1; }
+
+          keystore="$RUNNER_TEMP/kaalkey-release.jks"
+          printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$keystore"
+          test -s "$keystore"
+          chmod 600 "$keystore"
+
+          keytool -list -keystore "$keystore" -alias "$ANDROID_KEY_ALIAS" \
+            -storepass:env ANDROID_KEYSTORE_PASSWORD >/dev/null
+
+          echo "ANDROID_KEYSTORE_FILE=$keystore" >> "$GITHUB_ENV"
+
+      - name: Configure release signing
+        shell: bash
+        env:
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          ANDROID_VERSION_CODE: ${{ github.run_number }}
+        run: node scripts/configure-android-release-signing.cjs
+
+      - name: Build signed APK and AAB
+        working-directory: android
+        run: ./gradlew :app:assembleRelease :app:bundleRelease --no-daemon
+
+      - name: Verify Android outputs
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          apk="android/app/build/outputs/apk/release/app-release.apk"
+          aab="android/app/build/outputs/bundle/release/app-release.aab"
+          test -s "$apk"
+          test -s "$aab"
+          jarsigner -verify -verbose -certs "$aab" >/dev/null
+          apksigner="$(find "$ANDROID_HOME/build-tools" -type f -name apksigner | sort -V | tail -n 1)"
+          test -n "$apksigner"
+          "$apksigner" verify --verbose "$apk"
+          echo "APK and AAB generated; both package signatures verified."
+          mkdir -p release
+          cp "$apk" release/kaalkey-android.apk
+          cp "$aab" release/kaalkey-android.aab
+
+      - name: Upload Android packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: kaalkey-android-release
+          path: |
+            release/kaalkey-android.apk
+            release/kaalkey-android.aab
+          if-no-files-found: error
+          retention-days: 30
+
+  ios:
+    name: Build unsigned iOS archive and Simulator app
+    runs-on: macos-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate native iOS project
+        run: npx expo prebuild --platform ios --non-interactive --clean
+
+      - name: Install CocoaPods dependencies
+        run: pod install --project-directory=ios
+
+      - name: Locate Xcode workspace and scheme
+        id: xcode
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          workspace="$(find ios -maxdepth 1 -name '*.xcworkspace' -print -quit)"
+          test -n "$workspace"
+          xcodebuild -list -json -workspace "$workspace" > "$RUNNER_TEMP/xcode-list.json"
+          scheme="$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); s=d["workspace"]["schemes"]; print(next((x for x in s if x != "Pods"), s[0]))' "$RUNNER_TEMP/xcode-list.json")"
+          test -n "$scheme"
+          echo "workspace=$workspace" >> "$GITHUB_OUTPUT"
+          echo "scheme=$scheme" >> "$GITHUB_OUTPUT"
+          echo "Using workspace: $workspace"
+          echo "Using scheme: $scheme"
+
+      - name: Build iOS Simulator app
+        run: |
+          set -Eeuo pipefail
+          mkdir -p release
+          xcodebuild \
+            -workspace "${{ steps.xcode.outputs.workspace }}" \
+            -scheme "${{ steps.xcode.outputs.scheme }}" \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath "$RUNNER_TEMP/kaalkey-ios-simulator" \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+          app="$(find "$RUNNER_TEMP/kaalkey-ios-simulator/Build/Products/Release-iphonesimulator" -maxdepth 1 -name '*.app' -print -quit)"
+          test -n "$app"
+          ditto -c -k --sequesterRsrc --keepParent "$app" release/kaalkey-ios-simulator.app.zip
+
+      - name: Create unsigned iOS XCArchive
+        run: |
+          set -Eeuo pipefail
+          xcodebuild \
+            -workspace "${{ steps.xcode.outputs.workspace }}" \
+            -scheme "${{ steps.xcode.outputs.scheme }}" \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$PWD/release/kaalkey-ios.xcarchive" \
+            CODE_SIGNING_ALLOWED=NO \
+            archive
+          test -d release/kaalkey-ios.xcarchive
+          ditto -c -k --sequesterRsrc --keepParent \
+            release/kaalkey-ios.xcarchive \
+            release/kaalkey-ios.xcarchive.zip
+
+      - name: Upload iOS archive and Simulator build
+        uses: actions/upload-artifact@v4
+        with:
+          name: kaalkey-ios-unsigned-builds
+          path: |
+            release/kaalkey-ios.xcarchive.zip
+            release/kaalkey-ios-simulator.app.zip
+          if-no-files-found: error
+          retention-days: 30
+
+  publish-release:
+    name: Attach mobile packages to GitHub Release
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: [android, ios]
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Download mobile build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: kaalkey-*
+          path: release
+          merge-multiple: true
+
+      - name: Publish mobile release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release/kaalkey-android.apk
+            release/kaalkey-android.aab
+            release/kaalkey-ios.xcarchive.zip
+            release/kaalkey-ios-simulator.app.zip

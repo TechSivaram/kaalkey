@@ -73,7 +73,8 @@
     "desktop:snap": "npm run desktop:export && node scripts/build-snap.cjs",
     "desktop:flatpak": "npm run desktop:export && electron-builder --linux flatpak --publish never",
     "desktop:release": "npm run desktop:export && electron-builder --linux AppImage deb rpm && node scripts/build-snap.cjs && node scripts/fix-linux-packages.cjs",
-    "test:clipboard": "node --test tests/clipboard.test.cjs"
+    "test:clipboard": "node --test tests/clipboard.test.cjs",
+    "desktop:mac": "npm run desktop:export && electron-builder --mac dmg zip --universal --publish never"
   },
   "private": true,
   "build": {
@@ -94,6 +95,7 @@
     "win": {
       "target": [
         "nsis",
+        "msi",
         "portable"
       ],
       "icon": "build/icon.ico"
@@ -145,6 +147,14 @@
           "/share/icons/hicolor/256x256/apps/com.techsivaram.kaalkey.png"
         ]
       ]
+    },
+    "msi": {
+      "upgradeCode": "{595C624C-BD5F-550F-B77C-2DD0C31B28E3}",
+      "perMachine": false,
+      "oneClick": false,
+      "runAfterFinish": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
     }
   },
   "description": "KaalKey Authenticator generates and manages time-based one-time passwords.",

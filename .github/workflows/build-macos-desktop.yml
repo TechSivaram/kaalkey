@@ -1,0 +1,107 @@
+name: KaalKey macOS desktop builds
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: macos-desktop-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  macos-desktop:
+    name: Build universal macOS DMG and ZIP
+    runs-on: macos-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Export web application
+        run: npm run desktop:export
+
+      - name: Generate macOS ICNS application icon
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          source_icon="build/icons/1024x1024.png"
+          test -s "$source_icon"
+          iconset="build/kaalkey.iconset"
+          mkdir -p "$iconset"
+          sips -z 16 16 "$source_icon" --out "$iconset/icon_16x16.png" >/dev/null
+          sips -z 32 32 "$source_icon" --out "$iconset/icon_16x16@2x.png" >/dev/null
+          sips -z 32 32 "$source_icon" --out "$iconset/icon_32x32.png" >/dev/null
+          sips -z 64 64 "$source_icon" --out "$iconset/icon_32x32@2x.png" >/dev/null
+          sips -z 128 128 "$source_icon" --out "$iconset/icon_128x128.png" >/dev/null
+          sips -z 256 256 "$source_icon" --out "$iconset/icon_128x128@2x.png" >/dev/null
+          sips -z 256 256 "$source_icon" --out "$iconset/icon_256x256.png" >/dev/null
+          sips -z 512 512 "$source_icon" --out "$iconset/icon_256x256@2x.png" >/dev/null
+          sips -z 512 512 "$source_icon" --out "$iconset/icon_512x512.png" >/dev/null
+          cp "$source_icon" "$iconset/icon_512x512@2x.png"
+          iconutil -c icns "$iconset" -o build/kaalkey.icns
+          test -s build/kaalkey.icns
+
+      - name: Build unsigned universal macOS packages
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: "false"
+        run: npm run desktop:mac
+
+      - name: Verify macOS packages
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          dmg="$(find release -maxdepth 1 -type f -name '*.dmg' -print -quit)"
+          zip="$(find release -maxdepth 1 -type f -name '*.zip' -print -quit)"
+          test -n "$dmg"
+          test -n "$zip"
+          test -s "$dmg"
+          test -s "$zip"
+          echo "DMG: $dmg"
+          echo "ZIP: $zip"
+          hdiutil verify "$dmg"
+
+      - name: Upload macOS packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: kaalkey-macos-universal
+          path: |
+            release/*.dmg
+            release/*.zip
+          if-no-files-found: error
+          retention-days: 30
+
+  publish-release:
+    name: Attach macOS packages to GitHub Release
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: [macos-desktop]
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Download macOS packages
+        uses: actions/download-artifact@v4
+        with:
+          name: kaalkey-macos-universal
+          path: release
+
+      - name: Publish macOS release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release/*.dmg
+            release/*.zip

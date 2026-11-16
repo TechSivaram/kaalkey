@@ -46,3 +46,7 @@ example
 /release/
 /dist-desktop/
 src.zip
+# Local signing materials (never commit)
+*.pfx
+*.cer
+kaalkey-keystore-base64.txt

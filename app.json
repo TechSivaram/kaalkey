@@ -16,7 +16,8 @@
         "android.permission.CAMERA"
       ],
       "package": "com.techsivaram.kaalkey.authenticator",
-      "softwareKeyboardLayoutMode": "resize"
+      "softwareKeyboardLayoutMode": "resize",
+      "versionCode": 1
     },
     "icon": "./assets/images/kaalkey-adaptive-icon-safe.png",
     "scheme": "kaalkeyauthenticator",
