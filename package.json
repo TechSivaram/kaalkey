@@ -90,7 +90,8 @@
       "package.json",
       "assets/images/kaalkey-logo-opaque.png",
       "build/icons/**/*",
-      "LICENSE"
+      "LICENSE",
+      "!**/spm-deps/**"
     ],
     "win": {
       "target": [

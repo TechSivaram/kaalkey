@@ -35,7 +35,10 @@ jobs:
           java-version: "17"
 
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
+        with:
+          # setup-android v4 no longer requests the retired "tools" package.
+          packages: platform-tools
 
       - name: Install dependencies
         run: npm ci
