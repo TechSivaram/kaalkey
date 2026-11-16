@@ -144,42 +144,113 @@ jobs:
       - name: Install CocoaPods dependencies
         run: pod install --project-directory=ios
 
-      - name: Locate Xcode workspace and scheme
+      - name: Locate Xcode workspace and application scheme
         id: xcode
         shell: bash
         run: |
           set -Eeuo pipefail
           workspace="$(find ios -maxdepth 1 -name '*.xcworkspace' -print -quit)"
-          test -n "$workspace"
+          project="$(find ios -maxdepth 1 -name '*.xcodeproj' -print -quit)"
+          test -n "$workspace" || { echo "::error::No Xcode workspace found under ios/"; exit 1; }
+          test -n "$project" || { echo "::error::No Xcode project found under ios/"; exit 1; }
+
+          project_name="$(basename "$project" .xcodeproj)"
           xcodebuild -list -json -workspace "$workspace" > "$RUNNER_TEMP/xcode-list.json"
-          scheme="$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); s=d["workspace"]["schemes"]; print(next((x for x in s if x != "Pods"), s[0]))' "$RUNNER_TEMP/xcode-list.json")"
-          test -n "$scheme"
+          echo "Xcode workspace schemes:"
+          python3 - "$RUNNER_TEMP/xcode-list.json" <<'PY'
+          import json, sys
+          data = json.load(open(sys.argv[1]))
+          for scheme in data.get("workspace", {}).get("schemes", []):
+              print(f" - {scheme}")
+          PY
+
+          # Expo prebuild generates the application project and scheme from the
+          # Expo slug. Select that exact project scheme rather than the first
+          # non-Pods scheme, which can be a framework/aggregate scheme.
+          scheme="$(python3 - "$RUNNER_TEMP/xcode-list.json" "$project_name" <<'PY'
+          import json, sys
+          data = json.load(open(sys.argv[1]))
+          schemes = data.get("workspace", {}).get("schemes", [])
+          project_name = sys.argv[2]
+          if project_name in schemes:
+              print(project_name)
+          else:
+              candidates = [s for s in schemes if s.lower() == project_name.lower()]
+              if len(candidates) == 1:
+                  print(candidates[0])
+          PY
+          )"
+          if [ -z "$scheme" ]; then
+            echo "::error::Could not find an Xcode scheme matching generated app project '$project_name'."
+            echo "Inspect the scheme list above and the generated ios/ project."
+            exit 1
+          fi
+
+          # Fail early unless the selected scheme actually builds an iOS app.
+          xcodebuild -showBuildSettings \
+            -workspace "$workspace" \
+            -scheme "$scheme" \
+            -sdk iphonesimulator \
+            > "$RUNNER_TEMP/kaalkey-ios-build-settings.txt"
+          if ! grep -q 'PRODUCT_TYPE = com.apple.product-type.application' "$RUNNER_TEMP/kaalkey-ios-build-settings.txt"; then
+            echo "::error::Scheme '$scheme' does not expose an iOS application target."
+            grep -E '(^| )PRODUCT_TYPE =|FULL_PRODUCT_NAME =|TARGET_NAME =' \
+              "$RUNNER_TEMP/kaalkey-ios-build-settings.txt" || true
+            exit 1
+          fi
+
           echo "workspace=$workspace" >> "$GITHUB_OUTPUT"
           echo "scheme=$scheme" >> "$GITHUB_OUTPUT"
-          echo "Using workspace: $workspace"
-          echo "Using scheme: $scheme"
+          echo "project_name=$project_name" >> "$GITHUB_OUTPUT"
+          echo "Using application project: $project_name"
+          echo "Using application scheme: $scheme"
 
       - name: Build iOS Simulator app
+        shell: bash
         run: |
           set -Eeuo pipefail
           mkdir -p release
+          derived_data="$RUNNER_TEMP/kaalkey-ios-simulator"
           xcodebuild \
             -workspace "${{ steps.xcode.outputs.workspace }}" \
             -scheme "${{ steps.xcode.outputs.scheme }}" \
             -configuration Release \
             -sdk iphonesimulator \
             -destination 'generic/platform=iOS Simulator' \
-            -derivedDataPath "$RUNNER_TEMP/kaalkey-ios-simulator" \
+            -derivedDataPath "$derived_data" \
             CODE_SIGNING_ALLOWED=NO \
             build
-          products="$RUNNER_TEMP/kaalkey-ios-simulator/Build/Products"
-          echo "Available Xcode build products:"
-          find "$products" -maxdepth 4 \( -name '*.app' -o -name '*.ipa' \) -print || true
-          app="$(find "$products" -type d -name '*.app' -prune -print -quit)"
+
+          products="$derived_data/Build/Products"
+          echo "Xcode build products directory:"
+          if [ -d "$products" ]; then
+            find -L "$products" -maxdepth 5 -print | head -n 250
+          else
+            echo "Build/Products directory was not created."
+          fi
+
+          expected_bundle_id="$(python3 -c 'import json; print(json.load(open("app.json"))["expo"]["ios"]["bundleIdentifier"])')"
+          test -n "$expected_bundle_id"
+          echo "Expected iOS bundle identifier: $expected_bundle_id"
+          app=""
+          while IFS= read -r candidate; do
+            candidate_bundle_id=$(/usr/libexec/PlistBuddy \
+              -c 'Print :CFBundleIdentifier' "$candidate/Info.plist" 2>/dev/null || true)
+            echo "Found app candidate: $candidate (bundle: ${candidate_bundle_id:-unknown})"
+            if [ "$candidate_bundle_id" = "$expected_bundle_id" ]; then
+              app="$candidate"
+              break
+            fi
+          done < <(find -L "$derived_data" -type d -name '*.app' -print)
+
           if [ -z "$app" ]; then
-            echo "::error::Xcode reported a successful simulator build but no .app bundle was found under $products"
+            echo "::error::The selected Xcode application scheme built successfully, but the expected app bundle '$expected_bundle_id' was not found."
+            echo "Build settings relevant to product output:"
+            grep -E ' (BUILT_PRODUCTS_DIR|TARGET_BUILD_DIR|FULL_PRODUCT_NAME|PRODUCT_BUNDLE_IDENTIFIER|PRODUCT_TYPE) =' \
+              "$RUNNER_TEMP/kaalkey-ios-build-settings.txt" || true
             exit 1
           fi
+
           echo "Packaging Simulator app: $app"
           ditto -c -k --sequesterRsrc --keepParent "$app" release/kaalkey-ios-simulator.app.zip
           test -s release/kaalkey-ios-simulator.app.zip
